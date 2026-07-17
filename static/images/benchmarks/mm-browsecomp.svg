@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+
+<rect x="50" y="60" width="380" height="220" fill="none" stroke="#475569" stroke-width="2" rx="8"/>
+<line x1="50" y1="92" x2="430" y2="92" stroke="#475569" stroke-width="1.5"/>
+<circle cx="70" cy="76" r="4" fill="#475569" opacity="0.5"/><circle cx="86" cy="76" r="4" fill="#475569" opacity="0.35"/><circle cx="102" cy="76" r="4" fill="#475569" opacity="0.2"/>
+<rect x="76" y="120" width="70" height="52" fill="#475569" opacity="0.18" rx="4"/>
+<rect x="200" y="150" width="70" height="52" fill="#475569" opacity="0.3" rx="4"/>
+<rect x="330" y="120" width="70" height="52" fill="#475569" opacity="0.45" rx="4"/>
+<rect x="200" y="228" width="70" height="30" fill="#475569" opacity="0.6" rx="4"/>
+<path d="M 146 146 C 175 140 180 160 200 168" stroke="#475569" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
+<path d="M 270 168 C 300 160 310 140 330 146" stroke="#475569" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
+<path d="M 365 172 C 350 210 290 220 270 240" stroke="#475569" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
+<text x="111" y="112" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">image</text>
+<text x="235" y="142" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">chart</text>
+<text x="365" y="112" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">page</text>
+<text x="235" y="222" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">answer</text>
+
+<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Evidence trails through multimodal web content.</text>
+</svg>

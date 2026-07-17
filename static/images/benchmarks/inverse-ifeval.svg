@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+
+<rect x="60" y="90" width="150" height="60" fill="none" stroke="#9ca3af" stroke-width="2" rx="8"/>
+<text x="135" y="116" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151">training prior</text>
+<text x="135" y="134" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#9ca3af">"answer = A"</text>
+<rect x="60" y="200" width="150" height="60" fill="none" stroke="#2563eb" stroke-width="2" rx="8"/>
+<text x="135" y="226" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#2563eb" font-weight="bold">instruction</text>
+<text x="135" y="244" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#2563eb">"never say A"</text>
+<path d="M 218 120 C 290 120 330 150 366 168" stroke="#9ca3af" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#a2)"/>
+<path d="M 218 230 C 290 230 330 200 366 182" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a3)"/>
+<defs>
+<marker id="a2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9ca3af"/></marker>
+<marker id="a3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2563eb"/></marker>
+</defs>
+<circle cx="392" cy="175" r="26" fill="none" stroke="#374151" stroke-width="2"/>
+<text x="392" y="180" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12" fill="#374151" font-weight="bold">?</text>
+
+<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Compliance requires overriding the likely answer.</text>
+</svg>

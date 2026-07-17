@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+
+<circle cx="120" cy="150" r="72" fill="none" stroke="#475569" stroke-width="2"/>
+<circle cx="120" cy="150" r="52" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+<polygon points="120,92 132,150 120,208 108,150" fill="#475569" opacity="0.85"/>
+<polygon points="62,150 120,138 178,150 120,162" fill="#475569" opacity="0.35"/>
+<circle cx="120" cy="150" r="6" fill="#ffffff" stroke="#475569" stroke-width="2.5"/>
+<text x="120" y="76" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#6b7280">N</text>
+<line x1="250" y1="80" x2="250" y2="240" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="250" y1="240" x2="440" y2="240" stroke="#9ca3af" stroke-width="1.5"/>
+<rect x="268" y="130.3" width="26" height="109.7" fill="#475569" opacity="1.00" rx="2"/>
+<rect x="306" y="167.0" width="26" height="73.0" fill="#475569" opacity="0.87" rx="2"/>
+<rect x="344" y="168.0" width="26" height="72.0" fill="#475569" opacity="0.74" rx="2"/>
+<rect x="382" y="191.0" width="26" height="49.0" fill="#475569" opacity="0.61" rx="2"/>
+<rect x="420" y="207.3" width="26" height="32.7" fill="#475569" opacity="0.48" rx="2"/>
+<text x="281" y="112" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#475569" font-weight="bold">32.9</text>
+<text x="345" y="258" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">models, AVG @ Claude Code</text>
+<text x="250" y="70" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">8 tasks x 10 langs, n=2000</text>
+
+<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Unified evaluation of agentic coding across real workflows.</text>
+</svg>

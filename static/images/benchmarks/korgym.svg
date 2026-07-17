@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+<rect x="60" y="78" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="100" y="78" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="140" y="78" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="180" y="78" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="220" y="78" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="60" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="100" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="140" y="118" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="180" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="220" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="60" y="158" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="100" y="158" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="140" y="158" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="180" y="158" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="220" y="158" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="60" y="198" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="100" y="198" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="140" y="198" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="180" y="198" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="220" y="198" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="60" y="238" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="100" y="238" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="140" y="238" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="180" y="238" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
+<rect x="220" y="238" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
+<rect x="292" y="86" width="140" height="170" fill="none" stroke="#2563eb" stroke-width="2" rx="8"/>
+<text x="362" y="114" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">novel rules</text>
+<line x1="308" y1="130" x2="416" y2="130" stroke="#e5e7eb" stroke-width="1.5"/>
+<text x="308" y="152" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">R1: flip on 3</text>
+<text x="308" y="172" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">R2: mirror row</text>
+<text x="308" y="192" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">R3: score +2</text>
+<text x="308" y="228" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#2563eb" font-weight="bold">knowledge = 0</text>
+
+<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Knowledge-orthogonal reasoning in interactive games.</text>
+</svg>

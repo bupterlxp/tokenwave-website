@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenWave AI</title>
+    <meta name="description" content="Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TokenWave AI">
+    <meta property="og:title" content="TokenWave AI">
+    <meta property="og:description" content="Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.">
+    <meta property="og:url" content="https://tokenwave.ai/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
+    <!-- Fonts (self-hosted, no external dependency) -->
+    <style>
+    @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('static/fonts/SpaceMono-Regular.woff2') format('woff2'); }
+    @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('static/fonts/SpaceMono-Bold.woff2') format('woff2'); }
+    </style>
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
+    <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="index.html">
+                <img src="static/images/logo.jpg" alt="TokenWave AI" class="logo-icon">
+            </a>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="benchmarks.html">Benchmarks</a>
+                <a href="joinus.html">Join Us</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+
+<section class="hero">
+    <h1 class="typewriter" data-text="Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.">Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.</h1>
+    <div class="hero-divider"></div>
+    <p>Curated. Transparent. Comparative. TokenWave brings together evaluations across Agents, MLLMs, AIGC, and LLMs&mdash;structured dimensions, benchmarks, and results in one navigable, comparable view.</p>
+    <p>For inquiries, you can reach us at <a href="mailto:contact@tokenwave.ai"><b>contact@tokenwave.ai</b></a>.</p>
+
+    <div class="dict-entry">
+        <div class="dict-headword">
+            <span class="dict-word">TokenWave</span>
+            <span class="dict-phonetic">/ˈtoʊ.kən.weɪv/</span>
+        </div>
+        <div class="dict-body">
+            <span class="dict-pos">n.</span>
+            <span class="dict-def"><b>Wave of Tokens</b> &mdash; We believe every wave of tokens a model emits carries a measurable signal of real capability.</span>
+        </div>
+    </div>
+
+</section>
+<script>
+function initTypewriter() {
+    var el = document.querySelector(".typewriter");
+    if (!el) return;
+    var text = el.dataset.text || el.textContent;
+    el.innerHTML = "";
+    var i = 0;
+    var speed = 22;
+    function typeNext() {
+        if (i <= text.length) {
+            el.innerHTML = text.slice(0, i).replace(/\n/g, '<br>') + '<span class="cursor"></span>';
+            i += 1;
+            setTimeout(typeNext, speed);
+        }
+    }
+    typeNext();
+}
+initTypewriter();
+</script>
+
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>TokenWave AI · contact@tokenwave.ai </p>
+            <div class="social-links">
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on X">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- Three.js Particle Background (bundled locally) -->
+    <script src="static/js/three.min.js" defer></script>
+    <script src="static/js/particles.js" defer></script>
+    <!-- Page transition state machine -->
+    <script src="static/js/transition.js" defer></script>
+</body>
+</html>

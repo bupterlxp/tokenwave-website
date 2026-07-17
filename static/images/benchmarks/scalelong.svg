@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+
+<line x1="60" y1="171" x2="440" y2="171" stroke="#9ca3af" stroke-width="2"/>
+<line x1="60" y1="166" x2="60" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="98" y1="166" x2="98" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="136" y1="166" x2="136" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="174" y1="166" x2="174" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="212" y1="166" x2="212" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="250" y1="166" x2="250" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="288" y1="166" x2="288" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="326" y1="166" x2="326" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="364" y1="166" x2="364" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="402" y1="166" x2="402" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="440" y1="166" x2="440" y2="176" stroke="#9ca3af" stroke-width="1.2"/>
+<circle cx="98" cy="171" r="7" fill="#0891b2" opacity="0.8"/><circle cx="250" cy="171" r="7" fill="#0891b2" opacity="0.8"/><circle cx="402" cy="171" r="7" fill="#0891b2" opacity="0.8"/>
+<text x="60" y="200" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">0:00</text>
+<text x="416" y="200" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">1:00:00</text>
+<path d="M 98 160 C 140 100 210 100 250 160" stroke="#0891b2" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
+<path d="M 250 160 C 300 100 360 100 402 160" stroke="#0891b2" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
+<text x="250" y="86" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">evidence scattered across the hour</text>
+<text x="250" y="240" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">frame sampling fails when clues span durations</text>
+
+<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Hour-scale video QA with dispersed evidence.</text>
+</svg>
