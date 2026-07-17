@@ -1,0 +1,23 @@
+{
+ "slug": "korgym",
+ "tagline": "Reasoning measured mid-game: fifty-plus interactive text and vision games instead of static questions",
+ "stats": [
+  {"value": "50+", "label": "interactive games"},
+  {"value": "82", "label": "top score (Avg Score)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "22", "label": "score spread"}
+ ],
+ "overview": [
+  "KORGym is a dynamic game platform for evaluating reasoning in large language models. Rather than posing a fixed set of questions, it drops models into more than fifty text and vision games played over multiple turns, and it supports reinforcement-learning-style scenarios. What gets measured is not just whether a model reaches the right final answer, but how it decides online — reading state, choosing a move, and adapting as the game responds.",
+  "Each model receives an Avg Score on a 0–100 scale, the headline number from the paper's main table and the metric this page tracks. Because the games span both text and vision, the platform can separate strategy and interaction effects from modality effects — a distinction a single-format benchmark cannot make. The paper applies this setup to a wide range of LLMs and VLMs.",
+  "Two findings recur across that study. Reasoning patterns repeat within model families — siblings from the same lab behave alike across the games — and closed-source systems retain an advantage over open ones. Both observations only become visible in an evaluation with enough distinct interactive tasks to reveal a behavioral profile rather than a single accuracy figure."
+ ],
+ "why": [
+  "A static question has one answer, and models can arrive at it by memory, pattern-matching, or genuine inference — the score cannot tell these apart. A game denies most shortcuts: state changes turn by turn, and a policy that cannot adapt loses even if it knows facts. By emphasizing online decision-making, KORGym measures the layer of reasoning that deployment actually exercises, where a model must act on the consequences of its earlier choices.",
+  "There is also a breadth argument. With more than fifty games across two modalities, KORGym can surface family-level behavioral signatures — the paper finds recurring reasoning patterns within model families — that a handful of tasks would average away. For anyone choosing a model for interactive work, that profile is more informative than a single static-benchmark rank."
+ ],
+ "reading": [
+  "o3-mini leads at 82 Avg Score, with Gemini 2.5 Pro three points back at 79 — a real but narrow edge at the top. The middle of the table is the striking part: o1, Doubao-1.5-Pro, and DeepSeek-R1 land at 73, 72, and 71, three systems inside a two-point band. Qwen3-32B, at 60, trails that cluster by eleven points, giving the six-model table a 22-point spread overall.",
+  "No model approaches the ceiling — the leader still sits 18 points below the metric's maximum of 100. The shape of the table echoes the paper's finding of a continued closed-source advantage, and the tight 71–73 cluster suggests several labs have reached a similar plateau of interactive reasoning while the top two have found something beyond it. Reading rank alone understates this: the gap between second and third, six points, is twice the gap between first and second."
+ ]
+}

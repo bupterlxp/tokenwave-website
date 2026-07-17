@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TVIR | TokenWave AI</title>
-    <meta name="description" content="TVIR evaluates text-visual interleaved deep-research report generation with joint textual and visual assessment. This page uses the Overall Avg from Table 1.">
+    <meta name="description" content="Grading deep-research agents on reports where prose and figures must earn their score together.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="TVIR | TokenWave AI">
-    <meta property="og:description" content="TVIR evaluates text-visual interleaved deep-research report generation with joint textual and visual assessment. This page uses the Overall Avg from Table 1.">
+    <meta property="og:description" content="Grading deep-research agents on reports where prose and figures must earn their score together.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/tvir.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TVIR | TokenWave AI">
-    <meta name="twitter:description" content="TVIR evaluates text-visual interleaved deep-research report generation with joint textual and visual assessment. This page uses the Overall Avg from Table 1.">
+    <meta name="twitter:description" content="Grading deep-research agents on reports where prose and figures must earn their score together.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/tvir.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Search Agent</div>
             <h1>TVIR</h1>
+            <p class="detail-tagline">Grading deep-research agents on reports where prose and figures must earn their score together.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 TVIR-Agent (Claude 4.5 Sonnet): 74.44</span>
                 <span class="sep">·</span>
@@ -61,22 +62,36 @@
     <div class="detail-actions"><a class="button primary" href="https://aclanthology.org/" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4</div><div class="l">judged dimensions</div></div>
+        <div class="stat-tile"><div class="v">2</div><div class="l">assessment tracks</div></div>
+        <div class="stat-tile"><div class="v">74.44</div><div class="l">top score (Overall Avg)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">systems scored</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>TVIR evaluates text-visual interleaved deep-research report generation with joint textual and visual assessment. This page uses the Overall Avg from Table 1.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most deep-research benchmarks grade a wall of text. TVIR grades the report a human analyst would actually deliver: prose interleaved with figures, where the visuals are part of the argument rather than decoration. The benchmark pairs TVIR-BENCH, the evaluation suite, with TVIR-AGENT, a reference system built around explicit multimodal planning and writing, and asks whether current deep-research agents can compose both modalities into a single coherent artifact.</p>
+        <p>Every submission is judged along four dimensions — citation support, writing quality, figure quality, and text-visual integration — and the leaderboard metric, Overall Avg, is the mean of the textual and visual assessments on a 0-100 scale. That averaging is the point: a system cannot bank a high score on fluent prose while its charts mislead, or vice versa. Both halves of the report count equally.</p>
+        <p>Eligibility is strict in a way worth noting: the leaderboard keeps only systems with complete visual evaluation, so text-only pipelines — including the Gemini-3-Pro Deep Research row from the paper — are excluded rather than scored at a discount. Six systems currently qualify, spanning purpose-built TVIR-Agent variants, external agents such as Manus-1.6 and Genspark Deep Research, and a search-equipped Claude 4.5 Sonnet baseline.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Real research output is multimodal. Analysts communicate with charts because some claims are unreadable as prose, and a deep-research agent that cannot produce a figure — or produces one that contradicts its own text — is not finishing the job. By scoring citation support and text-visual integration alongside writing and figure quality, TVIR measures whether an agent&#x27;s evidence, argument, and visuals form one consistent document, which is the property a reader actually relies on.</p>
+        <p>There is also a gaming argument. When text and visuals are scored separately, an agent can specialize; when the final number is the mean of both assessments, neglecting either modality caps the score. Teams deploying report-writing agents get a single figure that tracks the whole deliverable, not the half of it that is easiest to automate.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>TVIR targets deep-research agents that generate text-visual interleaved reports instead of text-only outputs.</li>
             <li>The paper introduces TVIR-BENCH and TVIR-AGENT, and jointly evaluates citation support, writing quality, figure quality, and text-visual integration.</li>
             <li>The results show that TVIR-Agent variants with explicit multimodal planning and writing pipelines outperform existing deep-research systems overall.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall Avg</b> &mdash; Higher is better. Mean of textual assessment and visual assessment in Table 1. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall Avg from Table 1 and keeps only systems with complete visual evaluation; the text-only Gemini-3-Pro Deep Research row is excluded.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +107,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>TVIR-Agent (Claude 4.5 Sonnet) leads at 74.44, and the paper&#x27;s own variants sweep the top three, packed within 1.82 points of each other. The cleanest comparison on the board is the shared base model: the same Claude 4.5 Sonnet, run with search but without the TVIR-Agent pipeline, scores 68.72 — a 5.72-point difference attributable to explicit multimodal planning and writing rather than to the underlying model.</p>
+        <p>Below the sweep, Manus-1.6 is the strongest external system at 69.73, with Genspark Deep Research trailing the field at 66.99 — a full spread of just 7.45 points across six systems. That compression, sitting roughly three quarters of the way up a 0-100 scale, suggests current agents have converged on competent-but-not-excellent interleaved reports; the remaining 25.56 points above the leader is where citation, figure, and integration quality still leak.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Interleaved text-image research reports</span></li>
             <li><span class="k">Primary metric</span><span>Overall Avg</span></li>
@@ -102,7 +121,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

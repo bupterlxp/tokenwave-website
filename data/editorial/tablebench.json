@@ -1,0 +1,22 @@
+{
+ "slug": "tablebench",
+ "tagline": "Complex table question answering across four capability groups, from fact checking to data analysis",
+ "stats": [
+  {"value": "18", "label": "subfields"},
+  {"value": "4", "label": "capability groups"},
+  {"value": "51.32", "label": "top score (Overall TCoT)"},
+  {"value": "7", "label": "models scored"}
+ ],
+ "overview": [
+  "TableBench asks what happens when table question answering stops being lookup. Drawn from realistic industrial scenarios, its questions demand fact checking, numerical reasoning, data analysis, and visualization — four capability groups that fan out into 18 subfields. The benchmark was assembled through scenario analysis, manual annotation, and explicit task-complexity design, so difficulty here is engineered to match real-world demands rather than inherited from whatever data happened to be available.",
+  "Scoring on this page follows a single protocol. The underlying paper compares textual, symbolic, and program-based reasoning strategies, introducing TableInstruct and TABLELLM to study them; we fix Overall under the TCoT setting, taken from the paper's main results table, as the primary leaderboard. That choice keeps the core structured-data reasoning challenge intact while avoiding the complexity of mixing protocols that measure different things.",
+  "The headline finding is sobering. Across both open-source and proprietary systems, the experiments show current models falling short of practical table-analysis needs, with even the strongest noticeably behind humans. Read this way, TableBench is less a race than a gap measurement — a running estimate of how far structured-data reasoning still has to travel before it is dependable in industrial settings."
+ ],
+ "why": [
+  "Tables are where organizations keep the numbers that decisions actually rest on, and most of the useful questions about them are not lookups. A model that can check a claim against a table, run the arithmetic, and carry an analysis through to a visualization is doing the work analysts do daily. TableBench's insistence on task complexity drawn from real scenarios makes its scores a better proxy for that work than cell-retrieval benchmarks can be."
+ ],
+ "reading": [
+  "GPT-4 Turbo leads at 51.32, with GPT-4o less than a point behind at 50.39 — effectively a tie at the top, and neither clears much more than half of the 0-100 range. DeepSeek's two entries hold the next tier at 47.22 and 44.26, with Llama-3.1-70B-Instruct close behind at 43.85. The full field spans 13.2 points down to Qwen2-72B-Instruct at 38.13.",
+  "The shape below the top matters as much as the leader. The top five sit within 7.5 points of each other before a 5.3-point drop to Yi-Large and Qwen2-72B-Instruct, which are separated by less than half a point. And with the best score just past the midpoint of a 0-100 scale — and the paper placing even the strongest systems noticeably behind humans — nearly half the range is unclaimed."
+ ]
+}

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtifactsBench | TokenWave AI</title>
-    <meta name="description" content="ArtifactsBench evaluates interactive visual code generation with emphasis on visual quality, dynamic behavior, and interaction integrity. This page uses the AVG score from the main result table.">
+    <meta name="description" content="Judging generated web apps, games, and SVGs on how they look, move, and respond — not just whether they run.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="ArtifactsBench | TokenWave AI">
-    <meta property="og:description" content="ArtifactsBench evaluates interactive visual code generation with emphasis on visual quality, dynamic behavior, and interaction integrity. This page uses the AVG score from the main result table.">
+    <meta property="og:description" content="Judging generated web apps, games, and SVGs on how they look, move, and respond — not just whether they run.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/artifactsbench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ArtifactsBench | TokenWave AI">
-    <meta name="twitter:description" content="ArtifactsBench evaluates interactive visual code generation with emphasis on visual quality, dynamic behavior, and interaction integrity. This page uses the AVG score from the main result table.">
+    <meta name="twitter:description" content="Judging generated web apps, games, and SVGs on how they look, move, and respond — not just whether they run.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/artifactsbench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>ArtifactsBench</h1>
+            <p class="detail-tagline">Judging generated web apps, games, and SVGs on how they look, move, and respond — not just whether they run.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Claude 4.0 Sonnet: 55.76</span>
                 <span class="sep">·</span>
@@ -61,28 +62,42 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2507.04952" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://artifactsbenchmark.github.io/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2507.04952.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">1,825</div><div class="l">interactive tasks</div></div>
+        <div class="stat-tile"><div class="v">55.76</div><div class="l">top score (AVG)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">10.2</div><div class="l">point spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>ArtifactsBench evaluates interactive visual code generation with emphasis on visual quality, dynamic behavior, and interaction integrity. This page uses the AVG score from the main result table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most code benchmarks stop at the question of whether a program runs. ArtifactsBench asks the harder one: is the thing it produces actually good to use? Its 1,825 tasks span interactive visual artifacts — web apps, small tools, games, and SVG generation — a class of user-facing output that traditional code evaluations barely touch. Each submission is scored on visual quality, dynamic behavior, and interaction integrity, summarized as an AVG score on a 0-100 scale.</p>
+        <p>The evaluation pipeline is built to see what a user would see. Generated code is executed, temporal screenshots capture the artifact as it changes over time, and checklist-guided multimodal judges assess the code, the visuals, and the interaction together. The leaderboard on this page reports the AVG column from the main result table under the Gemini-2.5-Pro referee setting.</p>
+        <p>Automated judgment of aesthetics invites skepticism, and the paper meets it head-on: the benchmark&#x27;s rankings show strong agreement with human preference rankings from WebDev Arena. That correspondence is what turns a judge pipeline into a usable instrument — scores here track what people actually prefer when they rank model-built web apps.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A growing share of what people ask models to build is user-facing — web apps, small tools, games, visuals. For that work, executability is a low bar: code can run flawlessly and still render badly, animate wrongly, or ignore a click. By scoring visual quality, dynamic behavior, and interaction integrity directly, ArtifactsBench measures the distance between code that runs and software a person would willingly use.</p>
+        <p>Dynamic behavior is also the hardest thing to check automatically. A single static screenshot cannot tell an interface that works from one frozen in a good-looking state, which is why the pipeline captures screenshots across time and asks its judges about behavior, not just appearance. That choice is what lets an automated benchmark stand in for human raters.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark explicitly evaluates visual quality, dynamic feedback, and interaction integrity rather than only executability.</li>
             <li>The paper reports strong agreement between its automated evaluation and human preference rankings from WebDev Arena.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work targets interactive visual artifacts such as web apps, small tools, games, and SVG generation, which are poorly covered by traditional code benchmarks.</li>
             <li>It executes generated code, captures temporal screenshots, and evaluates code, visuals, and interaction with checklist-guided multimodal judges.</li>
             <li>The paper builds 1,825 tasks and shows strong agreement with human preference, making ArtifactsBench a practical benchmark for user-facing code generation.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>AVG</b> &mdash; Higher is better. Overall average score on the main ArtifactsBench table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the AVG column from the main result table under the Gemini-2.5-Pro referee setting.</p>
         <table class="data-table">
             <thead>
@@ -98,7 +113,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Claude 4.0 Sonnet leads at 55.76, with a 4.1-point margin over DeepSeek-R1-0528 at 51.62 — the largest gap anywhere in the table. Below it the field compresses: five models from DeepSeek-R1 down to DeepSeek-V3-0324 at 45.56 sit within about six points, with Hunyuan-Turbos-Preview (50.97), GPT-4.1 (48.23), and Seed-Thinking-1.5 (47.92) filling the middle.</p>
+        <p>The more telling number is the ceiling. On a 0-100 scale, the best system clears barely more than half the range, and the whole six-model field spans just 10.2 points. Producing an artifact that looks right, moves right, and responds right is evidently difficult for everyone — current models cluster in a band of partial competence, and the headroom above 55.76 is where the next generation of user-facing coding gains will show up.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Interactive visual code generation</span></li>
             <li><span class="k">Primary metric</span><span>AVG</span></li>
@@ -109,7 +128,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

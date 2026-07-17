@@ -1,0 +1,34 @@
+{
+ "slug": "scalelong",
+ "tagline": "Grading long-video understanding across four timescales — clip, shot, event, and story",
+ "stats": [
+  {
+   "value": "4",
+   "label": "reasoning timescales"
+  },
+  {
+   "value": "67.9",
+   "label": "top score (Overall)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "23.8",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "How long can a model keep track of what it is watching? ScaleLong turns that question into a measurable axis by decomposing long-video understanding into distinct timescales — clip, shot, event, and story — each paired with diverse task types. The levels demand different capabilities: recognizing what happens inside a clip is largely perception, while answering at the story level requires integrating events and narrative threads across the video's full horizon.",
+  "Scoring is summarized here through the Overall column of the paper's main result table, a single 0–100 figure aggregating performance across all timescales and task types. Behind that aggregate, the decomposition still does its work: a model that perceives local clips accurately gains nothing at the event and story levels unless it can also integrate what it saw over long horizons, so the Overall number rewards breadth across the hierarchy rather than skill at any one level.",
+  "Its findings frame the leaderboard below. The strongest Overall numbers come from leading closed-source models, yet the paper is blunt that long-video reasoning remains difficult across the board. That combination — clear ranking, low absolute scores — suggests current systems are further along at perceiving moments than at binding them into narratives, which is exactly the distinction the timescale hierarchy was built to surface."
+ ],
+ "why": [
+  "Long video is where context stops being an abstraction for multimodal models. A system asked a story-level question cannot succeed by sampling a few well-chosen frames; it has to carry what happened across events and bind it into a narrative. ScaleLong's decomposition matters because it names that requirement explicitly — a benchmark asking only clip-level questions would certify perception while saying nothing about the long-horizon integration that separates watching a video from understanding one."
+ ],
+ "reading": [
+  "Gemini 2.5 Pro leads at 67.9, a 9.2-point margin over Doubao 1.5-VL-Pro at 58.7. The rest of the table settles into two clusters: a middle band where GPT-4o (55.4) and Gemini 2.0 Flash (55.0) trail Doubao by roughly three points, and a bottom pair — Phi-4 at 45.2 and Flash-VStream at 44.1 — separated from that band by nearly ten more. First to last spans 23.8 points.",
+  "The ceiling is the more telling number. Even the leader clears just two-thirds of the 0–100 range, leaving 32.1 points unclaimed, and the paper singles out the story level — the longest horizon in the hierarchy — as where reasoning stays hardest. The closed-source advantage the authors report is visible in the table's upper half, but no tier is close to saturation. On this axis the field is still climbing, not converging."
+ ]
+}

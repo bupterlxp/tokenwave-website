@@ -1,0 +1,34 @@
+{
+ "slug": "mt_video_bench",
+ "tagline": "Measuring whether video models can sustain perception and coherence across a full multi-turn dialogue",
+ "stats": [
+  {
+   "value": "1,000",
+   "label": "multi-turn dialogues"
+  },
+  {
+   "value": "6",
+   "label": "core competencies"
+  },
+  {
+   "value": "76.95",
+   "label": "top score (Overall)"
+  },
+  {
+   "value": "20.1",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "Most video benchmarks ask a question, collect an answer, and reset. MT-Video-Bench does not reset. It curates 1,000 multi-turn dialogues over videos drawn from diverse domains — sports analysis, intelligent tutoring — and asks whether a model can keep understanding the same video while a conversation unfolds around it. The unit of evaluation is the dialogue, not the question, which changes what a model has to be good at.",
+  "The benchmark defines six core competencies split between two axes: perceptivity — what the model actually sees and tracks in the video — and interactivity, how it behaves as a conversational partner across turns. Performance is summarized by the 0-100 Overall metric that headlines the leaderboard, while the six sub-dimensions are retained as auxiliary diagnostics that separate perceptual failures from conversational ones.",
+  "What this setup surfaces is instructive: models that handle single-turn video QA competently begin to slip when understanding must be carried over a long horizon or kept consistent with their own earlier turns. Long-horizon tracking and interactive consistency are precisely the weaknesses the paper reports — and precisely what a single-turn benchmark structurally cannot observe."
+ ],
+ "why": [
+  "The applications this benchmark aligns with — sports analysis, intelligent tutoring — are conversations by nature, not quizzes. A system that loses the thread three turns into an explanation is of little use regardless of how well it answers isolated questions. By scoring perceptivity and interactivity together, MT-Video-Bench measures the property those deployments actually depend on, and positions itself as a bridge between standard video QA and genuine video-agent settings."
+ ],
+ "reading": [
+  "Gemini 2.5 Pro leads at 76.95, and the 8.4-point drop to Qwen3-VL-32B-Thinking at 68.57 is the largest single gap on the board — larger than the entire spread from second to fifth place, where three Qwen3-VL variants and Doubao-Seed-1.6 sit within 5.6 points of one another. That shape is consistent with the paper's broader finding of a real divide between open-source and closed-source systems.",
+  "The Qwen3-VL ladder is its own small experiment: 62.96 at 4B, 65.98 at 8B, 68.57 at 32B — roughly 5.6 points bought by scaling through three model sizes. Meanwhile the leader still leaves 23 points of the 0-100 range unclaimed, and MiniCPM-V4.5 anchors the board at 56.84, a 20.1-point spread overall. Multi-turn video dialogue is unsaturated at every scale."
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "slug": "roleagent",
+ "tagline": "Building role-playing agents straight from raw scripts, then scoring how well they hold the role",
+ "stats": [
+  {
+   "value": "4",
+   "label": "evaluated abilities"
+  },
+  {
+   "value": "54.3",
+   "label": "top score (WR-H)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "15.4",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "RoleAgent asks whether a convincing role-playing agent can be built automatically from a raw script, with no hand-written character profile in the loop. Its building stage parses the script and constructs a hierarchical memory system for each role; its interaction stage then runs a pipeline of query decomposition, memory retrieval, summarization, and response generation. The companion suite, RoleAgentBench, measures what the resulting agents can actually do in conversation.",
+  "Evaluation is deliberately multi-dimensional. RoleAgentBench probes four abilities — self-knowledge, reaction, general response, and summarization — reflecting the distinct ways a role agent can fail: forgetting who it is, reacting out of character, or losing the thread of a long exchange. The paper reports no single unified score, so this page adopts the most user-facing measure as its primary leaderboard: General Response WR-H, a human win rate on response quality from the English evaluation subset, on a 0–100 scale."
+ ],
+ "why": [
+  "Manual profile creation is the bottleneck that keeps role-playing agents from scaling: every new character costs curation effort, and quality inherits the curator's blind spots. Scoring agents built straight from scripts tests the version of this technology that could actually ship broadly. And judging general responses by human win rate keeps the target honest — not adherence to a rubric, but whether a person prefers what the agent says."
+ ],
+ "reading": [
+  "Qwen-Max leads at 54.3, the only entry above the midpoint of the 0–100 win-rate scale; GPT-4 follows at 49.7, a 4.6-point gap. The full field spans just 15.4 points down to Llama-3-8B at 38.9, and the middle is crowded: Qwen1.5-14B at 45.3, Yi-34B at 42.5, and GPT-3.5 Turbo at 41.5 sit within four points of one another.",
+  "Because the metric is a human win rate, the leader's number carries a plain meaning: judges prefer its responses only slightly more often than not, and most of the 0–100 range is unclaimed. That Qwen1.5-14B lands within 4.4 points of GPT-4 hints that the surrounding machinery — script parsing, hierarchical memory, retrieval — sets much of the score, not backbone scale alone."
+ ]
+}

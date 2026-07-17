@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MM-BrowseComp | TokenWave AI</title>
-    <meta name="description" content="MM-BrowseComp evaluates multimodal browsing agents in open web environments. This page uses the Overall score from the main table.">
+    <meta name="description" content="Testing whether browsing agents can integrate evidence from text, images, and video on the open web.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="MM-BrowseComp | TokenWave AI">
-    <meta property="og:description" content="MM-BrowseComp evaluates multimodal browsing agents in open web environments. This page uses the Overall score from the main table.">
+    <meta property="og:description" content="Testing whether browsing agents can integrate evidence from text, images, and video on the open web.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/mm-browsecomp.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MM-BrowseComp | TokenWave AI">
-    <meta name="twitter:description" content="MM-BrowseComp evaluates multimodal browsing agents in open web environments. This page uses the Overall score from the main table.">
+    <meta name="twitter:description" content="Testing whether browsing agents can integrate evidence from text, images, and video on the open web.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/mm-browsecomp.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Multimodal Agent</div>
             <h1>MM-BrowseComp</h1>
+            <p class="detail-tagline">Testing whether browsing agents can integrate evidence from text, images, and video on the open web.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 o3: 29.02</span>
                 <span class="sep">·</span>
@@ -61,22 +62,35 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2508.13186" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/MMBrowseComp/MM-BrowseComp" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2508.13186.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">29.02</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">3</div><div class="l">modalities evaluated</div></div>
+        <div class="stat-tile"><div class="v">21.4</div><div class="l">first-to-second gap</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>MM-BrowseComp evaluates multimodal browsing agents in open web environments. This page uses the Overall score from the main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>MM-BrowseComp asks whether an agent can answer questions that live on the open web but not in any single place or modality. Its tasks require joint understanding of text, images, and videos, so an agent must browse, retrieve, and read across formats rather than lean on one well-indexed page. Performance is summarized as an Overall score on a 0–100 scale, taken from the paper&#x27;s main results table.</p>
+        <p>The evaluation reaches past final answers. Alongside open-answer quality, it examines support answers, cross-modal evidence integration, and retrieval across a diverse spread of web domains. The intent is to separate agents that can defend an answer — pointing to evidence gathered from the pages they actually visited, in whatever modality it appeared — from agents that merely produce a plausible string.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Real web pages carry meaning in more than markup. A browsing agent that reads only text will miss whatever a page expresses through images or video, and it will miss it silently — the answer simply comes back wrong or unsupported. MM-BrowseComp tests the pipeline end to end: retrieve across diverse domains, extract from multiple modalities, integrate the pieces into one supported answer. That is the shape of the deployed task, not a simplification of it.</p>
+        <p>The paper&#x27;s central empirical contrast is also its most practical: genuinely tool-augmented systems and plain VLMs are separated by a clear gap on the same questions. Multimodal browsing is not a skill strong models exhibit for free — it has to be built. For anyone deciding whether a browsing harness is worth the engineering, this benchmark puts a number on the difference.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work targets browsing-agent tasks that require joint understanding of text, images, and videos.</li>
             <li>It evaluates not only open-answer quality, but also support answers, cross-modal evidence integration, and domain-diverse web retrieval performance.</li>
             <li>The results show a clear gap between genuinely tool-augmented systems and plain VLMs, highlighting the difficulty of multimodal browsing.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall</b> &mdash; Higher is better. Overall score reported in the main MM-BrowseComp table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall column from the main table and keeps representative tool-augmented systems and multimodal models.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +106,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>o3 leads at 29.02 on the Overall metric, and nothing else is close: GPT-4.1 sits second at 7.59, a gap of 21.4 points — nearly five times the spread of the entire rest of the field, which is compressed between 7.59 and 3.12. o4-mini-high and Gemini 2.5 Pro Preview tie exactly at 7.14, a hint that the mid-table reflects a shared limitation more than it distinguishes systems.</p>
+        <p>The ceiling is the other headline. Even the leader clears less than a third of the 0–100 range, and five of the six models score in single digits. As of the April 2026 update, MM-BrowseComp reads as an early-stage benchmark in the useful sense: the ordering is informative, but roughly 71 points of headroom remain, and this table is unlikely to look the same for long.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Multimodal web browsing</span></li>
             <li><span class="k">Primary metric</span><span>Overall</span></li>
@@ -110,7 +128,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

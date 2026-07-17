@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USB | TokenWave AI</title>
-    <meta name="description" content="USB is a unified multimodal safety benchmark. This page uses the total ASRT, where lower is better.">
+    <meta name="description" content="Unifying multimodal safety evaluation — one attack-driven score across national, public, and ethical risk.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="USB | TokenWave AI">
-    <meta property="og:description" content="USB is a unified multimodal safety benchmark. This page uses the total ASRT, where lower is better.">
+    <meta property="og:description" content="Unifying multimodal safety evaluation — one attack-driven score across national, public, and ethical risk.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/usb.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="USB | TokenWave AI">
-    <meta name="twitter:description" content="USB is a unified multimodal safety benchmark. This page uses the total ASRT, where lower is better.">
+    <meta name="twitter:description" content="Unifying multimodal safety evaluation — one attack-driven score across national, public, and ethical risk.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/usb.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Safety</div>
             <h1>USB</h1>
+            <p class="detail-tagline">Unifying multimodal safety evaluation — one attack-driven score across national, public, and ethical risk.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Claude 3.5 Sonnet 2: 15.57</span>
                 <span class="sep">·</span>
@@ -61,22 +62,34 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2505.23793" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/Hongqiong12/USB-SafeBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2505.23793.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">3</div><div class="l">safety scenario families</div></div>
+        <div class="stat-tile"><div class="v">15.57</div><div class="l">best total ASRT</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">57.15</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>USB is a unified multimodal safety benchmark. This page uses the total ASRT, where lower is better.</p>
+        <h2 id="overview">Overview</h2>
+        <p>USB is a unified safety benchmark for multimodal models. Rather than testing one hazard category in isolation, it brings national safety, public safety, and ethical safety scenarios under a single evaluation, then probes each with multiple attack types drawn from a range of risk themes. The question it poses is direct: when an adversary actively works to elicit harmful output from a multimodal system, how often does the model give in?</p>
+        <p>Everything reduces to one number, Total ASRT, reported on a 0 to 100 scale where lower is better. The metric quantifies failure under attack: a high score means the attack battery got through often, a low one means the model held its ground. Scoring safety as a rate of failure rather than a pass rate puts the adversary, not the average case, at the center of the evaluation.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Safety results are only as meaningful as the threat model behind them. By unifying three scenario families and pressing each model with multiple attack types, USB measures the property deployers actually need: robustness that survives whichever theme or attack an adversary happens to pick. Its own headline finding — large differences in Total ASRT across models — is the argument for the axis: multimodal safety is not a solved default, and it varies enormously by system.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work aims to unify multimodal safety evaluation across national safety, public safety, and ethical safety scenarios.</li>
             <li>USB systematically measures failure under attack using multiple attack types and risk themes.</li>
             <li>The main results show large differences in total ASRT across models, indicating that multimodal safety remains far from solved.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Total ASRT</b> &mdash; Lower is better. Total ASRT reported in the USB main results table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses Total ASRT from the main table; lower values indicate better robustness.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +105,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>On this table lower is better, and Claude 3.5 Sonnet 2 posts the best score by a wide margin: 15.57, a full 22.26 points below Gemini 1.5 Pro at 37.83. That gap is larger than any other on the board. Behind it, Gemini 1.5 Pro, GPT-4o at 40.93, and Gemini 2.0 Flash at 46.51 form a mid-table cluster spanning under nine points — systems whose Total ASRT runs two to three times the leader&#x27;s.</p>
+        <p>The tail tells the other half of the story. Qwen-VL-MAX sits at 56.87, and LLaVA-v1.5-13B lands at 72.72 — nearly three-quarters of the way to the worst end of the scale. First to last spans 57.15 points of a 100-point range, and only one system keeps its score below a fifth of it. That spread is the paper&#x27;s own conclusion made visible: multimodal safety remains far from solved, and right now robustness is one model&#x27;s strength rather than a shared property.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Unified multimodal safety</span></li>
             <li><span class="k">Primary metric</span><span>Total ASRT</span></li>
@@ -102,7 +119,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

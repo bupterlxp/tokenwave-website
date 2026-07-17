@@ -1,0 +1,29 @@
+{
+ "slug": "vidic",
+ "tagline": "Testing whether models can say what changed, and what stayed the same, between paired videos",
+ "stats": [
+  {
+   "value": "95.22",
+   "label": "top score (Average)"
+  },
+  {
+   "value": "3",
+   "label": "models scored"
+  },
+  {
+   "value": "7.99",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "Difference captioning began as an image task: show a model two pictures and ask what changed. ViDiC extends the setup to video, where a faithful answer has to track time as well as content. Each item pairs two videos, and the model must describe their differences, their similarities, and the temporal changes that separate them — what one clip does over its duration that the other does not.",
+  "The benchmark's emphasis is deliberately fine-grained. Rather than reward broad scene summaries, it asks about factors like position, background, camera motion, and filming technique — properties that only surface when a model genuinely compares the two clips instead of captioning each in isolation. That comparative framing is what distinguishes ViDiC from standard video captioning, where fluent but generic descriptions can still score well.",
+  "Results roll up into a single Average score on a 0–100 scale, taken from the paper's main table. The headline numbers are high — leading models handle the task well on average — but the results also show clear weaknesses on fine-grained categories, which is where the benchmark's diagnostic value concentrates. A high mean, in other words, does not yet mean solved perception."
+ ],
+ "why": [
+  "A model can caption each of two videos fluently and still be unable to say how they relate. That comparative skill is a distinct capability: it requires holding both clips in mind, aligning them over time, and noticing which fine-grained properties — position, background, camera motion, filming technique — diverge. ViDiC is built to isolate exactly that, and its inclusion of similarities keeps models from scoring by simply asserting difference everywhere."
+ ],
+ "reading": [
+  "GPT-5 Mini tops the board at 95.22, a 5.85-point lead over DeepSeek-V3 at 89.37, with Qwen3-32B at 87.23. All three systems land within an eight-point band, and the leader sits under five points from the 100-point ceiling. Read that with care: the paper's own analysis flags persistent weaknesses on fine-grained categories, so a near-saturated Average likely masks uneven performance underneath. With only three models scored, the useful signal is less the ranking than how quickly the headline metric approached saturation."
+ ]
+}

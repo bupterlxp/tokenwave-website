@@ -1,0 +1,20 @@
+{
+ "slug": "swe_compass",
+ "tagline": "Mapping agentic coding across eight task types, eight scenarios, and ten languages — workflow held fixed",
+ "stats": [
+  {"value": "2,000", "label": "curated instances"},
+  {"value": "8", "label": "task types"},
+  {"value": "10", "label": "programming languages"},
+  {"value": "32.9", "label": "top score (AVG)"}
+ ],
+ "overview": [
+  "SWE-Compass sets out to measure agentic coding the way developers actually encounter it: not as a single task type but as a spread of them. The benchmark collects 2,000 curated instances, most derived from authentic GitHub pull requests and refined through systematic validation, then arranges them across eight task types, eight programming scenarios, and ten programming languages. The result is less a single test than a coordinate system for locating where a model's engineering ability holds and where it thins.",
+  "Execution environment is treated as a variable to control, not an afterthought. The paper benchmarks strong models under two agent frameworks, SWE-Agent and Claude Code, and finds a clear hierarchy of difficulty across tasks, languages, and programming scenarios. This page fixes a single workflow — Claude Code — and reports AVG, an average score on a 0-100 scale, so the leaderboard reflects differences between models rather than differences between the systems that happen to run them."
+ ],
+ "why": [
+  "An agentic coding score is a joint property of a model and the harness driving it, which is why results from different frameworks are hard to compare. SWE-Compass confronts both halves: breadth, by refusing to reduce software engineering to a single task type in a single language, and comparability, by measuring under two workflows and never averaging across them. For anyone selecting a model for a coding agent, the second discipline matters as much as the first."
+ ],
+ "reading": [
+  "Claude Sonnet 4 leads at 32.9 AVG, a full eleven points ahead of Qwen3-Coder-480B-Instruct at 21.9 — under Anthropic's own Claude Code workflow, worth remembering when reading the margin. The most interesting gap is the smallest: Qwen3-Coder-30B-Instruct lands 0.3 behind its 480B sibling, while the general-purpose Qwen3-235B falls to 14.7 — coding specialization buys more here than parameter count. With DeepSeek-V3 at 9.8, the field spans 23.1 points, and even the leader clears barely a third of the 0-100 range."
+ ]
+}

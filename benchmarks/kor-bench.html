@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOR-Bench | TokenWave AI</title>
-    <meta name="description" content="KOR-Bench evaluates knowledge-orthogonal reasoning by reducing the effect of prior domain knowledge. This page uses the Overall score from the main results table.">
+    <meta name="description" content="Isolating rule-based reasoning from memorized knowledge with five families of novel tasks.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="KOR-Bench | TokenWave AI">
-    <meta property="og:description" content="KOR-Bench evaluates knowledge-orthogonal reasoning by reducing the effect of prior domain knowledge. This page uses the Overall score from the main results table.">
+    <meta property="og:description" content="Isolating rule-based reasoning from memorized knowledge with five families of novel tasks.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/kor-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="KOR-Bench | TokenWave AI">
-    <meta name="twitter:description" content="KOR-Bench evaluates knowledge-orthogonal reasoning by reducing the effect of prior domain knowledge. This page uses the Overall score from the main results table.">
+    <meta name="twitter:description" content="Isolating rule-based reasoning from memorized knowledge with five families of novel tasks.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/kor-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Reasoning</div>
             <h1>KOR-Bench</h1>
+            <p class="detail-tagline">Isolating rule-based reasoning from memorized knowledge with five families of novel tasks.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 o1-preview: 72.88</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.06526" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.06526.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">5</div><div class="l">task families</div></div>
+        <div class="stat-tile"><div class="v">72.88</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">8</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">20.7</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>KOR-Bench evaluates knowledge-orthogonal reasoning by reducing the effect of prior domain knowledge. This page uses the Overall score from the main results table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most reasoning benchmarks let a well-read model coast: if the training corpus contains the theorem, the trick, or the puzzle itself, recall passes for inference. KOR-Bench is built to close that loophole. Its organizing idea is knowledge-orthogonal reasoning — evaluation designed so that performance depends on understanding and applying rules presented in the prompt, not on domain knowledge absorbed during pretraining.</p>
+        <p>The benchmark spans five task families — operation, logic, cipher, puzzle, and counterfactual — each populated with novel rule-driven problems. A model is handed an unfamiliar rule system and must work out its consequences on the spot. Because the rules are new, there is no memorized pattern to lean on; the paper argues this design better reveals whether a model is genuinely reasoning rather than reciting.</p>
+        <p>Scoring is a single Overall accuracy on a 0-100 scale, taken from the paper&#x27;s main results table; integrated-task variants such as Multi-Q, Multi-R, and Multi-RQ are reported separately and kept out of the primary leaderboard. Beyond raw scores, the paper also examines stepwise prompting, self-correction, and task-specific tricks, positioning KOR-Bench as a foundation for general reasoning evaluation.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Contamination and memorization inflate scores on any benchmark whose problems resemble the training distribution, and the inflation is invisible from the score alone. An axis of evaluation that is orthogonal to stored knowledge gives a cleaner signal: it estimates how a model will behave when it meets a rule system it has never seen — which is the ordinary condition of deployment, not the exception.</p>
+        <p>The five-family structure also matters practically. Rule application, cipher manipulation, and counterfactual reasoning stress different parts of a model&#x27;s machinery, so a single Overall number here summarizes breadth rather than one narrow skill — useful when comparing systems that were tuned toward different strengths.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark aims to separate actual reasoning ability from memorized knowledge.</li>
             <li>The page uses the main Overall score and does not mix in the additional integrated-task setting.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>KOR-Bench introduces the idea of knowledge-orthogonal reasoning, aiming to evaluate rule understanding and reasoning ability while minimizing dependence on domain-specific knowledge.</li>
             <li>It includes five task families: operation, logic, cipher, puzzle, and counterfactual, all designed around novel rule-driven problems.</li>
@@ -80,10 +95,10 @@
             <li>It also studies stepwise prompting, self-correction, and task-specific tricks, making KOR-Bench a useful foundation for general reasoning evaluation.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall</b> &mdash; Higher is better. Overall reasoning accuracy on KOR-Bench. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses Overall from the main table. The paper also reports integrated-task analyses such as Multi-Q / Multi-R / Multi-RQ, which are not mixed into the main leaderboard.</p>
         <table class="data-table">
             <thead>
@@ -101,7 +116,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>OpenAI&#x27;s o1-preview leads at 72.88, with o1-mini close behind at 70.16 — and then the table drops. Claude 3.5 Sonnet, the best system outside that pair, lands at 58.96, a full 11.2 points below o1-mini and roughly four times the gap separating the two o1 models. The remaining six entries, from Sonnet down to Qwen2.5-72B-Instruct at 52.16, compress into under seven points.</p>
+        <p>Scale alone is not deciding outcomes here: Qwen2.5-32B-Instruct edges its own 72B sibling, 54.72 to 52.16, and Llama-3.1-405B lands mid-pack at 55.36. Meanwhile the ceiling stays distant — even the leader leaves 27 points of the 0-100 range unclaimed. Reasoning over rules a model has never seen remains a frontier capability, and the two-tier table says only a few systems have crossed into it.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Knowledge-orthogonal reasoning</span></li>
             <li><span class="k">Primary metric</span><span>Overall</span></li>
@@ -112,7 +131,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

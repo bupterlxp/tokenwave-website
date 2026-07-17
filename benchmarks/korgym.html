@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KORGym | TokenWave AI</title>
-    <meta name="description" content="KORGym is a dynamic game platform for reasoning evaluation. This page uses the Avg Score from the paper&#x27;s main table.">
+    <meta name="description" content="Reasoning measured mid-game: fifty-plus interactive text and vision games instead of static questions.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="KORGym | TokenWave AI">
-    <meta property="og:description" content="KORGym is a dynamic game platform for reasoning evaluation. This page uses the Avg Score from the paper&#x27;s main table.">
+    <meta property="og:description" content="Reasoning measured mid-game: fifty-plus interactive text and vision games instead of static questions.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/korgym.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="KORGym | TokenWave AI">
-    <meta name="twitter:description" content="KORGym is a dynamic game platform for reasoning evaluation. This page uses the Avg Score from the paper&#x27;s main table.">
+    <meta name="twitter:description" content="Reasoning measured mid-game: fifty-plus interactive text and vision games instead of static questions.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/korgym.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Reasoning</div>
             <h1>KORGym</h1>
+            <p class="detail-tagline">Reasoning measured mid-game: fifty-plus interactive text and vision games instead of static questions.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 o3-mini: 82</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2505.14552" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://razor233.github.io/KORGYM_HomePage/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2505.14552.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">50+</div><div class="l">interactive games</div></div>
+        <div class="stat-tile"><div class="v">82</div><div class="l">top score (Avg Score)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">22</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>KORGym is a dynamic game platform for reasoning evaluation. This page uses the Avg Score from the paper&#x27;s main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>KORGym is a dynamic game platform for evaluating reasoning in large language models. Rather than posing a fixed set of questions, it drops models into more than fifty text and vision games played over multiple turns, and it supports reinforcement-learning-style scenarios. What gets measured is not just whether a model reaches the right final answer, but how it decides online — reading state, choosing a move, and adapting as the game responds.</p>
+        <p>Each model receives an Avg Score on a 0–100 scale, the headline number from the paper&#x27;s main table and the metric this page tracks. Because the games span both text and vision, the platform can separate strategy and interaction effects from modality effects — a distinction a single-format benchmark cannot make. The paper applies this setup to a wide range of LLMs and VLMs.</p>
+        <p>Two findings recur across that study. Reasoning patterns repeat within model families — siblings from the same lab behave alike across the games — and closed-source systems retain an advantage over open ones. Both observations only become visible in an evaluation with enough distinct interactive tasks to reveal a behavioral profile rather than a single accuracy figure.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A static question has one answer, and models can arrive at it by memory, pattern-matching, or genuine inference — the score cannot tell these apart. A game denies most shortcuts: state changes turn by turn, and a policy that cannot adapt loses even if it knows facts. By emphasizing online decision-making, KORGym measures the layer of reasoning that deployment actually exercises, where a model must act on the consequences of its earlier choices.</p>
+        <p>There is also a breadth argument. With more than fifty games across two modalities, KORGym can surface family-level behavioral signatures — the paper finds recurring reasoning patterns within model families — that a handful of tasks would average away. For anyone choosing a model for interactive work, that profile is more informative than a single static-benchmark rank.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>KORGym replaces static questions with dynamic interactive games and emphasizes online decision-making.</li>
             <li>The page uses Avg Score to stay aligned with the paper&#x27;s main results.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>KORGym extends reasoning evaluation from static benchmarks to a dynamic game platform with interactive multi-turn tasks.</li>
             <li>It offers more than fifty text or vision games and supports reinforcement-learning-style scenarios, so evaluation can capture strategy, interaction, and modality effects rather than final answers alone.</li>
@@ -80,10 +95,10 @@
             <li>In this sense, KORGym pushes reasoning evaluation toward settings that are closer to realistic interactive environments.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Avg Score</b> &mdash; Higher is better. Average KORGym score. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard directly uses Avg Score from the main table. The paper also provides analyses on other game subsets, which are not expanded here.</p>
         <table class="data-table">
             <thead>
@@ -99,7 +114,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>o3-mini leads at 82 Avg Score, with Gemini 2.5 Pro three points back at 79 — a real but narrow edge at the top. The middle of the table is the striking part: o1, Doubao-1.5-Pro, and DeepSeek-R1 land at 73, 72, and 71, three systems inside a two-point band. Qwen3-32B, at 60, trails that cluster by eleven points, giving the six-model table a 22-point spread overall.</p>
+        <p>No model approaches the ceiling — the leader still sits 18 points below the metric&#x27;s maximum of 100. The shape of the table echoes the paper&#x27;s finding of a continued closed-source advantage, and the tight 71–73 cluster suggests several labs have reached a similar plateau of interactive reasoning while the top two have found something beyond it. Reading rank alone understates this: the gap between second and third, six points, is twice the gap between first and second.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Dynamic game reasoning</span></li>
             <li><span class="k">Primary metric</span><span>Avg Score</span></li>
@@ -118,7 +137,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

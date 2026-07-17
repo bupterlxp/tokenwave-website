@@ -1,0 +1,23 @@
+{
+ "slug": "dr3_eval",
+ "tagline": "Deep research evaluation that keeps real-file realism while making every run reproducible",
+ "stats": [
+  {"value": "512k", "label": "evaluation setting"},
+  {"value": "5", "label": "scoring dimensions"},
+  {"value": "65.6", "label": "top score (Overall 512k)"},
+  {"value": "6", "label": "models scored"}
+ ],
+ "overview": [
+  "DR3-Eval takes aim at a tension that has shadowed deep research evaluation from the start: benchmarks built on the live web are realistic but irreproducible, while synthetic ones are stable but artificial. Its answer is to start from real user multimodal files, freeze each task inside a static sandbox, and generate queries through reverse construction — so every system faces the same world, and every run can be replayed.",
+  "The task itself is multi-file report generation, not short QA or isolated retrieval. A model must work across the files in its sandbox and produce a report that is scored along five dimensions: information recall, factual accuracy, citation coverage, instruction following, and depth quality. These roll up into the Overall score, reported here under the 512k setting on a 0–100 scale.",
+  "A single number is deliberately not the point. The work emphasizes realism, reproducibility, and failure analysis over headline rankings: the five-way protocol is built to show where a research agent breaks down — thin recall, missing citations, shallow synthesis — not just how it places. That framing matters for a task where fluent output can mask ungrounded content."
+ ],
+ "why": [
+  "Grading a deep research agent on the live web means no two runs see the same evidence, so a two-point gain is indistinguishable from a lucky crawl. DR3-Eval's static sandboxes remove that noise without retreating to toy retrieval: tasks still begin from real user multimodal files and still demand full multi-file reports. Reproducibility here is not bookkeeping — it is what lets a score be attributed to the model at all.",
+  "The five-dimension protocol carries its own argument. A report can read well while citing nothing, or cite densely while missing what the user asked for. Scoring recall, accuracy, citations, instruction following, and depth separately means a system cannot bury one failure mode under fluency in another."
+ ],
+ "reading": [
+  "Claude Sonnet 4 leads at 65.6, but GLM-4.7 sits just 1.5 points behind — close enough that the top of this board is a pairing, not a lead. The real break comes below: Gemini 2.5 Pro trails the leader by 8.6 at 57, and GPT-4.1 and Qwen3-235B land within 0.4 of each other at 51.4 and 51. The full field spans 18.2 points, from 47.4 to 65.6.",
+  "The more telling number is the distance to the ceiling: on a 0–100 scale, the best system still leaves 34.4 points on the table. That is exactly the claim the benchmark's own contributions make — even the strongest current systems find the 512k setting challenging. Whether the next gains come from better recall, tighter citation coverage, or deeper synthesis is what the multi-dimensional protocol exists to reveal."
+ ]
+}

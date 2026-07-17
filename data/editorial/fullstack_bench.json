@@ -1,0 +1,21 @@
+{
+ "slug": "fullstack_bench",
+ "tagline": "End-to-end full-stack development in 16 languages, judged by real-world instructions and unit tests",
+ "stats": [
+  {"value": "16", "label": "programming languages"},
+  {"value": "65.62", "label": "top score (Overall)"},
+  {"value": "8", "label": "models scored"},
+  {"value": "8.74", "label": "score spread"}
+ ],
+ "overview": [
+  "Full-stack development is a breadth test, and FullStack Bench treats it as one. Rather than scoring isolated coding exercises, it draws tasks from basic programming, data analysis, software engineering, math, and machine learning, phrases them as real-world instructions, and spreads them across 16 widely used programming languages. Correctness is settled the way engineering teams settle it: submitted code passes the task's unit tests or it does not.",
+  "Running that grading loop across sixteen languages is an engineering problem of its own, so the release includes SandboxFusion, an execution environment built to run and evaluate the multilingual tasks reliably. TokenWave's leaderboard tracks the single Overall score from the paper's main results table, on a 0-100 scale; finer domain-level subscores exist in the paper but stay folded into that headline number here. The authors' summary finding is blunt: full-stack evaluation is both more realistic and more challenging than traditional code benchmarks."
+ ],
+ "why": [
+  "Isolated coding tasks let a model score well while knowing only one corner of the job. Real development is not so forgiving: a single piece of work can run from data analysis into software engineering and touch math along the way, in whichever of a codebase's languages it happens to land. By compressing that breadth into one unit-tested Overall score, FullStack Bench measures whether a model is a developer or just a code completer."
+ ],
+ "reading": [
+  "o1-preview sits on top at 65.62, but its margin over o1-mini is just 0.89 points — the two OpenAI o1 models are effectively tied. Claude 3.5 Sonnet (62.57) and GPT-4o (61.77) keep the top four inside a 3.85-point band, and below them a second cluster forms: Doubao-Coder-Preview, DeepSeek-V2.5, DeepSeekCoder-V2-Instruct, and Qwen2.5-32B-Instruct all land between 56.88 and 58.92, separated by about two points end to end.",
+  "What stands out more than the ordering is the headroom. The leader still leaves 34.38 points of the 0-100 range unclaimed, and the whole eight-model field spans only 8.74 points — tightly packed, and collectively far from done. That shape matches the paper's own conclusion: full-stack evaluation is harder than traditional code benchmarks, and no current model has yet turned breadth into a decisive advantage."
+ ]
+}

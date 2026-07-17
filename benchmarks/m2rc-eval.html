@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M2RC-Eval | TokenWave AI</title>
-    <meta name="description" content="M2RC-Eval measures repository-level code completion. This page uses Avg ES from the direct model comparison table as the primary leaderboard and keeps Avg EM as a secondary metric.">
+    <meta name="description" content="Repository-level code completion across 18 languages, annotated down to the AST node.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="M2RC-Eval | TokenWave AI">
-    <meta property="og:description" content="M2RC-Eval measures repository-level code completion. This page uses Avg ES from the direct model comparison table as the primary leaderboard and keeps Avg EM as a secondary metric.">
+    <meta property="og:description" content="Repository-level code completion across 18 languages, annotated down to the AST node.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/m2rc-eval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="M2RC-Eval | TokenWave AI">
-    <meta name="twitter:description" content="M2RC-Eval measures repository-level code completion. This page uses Avg ES from the direct model comparison table as the primary leaderboard and keeps Avg EM as a secondary metric.">
+    <meta name="twitter:description" content="Repository-level code completion across 18 languages, annotated down to the AST node.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/m2rc-eval.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>M2RC-Eval</h1>
+            <p class="detail-tagline">Repository-level code completion across 18 languages, annotated down to the AST node.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 DeepSeekCoder-6.7B: 54.7</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.21157" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.21157.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">18</div><div class="l">programming languages</div></div>
+        <div class="stat-tile"><div class="v">54.7</div><div class="l">top score (Avg ES)</div></div>
+        <div class="stat-tile"><div class="v">3</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">4.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>M2RC-Eval measures repository-level code completion. This page uses Avg ES from the direct model comparison table as the primary leaderboard and keeps Avg EM as a secondary metric.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most code-completion benchmarks hand a model a single file and ask it to fill in the blank. M2RC-Eval works at the scale developers actually inhabit: the repository. A completion is judged not against an isolated function but within the surrounding project, and the benchmark repeats this test across 18 programming languages, making cross-language generalization a first-class axis rather than an afterthought.</p>
+        <p>What separates M2RC-Eval from a simple multilingual expansion is its annotation layer. The benchmark carries fine-grained labels derived from the abstract syntax tree: a bucket-level difficulty rating and a semantic completion scenario. Scores can therefore be sliced by what kind of code is being completed, not just which language it is written in. The paper pairs the benchmark with M2RC-INSTRUCT, a companion resource built to improve repository-level completion ability.</p>
+        <p>Scoring rests on average edit similarity (Avg ES), a 0–100 measure of how close the generated completion comes to the reference, averaged across languages; average exact match (Avg EM) is kept as a stricter secondary check. The leaderboard deliberately shows only direct model baselines — no retrieval pipelines, no training augmentations — so the numbers reflect what the models themselves know how to do.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Code assistants earn their keep inside repositories, where the correct completion depends on conventions, imports, and types defined files away. Single-file benchmarks never observe that dependence. And by scoring the same task in 18 languages, M2RC-Eval guards against a quieter failure: a model that looks strong in one familiar language and degrades across the other seventeen. The AST-based annotations add a further check, showing whether gains come from easy scenarios or hard ones.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper distinguishes repository-level completion from ordinary single-file generation.</li>
             <li>To avoid mixing retrieval or training augmentations into the leaderboard, this page shows only direct model baselines.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>M2RC-Eval targets repository-level code completion rather than isolated function-level completion.</li>
             <li>It builds a multilingual benchmark spanning 18 programming languages with fine-grained AST-based annotations.</li>
@@ -81,10 +95,10 @@
             <li>Its main value is evaluating both cross-language generalization and fine-grained completion behavior.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Avg ES</b> &mdash; Higher is better. Average edit similarity across languages. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard metric is Avg ES from Table 2 direct model comparisons. Avg EM is shown as a complementary stricter measure.</p>
         <table class="data-table">
             <thead>
@@ -97,7 +111,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>DeepSeekCoder-6.7B leads at 54.7 Avg ES, 2.7 points ahead of StarCoder-7B at 52.0, with Code Llama-7B at 50.3 rounding out the table. The entire field fits inside a 4.4-point band — three direct baselines of comparable scale, none pulling decisively away. Against a metric that runs to 100, the leader still leaves over 45 points of headroom, a reminder that repository-level completion at this model size remains substantially open.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Repository-level code completion</span></li>
             <li><span class="k">Primary metric</span><span>Avg ES</span></li>
@@ -108,7 +125,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

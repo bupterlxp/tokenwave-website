@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>McEval | TokenWave AI</title>
-    <meta name="description" content="Code LLMs are often benchmarked on Python-centric suites, with other languages sometimes derived by translation, which limits diversity. MCEVAL is a massively multilingual benchmark spanning 40 programming languages and about 16K test samples for gen">
+    <meta name="description" content="Pushing code evaluation beyond Python: 40 programming languages, 16K samples, three task types.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="McEval | TokenWave AI">
-    <meta property="og:description" content="Code LLMs are often benchmarked on Python-centric suites, with other languages sometimes derived by translation, which limits diversity. MCEVAL is a massively multilingual benchmark spanning 40 programming languages and about 16K test samples for gen">
+    <meta property="og:description" content="Pushing code evaluation beyond Python: 40 programming languages, 16K samples, three task types.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/mceval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="McEval | TokenWave AI">
-    <meta name="twitter:description" content="Code LLMs are often benchmarked on Python-centric suites, with other languages sometimes derived by translation, which limits diversity. MCEVAL is a massively multilingual benchmark spanning 40 programming languages and about 16K test samples for gen">
+    <meta name="twitter:description" content="Pushing code evaluation beyond Python: 40 programming languages, 16K samples, three task types.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/mceval.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>McEval</h1>
+            <p class="detail-tagline">Pushing code evaluation beyond Python: 40 programming languages, 16K samples, three task types.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-4o: 65.2</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2406.07436" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://mceval.github.io/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2406.07436.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">40</div><div class="l">programming languages</div></div>
+        <div class="stat-tile"><div class="v">16K</div><div class="l">test samples</div></div>
+        <div class="stat-tile"><div class="v">3</div><div class="l">task types</div></div>
+        <div class="stat-tile"><div class="v">65.2</div><div class="l">top score (Avg_all)</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>Code LLMs are often benchmarked on Python-centric suites, with other languages sometimes derived by translation, which limits diversity. MCEVAL is a massively multilingual benchmark spanning 40 programming languages and about 16K test samples for generation, explanation, and completion. The work releases MCEVAL-INSTRUCT and trains MCODER on it. Experiments show a persistent gap between strong closed-source models and open-source systems across many languages; data and leaderboard are at mceval.github.io.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most code benchmarks live inside Python, and when they venture out, the new languages are often produced by translating the same Python problems — diversity in syntax only. McEval is built against that habit. It spans 40 programming languages with roughly 16K test samples, and it asks for more than generation: models must also complete partial programs and explain existing code, three tasks that together sketch what working across a real polyglot codebase demands.</p>
+        <p>The benchmark ships with more than a test set. Alongside it, the authors release MCEVAL-INSTRUCT, a companion instruction corpus, and train MCODER on it for multilingual code generation — the evaluation comes packaged with a recipe for improving on it. TokenWave&#x27;s leaderboard tracks Avg_all, the aggregate code-generation score from the paper&#x27;s main results table on a 0-100 scale; per-language results exist in the paper but stay folded into this headline number.</p>
+        <p>The headline experimental result is a gap that refuses to close: strong closed-source models beat open-source systems across many of the 40 languages, not just a few. That persistence suggests multilingual coding ability is not a free by-product of general code skill — it is a capability most open systems have not yet secured, and one the benchmark was designed to surface.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A benchmark translated out of Python measures Python competence wearing forty costumes. McEval&#x27;s languages are evaluated in their own right, so the aggregate score punishes exactly the failure that matters in deployment: a model that shines on high-resource languages and quietly degrades on the rest of a real codebase. And because completion and explanation sit beside generation, the score also reflects maintenance work — reading and extending code — not just writing it fresh.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper focuses on systematically evaluating multilingual coding ability instead of only English coding tasks.</li>
             <li>This page uses the most display-friendly aggregate metric reported in the main results table.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>McEval introduces a massively multilingual coding benchmark covering 40 programming languages and about 16K samples.</li>
             <li>It evaluates code generation, completion, and understanding instead of focusing on a single language or task.</li>
@@ -81,10 +95,10 @@
             <li>Its main contribution is pushing code evaluation from a few languages to a genuinely multilingual setting.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Avg_all</b> &mdash; Higher is better. Main multilingual code generation score reported in the paper. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the code-generation Avg_all from the paper&#x27;s main table. The paper also reports finer per-language results, but this page keeps the aggregate score as the primary leaderboard.</p>
         <table class="data-table">
             <thead>
@@ -99,7 +113,11 @@
             </tbody>
         </table>
 
-        <h2>Paper figures</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-4o leads at 65.2 on Avg_all, with GPT-4 Turbo close behind at 63.4 — a 1.8-point gap that keeps OpenAI comfortably in charge of the top of the table. The more telling number sits below: DeepSeekCoder-6.7B, at 54.3, trails the leader by 10.9 points, which is the paper&#x27;s closed-versus-open gap rendered as a single figure. It is still a strong showing — a 6.7B specialist that outscores GPT-3.5 Turbo (52.6) — but the ceiling belongs to closed models.</p>
+        <p>The five-model field spans 18.6 points, from Yi-Large-Turbo at 46.6 to GPT-4o at 65.2, and even the leader leaves 34.8 points of the 0-100 range on the table. Averaged over 40 languages, that headroom is the point: a score in the mid-60s means plenty of languages where even the best model is unreliable. McEval&#x27;s aggregate will be hard to saturate by polishing Python alone — which is precisely what it was built to ensure.</p>
+
+        <h2 id="paper-figures">Paper figures</h2>
         <figure>
             <img src="../static/images/benchmarks/mceval/fig-three-tasks.jpg" alt="Figure 1 (paper): three massively multilingual tasks—code generation, completion, and explanation." loading="lazy">
             <figcaption>Figure 1 (paper): three massively multilingual tasks—code generation, completion, and explanation.</figcaption>
@@ -121,7 +139,7 @@
             <figcaption>Figure 7 (paper, panel): comparing model scores on overlapping languages between MultiPL-E and MCEVAL—many models cluster on high-resource languages while low-resource performance remains weaker.</figcaption>
         </figure>
 
-        <h2>At a glance</h2>
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Massively multilingual code generation</span></li>
             <li><span class="k">Primary metric</span><span>Avg_all</span></li>
@@ -132,7 +150,42 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#paper-figures">Paper figures</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

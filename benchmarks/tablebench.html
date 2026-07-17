@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TableBench | TokenWave AI</title>
-    <meta name="description" content="TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.">
+    <meta name="description" content="Complex table question answering across four capability groups, from fact checking to data analysis.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="TableBench | TokenWave AI">
-    <meta property="og:description" content="TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.">
+    <meta property="og:description" content="Complex table question answering across four capability groups, from fact checking to data analysis.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/tablebench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TableBench | TokenWave AI">
-    <meta name="twitter:description" content="TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.">
+    <meta name="twitter:description" content="Complex table question answering across four capability groups, from fact checking to data analysis.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/tablebench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Reasoning</div>
             <h1>TableBench</h1>
+            <p class="detail-tagline">Complex table question answering across four capability groups, from fact checking to data analysis.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-4 Turbo: 51.32</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2408.09174" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/TableBench/TableBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2408.09174.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">18</div><div class="l">subfields</div></div>
+        <div class="stat-tile"><div class="v">4</div><div class="l">capability groups</div></div>
+        <div class="stat-tile"><div class="v">51.32</div><div class="l">top score (Overall TCoT)</div></div>
+        <div class="stat-tile"><div class="v">7</div><div class="l">models scored</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>TableBench asks what happens when table question answering stops being lookup. Drawn from realistic industrial scenarios, its questions demand fact checking, numerical reasoning, data analysis, and visualization — four capability groups that fan out into 18 subfields. The benchmark was assembled through scenario analysis, manual annotation, and explicit task-complexity design, so difficulty here is engineered to match real-world demands rather than inherited from whatever data happened to be available.</p>
+        <p>Scoring on this page follows a single protocol. The underlying paper compares textual, symbolic, and program-based reasoning strategies, introducing TableInstruct and TABLELLM to study them; we fix Overall under the TCoT setting, taken from the paper&#x27;s main results table, as the primary leaderboard. That choice keeps the core structured-data reasoning challenge intact while avoiding the complexity of mixing protocols that measure different things.</p>
+        <p>The headline finding is sobering. Across both open-source and proprietary systems, the experiments show current models falling short of practical table-analysis needs, with even the strongest noticeably behind humans. Read this way, TableBench is less a race than a gap measurement — a running estimate of how far structured-data reasoning still has to travel before it is dependable in industrial settings.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Tables are where organizations keep the numbers that decisions actually rest on, and most of the useful questions about them are not lookups. A model that can check a claim against a table, run the arithmetic, and carry an analysis through to a visualization is doing the work analysts do daily. TableBench&#x27;s insistence on task complexity drawn from real scenarios makes its scores a better proxy for that work than cell-retrieval benchmarks can be.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper compares multiple reasoning protocols; this page fixes TCoT as the primary leaderboard.</li>
             <li>This keeps the core structured-data reasoning challenge while avoiding excessive page complexity.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>TableBench targets complex table question answering in realistic industrial scenarios, going beyond simple lookup to cover fact checking, numerical reasoning, data analysis, and visualization.</li>
             <li>It spans four major capability groups and 18 subfields, and is built through scenario analysis, manual annotation, and explicit task-complexity design to better match real-world demands.</li>
@@ -80,10 +94,10 @@
             <li>The experiments show that both open-source and proprietary models still fall short of practical table-analysis needs, with even the strongest systems remaining noticeably behind humans.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall TCoT</b> &mdash; Higher is better. Overall score under the TCoT protocol. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses Overall under the TCoT setting. The paper also reports other protocols, which are not mixed here.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +114,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-4 Turbo leads at 51.32, with GPT-4o less than a point behind at 50.39 — effectively a tie at the top, and neither clears much more than half of the 0-100 range. DeepSeek&#x27;s two entries hold the next tier at 47.22 and 44.26, with Llama-3.1-70B-Instruct close behind at 43.85. The full field spans 13.2 points down to Qwen2-72B-Instruct at 38.13.</p>
+        <p>The shape below the top matters as much as the leader. The top five sit within 7.5 points of each other before a 5.3-point drop to Yi-Large and Qwen2-72B-Instruct, which are separated by less than half a point. And with the best score just past the midpoint of a 0-100 scale — and the paper placing even the strongest systems noticeably behind humans — nearly half the range is unclaimed.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Complex table QA</span></li>
             <li><span class="k">Primary metric</span><span>Overall TCoT</span></li>
@@ -111,7 +129,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

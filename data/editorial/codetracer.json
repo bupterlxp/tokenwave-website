@@ -1,0 +1,20 @@
+{
+ "slug": "codetracer",
+ "tagline": "Measuring whether coding agents can trace intermediate states and localize where a run went wrong",
+ "stats": [
+  {"value": "48.02", "label": "top score (Overall F1)"},
+  {"value": "3", "label": "models scored"},
+  {"value": "1.88", "label": "score spread"}
+ ],
+ "overview": [
+  "Most coding-agent evaluations ask a single question: did the task end in success? CodeTracer asks a harder one. Given an agent's full trajectory, can it accurately trace intermediate states and localize the step where a failure originated? The work introduces CodeTraceBench for this purpose and scores process-aware localization at the step level, reporting precision, recall, and F1 rather than a pass rate.",
+  "CodeTracer is also the name of the framework under test. The leaderboard on this page reports the Overall F1 of the full CodeTracer configuration paired with different backbone models, excluding the paper's Bare LLM and Mini-CodeTracer baselines. The comparison the main table draws is telling: adding the CodeTracer framework to a backbone produces substantial F1 gains, which means the scaffolding around the model does much of the localization work.",
+  "The choice of F1 over raw accuracy is worth pausing on. A tracer that flags every step as suspect would score high recall and useless precision; one that names a single safe guess would do the reverse. Balancing the two forces an agent to commit to a specific, defensible account of where its own execution went wrong — the same discipline a human debugger needs."
+ ],
+ "why": [
+  "A code agent that fails silently is expensive; one that fails and cannot say where is worse, because every failed run becomes a manual forensic exercise. Process-level localization is the capability that turns agent failures from opaque losses into actionable bug reports. Benchmarking it directly, at step granularity, measures whether agents can support the debugging loops that real deployment depends on."
+ ],
+ "reading": [
+  "CodeTracer with a GPT-5 backbone leads at 48.02 Overall F1, 1.45 points ahead of the Claude Sonnet 4 configuration at 46.57, with DeepSeek-V3.2 close behind at 46.14. The entire field spans just 1.88 points — once the framework is fixed, the choice of backbone barely moves the score. The more telling number is the ceiling: even the best configuration clears less than half of the metric's 0-100 range, leaving process-level tracing an open problem rather than a solved one."
+ ]
+}

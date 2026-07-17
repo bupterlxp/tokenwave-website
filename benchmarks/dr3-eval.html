@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DR3-Eval | TokenWave AI</title>
-    <meta name="description" content="DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.">
+    <meta name="description" content="Deep research evaluation that keeps real-file realism while making every run reproducible.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="DR3-Eval | TokenWave AI">
-    <meta property="og:description" content="DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.">
+    <meta property="og:description" content="Deep research evaluation that keeps real-file realism while making every run reproducible.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/dr3-eval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="DR3-Eval | TokenWave AI">
-    <meta name="twitter:description" content="DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.">
+    <meta name="twitter:description" content="Deep research evaluation that keeps real-file realism while making every run reproducible.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/dr3-eval.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Search Agent</div>
             <h1>DR3-Eval</h1>
+            <p class="detail-tagline">Deep research evaluation that keeps real-file realism while making every run reproducible.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Claude Sonnet 4: 65.6</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button" href="https://github.com/NJU-LINK/DR3-Eval" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">512k</div><div class="l">evaluation setting</div></div>
+        <div class="stat-tile"><div class="v">5</div><div class="l">scoring dimensions</div></div>
+        <div class="stat-tile"><div class="v">65.6</div><div class="l">top score (Overall 512k)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.</p>
+        <h2 id="overview">Overview</h2>
+        <p>DR3-Eval takes aim at a tension that has shadowed deep research evaluation from the start: benchmarks built on the live web are realistic but irreproducible, while synthetic ones are stable but artificial. Its answer is to start from real user multimodal files, freeze each task inside a static sandbox, and generate queries through reverse construction — so every system faces the same world, and every run can be replayed.</p>
+        <p>The task itself is multi-file report generation, not short QA or isolated retrieval. A model must work across the files in its sandbox and produce a report that is scored along five dimensions: information recall, factual accuracy, citation coverage, instruction following, and depth quality. These roll up into the Overall score, reported here under the 512k setting on a 0–100 scale.</p>
+        <p>A single number is deliberately not the point. The work emphasizes realism, reproducibility, and failure analysis over headline rankings: the five-way protocol is built to show where a research agent breaks down — thin recall, missing citations, shallow synthesis — not just how it places. That framing matters for a task where fluent output can mask ungrounded content.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Grading a deep research agent on the live web means no two runs see the same evidence, so a two-point gain is indistinguishable from a lucky crawl. DR3-Eval&#x27;s static sandboxes remove that noise without retreating to toy retrieval: tasks still begin from real user multimodal files and still demand full multi-file reports. Reproducibility here is not bookkeeping — it is what lets a score be attributed to the model at all.</p>
+        <p>The five-dimension protocol carries its own argument. A report can read well while citing nothing, or cite densely while missing what the user asked for. Scoring recall, accuracy, citations, instruction following, and depth separately means a system cannot bury one failure mode under fluency in another.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>Even under the strongest current systems, the 512k setting remains challenging.</li>
             <li>The work emphasizes realism, reproducibility, and failure analysis rather than a single score.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>DR3-Eval is designed to make deep research evaluation more realistic, controllable, and reproducible at the same time.</li>
             <li>It starts from real user multimodal files, builds a static sandbox for each task, and generates queries through reverse construction.</li>
@@ -81,10 +96,10 @@
             <li>The main contribution is addressing the long-standing tension between realism and reproducibility in deep research evaluation.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall (512k)</b> &mdash; Higher is better. Overall score under the 512k evaluation setting. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the 512k Overall from the official DR3-Eval project page. Since a stable formal paper release is not yet the main public artifact, this page follows the official project page.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +115,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Claude Sonnet 4 leads at 65.6, but GLM-4.7 sits just 1.5 points behind — close enough that the top of this board is a pairing, not a lead. The real break comes below: Gemini 2.5 Pro trails the leader by 8.6 at 57, and GPT-4.1 and Qwen3-235B land within 0.4 of each other at 51.4 and 51. The full field spans 18.2 points, from 47.4 to 65.6.</p>
+        <p>The more telling number is the distance to the ceiling: on a 0–100 scale, the best system still leaves 34.4 points on the table. That is exactly the claim the benchmark&#x27;s own contributions make — even the strongest current systems find the 512k setting challenging. Whether the next gains come from better recall, tighter citation coverage, or deeper synthesis is what the multi-dimensional protocol exists to reveal.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Reproducible deep-research evaluation</span></li>
             <li><span class="k">Primary metric</span><span>Overall (512k)</span></li>
@@ -111,7 +130,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

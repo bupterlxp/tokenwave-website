@@ -1,0 +1,22 @@
+{
+ "slug": "omnibench",
+ "tagline": "Measuring whether one model can reason over text, image, and audio in a single shared context",
+ "stats": [
+  {"value": "3", "label": "modalities integrated"},
+  {"value": "56.13", "label": "top score (overall)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "18.7", "label": "score spread"}
+ ],
+ "overview": [
+  "OmniBench asks a question most multimodal suites sidestep: can a model recognize, interpret, and reason over text, image, and audio when all three arrive in the same context? The paper calls systems with that capability omni-language models, and every example is human-annotated so that a correct answer genuinely requires tri-modal integration — no single modality, and no pair, is enough on its own.",
+  "The design includes a pointed control: baselines are also tested with alternative textual representations of the image or audio content. Many systems, open-source models included, perform poorly even then. The failure is therefore not just perception — current multimodal training pipelines struggle to build a coherent shared context across three modalities at once, which is the specific weakness OmniBench was built to expose.",
+  "Scores on this page use the Overall metric under the image-and-audio setting, on a 0-100 scale. The paper reports other modality combinations too, but TokenWave keeps them out of this leaderboard: every row should answer the same question under the same conditions. For a benchmark whose whole point is joint context, mixing evaluation settings would blur exactly the distinction it exists to draw."
+ ],
+ "why": [
+  "Vision-language competence and audio-language competence can each be trained in isolation; a unified omni model has to hold both alongside text in one shared context. OmniBench's finding — that many baselines fail even when the image or audio is re-supplied as text — shows the bottleneck is integration, not perception. That distinction matters for anyone deploying a single model across modalities: separate pipelines can hide a fusion weakness that a genuinely tri-modal task will surface immediately."
+ ],
+ "reading": [
+  "Qwen-2.5-Omni leads at 56.13, a full 13.2 points ahead of Gemini 1.5 Pro at 42.91 — the largest gap anywhere on the board. Below it, the field compresses sharply: Gemini and Baichuan-Omni-1.5 are separated by 0.01, and the bottom five sit within 5.6 points of one another. One system has pulled away; the rest form a cluster still working out the same problem.",
+  "The ceiling is the more telling number. Even the leader clears just over half of the 0-100 range, and five of the six systems score below 43, for a first-to-last spread of 18.7 points. Nothing on the board suggests the problem is close to solved; on this evidence, genuine tri-modal integration is a capability the field is still assembling, one model at a time."
+ ]
+}

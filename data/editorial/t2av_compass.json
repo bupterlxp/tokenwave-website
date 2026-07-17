@@ -1,0 +1,23 @@
+{
+ "slug": "t2av_compass",
+ "tagline": "Unified judging of text-to-audio-video generation, where sound, picture, and prompt must cohere",
+ "stats": [
+  {"value": "500", "label": "high-complexity prompts"},
+  {"value": "5", "label": "evaluation dimensions"},
+  {"value": "70.29", "label": "top score (Average)"},
+  {"value": "6", "label": "models scored"}
+ ],
+ "overview": [
+  "T2AV-Compass evaluates systems that generate audio and video together from a single text prompt — a setting where each modality can succeed independently while the pair still fails. It scores five dimensions jointly: video quality, audio quality, cross-modal alignment, instruction following, and realism. The test set is 500 high-complexity prompts, built to push generators past the comfortable cases where a plausible soundtrack can simply be draped over plausible footage.",
+  "Evaluation runs on two tracks. Objective metrics cover what can be measured directly, and an MLLM-as-a-Judge protocol handles the subjective dimensions — a multimodal model watches and listens, then scores what a human panel would otherwise rate. The leaderboard on this page reports the Average column from that subjective table, on a 0-100 scale where higher is better.",
+  "The headline result is diagnostic rather than celebratory. Across current systems, visual quality is no longer the limiting factor; the bottlenecks sit in audio realism and fine-grained cross-modal synchronization. A benchmark that scored video alone would miss exactly the failures this one was built to surface — sound that nearly fits the scene, timing that is close but perceptibly off."
+ ],
+ "why": [
+  "Audio-video generation fails in ways single-modality metrics cannot see. A clip can score well on visual fidelity and pass an audio-quality check while the two tracks drift out of correspondence — and desynchronization is precisely what makes generated media read as fake. By folding cross-modal alignment and realism into one protocol alongside quality and instruction following, T2AV-Compass scores the property that determines usability: coherence of the whole.",
+  "The bottleneck finding also gives builders a target. If audio realism and fine-grained synchronization lag visual quality across every current system, the next round of gains will come from the sound side of these models, not from sharper frames. A unified score makes that trade visible each time the leaderboard updates."
+ ],
+ "reading": [
+  "Veo-3.1 leads at 70.29, but its margin over Sora-2 at 69.83 is 0.46 points — effectively a tie at the top. The more telling structure sits below: five of the six systems land within 4.05 points of each other, and then Wan-2.5 falls away at 61.39, a full 6.29 points behind its own successor Wan-2.6. Right now, generational progress within one model family outweighs the gap between competing frontier labs.",
+  "No system reaches 71 on a 0-100 scale, leaving nearly 30 points of headroom. Read against the paper's diagnosis, the tight clustering makes sense: Google, OpenAI, Kuaishou, Wan, and ByteDance have all pushed visual quality to a similar plateau, and what separates a 66 from a 70 — and both from the ceiling — is the harder residue of audio realism and fine-grained synchronization."
+ ]
+}

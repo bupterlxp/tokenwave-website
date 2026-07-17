@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="description" content="Mapping agentic coding across eight task types, eight scenarios, and ten languages — workflow held fixed.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta property="og:description" content="Mapping agentic coding across eight task types, eight scenarios, and ten languages — workflow held fixed.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:description" content="Mapping agentic coding across eight task types, eight scenarios, and ten languages — workflow held fixed.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>SWE-Compass</h1>
+            <p class="detail-tagline">Mapping agentic coding across eight task types, eight scenarios, and ten languages — workflow held fixed.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
                 <span class="sep">·</span>
@@ -61,18 +62,30 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">2,000</div><div class="l">curated instances</div></div>
+        <div class="stat-tile"><div class="v">8</div><div class="l">task types</div></div>
+        <div class="stat-tile"><div class="v">10</div><div class="l">programming languages</div></div>
+        <div class="stat-tile"><div class="v">32.9</div><div class="l">top score (AVG)</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <h2 id="overview">Overview</h2>
+        <p>SWE-Compass sets out to measure agentic coding the way developers actually encounter it: not as a single task type but as a spread of them. The benchmark collects 2,000 curated instances, most derived from authentic GitHub pull requests and refined through systematic validation, then arranges them across eight task types, eight programming scenarios, and ten programming languages. The result is less a single test than a coordinate system for locating where a model&#x27;s engineering ability holds and where it thins.</p>
+        <p>Execution environment is treated as a variable to control, not an afterthought. The paper benchmarks strong models under two agent frameworks, SWE-Agent and Claude Code, and finds a clear hierarchy of difficulty across tasks, languages, and programming scenarios. This page fixes a single workflow — Claude Code — and reports AVG, an average score on a 0-100 scale, so the leaderboard reflects differences between models rather than differences between the systems that happen to run them.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>An agentic coding score is a joint property of a model and the harness driving it, which is why results from different frameworks are hard to compare. SWE-Compass confronts both halves: breadth, by refusing to reduce software engineering to a single task type in a single language, and comparability, by measuring under two workflows and never averaging across them. For anyone selecting a model for a coding agent, the second discipline matters as much as the first.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
             <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
             <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
@@ -81,10 +94,10 @@
             <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
         <table class="data-table">
             <thead>
@@ -99,7 +112,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Claude Sonnet 4 leads at 32.9 AVG, a full eleven points ahead of Qwen3-Coder-480B-Instruct at 21.9 — under Anthropic&#x27;s own Claude Code workflow, worth remembering when reading the margin. The most interesting gap is the smallest: Qwen3-Coder-30B-Instruct lands 0.3 behind its 480B sibling, while the general-purpose Qwen3-235B falls to 14.7 — coding specialization buys more here than parameter count. With DeepSeek-V3 at 9.8, the field spans 23.1 points, and even the leader clears barely a third of the 0-100 range.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Agentic coding</span></li>
             <li><span class="k">Primary metric</span><span>AVG</span></li>
@@ -118,7 +134,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

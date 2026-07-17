@@ -1,0 +1,22 @@
+{
+ "slug": "finder",
+ "tagline": "Holding deep research agents to analyst standards, one checklist item at a time",
+ "stats": [
+  {"value": "100", "label": "research tasks"},
+  {"value": "419", "label": "checklist items"},
+  {"value": "~1,000", "label": "reports analyzed"},
+  {"value": "72.19", "label": "top score (checklist pass rate)"}
+ ],
+ "overview": [
+  "FINDER asks a harder question than most search-agent benchmarks: not whether an agent can find an answer, but whether it can finish a piece of research. Each of its 100 human-curated tasks calls for an analyst-level report, and every report is judged against structured checklist items — 419 in total — that pin down what the finished product must contain: proper structure, real analytical depth, and claims grounded in evidence.",
+  "Scoring is the Checklist Pass Rate: the share of those items a report actually satisfies, on a 0–100 scale. Because the checklist decomposes each task into concrete requirements, the metric rewards process rather than surface plausibility — a report that reads well but skips a required analysis loses the same points as one that never attempts it.",
+  "The paper goes beyond scoring. From around 1,000 generated reports, it distills the DEFT failure taxonomy, and the diagnosis is pointed: current systems rarely misunderstand the task. Where they break down is in evidence integration, verification, and planning — the long middle of the research process, after the question is clear and before the report is done."
+ ],
+ "why": [
+  "A deep research agent is only useful if you can hand off the work — and hand-off requires trusting the process, not just the prose. An agent that produces a fluent report while silently skipping verification is worse than one that fails visibly. By scoring completion of the research process itself, FINDER measures the property that decides whether these systems save analysts time or merely create review work."
+ ],
+ "reading": [
+  "MiroFlow-English leads at 72.19, 4.65 points ahead of Tongyi-DeepResearch at 67.54, with Kimi K2 less than a point further back at 66.59. The top five sit within roughly eleven points of one another; WebThinker, at 44.87, trails fifth place by more than sixteen. The shape suggests a maturing middle of the field and one clear laggard rather than a single dominant system.",
+  "The ceiling is the more telling number. Even the leader leaves nearly 28 points of the checklist range unclaimed, and the DEFT analysis says where they sit: not in task understanding, which current systems largely manage, but in evidence integration, verification, and planning. A 72.19 here means roughly a quarter of the required analytical work still is not getting done — a useful corrective to demos that look finished."
+ ]
+}

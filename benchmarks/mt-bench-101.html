@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MT-Bench-101 | TokenWave AI</title>
-    <meta name="description" content="MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.">
+    <meta name="description" content="A three-level taxonomy of 13 tasks that scores multi-turn instruction following turn by turn.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="MT-Bench-101 | TokenWave AI">
-    <meta property="og:description" content="MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.">
+    <meta property="og:description" content="A three-level taxonomy of 13 tasks that scores multi-turn instruction following turn by turn.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/mt-bench-101.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MT-Bench-101 | TokenWave AI">
-    <meta name="twitter:description" content="MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.">
+    <meta name="twitter:description" content="A three-level taxonomy of 13 tasks that scores multi-turn instruction following turn by turn.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/mt-bench-101.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Instruction Following</div>
             <h1>MT-Bench-101</h1>
+            <p class="detail-tagline">A three-level taxonomy of 13 tasks that scores multi-turn instruction following turn by turn.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-4: 8.86</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2402.14762" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/mtbench101/mt-bench-101" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2402.14762.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">1,388</div><div class="l">dialogues</div></div>
+        <div class="stat-tile"><div class="v">13</div><div class="l">tasks</div></div>
+        <div class="stat-tile"><div class="v">4,208</div><div class="l">turns</div></div>
+        <div class="stat-tile"><div class="v">8.86</div><div class="l">top score (Avg)</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Chat leaderboards tend to compress an entire conversation into one number, which hides exactly where a dialogue goes wrong. MT-Bench-101 was built against that habit. Drawing on analysis of real multi-turn conversations, it organizes multi-turn instruction following into a three-level ability taxonomy spanning 13 tasks, then evaluates models across 1,388 dialogues and 4,208 individual turns.</p>
+        <p>The taxonomy is the point. Because each dialogue is tagged to a specific task and abilities are tracked across 4,208 turns, the benchmark shows not just whether a model converses well overall but how its performance holds up as a conversation progresses, and on which tasks it slips. Scores keep the paper&#x27;s original 10-point scale, and TokenWave&#x27;s leaderboard uses the paper&#x27;s Avg directly — the benchmark is already a fine-grained decomposition, so there is nothing to recombine.</p>
+        <p>The paper&#x27;s most pointed finding is that common alignment techniques and chat-oriented designs do not clearly improve multi-turn ability. Whatever those interventions optimize, it is not the capability this benchmark isolates. That result reframes real conversational interaction: not a byproduct of chat tuning that comes along for free, but a distinct and still-open challenge that has to be measured on its own terms.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A model that follows an instruction cleanly in isolation can still lose the thread three turns into a real exchange, and a single aggregate chat score cannot tell you which failure you are looking at. MT-Bench-101&#x27;s design — a taxonomy of 13 tasks, with ability tracked across turns — turns that vague unease into something diagnosable. For anyone deploying a conversational system, that is the difference between knowing a model&#x27;s score and knowing its failure modes.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark emphasizes fine-grained multi-turn capability decomposition rather than a coarse chat score.</li>
             <li>The page preserves the paper&#x27;s original 10-point scale.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>MT-Bench-101 is designed for fine-grained evaluation of multi-turn dialogue, addressing the fact that prior dialogue benchmarks are often too coarse or too focused on single-turn settings.</li>
             <li>By analyzing real multi-turn conversations, the paper builds a three-level ability taxonomy spanning 13 tasks, 1,388 dialogues, and 4,208 turns.</li>
@@ -80,10 +94,10 @@
             <li>The study finds that common alignment techniques and chat-oriented designs do not clearly improve multi-turn ability, leaving real conversational interaction as a major challenge for LLMs.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Avg</b> &mdash; Higher is better. Average MT-Bench-101 score. Score range: [0, 10].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard directly uses the paper&#x27;s Avg. Because the benchmark itself is already a fine-grained decomposition, this page does not recombine additional columns.</p>
         <table class="data-table">
             <thead>
@@ -98,7 +112,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-4 leads at 8.86 on the 10-point scale, 0.76 ahead of Yi-34B at 8.10 — the widest gap anywhere in the table. Below it the field compresses: Yi-34B, GPT-3.5 Turbo at 7.99, and Qwen-14B at 7.82 sit within 0.28 of one another, with Mixtral-8x7B trailing at 7.38. The full five-model spread is 1.48 points, and GPT-4&#x27;s margin alone accounts for just over half of it.</p>
+        <p>Even the leader leaves 1.14 points on the table against a perfect 10, and the paper&#x27;s own analysis suggests that margin will not close as a side effect of better chat tuning, since alignment techniques did not clearly help multi-turn ability. With five models scored, the ranking is less a settled order than an early map: one clear leader, a crowded middle, and a ceiling nobody is near.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Multi-turn instruction following</span></li>
             <li><span class="k">Primary metric</span><span>Avg</span></li>
@@ -109,7 +127,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

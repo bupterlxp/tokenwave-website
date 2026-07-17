@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CII-Bench | TokenWave AI</title>
-    <meta name="description" content="CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.">
+    <meta name="description" content="Probing whether multimodal models can read the implied meaning beneath Chinese images and cultural metaphors.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="CII-Bench | TokenWave AI">
-    <meta property="og:description" content="CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.">
+    <meta property="og:description" content="Probing whether multimodal models can read the implied meaning beneath Chinese images and cultural metaphors.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/cii-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CII-Bench | TokenWave AI">
-    <meta name="twitter:description" content="CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.">
+    <meta name="twitter:description" content="Probing whether multimodal models can read the implied meaning beneath Chinese images and cultural metaphors.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/cii-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Image Understanding</div>
             <h1>CII-Bench</h1>
+            <p class="detail-tagline">Probing whether multimodal models can read the implied meaning beneath Chinese images and cultural metaphors.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Qwen2-VL-72B: 64.4</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.13854" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://cii-bench.github.io/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.13854.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">64.4</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">7</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">10.3</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">3.5</div><div class="l">lead margin</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>CII-Bench asks a different question of multimodal models than most image benchmarks do: not what a picture shows, but what it means. It targets deep implication understanding in Chinese images — the implied semantics, emotional undertones, and cultural signals that a literal caption would miss. Performance is reported as Overall accuracy on a 0-100 scale, and that single number anchors the leaderboard on this page.</p>
+        <p>What separates it from generic image suites is where the material comes from. Images are drawn from the Chinese internet and from Chinese traditional culture, then paired with manually reviewed questions and answers so that the original context survives intact. The design forces models to work with visual culture as it actually circulates — metaphors included — where getting the answer right takes background knowledge, not just perception.</p>
+        <p>The paper&#x27;s own findings frame how to read the scores. Current MLLMs still lag far behind humans, and the gap is widest on traditional-culture images and on tasks that demand deeper semantic interpretation. When prompts include emotion hints, performance improves noticeably — evidence that models are not extracting sentiment and cultural cues from the image itself so much as leaning on whatever scaffolding the prompt supplies.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Most vision-language evaluation rewards recognition: identify the object, describe the scene, read the text. Implication is a different skill, and a culturally specific one. Any model serving Chinese-speaking users will constantly meet images whose point is the metaphor rather than the pixels, and CII-Bench&#x27;s persistent human gap shows that this competence cannot be inferred from strong results on generic perception suites.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper highlights the gap between current models and deeper Chinese cultural understanding.</li>
             <li>The page keeps Overall as the main leaderboard and surfaces the cultural-understanding angle in the supplementary section.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>CII-Bench evaluates higher-order understanding of Chinese visual content, focusing on whether models can capture implied semantics, emotions, and cultural signals in Chinese images.</li>
             <li>Unlike generic image benchmarks, it draws images from the Chinese internet and Chinese traditional culture, and pairs them with manually reviewed questions and answers to preserve authentic Chinese context.</li>
@@ -80,10 +94,10 @@
             <li>It also finds that emotion hints can noticeably improve performance, indicating that intrinsic understanding of image sentiment and Chinese cultural cues remains weak.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall</b> &mdash; Higher is better. Overall benchmark accuracy. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses Overall from the main table. The paper also analyzes prompting variants and cultural subdomains, which are not mixed into the main leaderboard here.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +114,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Qwen2-VL-72B leads at 64.4, holding a 3.5-point margin over GLM-4V at 60.9, with Gemini 1.5 Pro another 0.8 back in third. From there the table steps down through InternVL2-40B and Qwen-VL-MAX to GPT-4o and Claude 3.5 Sonnet, tied at 54.1. The whole field fits inside a 10.3-point band, and the ordering carries a signal: the two systems at the top come from Chinese labs, on material drawn from their home context.</p>
+        <p>The ceiling matters more than the ordering. Overall runs to 100, and the leader does not reach two-thirds of it, leaving 35.6 points of headroom on exactly the material the paper flags as weakest — traditional culture and deeper semantic reading. When the spread from first to last, 10.3 points, is less than a third of the distance still to go, the leaderboard is describing a shared deficit rather than a race.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Chinese image implication understanding</span></li>
             <li><span class="k">Primary metric</span><span>Overall</span></li>
@@ -111,7 +129,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

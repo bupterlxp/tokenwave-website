@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIME | TokenWave AI</title>
-    <meta name="description" content="LIME curates a more discriminative and efficient multimodal benchmark by filtering low-value and leakage-prone samples. This page uses the LIME Overall score reported in the paper.">
+    <meta name="description" content="Cutting multimodal evaluation down to the samples that actually separate models.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="LIME | TokenWave AI">
-    <meta property="og:description" content="LIME curates a more discriminative and efficient multimodal benchmark by filtering low-value and leakage-prone samples. This page uses the LIME Overall score reported in the paper.">
+    <meta property="og:description" content="Cutting multimodal evaluation down to the samples that actually separate models.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/lime.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="LIME | TokenWave AI">
-    <meta name="twitter:description" content="LIME curates a more discriminative and efficient multimodal benchmark by filtering low-value and leakage-prone samples. This page uses the LIME Overall score reported in the paper.">
+    <meta name="twitter:description" content="Cutting multimodal evaluation down to the samples that actually separate models.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/lime.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Image Understanding</div>
             <h1>LIME</h1>
+            <p class="detail-tagline">Cutting multimodal evaluation down to the samples that actually separate models.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 InternVL2-40B: 66.85</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2409.06851" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/kangreen0210/LIME" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2409.06851.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">0.91</div><div class="l">WildVision Elo correlation</div></div>
+        <div class="stat-tile"><div class="v">66.85</div><div class="l">top score (LIME Overall)</div></div>
+        <div class="stat-tile"><div class="v">7</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">17.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>LIME curates a more discriminative and efficient multimodal benchmark by filtering low-value and leakage-prone samples. This page uses the LIME Overall score reported in the paper.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most multimodal benchmarks grow by accretion — more samples, more subtasks — and quietly accumulate items that are trivially easy, weakly discriminative, or prone to answer leakage. LIME runs the process in reverse. A semi-automatic pipeline filters out uninformative samples and leakage-prone items, keeping only tasks that genuinely require image understanding. The result is a smaller benchmark built to be more informative per sample.</p>
+        <p>The payoff is twofold. Curation cuts both sample count and evaluation time substantially, and the paper shows the trimmed set is better at telling models apart than the collections it distills. The compressed signal also tracks something external: LIME Overall correlates at 0.91 with WildVision Elo, evidence that removing weak samples does not distort the ranking — it clarifies it.</p>
+        <p>LIME also takes a position on metrics. The paper argues that traditional automatic measures such as CIDEr are insufficient for judging MLLM captions, which extends the project beyond a single leaderboard: it is a worked example of benchmark design, a demonstration that what you delete matters as much as what you collect. Scores are reported as LIME Overall on a 0–100 scale, and this page uses the paper&#x27;s Table 2 main results.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Evaluation cost is now a real constraint: every new model release gets run through a growing stack of benchmarks, and bloated suites full of easy or leaked items burn compute to produce numbers that barely separate systems. A benchmark curated for discrimination inverts that trade — fewer samples, faster runs, wider gaps between models. The 0.91 correlation with WildVision Elo suggests the shortcut costs little in fidelity.</p>
+        <p>There is also a data-hygiene argument. Answer leakage rewards memorization, and samples solvable without the image reward the language prior rather than perception. Filtering both means a LIME score is harder to earn without the capability it claims to measure — visual understanding — which is what anyone comparing MLLMs actually wants a number for.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>LIME is valuable not merely because it rescales scores, but because it recurates the benchmark samples.</li>
             <li>The paper reports a 0.91 correlation between LIME overall score and WildVision Elo.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>LIME is motivated by the idea that MLLM evaluation should be smaller but more informative, because many existing benchmarks contain samples that are too easy or weakly discriminative.</li>
             <li>It uses a semi-automatic pipeline to remove uninformative items, reduce answer leakage, and keep tasks that genuinely require image understanding.</li>
@@ -80,10 +95,10 @@
             <li>It also argues that traditional automatic metrics such as CIDEr are insufficient for MLLM caption evaluation, which makes LIME relevant not only as a benchmark but also as a methodology for benchmark design.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>LIME Overall</b> &mdash; Higher is better. Overall score on the curated LIME benchmark. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses LIME Overall from Table 2 rather than scores on the original benchmark collection. This best reflects the paper&#x27;s &#x27;Less Is More&#x27; contribution.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +115,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>InternVL2-40B leads at 66.85, with Qwen2-VL-7B close behind at 65.28 — a 1.6-point gap that a 7B model nearly closes on a 40B one. The striking feature is the cliff below rank four: the top four models sit within 4.9 points of each other, then the table drops 9.3 points to GPT-4o at 52.63, with Claude 3.5 Sonnet and Gemini 1.5 Pro packed within 3.2 points beneath it.</p>
+        <p>The shape of the table is a result in itself. Models from OpenGVLab, Alibaba, and LLaVA hold the top four positions outright, ahead of GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Pro. The full spread is 17.4 points, and more than half of it opens in the single step between ranks four and five — the clean separation LIME&#x27;s curation exists to produce. The ceiling stays distant, too: the leader clears barely two-thirds of the 0–100 range, with 33 points of headroom on tasks filtered to demand genuine image understanding.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Efficient holistic MLLM evaluation</span></li>
             <li><span class="k">Primary metric</span><span>LIME Overall</span></li>
@@ -111,7 +130,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

@@ -1,0 +1,23 @@
+{
+ "slug": "tvir",
+ "tagline": "Grading deep-research agents on reports where prose and figures must earn their score together",
+ "stats": [
+  {"value": "4", "label": "judged dimensions"},
+  {"value": "2", "label": "assessment tracks"},
+  {"value": "74.44", "label": "top score (Overall Avg)"},
+  {"value": "6", "label": "systems scored"}
+ ],
+ "overview": [
+  "Most deep-research benchmarks grade a wall of text. TVIR grades the report a human analyst would actually deliver: prose interleaved with figures, where the visuals are part of the argument rather than decoration. The benchmark pairs TVIR-BENCH, the evaluation suite, with TVIR-AGENT, a reference system built around explicit multimodal planning and writing, and asks whether current deep-research agents can compose both modalities into a single coherent artifact.",
+  "Every submission is judged along four dimensions — citation support, writing quality, figure quality, and text-visual integration — and the leaderboard metric, Overall Avg, is the mean of the textual and visual assessments on a 0-100 scale. That averaging is the point: a system cannot bank a high score on fluent prose while its charts mislead, or vice versa. Both halves of the report count equally.",
+  "Eligibility is strict in a way worth noting: the leaderboard keeps only systems with complete visual evaluation, so text-only pipelines — including the Gemini-3-Pro Deep Research row from the paper — are excluded rather than scored at a discount. Six systems currently qualify, spanning purpose-built TVIR-Agent variants, external agents such as Manus-1.6 and Genspark Deep Research, and a search-equipped Claude 4.5 Sonnet baseline."
+ ],
+ "why": [
+  "Real research output is multimodal. Analysts communicate with charts because some claims are unreadable as prose, and a deep-research agent that cannot produce a figure — or produces one that contradicts its own text — is not finishing the job. By scoring citation support and text-visual integration alongside writing and figure quality, TVIR measures whether an agent's evidence, argument, and visuals form one consistent document, which is the property a reader actually relies on.",
+  "There is also a gaming argument. When text and visuals are scored separately, an agent can specialize; when the final number is the mean of both assessments, neglecting either modality caps the score. Teams deploying report-writing agents get a single figure that tracks the whole deliverable, not the half of it that is easiest to automate."
+ ],
+ "reading": [
+  "TVIR-Agent (Claude 4.5 Sonnet) leads at 74.44, and the paper's own variants sweep the top three, packed within 1.82 points of each other. The cleanest comparison on the board is the shared base model: the same Claude 4.5 Sonnet, run with search but without the TVIR-Agent pipeline, scores 68.72 — a 5.72-point difference attributable to explicit multimodal planning and writing rather than to the underlying model.",
+  "Below the sweep, Manus-1.6 is the strongest external system at 69.73, with Genspark Deep Research trailing the field at 66.99 — a full spread of just 7.45 points across six systems. That compression, sitting roughly three quarters of the way up a 0-100 scale, suggests current agents have converged on competent-but-not-excellent interleaved reports; the remaining 25.56 points above the leader is where citation, figure, and integration quality still leak."
+ ]
+}

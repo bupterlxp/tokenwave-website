@@ -1,0 +1,21 @@
+{
+ "slug": "worldtravel",
+ "tagline": "Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints",
+ "stats": [
+  {"value": "4", "label": "constraint types"},
+  {"value": "19.33", "label": "top score (Feasibility Rate)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "16.7", "label": "score spread"}
+ ],
+ "overview": [
+  "WorldTravel asks a simple question of multimodal agents: if a traveler followed the plan this model produced, would the day actually work? Each task couples planning to real-world scheduling rules — time slots, reservation requirements, dwell times, opening windows — and the constraints interlock, so an agent cannot adjust one leg of an itinerary without disturbing the others. The information required to satisfy them is multimodal, and this page scores the multimodal setting only.",
+  "Performance is reported as a Feasibility Rate: the share of plans, on a 0–100 scale, that satisfy every constraint at once. There is no partial credit for an itinerary that reads well but violates a single opening window or reservation rule. Framing quality as feasibility rather than fluency is the benchmark's central design choice, and the headline result justifies it — even leading models produce feasible plans only a small fraction of the time."
+ ],
+ "why": [
+  "Travel planning is a stand-in for a broad class of agent work: tasks where correctness is defined by external constraints, not by how plausible the output sounds. A feasibility metric is hard to flatter. Because the constraints are coupled, models that pattern-match itineraries rather than reason over schedules fail in ways a text-quality score would hide — and the same coupling appears in logistics, scheduling, and any deployment where a plan must actually execute."
+ ],
+ "reading": [
+  "GPT-5.2 leads at 19.33, still under a fifth of the 0–100 range, with Claude Opus 4.5 second at 14 and Gemini 3 Pro a further six points back at 8. Doubao-1.8-Pro takes 4, and GPT-5.1 and Claude Sonnet 4.5 share the floor at 2.67. That is a 16.7-point spread, but the more important number is the ceiling: no model on the board produces a feasible plan even one time in five.",
+  "The most telling gap sits inside a single lab: GPT-5.1 scores 2.67 and GPT-5.2 scores 19.33, a sevenfold jump between successive generations. Feasibility under coupled constraints looks less like a capability the field is converging on and more like one that arrives abruptly — and even after that jump, roughly four plans in five from the best model still fail."
+ ]
+}

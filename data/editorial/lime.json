@@ -1,0 +1,35 @@
+{
+ "slug": "lime",
+ "tagline": "Cutting multimodal evaluation down to the samples that actually separate models",
+ "stats": [
+  {
+   "value": "0.91",
+   "label": "WildVision Elo correlation"
+  },
+  {
+   "value": "66.85",
+   "label": "top score (LIME Overall)"
+  },
+  {
+   "value": "7",
+   "label": "models scored"
+  },
+  {
+   "value": "17.4",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "Most multimodal benchmarks grow by accretion — more samples, more subtasks — and quietly accumulate items that are trivially easy, weakly discriminative, or prone to answer leakage. LIME runs the process in reverse. A semi-automatic pipeline filters out uninformative samples and leakage-prone items, keeping only tasks that genuinely require image understanding. The result is a smaller benchmark built to be more informative per sample.",
+  "The payoff is twofold. Curation cuts both sample count and evaluation time substantially, and the paper shows the trimmed set is better at telling models apart than the collections it distills. The compressed signal also tracks something external: LIME Overall correlates at 0.91 with WildVision Elo, evidence that removing weak samples does not distort the ranking — it clarifies it.",
+  "LIME also takes a position on metrics. The paper argues that traditional automatic measures such as CIDEr are insufficient for judging MLLM captions, which extends the project beyond a single leaderboard: it is a worked example of benchmark design, a demonstration that what you delete matters as much as what you collect. Scores are reported as LIME Overall on a 0–100 scale, and this page uses the paper's Table 2 main results."
+ ],
+ "why": [
+  "Evaluation cost is now a real constraint: every new model release gets run through a growing stack of benchmarks, and bloated suites full of easy or leaked items burn compute to produce numbers that barely separate systems. A benchmark curated for discrimination inverts that trade — fewer samples, faster runs, wider gaps between models. The 0.91 correlation with WildVision Elo suggests the shortcut costs little in fidelity.",
+  "There is also a data-hygiene argument. Answer leakage rewards memorization, and samples solvable without the image reward the language prior rather than perception. Filtering both means a LIME score is harder to earn without the capability it claims to measure — visual understanding — which is what anyone comparing MLLMs actually wants a number for."
+ ],
+ "reading": [
+  "InternVL2-40B leads at 66.85, with Qwen2-VL-7B close behind at 65.28 — a 1.6-point gap that a 7B model nearly closes on a 40B one. The striking feature is the cliff below rank four: the top four models sit within 4.9 points of each other, then the table drops 9.3 points to GPT-4o at 52.63, with Claude 3.5 Sonnet and Gemini 1.5 Pro packed within 3.2 points beneath it.",
+  "The shape of the table is a result in itself. Models from OpenGVLab, Alibaba, and LLaVA hold the top four positions outright, ahead of GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Pro. The full spread is 17.4 points, and more than half of it opens in the single step between ranks four and five — the clean separation LIME's curation exists to produce. The ceiling stays distant, too: the leader clears barely two-thirds of the 0–100 range, with 33 points of headroom on tasks filtered to demand genuine image understanding."
+ ]
+}

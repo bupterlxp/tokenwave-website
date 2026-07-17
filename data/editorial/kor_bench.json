@@ -1,0 +1,23 @@
+{
+ "slug": "kor_bench",
+ "tagline": "Isolating rule-based reasoning from memorized knowledge with five families of novel tasks",
+ "stats": [
+  {"value": "5", "label": "task families"},
+  {"value": "72.88", "label": "top score (Overall)"},
+  {"value": "8", "label": "models scored"},
+  {"value": "20.7", "label": "score spread"}
+ ],
+ "overview": [
+  "Most reasoning benchmarks let a well-read model coast: if the training corpus contains the theorem, the trick, or the puzzle itself, recall passes for inference. KOR-Bench is built to close that loophole. Its organizing idea is knowledge-orthogonal reasoning — evaluation designed so that performance depends on understanding and applying rules presented in the prompt, not on domain knowledge absorbed during pretraining.",
+  "The benchmark spans five task families — operation, logic, cipher, puzzle, and counterfactual — each populated with novel rule-driven problems. A model is handed an unfamiliar rule system and must work out its consequences on the spot. Because the rules are new, there is no memorized pattern to lean on; the paper argues this design better reveals whether a model is genuinely reasoning rather than reciting.",
+  "Scoring is a single Overall accuracy on a 0-100 scale, taken from the paper's main results table; integrated-task variants such as Multi-Q, Multi-R, and Multi-RQ are reported separately and kept out of the primary leaderboard. Beyond raw scores, the paper also examines stepwise prompting, self-correction, and task-specific tricks, positioning KOR-Bench as a foundation for general reasoning evaluation."
+ ],
+ "why": [
+  "Contamination and memorization inflate scores on any benchmark whose problems resemble the training distribution, and the inflation is invisible from the score alone. An axis of evaluation that is orthogonal to stored knowledge gives a cleaner signal: it estimates how a model will behave when it meets a rule system it has never seen — which is the ordinary condition of deployment, not the exception.",
+  "The five-family structure also matters practically. Rule application, cipher manipulation, and counterfactual reasoning stress different parts of a model's machinery, so a single Overall number here summarizes breadth rather than one narrow skill — useful when comparing systems that were tuned toward different strengths."
+ ],
+ "reading": [
+  "OpenAI's o1-preview leads at 72.88, with o1-mini close behind at 70.16 — and then the table drops. Claude 3.5 Sonnet, the best system outside that pair, lands at 58.96, a full 11.2 points below o1-mini and roughly four times the gap separating the two o1 models. The remaining six entries, from Sonnet down to Qwen2.5-72B-Instruct at 52.16, compress into under seven points.",
+  "Scale alone is not deciding outcomes here: Qwen2.5-32B-Instruct edges its own 72B sibling, 54.72 to 52.16, and Llama-3.1-405B lands mid-pack at 55.36. Meanwhile the ceiling stays distant — even the leader leaves 27 points of the 0-100 range unclaimed. Reasoning over rules a model has never seen remains a frontier capability, and the two-tier table says only a few systems have crossed into it."
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "slug": "supergpqa",
+ "tagline": "Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist",
+ "stats": [
+  {"value": "285", "label": "graduate disciplines"},
+  {"value": "61.82", "label": "top score (Overall (sample))"},
+  {"value": "10", "label": "models scored"},
+  {"value": "21.1", "label": "score spread"}
+ ],
+ "overview": [
+  "Most knowledge benchmarks sample from the same short list of mainstream subjects, which by now says less about breadth than about familiarity. SuperGPQA takes the opposite bet: it evaluates knowledge and reasoning across 285 graduate-level disciplines, deliberately reaching into the long tail of professional expertise. The goal is coverage of a much wider slice of what humans actually study and practice, not another pass over the fields where models are already well drilled.",
+  "Breadth at this scale creates a quality problem, and the construction pipeline is built around it. Questions pass through Human-LLM collaborative filtering that removes trivial or ambiguous items, backed by a large expert annotation effort. The paper treats this process as a contribution in its own right — a methodology for organizing and managing benchmark construction at the level of hundreds of disciplines, where no single annotation team can cover the ground alone.",
+  "Scoring is sample-level accuracy on a 0-100 scale, reported here as Overall (sample). The paper also breaks results out by subfield, field, and discipline, but this page keeps to the overall number because it maps most directly onto total accuracy: every question counts once, regardless of how crowded or sparse its discipline is. That choice makes the headline score easy to interpret while the finer-grained cuts remain in the paper."
+ ],
+ "why": [
+  "Knowledge evaluation has mostly meant a rotation of familiar subjects, which rewards depth in well-trodden fields and says little about the rest. SuperGPQA's design closes that loophole: with 285 graduate-level disciplines in play, a high overall score has to be earned across long-tail professional domains, not just the areas every benchmark already covers.",
+  "The filtering pipeline matters as much as the breadth. Because trivial and ambiguous questions are removed before scoring, movement on this leaderboard is harder to attribute to pattern-matching or lucky guessing. And the headline finding — that even the strongest current models leave substantial room for improvement — is exactly the kind of signal deployment decisions in specialized settings should rest on."
+ ],
+ "reading": [
+  "DeepSeek-R1 sits on top at 61.82, with o1 close behind at 60.24 — a gap of just 1.6 points between the two leaders. Five points below, o3-mini and Doubao-1.5-Pro are effectively tied at 55.22 and 55.09. Then comes a dense midfield: Qwen-Max, Claude 3.5 Sonnet, Gemini 2.0 Flash, and DeepSeek-V3 all land within 2.7 points of each other, between 50.08 and 47.40.",
+  "The shape of the table is as informative as the order. Ten models span 21 points, from 61.82 down to Qwen2.5-72B-Instruct at 40.75, yet even the leader answers nearly four questions in ten incorrectly — 38 points of the 0-100 range still unclaimed. On a benchmark filtered to remove trivial items, that headroom reads as a genuine knowledge gap across the long tail of disciplines, not noise waiting to be optimized away."
+ ]
+}

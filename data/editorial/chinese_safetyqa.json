@@ -1,0 +1,23 @@
+{
+ "slug": "chinese_safetyqa",
+ "tagline": "Can models answer Chinese legal, policy, and ethics questions correctly — safety as knowledge, not refusal",
+ "stats": [
+  {"value": "73.12", "label": "top score (F-score)"},
+  {"value": "9", "label": "models scored"},
+  {"value": "18.9", "label": "score spread"},
+  {"value": "7", "label": "orgs represented"}
+ ],
+ "overview": [
+  "Most safety benchmarks ask how a model behaves under provocation. Chinese SafetyQA asks something different: what the model actually knows. It poses short-form factual questions about Chinese law, policy, and ethics, and checks whether answers are both accurate and harmless. The premise is that safety factuality — command of the rules and norms a deployment must respect — is a measurable body of knowledge, not a byproduct of refusal training.",
+  "The construction follows the SimpleQA recipe — broad Chinese coverage, diverse topics, tight quality control, static reference answers, and evaluation simple enough to automate — then adds two principles of its own: every question must be safety-relevant, and every question must be harmless to ask. Scoring uses F-score on a 0–100 scale, the same primary metric as Chinese SimpleQA, so the two leaderboards can be read side by side.",
+  "The paper treats the benchmark as an instrument, not just a scoreboard. Beyond ranking mainstream LLMs, it analyzes how safety factuality interacts with retrieval-augmented generation and with robustness under attacks. The recurring finding is uncomfortable for anyone assuming alignment work transfers: a model can be well-aligned in behavior yet thin on the region-specific knowledge that compliant deployment actually requires."
+ ],
+ "why": [
+  "A model can refuse every jailbreak and still misstate the law. For operators, that second failure is the quieter and more expensive one: safety-relevant questions arrive as ordinary queries, and a confident wrong answer about policy or legal obligations carries real consequences. By separating safety knowledge from safety behavior, Chinese SafetyQA gives that gap a number — and the paper's analysis suggests the gap is real.",
+  "The regional framing matters too. Safety norms are jurisdiction-specific, and an evaluation built on another region's assumptions will miss exactly the facts that matter locally. The benchmark's conclusion — that region-specific Chinese evaluation remains necessary before compliant deployment — is an argument that portability should be tested, not presumed."
+ ],
+ "reading": [
+  "o1-preview sits alone at the top with 73.12, a 9.6-point lead over Qwen-Max at 63.49 — the largest gap anywhere on the board. Below it, the field compresses: Qwen-Max and Doubao-1.5-Pro are separated by less than half a point, and five models from GPT-4o (59.44) down to DeepSeek-V2.5 (55.07) fit inside 4.4 points, with Gemini 1.5 Pro closing the table at 54.27.",
+  "Two readings follow. The 18.9-point spread across nine systems shows safety factuality is far from commoditized, and the near-tie between the Alibaba and ByteDance entries suggests Chinese labs cluster on similar knowledge rather than trailing uniformly. With the leader still nearly 27 points shy of the metric's ceiling, no model yet demonstrates the command of Chinese safety facts the benchmark defines as the target."
+ ]
+}

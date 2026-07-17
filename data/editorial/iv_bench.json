@@ -1,0 +1,23 @@
+{
+ "slug": "iv_bench",
+ "tagline": "Video understanding where the frames alone are not enough — a supporting image carries the missing evidence",
+ "stats": [
+  {"value": "2", "label": "evaluation axes"},
+  {"value": "28.9", "label": "top score (overall)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "5.9", "label": "score spread"}
+ ],
+ "overview": [
+  "IV-Bench asks a question most video benchmarks never pose: what happens when the video alone cannot answer? Each task pairs a video with a supporting image, and the benchmark is built around image necessity — the still image is not decoration but evidence, required to reach the correct answer. The result is an evaluation of image-grounded video perception and reasoning, a setting the work argues reflects how some video-understanding tasks actually arise.",
+  "The tasks span two axes, perception and reasoning, so a model must both extract what the image and video jointly show and draw conclusions that neither source supports on its own. Scoring rolls up into a single Overall score on a 0-100 scale, and the leaderboard on this page tracks the Overall column of the paper's main results table.",
+  "IV-Bench sits within long video understanding, where models already contend with extended temporal context; requiring an external image on top of that tightens the problem further. The paper's own results show substantial headroom even for strong models — a signal that image-grounded video reasoning is not a free byproduct of general multimodal training but a capability still to be built."
+ ],
+ "why": [
+  "Most video benchmarks treat the video as self-contained: everything needed to answer sits somewhere in the frames. IV-Bench's image-necessity constraint tests a different skill — binding an external, static reference to a temporal stream. The work argues this is closer to how video tasks actually arise, and the design has teeth: a model that ignores the image has no path to the correct answer.",
+  "For anyone deploying multimodal systems, the numbers here are a caution. The strongest model on this board scores under 29 of 100, so a pipeline that assumes video and reference images will be integrated reliably is assuming a capability the field does not yet have."
+ ],
+ "reading": [
+  "Qwen2.5-VL-72B leads at 28.9, but “leads” overstates the separation: InternVL2.5-78B sits 0.3 behind at 28.6, and the top five — including Gemini 2 Pro at 27.7 and Gemini 2 Flash at 27.4 — are packed within 2.3 points. Only Qwen2.5-VL-32B, at 23.0, falls out of the cluster, giving the board a total spread of 5.9. The largest models from Alibaba and OpenGVLab currently edge out Google's entries, though at margins this thin the ordering is fragile.",
+  "The more telling number is the ceiling. With Overall running 0 to 100, the leader captures less than 29 points of the available range, leaving more than 71 unclaimed. Scale helps within a family — the 72B Qwen beats its 32B sibling by 5.9 points, the 78B InternVL beats the 38B by 2.0 — but nothing on the board suggests scale alone will close that distance."
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "slug": "vidcapbench",
+ "tagline": "Holding video captions to four standards at once: aesthetics, content, motion, and physical law",
+ "stats": [
+  {"value": "4", "label": "quality dimensions"},
+  {"value": "17.1", "label": "top score (Overall Acc)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "4.9", "label": "score spread"}
+ ],
+ "overview": [
+  "Most video-caption benchmarks check whether a description mentions the right objects and events. VidCapBench asks for more: a caption is judged along four dimensions at once — aesthetics, content, motion, and the physical laws governing what happens on screen. The benchmark was built explicitly to address the narrow quality coverage of earlier evaluations, and it pairs automated scoring with human evaluation rather than trusting either alone.",
+  "Scores on this page come from the VidCapBench-AE setting, reported as Overall Acc on a 0–100 scale. The benchmark also tracks Precision, Coverage, and Conciseness, but the leaderboard here does not recombine them; the single accuracy figure is what ranks models. That figure stays low across the board, which the authors read as a sign that fine-grained perception and expression remain unsolved in video captioning."
+ ],
+ "why": [
+  "A caption can name every object in a scene and still misrepresent it — describing motion that never happened, or an outcome that violates basic physics. Single-axis benchmarks cannot see that failure. VidCapBench's four-dimension design treats faithful description as a bundle of distinct skills, and its combination of automated and human judgment guards against scoring artifacts. The uniformly low results suggest current models satisfy none of the dimensions comfortably."
+ ],
+ "reading": [
+  "Gemini 1.5 Pro 002 leads at 17.1 Overall Acc, with GPT-4o-2024-08-06 just 0.3 behind — a tie for practical purposes. The telling number is the ceiling: the leader clears barely a sixth of the 0–100 range, and all six scored models sit within a 4.9-point band. Further down, mPLUG-Owl3-7B at 14.5 edges out Aria at 14.1, while Qwen2-VL-72B trails the field at 12.2 — parameter count evidently does not buy the fine-grained perception this benchmark asks for. The ranking, for now, mostly orders degrees of failure."
+ ]
+}

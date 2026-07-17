@@ -1,0 +1,32 @@
+{
+ "slug": "mvu_eval",
+ "tagline": "Testing whether multimodal models can compare, retrieve, and reason across several videos at once",
+ "stats": [
+  {
+   "value": "58.4",
+   "label": "top score (Overall)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "2.5",
+   "label": "top-five spread"
+  },
+  {
+   "value": "7.8",
+   "label": "full score range"
+  }
+ ],
+ "overview": [
+  "Nearly every video benchmark hands a model one clip and asks questions about it. MVU-Eval breaks that assumption: each task requires holding several videos in view at once — comparing what they show, retrieving the relevant one, or reasoning over evidence scattered across them. The benchmark's premise, argued directly by its authors, is that real workloads routinely demand this kind of joint analysis, and single-video evaluation never touches it.",
+  "Coverage spans both perception and reasoning: object recognition, spatial understanding, knowledge-intensive reasoning, and retrieval-augmented tasks in which the useful evidence must first be found among the inputs. Everything rolls up into a single Overall accuracy on a 0-100 scale — the same column this leaderboard reports, taken from the paper's main table without recombining the perception and reasoning subtasks."
+ ],
+ "why": [
+  "MVU-Eval's authors report that multi-video settings significantly separate model capabilities — the format itself is diagnostic, not merely harder. What it isolates is cross-instance integration: carrying objects, spatial relations, and facts from one clip into a question that spans another. Any workload that hands a model several videos rather than one is implicitly betting on that capability, and single-video benchmarks offer no way to price the bet."
+ ],
+ "reading": [
+  "Gemini 2.5 Pro leads at 58.4, but only 1.1 points ahead of its own predecessor, Gemini 1.5 Pro at 57.3, with Qwen2.5-VL-72B a further 0.2 behind. Five systems sit within 2.5 points of each other; then a 5.3-point drop to InternVL3-78B at 50.6 marks the only real break in the table. The sharper story is the ceiling: no model clears 60 on a 0-100 scale, so more than forty points of headroom remain before multi-video understanding looks solved."
+ ]
+}

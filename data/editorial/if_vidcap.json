@@ -1,0 +1,22 @@
+{
+ "slug": "if_vidcap",
+ "tagline": "Video captioning graded on obedience — format, keywords, and structure, not just content coverage",
+ "stats": [
+  {"value": "74.53", "label": "top score (Overall CSR)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "2", "label": "constraint families"},
+  {"value": "7.1", "label": "score spread"}
+ ],
+ "overview": [
+  "Most video captioning benchmarks ask one question: did the model describe what happened? IF-VidCap asks a second, harder one: did it describe it the way it was told to? Each prompt carries explicit instructions on format, required keywords, and structure, and the benchmark scores whether the caption satisfies them. The position behind the design is that content coverage alone is an incomplete account of what a captioning model is asked to do in practice.",
+  "Constraints come in two families. Rule-based constraints admit deterministic checks; open-ended constraints do not, and instead demand a broader judgment of whether a caption honors the request. Combining both lets IF-VidCap probe instruction following systematically, beyond the cases a fixed rule can reach. Performance is summarized as Overall CSR on a 0–100 scale, higher being better, and this page ranks models by that figure from the paper's main results table rather than the alternative ISR summary.",
+  "The paper's headline result is blunt. Leading closed-source models and the strongest open-source systems hold a clear advantage over the rest of the field, yet none of them solves strict instruction following. That framing is worth keeping in view when reading the leaderboard: scores in the low seventies mark the current frontier of the task, not a benchmark approaching saturation."
+ ],
+ "why": [
+  "Captions rarely exist for their own sake. They feed downstream consumers — indexes, pipelines, editing workflows — and those consumers impose formats, required terms, and structural conventions. A model that perceives a video accurately but ignores the specification still breaks whatever sits downstream. By grading compliance with explicit constraints instead of content coverage alone, IF-VidCap measures the gap between describing well and delivering to spec — the gap deployment actually punishes."
+ ],
+ "reading": [
+  "Gemini 2.5 Pro leads at 74.53 Overall CSR, 1.9 points clear of Gemini 2.5 Flash. Below that, the board compresses hard: Qwen3-VL-Instruct, InternVL-3.5-241B, and GPT-4o all land within 1.9 points of second place, which puts strong open-source models effectively level with the closed-source field. Only Gemini 2.0 Flash trails at 67.45, and even that is just 7.1 points off the lead — the entire six-model spread fits inside eight points.",
+  "The more telling number is the headroom. The best model leaves roughly a quarter of the 0–100 range unclaimed, and the paper's own conclusion — that strict instruction following remains unsolved — says the missing points are not noise. The tight clustering reads as a shared plateau rather than one lab's edge: further progress means satisfying constraints every current model fails, not reshuffling ranks separated by fractions of a point."
+ ]
+}

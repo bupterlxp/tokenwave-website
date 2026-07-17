@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACADREASON | TokenWave AI</title>
-    <meta name="description" content="ACADREASON evaluates model reasoning on real academic research problems across disciplines. This page uses the average score from the paper&#x27;s main table.">
+    <meta name="description" content="Real research problems from five disciplines, built to test synthesis rather than exam recall.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="ACADREASON | TokenWave AI">
-    <meta property="og:description" content="ACADREASON evaluates model reasoning on real academic research problems across disciplines. This page uses the average score from the paper&#x27;s main table.">
+    <meta property="og:description" content="Real research problems from five disciplines, built to test synthesis rather than exam recall.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/acadreason.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ACADREASON | TokenWave AI">
-    <meta name="twitter:description" content="ACADREASON evaluates model reasoning on real academic research problems across disciplines. This page uses the average score from the paper&#x27;s main table.">
+    <meta name="twitter:description" content="Real research problems from five disciplines, built to test synthesis rather than exam recall.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/acadreason.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Search Agent</div>
             <h1>ACADREASON</h1>
+            <p class="detail-tagline">Real research problems from five disciplines, built to test synthesis rather than exam recall.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-5: 40.5</span>
                 <span class="sep">·</span>
@@ -61,22 +62,35 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2510.11652" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2510.11652.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">5</div><div class="l">academic disciplines</div></div>
+        <div class="stat-tile"><div class="v">40.5</div><div class="l">top score (Average Score)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">16.7</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>ACADREASON evaluates model reasoning on real academic research problems across disciplines. This page uses the average score from the paper&#x27;s main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>ACADREASON swaps exam questions for the real thing: research problems drawn from genuine academic work in computer science, economics, law, mathematics, and philosophy. Where a typical benchmark rewards retrieving a known answer, these tasks are open-ended by construction — the model has to pull material from multiple sources and sustain a line of reasoning over a long horizon before anything resembling an answer takes shape.</p>
+        <p>Scoring uses the average score from the paper&#x27;s main results table, on a 0 to 100 scale where higher is better. The paper reports each result as a solved count alongside an average score; TokenWave tracks the average-score term, which captures graded progress on problems too hard for a clean solve. The headline finding is blunt: even leading models achieve limited overall performance on genuine academic reasoning.</p>
+        <p>The benchmark sits in the search-agent category for a reason. Multi-source synthesis is not incidental to these problems; it is the work. A research question in law or economics rarely resolves from a single passage, so the evaluation implicitly measures how well a model can locate, weigh, and combine evidence — the loop that separates a research assistant from an answer engine.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>The benchmark is built on an explicit contrast. Exam-style evaluation rewards producing a known answer in a fixed format; research demands open-ended exploration, synthesis across sources, and reasoning that stays coherent over a long horizon. Those are the capabilities that matter if models are to assist actual scholarship in fields as different as mathematics and law — and they are the ones ACADREASON isolates by using real research problems as the testbed.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work uses real academic research problems as a challenging testbed across computer science, economics, law, mathematics, and philosophy.</li>
             <li>Unlike exam-style benchmarks, ACADREASON emphasizes open-ended research tasks, multi-source synthesis, and long-horizon reasoning.</li>
             <li>The results show that even leading models still achieve limited overall performance on genuine academic reasoning problems.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Average Score</b> &mdash; Higher is better. Average score value from the main ACADREASON results table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The main table reports results as &#x27;solved count / average score&#x27;; this page uses the average-score term after the slash.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +106,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-5 leads at 40.5, a full 7.1 points ahead of o3 at 33.4 — and OpenAI holds the entire top three, with GPT-OSS close behind at 32.2. Below that the board compresses: DeepSeek-V3.1, Claude 4 Sonnet, and DeepSeek-R1 sit within a single point of each other, 24.8 down to 23.8. The whole field spans just 16.7 points, all of it in the bottom half of the scale.</p>
+        <p>Still, the ordering matters less than the altitude. Even the leader leaves nearly 60 points of the 0-100 range unclaimed, which is the paper&#x27;s own conclusion in numeric form: leading models still achieve limited performance on genuine academic reasoning. The interesting race here is not between labs but between the field and the problems.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Academic research reasoning</span></li>
             <li><span class="k">Primary metric</span><span>Average Score</span></li>
@@ -102,7 +120,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

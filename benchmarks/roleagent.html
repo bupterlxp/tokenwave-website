@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoleAgent | TokenWave AI</title>
-    <meta name="description" content="RoleAgent benchmarks the building and interaction quality of role-playing agents. This page uses General Response WR-H on the English setting as the primary leaderboard.">
+    <meta name="description" content="Building role-playing agents straight from raw scripts, then scoring how well they hold the role.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="RoleAgent | TokenWave AI">
-    <meta property="og:description" content="RoleAgent benchmarks the building and interaction quality of role-playing agents. This page uses General Response WR-H on the English setting as the primary leaderboard.">
+    <meta property="og:description" content="Building role-playing agents straight from raw scripts, then scoring how well they hold the role.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/roleagent.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="RoleAgent | TokenWave AI">
-    <meta name="twitter:description" content="RoleAgent benchmarks the building and interaction quality of role-playing agents. This page uses General Response WR-H on the English setting as the primary leaderboard.">
+    <meta name="twitter:description" content="Building role-playing agents straight from raw scripts, then scoring how well they hold the role.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/roleagent.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Role-playing</div>
             <h1>RoleAgent</h1>
+            <p class="detail-tagline">Building role-playing agents straight from raw scripts, then scoring how well they hold the role.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Qwen-Max: 54.3</span>
                 <span class="sep">·</span>
@@ -61,18 +62,30 @@
     <div class="detail-actions"><a class="button primary" href="https://openreview.net/forum?id=hORTHzt2cE" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4</div><div class="l">evaluated abilities</div></div>
+        <div class="stat-tile"><div class="v">54.3</div><div class="l">top score (WR-H)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">15.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>RoleAgent benchmarks the building and interaction quality of role-playing agents. This page uses General Response WR-H on the English setting as the primary leaderboard.</p>
+        <h2 id="overview">Overview</h2>
+        <p>RoleAgent asks whether a convincing role-playing agent can be built automatically from a raw script, with no hand-written character profile in the loop. Its building stage parses the script and constructs a hierarchical memory system for each role; its interaction stage then runs a pipeline of query decomposition, memory retrieval, summarization, and response generation. The companion suite, RoleAgentBench, measures what the resulting agents can actually do in conversation.</p>
+        <p>Evaluation is deliberately multi-dimensional. RoleAgentBench probes four abilities — self-knowledge, reaction, general response, and summarization — reflecting the distinct ways a role agent can fail: forgetting who it is, reacting out of character, or losing the thread of a long exchange. The paper reports no single unified score, so this page adopts the most user-facing measure as its primary leaderboard: General Response WR-H, a human win rate on response quality from the English evaluation subset, on a 0–100 scale.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Manual profile creation is the bottleneck that keeps role-playing agents from scaling: every new character costs curation effort, and quality inherits the curator&#x27;s blind spots. Scoring agents built straight from scripts tests the version of this technology that could actually ship broadly. And judging general responses by human win rate keeps the target honest — not adherence to a rubric, but whether a person prefers what the agent says.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper does not report one unified overall score, so the page uses the most user-facing human win rate as the primary leaderboard.</li>
             <li>Self-knowledge and reaction are also preserved to reflect the structure of role-agent ability.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>RoleAgent aims to automatically build high-quality role-playing agents from raw scripts without manual profile creation.</li>
             <li>In the building stage, it parses scripts and constructs a hierarchical memory system for each role.</li>
@@ -81,10 +94,10 @@
             <li>Its core contribution is combining scalable script-based role construction with a systematic evaluation benchmark.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>General Response WR-H</b> &mdash; Higher is better. Human win rate on general response quality. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses General Response WR-H from the English evaluation subset. Since the paper emphasizes multi-dimensional role-agent ability, a few auxiliary metrics are kept as well.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +113,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Qwen-Max leads at 54.3, the only entry above the midpoint of the 0–100 win-rate scale; GPT-4 follows at 49.7, a 4.6-point gap. The full field spans just 15.4 points down to Llama-3-8B at 38.9, and the middle is crowded: Qwen1.5-14B at 45.3, Yi-34B at 42.5, and GPT-3.5 Turbo at 41.5 sit within four points of one another.</p>
+        <p>Because the metric is a human win rate, the leader&#x27;s number carries a plain meaning: judges prefer its responses only slightly more often than not, and most of the 0–100 range is unclaimed. That Qwen1.5-14B lands within 4.4 points of GPT-4 hints that the surrounding machinery — script parsing, hierarchical memory, retrieval — sets much of the score, not backbone scale alone.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Role-playing agents</span></li>
             <li><span class="k">Primary metric</span><span>General Response WR-H</span></li>
@@ -111,7 +128,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

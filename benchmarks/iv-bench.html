@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IV-Bench | TokenWave AI</title>
-    <meta name="description" content="IV-Bench evaluates image-grounded video perception and reasoning. This page uses the Overall score from the main table.">
+    <meta name="description" content="Video understanding where the frames alone are not enough — a supporting image carries the missing evidence.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="IV-Bench | TokenWave AI">
-    <meta property="og:description" content="IV-Bench evaluates image-grounded video perception and reasoning. This page uses the Overall score from the main table.">
+    <meta property="og:description" content="Video understanding where the frames alone are not enough — a supporting image carries the missing evidence.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/iv-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="IV-Bench | TokenWave AI">
-    <meta name="twitter:description" content="IV-Bench evaluates image-grounded video perception and reasoning. This page uses the Overall score from the main table.">
+    <meta name="twitter:description" content="Video understanding where the frames alone are not enough — a supporting image carries the missing evidence.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/iv-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Long Video Understanding</div>
             <h1>IV-Bench</h1>
+            <p class="detail-tagline">Video understanding where the frames alone are not enough — a supporting image carries the missing evidence.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Qwen2.5-VL-72B: 28.9</span>
                 <span class="sep">·</span>
@@ -61,22 +62,36 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2504.15415" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/IV-Bench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2504.15415.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">2</div><div class="l">evaluation axes</div></div>
+        <div class="stat-tile"><div class="v">28.9</div><div class="l">top score (overall)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">5.9</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>IV-Bench evaluates image-grounded video perception and reasoning. This page uses the Overall score from the main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>IV-Bench asks a question most video benchmarks never pose: what happens when the video alone cannot answer? Each task pairs a video with a supporting image, and the benchmark is built around image necessity — the still image is not decoration but evidence, required to reach the correct answer. The result is an evaluation of image-grounded video perception and reasoning, a setting the work argues reflects how some video-understanding tasks actually arise.</p>
+        <p>The tasks span two axes, perception and reasoning, so a model must both extract what the image and video jointly show and draw conclusions that neither source supports on its own. Scoring rolls up into a single Overall score on a 0-100 scale, and the leaderboard on this page tracks the Overall column of the paper&#x27;s main results table.</p>
+        <p>IV-Bench sits within long video understanding, where models already contend with extended temporal context; requiring an external image on top of that tightens the problem further. The paper&#x27;s own results show substantial headroom even for strong models — a signal that image-grounded video reasoning is not a free byproduct of general multimodal training but a capability still to be built.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Most video benchmarks treat the video as self-contained: everything needed to answer sits somewhere in the frames. IV-Bench&#x27;s image-necessity constraint tests a different skill — binding an external, static reference to a temporal stream. The work argues this is closer to how video tasks actually arise, and the design has teeth: a model that ignores the image has no path to the correct answer.</p>
+        <p>For anyone deploying multimodal systems, the numbers here are a caution. The strongest model on this board scores under 29 of 100, so a pipeline that assumes video and reference images will be integrated reliably is assuming a capability the field does not yet have.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work argues that some video-understanding tasks require supporting images in addition to the video stream itself.</li>
             <li>IV-Bench covers both perception and reasoning, and uses image necessity to make the tasks more realistic and challenging.</li>
             <li>The results show substantial headroom even for strong models, indicating that image-grounded video reasoning remains difficult.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall</b> &mdash; Higher is better. Overall score on the main IV-Bench results table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall column from the main IV-Bench table.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +107,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Qwen2.5-VL-72B leads at 28.9, but “leads” overstates the separation: InternVL2.5-78B sits 0.3 behind at 28.6, and the top five — including Gemini 2 Pro at 27.7 and Gemini 2 Flash at 27.4 — are packed within 2.3 points. Only Qwen2.5-VL-32B, at 23.0, falls out of the cluster, giving the board a total spread of 5.9. The largest models from Alibaba and OpenGVLab currently edge out Google&#x27;s entries, though at margins this thin the ordering is fragile.</p>
+        <p>The more telling number is the ceiling. With Overall running 0 to 100, the leader captures less than 29 points of the available range, leaving more than 71 unclaimed. Scale helps within a family — the 72B Qwen beats its 32B sibling by 5.9 points, the 78B InternVL beats the 38B by 2.0 — but nothing on the board suggests scale alone will close that distance.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Image-grounded video reasoning</span></li>
             <li><span class="k">Primary metric</span><span>Overall</span></li>
@@ -102,7 +121,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

@@ -1,0 +1,23 @@
+{
+ "slug": "conceptmath",
+ "tagline": "Concept-by-concept math diagnosis in two languages, exposing the failures a single average score hides",
+ "stats": [
+  {"value": "2", "label": "languages"},
+  {"value": "78.02", "label": "top score (avg)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "23.7", "label": "score spread"}
+ ],
+ "overview": [
+  "ConceptMath evaluates mathematical reasoning one concept at a time. Instead of collapsing a model's ability into a single accuracy figure, it organizes problems under a hierarchy of mathematical concepts and scores performance at each node, in both Chinese and English. The result is a bilingual benchmark that can be read globally — the Avg column reported here — or zoomed all the way in to a specific basic concept.",
+  "That granularity is the benchmark's central finding as much as its design. The paper shows that models with strong averages on traditional math benchmarks still harbor severe weaknesses — in some cases catastrophic failures — on specific basic concepts. A coarse score treats those holes as rounding error; a concept-wise one puts them in plain view.",
+  "The leaderboard on this page uses the Avg column from the paper's main table, deliberately folding the education-system and prompting variants into one number rather than fragmenting the comparison. Avg runs from 0 to 100, higher is better, and it sits on top of the concept-level detail: the summary ranks the models, while the underlying hierarchy explains where each one earns or loses its points."
+ ],
+ "why": [
+  "Anyone relying on a model for mathematics inherits its weakest concept, not its average. ConceptMath's design targets exactly that exposure: a model can look competent in aggregate while failing reliably whenever a particular basic concept appears. Concept-level scores also make improvement actionable — the paper positions the benchmark as a diagnostic for targeted, concept-level fine-tuning, not merely as another ranking.",
+  "The bilingual construction matters too. Covering Chinese and English under one concept hierarchy lets the same diagnosis run across education systems, separating what a model knows from the language it was asked in. When scores diverge between the two, that gap is itself diagnostic information."
+ ],
+ "reading": [
+  "GPT-4 leads at 78.02, 7.3 points clear of Qwen-72B, while Qwen-72B and GPT-3.5 Turbo are effectively tied at 70.73 and 70.58. The most telling entry is DeepSeekMath-7B at 64.02 — the smallest model on the board by its name, yet ahead of Yi-34B (57.31) and Qwen-14B (54.36), a sign that math-focused training can outweigh raw size here.",
+  "The full board spans 23.7 points, from Qwen-14B's 54.36 to the top, and even the leader sits 22 points short of the metric's ceiling of 100. Given the paper's finding that strong averages can coexist with catastrophic failures on individual concepts, GPT-4's 78.02 is best read as a summary that still conceals variance — the distance to 100 is where the concept-level holes live."
+ ]
+}

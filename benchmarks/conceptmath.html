@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConceptMath | TokenWave AI</title>
-    <meta name="description" content="ConceptMath is a bilingual concept-wise benchmark for mathematical reasoning. This page uses the Avg column from the paper&#x27;s main table.">
+    <meta name="description" content="Concept-by-concept math diagnosis in two languages, exposing the failures a single average score hides.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="ConceptMath | TokenWave AI">
-    <meta property="og:description" content="ConceptMath is a bilingual concept-wise benchmark for mathematical reasoning. This page uses the Avg column from the paper&#x27;s main table.">
+    <meta property="og:description" content="Concept-by-concept math diagnosis in two languages, exposing the failures a single average score hides.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/conceptmath.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ConceptMath | TokenWave AI">
-    <meta name="twitter:description" content="ConceptMath is a bilingual concept-wise benchmark for mathematical reasoning. This page uses the Avg column from the paper&#x27;s main table.">
+    <meta name="twitter:description" content="Concept-by-concept math diagnosis in two languages, exposing the failures a single average score hides.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/conceptmath.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Math</div>
             <h1>ConceptMath</h1>
+            <p class="detail-tagline">Concept-by-concept math diagnosis in two languages, exposing the failures a single average score hides.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-4: 78.02</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2402.14660" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/conceptmath/conceptmath" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2402.14660.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">2</div><div class="l">languages</div></div>
+        <div class="stat-tile"><div class="v">78.02</div><div class="l">top score (avg)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">23.7</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>ConceptMath is a bilingual concept-wise benchmark for mathematical reasoning. This page uses the Avg column from the paper&#x27;s main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>ConceptMath evaluates mathematical reasoning one concept at a time. Instead of collapsing a model&#x27;s ability into a single accuracy figure, it organizes problems under a hierarchy of mathematical concepts and scores performance at each node, in both Chinese and English. The result is a bilingual benchmark that can be read globally — the Avg column reported here — or zoomed all the way in to a specific basic concept.</p>
+        <p>That granularity is the benchmark&#x27;s central finding as much as its design. The paper shows that models with strong averages on traditional math benchmarks still harbor severe weaknesses — in some cases catastrophic failures — on specific basic concepts. A coarse score treats those holes as rounding error; a concept-wise one puts them in plain view.</p>
+        <p>The leaderboard on this page uses the Avg column from the paper&#x27;s main table, deliberately folding the education-system and prompting variants into one number rather than fragmenting the comparison. Avg runs from 0 to 100, higher is better, and it sits on top of the concept-level detail: the summary ranks the models, while the underlying hierarchy explains where each one earns or loses its points.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Anyone relying on a model for mathematics inherits its weakest concept, not its average. ConceptMath&#x27;s design targets exactly that exposure: a model can look competent in aggregate while failing reliably whenever a particular basic concept appears. Concept-level scores also make improvement actionable — the paper positions the benchmark as a diagnostic for targeted, concept-level fine-tuning, not merely as another ranking.</p>
+        <p>The bilingual construction matters too. Covering Chinese and English under one concept hierarchy lets the same diagnosis run across education systems, separating what a model knows from the language it was asked in. When scores diverge between the two, that gap is itself diagnostic information.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The core value of ConceptMath is concept-level diagnosis rather than one coarse math score.</li>
             <li>The page uses Avg to avoid fragmenting the site into too many education-system and prompting variants.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>ConceptMath moves math evaluation beyond average accuracy by measuring performance at the level of individual mathematical concepts.</li>
             <li>The benchmark is bilingual in Chinese and English and organizes problems under a concept hierarchy, so models can be analyzed both globally and at fine granularity.</li>
@@ -80,10 +95,10 @@
             <li>As a result, ConceptMath serves not only as a leaderboard but also as a diagnostic tool for targeted improvement and concept-level fine-tuning.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Avg</b> &mdash; Higher is better. Average ConceptMath score across systems and prompt settings. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses Avg from Table 2. The paper also includes detailed splits by language system and prompting setup, which are not mixed here.</p>
         <table class="data-table">
             <thead>
@@ -99,7 +114,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-4 leads at 78.02, 7.3 points clear of Qwen-72B, while Qwen-72B and GPT-3.5 Turbo are effectively tied at 70.73 and 70.58. The most telling entry is DeepSeekMath-7B at 64.02 — the smallest model on the board by its name, yet ahead of Yi-34B (57.31) and Qwen-14B (54.36), a sign that math-focused training can outweigh raw size here.</p>
+        <p>The full board spans 23.7 points, from Qwen-14B&#x27;s 54.36 to the top, and even the leader sits 22 points short of the metric&#x27;s ceiling of 100. Given the paper&#x27;s finding that strong averages can coexist with catastrophic failures on individual concepts, GPT-4&#x27;s 78.02 is best read as a summary that still conceals variance — the distance to 100 is where the concept-level holes live.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Bilingual concept-level math reasoning</span></li>
             <li><span class="k">Primary metric</span><span>Avg</span></li>
@@ -110,7 +129,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperGPQA | TokenWave AI</title>
-    <meta name="description" content="SuperGPQA evaluates knowledge and reasoning across 285 graduate disciplines. This page uses Overall (sample).">
+    <meta name="description" content="Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="SuperGPQA | TokenWave AI">
-    <meta property="og:description" content="SuperGPQA evaluates knowledge and reasoning across 285 graduate disciplines. This page uses Overall (sample).">
+    <meta property="og:description" content="Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/supergpqa.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SuperGPQA | TokenWave AI">
-    <meta name="twitter:description" content="SuperGPQA evaluates knowledge and reasoning across 285 graduate disciplines. This page uses Overall (sample).">
+    <meta name="twitter:description" content="Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/supergpqa.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Knowledge</div>
             <h1>SuperGPQA</h1>
+            <p class="detail-tagline">Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 DeepSeek-R1: 61.82</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2502.14739" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2502.14739.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">285</div><div class="l">graduate disciplines</div></div>
+        <div class="stat-tile"><div class="v">61.82</div><div class="l">top score (Overall (sample))</div></div>
+        <div class="stat-tile"><div class="v">10</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">21.1</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>SuperGPQA evaluates knowledge and reasoning across 285 graduate disciplines. This page uses Overall (sample).</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most knowledge benchmarks sample from the same short list of mainstream subjects, which by now says less about breadth than about familiarity. SuperGPQA takes the opposite bet: it evaluates knowledge and reasoning across 285 graduate-level disciplines, deliberately reaching into the long tail of professional expertise. The goal is coverage of a much wider slice of what humans actually study and practice, not another pass over the fields where models are already well drilled.</p>
+        <p>Breadth at this scale creates a quality problem, and the construction pipeline is built around it. Questions pass through Human-LLM collaborative filtering that removes trivial or ambiguous items, backed by a large expert annotation effort. The paper treats this process as a contribution in its own right — a methodology for organizing and managing benchmark construction at the level of hundreds of disciplines, where no single annotation team can cover the ground alone.</p>
+        <p>Scoring is sample-level accuracy on a 0-100 scale, reported here as Overall (sample). The paper also breaks results out by subfield, field, and discipline, but this page keeps to the overall number because it maps most directly onto total accuracy: every question counts once, regardless of how crowded or sparse its discipline is. That choice makes the headline score easy to interpret while the finer-grained cuts remain in the paper.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Knowledge evaluation has mostly meant a rotation of familiar subjects, which rewards depth in well-trodden fields and says little about the rest. SuperGPQA&#x27;s design closes that loophole: with 285 graduate-level disciplines in play, a high overall score has to be earned across long-tail professional domains, not just the areas every benchmark already covers.</p>
+        <p>The filtering pipeline matters as much as the breadth. Because trivial and ambiguous questions are removed before scoring, movement on this leaderboard is harder to attribute to pattern-matching or lucky guessing. And the headline finding — that even the strongest current models leave substantial room for improvement — is exactly the kind of signal deployment decisions in specialized settings should rest on.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark extends far beyond common STEM areas to 285 graduate-level disciplines.</li>
             <li>The page uses the sample-level overall because it maps most directly to total accuracy.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>SuperGPQA expands LLM knowledge evaluation from a handful of mainstream subjects to 285 graduate-level disciplines, aiming to cover a much broader slice of human expertise.</li>
             <li>It uses a Human-LLM collaborative filtering pipeline to remove trivial or ambiguous questions, together with a large expert annotation process to maintain quality.</li>
@@ -80,10 +95,10 @@
             <li>Beyond the leaderboard itself, the work also offers a methodology for organizing and managing large-scale discipline-level benchmark construction.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall (sample)</b> &mdash; Higher is better. Overall sample-level accuracy. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses Overall (sample). The paper also reports subfield, field, and discipline-level results, which are not mixed here.</p>
         <table class="data-table">
             <thead>
@@ -103,7 +118,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>DeepSeek-R1 sits on top at 61.82, with o1 close behind at 60.24 — a gap of just 1.6 points between the two leaders. Five points below, o3-mini and Doubao-1.5-Pro are effectively tied at 55.22 and 55.09. Then comes a dense midfield: Qwen-Max, Claude 3.5 Sonnet, Gemini 2.0 Flash, and DeepSeek-V3 all land within 2.7 points of each other, between 50.08 and 47.40.</p>
+        <p>The shape of the table is as informative as the order. Ten models span 21 points, from 61.82 down to Qwen2.5-72B-Instruct at 40.75, yet even the leader answers nearly four questions in ten incorrectly — 38 points of the 0-100 range still unclaimed. On a benchmark filtered to remove trivial items, that headroom reads as a genuine knowledge gap across the long tail of disciplines, not noise waiting to be optimized away.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Cross-disciplinary graduate knowledge</span></li>
             <li><span class="k">Primary metric</span><span>Overall (sample)</span></li>
@@ -122,7 +141,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

@@ -1,0 +1,23 @@
+{
+ "slug": "safedialbench",
+ "tagline": "Testing whether safety holds up over turns, not prompts — jailbreak resistance in multi-turn dialogue",
+ "stats": [
+  {"value": "4,000+", "label": "multi-turn conversations"},
+  {"value": "22", "label": "dialogue scenarios"},
+  {"value": "6", "label": "safety dimensions"},
+  {"value": "0.49", "label": "lowest ASR"}
+ ],
+ "overview": [
+  "A refusal that holds for one message proves little. SafeDialBench tests whether it holds for a whole conversation, probing jailbreak resistance in multi-turn dialogue where an attacker can build context, rephrase, and escalate across turns. The benchmark rests on a two-level safety taxonomy spanning 6 safety dimensions and 22 dialogue scenarios, from which the authors generate more than 4,000 multi-turn conversations in Chinese and English, each threaded with diverse jailbreak attacks.",
+  "Scoring is attack success rate on a 0 to 1 scale, and lower is better — one of the few leaderboards on this site where the sort direction reverses. Underneath the headline number sits an automatic assessment framework that decomposes safety into three abilities: detecting unsafe intent, handling the request appropriately, and staying consistent while the attack continues. That decomposition matters because multi-turn failures are rarely uniform; a model can pass the first probe and fold on the fifth.",
+  "What the evaluation surfaces is uncomfortable for anyone treating capability as a proxy for safety. The paper reports large safety differences across models, and its central finding is that stronger reasoning ability does not automatically translate into safer behavior — a model can think its way through a hard problem and still be talked past its own guardrails."
+ ],
+ "why": [
+  "Deployed chat models do not face one-shot attackers. A jailbreak that fails as a single prompt often succeeds as a patient conversation: context accumulates, framing shifts, and guardrails that held early in the exchange give way. SafeDialBench measures safety in that regime directly, and its breadth — 6 dimensions, 22 scenarios, two languages — makes the score hard to earn by overfitting to a known attack list.",
+  "The framework's three-way decomposition also gives operators something a single pass rate cannot: a diagnosis. Whether a model fails to notice unsafe intent, notices but mishandles it, or handles it once and then drifts, points to different fixes — better detection, better policy, or better consistency training."
+ ],
+ "reading": [
+  "DeepSeek-R1 and QwQ-32B share the lead at 0.49 ASR — and on this board, leading means leaking least. Read plainly: even the two best defenders let attacks through on roughly half of attempts. Behind them sits a 0.08 gap to Yi-34B-Chat at 0.57, after which the middle of the table compresses hard — four models from Yi-34B-Chat to GLM-4-9B-Chat fit inside 0.02 — before Qwen-7B-Chat (0.61) and ChatGLM3-6B (0.66) trail off.",
+  "The full spread is 0.17, and the more telling distance is the one nobody has closed: the leaders sit 0.49 above the metric's floor of zero. The tie at the top also gives the paper's caution — that stronger reasoning does not automatically mean safer behavior — some texture: whatever separates the top pair from the pack, it has not bought them robust safety, only comparatively less failure. On this axis, the field's best is still roughly a coin flip."
+ ]
+}

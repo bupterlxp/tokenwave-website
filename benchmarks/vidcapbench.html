@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VidCapBench | TokenWave AI</title>
-    <meta name="description" content="VidCapBench evaluates video caption quality across aesthetics, content, motion, and physical laws. This page uses the Overall Acc on VidCapBench-AE.">
+    <meta name="description" content="Holding video captions to four standards at once: aesthetics, content, motion, and physical law.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="VidCapBench | TokenWave AI">
-    <meta property="og:description" content="VidCapBench evaluates video caption quality across aesthetics, content, motion, and physical laws. This page uses the Overall Acc on VidCapBench-AE.">
+    <meta property="og:description" content="Holding video captions to four standards at once: aesthetics, content, motion, and physical law.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/vidcapbench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="VidCapBench | TokenWave AI">
-    <meta name="twitter:description" content="VidCapBench evaluates video caption quality across aesthetics, content, motion, and physical laws. This page uses the Overall Acc on VidCapBench-AE.">
+    <meta name="twitter:description" content="Holding video captions to four standards at once: aesthetics, content, motion, and physical law.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/vidcapbench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Video Captioning</div>
             <h1>VidCapBench</h1>
+            <p class="detail-tagline">Holding video captions to four standards at once: aesthetics, content, motion, and physical law.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Gemini 1.5 Pro 002: 17.1</span>
                 <span class="sep">·</span>
@@ -61,22 +62,34 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2502.12782" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2502.12782.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4</div><div class="l">quality dimensions</div></div>
+        <div class="stat-tile"><div class="v">17.1</div><div class="l">top score (Overall Acc)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">4.9</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>VidCapBench evaluates video caption quality across aesthetics, content, motion, and physical laws. This page uses the Overall Acc on VidCapBench-AE.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most video-caption benchmarks check whether a description mentions the right objects and events. VidCapBench asks for more: a caption is judged along four dimensions at once — aesthetics, content, motion, and the physical laws governing what happens on screen. The benchmark was built explicitly to address the narrow quality coverage of earlier evaluations, and it pairs automated scoring with human evaluation rather than trusting either alone.</p>
+        <p>Scores on this page come from the VidCapBench-AE setting, reported as Overall Acc on a 0–100 scale. The benchmark also tracks Precision, Coverage, and Conciseness, but the leaderboard here does not recombine them; the single accuracy figure is what ranks models. That figure stays low across the board, which the authors read as a sign that fine-grained perception and expression remain unsolved in video captioning.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A caption can name every object in a scene and still misrepresent it — describing motion that never happened, or an outcome that violates basic physics. Single-axis benchmarks cannot see that failure. VidCapBench&#x27;s four-dimension design treats faithful description as a bundle of distinct skills, and its combination of automated and human judgment guards against scoring artifacts. The uniformly low results suggest current models satisfy none of the dimensions comfortably.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work addresses the limited coverage of quality dimensions in traditional video-caption benchmarks.</li>
             <li>VidCapBench combines automated and human evaluation, covering aesthetics, content, motion, and physical laws.</li>
             <li>The main results show relatively low overall accuracy across models, indicating that high-quality video captioning still requires stronger fine-grained perception and expression.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall Acc</b> &mdash; Higher is better. Overall accuracy on VidCapBench-AE. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses Overall Acc on VidCapBench-AE and does not recombine Precision, Coverage, or Conciseness.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +105,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Gemini 1.5 Pro 002 leads at 17.1 Overall Acc, with GPT-4o-2024-08-06 just 0.3 behind — a tie for practical purposes. The telling number is the ceiling: the leader clears barely a sixth of the 0–100 range, and all six scored models sit within a 4.9-point band. Further down, mPLUG-Owl3-7B at 14.5 edges out Aria at 14.1, while Qwen2-VL-72B trails the field at 12.2 — parameter count evidently does not buy the fine-grained perception this benchmark asks for. The ranking, for now, mostly orders degrees of failure.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Comprehensive video captioning</span></li>
             <li><span class="k">Primary metric</span><span>Overall Acc</span></li>
@@ -103,7 +119,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

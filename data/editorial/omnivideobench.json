@@ -1,0 +1,22 @@
+{
+ "slug": "omnivideobench",
+ "tagline": "Audio-visual video understanding that a frame sampler cannot fake — speech, music, and sound effects together",
+ "stats": [
+  {"value": "3", "label": "audio source types"},
+  {"value": "61.8", "label": "top score (Avg)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "23.4", "label": "score spread"}
+ ],
+ "overview": [
+  "OmniVideoBench asks a simple question of omni-models: when you claim to understand a video, are you actually using the soundtrack? The benchmark evaluates joint audio-visual understanding, pairing visual content with audio that spans music, speech, and sound effects, across videos of varying duration. Performance is summarized as Avg, an average accuracy on a 0–100 scale taken from the benchmark's main results table.",
+  "The framing is deliberate: this is meant to be genuine omni understanding, not frame-only perception dressed up as video comprehension, and not text-only question answering that a language model could solve blind. A model that samples a few frames and ignores the audio track is exactly the shortcut the evaluation is built to expose.",
+  "Two stressors do most of the work. Longer videos force models to hold audio and visual threads together over time rather than answering from a single salient moment, and more complex audio conditions test whether listening degrades gracefully. Even strong omni models show clear performance drops under both, which suggests the headline scores understate how brittle current systems are."
+ ],
+ "why": [
+  "A video track without its audio is a different artifact, yet many evaluation setups let models treat the two as interchangeable. OmniVideoBench closes that loophole by making the audio side substantive — speech, music, and sound effects, not a single convenient channel — and by refusing to score frame-only perception as understanding. For anyone deploying an omni model, that distinction is the difference between a system that watches and one that comprehends."
+ ],
+ "reading": [
+  "Gemini 3.0 Pro leads at 61.8, the only model to clear 60 on the 0–100 Avg scale, with Gemini 2.5 Pro just 2.9 points behind. In fact the top five entries are all Gemini variants, packed between 41.5 and 61.8; the sharpest break inside that family is the 10.9-point drop from Gemini 2.5 Flash to Gemini 2.0 Flash, a full generation's worth of audio-visual progress made visible in one step.",
+  "The sole non-Google entry, Qwen3-Omni-30B-A3B, sits at 38.4 — 23.4 points off the lead and below every Gemini on the board. Read the ceiling the same way: the best score captures less than two-thirds of the available range, and even the leader misses roughly four questions in ten. Joint audio-visual understanding is, for now, one vendor's race against itself."
+ ]
+}

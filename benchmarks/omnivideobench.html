@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OmniVideoBench | TokenWave AI</title>
-    <meta name="description" content="OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.">
+    <meta name="description" content="Audio-visual video understanding that a frame sampler cannot fake — speech, music, and sound effects together.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="OmniVideoBench | TokenWave AI">
-    <meta property="og:description" content="OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.">
+    <meta property="og:description" content="Audio-visual video understanding that a frame sampler cannot fake — speech, music, and sound effects together.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/omnivideobench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OmniVideoBench | TokenWave AI">
-    <meta name="twitter:description" content="OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.">
+    <meta name="twitter:description" content="Audio-visual video understanding that a frame sampler cannot fake — speech, music, and sound effects together.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/omnivideobench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Omni Understanding</div>
             <h1>OmniVideoBench</h1>
+            <p class="detail-tagline">Audio-visual video understanding that a frame sampler cannot fake — speech, music, and sound effects together.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Gemini 3.0 Pro: 61.8</span>
                 <span class="sep">·</span>
@@ -61,22 +62,35 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2510.10689" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/NJU-LINK/OmniVideoBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2510.10689.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">3</div><div class="l">audio source types</div></div>
+        <div class="stat-tile"><div class="v">61.8</div><div class="l">top score (Avg)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">23.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>OmniVideoBench asks a simple question of omni-models: when you claim to understand a video, are you actually using the soundtrack? The benchmark evaluates joint audio-visual understanding, pairing visual content with audio that spans music, speech, and sound effects, across videos of varying duration. Performance is summarized as Avg, an average accuracy on a 0–100 scale taken from the benchmark&#x27;s main results table.</p>
+        <p>The framing is deliberate: this is meant to be genuine omni understanding, not frame-only perception dressed up as video comprehension, and not text-only question answering that a language model could solve blind. A model that samples a few frames and ignores the audio track is exactly the shortcut the evaluation is built to expose.</p>
+        <p>Two stressors do most of the work. Longer videos force models to hold audio and visual threads together over time rather than answering from a single salient moment, and more complex audio conditions test whether listening degrades gracefully. Even strong omni models show clear performance drops under both, which suggests the headline scores understate how brittle current systems are.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A video track without its audio is a different artifact, yet many evaluation setups let models treat the two as interchangeable. OmniVideoBench closes that loophole by making the audio side substantive — speech, music, and sound effects, not a single convenient channel — and by refusing to score frame-only perception as understanding. For anyone deploying an omni model, that distinction is the difference between a system that watches and one that comprehends.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work focuses on joint audio-visual understanding across music, speech, sound effects, and varying video durations.</li>
             <li>It frames the task as genuine omni understanding rather than frame-only perception or text-only QA.</li>
             <li>The results show clear performance drops even for strong omni models on longer videos and more complex audio conditions.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Avg</b> &mdash; Higher is better. Average accuracy reported in the main OmniVideoBench table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Avg column from the main OmniVideoBench table.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +106,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Gemini 3.0 Pro leads at 61.8, the only model to clear 60 on the 0–100 Avg scale, with Gemini 2.5 Pro just 2.9 points behind. In fact the top five entries are all Gemini variants, packed between 41.5 and 61.8; the sharpest break inside that family is the 10.9-point drop from Gemini 2.5 Flash to Gemini 2.0 Flash, a full generation&#x27;s worth of audio-visual progress made visible in one step.</p>
+        <p>The sole non-Google entry, Qwen3-Omni-30B-A3B, sits at 38.4 — 23.4 points off the lead and below every Gemini on the board. Read the ceiling the same way: the best score captures less than two-thirds of the available range, and even the leader misses roughly four questions in ten. Joint audio-visual understanding is, for now, one vendor&#x27;s race against itself.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Audio-visual joint understanding</span></li>
             <li><span class="k">Primary metric</span><span>Avg</span></li>
@@ -110,7 +128,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

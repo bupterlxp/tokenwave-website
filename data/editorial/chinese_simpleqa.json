@@ -1,0 +1,20 @@
+{
+ "slug": "chinese_simpleqa",
+ "tagline": "Short-form factual QA written natively in Chinese, where English leaderboard order does not carry over",
+ "stats": [
+  {"value": "6", "label": "broad topics"},
+  {"value": "99", "label": "subtopics"},
+  {"value": "67.9", "label": "top score (F-score)"},
+  {"value": "10", "label": "models scored"}
+ ],
+ "overview": [
+  "Chinese SimpleQA is the first comprehensive benchmark for short-form factual question answering written natively in Chinese. Rather than transferring an English test set, it asks concise fact-seeking questions across 6 broad topics and 99 subtopics, each paired with a static reference answer. Strict quality control and deliberately short QA pairs keep evaluation reliable and reproducible, so a score reflects what a model actually knows rather than how it phrases what it half-remembers.",
+  "Scoring uses the F-score reported in the paper, a 0-100 measure that balances answer correctness against completeness rather than rewarding either lucky guesses or cautious non-answers. The paper also treats the benchmark as an instrument, using it to compare existing LLMs and to study how model scale, calibration, retrieval-augmented generation, and alignment each shape factual reliability in Chinese."
+ ],
+ "why": [
+  "The benchmark's central finding is its own justification: Chinese factuality rankings do not simply mirror English leaderboards. A model that recalls facts reliably in English may misremember them in Chinese, so anyone deploying a Chinese-facing assistant cannot read its trustworthiness off an English score. Chinese SimpleQA gives that deployment population its own measurement, and the leaderboard's mix of Chinese and Western labs shows the axis is genuinely contested."
+ ],
+ "reading": [
+  "o1-preview leads at 67.9, with Doubao-1.5-Pro just 2.6 points behind — OpenAI and ByteDance splitting the podium's top steps. The field then drops 4.4 points to GLM-4-Plus at 60.9, and the remaining seven models compress into a band under ten points wide, ending at Qwen2.5-72B-Instruct's 50.2. The full top-ten spread is 17.7 points. With the scale running to 100, even the leader leaves nearly a third of it unclaimed — reliable Chinese factual recall is not yet solved by anyone."
+ ]
+}

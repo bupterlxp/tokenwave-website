@@ -1,0 +1,21 @@
+{
+ "slug": "m2rc_eval",
+ "tagline": "Repository-level code completion across 18 languages, annotated down to the AST node",
+ "stats": [
+  {"value": "18", "label": "programming languages"},
+  {"value": "54.7", "label": "top score (Avg ES)"},
+  {"value": "3", "label": "models scored"},
+  {"value": "4.4", "label": "score spread"}
+ ],
+ "overview": [
+  "Most code-completion benchmarks hand a model a single file and ask it to fill in the blank. M2RC-Eval works at the scale developers actually inhabit: the repository. A completion is judged not against an isolated function but within the surrounding project, and the benchmark repeats this test across 18 programming languages, making cross-language generalization a first-class axis rather than an afterthought.",
+  "What separates M2RC-Eval from a simple multilingual expansion is its annotation layer. The benchmark carries fine-grained labels derived from the abstract syntax tree: a bucket-level difficulty rating and a semantic completion scenario. Scores can therefore be sliced by what kind of code is being completed, not just which language it is written in. The paper pairs the benchmark with M2RC-INSTRUCT, a companion resource built to improve repository-level completion ability.",
+  "Scoring rests on average edit similarity (Avg ES), a 0–100 measure of how close the generated completion comes to the reference, averaged across languages; average exact match (Avg EM) is kept as a stricter secondary check. The leaderboard deliberately shows only direct model baselines — no retrieval pipelines, no training augmentations — so the numbers reflect what the models themselves know how to do."
+ ],
+ "why": [
+  "Code assistants earn their keep inside repositories, where the correct completion depends on conventions, imports, and types defined files away. Single-file benchmarks never observe that dependence. And by scoring the same task in 18 languages, M2RC-Eval guards against a quieter failure: a model that looks strong in one familiar language and degrades across the other seventeen. The AST-based annotations add a further check, showing whether gains come from easy scenarios or hard ones."
+ ],
+ "reading": [
+  "DeepSeekCoder-6.7B leads at 54.7 Avg ES, 2.7 points ahead of StarCoder-7B at 52.0, with Code Llama-7B at 50.3 rounding out the table. The entire field fits inside a 4.4-point band — three direct baselines of comparable scale, none pulling decisively away. Against a metric that runs to 100, the leader still leaves over 45 points of headroom, a reminder that repository-level completion at this model size remains substantially open."
+ ]
+}

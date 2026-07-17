@@ -1,0 +1,34 @@
+{
+ "slug": "hellobench",
+ "tagline": "The output side of long context: whether models can sustain quality, not just length",
+ "stats": [
+  {
+   "value": "5",
+   "label": "task categories"
+  },
+  {
+   "value": "48.55",
+   "label": "top score (AVG S)"
+  },
+  {
+   "value": "9",
+   "label": "models scored"
+  },
+  {
+   "value": "23.8",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "Most long-context work asks how much a model can read. HelloBench turns the question around: how much can it write, and how well? The benchmark targets long-form generation directly — the paper frames this as distinct from the more common long-context understanding setting — and organizes tasks into five categories built on Bloom's Taxonomy: QA, summarization, chat, completion, and heuristic generation.",
+  "Scoring long text is its own research problem, so the paper pairs the benchmark with HelloEval, a more efficient way to evaluate long-text quality while staying aligned with human judgment. Results land on a single 0–100 scale, AVG S, the average long-form generation score. TokenWave's leaderboard takes AVG S from the paper's main experiment table rather than splitting the page into a scatter of partial attributes.",
+  "The paper's large-scale experiments read like a diagnosis. Current models run into length ceilings, drift into repetition, and show clear quality degradation. The benchmark's central claim follows directly: generating longer text and generating better long text are not the same ability, and HelloBench is built to reward only the second."
+ ],
+ "why": [
+  "Long-context evaluation has mostly meant long-context understanding: how much a model can absorb. HelloBench targets the less-measured half of the exchange — what a model can produce. The choice matters because the failure modes it documents, length ceilings, repetition, and quality degradation, are exactly what users of long-form generation hit first, and none of them surface in benchmarks that grade short answers about long inputs."
+ ],
+ "reading": [
+  "GPT-4o sits on top at 48.55 AVG S, but the more telling number is that no model reaches the midpoint of the 0–100 scale. The podium is tight — Mistral-Large at 46.77 and o1-mini at 46.08 keep the top three within 2.5 points — before Claude 3.5 Sonnet at 43.77 and a longer slide down to GLM-4-Plus at 24.78. First to last spans nearly 24 points.",
+  "Two readings coexist. The 1.78-point gap between GPT-4o and Mistral-Large says the frontier is crowded; no single lab owns long-form quality. The 51-point distance between the leader and the top of the scale says the task itself is far from solved — consistent with the paper's diagnosis of length ceilings, repetition, and quality degradation. The interesting race here is less between models than between the field and the metric's upper half."
+ ]
+}

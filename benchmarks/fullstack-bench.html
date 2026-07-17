@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FullStack Bench | TokenWave AI</title>
-    <meta name="description" content="FullStack Bench evaluates LLMs as full-stack coders. The displayed leaderboard uses the Overall score from the main results table.">
+    <meta name="description" content="End-to-end full-stack development in 16 languages, judged by real-world instructions and unit tests.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="FullStack Bench | TokenWave AI">
-    <meta property="og:description" content="FullStack Bench evaluates LLMs as full-stack coders. The displayed leaderboard uses the Overall score from the main results table.">
+    <meta property="og:description" content="End-to-end full-stack development in 16 languages, judged by real-world instructions and unit tests.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/fullstack-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FullStack Bench | TokenWave AI">
-    <meta name="twitter:description" content="FullStack Bench evaluates LLMs as full-stack coders. The displayed leaderboard uses the Overall score from the main results table.">
+    <meta name="twitter:description" content="End-to-end full-stack development in 16 languages, judged by real-world instructions and unit tests.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/fullstack-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>FullStack Bench</h1>
+            <p class="detail-tagline">End-to-end full-stack development in 16 languages, judged by real-world instructions and unit tests.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 o1-preview: 65.62</span>
                 <span class="sep">·</span>
@@ -61,18 +62,30 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2412.00535" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/bytedance/FullStackBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2412.00535.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">16</div><div class="l">programming languages</div></div>
+        <div class="stat-tile"><div class="v">65.62</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">8</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">8.74</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>FullStack Bench evaluates LLMs as full-stack coders. The displayed leaderboard uses the Overall score from the main results table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Full-stack development is a breadth test, and FullStack Bench treats it as one. Rather than scoring isolated coding exercises, it draws tasks from basic programming, data analysis, software engineering, math, and machine learning, phrases them as real-world instructions, and spreads them across 16 widely used programming languages. Correctness is settled the way engineering teams settle it: submitted code passes the task&#x27;s unit tests or it does not.</p>
+        <p>Running that grading loop across sixteen languages is an engineering problem of its own, so the release includes SandboxFusion, an execution environment built to run and evaluate the multilingual tasks reliably. TokenWave&#x27;s leaderboard tracks the single Overall score from the paper&#x27;s main results table, on a 0-100 scale; finer domain-level subscores exist in the paper but stay folded into that headline number here. The authors&#x27; summary finding is blunt: full-stack evaluation is both more realistic and more challenging than traditional code benchmarks.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Isolated coding tasks let a model score well while knowing only one corner of the job. Real development is not so forgiving: a single piece of work can run from data analysis into software engineering and touch math along the way, in whichever of a codebase&#x27;s languages it happens to land. By compressing that breadth into one unit-tested Overall score, FullStack Bench measures whether a model is a developer or just a code completer.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark goes beyond standalone coding tasks and targets end-to-end full-stack development.</li>
             <li>This page keeps Overall as the primary leaderboard instead of splitting every domain-specific subscore.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>FullStack Bench moves beyond isolated coding tasks and targets broader full-stack development ability.</li>
             <li>It covers domains such as basic programming, data analysis, software engineering, math, and machine learning.</li>
@@ -81,10 +94,10 @@
             <li>Results show that full-stack evaluation is both more realistic and more challenging than traditional code benchmarks.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall</b> &mdash; Higher is better. Overall full-stack coding score. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard shows the Overall score from the main experiments table. The paper also reports finer frontend/backend subscores, which are not expanded here.</p>
         <table class="data-table">
             <thead>
@@ -102,7 +115,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>o1-preview sits on top at 65.62, but its margin over o1-mini is just 0.89 points — the two OpenAI o1 models are effectively tied. Claude 3.5 Sonnet (62.57) and GPT-4o (61.77) keep the top four inside a 3.85-point band, and below them a second cluster forms: Doubao-Coder-Preview, DeepSeek-V2.5, DeepSeekCoder-V2-Instruct, and Qwen2.5-32B-Instruct all land between 56.88 and 58.92, separated by about two points end to end.</p>
+        <p>What stands out more than the ordering is the headroom. The leader still leaves 34.38 points of the 0-100 range unclaimed, and the whole eight-model field spans only 8.74 points — tightly packed, and collectively far from done. That shape matches the paper&#x27;s own conclusion: full-stack evaluation is harder than traditional code benchmarks, and no current model has yet turned breadth into a decisive advantage.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Full-stack coding agents</span></li>
             <li><span class="k">Primary metric</span><span>Overall</span></li>
@@ -113,7 +130,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

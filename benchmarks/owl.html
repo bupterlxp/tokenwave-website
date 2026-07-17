@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OWL | TokenWave AI</title>
-    <meta name="description" content="OWL studies large language models for IT operations. This page uses the Average Score reported in the paper.">
+    <meta name="description" content="Evaluating whether language models can do IT operations work, not just generic chat and QA.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="OWL | TokenWave AI">
-    <meta property="og:description" content="OWL studies large language models for IT operations. This page uses the Average Score reported in the paper.">
+    <meta property="og:description" content="Evaluating whether language models can do IT operations work, not just generic chat and QA.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/owl.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OWL | TokenWave AI">
-    <meta name="twitter:description" content="OWL studies large language models for IT operations. This page uses the Average Score reported in the paper.">
+    <meta name="twitter:description" content="Evaluating whether language models can do IT operations work, not just generic chat and QA.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/owl.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Knowledge</div>
             <h1>OWL</h1>
+            <p class="detail-tagline">Evaluating whether language models can do IT operations work, not just generic chat and QA.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 OWL-13B: 8.86</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2309.09298" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/HC-Guo/Owl" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2309.09298.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">8.86</div><div class="l">top score (Average Score)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">0.74</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">0–10</div><div class="l">score scale</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>OWL studies large language models for IT operations. This page uses the Average Score reported in the paper.</p>
+        <h2 id="overview">Overview</h2>
+        <p>OWL asks a narrower question than most language-model benchmarks: can a model actually help run IT systems? Rather than scoring generic chat or question answering, the work behind it targets enterprise operations directly. The paper pairs two artifacts — Owl-Instruct, a training corpus for the domain, and Owl-Bench, the evaluation suite this page tracks — and uses them to build and test a specialized model for IT tasks.</p>
+        <p>On the modeling side, the paper tunes with a mixture-of-adapter strategy and proposes HMCE to extend usable context — a signal that operations workloads demand more of a model&#x27;s context window than casual chat does. Evaluation reports an Average Score on a 0–10 scale rather than a percentage. TokenWave preserves the paper&#x27;s original scale, so a score here is not an accuracy figure and should not be read as one.</p>
+        <p>The headline experimental result supports the paper&#x27;s thesis: the domain-tuned OWL model outperforms contemporary general-purpose baselines across multiple IT tasks. The broader claim is that realistic IT operations use cases need both specialized models and specialized benchmarks — and Owl-Bench exists precisely because generic leaderboards cannot say whether a model is ready for that work.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>IT operations is where language models meet infrastructure that cannot tolerate confident guessing. A model that performs well on general QA may still be unprepared for the vocabulary, conventions, and stakes of enterprise operations — and without a domain benchmark, nobody would know. OWL&#x27;s contribution is the measuring instrument itself: it makes “closer to enterprise operations than generic QA” a testable claim rather than a marketing line.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>OWL is closer to enterprise operations than generic QA.</li>
             <li>The score is not a percentage, so the page preserves the paper&#x27;s original scale.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>OWL targets the IT operations domain instead of generic chat or QA scenarios.</li>
             <li>The paper builds Owl-Instruct and Owl-Bench to train and evaluate a specialized model for IT tasks.</li>
@@ -81,10 +95,10 @@
             <li>Its main message is that domain-specific LLMs and benchmarks are necessary for realistic IT operations use cases.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Average Score</b> &mdash; Higher is better. Average task score reported by the paper. Score range: [0, 10].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard directly uses the paper&#x27;s Average Score. Since the work is relatively early, the evaluated models reflect the period&#x27;s mainstream systems.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +114,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>OWL-13B leads at 8.86 on the paper&#x27;s 0–10 Average Score, 0.29 points ahead of LLaMA2-13B at 8.57 — the domain-tuned model beating every general-purpose system it was measured against, which is the result the paper was built to demonstrate. Qwen-7B, ChatGLM2-6B, InternLM-7B, and ChatGLM-6B fill out the table in a tight descending line, with last place still at 8.12.</p>
+        <p>Read the compression carefully. The entire field spans 0.74 points, and even the leader sits 1.14 below the scale&#x27;s ceiling — differences here are real but small, and an averaged score this bunched flattens whatever task-level variation lies beneath it. The roster is also a snapshot of an earlier era of open models, as the page itself notes, so treat the ordering as the paper&#x27;s evidence for domain tuning rather than a live ranking of today&#x27;s systems.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>IT operations agents</span></li>
             <li><span class="k">Primary metric</span><span>Average Score</span></li>
@@ -111,7 +129,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

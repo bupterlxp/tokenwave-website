@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelloBench | TokenWave AI</title>
-    <meta name="description" content="HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.">
+    <meta name="description" content="The output side of long context: whether models can sustain quality, not just length.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="HelloBench | TokenWave AI">
-    <meta property="og:description" content="HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.">
+    <meta property="og:description" content="The output side of long context: whether models can sustain quality, not just length.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/hellobench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="HelloBench | TokenWave AI">
-    <meta name="twitter:description" content="HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.">
+    <meta name="twitter:description" content="The output side of long context: whether models can sustain quality, not just length.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/hellobench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Long Context</div>
             <h1>HelloBench</h1>
+            <p class="detail-tagline">The output side of long context: whether models can sustain quality, not just length.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-4o: 48.55</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2409.16191" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/Quehry/HelloBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2409.16191.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">5</div><div class="l">task categories</div></div>
+        <div class="stat-tile"><div class="v">48.55</div><div class="l">top score (AVG S)</div></div>
+        <div class="stat-tile"><div class="v">9</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">23.8</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most long-context work asks how much a model can read. HelloBench turns the question around: how much can it write, and how well? The benchmark targets long-form generation directly — the paper frames this as distinct from the more common long-context understanding setting — and organizes tasks into five categories built on Bloom&#x27;s Taxonomy: QA, summarization, chat, completion, and heuristic generation.</p>
+        <p>Scoring long text is its own research problem, so the paper pairs the benchmark with HelloEval, a more efficient way to evaluate long-text quality while staying aligned with human judgment. Results land on a single 0–100 scale, AVG S, the average long-form generation score. TokenWave&#x27;s leaderboard takes AVG S from the paper&#x27;s main experiment table rather than splitting the page into a scatter of partial attributes.</p>
+        <p>The paper&#x27;s large-scale experiments read like a diagnosis. Current models run into length ceilings, drift into repetition, and show clear quality degradation. The benchmark&#x27;s central claim follows directly: generating longer text and generating better long text are not the same ability, and HelloBench is built to reward only the second.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Long-context evaluation has mostly meant long-context understanding: how much a model can absorb. HelloBench targets the less-measured half of the exchange — what a model can produce. The choice matters because the failure modes it documents, length ceilings, repetition, and quality degradation, are exactly what users of long-form generation hit first, and none of them surface in benchmarks that grade short answers about long inputs.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark targets long-form quality rather than sheer output length.</li>
             <li>This page uses AVG S to avoid fragmenting the main leaderboard into too many partial attributes.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>HelloBench focuses on long-form generation rather than the more common long-context understanding setting.</li>
             <li>It organizes tasks into five categories based on Bloom&#x27;s Taxonomy, including QA, summarization, chat, completion, and heuristic generation.</li>
@@ -81,10 +95,10 @@
             <li>The benchmark highlights that generating longer text and generating better long text are not the same ability.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>AVG S</b> &mdash; Higher is better. Average long-form generation score. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses AVG S from the main experiments table. The paper also analyzes other dimensions and word-count behavior, which are not used as the main leaderboard here.</p>
         <table class="data-table">
             <thead>
@@ -103,7 +117,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-4o sits on top at 48.55 AVG S, but the more telling number is that no model reaches the midpoint of the 0–100 scale. The podium is tight — Mistral-Large at 46.77 and o1-mini at 46.08 keep the top three within 2.5 points — before Claude 3.5 Sonnet at 43.77 and a longer slide down to GLM-4-Plus at 24.78. First to last spans nearly 24 points.</p>
+        <p>Two readings coexist. The 1.78-point gap between GPT-4o and Mistral-Large says the frontier is crowded; no single lab owns long-form quality. The 51-point distance between the leader and the top of the scale says the task itself is far from solved — consistent with the paper&#x27;s diagnosis of length ceilings, repetition, and quality degradation. The interesting race here is less between models than between the field and the metric&#x27;s upper half.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Long-form text generation</span></li>
             <li><span class="k">Primary metric</span><span>AVG S</span></li>
@@ -114,7 +132,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

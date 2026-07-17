@@ -1,0 +1,34 @@
+{
+ "slug": "nl2repo_bench",
+ "tagline": "Whether a coding agent can turn a natural-language brief into a complete working repository",
+ "stats": [
+  {
+   "value": "4",
+   "label": "task domains"
+  },
+  {
+   "value": "40.2",
+   "label": "top score (Overall Score)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "12.6",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "Most code benchmarks hand a model a file and ask for the missing piece. NL2Repo-Bench asks for the whole project: given natural-language requirements, the system must generate a complete repository, end to end. The shift matters because repository generation is a long-horizon task — architecture decisions made early either hold up or quietly poison everything built on top of them.",
+  "Tasks span four domains — web development, testing, utility libraries, and machine learning — and difficulty is stratified by repository scale, so the benchmark separates systems that can scaffold a small tool from those that can sustain coherence across a larger codebase. Performance rolls up into a single Overall Score on a 0-100 scale, taken directly from the paper's main results table.",
+  "The headline finding is blunt: even the strongest coding systems remain far from reliable completion on long-horizon repository generation. Across the metric's 0-100 range, no evaluated model reaches 41 — a reminder that fluent generation at the function level does not yet translate into dependable delivery at the repository level, where early mistakes compound instead of staying contained."
+ ],
+ "why": [
+  "Anyone hiring an agent to build software is buying a repository, not a diff. NL2Repo-Bench measures that delivery gap directly: whether a system can hold a requirements brief in view across the many dependent decisions a full project demands, in domains as different as web development and machine learning. And because difficulty is stratified by repository scale, the benchmark can show where coherence gives out — not just that it does."
+ ],
+ "reading": [
+  "Claude Sonnet 4.5 running inside Claude Code leads at 40.2, but the more telling number is the single point separating it from the same model in Cursor at 39.2, with the bare model at 39.9 between them. On this benchmark the harness barely moves the needle; the model does. Claude Sonnet 4, at 37, trails its successor by roughly three points, and Claude models hold the top four slots outright.",
+  "Below the Claude cluster the field spreads out: Gemini 3 Pro in Cursor sits at 34.2 and DeepSeek-V3.2 at 27.6, a 12.6-point spread from top to bottom. The more important distance is upward. With the leader at 40.2 on a 0-100 metric, nearly sixty points of the range are unclaimed — long-horizon repository generation is still mostly headroom, whoever you ask."
+ ]
+}

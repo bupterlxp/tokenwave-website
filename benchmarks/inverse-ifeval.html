@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inverse IFEval | TokenWave AI</title>
-    <meta name="description" content="Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.">
+    <meta name="description" content="Instruction following at its hardest — when the request contradicts the model&#x27;s training conventions.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Inverse IFEval | TokenWave AI">
-    <meta property="og:description" content="Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.">
+    <meta property="og:description" content="Instruction following at its hardest — when the request contradicts the model&#x27;s training conventions.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/inverse-ifeval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Inverse IFEval | TokenWave AI">
-    <meta name="twitter:description" content="Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.">
+    <meta name="twitter:description" content="Instruction following at its hardest — when the request contradicts the model&#x27;s training conventions.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/inverse-ifeval.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Instruction Following</div>
             <h1>Inverse IFEval</h1>
+            <p class="detail-tagline">Instruction following at its hardest — when the request contradicts the model&#x27;s training conventions.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 o3-high: 75.66</span>
                 <span class="sep">·</span>
@@ -61,22 +62,35 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2509.04292" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://huggingface.co/datasets/m-a-p/Inverse_IFEval" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2509.04292.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">75.66</div><div class="l">top score (Overall Score)</div></div>
+        <div class="stat-tile"><div class="v">4</div><div class="l">challenge conditions</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">8.5</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most instruction-following benchmarks reward models for doing what they were trained to do. Inverse IFEval asks the opposite question: when a user&#x27;s instruction conflicts with the conventions a model absorbed during training, does the model follow the user or the habit? Its tasks are built around deliberately counter-conventional demands — corrections, formatting that violates learned defaults, mid-dialogue interventions, and requirements to change as little as possible.</p>
+        <p>The design goes beyond checking formatting compliance. Each inverse instruction is constructed to pull against a training convention, so passing requires the model to recognize that the user&#x27;s stated intent overrides its priors. Performance is summarized as an Overall Score on a 0-100 scale; the leaderboard here reports the English main table rather than recombining English and Chinese results.</p>
+        <p>The headline finding is uncomfortable for anyone who assumed instruction following was solved: even the strongest models show clear weaknesses once instructions turn inverse. Compliance with familiar formats, it turns out, is not the same skill as obedience under conflict — and only the second one generalizes to users whose needs do not match the training distribution.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Deployed models constantly meet users whose requirements cut against defaults: formatting that breaks convention, a correction issued mid-conversation, an edit that must change as little as possible. A model that reverts to its training habits in those moments is not following instructions; it is autocompleting them. Inverse IFEval isolates exactly that failure mode, one that conventional compliance suites are structurally unable to see.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work goes beyond conventional formatting compliance and explicitly designs inverse instructions that conflict with common training conventions.</li>
             <li>The tasks test whether models can still obey real user intent under correction, counter-conventional formatting, dialogue intervention, and minimal-modification requirements.</li>
             <li>The results show that even the strongest models still have clear weaknesses on inverse instruction following.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall Score</b> &mdash; Higher is better. Overall score from the English Inverse IFEval main table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall Score from the English main table rather than recombining English and Chinese results.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +106,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>OpenAI holds the entire podium: o3-high leads at 75.66, with o3-mini just 0.99 behind and GPT-5-high at 73.72 — three systems inside a two-point band. Gemini 2.5 Pro follows at 70.55, and Claude 4 Opus Thinking closes the table at 67.16, an 8.5-point spread across six models. The compression at the top matters less than the ceiling: the best model still leaves roughly a quarter of the 0-100 range on the table, so training habits are being broken, but not reliably.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Counter-intuitive instruction following</span></li>
             <li><span class="k">Primary metric</span><span>Overall Score</span></li>
@@ -111,7 +128,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

@@ -1,0 +1,34 @@
+{
+ "slug": "mt_bench_101",
+ "tagline": "A three-level taxonomy of 13 tasks that scores multi-turn instruction following turn by turn",
+ "stats": [
+  {
+   "value": "1,388",
+   "label": "dialogues"
+  },
+  {
+   "value": "13",
+   "label": "tasks"
+  },
+  {
+   "value": "4,208",
+   "label": "turns"
+  },
+  {
+   "value": "8.86",
+   "label": "top score (Avg)"
+  }
+ ],
+ "overview": [
+  "Chat leaderboards tend to compress an entire conversation into one number, which hides exactly where a dialogue goes wrong. MT-Bench-101 was built against that habit. Drawing on analysis of real multi-turn conversations, it organizes multi-turn instruction following into a three-level ability taxonomy spanning 13 tasks, then evaluates models across 1,388 dialogues and 4,208 individual turns.",
+  "The taxonomy is the point. Because each dialogue is tagged to a specific task and abilities are tracked across 4,208 turns, the benchmark shows not just whether a model converses well overall but how its performance holds up as a conversation progresses, and on which tasks it slips. Scores keep the paper's original 10-point scale, and TokenWave's leaderboard uses the paper's Avg directly — the benchmark is already a fine-grained decomposition, so there is nothing to recombine.",
+  "The paper's most pointed finding is that common alignment techniques and chat-oriented designs do not clearly improve multi-turn ability. Whatever those interventions optimize, it is not the capability this benchmark isolates. That result reframes real conversational interaction: not a byproduct of chat tuning that comes along for free, but a distinct and still-open challenge that has to be measured on its own terms."
+ ],
+ "why": [
+  "A model that follows an instruction cleanly in isolation can still lose the thread three turns into a real exchange, and a single aggregate chat score cannot tell you which failure you are looking at. MT-Bench-101's design — a taxonomy of 13 tasks, with ability tracked across turns — turns that vague unease into something diagnosable. For anyone deploying a conversational system, that is the difference between knowing a model's score and knowing its failure modes."
+ ],
+ "reading": [
+  "GPT-4 leads at 8.86 on the 10-point scale, 0.76 ahead of Yi-34B at 8.10 — the widest gap anywhere in the table. Below it the field compresses: Yi-34B, GPT-3.5 Turbo at 7.99, and Qwen-14B at 7.82 sit within 0.28 of one another, with Mixtral-8x7B trailing at 7.38. The full five-model spread is 1.48 points, and GPT-4's margin alone accounts for just over half of it.",
+  "Even the leader leaves 1.14 points on the table against a perfect 10, and the paper's own analysis suggests that margin will not close as a side effect of better chat tuning, since alignment techniques did not clearly help multi-turn ability. With five models scored, the ranking is less a settled order than an early map: one clear leader, a crowded middle, and a ceiling nobody is near."
+ ]
+}

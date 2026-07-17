@@ -1,0 +1,21 @@
+{
+ "slug": "omnicap_if",
+ "tagline": "Instruction following, pushed into omni-modal captioning where three kinds of constraint bind at once",
+ "stats": [
+  {"value": "3", "label": "constraint types"},
+  {"value": "79.8", "label": "top score (Overall CSR)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "12.4", "label": "score spread"}
+ ],
+ "overview": [
+  "OmniCap-IF extends instruction following into omni-modal video captioning, where the prompt does more than request a description. Each instruction bundles format constraints, content constraints, and cross-modal constraints, and a caption counts only insofar as it satisfies all three at once. The benchmark's premise is that omni captioning should be judged not only on generation quality but on whether complex instructions are truly followed — controllability, not just fluency, is the object of measurement.",
+  "The cross-modal requirement is what separates this from text-only instruction-following suites. A constraint can bind the caption to more than one input stream at a time, so a model cannot comply by attending to a single modality and paraphrasing well. Scoring uses Overall CSR on a 0–100 scale, with higher scores indicating fuller compliance; the leaderboard here takes the Overall figure from the benchmark's main results table."
+ ],
+ "why": [
+  "Instruction following has been studied thoroughly in text, far less so where several input modalities compete for a model's attention. That is the regime OmniCap-IF targets: a cross-modal constraint cannot be satisfied by transcribing one stream well, so the score reflects whether a model integrates its inputs under an explicit specification. For omni models pitched as general-purpose perception layers, that is the property a deployer actually depends on — controlled output from multi-stream input."
+ ],
+ "reading": [
+  "At the top the board is a Google duopoly: Gemini 3.1 Pro leads at 79.8 Overall CSR with Gemini 3 Flash just 1.1 points behind. The middle tier starts about four points down, where MiMo-V2-Omni posts 74.59 and edges Gemini 2.5 Pro at 74.06 by half a point — a small inversion that fits the paper's own summary: leading closed-source omni models are strongest overall, while open-source omni models are becoming competitive.",
+  "Alibaba's Qwen3-Omni pair closes the table with a signal of its own: the 30B-A3B Thinking variant scores 72.58 against 67.44 for its Instruct sibling, a 5.1-point margin between two builds of the same model. End to end, the six systems span 12.4 points, and the leader still sits a full twenty points below the metric's maximum. Progress is orderly rather than saturated — every tier has visible room above it, including the first."
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "slug": "usb",
+ "tagline": "Unifying multimodal safety evaluation — one attack-driven score across national, public, and ethical risk",
+ "stats": [
+  {"value": "3", "label": "safety scenario families"},
+  {"value": "15.57", "label": "best total ASRT"},
+  {"value": "6", "label": "models scored"},
+  {"value": "57.15", "label": "score spread"}
+ ],
+ "overview": [
+  "USB is a unified safety benchmark for multimodal models. Rather than testing one hazard category in isolation, it brings national safety, public safety, and ethical safety scenarios under a single evaluation, then probes each with multiple attack types drawn from a range of risk themes. The question it poses is direct: when an adversary actively works to elicit harmful output from a multimodal system, how often does the model give in?",
+  "Everything reduces to one number, Total ASRT, reported on a 0 to 100 scale where lower is better. The metric quantifies failure under attack: a high score means the attack battery got through often, a low one means the model held its ground. Scoring safety as a rate of failure rather than a pass rate puts the adversary, not the average case, at the center of the evaluation."
+ ],
+ "why": [
+  "Safety results are only as meaningful as the threat model behind them. By unifying three scenario families and pressing each model with multiple attack types, USB measures the property deployers actually need: robustness that survives whichever theme or attack an adversary happens to pick. Its own headline finding — large differences in Total ASRT across models — is the argument for the axis: multimodal safety is not a solved default, and it varies enormously by system."
+ ],
+ "reading": [
+  "On this table lower is better, and Claude 3.5 Sonnet 2 posts the best score by a wide margin: 15.57, a full 22.26 points below Gemini 1.5 Pro at 37.83. That gap is larger than any other on the board. Behind it, Gemini 1.5 Pro, GPT-4o at 40.93, and Gemini 2.0 Flash at 46.51 form a mid-table cluster spanning under nine points — systems whose Total ASRT runs two to three times the leader's.",
+  "The tail tells the other half of the story. Qwen-VL-MAX sits at 56.87, and LLaVA-v1.5-13B lands at 72.72 — nearly three-quarters of the way to the worst end of the scale. First to last spans 57.15 points of a 100-point range, and only one system keeps its score below a fifth of it. That spread is the paper's own conclusion made visible: multimodal safety remains far from solved, and right now robustness is one model's strength rather than a shared property."
+ ]
+}

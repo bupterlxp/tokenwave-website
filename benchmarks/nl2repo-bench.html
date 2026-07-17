@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NL2Repo-Bench | TokenWave AI</title>
-    <meta name="description" content="NL2Repo-Bench evaluates long-horizon repository generation from natural-language requirements. This page uses the Overall Score from the paper&#x27;s main table.">
+    <meta name="description" content="Whether a coding agent can turn a natural-language brief into a complete working repository.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="NL2Repo-Bench | TokenWave AI">
-    <meta property="og:description" content="NL2Repo-Bench evaluates long-horizon repository generation from natural-language requirements. This page uses the Overall Score from the paper&#x27;s main table.">
+    <meta property="og:description" content="Whether a coding agent can turn a natural-language brief into a complete working repository.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/nl2repo-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NL2Repo-Bench | TokenWave AI">
-    <meta name="twitter:description" content="NL2Repo-Bench evaluates long-horizon repository generation from natural-language requirements. This page uses the Overall Score from the paper&#x27;s main table.">
+    <meta name="twitter:description" content="Whether a coding agent can turn a natural-language brief into a complete working repository.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/nl2repo-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>NL2Repo-Bench</h1>
+            <p class="detail-tagline">Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Claude Sonnet 4.5 (Claude Code): 40.2</span>
                 <span class="sep">·</span>
@@ -61,22 +62,35 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.12730" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/NL2RepoBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2512.12730.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4</div><div class="l">task domains</div></div>
+        <div class="stat-tile"><div class="v">40.2</div><div class="l">top score (Overall Score)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">12.6</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>NL2Repo-Bench evaluates long-horizon repository generation from natural-language requirements. This page uses the Overall Score from the paper&#x27;s main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most code benchmarks hand a model a file and ask for the missing piece. NL2Repo-Bench asks for the whole project: given natural-language requirements, the system must generate a complete repository, end to end. The shift matters because repository generation is a long-horizon task — architecture decisions made early either hold up or quietly poison everything built on top of them.</p>
+        <p>Tasks span four domains — web development, testing, utility libraries, and machine learning — and difficulty is stratified by repository scale, so the benchmark separates systems that can scaffold a small tool from those that can sustain coherence across a larger codebase. Performance rolls up into a single Overall Score on a 0-100 scale, taken directly from the paper&#x27;s main results table.</p>
+        <p>The headline finding is blunt: even the strongest coding systems remain far from reliable completion on long-horizon repository generation. Across the metric&#x27;s 0-100 range, no evaluated model reaches 41 — a reminder that fluent generation at the function level does not yet translate into dependable delivery at the repository level, where early mistakes compound instead of staying contained.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Anyone hiring an agent to build software is buying a repository, not a diff. NL2Repo-Bench measures that delivery gap directly: whether a system can hold a requirements brief in view across the many dependent decisions a full project demands, in domains as different as web development and machine learning. And because difficulty is stratified by repository scale, the benchmark can show where coherence gives out — not just that it does.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work shifts evaluation from local code completion to full repository-level software generation.</li>
             <li>It builds tasks across web development, testing, utility libraries, and machine learning, with difficulty stratified by repository scale.</li>
             <li>The main results show that even leading coding systems remain far from reliable completion on long-horizon repository generation.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall Score</b> &mdash; Higher is better. Overall repository-generation score reported in the main results table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall Score (%) from the main result table without recombining difficulty or domain columns.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +106,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Claude Sonnet 4.5 running inside Claude Code leads at 40.2, but the more telling number is the single point separating it from the same model in Cursor at 39.2, with the bare model at 39.9 between them. On this benchmark the harness barely moves the needle; the model does. Claude Sonnet 4, at 37, trails its successor by roughly three points, and Claude models hold the top four slots outright.</p>
+        <p>Below the Claude cluster the field spreads out: Gemini 3 Pro in Cursor sits at 34.2 and DeepSeek-V3.2 at 27.6, a 12.6-point spread from top to bottom. The more important distance is upward. With the leader at 40.2 on a 0-100 metric, nearly sixty points of the range are unclaimed — long-horizon repository generation is still mostly headroom, whoever you ask.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Long-horizon repository generation</span></li>
             <li><span class="k">Primary metric</span><span>Overall Score (%)</span></li>
@@ -102,7 +120,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

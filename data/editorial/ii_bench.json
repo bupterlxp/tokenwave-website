@@ -1,0 +1,21 @@
+{
+ "slug": "ii_bench",
+ "tagline": "Testing whether multimodal models read what an image implies, not just what it shows",
+ "stats": [
+  {"value": "74.8", "label": "top score (overall accuracy)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "5.4", "label": "score spread"}
+ ],
+ "overview": [
+  "II-Bench asks a different question of a multimodal model than most image benchmarks: not what is in this picture, but what does it mean. The benchmark targets higher-order image implication understanding — the layer of meaning beneath recognition — using comics, posters, illustrations, paintings, and other image types drawn from domains such as life, art, society, psychology, and environment.",
+  "Scoring runs on a single primary metric, Overall Accuracy on a 0-100 scale, taken from the paper's main table. The paper reports finer task dimensions as well, but this page keeps one leaderboard so results align cleanly with related image-understanding benchmarks. What the headline number compresses is a consistent finding: models fall well short of humans, and the shortfall widens on abstract, complex images that demand deeper semantic interpretation.",
+  "One diagnostic detail from the paper is worth carrying into any reading of the scores: performance often improves when sentiment hints are added. If a model needs to be told the emotional register of an image before it can interpret the implication, its intrinsic grasp of image emotion is still limited — the benchmark makes that dependency visible."
+ ],
+ "why": [
+  "Most images people actually make — posters, comics, paintings — communicate through what they leave unstated. A model that names every object yet misses the point has not understood the image in any sense its viewer would recognize. By targeting deep implications rather than surface recognition, II-Bench isolates exactly the layer where the paper finds the human-model gap widest: abstract, complex images that require genuine semantic interpretation, not pattern matching over familiar scenes."
+ ],
+ "reading": [
+  "Qwen-VL-MAX leads at 74.8, but the shape of the table matters more than the ordering. Gemini 1.5 Pro at 73.9 and LLaVA-1.6-34B at 73.8 trail by a point or less, and all six models — from Alibaba, Google, LLaVA, OpenAI, THUDM, and OpenBMB — fit inside a 5.4-point band. Rankings this compressed are fragile; a single point of noise would reshuffle the podium.",
+  "The cluster sits a quarter of the scale below the ceiling: 74.8 leaves just over 25 points of the 0-100 accuracy range unclaimed, and the paper reports that humans still hold a large lead, particularly on abstract images. Read the leaderboard as a plateau, then: the current generation has converged on what implication understanding it has, and the remaining distance will likely require intrinsic emotional and semantic grounding rather than the sentiment hints that currently prop scores up."
+ ]
+}

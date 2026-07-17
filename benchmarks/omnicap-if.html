@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OmniCap-IF | TokenWave AI</title>
-    <meta name="description" content="OmniCap-IF evaluates instruction following in omni-modal captioning. This page uses the Overall CSR from the main table.">
+    <meta name="description" content="Instruction following, pushed into omni-modal captioning where three kinds of constraint bind at once.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="OmniCap-IF | TokenWave AI">
-    <meta property="og:description" content="OmniCap-IF evaluates instruction following in omni-modal captioning. This page uses the Overall CSR from the main table.">
+    <meta property="og:description" content="Instruction following, pushed into omni-modal captioning where three kinds of constraint bind at once.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/omnicap-if.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OmniCap-IF | TokenWave AI">
-    <meta name="twitter:description" content="OmniCap-IF evaluates instruction following in omni-modal captioning. This page uses the Overall CSR from the main table.">
+    <meta name="twitter:description" content="Instruction following, pushed into omni-modal captioning where three kinds of constraint bind at once.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/omnicap-if.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Omni Understanding</div>
             <h1>OmniCap-IF</h1>
+            <p class="detail-tagline">Instruction following, pushed into omni-modal captioning where three kinds of constraint bind at once.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Gemini 3.1 Pro: 79.8</span>
                 <span class="sep">·</span>
@@ -61,22 +62,34 @@
     <div class="detail-actions"><a class="button primary" href="https://openreview.net/" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">3</div><div class="l">constraint types</div></div>
+        <div class="stat-tile"><div class="v">79.8</div><div class="l">top score (Overall CSR)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">12.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>OmniCap-IF evaluates instruction following in omni-modal captioning. This page uses the Overall CSR from the main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>OmniCap-IF extends instruction following into omni-modal video captioning, where the prompt does more than request a description. Each instruction bundles format constraints, content constraints, and cross-modal constraints, and a caption counts only insofar as it satisfies all three at once. The benchmark&#x27;s premise is that omni captioning should be judged not only on generation quality but on whether complex instructions are truly followed — controllability, not just fluency, is the object of measurement.</p>
+        <p>The cross-modal requirement is what separates this from text-only instruction-following suites. A constraint can bind the caption to more than one input stream at a time, so a model cannot comply by attending to a single modality and paraphrasing well. Scoring uses Overall CSR on a 0–100 scale, with higher scores indicating fuller compliance; the leaderboard here takes the Overall figure from the benchmark&#x27;s main results table.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Instruction following has been studied thoroughly in text, far less so where several input modalities compete for a model&#x27;s attention. That is the regime OmniCap-IF targets: a cross-modal constraint cannot be satisfied by transcribing one stream well, so the score reflects whether a model integrates its inputs under an explicit specification. For omni models pitched as general-purpose perception layers, that is the property a deployer actually depends on — controlled output from multi-stream input.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work extends instruction following to omni-modal video captioning, requiring models to satisfy format, content, and cross-modal constraints together.</li>
             <li>It argues that omni captioning should evaluate not only generation quality, but also whether complex instructions are truly followed.</li>
             <li>The main results show stronger overall performance from leading closed-source omni models, while open-source omni models are becoming competitive.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall CSR</b> &mdash; Higher is better. Overall CSR score from the main OmniCap-IF table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall CSR from the main table.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +105,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>At the top the board is a Google duopoly: Gemini 3.1 Pro leads at 79.8 Overall CSR with Gemini 3 Flash just 1.1 points behind. The middle tier starts about four points down, where MiMo-V2-Omni posts 74.59 and edges Gemini 2.5 Pro at 74.06 by half a point — a small inversion that fits the paper&#x27;s own summary: leading closed-source omni models are strongest overall, while open-source omni models are becoming competitive.</p>
+        <p>Alibaba&#x27;s Qwen3-Omni pair closes the table with a signal of its own: the 30B-A3B Thinking variant scores 72.58 against 67.44 for its Instruct sibling, a 5.1-point margin between two builds of the same model. End to end, the six systems span 12.4 points, and the leader still sits a full twenty points below the metric&#x27;s maximum. Progress is orderly rather than saturated — every tier has visible room above it, including the first.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Instruction following in omni captioning</span></li>
             <li><span class="k">Primary metric</span><span>Overall CSR</span></li>
@@ -102,7 +119,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

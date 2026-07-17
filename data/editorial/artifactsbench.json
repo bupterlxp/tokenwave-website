@@ -1,0 +1,23 @@
+{
+ "slug": "artifactsbench",
+ "tagline": "Judging generated web apps, games, and SVGs on how they look, move, and respond — not just whether they run",
+ "stats": [
+  {"value": "1,825", "label": "interactive tasks"},
+  {"value": "55.76", "label": "top score (AVG)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "10.2", "label": "point spread"}
+ ],
+ "overview": [
+  "Most code benchmarks stop at the question of whether a program runs. ArtifactsBench asks the harder one: is the thing it produces actually good to use? Its 1,825 tasks span interactive visual artifacts — web apps, small tools, games, and SVG generation — a class of user-facing output that traditional code evaluations barely touch. Each submission is scored on visual quality, dynamic behavior, and interaction integrity, summarized as an AVG score on a 0-100 scale.",
+  "The evaluation pipeline is built to see what a user would see. Generated code is executed, temporal screenshots capture the artifact as it changes over time, and checklist-guided multimodal judges assess the code, the visuals, and the interaction together. The leaderboard on this page reports the AVG column from the main result table under the Gemini-2.5-Pro referee setting.",
+  "Automated judgment of aesthetics invites skepticism, and the paper meets it head-on: the benchmark's rankings show strong agreement with human preference rankings from WebDev Arena. That correspondence is what turns a judge pipeline into a usable instrument — scores here track what people actually prefer when they rank model-built web apps."
+ ],
+ "why": [
+  "A growing share of what people ask models to build is user-facing — web apps, small tools, games, visuals. For that work, executability is a low bar: code can run flawlessly and still render badly, animate wrongly, or ignore a click. By scoring visual quality, dynamic behavior, and interaction integrity directly, ArtifactsBench measures the distance between code that runs and software a person would willingly use.",
+  "Dynamic behavior is also the hardest thing to check automatically. A single static screenshot cannot tell an interface that works from one frozen in a good-looking state, which is why the pipeline captures screenshots across time and asks its judges about behavior, not just appearance. That choice is what lets an automated benchmark stand in for human raters."
+ ],
+ "reading": [
+  "Claude 4.0 Sonnet leads at 55.76, with a 4.1-point margin over DeepSeek-R1-0528 at 51.62 — the largest gap anywhere in the table. Below it the field compresses: five models from DeepSeek-R1 down to DeepSeek-V3-0324 at 45.56 sit within about six points, with Hunyuan-Turbos-Preview (50.97), GPT-4.1 (48.23), and Seed-Thinking-1.5 (47.92) filling the middle.",
+  "The more telling number is the ceiling. On a 0-100 scale, the best system clears barely more than half the range, and the whole six-model field spans just 10.2 points. Producing an artifact that looks right, moves right, and responds right is evidently difficult for everyone — current models cluster in a band of partial competence, and the headroom above 55.76 is where the next generation of user-facing coding gains will show up."
+ ]
+}

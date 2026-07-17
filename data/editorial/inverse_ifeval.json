@@ -1,0 +1,33 @@
+{
+ "slug": "inverse_ifeval",
+ "tagline": "Instruction following at its hardest — when the request contradicts the model's training conventions",
+ "stats": [
+  {
+   "value": "75.66",
+   "label": "top score (Overall Score)"
+  },
+  {
+   "value": "4",
+   "label": "challenge conditions"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "8.5",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "Most instruction-following benchmarks reward models for doing what they were trained to do. Inverse IFEval asks the opposite question: when a user's instruction conflicts with the conventions a model absorbed during training, does the model follow the user or the habit? Its tasks are built around deliberately counter-conventional demands — corrections, formatting that violates learned defaults, mid-dialogue interventions, and requirements to change as little as possible.",
+  "The design goes beyond checking formatting compliance. Each inverse instruction is constructed to pull against a training convention, so passing requires the model to recognize that the user's stated intent overrides its priors. Performance is summarized as an Overall Score on a 0-100 scale; the leaderboard here reports the English main table rather than recombining English and Chinese results.",
+  "The headline finding is uncomfortable for anyone who assumed instruction following was solved: even the strongest models show clear weaknesses once instructions turn inverse. Compliance with familiar formats, it turns out, is not the same skill as obedience under conflict — and only the second one generalizes to users whose needs do not match the training distribution."
+ ],
+ "why": [
+  "Deployed models constantly meet users whose requirements cut against defaults: formatting that breaks convention, a correction issued mid-conversation, an edit that must change as little as possible. A model that reverts to its training habits in those moments is not following instructions; it is autocompleting them. Inverse IFEval isolates exactly that failure mode, one that conventional compliance suites are structurally unable to see."
+ ],
+ "reading": [
+  "OpenAI holds the entire podium: o3-high leads at 75.66, with o3-mini just 0.99 behind and GPT-5-high at 73.72 — three systems inside a two-point band. Gemini 2.5 Pro follows at 70.55, and Claude 4 Opus Thinking closes the table at 67.16, an 8.5-point spread across six models. The compression at the top matters less than the ceiling: the best model still leaves roughly a quarter of the 0-100 range on the table, so training habits are being broken, but not reliably."
+ ]
+}

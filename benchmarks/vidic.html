@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViDiC | TokenWave AI</title>
-    <meta name="description" content="ViDiC evaluates video difference captioning by measuring how well models describe fine-grained differences and similarities between videos. This page uses the Average score from the main table.">
+    <meta name="description" content="Testing whether models can say what changed, and what stayed the same, between paired videos.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="ViDiC | TokenWave AI">
-    <meta property="og:description" content="ViDiC evaluates video difference captioning by measuring how well models describe fine-grained differences and similarities between videos. This page uses the Average score from the main table.">
+    <meta property="og:description" content="Testing whether models can say what changed, and what stayed the same, between paired videos.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/vidic.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ViDiC | TokenWave AI">
-    <meta name="twitter:description" content="ViDiC evaluates video difference captioning by measuring how well models describe fine-grained differences and similarities between videos. This page uses the Average score from the main table.">
+    <meta name="twitter:description" content="Testing whether models can say what changed, and what stayed the same, between paired videos.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/vidic.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Video Captioning</div>
             <h1>ViDiC</h1>
+            <p class="detail-tagline">Testing whether models can say what changed, and what stayed the same, between paired videos.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 GPT-5 Mini: 95.22</span>
                 <span class="sep">·</span>
@@ -61,22 +62,34 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.03405" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://huggingface.co/datasets/NJU-LINK/ViDiC-1K" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2512.03405.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">95.22</div><div class="l">top score (Average)</div></div>
+        <div class="stat-tile"><div class="v">3</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">7.99</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>ViDiC evaluates video difference captioning by measuring how well models describe fine-grained differences and similarities between videos. This page uses the Average score from the main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Difference captioning began as an image task: show a model two pictures and ask what changed. ViDiC extends the setup to video, where a faithful answer has to track time as well as content. Each item pairs two videos, and the model must describe their differences, their similarities, and the temporal changes that separate them — what one clip does over its duration that the other does not.</p>
+        <p>The benchmark&#x27;s emphasis is deliberately fine-grained. Rather than reward broad scene summaries, it asks about factors like position, background, camera motion, and filming technique — properties that only surface when a model genuinely compares the two clips instead of captioning each in isolation. That comparative framing is what distinguishes ViDiC from standard video captioning, where fluent but generic descriptions can still score well.</p>
+        <p>Results roll up into a single Average score on a 0–100 scale, taken from the paper&#x27;s main table. The headline numbers are high — leading models handle the task well on average — but the results also show clear weaknesses on fine-grained categories, which is where the benchmark&#x27;s diagnostic value concentrates. A high mean, in other words, does not yet mean solved perception.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A model can caption each of two videos fluently and still be unable to say how they relate. That comparative skill is a distinct capability: it requires holding both clips in mind, aligning them over time, and noticing which fine-grained properties — position, background, camera motion, filming technique — diverge. ViDiC is built to isolate exactly that, and its inclusion of similarities keeps models from scoring by simply asserting difference everywhere.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work extends difference captioning from images to videos, requiring models to describe differences, similarities, and temporal changes between paired videos.</li>
             <li>It emphasizes fine-grained factors such as position, background, camera motion, and filming technique, making the task more comparative than standard captioning.</li>
             <li>The main results show strong performance from leading language models, but clear weaknesses remain on fine-grained categories.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Average</b> &mdash; Higher is better. Average score on the main ViDiC results table. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Average column from the main results table.</p>
         <table class="data-table">
             <thead>
@@ -89,7 +102,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-5 Mini tops the board at 95.22, a 5.85-point lead over DeepSeek-V3 at 89.37, with Qwen3-32B at 87.23. All three systems land within an eight-point band, and the leader sits under five points from the 100-point ceiling. Read that with care: the paper&#x27;s own analysis flags persistent weaknesses on fine-grained categories, so a near-saturated Average likely masks uneven performance underneath. With only three models scored, the useful signal is less the ranking than how quickly the headline metric approached saturation.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Video difference captioning</span></li>
             <li><span class="k">Primary metric</span><span>Average</span></li>
@@ -99,7 +115,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

@@ -1,0 +1,22 @@
+{
+ "slug": "mceval",
+ "tagline": "Pushing code evaluation beyond Python: 40 programming languages, 16K samples, three task types",
+ "stats": [
+  {"value": "40", "label": "programming languages"},
+  {"value": "16K", "label": "test samples"},
+  {"value": "3", "label": "task types"},
+  {"value": "65.2", "label": "top score (Avg_all)"}
+ ],
+ "overview": [
+  "Most code benchmarks live inside Python, and when they venture out, the new languages are often produced by translating the same Python problems — diversity in syntax only. McEval is built against that habit. It spans 40 programming languages with roughly 16K test samples, and it asks for more than generation: models must also complete partial programs and explain existing code, three tasks that together sketch what working across a real polyglot codebase demands.",
+  "The benchmark ships with more than a test set. Alongside it, the authors release MCEVAL-INSTRUCT, a companion instruction corpus, and train MCODER on it for multilingual code generation — the evaluation comes packaged with a recipe for improving on it. TokenWave's leaderboard tracks Avg_all, the aggregate code-generation score from the paper's main results table on a 0-100 scale; per-language results exist in the paper but stay folded into this headline number.",
+  "The headline experimental result is a gap that refuses to close: strong closed-source models beat open-source systems across many of the 40 languages, not just a few. That persistence suggests multilingual coding ability is not a free by-product of general code skill — it is a capability most open systems have not yet secured, and one the benchmark was designed to surface."
+ ],
+ "why": [
+  "A benchmark translated out of Python measures Python competence wearing forty costumes. McEval's languages are evaluated in their own right, so the aggregate score punishes exactly the failure that matters in deployment: a model that shines on high-resource languages and quietly degrades on the rest of a real codebase. And because completion and explanation sit beside generation, the score also reflects maintenance work — reading and extending code — not just writing it fresh."
+ ],
+ "reading": [
+  "GPT-4o leads at 65.2 on Avg_all, with GPT-4 Turbo close behind at 63.4 — a 1.8-point gap that keeps OpenAI comfortably in charge of the top of the table. The more telling number sits below: DeepSeekCoder-6.7B, at 54.3, trails the leader by 10.9 points, which is the paper's closed-versus-open gap rendered as a single figure. It is still a strong showing — a 6.7B specialist that outscores GPT-3.5 Turbo (52.6) — but the ceiling belongs to closed models.",
+  "The five-model field spans 18.6 points, from Yi-Large-Turbo at 46.6 to GPT-4o at 65.2, and even the leader leaves 34.8 points of the 0-100 range on the table. Averaged over 40 languages, that headroom is the point: a score in the mid-60s means plenty of languages where even the best model is unreliable. McEval's aggregate will be hard to saturate by polishing Python alone — which is precisely what it was built to ensure."
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "slug": "multi_docker_eval",
+ "tagline": "Testing whether coding agents can build the runnable environment before anyone hands them one",
+ "stats": [
+  {"value": "37.72", "label": "top score (F2P)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "10.7", "label": "score spread"}
+ ],
+ "overview": [
+  "Most software-engineering benchmarks hand the agent a working environment and ask for a patch. Multi-Docker-Eval removes that gift. It evaluates whether a model can take a diverse repository and bring it to a test-ready state on its own, across different languages and setups — the work that stands between a fresh checkout and a passing test run. This page reports F2P, the first-to-pass rate, under the SWE-Builder framework.",
+  "The framing extends software-engineering evaluation past the patch and into construction itself. The metric, F2P, is a first-to-pass rate: it credits a model only when the environment it builds actually reaches a passing test state. Scores run on a 0-100 scale, and the study's central finding is blunt — environment building remains a major bottleneck for agentic software engineering, with large differences across models in both success rate and cost."
+ ],
+ "why": [
+  "Every agentic coding result silently depends on someone having built the harness first. On real repositories nobody has done that work: an agent that cannot stand up its own environment cannot verify its own patches, no matter how good its edits are. Multi-Docker-Eval isolates that prerequisite and prices it, which is why its scores read less like a coding ranking and more like a ceiling on end-to-end autonomy."
+ ],
+ "reading": [
+  "DeepSeek-V3.1 leads at 37.72, but only by a tenth of a point over Kimi-K2-0905 at 37.62 — effectively a tie at the top. The five leading systems, from four different labs, sit within 3.6 points of one another; the field then drops 7.1 points to GPT-OSS-120B at 27. Read the cluster rather than the ranks: capability here has converged across labs, and nobody clears 38 on a 0-100 scale. Most environments still defeat even the best model tested."
+ ]
+}

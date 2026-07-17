@@ -1,0 +1,35 @@
+{
+ "slug": "rolellm",
+ "tagline": "Role-playing measured on three axes — style, accuracy, and character knowledge — plus a recipe to improve it",
+ "stats": [
+  {
+   "value": "3",
+   "label": "scoring dimensions"
+  },
+  {
+   "value": "47.7",
+   "label": "top score (avg)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "22.5",
+   "label": "score spread"
+  }
+ ],
+ "overview": [
+  "RoleLLM treats role-playing as a capability to be measured and built, not merely observed. The framework runs a four-stage pipeline — role profile construction, role-specific knowledge extraction, RoleGPT prompting, and role-conditioned tuning — and from it derives RoleBench, a large-scale, fine-grained dataset for role-playing evaluation. The leaderboard on this page fixes the paper's main English setting, which tests generalization to new instructions rather than rehearsal of familiar ones.",
+  "A single avg score on a 0–100 scale ranks the leaderboard, but three finer-grained metrics — CUS, RAW, and SPE — sit underneath it, keeping speaking style, accuracy, and role-specific knowledge as separate dimensions. The separation is the point. A model can capture a character's voice while knowing nothing about their world, or recite the right facts in a flat assistant register; averaging without decomposing would hide which failure a system actually has.",
+  "Unusually for a benchmark, RoleLLM also ships the remedy. Role-conditioned tuning on RoleBench produces RoleLLaMA and RoleGLM, with clear gains for open models on role-playing tasks. Evaluation, prompting, data construction, and training arrive as one integrated framework, so the leaderboard doubles as an ablation: it shows what the tuning recipe buys relative to models that never saw it."
+ ],
+ "why": [
+  "Staying in character is a deployment property, not a party trick. Character companions, game agents, and brand-voiced assistants all depend on a model holding a persona across an open-ended stream of instructions without collapsing into a generic register. Because RoleLLM scores style, accuracy, and role-specific knowledge as distinct dimensions, it tracks the failure modes such products actually hit — the right voice with the wrong facts, and the reverse.",
+  "The framework's dual role also keeps its measurement honest. The same pipeline that evaluates models generates training data and tuned checkpoints, so RoleLLM demonstrates that the gap it exposes is closable, and roughly what closing it takes. A benchmark that only ranks leaves that question open; one that trains against itself has to show its axis responds to effort."
+ ],
+ "reading": [
+  "RoleGPT, the framework's prompting-based system, sets the pace at 47.7. The more telling row is the second: RoleLLaMA2 (13B-Chat), an open model tuned on RoleBench, lands just 3.0 points back at 44.7 and 5.4 clear of Character.AI at 39.3. RoleLLaMA-7B follows at 36.2 — even the smaller tuned variant outscores both general-purpose baselines by a comfortable margin.",
+  "The spread from top to bottom is 22.5 points, and the shape is stratified: the three RoleLLM systems and Character.AI hold the top four slots, while the general-purpose baselines Alpaca-7B (28.8) and Vicuna-13B (25.2) trail well behind. Just as striking is the ceiling — no entry reaches the midpoint of the 0–100 avg scale. Holding a role under unseen English instructions is, by this measure, still less than half solved."
+ ]
+}

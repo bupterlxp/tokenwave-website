@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebCompass | TokenWave AI</title>
-    <meta name="description" content="WebCompass unifies evaluation for web generation, editing, and repair. This page uses the Overall score from the main table.">
+    <meta name="description" content="Web coding measured whole — generation, editing, and repair, judged by an agent in a real browser.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="WebCompass | TokenWave AI">
-    <meta property="og:description" content="WebCompass unifies evaluation for web generation, editing, and repair. This page uses the Overall score from the main table.">
+    <meta property="og:description" content="Web coding measured whole — generation, editing, and repair, judged by an agent in a real browser.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/web-compass.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WebCompass | TokenWave AI">
-    <meta name="twitter:description" content="WebCompass unifies evaluation for web generation, editing, and repair. This page uses the Overall score from the main table.">
+    <meta name="twitter:description" content="Web coding measured whole — generation, editing, and repair, judged by an agent in a real browser.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/web-compass.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>WebCompass</h1>
+            <p class="detail-tagline">Web coding measured whole — generation, editing, and repair, judged by an agent in a real browser.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Claude Opus 4.5: 67.4</span>
                 <span class="sep">·</span>
@@ -61,22 +62,34 @@
     <div class="detail-actions"><a class="button" href="https://nju-link.github.io/WebCompass/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">3</div><div class="l">task families</div></div>
+        <div class="stat-tile"><div class="v">9</div><div class="l">scored dimensions</div></div>
+        <div class="stat-tile"><div class="v">67.4</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>WebCompass unifies evaluation for web generation, editing, and repair. This page uses the Overall score from the main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>WebCompass refuses to treat web coding as a single skill. It splits front-end work into three task families — generating a page from a specification, editing an existing one, and repairing broken interactions — and scores all three under one roof. Every submission is executed in a real browser rather than inspected as text, so a page that fails to render, or a button that fails to respond, costs points no matter how plausible the code reads.</p>
+        <p>Judging is delegated to an agent-as-a-judge protocol that assesses runnability, spec implementation, design quality, and interaction repair. Nine fine-grained dimensions feed the headline Overall score, a mean on a 0-100 scale, which is what our leaderboard reports. The averaging matters: a model cannot bank a high score on generation alone, because weakness in editing or repair — the parts of front-end work that involve someone else&#x27;s code — drags the mean down with it.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Most production front-end work starts from code that already exists. A model that can scaffold a clean page but cannot make a targeted edit, or diagnose why an interaction silently fails, covers only a fraction of the job. And by executing in a real browser, WebCompass closes the gap between code that looks correct and a page that actually behaves — the only distinction end users ever notice.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work unifies web coding into generation, editing, and repair tasks, and jointly evaluates runnability, spec implementation, design quality, and interaction repair.</li>
             <li>It uses real-browser execution and an agent-as-a-judge protocol to assess front-end development ability.</li>
             <li>The main results show a clear lead for top closed-source systems, while open-source models still lag on complex multi-page and interactive tasks.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall</b> &mdash; Higher is better. Overall mean score across generation, editing, and repair dimensions. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses the Overall column from the main results table, which averages the nine fine-grained dimensions.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +105,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Claude Opus 4.5 holds the top spot at 67.4, but barely: Gemini 3 Pro Preview trails by 0.7 at 66.68, and Gemini 3 Flash Preview keeps the top three inside a two-point band at 65.42. GPT-5.2 follows at 61.9 and Claude Sonnet 4.5 at 57.12 — a ten-point stretch across the closed-source field that reads as genuine parity at the top and steady decay behind it.</p>
+        <p>The sharpest structure sits at the bottom. Qwen3-VL-235B-A22B-Instruct scores 41.14, a sixteen-point drop from fifth place and the pattern the authors flag directly: open-source models still lag on complex multi-page and interactive tasks. Nobody is near the ceiling either — the leader leaves nearly a third of the 0-100 range unclaimed, so unified web coding remains open ground even for the systems that currently define it.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Web generation / editing / repair</span></li>
             <li><span class="k">Primary metric</span><span>Overall</span></li>
@@ -102,7 +119,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

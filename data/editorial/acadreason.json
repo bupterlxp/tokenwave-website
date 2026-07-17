@@ -1,0 +1,22 @@
+{
+ "slug": "acadreason",
+ "tagline": "Real research problems from five disciplines, built to test synthesis rather than exam recall",
+ "stats": [
+  {"value": "5", "label": "academic disciplines"},
+  {"value": "40.5", "label": "top score (Average Score)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "16.7", "label": "score spread"}
+ ],
+ "overview": [
+  "ACADREASON swaps exam questions for the real thing: research problems drawn from genuine academic work in computer science, economics, law, mathematics, and philosophy. Where a typical benchmark rewards retrieving a known answer, these tasks are open-ended by construction — the model has to pull material from multiple sources and sustain a line of reasoning over a long horizon before anything resembling an answer takes shape.",
+  "Scoring uses the average score from the paper's main results table, on a 0 to 100 scale where higher is better. The paper reports each result as a solved count alongside an average score; TokenWave tracks the average-score term, which captures graded progress on problems too hard for a clean solve. The headline finding is blunt: even leading models achieve limited overall performance on genuine academic reasoning.",
+  "The benchmark sits in the search-agent category for a reason. Multi-source synthesis is not incidental to these problems; it is the work. A research question in law or economics rarely resolves from a single passage, so the evaluation implicitly measures how well a model can locate, weigh, and combine evidence — the loop that separates a research assistant from an answer engine."
+ ],
+ "why": [
+  "The benchmark is built on an explicit contrast. Exam-style evaluation rewards producing a known answer in a fixed format; research demands open-ended exploration, synthesis across sources, and reasoning that stays coherent over a long horizon. Those are the capabilities that matter if models are to assist actual scholarship in fields as different as mathematics and law — and they are the ones ACADREASON isolates by using real research problems as the testbed."
+ ],
+ "reading": [
+  "GPT-5 leads at 40.5, a full 7.1 points ahead of o3 at 33.4 — and OpenAI holds the entire top three, with GPT-OSS close behind at 32.2. Below that the board compresses: DeepSeek-V3.1, Claude 4 Sonnet, and DeepSeek-R1 sit within a single point of each other, 24.8 down to 23.8. The whole field spans just 16.7 points, all of it in the bottom half of the scale.",
+  "Still, the ordering matters less than the altitude. Even the leader leaves nearly 60 points of the 0-100 range unclaimed, which is the paper's own conclusion in numeric form: leading models still achieve limited performance on genuine academic reasoning. The interesting race here is not between labs but between the field and the problems."
+ ]
+}

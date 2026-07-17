@@ -1,0 +1,34 @@
+{
+ "slug": "owl",
+ "tagline": "Evaluating whether language models can do IT operations work, not just generic chat and QA",
+ "stats": [
+  {
+   "value": "8.86",
+   "label": "top score (Average Score)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "0.74",
+   "label": "score spread"
+  },
+  {
+   "value": "0–10",
+   "label": "score scale"
+  }
+ ],
+ "overview": [
+  "OWL asks a narrower question than most language-model benchmarks: can a model actually help run IT systems? Rather than scoring generic chat or question answering, the work behind it targets enterprise operations directly. The paper pairs two artifacts — Owl-Instruct, a training corpus for the domain, and Owl-Bench, the evaluation suite this page tracks — and uses them to build and test a specialized model for IT tasks.",
+  "On the modeling side, the paper tunes with a mixture-of-adapter strategy and proposes HMCE to extend usable context — a signal that operations workloads demand more of a model's context window than casual chat does. Evaluation reports an Average Score on a 0–10 scale rather than a percentage. TokenWave preserves the paper's original scale, so a score here is not an accuracy figure and should not be read as one.",
+  "The headline experimental result supports the paper's thesis: the domain-tuned OWL model outperforms contemporary general-purpose baselines across multiple IT tasks. The broader claim is that realistic IT operations use cases need both specialized models and specialized benchmarks — and Owl-Bench exists precisely because generic leaderboards cannot say whether a model is ready for that work."
+ ],
+ "why": [
+  "IT operations is where language models meet infrastructure that cannot tolerate confident guessing. A model that performs well on general QA may still be unprepared for the vocabulary, conventions, and stakes of enterprise operations — and without a domain benchmark, nobody would know. OWL's contribution is the measuring instrument itself: it makes “closer to enterprise operations than generic QA” a testable claim rather than a marketing line."
+ ],
+ "reading": [
+  "OWL-13B leads at 8.86 on the paper's 0–10 Average Score, 0.29 points ahead of LLaMA2-13B at 8.57 — the domain-tuned model beating every general-purpose system it was measured against, which is the result the paper was built to demonstrate. Qwen-7B, ChatGLM2-6B, InternLM-7B, and ChatGLM-6B fill out the table in a tight descending line, with last place still at 8.12.",
+  "Read the compression carefully. The entire field spans 0.74 points, and even the leader sits 1.14 below the scale's ceiling — differences here are real but small, and an averaged score this bunched flattens whatever task-level variation lies beneath it. The roster is also a snapshot of an earlier era of open models, as the page itself notes, so treat the ordering as the paper's evidence for domain tuning rather than a live ranking of today's systems."
+ ]
+}

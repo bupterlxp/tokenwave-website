@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>II-Bench | TokenWave AI</title>
-    <meta name="description" content="II-Bench focuses on image implication understanding. This page uses the Overall Accuracy from the paper&#x27;s main table.">
+    <meta name="description" content="Testing whether multimodal models read what an image implies, not just what it shows.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="II-Bench | TokenWave AI">
-    <meta property="og:description" content="II-Bench focuses on image implication understanding. This page uses the Overall Accuracy from the paper&#x27;s main table.">
+    <meta property="og:description" content="Testing whether multimodal models read what an image implies, not just what it shows.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/ii-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="II-Bench | TokenWave AI">
-    <meta name="twitter:description" content="II-Bench focuses on image implication understanding. This page uses the Overall Accuracy from the paper&#x27;s main table.">
+    <meta name="twitter:description" content="Testing whether multimodal models read what an image implies, not just what it shows.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/ii-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Image Understanding</div>
             <h1>II-Bench</h1>
+            <p class="detail-tagline">Testing whether multimodal models read what an image implies, not just what it shows.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Qwen-VL-MAX: 74.8</span>
                 <span class="sep">·</span>
@@ -61,18 +62,30 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2406.05862" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://ii-bench.github.io/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2406.05862.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">74.8</div><div class="l">top score (overall accuracy)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">5.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>II-Bench focuses on image implication understanding. This page uses the Overall Accuracy from the paper&#x27;s main table.</p>
+        <h2 id="overview">Overview</h2>
+        <p>II-Bench asks a different question of a multimodal model than most image benchmarks: not what is in this picture, but what does it mean. The benchmark targets higher-order image implication understanding — the layer of meaning beneath recognition — using comics, posters, illustrations, paintings, and other image types drawn from domains such as life, art, society, psychology, and environment.</p>
+        <p>Scoring runs on a single primary metric, Overall Accuracy on a 0-100 scale, taken from the paper&#x27;s main table. The paper reports finer task dimensions as well, but this page keeps one leaderboard so results align cleanly with related image-understanding benchmarks. What the headline number compresses is a consistent finding: models fall well short of humans, and the shortfall widens on abstract, complex images that demand deeper semantic interpretation.</p>
+        <p>One diagnostic detail from the paper is worth carrying into any reading of the scores: performance often improves when sentiment hints are added. If a model needs to be told the emotional register of an image before it can interpret the implication, its intrinsic grasp of image emotion is still limited — the benchmark makes that dependency visible.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Most images people actually make — posters, comics, paintings — communicate through what they leave unstated. A model that names every object yet misses the point has not understood the image in any sense its viewer would recognize. By targeting deep implications rather than surface recognition, II-Bench isolates exactly the layer where the paper finds the human-model gap widest: abstract, complex images that require genuine semantic interpretation, not pattern matching over familiar scenes.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark targets deep image implications rather than surface object recognition.</li>
             <li>The page uses overall accuracy as the primary leaderboard for easier alignment with related image-understanding benchmarks.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>II-Bench focuses on higher-order image implication understanding rather than surface-level object recognition or standard VQA.</li>
             <li>It covers comics, posters, illustrations, paintings, and other image types across domains such as life, art, society, psychology, and environment.</li>
@@ -80,10 +93,10 @@
             <li>Performance often improves when sentiment hints are added, which suggests that intrinsic understanding of image emotion and implication is still limited.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Overall Accuracy</b> &mdash; Higher is better. Overall accuracy on II-Bench. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses Overall Accuracy from the main table. The paper also provides finer task dimensions, which are not split into separate main leaderboards here.</p>
         <table class="data-table">
             <thead>
@@ -99,7 +112,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Qwen-VL-MAX leads at 74.8, but the shape of the table matters more than the ordering. Gemini 1.5 Pro at 73.9 and LLaVA-1.6-34B at 73.8 trail by a point or less, and all six models — from Alibaba, Google, LLaVA, OpenAI, THUDM, and OpenBMB — fit inside a 5.4-point band. Rankings this compressed are fragile; a single point of noise would reshuffle the podium.</p>
+        <p>The cluster sits a quarter of the scale below the ceiling: 74.8 leaves just over 25 points of the 0-100 accuracy range unclaimed, and the paper reports that humans still hold a large lead, particularly on abstract images. Read the leaderboard as a plateau, then: the current generation has converged on what implication understanding it has, and the remaining distance will likely require intrinsic emotional and semantic grounding rather than the sentiment hints that currently prop scores up.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Image implication understanding</span></li>
             <li><span class="k">Primary metric</span><span>Overall Accuracy</span></li>
@@ -110,7 +127,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

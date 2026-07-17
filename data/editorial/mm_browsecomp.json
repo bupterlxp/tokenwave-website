@@ -1,0 +1,34 @@
+{
+ "slug": "mm_browsecomp",
+ "tagline": "Testing whether browsing agents can integrate evidence from text, images, and video on the open web",
+ "stats": [
+  {
+   "value": "29.02",
+   "label": "top score (Overall)"
+  },
+  {
+   "value": "6",
+   "label": "models scored"
+  },
+  {
+   "value": "3",
+   "label": "modalities evaluated"
+  },
+  {
+   "value": "21.4",
+   "label": "first-to-second gap"
+  }
+ ],
+ "overview": [
+  "MM-BrowseComp asks whether an agent can answer questions that live on the open web but not in any single place or modality. Its tasks require joint understanding of text, images, and videos, so an agent must browse, retrieve, and read across formats rather than lean on one well-indexed page. Performance is summarized as an Overall score on a 0–100 scale, taken from the paper's main results table.",
+  "The evaluation reaches past final answers. Alongside open-answer quality, it examines support answers, cross-modal evidence integration, and retrieval across a diverse spread of web domains. The intent is to separate agents that can defend an answer — pointing to evidence gathered from the pages they actually visited, in whatever modality it appeared — from agents that merely produce a plausible string."
+ ],
+ "why": [
+  "Real web pages carry meaning in more than markup. A browsing agent that reads only text will miss whatever a page expresses through images or video, and it will miss it silently — the answer simply comes back wrong or unsupported. MM-BrowseComp tests the pipeline end to end: retrieve across diverse domains, extract from multiple modalities, integrate the pieces into one supported answer. That is the shape of the deployed task, not a simplification of it.",
+  "The paper's central empirical contrast is also its most practical: genuinely tool-augmented systems and plain VLMs are separated by a clear gap on the same questions. Multimodal browsing is not a skill strong models exhibit for free — it has to be built. For anyone deciding whether a browsing harness is worth the engineering, this benchmark puts a number on the difference."
+ ],
+ "reading": [
+  "o3 leads at 29.02 on the Overall metric, and nothing else is close: GPT-4.1 sits second at 7.59, a gap of 21.4 points — nearly five times the spread of the entire rest of the field, which is compressed between 7.59 and 3.12. o4-mini-high and Gemini 2.5 Pro Preview tie exactly at 7.14, a hint that the mid-table reflects a shared limitation more than it distinguishes systems.",
+  "The ceiling is the other headline. Even the leader clears less than a third of the 0–100 range, and five of the six models score in single digits. As of the April 2026 update, MM-BrowseComp reads as an early-stage benchmark in the useful sense: the ordering is informative, but roughly 71 points of headroom remain, and this table is unlikely to look the same for long."
+ ]
+}

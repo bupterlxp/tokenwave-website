@@ -1,0 +1,21 @@
+{
+ "slug": "longform_rewardbench",
+ "tagline": "Testing whether reward models can still separate good from bad when the responses run long",
+ "stats": [
+  {"value": "5", "label": "task subsets"},
+  {"value": "74.9", "label": "top score (Long-form-RM)"},
+  {"value": "6", "label": "models scored"},
+  {"value": "1.3", "label": "score spread"}
+ ],
+ "overview": [
+  "Most reward-model benchmarks judge preferences over short responses. Long-form RewardBench moves the contest to the regime where modern models actually spend their tokens: extended outputs across QA, RAG, chat, writing, and reasoning. Each subset probes whether a reward model can still rank a long response correctly, and performance is folded into a single Long-form-RM Score on a 0–100 scale, higher being better.",
+  "The shift matters because the evidence a judge relies on changes with length. In a short answer, quality is legible almost at a glance; in a long one, a scorer has to hold structure, consistency, and grounding across the whole span. The authors report that the resulting landscape differs from traditional RewardBench — strength on short preference pairs does not simply carry over — and that robustness in long contexts remains an open problem."
+ ],
+ "why": [
+  "Reward models are the steering mechanism for post-training: they decide which sampled response gets reinforced and which best-of-n candidate ships. As deployed systems drift toward long outputs — grounded RAG answers, extended writing, multi-step reasoning — a reward model that only ranks reliably at short lengths quietly corrupts that signal exactly where it is hardest to audit. Benchmarking the long-form regime directly is the prerequisite for trusting it."
+ ],
+ "reading": [
+  "The board is a photo finish. Skywork-Reward-V2-Llama-3.2-3B leads at 74.9, with GPT-4.1 at 74.6 and Claude Opus 4 and AllenAI's Llama-3.1-70B RM tied at 74.4; Gemini 2.5 Flash closes the table at 73.6. All six systems sit inside a 1.3-point band, and the leader's margin over second place is just 0.3.",
+  "Two things stand out in that cluster. A dedicated 3B reward model finishing ahead of frontier generalist judges suggests that scale is not what long-form ranking currently rewards. And with the top score at 74.9 on a 0–100 metric, roughly a quarter of the range is still unclaimed — the compressed spread reads less like a solved problem than like six systems hitting the same wall."
+ ]
+}

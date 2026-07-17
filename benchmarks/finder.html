@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FINDER | TokenWave AI</title>
-    <meta name="description" content="This work studies how close current systems are to genuinely useful deep research agents. The displayed leaderboard uses the Checklist Pass Rate reported in the paper.">
+    <meta name="description" content="Holding deep research agents to analyst standards, one checklist item at a time.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="FINDER | TokenWave AI">
-    <meta property="og:description" content="This work studies how close current systems are to genuinely useful deep research agents. The displayed leaderboard uses the Checklist Pass Rate reported in the paper.">
+    <meta property="og:description" content="Holding deep research agents to analyst standards, one checklist item at a time.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/finder.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FINDER | TokenWave AI">
-    <meta name="twitter:description" content="This work studies how close current systems are to genuinely useful deep research agents. The displayed leaderboard uses the Checklist Pass Rate reported in the paper.">
+    <meta name="twitter:description" content="Holding deep research agents to analyst standards, one checklist item at a time.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/finder.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Search Agent</div>
             <h1>FINDER</h1>
+            <p class="detail-tagline">Holding deep research agents to analyst standards, one checklist item at a time.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 MiroFlow-English: 72.19</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.01948" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2512.01948.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">100</div><div class="l">research tasks</div></div>
+        <div class="stat-tile"><div class="v">419</div><div class="l">checklist items</div></div>
+        <div class="stat-tile"><div class="v">~1,000</div><div class="l">reports analyzed</div></div>
+        <div class="stat-tile"><div class="v">72.19</div><div class="l">top score (checklist pass rate)</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>This work studies how close current systems are to genuinely useful deep research agents. The displayed leaderboard uses the Checklist Pass Rate reported in the paper.</p>
+        <h2 id="overview">Overview</h2>
+        <p>FINDER asks a harder question than most search-agent benchmarks: not whether an agent can find an answer, but whether it can finish a piece of research. Each of its 100 human-curated tasks calls for an analyst-level report, and every report is judged against structured checklist items — 419 in total — that pin down what the finished product must contain: proper structure, real analytical depth, and claims grounded in evidence.</p>
+        <p>Scoring is the Checklist Pass Rate: the share of those items a report actually satisfies, on a 0–100 scale. Because the checklist decomposes each task into concrete requirements, the metric rewards process rather than surface plausibility — a report that reads well but skips a required analysis loses the same points as one that never attempts it.</p>
+        <p>The paper goes beyond scoring. From around 1,000 generated reports, it distills the DEFT failure taxonomy, and the diagnosis is pointed: current systems rarely misunderstand the task. Where they break down is in evidence integration, verification, and planning — the long middle of the research process, after the question is clear and before the report is done.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A deep research agent is only useful if you can hand off the work — and hand-off requires trusting the process, not just the prose. An agent that produces a fluent report while silently skipping verification is worse than one that fails visibly. By scoring completion of the research process itself, FINDER measures the property that decides whether these systems save analysts time or merely create review work.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The paper cares about whether the research process is genuinely completed, not only whether the final answer looks plausible.</li>
             <li>The page uses checklist pass rate because it matches the process-oriented evaluation design.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>FINDER focuses on whether deep research agents can produce analyst-level reports rather than simple answers.</li>
             <li>It introduces 100 human-curated research tasks together with 419 structured checklist items.</li>
@@ -81,10 +95,10 @@
             <li>The main finding is that current systems struggle more with evidence integration, verification, and planning than with task understanding.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Checklist Pass Rate</b> &mdash; Higher is better. Checklist-based pass rate reported by the paper. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses Checklist Pass Rate from the main table. The paper also reports other research-quality indicators, but this page prioritizes the most direct task-completion signal.</p>
         <table class="data-table">
             <thead>
@@ -100,7 +114,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>MiroFlow-English leads at 72.19, 4.65 points ahead of Tongyi-DeepResearch at 67.54, with Kimi K2 less than a point further back at 66.59. The top five sit within roughly eleven points of one another; WebThinker, at 44.87, trails fifth place by more than sixteen. The shape suggests a maturing middle of the field and one clear laggard rather than a single dominant system.</p>
+        <p>The ceiling is the more telling number. Even the leader leaves nearly 28 points of the checklist range unclaimed, and the DEFT analysis says where they sit: not in task understanding, which current systems largely manage, but in evidence integration, verification, and planning. A 72.19 here means roughly a quarter of the required analytical work still is not getting done — a useful corrective to demos that look finished.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Deep research agents</span></li>
             <li><span class="k">Primary metric</span><span>Checklist Pass Rate</span></li>
@@ -111,7 +129,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

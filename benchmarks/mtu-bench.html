@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTU-Bench | TokenWave AI</title>
-    <meta name="description" content="MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.">
+    <meta name="description" content="Tool use measured at four granularities, with multi-turn multi-tool orchestration as the hardest test.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="MTU-Bench | TokenWave AI">
-    <meta property="og:description" content="MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.">
+    <meta property="og:description" content="Tool use measured at four granularities, with multi-turn multi-tool orchestration as the hardest test.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/mtu-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MTU-Bench | TokenWave AI">
-    <meta name="twitter:description" content="MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.">
+    <meta name="twitter:description" content="Tool use measured at four granularities, with multi-turn multi-tool orchestration as the hardest test.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/mtu-bench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Reasoning</div>
             <h1>MTU-Bench</h1>
+            <p class="detail-tagline">Tool use measured at four granularities, with multi-turn multi-tool orchestration as the hardest test.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Qwen-Max: 45.08</span>
                 <span class="sep">·</span>
@@ -61,18 +62,32 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.11710" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/MTU-Bench-Team/MTU-Bench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.11710.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4</div><div class="l">interaction granularities</div></div>
+        <div class="stat-tile"><div class="v">45.08</div><div class="l">top score (M-M)</div></div>
+        <div class="stat-tile"><div class="v">7</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">33.2</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.</p>
+        <h2 id="overview">Overview</h2>
+        <p>MTU-Bench asks a deceptively simple question about tool use: does a model&#x27;s competence survive as the interaction grows more complicated? It probes the same underlying skill at four granularities — single-turn and multi-turn dialogue crossed with single-tool and multi-tool calls — and adds out-of-distribution tasks on top. This page adopts the multi-turn multi-tool (M-M) setting as the primary leaderboard: it is the hardest of the four and the closest proxy for genuine tool orchestration.</p>
+        <p>Two design choices set it apart from earlier tool-use suites. Scoring is entirely objective — every metric is computed against ground truth, with no GPT-based judge and no human raters — which keeps evaluation cheap, reproducible, and stable at scale. And instead of authoring scenarios from scratch, the benchmark transforms existing high-quality tasks into tool-use episodes, which broadens coverage. It ships alongside MTU-Instruct, a companion resource for improving the very abilities the benchmark measures.</p>
+        <p>The four settings are kept separate rather than averaged. The paper reports no single unified overall score, so any aggregate would be an editorial invention; the M-M column serves as the headline number here, while the other three granularities remain on the page to explain a ranking — to show whether a model earns its position on hard orchestration or on easier single-turn calls.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Tool calling is the substrate of agent products, and the failure that matters in deployment is rarely one malformed call — it is losing the thread across turns while juggling several tools at once. By grading each granularity separately, MTU-Bench turns a vague label like “good at tools” into a profile, showing where competence gives out as state and choice multiply.</p>
+        <p>The objective scoring matters just as much. Judge-model evaluation inherits the judge&#x27;s biases along with its price; ground-truth metrics make the benchmark inexpensive enough to run routinely and consistent enough to compare across labs. For anyone choosing a model to sit inside an agent framework, that reproducibility is the point.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>M-M is the hardest setting and best reflects complex tool orchestration ability.</li>
             <li>All four granularities are kept so the page can explain why models lead or lag on the aggregate leaderboard.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>MTU-Bench evaluates tool-use ability while emphasizing differences across multiple interaction granularities.</li>
             <li>It covers single-turn and multi-turn settings, single-tool and multi-tool settings, as well as out-of-distribution tasks.</li>
@@ -81,10 +96,10 @@
             <li>This makes it both broader in coverage and cheaper to evaluate at scale.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>M-M</b> &mdash; Higher is better. Multi-turn multi-tool performance. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses M-M. The paper does not report a single unified overall score, so this page chooses the most representative hard setting as the main metric.</p>
         <table class="data-table">
             <thead>
@@ -101,7 +116,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Qwen-Max leads the M-M leaderboard at 45.08, with GPT-4 at 41.36 and GLM-4-Plus at 39.53 — a top cluster spanning just 5.6 points. Below it the table falls away: DeepSeek-V2.5 sits 8.9 points behind third place at 30.62, and GPT-3.5 Turbo trails the leader by 33.2 points at 11.87. No model reaches even half of the 0–100 range, which says less about any one system than about the setting itself — multi-turn multi-tool orchestration remains mostly unsolved.</p>
+        <p>Two within-family gaps sharpen the picture. Alibaba&#x27;s Qwen-Max outstrips Qwen2-72B-Instruct by almost 20 points, and OpenAI&#x27;s GPT-4 sits 29.5 points above GPT-3.5 Turbo — nearly the full 33.2-point spread of the table. On this evidence, multi-turn multi-tool competence tracks model generation and tier far more than provider, and the ceiling leaves every system with a majority of the range unclaimed.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Multi-granularity tool use</span></li>
             <li><span class="k">Primary metric</span><span>M-M</span></li>
@@ -112,7 +131,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

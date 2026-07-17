@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OmniBench | TokenWave AI</title>
-    <meta name="description" content="OmniBench targets the future of universal omni-language models. This page uses the Overall score under the image-and-audio setting.">
+    <meta name="description" content="Measuring whether one model can reason over text, image, and audio in a single shared context.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="OmniBench | TokenWave AI">
-    <meta property="og:description" content="OmniBench targets the future of universal omni-language models. This page uses the Overall score under the image-and-audio setting.">
+    <meta property="og:description" content="Measuring whether one model can reason over text, image, and audio in a single shared context.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/omnibench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OmniBench | TokenWave AI">
-    <meta name="twitter:description" content="OmniBench targets the future of universal omni-language models. This page uses the Overall score under the image-and-audio setting.">
+    <meta name="twitter:description" content="Measuring whether one model can reason over text, image, and audio in a single shared context.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/omnibench.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">MLLM Benchmark · Omni Understanding</div>
             <h1>OmniBench</h1>
+            <p class="detail-tagline">Measuring whether one model can reason over text, image, and audio in a single shared context.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 Qwen-2.5-Omni: 56.13</span>
                 <span class="sep">·</span>
@@ -61,18 +62,31 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2409.15272" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2409.15272.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">3</div><div class="l">modalities integrated</div></div>
+        <div class="stat-tile"><div class="v">56.13</div><div class="l">top score (overall)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">18.7</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>OmniBench targets the future of universal omni-language models. This page uses the Overall score under the image-and-audio setting.</p>
+        <h2 id="overview">Overview</h2>
+        <p>OmniBench asks a question most multimodal suites sidestep: can a model recognize, interpret, and reason over text, image, and audio when all three arrive in the same context? The paper calls systems with that capability omni-language models, and every example is human-annotated so that a correct answer genuinely requires tri-modal integration — no single modality, and no pair, is enough on its own.</p>
+        <p>The design includes a pointed control: baselines are also tested with alternative textual representations of the image or audio content. Many systems, open-source models included, perform poorly even then. The failure is therefore not just perception — current multimodal training pipelines struggle to build a coherent shared context across three modalities at once, which is the specific weakness OmniBench was built to expose.</p>
+        <p>Scores on this page use the Overall metric under the image-and-audio setting, on a 0-100 scale. The paper reports other modality combinations too, but TokenWave keeps them out of this leaderboard: every row should answer the same question under the same conditions. For a benchmark whose whole point is joint context, mixing evaluation settings would blur exactly the distinction it exists to draw.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Vision-language competence and audio-language competence can each be trained in isolation; a unified omni model has to hold both alongside text in one shared context. OmniBench&#x27;s finding — that many baselines fail even when the image or audio is re-supplied as text — shows the bottleneck is integration, not perception. That distinction matters for anyone deploying a single model across modalities: separate pipelines can hide a fusion weakness that a genuinely tri-modal task will surface immediately.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark emphasizes unified omni models rather than ordinary vision-language systems.</li>
             <li>The page uses the image-and-audio setting as a single consistent primary leaderboard.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>OmniBench evaluates whether models can jointly recognize, interpret, and reason over text, image, and audio within the same context.</li>
             <li>The paper refers to systems with this capability as omni-language models and uses carefully human-annotated examples so that correct answers truly require tri-modal integration.</li>
@@ -80,10 +94,10 @@
             <li>OmniBench therefore highlights a core weakness of current multimodal training pipelines: they still struggle to build a coherent shared context across three modalities at once.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>Image &amp; Audio Overall</b> &mdash; Higher is better. Overall score under the image-and-audio evaluation setting. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses Overall under the Image &amp; Audio setting. The paper also includes other modality combinations, which are not mixed here.</p>
         <table class="data-table">
             <thead>
@@ -99,7 +113,11 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Qwen-2.5-Omni leads at 56.13, a full 13.2 points ahead of Gemini 1.5 Pro at 42.91 — the largest gap anywhere on the board. Below it, the field compresses sharply: Gemini and Baichuan-Omni-1.5 are separated by 0.01, and the bottom five sit within 5.6 points of one another. One system has pulled away; the rest form a cluster still working out the same problem.</p>
+        <p>The ceiling is the more telling number. Even the leader clears just over half of the 0-100 range, and five of the six systems score below 43, for a first-to-last spread of 18.7 points. Nothing on the board suggests the problem is close to solved; on this evidence, genuine tri-modal integration is a capability the field is still assembling, one model at a time.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>General omni-modality models</span></li>
             <li><span class="k">Primary metric</span><span>Image &amp; Audio Overall</span></li>
@@ -110,7 +128,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

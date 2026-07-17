@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinese SimpleQA | TokenWave AI</title>
-    <meta name="description" content="Chinese SimpleQA focuses on Chinese factual question answering. This page uses the F-score reported in the paper.">
+    <meta name="description" content="Short-form factual QA written natively in Chinese, where English leaderboard order does not carry over.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Chinese SimpleQA | TokenWave AI">
-    <meta property="og:description" content="Chinese SimpleQA focuses on Chinese factual question answering. This page uses the F-score reported in the paper.">
+    <meta property="og:description" content="Short-form factual QA written natively in Chinese, where English leaderboard order does not carry over.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/chinese-simpleqa.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Chinese SimpleQA | TokenWave AI">
-    <meta name="twitter:description" content="Chinese SimpleQA focuses on Chinese factual question answering. This page uses the F-score reported in the paper.">
+    <meta name="twitter:description" content="Short-form factual QA written natively in Chinese, where English leaderboard order does not carry over.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/chinese-simpleqa.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">LLM Benchmark · Knowledge</div>
             <h1>Chinese SimpleQA</h1>
+            <p class="detail-tagline">Short-form factual QA written natively in Chinese, where English leaderboard order does not carry over.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 o1-preview: 67.9</span>
                 <span class="sep">·</span>
@@ -61,18 +62,30 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2411.07140" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/OpenStellarTeam/ChineseSimpleQA" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2411.07140.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">6</div><div class="l">broad topics</div></div>
+        <div class="stat-tile"><div class="v">99</div><div class="l">subtopics</div></div>
+        <div class="stat-tile"><div class="v">67.9</div><div class="l">top score (F-score)</div></div>
+        <div class="stat-tile"><div class="v">10</div><div class="l">models scored</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>Chinese SimpleQA focuses on Chinese factual question answering. This page uses the F-score reported in the paper.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Chinese SimpleQA is the first comprehensive benchmark for short-form factual question answering written natively in Chinese. Rather than transferring an English test set, it asks concise fact-seeking questions across 6 broad topics and 99 subtopics, each paired with a static reference answer. Strict quality control and deliberately short QA pairs keep evaluation reliable and reproducible, so a score reflects what a model actually knows rather than how it phrases what it half-remembers.</p>
+        <p>Scoring uses the F-score reported in the paper, a 0-100 measure that balances answer correctness against completeness rather than rewarding either lucky guesses or cautious non-answers. The paper also treats the benchmark as an instrument, using it to compare existing LLMs and to study how model scale, calibration, retrieval-augmented generation, and alignment each shape factual reliability in Chinese.</p>
 
-        <h2>Contributions</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>The benchmark&#x27;s central finding is its own justification: Chinese factuality rankings do not simply mirror English leaderboards. A model that recalls facts reliably in English may misremember them in Chinese, so anyone deploying a Chinese-facing assistant cannot read its trustworthiness off an English score. Chinese SimpleQA gives that deployment population its own measurement, and the leaderboard&#x27;s mix of Chinese and Western labs shows the axis is genuinely contested.</p>
+
+        <h2 id="contributions">Contributions</h2>
         <ul>
             <li>The benchmark targets Chinese factuality rather than transferred English knowledge.</li>
             <li>The page uses F-score to balance answer correctness and completeness.</li>
         </ul>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>Chinese SimpleQA is the first comprehensive benchmark for factual short-form question answering in Chinese, designed to measure how reliably models answer concise fact-seeking questions.</li>
             <li>It covers 6 broad topics and 99 subtopics, and combines strict quality control, static reference answers, and short QA pairs to keep evaluation reliable and reproducible.</li>
@@ -80,10 +93,10 @@
             <li>The results show that Chinese factuality rankings do not simply mirror English leaderboards, so Chinese-facing models still require dedicated evaluation and optimization.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>F-score</b> &mdash; Higher is better. F-score on Chinese SimpleQA. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The primary leaderboard uses F-score. For factuality benchmarks, this metric is more stable than a single raw accuracy number.</p>
         <table class="data-table">
             <thead>
@@ -103,7 +116,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>o1-preview leads at 67.9, with Doubao-1.5-Pro just 2.6 points behind — OpenAI and ByteDance splitting the podium&#x27;s top steps. The field then drops 4.4 points to GLM-4-Plus at 60.9, and the remaining seven models compress into a band under ten points wide, ending at Qwen2.5-72B-Instruct&#x27;s 50.2. The full top-ten spread is 17.7 points. With the scale running to 100, even the leader leaves nearly a third of it unclaimed — reliable Chinese factual recall is not yet solved by anyone.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Chinese factual QA</span></li>
             <li><span class="k">Primary metric</span><span>F-score</span></li>
@@ -114,7 +130,41 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">

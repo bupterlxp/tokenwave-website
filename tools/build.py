@@ -69,7 +69,14 @@ def load():
         posts.append(json.loads(f.read_text(encoding="utf-8")))
     posts.sort(key=lambda p: p["date"], reverse=True)
 
-    return benches, models, featured, posts
+    editorial = {}
+    ed_dir = DATA / "editorial"
+    if ed_dir.exists():
+        for f in sorted(ed_dir.glob("*.json")):
+            e = json.loads(f.read_text(encoding="utf-8"))
+            editorial[e["slug"]] = e
+
+    return benches, models, featured, posts, editorial
 
 
 # ── shared page chrome ───────────────────────────────────────────────────────
@@ -245,11 +252,38 @@ def leaderboard_table(b, top=None, depth=""):
 
 # ── benchmark detail pages ───────────────────────────────────────────────────
 
-def build_detail(b, post_by_bench):
+# Sticky-TOC scroll spy (plain string — not an f-string — because of the braces)
+SCROLLSPY = """<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>"""
+
+
+def build_detail(b, post_by_bench, editorial):
     d = "../"
     fs = file_slug(b["slug"])
     g = b["at_a_glance"]
-    desc = b["abstract"][:250].strip() if b["abstract"] else f"{b['name']} on TokenWave AI."
+    ed = editorial.get(b["slug"])
+    desc = (ed["tagline"] + "." if ed else
+            (b["abstract"][:250].strip() if b["abstract"] else f"{b['name']} on TokenWave AI."))
 
     actions = []
     if b["links"].get("paper"):
@@ -262,21 +296,28 @@ def build_detail(b, post_by_bench):
     if actions:
         actions_html = f'\n    <div class="detail-actions">{" ".join(actions)}</div>'
 
-    sections = []
+    def paras(texts):
+        return "\n        ".join(f"<p>{esc(t)}</p>" for t in texts)
 
-    if b["abstract"]:
-        sections.append(f"<h2>Abstract</h2>\n        <p>{esc(b['abstract'])}</p>")
+    # (anchor id, TOC title, body html) — TOC and h2 anchors come from this list
+    secs = []
+
+    if ed:
+        secs.append(("overview", "Overview", paras(ed["overview"])))
+        secs.append(("why-it-matters", "Why it matters", paras(ed["why"])))
+    elif b["abstract"]:
+        secs.append(("abstract", "Abstract", f"<p>{esc(b['abstract'])}</p>"))
 
     if b["contributions"]:
         items = "\n            ".join(f"<li>{esc(c)}</li>" for c in b["contributions"])
-        sections.append(f"<h2>Contributions</h2>\n        <ul>\n            {items}\n        </ul>")
+        secs.append(("contributions", "Contributions", f"<ul>\n            {items}\n        </ul>"))
 
     if b["method"]:
         items = "\n            ".join(f"<li>{esc(m)}</li>" for m in b["method"])
-        sections.append(f"<h2>Method &amp; evaluation</h2>\n        <ul>\n            {items}\n        </ul>")
+        secs.append(("method", "Method &amp; evaluation", f"<ul>\n            {items}\n        </ul>"))
 
     if b["metrics"]:
-        parts = ["<h2>Evaluation metrics</h2>"]
+        parts = []
         for m in b["metrics"]:
             direction = "Higher is better" if m["direction"] == "higher" else "Lower is better"
             bits = [f"<b>{esc(m['name'])}</b> &mdash; {direction}."]
@@ -284,21 +325,24 @@ def build_detail(b, post_by_bench):
                 bits.append(esc(m["note"]))
             if m.get("range"):
                 bits.append(f"Score range: {esc(m['range'])}.")
-            parts.append(f"        <p>{' '.join(bits)}</p>")
-        sections.append("\n".join(parts))
+            parts.append(f"<p>{' '.join(bits)}</p>")
+        secs.append(("metrics", "Evaluation metrics", "\n        ".join(parts)))
 
     if b["leaderboard"]:
-        lb_note = f"\n        <p>{esc(b['leaderboard_note'])}</p>" if b.get("leaderboard_note") else ""
-        sections.append(f"<h2>Leaderboard</h2>{lb_note}\n        {leaderboard_table(b)}")
+        lb_note = f"<p>{esc(b['leaderboard_note'])}</p>\n        " if b.get("leaderboard_note") else ""
+        secs.append(("leaderboard", "Leaderboard", f"{lb_note}{leaderboard_table(b)}"))
+
+    if ed:
+        secs.append(("reading-the-results", "Reading the results", paras(ed["reading"])))
 
     if b.get("figures"):
         figs = []
         for f in b["figures"]:
             figs.append(
-                f'        <figure>\n            <img src="{d}{esc(f["image"])}" alt="{esc(f["caption"] or b["name"] + " figure")}" loading="lazy">\n'
+                f'<figure>\n            <img src="{d}{esc(f["image"])}" alt="{esc(f["caption"] or b["name"] + " figure")}" loading="lazy">\n'
                 f'            <figcaption>{esc(f["caption"])}</figcaption>\n        </figure>'
             )
-        sections.append("<h2>Paper figures</h2>\n" + "\n".join(figs))
+        secs.append(("paper-figures", "Paper figures", "\n        ".join(figs)))
 
     glance_rows = []
     for key, label in [("focus", "Focus"), ("primary_metric", "Primary metric"),
@@ -309,11 +353,14 @@ def build_detail(b, post_by_bench):
             continue
         glance_rows.append(f'            <li><span class="k">{label}</span><span>{esc(val)}</span></li>')
     if glance_rows:
-        sections.append("<h2>At a glance</h2>\n        <ul class=\"glance\">\n" + "\n".join(glance_rows) + "\n        </ul>")
+        secs.append(("at-a-glance", "At a glance",
+                     "<ul class=\"glance\">\n" + "\n".join(glance_rows) + "\n        </ul>"))
+
+    body_parts = [f'<h2 id="{sid}">{title}</h2>\n        {body}' for sid, title, body in secs]
 
     post = post_by_bench.get(b["slug"])
     if post:
-        sections.append(f"""<div class="crosslink">
+        body_parts.append(f"""<div class="crosslink">
             <div>
                 <p class="t">Read the research note</p>
                 <p class="s">{esc(post['title'])}</p>
@@ -321,7 +368,31 @@ def build_detail(b, post_by_bench):
             <a class="button primary" href="{d}blog/{post['slug']}.html">Read note →</a>
         </div>""")
 
-    body_sections = "\n\n        ".join(sections)
+    body_sections = "\n\n        ".join(body_parts)
+
+    toc_html = ""
+    if len(secs) >= 4:
+        toc_links = "\n        ".join(f'<a href="#{sid}">{title}</a>' for sid, title, _ in secs)
+        toc_html = f"""
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        {toc_links}
+    </nav>"""
+
+    tagline_html = f'\n            <p class="detail-tagline">{esc(ed["tagline"])}.</p>' if ed else ""
+
+    stats_html = ""
+    if ed and ed.get("stats"):
+        tiles = "\n        ".join(
+            f'<div class="stat-tile"><div class="v">{esc(s["value"])}</div><div class="l">{esc(s["label"])}</div></div>'
+            for s in ed["stats"]
+        )
+        stats_html = f"""
+    <div class="stat-grid">
+        {tiles}
+    </div>
+"""
+
     lead = leader_of(b)
     lead_alt = f"{b['name']} — led by {lead['model']} at {fmt_score(lead['score'])}" if lead else b["name"]
 
@@ -333,19 +404,22 @@ def build_detail(b, post_by_bench):
         <div class="detail-image" style="background-image: url('{d}{esc(b['image'])}');" role="img" aria-label="{esc(lead_alt)}"></div>
         <div class="detail-head">
             <div class="eyebrow">{esc(b['domain_name'])} · {esc(b['subcategory'])}</div>
-            <h1>{esc(b['name'])}</h1>
+            <h1>{esc(b['name'])}</h1>{tagline_html}
             <p class="detail-meta">
                 {bench_meta_line(b)}
             </p>{actions_html}
         </div>
     </div>
+{stats_html}    <div class="detail-layout">
     <div class="markdown">
 
         {body_sections}
 
         <p class="back-link"><a href="{d}benchmarks.html">&larr; Back to Benchmarks</a></p>
+    </div>{toc_html}
     </div>
 </article>
+{SCROLLSPY}
 {footer(d)}"""
     write(f"benchmarks/{fs}.html", html)
 
@@ -619,12 +693,12 @@ def build_seo(benches, posts):
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    benches, models, featured, posts = load()
+    benches, models, featured, posts, editorial = load()
     post_by_bench = {p["benchmark"]: p for p in posts}
 
     for b in benches.values():
-        build_detail(b, post_by_bench)
-    print(f"benchmarks/: {len(benches)} detail pages")
+        build_detail(b, post_by_bench, editorial)
+    print(f"benchmarks/: {len(benches)} detail pages ({len(editorial)} with editorial layer)")
 
     models_tracked = build_compare(benches, models)
     print(f"compare.html + compare-app.js: {models_tracked} models, {len(benches)} benchmarks")

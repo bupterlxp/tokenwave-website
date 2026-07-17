@@ -1,0 +1,21 @@
+{
+ "slug": "web_compass",
+ "tagline": "Web coding measured whole — generation, editing, and repair, judged by an agent in a real browser",
+ "stats": [
+  {"value": "3", "label": "task families"},
+  {"value": "9", "label": "scored dimensions"},
+  {"value": "67.4", "label": "top score (Overall)"},
+  {"value": "6", "label": "models scored"}
+ ],
+ "overview": [
+  "WebCompass refuses to treat web coding as a single skill. It splits front-end work into three task families — generating a page from a specification, editing an existing one, and repairing broken interactions — and scores all three under one roof. Every submission is executed in a real browser rather than inspected as text, so a page that fails to render, or a button that fails to respond, costs points no matter how plausible the code reads.",
+  "Judging is delegated to an agent-as-a-judge protocol that assesses runnability, spec implementation, design quality, and interaction repair. Nine fine-grained dimensions feed the headline Overall score, a mean on a 0-100 scale, which is what our leaderboard reports. The averaging matters: a model cannot bank a high score on generation alone, because weakness in editing or repair — the parts of front-end work that involve someone else's code — drags the mean down with it."
+ ],
+ "why": [
+  "Most production front-end work starts from code that already exists. A model that can scaffold a clean page but cannot make a targeted edit, or diagnose why an interaction silently fails, covers only a fraction of the job. And by executing in a real browser, WebCompass closes the gap between code that looks correct and a page that actually behaves — the only distinction end users ever notice."
+ ],
+ "reading": [
+  "Claude Opus 4.5 holds the top spot at 67.4, but barely: Gemini 3 Pro Preview trails by 0.7 at 66.68, and Gemini 3 Flash Preview keeps the top three inside a two-point band at 65.42. GPT-5.2 follows at 61.9 and Claude Sonnet 4.5 at 57.12 — a ten-point stretch across the closed-source field that reads as genuine parity at the top and steady decay behind it.",
+  "The sharpest structure sits at the bottom. Qwen3-VL-235B-A22B-Instruct scores 41.14, a sixteen-point drop from fifth place and the pattern the authors flag directly: open-source models still lag on complex multi-page and interactive tasks. Nobody is near the ceiling either — the leader leaves nearly a third of the 0-100 range unclaimed, so unified web coding remains open ground even for the systems that currently define it."
+ ]
+}

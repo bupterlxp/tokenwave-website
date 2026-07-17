@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi-Docker-Eval | TokenWave AI</title>
-    <meta name="description" content="Multi-Docker-Eval studies automatic environment building for software engineering agents. This page uses F2P under the SWE-Builder setting.">
+    <meta name="description" content="Testing whether coding agents can build the runnable environment before anyone hands them one.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Multi-Docker-Eval | TokenWave AI">
-    <meta property="og:description" content="Multi-Docker-Eval studies automatic environment building for software engineering agents. This page uses F2P under the SWE-Builder setting.">
+    <meta property="og:description" content="Testing whether coding agents can build the runnable environment before anyone hands them one.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/multi-docker-eval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Multi-Docker-Eval | TokenWave AI">
-    <meta name="twitter:description" content="Multi-Docker-Eval studies automatic environment building for software engineering agents. This page uses F2P under the SWE-Builder setting.">
+    <meta name="twitter:description" content="Testing whether coding agents can build the runnable environment before anyone hands them one.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/multi-docker-eval.html">
 
@@ -51,6 +51,7 @@
         <div class="detail-head">
             <div class="eyebrow">Agent · Code Agent</div>
             <h1>Multi-Docker-Eval</h1>
+            <p class="detail-tagline">Testing whether coding agents can build the runnable environment before anyone hands them one.</p>
             <p class="detail-meta">
                 <span class="lead">🏆 DeepSeek-V3.1: 37.72</span>
                 <span class="sep">·</span>
@@ -61,22 +62,33 @@
     <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.06915" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/Z2sJ4t/Multi-Docker-Eval" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2512.06915.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">37.72</div><div class="l">top score (F2P)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">10.7</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>Multi-Docker-Eval studies automatic environment building for software engineering agents. This page uses F2P under the SWE-Builder setting.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Most software-engineering benchmarks hand the agent a working environment and ask for a patch. Multi-Docker-Eval removes that gift. It evaluates whether a model can take a diverse repository and bring it to a test-ready state on its own, across different languages and setups — the work that stands between a fresh checkout and a passing test run. This page reports F2P, the first-to-pass rate, under the SWE-Builder framework.</p>
+        <p>The framing extends software-engineering evaluation past the patch and into construction itself. The metric, F2P, is a first-to-pass rate: it credits a model only when the environment it builds actually reaches a passing test state. Scores run on a 0-100 scale, and the study&#x27;s central finding is blunt — environment building remains a major bottleneck for agentic software engineering, with large differences across models in both success rate and cost.</p>
 
-        <h2>Method &amp; evaluation</h2>
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Every agentic coding result silently depends on someone having built the harness first. On real repositories nobody has done that work: an agent that cannot stand up its own environment cannot verify its own patches, no matter how good its edits are. Multi-Docker-Eval isolates that prerequisite and prices it, which is why its scores read less like a coding ranking and more like a ceiling on end-to-end autonomy.</p>
+
+        <h2 id="method">Method &amp; evaluation</h2>
         <ul>
             <li>This work extends software-engineering evaluation beyond code edits to the automatic construction of runnable environments.</li>
             <li>Multi-Docker-Eval measures whether models can bring diverse repositories into a test-ready state across languages and setups.</li>
             <li>The results show that environment building remains a major bottleneck for agentic software engineering, with large differences in success rate and cost.</li>
         </ul>
 
-        <h2>Evaluation metrics</h2>
+        <h2 id="metrics">Evaluation metrics</h2>
         <p><b>F2P</b> &mdash; Higher is better. First-to-pass rate on the SWE-Builder framework. Score range: [0, 100].</p>
 
-        <h2>Leaderboard</h2>
+        <h2 id="leaderboard">Leaderboard</h2>
         <p>The leaderboard uses F2P (%) under the SWE-Builder setting to reflect environment-building success.</p>
         <table class="data-table">
             <thead>
@@ -92,7 +104,10 @@
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>DeepSeek-V3.1 leads at 37.72, but only by a tenth of a point over Kimi-K2-0905 at 37.62 — effectively a tie at the top. The five leading systems, from four different labs, sit within 3.6 points of one another; the field then drops 7.1 points to GPT-OSS-120B at 27. Read the cluster rather than the ranks: capability here has converged across labs, and nobody clears 38 on a 0-100 scale. Most environments still defeat even the best model tested.</p>
+
+        <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
             <li><span class="k">Focus</span><span>Automated environment setup</span></li>
             <li><span class="k">Primary metric</span><span>F2P (%)</span></li>
@@ -103,7 +118,40 @@
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
+        <a href="#method">Method &amp; evaluation</a>
+        <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#at-a-glance">At a glance</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
