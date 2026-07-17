@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<!-- tokenwave:generated -->
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+<line x1="240" y1="168" x2="338.8" y2="196.9" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="283.7" y2="224.4" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="187.1" y2="211.9" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="142.1" y2="172.9" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="143.6" y2="128.5" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="244.2" y2="103.6" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="310.9" y2="123.4" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="142.1" y1="172.9" x2="310.9" y2="123.4" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="142.1" y1="172.9" x2="143.6" y2="128.5" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="143.6" y1="128.5" x2="244.2" y2="103.6" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+<circle cx="338.8" cy="196.9" r="9" fill="#2563eb" opacity="0.85"/>
+<circle cx="283.7" cy="224.4" r="9" fill="#2563eb" opacity="0.85"/>
+<circle cx="187.1" cy="211.9" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="142.1" cy="172.9" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="143.6" cy="128.5" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="244.2" cy="103.6" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="310.9" cy="123.4" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="240" cy="168" r="13" fill="#475569"/>
+<circle cx="240" cy="168" r="5" fill="#ffffff"/>
+<text x="240" y="204" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">agent</text>
+<text x="240" y="66" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">6 models · multi-hop evidence</text>
+<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Real-constraint travel planning.</text>
+</svg>

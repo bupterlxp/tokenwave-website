@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<!-- tokenwave:generated -->
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+<line x1="70" y1="76" x2="70" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="70" y1="250" x2="430" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
+<circle cx="303.5" cy="146.4" r="4.7" fill="#9ca3af" opacity="0.55"/>
+<circle cx="189.1" cy="160.8" r="3.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="180.6" cy="187.7" r="5.0" fill="#9ca3af" opacity="0.55"/>
+<circle cx="85.9" cy="193.8" r="3.7" fill="#9ca3af" opacity="0.55"/>
+<circle cx="292.5" cy="212.4" r="4.0" fill="#9ca3af" opacity="0.55"/>
+<circle cx="186.2" cy="196.0" r="3.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="343.3" cy="153.6" r="4.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="148.2" cy="232.1" r="4.8" fill="#9ca3af" opacity="0.55"/>
+<circle cx="118.4" cy="185.8" r="4.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="320.3" cy="197.5" r="4.0" fill="#9ca3af" opacity="0.55"/>
+<circle cx="176.8" cy="187.6" r="4.8" fill="#9ca3af" opacity="0.55"/>
+<circle cx="153.3" cy="236.0" r="4.9" fill="#9ca3af" opacity="0.55"/>
+<circle cx="129.7" cy="165.8" r="4.1" fill="#9ca3af" opacity="0.55"/>
+<circle cx="265.9" cy="231.3" r="4.6" fill="#9ca3af" opacity="0.55"/>
+<circle cx="89.8" cy="180.9" r="5.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="122.3" cy="188.3" r="4.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="146.6" cy="219.8" r="3.7" fill="#9ca3af" opacity="0.55"/>
+<circle cx="230.7" cy="235.5" r="5.4" fill="#9ca3af" opacity="0.55"/>
+<circle cx="300.4" cy="197.2" r="4.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="285.5" cy="175.5" r="4.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="101.7" cy="230.6" r="3.5" fill="#9ca3af" opacity="0.55"/>
+<circle cx="312.3" cy="185.7" r="3.7" fill="#9ca3af" opacity="0.55"/>
+<circle cx="286.4" cy="172.0" r="3.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="116.8" cy="214.2" r="4.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="119.3" cy="174.8" r="5.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="392.4" cy="229.4" r="3.9" fill="#9ca3af" opacity="0.55"/>
+<path d="M 86 220 C 180 112 320 92 414 98" stroke="#0891b2" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+<circle cx="404" cy="104" r="6" fill="#0891b2"/>
+<text x="404" y="88" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#0891b2" font-weight="bold">frontier</text>
+<text x="250.0" y="270" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#9ca3af">problem difficulty →</text>
+<text x="66" y="66" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">solve rate</text>
+<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Complex table QA.</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<!-- tokenwave:generated -->
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+<line x1="70" y1="76" x2="70" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
+<line x1="70" y1="250" x2="430" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
+<circle cx="96.1" cy="226.1" r="4.1" fill="#9ca3af" opacity="0.55"/>
+<circle cx="277.9" cy="202.4" r="3.8" fill="#9ca3af" opacity="0.55"/>
+<circle cx="118.0" cy="182.2" r="5.4" fill="#9ca3af" opacity="0.55"/>
+<circle cx="274.4" cy="149.1" r="4.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="126.5" cy="189.2" r="4.5" fill="#9ca3af" opacity="0.55"/>
+<circle cx="122.1" cy="238.0" r="3.5" fill="#9ca3af" opacity="0.55"/>
+<circle cx="196.6" cy="210.9" r="4.1" fill="#9ca3af" opacity="0.55"/>
+<circle cx="94.7" cy="206.8" r="4.7" fill="#9ca3af" opacity="0.55"/>
+<circle cx="373.6" cy="173.3" r="3.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="127.1" cy="187.4" r="3.4" fill="#9ca3af" opacity="0.55"/>
+<circle cx="405.9" cy="196.7" r="4.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="195.5" cy="222.7" r="4.7" fill="#9ca3af" opacity="0.55"/>
+<circle cx="249.5" cy="211.1" r="4.8" fill="#9ca3af" opacity="0.55"/>
+<circle cx="220.7" cy="209.7" r="3.1" fill="#9ca3af" opacity="0.55"/>
+<circle cx="340.5" cy="139.7" r="3.5" fill="#9ca3af" opacity="0.55"/>
+<circle cx="344.3" cy="223.2" r="5.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="360.8" cy="199.0" r="3.8" fill="#9ca3af" opacity="0.55"/>
+<circle cx="135.1" cy="176.2" r="3.5" fill="#9ca3af" opacity="0.55"/>
+<circle cx="407.0" cy="158.6" r="3.9" fill="#9ca3af" opacity="0.55"/>
+<circle cx="406.5" cy="159.7" r="3.8" fill="#9ca3af" opacity="0.55"/>
+<circle cx="347.4" cy="154.3" r="3.3" fill="#9ca3af" opacity="0.55"/>
+<circle cx="250.2" cy="220.3" r="4.9" fill="#9ca3af" opacity="0.55"/>
+<circle cx="405.1" cy="195.9" r="4.9" fill="#9ca3af" opacity="0.55"/>
+<circle cx="96.1" cy="182.2" r="3.4" fill="#9ca3af" opacity="0.55"/>
+<circle cx="403.2" cy="184.5" r="5.2" fill="#9ca3af" opacity="0.55"/>
+<circle cx="316.5" cy="145.5" r="4.8" fill="#9ca3af" opacity="0.55"/>
+<path d="M 86 220 C 180 112 320 92 414 98" stroke="#059669" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
+<circle cx="404" cy="104" r="6" fill="#059669"/>
+<text x="404" y="88" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#059669" font-weight="bold">frontier</text>
+<text x="250.0" y="270" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#9ca3af">problem difficulty →</text>
+<text x="66" y="66" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">solve rate</text>
+<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Multi-granularity tool use.</text>
+</svg>

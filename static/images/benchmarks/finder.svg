@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
+<!-- tokenwave:generated -->
+<rect width="480" height="360" fill="#ffffff"/>
+<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
+<line x1="240" y1="168" x2="322.8" y2="176.9" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="285.4" y2="217.6" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="212.2" y2="239.0" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="156.5" y2="181.7" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="155.7" y2="121.5" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="222.8" y2="100.4" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="240" y1="168" x2="314.5" y2="122.9" stroke="#e5e7eb" stroke-width="1.5"/>
+<line x1="314.5" y1="122.9" x2="322.8" y2="176.9" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="156.5" y1="181.7" x2="222.8" y2="100.4" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="212.2" y1="239.0" x2="322.8" y2="176.9" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
+<circle cx="322.8" cy="176.9" r="9" fill="#0891b2" opacity="0.85"/>
+<circle cx="285.4" cy="217.6" r="9" fill="#0891b2" opacity="0.85"/>
+<circle cx="212.2" cy="239.0" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="156.5" cy="181.7" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="155.7" cy="121.5" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="222.8" cy="100.4" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="314.5" cy="122.9" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+<circle cx="240" cy="168" r="13" fill="#475569"/>
+<circle cx="240" cy="168" r="5" fill="#ffffff"/>
+<text x="240" y="204" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">agent</text>
+<text x="240" y="66" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">6 models · multi-hop evidence</text>
+<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Deep research agents.</text>
+</svg>
