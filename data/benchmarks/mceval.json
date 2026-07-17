@@ -1,0 +1,116 @@
+{
+ "slug": "mceval",
+ "name": "McEval",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "Code LLMs are often benchmarked on Python-centric suites, with other languages sometimes derived by translation, which limits diversity. MCEVAL is a massively multilingual benchmark spanning 40 programming languages and about 16K test samples for generation, explanation, and completion. The work releases MCEVAL-INSTRUCT and trains MCODER on it. Experiments show a persistent gap between strong closed-source models and open-source systems across many languages; data and leaderboard are at mceval.github.io.",
+ "contributions": [
+  "The paper focuses on systematically evaluating multilingual coding ability instead of only English coding tasks.",
+  "This page uses the most display-friendly aggregate metric reported in the main results table."
+ ],
+ "method": [
+  "McEval introduces a massively multilingual coding benchmark covering 40 programming languages and about 16K samples.",
+  "It evaluates code generation, completion, and understanding instead of focusing on a single language or task.",
+  "The paper also releases MCEVAL-INSTRUCT and trains MCODER for multilingual code generation.",
+  "Experiments show that closed-source models still hold a clear advantage across many languages.",
+  "Its main contribution is pushing code evaluation from a few languages to a genuinely multilingual setting."
+ ],
+ "metrics": [
+  {
+   "name": "Avg_all",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Main multilingual code generation score reported in the paper."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 65.2,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4_turbo",
+   "model": "GPT-4 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 63.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "deepseek_coder_6_7b",
+   "model": "DeepSeekCoder-6.7B",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 54.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_3_5_turbo",
+   "model": "GPT-3.5 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 52.6,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "yi_large_turbo",
+   "model": "Yi-Large-Turbo",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 46.6,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Avg_all",
+ "leaderboard_note": "The leaderboard uses the code-generation Avg_all from the paper's main table. The paper also reports finer per-language results, but this page keeps the aggregate score as the primary leaderboard.",
+ "at_a_glance": {
+  "focus": "多语言代码生成",
+  "primary_metric": "Avg_all",
+  "setting": "官方主表代码生成结果",
+  "models_scored": 5,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2406.07436",
+  "code": "https://mceval.github.io/",
+  "pdf": "https://arxiv.org/pdf/2406.07436.pdf"
+ },
+ "figures": [
+  {
+   "image": "static/images/benchmarks/mceval/fig-three-tasks.jpg",
+   "caption": "Figure 1 (paper): three massively multilingual tasks—code generation, completion, and explanation."
+  },
+  {
+   "image": "static/images/benchmarks/mceval/fig-task-examples.jpg",
+   "caption": "Figure 3 (paper): illustrative examples for multilingual generation, explanation, and completion."
+  },
+  {
+   "image": "static/images/benchmarks/mceval/fig-mcoder-framework.jpg",
+   "caption": "Figure 4 (paper): MCODER pipeline—build MCEVAL-INSTRUCT for 40 languages, fine-tune MCODER, then evaluate on MCEVAL."
+  },
+  {
+   "image": "static/images/benchmarks/mceval/fig-paradigm-scenario.jpg",
+   "caption": "Figure 5 (paper): languages grouped by five paradigms and eleven application scenarios."
+  },
+  {
+   "image": "static/images/benchmarks/mceval/chart-explanation-pass1.jpg",
+   "caption": "Figure 7 (paper, panel): comparing model scores on overlapping languages between MultiPL-E and MCEVAL—many models cluster on high-resource languages while low-resource performance remains weaker."
+  }
+ ],
+ "image": "static/images/benchmarks/mceval.svg"
+}

@@ -1,0 +1,105 @@
+{
+ "slug": "finder",
+ "name": "FINDER",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Search Agent",
+ "abstract": "This work studies how close current systems are to genuinely useful deep research agents. The displayed leaderboard uses the Checklist Pass Rate reported in the paper.",
+ "contributions": [
+  "The paper cares about whether the research process is genuinely completed, not only whether the final answer looks plausible.",
+  "The page uses checklist pass rate because it matches the process-oriented evaluation design."
+ ],
+ "method": [
+  "FINDER focuses on whether deep research agents can produce analyst-level reports rather than simple answers.",
+  "It introduces 100 human-curated research tasks together with 419 structured checklist items.",
+  "These checklist items standardize report structure, analytical depth, and factual grounding.",
+  "Based on around 1,000 generated reports, the paper also proposes the DEFT failure taxonomy.",
+  "The main finding is that current systems struggle more with evidence integration, verification, and planning than with task understanding."
+ ],
+ "metrics": [
+  {
+   "name": "Checklist Pass Rate",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Checklist-based pass rate reported by the paper."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "miroflow_english",
+   "model": "MiroFlow-English",
+   "org": "MiroFlow",
+   "color": "#0ea5e9",
+   "score": 72.19,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "tongyi_deepresearch",
+   "model": "Tongyi-DeepResearch",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 67.54,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "kimi_k2",
+   "model": "Kimi K2",
+   "org": "Moonshot AI",
+   "color": "#06b6d4",
+   "score": 66.59,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 63.01,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "openmanus",
+   "model": "OpenManus",
+   "org": "OpenManus",
+   "color": "#0ea5e9",
+   "score": 61.34,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "webthinker",
+   "model": "WebThinker",
+   "org": "WebThinker",
+   "color": "#0ea5e9",
+   "score": 44.87,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Checklist Pass Rate",
+ "leaderboard_note": "The primary leaderboard uses Checklist Pass Rate from the main table. The paper also reports other research-quality indicators, but this page prioritizes the most direct task-completion signal.",
+ "at_a_glance": {
+  "focus": "深度研究代理",
+  "primary_metric": "Checklist Pass Rate",
+  "setting": "论文主表",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.01948",
+  "code": "https://arxiv.org/abs/2512.01948",
+  "pdf": "https://arxiv.org/pdf/2512.01948.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/finder.svg"
+}

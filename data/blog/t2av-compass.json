@@ -1,0 +1,22 @@
+{
+ "slug": "t2av-compass",
+ "benchmark": "t2av_compass",
+ "title": "T2AV-Compass: Measuring Synchronized Audio-Video Generation",
+ "date": "2026-04-20",
+ "summary": "Generating video and audio together is harder than generating either alone. T2AV-Compass evaluates semantic alignment, temporal synchrony, and perceptual quality for text-to-audio-video systems.",
+ "body": [
+  {"type": "p", "text": "A door slams and the sound arrives a beat late. Nothing else is wrong with the clip &mdash; and yet everything is wrong with the clip. Human perception forgives soft textures and odd lighting long before it forgives broken synchrony, which is why text-to-audio-video generation cannot be graded as two separate tracks."},
+  {"type": "h2", "text": "Five axes, one verdict"},
+  {"type": "p", "text": "T2AV-Compass evaluates generation systems jointly on <b>video quality, audio quality, cross-modal alignment, instruction following, and realism</b>. The headline number is the average of a structured subjective evaluation &mdash; closer to how audiences actually judge generated media than any single automated proxy."},
+  {"type": "leaderboard", "top": 4, "intro": "The subjective-average leaderboard is unusually tight at the top:"},
+  {"type": "h2", "text": "A crowded summit is a finding"},
+  {"type": "p", "text": "Barely two points separate the top four systems. When a leaderboard compresses like this, it usually means the shared failure modes &mdash; here, fine-grained lip/action synchrony and faithful instruction following under composition &mdash; are the real frontier, and every lab is stuck on the same ones."},
+  {"type": "ul", "items": [
+    "Alignment errors dominate perceived failures even when per-modality quality is high.",
+    "Instruction following degrades fastest on prompts that couple sound events to visual events.",
+    "Realism scores separate systems less than synchrony scores do &mdash; the uncanny valley has moved into the audio track."
+  ]},
+  {"type": "p", "text": "For anyone building with generative video, the takeaway is blunt: pick systems by their synchrony behavior, because that is where the ranking is actually decided."}
+ ],
+ "closing": "Per-axis definitions and the complete system table are on the T2AV-Compass benchmark page."
+}

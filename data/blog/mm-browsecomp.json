@@ -1,0 +1,21 @@
+{
+ "slug": "mm-browsecomp",
+ "benchmark": "mm_browsecomp",
+ "title": "MM-BrowseComp: Multimodal Browsing Beyond Text Trails",
+ "date": "2026-03-30",
+ "summary": "Web research is not text-only. MM-BrowseComp asks search agents to follow evidence through images, charts, and pages that no text-only pipeline can shortcut, revealing a wide gap behind text-centric browsing scores.",
+ "body": [
+  {"type": "p", "text": "The web keeps its best secrets in pixels. Product details live in screenshots, scientific claims in figures, historical facts in scanned documents. MM-BrowseComp builds browsing tasks whose evidence chain runs <i>through</i> images, charts, and video &mdash; so an agent that only reads will follow the trail to a dead end."},
+  {"type": "h2", "text": "The gap nobody's text benchmark shows"},
+  {"type": "leaderboard", "top": 3, "intro": "The Overall column is not a ranking so much as a cliff:"},
+  {"type": "p", "text": "One system reaches 29; the next lands below 8. A twenty-one point drop between first and second place is the kind of result that usually signals a capability boundary rather than incremental engineering &mdash; most of today's agents browse with their eyes closed, and this benchmark is the first mirror that shows it."},
+  {"type": "h2", "text": "Why the tasks resist shortcuts"},
+  {"type": "ul", "items": [
+    "Questions require joint reasoning over text, images, and video encountered mid-trajectory &mdash; not just at the final page.",
+    "Key hops are deliberately un-searchable as plain text, so query rewriting alone cannot rescue a blind agent.",
+    "Verification steps punish confident fabrication: the right answer needs the right visual evidence, found live."
+  ]},
+  {"type": "p", "text": "We expect this table to look very different within a year. Multimodal tool use is improving quickly, and MM-BrowseComp is positioned to be the benchmark where that progress first becomes visible &mdash; or embarrassingly, where it fails to."}
+ ],
+ "closing": "Task construction details and the full agent table are on the MM-BrowseComp benchmark page."
+}

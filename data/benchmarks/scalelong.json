@@ -1,0 +1,100 @@
+{
+ "slug": "scalelong",
+ "name": "ScaleLong",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Long Video Understanding",
+ "abstract": "ScaleLong targets long-video understanding with multi-timescale reasoning. This page uses the Overall score from the main result table.",
+ "contributions": [],
+ "method": [
+  "This work decomposes long-video understanding into multiple timescales such as clip, shot, event, and story, while covering diverse task types.",
+  "It emphasizes that models must not only perceive local clips, but also integrate events and narratives over long horizons.",
+  "The main results show stronger overall performance for leading closed-source models, yet long-video reasoning remains difficult, especially at the story level."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score on the main ScaleLong table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 67.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "doubao_1_5_vl_pro",
+   "model": "Doubao 1.5-VL-Pro",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 58.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 55.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_0_flash",
+   "model": "Gemini 2.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 55,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "phi_4",
+   "model": "Phi-4",
+   "org": "Microsoft",
+   "color": "#2563eb",
+   "score": 45.2,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "flash_vstream",
+   "model": "Flash-VStream",
+   "org": "Flash-VStream",
+   "color": "#0ea5e9",
+   "score": 44.1,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The leaderboard uses the Overall column from the main table to summarize performance across timescales and task types.",
+ "at_a_glance": {
+  "focus": "多时间尺度长视频理解",
+  "primary_metric": "Overall",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2505.23922",
+  "code": "https://github.com/multimodal-art-projection/ScaleLong",
+  "pdf": "https://arxiv.org/pdf/2505.23922.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/scalelong.svg"
+}

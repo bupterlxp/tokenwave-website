@@ -1,0 +1,94 @@
+{
+ "slug": "mt_bench_101",
+ "name": "MT-Bench-101",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Instruction Following",
+ "abstract": "MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.",
+ "contributions": [
+  "The benchmark emphasizes fine-grained multi-turn capability decomposition rather than a coarse chat score.",
+  "The page preserves the paper's original 10-point scale."
+ ],
+ "method": [
+  "MT-Bench-101 is designed for fine-grained evaluation of multi-turn dialogue, addressing the fact that prior dialogue benchmarks are often too coarse or too focused on single-turn settings.",
+  "By analyzing real multi-turn conversations, the paper builds a three-level ability taxonomy spanning 13 tasks, 1,388 dialogues, and 4,208 turns.",
+  "This allows the authors to compare models not only on overall dialogue quality but also on how their abilities change across turns within different tasks.",
+  "The study finds that common alignment techniques and chat-oriented designs do not clearly improve multi-turn ability, leaving real conversational interaction as a major challenge for LLMs."
+ ],
+ "metrics": [
+  {
+   "name": "Avg",
+   "direction": "higher",
+   "range": "[0, 10]",
+   "note": "Average MT-Bench-101 score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_4",
+   "model": "GPT-4",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 8.86,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "yi_34b",
+   "model": "Yi-34B",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 8.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gpt_3_5_turbo",
+   "model": "GPT-3.5 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 7.99,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "qwen_14b",
+   "model": "Qwen-14B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 7.82,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "mixtral_8x7b",
+   "model": "Mixtral-8x7B",
+   "org": "Mistral",
+   "color": "#111827",
+   "score": 7.38,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Avg",
+ "leaderboard_note": "The leaderboard directly uses the paper's Avg. Because the benchmark itself is already a fine-grained decomposition, this page does not recombine additional columns.",
+ "at_a_glance": {
+  "focus": "多轮指令遵循",
+  "primary_metric": "Avg",
+  "setting": "Main benchmark table",
+  "models_scored": 5,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2402.14762",
+  "code": "https://github.com/mtbench101/mt-bench-101",
+  "pdf": "https://arxiv.org/pdf/2402.14762.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/mt-bench-101.svg"
+}

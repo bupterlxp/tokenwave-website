@@ -1,0 +1,135 @@
+{
+ "slug": "hellobench",
+ "name": "HelloBench",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Long Context",
+ "abstract": "HelloBench evaluates long-form text generation. This page uses AVG S from the paper's main experiment table.",
+ "contributions": [
+  "The benchmark targets long-form quality rather than sheer output length.",
+  "This page uses AVG S to avoid fragmenting the main leaderboard into too many partial attributes."
+ ],
+ "method": [
+  "HelloBench focuses on long-form generation rather than the more common long-context understanding setting.",
+  "It organizes tasks into five categories based on Bloom's Taxonomy, including QA, summarization, chat, completion, and heuristic generation.",
+  "The paper also proposes HelloEval as a more efficient human-aligned evaluation method for long text quality.",
+  "Large-scale experiments show that current models face length ceilings, repetition, and clear quality degradation.",
+  "The benchmark highlights that generating longer text and generating better long text are not the same ability."
+ ],
+ "metrics": [
+  {
+   "name": "AVG S",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average long-form generation score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 48.55,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "mistral_large",
+   "model": "Mistral-Large",
+   "org": "Mistral",
+   "color": "#111827",
+   "score": 46.77,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "o1_mini",
+   "model": "o1-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 46.08,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 43.77,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 39.24,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "deepseek_v2_5",
+   "model": "DeepSeek-V2.5",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 35.69,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "yi_large",
+   "model": "Yi-Large",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 32.99,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "qwen_max",
+   "model": "Qwen-Max",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 28.36,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 9,
+   "model_id": "glm_4_plus",
+   "model": "GLM-4-Plus",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 24.78,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "AVG S",
+ "leaderboard_note": "The leaderboard uses AVG S from the main experiments table. The paper also analyzes other dimensions and word-count behavior, which are not used as the main leaderboard here.",
+ "at_a_glance": {
+  "focus": "长文本生成",
+  "primary_metric": "AVG S",
+  "setting": "Main proprietary-model table",
+  "models_scored": 9,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2409.16191",
+  "code": "https://github.com/Quehry/HelloBench",
+  "pdf": "https://arxiv.org/pdf/2409.16191.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/hellobench.svg"
+}

@@ -1,0 +1,104 @@
+{
+ "slug": "omnibench",
+ "name": "OmniBench",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Omni Understanding",
+ "abstract": "OmniBench targets the future of universal omni-language models. This page uses the Overall score under the image-and-audio setting.",
+ "contributions": [
+  "The benchmark emphasizes unified omni models rather than ordinary vision-language systems.",
+  "The page uses the image-and-audio setting as a single consistent primary leaderboard."
+ ],
+ "method": [
+  "OmniBench evaluates whether models can jointly recognize, interpret, and reason over text, image, and audio within the same context.",
+  "The paper refers to systems with this capability as omni-language models and uses carefully human-annotated examples so that correct answers truly require tri-modal integration.",
+  "The results show that many baselines, including open-source systems, still perform poorly in genuine tri-modal settings, even when alternative textual representations of image or audio are provided.",
+  "OmniBench therefore highlights a core weakness of current multimodal training pipelines: they still struggle to build a coherent shared context across three modalities at once."
+ ],
+ "metrics": [
+  {
+   "name": "Image & Audio Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score under the image-and-audio evaluation setting."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "qwen_2_5_omni",
+   "model": "Qwen-2.5-Omni",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 56.13,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 42.91,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "baichuan_omni_1_5",
+   "model": "Baichuan-Omni-1.5",
+   "org": "Baichuan",
+   "color": "#dc2626",
+   "score": 42.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "minicpm_o_2_6",
+   "model": "MiniCPM-o 2.6",
+   "org": "OpenBMB",
+   "color": "#be123c",
+   "score": 40.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "unifiedio2_xlarge",
+   "model": "UnifiedIO2-xlarge",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 38,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "openomni",
+   "model": "OpenOmni",
+   "org": "OpenOmni",
+   "color": "#0f766e",
+   "score": 37.4,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Image & Audio Overall",
+ "leaderboard_note": "The leaderboard uses Overall under the Image & Audio setting. The paper also includes other modality combinations, which are not mixed here.",
+ "at_a_glance": {
+  "focus": "通用 omni 模型",
+  "primary_metric": "Image & Audio Overall",
+  "setting": "Tri-modal leaderboard",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2409.15272",
+  "code": "https://arxiv.org/abs/2409.15272",
+  "pdf": "https://arxiv.org/pdf/2409.15272.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/omnibench.svg"
+}

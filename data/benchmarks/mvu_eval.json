@@ -1,0 +1,100 @@
+{
+ "slug": "mvu_eval",
+ "name": "MVU-Eval",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Long Video Understanding",
+ "abstract": "MVU-Eval evaluates multi-video understanding, requiring comparison, retrieval, and reasoning across multiple videos. This page uses the Overall score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work argues that existing video benchmarks mostly assume single-video input, while real tasks often require joint analysis over multiple videos.",
+  "MVU-Eval covers both perception and reasoning, including object recognition, spatial understanding, knowledge-intensive reasoning, and retrieval-augmented tasks.",
+  "The results show that multi-video settings significantly separate model capabilities, highlighting the need for stronger cross-instance integration."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall accuracy reported in the main MVU-Eval table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 58.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 57.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "qwen2_5_vl_72b",
+   "model": "Qwen2.5-VL-72B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 57.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_0_flash",
+   "model": "Gemini 2.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 56.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 55.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "internvl3_78b",
+   "model": "InternVL3-78B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 50.6,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The leaderboard uses the Overall column from the main MVU-Eval table without recombining perception and reasoning subtasks.",
+ "at_a_glance": {
+  "focus": "多视频理解",
+  "primary_metric": "Overall",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2511.07250",
+  "code": "https://github.com/NJU-LINK/MVU-Eval",
+  "pdf": "https://arxiv.org/pdf/2511.07250.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/mvu-eval.svg"
+}

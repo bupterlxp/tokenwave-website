@@ -1,0 +1,18 @@
+{
+ "slug": "inverse-ifeval",
+ "benchmark": "inverse_ifeval",
+ "title": "Inverse IFEval: When the Instruction Fights the Prior",
+ "date": "2025-12-08",
+ "summary": "Models follow instructions well &mdash; until the instruction contradicts their training prior. Inverse IFEval measures counter-intuitive instruction following, where compliance requires overriding the likely answer.",
+ "body": [
+  {"type": "p", "text": "Tell a model to answer in JSON and it answers in JSON. Tell it to write the buggy version of a function, to argue the unpopular side, to format things the \"wrong\" way &mdash; and something interesting happens: the training prior pushes back. Inverse IFEval is a benchmark made entirely of that push-back."},
+  {"type": "h2", "text": "Obedience is easy until it costs something"},
+  {"type": "p", "text": "Standard instruction-following suites measure formatting compliance along the grain of what models already want to produce. Inverse IFEval designs instructions that <b>conflict with common training conventions</b>, so every point scored is evidence the model can place the user's actual request above its own habits. That is not a stylistic skill &mdash; it is the load-bearing trust property of any system that edits, red-teams, or role-plays on command."},
+  {"type": "h2", "text": "Who overrides their instincts best"},
+  {"type": "leaderboard", "top": 3, "intro": "Overall Score on the English main table:"},
+  {"type": "p", "text": "Deliberate-reasoning models cluster at the top, which fits the mechanism: overriding a prior seems to require noticing the prior first, and models with an explicit thinking phase have somewhere to do that noticing. Yet the ceiling sits near 76 &mdash; a quarter of counter-intuitive instructions still lose to habit, even for the best systems."},
+  {"type": "quote", "text": "An assistant that only follows instructions it already agrees with is not following instructions at all."},
+  {"type": "p", "text": "We consider this one of the most safety-adjacent capability numbers we track: the same override machinery that writes intentionally bad code on request is what keeps a model steerable when its defaults are wrong."}
+ ],
+ "closing": "Instruction categories and the full English-table leaderboard are on the Inverse IFEval benchmark page."
+}

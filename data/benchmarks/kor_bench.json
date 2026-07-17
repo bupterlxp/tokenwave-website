@@ -1,0 +1,124 @@
+{
+ "slug": "kor_bench",
+ "name": "KOR-Bench",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Reasoning",
+ "abstract": "KOR-Bench evaluates knowledge-orthogonal reasoning by reducing the effect of prior domain knowledge. This page uses the Overall score from the main results table.",
+ "contributions": [
+  "The benchmark aims to separate actual reasoning ability from memorized knowledge.",
+  "The page uses the main Overall score and does not mix in the additional integrated-task setting."
+ ],
+ "method": [
+  "KOR-Bench introduces the idea of knowledge-orthogonal reasoning, aiming to evaluate rule understanding and reasoning ability while minimizing dependence on domain-specific knowledge.",
+  "It includes five task families: operation, logic, cipher, puzzle, and counterfactual, all designed around novel rule-driven problems.",
+  "The paper shows that this benchmark can better reveal whether a model is genuinely reasoning instead of leaning on memorized knowledge patterns.",
+  "It also studies stepwise prompting, self-correction, and task-specific tricks, making KOR-Bench a useful foundation for general reasoning evaluation."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall reasoning accuracy on KOR-Bench."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o1_preview",
+   "model": "o1-preview",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 72.88,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "o1_mini",
+   "model": "o1-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 70.16,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 58.96,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 58,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "llama_3_1_405b",
+   "model": "Llama-3.1-405B",
+   "org": "Meta",
+   "color": "#0668e1",
+   "score": 55.36,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen2_5_32b_instruct",
+   "model": "Qwen2.5-32B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 54.72,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "gpt_4_turbo",
+   "model": "GPT-4 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 53.52,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "qwen2_5_72b_instruct",
+   "model": "Qwen2.5-72B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 52.16,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The primary leaderboard uses Overall from the main table. The paper also reports integrated-task analyses such as Multi-Q / Multi-R / Multi-RQ, which are not mixed into the main leaderboard.",
+ "at_a_glance": {
+  "focus": "知识正交推理",
+  "primary_metric": "Overall",
+  "setting": "Main chat-model leaderboard",
+  "models_scored": 8,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2410.06526",
+  "code": "https://arxiv.org/abs/2410.06526",
+  "pdf": "https://arxiv.org/pdf/2410.06526.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/kor-bench.svg"
+}

@@ -1,0 +1,114 @@
+{
+ "slug": "tablebench",
+ "name": "TableBench",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Reasoning",
+ "abstract": "TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper's main results table.",
+ "contributions": [
+  "The paper compares multiple reasoning protocols; this page fixes TCoT as the primary leaderboard.",
+  "This keeps the core structured-data reasoning challenge while avoiding excessive page complexity."
+ ],
+ "method": [
+  "TableBench targets complex table question answering in realistic industrial scenarios, going beyond simple lookup to cover fact checking, numerical reasoning, data analysis, and visualization.",
+  "It spans four major capability groups and 18 subfields, and is built through scenario analysis, manual annotation, and explicit task-complexity design to better match real-world demands.",
+  "The paper also introduces TableInstruct and TABLELLM to study textual, symbolic, and program-based reasoning strategies for tabular tasks.",
+  "The experiments show that both open-source and proprietary models still fall short of practical table-analysis needs, with even the strongest systems remaining noticeably behind humans."
+ ],
+ "metrics": [
+  {
+   "name": "Overall TCoT",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score under the TCoT protocol."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_4_turbo",
+   "model": "GPT-4 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 51.32,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 50.39,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "deepseek_chat_v2",
+   "model": "DeepSeek-Chat-V2",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 47.22,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "deepseek_coder_v2_instruct",
+   "model": "DeepSeekCoder-V2-Instruct",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 44.26,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "llama_3_1_70b_instruct",
+   "model": "Llama-3.1-70B-Instruct",
+   "org": "Meta",
+   "color": "#0668e1",
+   "score": 43.85,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "yi_large",
+   "model": "Yi-Large",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 38.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "qwen2_72b_instruct",
+   "model": "Qwen2-72B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 38.13,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall TCoT",
+ "leaderboard_note": "The leaderboard uses Overall under the TCoT setting. The paper also reports other protocols, which are not mixed here.",
+ "at_a_glance": {
+  "focus": "复杂表格问答",
+  "primary_metric": "Overall TCoT",
+  "setting": "TCoT reasoning protocol",
+  "models_scored": 7,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2408.09174",
+  "code": "https://github.com/TableBench/TableBench",
+  "pdf": "https://arxiv.org/pdf/2408.09174.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/tablebench.svg"
+}

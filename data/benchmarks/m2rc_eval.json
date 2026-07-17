@@ -1,0 +1,75 @@
+{
+ "slug": "m2rc_eval",
+ "name": "M2RC-Eval",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "M2RC-Eval measures repository-level code completion. This page uses Avg ES from the direct model comparison table as the primary leaderboard and keeps Avg EM as a secondary metric.",
+ "contributions": [
+  "The paper distinguishes repository-level completion from ordinary single-file generation.",
+  "To avoid mixing retrieval or training augmentations into the leaderboard, this page shows only direct model baselines."
+ ],
+ "method": [
+  "M2RC-Eval targets repository-level code completion rather than isolated function-level completion.",
+  "It builds a multilingual benchmark spanning 18 programming languages with fine-grained AST-based annotations.",
+  "These annotations cover both bucket-level difficulty and semantic completion scenarios.",
+  "The paper also introduces M2RC-INSTRUCT to improve repository-level completion ability.",
+  "Its main value is evaluating both cross-language generalization and fine-grained completion behavior."
+ ],
+ "metrics": [
+  {
+   "name": "Avg ES",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average edit similarity across languages."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "deepseek_coder_6_7b",
+   "model": "DeepSeekCoder-6.7B",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 54.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "starcoder_7b",
+   "model": "StarCoder-7B",
+   "org": "BigCode",
+   "color": "#4b5563",
+   "score": 52,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "code_llama_7b",
+   "model": "Code Llama-7B",
+   "org": "Meta",
+   "color": "#0668e1",
+   "score": 50.3,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Avg ES",
+ "leaderboard_note": "The primary leaderboard metric is Avg ES from Table 2 direct model comparisons. Avg EM is shown as a complementary stricter measure.",
+ "at_a_glance": {
+  "focus": "仓库级代码补全",
+  "primary_metric": "Avg ES",
+  "setting": "Table 2 direct baselines",
+  "models_scored": 3,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2410.21157",
+  "code": "https://arxiv.org/abs/2410.21157",
+  "pdf": "https://arxiv.org/pdf/2410.21157.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/m2rc-eval.svg"
+}

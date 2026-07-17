@@ -1,0 +1,100 @@
+{
+ "slug": "inverse_ifeval",
+ "name": "Inverse IFEval",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Instruction Following",
+ "abstract": "Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.",
+ "contributions": [],
+ "method": [
+  "This work goes beyond conventional formatting compliance and explicitly designs inverse instructions that conflict with common training conventions.",
+  "The tasks test whether models can still obey real user intent under correction, counter-conventional formatting, dialogue intervention, and minimal-modification requirements.",
+  "The results show that even the strongest models still have clear weaknesses on inverse instruction following."
+ ],
+ "metrics": [
+  {
+   "name": "Overall Score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score from the English Inverse IFEval main table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o3_high",
+   "model": "o3-high",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 75.66,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "o3_mini",
+   "model": "o3-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 74.67,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gpt_5_high",
+   "model": "GPT-5-high",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 73.72,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 70.55,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gemini_2_5_flash",
+   "model": "Gemini 2.5 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 68.61,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "claude_4_opus_thinking",
+   "model": "Claude 4 Opus Thinking",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 67.16,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall Score",
+ "leaderboard_note": "The leaderboard uses the Overall Score from the English main table rather than recombining English and Chinese results.",
+ "at_a_glance": {
+  "focus": "反向指令遵循",
+  "primary_metric": "Overall Score",
+  "setting": "English main table",
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2509.04292",
+  "code": "https://huggingface.co/datasets/m-a-p/Inverse_IFEval",
+  "pdf": "https://arxiv.org/pdf/2509.04292.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/inverse-ifeval.svg"
+}

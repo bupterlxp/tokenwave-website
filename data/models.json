@@ -1,0 +1,882 @@
+{
+ "gpt_3_5_turbo": {
+  "name": "GPT-3.5 Turbo",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4": {
+  "name": "GPT-4",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4_turbo": {
+  "name": "GPT-4 Turbo",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4o": {
+  "name": "GPT-4o",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4_1": {
+  "name": "GPT-4.1",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4_turbo_128k": {
+  "name": "GPT-4 Turbo 128K",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o1_preview": {
+  "name": "o1-preview",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o1_mini": {
+  "name": "o1-mini",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o1": {
+  "name": "o1",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o3_mini": {
+  "name": "o3-mini",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "claude_3_5_sonnet": {
+  "name": "Claude 3.5 Sonnet",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_sonnet_4": {
+  "name": "Claude Sonnet 4",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "gemini_1_5_pro": {
+  "name": "Gemini 1.5 Pro",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_0_flash": {
+  "name": "Gemini 2.0 Flash",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_5_pro": {
+  "name": "Gemini 2.5 Pro",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_5_flash": {
+  "name": "Gemini 2.5 Flash",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "qwen_max": {
+  "name": "Qwen-Max",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen_14b": {
+  "name": "Qwen-14B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen_72b": {
+  "name": "Qwen-72B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_72b_instruct": {
+  "name": "Qwen2-72B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_5_72b_instruct": {
+  "name": "Qwen2.5-72B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_5_32b_instruct": {
+  "name": "Qwen2.5-32B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_5_14b_instruct": {
+  "name": "Qwen2.5-14B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_5_7b_instruct": {
+  "name": "Qwen2.5-7B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_32b": {
+  "name": "Qwen3-32B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_235b": {
+  "name": "Qwen3-235B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_coder_480b": {
+  "name": "Qwen3-Coder-480B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_coder_30b": {
+  "name": "Qwen3-Coder-30B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_vl_32b_thinking": {
+  "name": "Qwen3-VL-32B-Thinking",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_vl_8b_thinking": {
+  "name": "Qwen3-VL-8B-Thinking",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_vl_4b_thinking": {
+  "name": "Qwen3-VL-4B-Thinking",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen_vl_max": {
+  "name": "Qwen-VL-MAX",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_vl_72b": {
+  "name": "Qwen2-VL-72B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_vl_7b": {
+  "name": "Qwen2-VL-7B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen_2_5_omni": {
+  "name": "Qwen-2.5-Omni",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "deepseek_v2_5": {
+  "name": "DeepSeek-V2.5",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_v3": {
+  "name": "DeepSeek-V3",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_r1": {
+  "name": "DeepSeek-R1",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_math_7b": {
+  "name": "DeepSeekMath-7B",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_coder_6_7b": {
+  "name": "DeepSeekCoder-6.7B",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_coder_v2_instruct": {
+  "name": "DeepSeekCoder-V2-Instruct",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_chat_v2": {
+  "name": "DeepSeek-Chat-V2",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "glm_4_plus": {
+  "name": "GLM-4-Plus",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "glm_4v": {
+  "name": "GLM-4V",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "glm_4_7": {
+  "name": "GLM-4.7",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "chatglm2_6b": {
+  "name": "ChatGLM2-6B",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "chatglm3_6b": {
+  "name": "ChatGLM3-6B",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "yi_large": {
+  "name": "Yi-Large",
+  "org": "01.AI",
+  "color": "#8b5cf6"
+ },
+ "yi_large_turbo": {
+  "name": "Yi-Large-Turbo",
+  "org": "01.AI",
+  "color": "#8b5cf6"
+ },
+ "yi_34b": {
+  "name": "Yi-34B",
+  "org": "01.AI",
+  "color": "#8b5cf6"
+ },
+ "llama_2_13b": {
+  "name": "LLaMA2-13B",
+  "org": "Meta",
+  "color": "#0668e1"
+ },
+ "llama_3_8b": {
+  "name": "Llama-3-8B",
+  "org": "Meta",
+  "color": "#0668e1"
+ },
+ "llama_3_70b": {
+  "name": "Llama-3-70B",
+  "org": "Meta",
+  "color": "#0668e1"
+ },
+ "llama_3_1_405b": {
+  "name": "Llama-3.1-405B",
+  "org": "Meta",
+  "color": "#0668e1"
+ },
+ "llama_3_1_70b_instruct": {
+  "name": "Llama-3.1-70B-Instruct",
+  "org": "Meta",
+  "color": "#0668e1"
+ },
+ "llava_1_6_34b": {
+  "name": "LLaVA-1.6-34B",
+  "org": "LLaVA",
+  "color": "#0f766e"
+ },
+ "llava_onevision_7b": {
+  "name": "LLaVA-OneVision-7B",
+  "org": "LLaVA",
+  "color": "#0f766e"
+ },
+ "mistral_large": {
+  "name": "Mistral-Large",
+  "org": "Mistral",
+  "color": "#111827"
+ },
+ "mixtral_8x7b": {
+  "name": "Mixtral-8x7B",
+  "org": "Mistral",
+  "color": "#111827"
+ },
+ "minicpm_llama3_2_5": {
+  "name": "MiniCPM-Llama3-2.5",
+  "org": "OpenBMB",
+  "color": "#be123c"
+ },
+ "minicpm_o_2_6": {
+  "name": "MiniCPM-o 2.6",
+  "org": "OpenBMB",
+  "color": "#be123c"
+ },
+ "minicpm_v4_5": {
+  "name": "MiniCPM-V4.5",
+  "org": "OpenBMB",
+  "color": "#be123c"
+ },
+ "internvl2_40b": {
+  "name": "InternVL2-40B",
+  "org": "OpenGVLab",
+  "color": "#16a34a"
+ },
+ "internvl2_8b": {
+  "name": "InternVL2-8B",
+  "org": "OpenGVLab",
+  "color": "#16a34a"
+ },
+ "cogvlm2": {
+  "name": "CogVLM2",
+  "org": "THUDM",
+  "color": "#9333ea"
+ },
+ "openomni": {
+  "name": "OpenOmni",
+  "org": "OpenOmni",
+  "color": "#0f766e"
+ },
+ "baichuan_omni_1_5": {
+  "name": "Baichuan-Omni-1.5",
+  "org": "Baichuan",
+  "color": "#dc2626"
+ },
+ "unifiedio2_xlarge": {
+  "name": "UnifiedIO2-xlarge",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "rolegpt": {
+  "name": "RoleGPT",
+  "org": "RoleLLM",
+  "color": "#7c3aed"
+ },
+ "rolellama_7b": {
+  "name": "RoleLLaMA-7B",
+  "org": "RoleLLM",
+  "color": "#7c3aed"
+ },
+ "rolellama2_13b_chat": {
+  "name": "RoleLLaMA2 (13B-Chat)",
+  "org": "RoleLLM",
+  "color": "#7c3aed"
+ },
+ "character_ai": {
+  "name": "Character.AI",
+  "org": "Character.AI",
+  "color": "#7c3aed"
+ },
+ "owl_13b": {
+  "name": "OWL-13B",
+  "org": "OWL",
+  "color": "#475569"
+ },
+ "code_llama_7b": {
+  "name": "Code Llama-7B",
+  "org": "Meta",
+  "color": "#0668e1"
+ },
+ "starcoder_7b": {
+  "name": "StarCoder-7B",
+  "org": "BigCode",
+  "color": "#4b5563"
+ },
+ "doubao_1_5_pro": {
+  "name": "Doubao-1.5-Pro",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "doubao_seed_1_6": {
+  "name": "Doubao-Seed-1.6",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "doubao_coder_preview": {
+  "name": "Doubao-Coder-Preview",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "tongyi_deepresearch": {
+  "name": "Tongyi-DeepResearch",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "miroflow_english": {
+  "name": "MiroFlow-English",
+  "org": "MiroFlow",
+  "color": "#0ea5e9"
+ },
+ "openmanus": {
+  "name": "OpenManus",
+  "org": "OpenManus",
+  "color": "#0ea5e9"
+ },
+ "webthinker": {
+  "name": "WebThinker",
+  "org": "WebThinker",
+  "color": "#0ea5e9"
+ },
+ "kimi_k2": {
+  "name": "Kimi K2",
+  "org": "Moonshot AI",
+  "color": "#06b6d4"
+ },
+ "qwen_7b": {
+  "name": "Qwen-7B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen_7b_chat": {
+  "name": "Qwen-7B-Chat",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen1_5_14b": {
+  "name": "Qwen1.5-14B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwq_32b": {
+  "name": "QwQ-32B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "glm4_9b_chat": {
+  "name": "GLM-4-9B-Chat",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "chatglm_6b": {
+  "name": "ChatGLM-6B",
+  "org": "Zhipu AI",
+  "color": "#2563eb"
+ },
+ "yi_34b_chat": {
+  "name": "Yi-34B-Chat",
+  "org": "01.AI",
+  "color": "#8b5cf6"
+ },
+ "internlm_7b": {
+  "name": "InternLM-7B",
+  "org": "Shanghai AI Lab",
+  "color": "#16a34a"
+ },
+ "vicuna_13b": {
+  "name": "Vicuna-13B",
+  "org": "LMSYS",
+  "color": "#4b5563"
+ },
+ "alpaca_7b": {
+  "name": "Alpaca-7B",
+  "org": "Stanford",
+  "color": "#4b5563"
+ },
+ "gpt_5": {
+  "name": "GPT-5",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_5_high": {
+  "name": "GPT-5-high",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_5_1": {
+  "name": "GPT-5.1",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_5_2": {
+  "name": "GPT-5.2",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_5_mini": {
+  "name": "GPT-5 Mini",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_oss": {
+  "name": "GPT-OSS",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_oss_120b": {
+  "name": "GPT-OSS-120B",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o3": {
+  "name": "o3",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o3_high": {
+  "name": "o3-high",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o4_mini": {
+  "name": "o4-mini",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o4_mini_high": {
+  "name": "o4-mini-high",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4_1_2025_04_14": {
+  "name": "GPT-4.1-2025-04-14",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4o_20240806": {
+  "name": "GPT-4o-2024-08-06",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "deepseek_v3_1": {
+  "name": "DeepSeek-V3.1",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_v3_2": {
+  "name": "DeepSeek-V3.2",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_v3_0324": {
+  "name": "DeepSeek-V3-0324",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "deepseek_r1_0528": {
+  "name": "DeepSeek-R1-0528",
+  "org": "DeepSeek",
+  "color": "#4a90d9"
+ },
+ "qwen3_14b": {
+  "name": "Qwen3-14B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_5_vl_72b": {
+  "name": "Qwen2.5-VL-72B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen2_5_vl_32b": {
+  "name": "Qwen2.5-VL-32B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_vl_instruct": {
+  "name": "Qwen3-VL-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_vl_235b_a22b_instruct": {
+  "name": "Qwen3-VL-235B-A22B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_omni_30b_a3b": {
+  "name": "Qwen3-Omni-30B-A3B",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_omni_30b_a3b_thinking": {
+  "name": "Qwen3-Omni-30B-A3B-Thinking",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "qwen3_omni_30b_a3b_instruct": {
+  "name": "Qwen3-Omni-30B-A3B-Instruct",
+  "org": "Alibaba",
+  "color": "#ff6a00"
+ },
+ "claude_sonnet_4_5": {
+  "name": "Claude Sonnet 4.5",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_opus_4_5": {
+  "name": "Claude Opus 4.5",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_4_sonnet": {
+  "name": "Claude 4 Sonnet",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_4_0_sonnet": {
+  "name": "Claude 4.0 Sonnet",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_4_opus_thinking": {
+  "name": "Claude 4 Opus Thinking",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude35_sonnet2": {
+  "name": "Claude 3.5 Sonnet 2",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_sonnet_4_5_claude_code": {
+  "name": "Claude Sonnet 4.5 (Claude Code)",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_sonnet_4_5_cursor": {
+  "name": "Claude Sonnet 4.5 (Cursor)",
+  "org": "Cursor",
+  "color": "#d97706"
+ },
+ "claude_4_5_sonnet_search": {
+  "name": "Claude 4.5 Sonnet w/Search",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_opus_4_20250514": {
+  "name": "Claude Opus 4 (2025-05-14)",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "gemini_3_pro": {
+  "name": "Gemini 3 Pro",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_3_pro_cursor": {
+  "name": "Gemini 3 Pro (Cursor)",
+  "org": "Cursor",
+  "color": "#4285f4"
+ },
+ "gemini_3_pro_preview": {
+  "name": "Gemini 3 Pro Preview",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_3_flash_preview": {
+  "name": "Gemini 3 Flash Preview",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_3_0_pro": {
+  "name": "Gemini 3.0 Pro",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_3_0_flash": {
+  "name": "Gemini 3.0 Flash",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_3_1_pro": {
+  "name": "Gemini 3.1 Pro",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_3_flash": {
+  "name": "Gemini 3 Flash",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_pro": {
+  "name": "Gemini 2 Pro",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_flash": {
+  "name": "Gemini 2 Flash",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_5_pro_preview_0506": {
+  "name": "Gemini 2.5 Pro Preview 05-06",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_5_flash_preview_0520": {
+  "name": "Gemini 2.5 Flash Preview 05-20",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_2_5_flash_preview_0417": {
+  "name": "Gemini 2.5 Flash Preview 04-17",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "gemini_1_5_pro_002": {
+  "name": "Gemini 1.5 Pro 002",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "kimi_k2_0905": {
+  "name": "Kimi-K2-0905",
+  "org": "Moonshot AI",
+  "color": "#06b6d4"
+ },
+ "kimi_k2_thinking": {
+  "name": "Kimi-K2-Thinking",
+  "org": "Moonshot AI",
+  "color": "#06b6d4"
+ },
+ "doubao_1_5_vl_pro": {
+  "name": "Doubao 1.5-VL-Pro",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "doubao_1_8_pro": {
+  "name": "Doubao-1.8-Pro",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "seed_thinking_1_5": {
+  "name": "Seed-Thinking-1.5",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "seedance_1_5": {
+  "name": "Seedance-1.5",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "hunyuan_turbos_preview": {
+  "name": "Hunyuan-Turbos-Preview",
+  "org": "Tencent",
+  "color": "#0ea5e9"
+ },
+ "phi_4": {
+  "name": "Phi-4",
+  "org": "Microsoft",
+  "color": "#2563eb"
+ },
+ "flash_vstream": {
+  "name": "Flash-VStream",
+  "org": "Flash-VStream",
+  "color": "#0ea5e9"
+ },
+ "internvl3_78b": {
+  "name": "InternVL3-78B",
+  "org": "OpenGVLab",
+  "color": "#16a34a"
+ },
+ "internvl2_5_78b": {
+  "name": "InternVL2.5-78B",
+  "org": "OpenGVLab",
+  "color": "#16a34a"
+ },
+ "internvl2_5_38b": {
+  "name": "InternVL2.5-38B",
+  "org": "OpenGVLab",
+  "color": "#16a34a"
+ },
+ "internvl_3_5_241b": {
+  "name": "InternVL-3.5-241B",
+  "org": "OpenGVLab",
+  "color": "#16a34a"
+ },
+ "mplug_owl3_7b": {
+  "name": "mPLUG-Owl3-7B",
+  "org": "mPLUG",
+  "color": "#475569"
+ },
+ "aria": {
+  "name": "Aria",
+  "org": "Aria",
+  "color": "#475569"
+ },
+ "cogvlm2_caption": {
+  "name": "CogVLM2-Caption",
+  "org": "THUDM",
+  "color": "#9333ea"
+ },
+ "mimo_v2_omni": {
+  "name": "MiMo-V2-Omni",
+  "org": "MiMo",
+  "color": "#475569"
+ },
+ "veo_3_1": {
+  "name": "Veo-3.1",
+  "org": "Google",
+  "color": "#4285f4"
+ },
+ "sora_2": {
+  "name": "Sora-2",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "kling_2_6": {
+  "name": "Kling-2.6",
+  "org": "Kuaishou",
+  "color": "#f97316"
+ },
+ "wan_2_6": {
+  "name": "Wan-2.6",
+  "org": "Wan",
+  "color": "#14b8a6"
+ },
+ "wan_2_5": {
+  "name": "Wan-2.5",
+  "org": "Wan",
+  "color": "#14b8a6"
+ },
+ "skywork_reward_v2_llama_3_2_3b": {
+  "name": "Skywork-Reward-V2-Llama-3.2-3B",
+  "org": "Skywork",
+  "color": "#8b5cf6"
+ },
+ "allenai_llama_3_1_70b_instruct_rm_rb2": {
+  "name": "AllenAI Llama-3.1-70B-Instruct-RM-RB2",
+  "org": "AllenAI",
+  "color": "#4b5563"
+ },
+ "allenai_tulu_3_70b_sft_rm_rb2": {
+  "name": "AllenAI Tulu-3-70B-SFT-RM-RB2",
+  "org": "AllenAI",
+  "color": "#4b5563"
+ },
+ "codetracer_gpt_5": {
+  "name": "CodeTracer (GPT-5)",
+  "org": "CodeTracer",
+  "color": "#10a37f"
+ },
+ "codetracer_claude_sonnet_4": {
+  "name": "CodeTracer (Claude Sonnet 4)",
+  "org": "CodeTracer",
+  "color": "#d97706"
+ },
+ "codetracer_deepseek_v3_2": {
+  "name": "CodeTracer (DeepSeek-V3.2)",
+  "org": "CodeTracer",
+  "color": "#4a90d9"
+ },
+ "tvir_agent_qwen3_max": {
+  "name": "TVIR-Agent (Qwen3-Max)",
+  "org": "TVIR-Agent",
+  "color": "#ff6a00"
+ },
+ "tvir_agent_glm_4_7": {
+  "name": "TVIR-Agent (GLM-4.7)",
+  "org": "TVIR-Agent",
+  "color": "#2563eb"
+ },
+ "tvir_agent_claude_4_5_sonnet": {
+  "name": "TVIR-Agent (Claude 4.5 Sonnet)",
+  "org": "TVIR-Agent",
+  "color": "#d97706"
+ },
+ "manus_1_6": {
+  "name": "Manus-1.6",
+  "org": "Manus",
+  "color": "#0ea5e9"
+ },
+ "genspark_deep_research": {
+  "name": "Genspark Deep Research",
+  "org": "Genspark",
+  "color": "#475569"
+ },
+ "llava_v1_5_13b": {
+  "name": "LLaVA-v1.5-13B",
+  "org": "LLaVA",
+  "color": "#0f766e"
+ }
+}

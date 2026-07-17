@@ -1,0 +1,100 @@
+{
+ "slug": "if_vidcap",
+ "name": "IF-VidCap",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Video Captioning",
+ "abstract": "IF-VidCap evaluates instruction following in video captioning. This page uses the Overall CSR from the main table.",
+ "contributions": [],
+ "method": [
+  "This work argues that video captioning should evaluate not only content coverage, but also whether models truly follow explicit instructions on format, keywords, and structure.",
+  "IF-VidCap combines rule-based and open-ended constraints to systematically assess instruction following in video captioning.",
+  "The main results show clear advantages for leading closed-source and strong open-source multimodal models, yet strict instruction following remains unsolved."
+ ],
+ "metrics": [
+  {
+   "name": "Overall CSR",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall CSR score from the main IF-VidCap results table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 74.53,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_2_5_flash",
+   "model": "Gemini 2.5 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 72.63,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "qwen3_vl_instruct",
+   "model": "Qwen3-VL-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 71.65,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "internvl_3_5_241b",
+   "model": "InternVL-3.5-241B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 71.17,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 70.74,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "gemini_2_0_flash",
+   "model": "Gemini 2.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 67.45,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall CSR",
+ "leaderboard_note": "The leaderboard uses the Overall CSR from the main table rather than ISR.",
+ "at_a_glance": {
+  "focus": "视频描述中的指令遵循",
+  "primary_metric": "Overall CSR",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2510.18726",
+  "code": "https://github.com/NJU-LINK/IF-VidCap",
+  "pdf": "https://arxiv.org/pdf/2510.18726.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/if-vidcap.svg"
+}

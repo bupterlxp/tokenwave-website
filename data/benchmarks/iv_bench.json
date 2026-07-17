@@ -1,0 +1,100 @@
+{
+ "slug": "iv_bench",
+ "name": "IV-Bench",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Long Video Understanding",
+ "abstract": "IV-Bench evaluates image-grounded video perception and reasoning. This page uses the Overall score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work argues that some video-understanding tasks require supporting images in addition to the video stream itself.",
+  "IV-Bench covers both perception and reasoning, and uses image necessity to make the tasks more realistic and challenging.",
+  "The results show substantial headroom even for strong models, indicating that image-grounded video reasoning remains difficult."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score on the main IV-Bench results table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "qwen2_5_vl_72b",
+   "model": "Qwen2.5-VL-72B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 28.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "internvl2_5_78b",
+   "model": "InternVL2.5-78B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 28.6,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gemini_2_pro",
+   "model": "Gemini 2 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 27.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_flash",
+   "model": "Gemini 2 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 27.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "internvl2_5_38b",
+   "model": "InternVL2.5-38B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 26.6,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen2_5_vl_32b",
+   "model": "Qwen2.5-VL-32B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 23,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The leaderboard uses the Overall column from the main IV-Bench table.",
+ "at_a_glance": {
+  "focus": "图像支撑视频推理",
+  "primary_metric": "Overall",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2504.15415",
+  "code": "https://github.com/multimodal-art-projection/IV-Bench",
+  "pdf": "https://arxiv.org/pdf/2504.15415.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/iv-bench.svg"
+}

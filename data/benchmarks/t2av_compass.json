@@ -1,0 +1,100 @@
+{
+ "slug": "t2av_compass",
+ "name": "T2AV-Compass",
+ "domain": "aigc",
+ "domain_name": "AIGC",
+ "subcategory": "Text-to-Audio-Video",
+ "abstract": "T2AV-Compass provides unified evaluation for text-to-audio-video generation systems. This page uses the Average score from the subjective evaluation table.",
+ "contributions": [],
+ "method": [
+  "This work targets text-to-audio-video generation and jointly evaluates video quality, audio quality, cross-modal alignment, instruction following, and realism.",
+  "It builds 500 high-complexity prompts and combines objective metrics with an MLLM-as-a-Judge subjective protocol.",
+  "The main results show that, beyond visual quality, current systems remain bottlenecked by audio realism and fine-grained cross-modal synchronization."
+ ],
+ "metrics": [
+  {
+   "name": "Average",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average score from the subjective evaluation table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "veo_3_1",
+   "model": "Veo-3.1",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 70.29,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "sora_2",
+   "model": "Sora-2",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 69.83,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "kling_2_6",
+   "model": "Kling-2.6",
+   "org": "Kuaishou",
+   "color": "#f97316",
+   "score": 68.16,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "wan_2_6",
+   "model": "Wan-2.6",
+   "org": "Wan",
+   "color": "#14b8a6",
+   "score": 67.68,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "seedance_1_5",
+   "model": "Seedance-1.5",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 66.24,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "wan_2_5",
+   "model": "Wan-2.5",
+   "org": "Wan",
+   "color": "#14b8a6",
+   "score": 61.39,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Average",
+ "leaderboard_note": "The leaderboard uses the Average column from the subjective evaluation table.",
+ "at_a_glance": {
+  "focus": "文本到音视频生成",
+  "primary_metric": "Average",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.21094",
+  "code": "https://github.com/NJU-LINK/T2AV-Compass",
+  "pdf": "https://arxiv.org/pdf/2512.21094.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/t2av-compass.svg"
+}

@@ -1,0 +1,104 @@
+{
+ "slug": "mt_video_bench",
+ "name": "MT-Video-Bench",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Long Video Understanding",
+ "abstract": "MT-Video-Bench evaluates perception and interaction in multi-turn video dialogues. This page uses Overall from the main table and keeps the six sub-dimensions as auxiliary metrics.",
+ "contributions": [
+  "The paper shows that even strong models remain far from saturated in multi-turn video dialogue.",
+  "The six sub-metrics help distinguish whether a model struggles more with perception or conversational interaction."
+ ],
+ "method": [
+  "MT-Video-Bench moves video evaluation from single-turn QA to multi-turn dialogue, focusing on sustained understanding and interaction over videos.",
+  "It defines six core competencies around perceptivity and interactivity, and curates 1,000 multi-turn video dialogues from diverse domains aligned with realistic applications such as sports analysis and intelligent tutoring.",
+  "The paper shows large performance gaps between open-source and closed-source MLLMs, while also exposing weaknesses in long-horizon tracking and interactive consistency.",
+  "MT-Video-Bench therefore serves as an important bridge between standard video QA and more realistic video-agent settings."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall multi-turn video benchmark score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 76.95,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "qwen3_vl_32b_thinking",
+   "model": "Qwen3-VL-32B-Thinking",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 68.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "doubao_seed_1_6",
+   "model": "Doubao-Seed-1.6",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 67.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "qwen3_vl_8b_thinking",
+   "model": "Qwen3-VL-8B-Thinking",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 65.98,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen3_vl_4b_thinking",
+   "model": "Qwen3-VL-4B-Thinking",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 62.96,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "minicpm_v4_5",
+   "model": "MiniCPM-V4.5",
+   "org": "OpenBMB",
+   "color": "#be123c",
+   "score": 56.84,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The primary leaderboard uses Overall from the main table. The OR/MR/CS/AR/TS/PI subdimensions are kept to support the paper-oriented supplementary sections below.",
+ "at_a_glance": {
+  "focus": "多轮视频理解",
+  "primary_metric": "Overall",
+  "setting": "Main benchmark leaderboard",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2510.17722",
+  "code": "https://mt-video-bench.github.io/",
+  "pdf": "https://arxiv.org/pdf/2510.17722.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/mt-video-bench.svg"
+}

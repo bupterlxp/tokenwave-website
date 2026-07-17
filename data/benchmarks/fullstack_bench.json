@@ -1,0 +1,125 @@
+{
+ "slug": "fullstack_bench",
+ "name": "FullStack Bench",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "FullStack Bench evaluates LLMs as full-stack coders. The displayed leaderboard uses the Overall score from the main results table.",
+ "contributions": [
+  "The benchmark goes beyond standalone coding tasks and targets end-to-end full-stack development.",
+  "This page keeps Overall as the primary leaderboard instead of splitting every domain-specific subscore."
+ ],
+ "method": [
+  "FullStack Bench moves beyond isolated coding tasks and targets broader full-stack development ability.",
+  "It covers domains such as basic programming, data analysis, software engineering, math, and machine learning.",
+  "The benchmark uses real-world instructions and unit tests across 16 widely used programming languages.",
+  "The paper also releases SandboxFusion to execute and evaluate these multilingual tasks reliably.",
+  "Results show that full-stack evaluation is both more realistic and more challenging than traditional code benchmarks."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall full-stack coding score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o1_preview",
+   "model": "o1-preview",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 65.62,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "o1_mini",
+   "model": "o1-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 64.73,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 62.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 61.77,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "doubao_coder_preview",
+   "model": "Doubao-Coder-Preview",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 58.92,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "deepseek_v2_5",
+   "model": "DeepSeek-V2.5",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 58.65,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "deepseek_coder_v2_instruct",
+   "model": "DeepSeekCoder-V2-Instruct",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 58.09,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "qwen2_5_32b_instruct",
+   "model": "Qwen2.5-32B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 56.88,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The leaderboard shows the Overall score from the main experiments table. The paper also reports finer frontend/backend subscores, which are not expanded here.",
+ "at_a_glance": {
+  "focus": "全栈编码代理",
+  "primary_metric": "Overall",
+  "setting": "官方主实验表",
+  "models_scored": 8,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2412.00535",
+  "code": "https://github.com/bytedance/FullStackBench",
+  "pdf": "https://arxiv.org/pdf/2412.00535.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/fullstack-bench.svg"
+}

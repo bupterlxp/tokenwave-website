@@ -1,0 +1,105 @@
+{
+ "slug": "dr3_eval",
+ "name": "DR3-Eval",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Search Agent",
+ "abstract": "DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.",
+ "contributions": [
+  "Even under the strongest current systems, the 512k setting remains challenging.",
+  "The work emphasizes realism, reproducibility, and failure analysis rather than a single score."
+ ],
+ "method": [
+  "DR3-Eval is designed to make deep research evaluation more realistic, controllable, and reproducible at the same time.",
+  "It starts from real user multimodal files, builds a static sandbox for each task, and generates queries through reverse construction.",
+  "The benchmark centers on multi-file report generation rather than short QA or isolated retrieval.",
+  "Its evaluation protocol covers information recall, factual accuracy, citation coverage, instruction following, and depth quality.",
+  "The main contribution is addressing the long-standing tension between realism and reproducibility in deep research evaluation."
+ ],
+ "metrics": [
+  {
+   "name": "Overall (512k)",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score under the 512k evaluation setting."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "claude_sonnet_4",
+   "model": "Claude Sonnet 4",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 65.6,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "glm_4_7",
+   "model": "GLM-4.7",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 64.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_4_1",
+   "model": "GPT-4.1",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 51.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen3_235b",
+   "model": "Qwen3-235B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 51,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen3_32b",
+   "model": "Qwen3-32B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 47.4,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall (512k)",
+ "leaderboard_note": "The leaderboard uses the 512k Overall from the official DR3-Eval project page. Since a stable formal paper release is not yet the main public artifact, this page follows the official project page.",
+ "at_a_glance": {
+  "focus": "可复现实验型深度研究评测",
+  "primary_metric": "Overall (512k)",
+  "setting": "Official project page leaderboard",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": null,
+  "code": "https://github.com/NJU-LINK/DR3-Eval",
+  "pdf": null
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/dr3-eval.svg"
+}

@@ -1,0 +1,105 @@
+{
+ "slug": "roleagent",
+ "name": "RoleAgent",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Role-playing",
+ "abstract": "RoleAgent benchmarks the building and interaction quality of role-playing agents. This page uses General Response WR-H on the English setting as the primary leaderboard.",
+ "contributions": [
+  "The paper does not report one unified overall score, so the page uses the most user-facing human win rate as the primary leaderboard.",
+  "Self-knowledge and reaction are also preserved to reflect the structure of role-agent ability."
+ ],
+ "method": [
+  "RoleAgent aims to automatically build high-quality role-playing agents from raw scripts without manual profile creation.",
+  "In the building stage, it parses scripts and constructs a hierarchical memory system for each role.",
+  "In the interaction stage, it improves conversations through query decomposition, memory retrieval, summarization, and response generation.",
+  "The paper also introduces RoleAgentBench to evaluate self-knowledge, reaction, general response, and summarization ability.",
+  "Its core contribution is combining scalable script-based role construction with a systematic evaluation benchmark."
+ ],
+ "metrics": [
+  {
+   "name": "General Response WR-H",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Human win rate on general response quality."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "qwen_max",
+   "model": "Qwen-Max",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 54.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4",
+   "model": "GPT-4",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 49.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "qwen1_5_14b",
+   "model": "Qwen1.5-14B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 45.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "yi_34b",
+   "model": "Yi-34B",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 42.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gpt_3_5_turbo",
+   "model": "GPT-3.5 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 41.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "llama_3_8b",
+   "model": "Llama-3-8B",
+   "org": "Meta",
+   "color": "#0668e1",
+   "score": 38.9,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "General Response WR-H",
+ "leaderboard_note": "The primary leaderboard uses General Response WR-H from the English evaluation subset. Since the paper emphasizes multi-dimensional role-agent ability, a few auxiliary metrics are kept as well.",
+ "at_a_glance": {
+  "focus": "角色代理",
+  "primary_metric": "General Response WR-H",
+  "setting": "English evaluation subset",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://openreview.net/forum?id=hORTHzt2cE",
+  "code": "https://openreview.net/forum?id=hORTHzt2cE",
+  "pdf": null
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/roleagent.svg"
+}

@@ -1,0 +1,114 @@
+{
+ "slug": "lime",
+ "name": "LIME",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Image Understanding",
+ "abstract": "LIME curates a more discriminative and efficient multimodal benchmark by filtering low-value and leakage-prone samples. This page uses the LIME Overall score reported in the paper.",
+ "contributions": [
+  "LIME is valuable not merely because it rescales scores, but because it recurates the benchmark samples.",
+  "The paper reports a 0.91 correlation between LIME overall score and WildVision Elo."
+ ],
+ "method": [
+  "LIME is motivated by the idea that MLLM evaluation should be smaller but more informative, because many existing benchmarks contain samples that are too easy or weakly discriminative.",
+  "It uses a semi-automatic pipeline to remove uninformative items, reduce answer leakage, and keep tasks that genuinely require image understanding.",
+  "The paper shows that this refined benchmark cuts both sample count and evaluation time substantially while improving the ability to distinguish models.",
+  "It also argues that traditional automatic metrics such as CIDEr are insufficient for MLLM caption evaluation, which makes LIME relevant not only as a benchmark but also as a methodology for benchmark design."
+ ],
+ "metrics": [
+  {
+   "name": "LIME Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score on the curated LIME benchmark."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "internvl2_40b",
+   "model": "InternVL2-40B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 66.85,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "qwen2_vl_7b",
+   "model": "Qwen2-VL-7B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 65.28,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "internvl2_8b",
+   "model": "InternVL2-8B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 62,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "llava_onevision_7b",
+   "model": "LLaVA-OneVision-7B",
+   "org": "LLaVA",
+   "color": "#0f766e",
+   "score": 61.95,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 52.63,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 51.99,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 49.46,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "LIME Overall",
+ "leaderboard_note": "The leaderboard uses LIME Overall from Table 2 rather than scores on the original benchmark collection. This best reflects the paper's 'Less Is More' contribution.",
+ "at_a_glance": {
+  "focus": "高效多模态综合评测",
+  "primary_metric": "LIME Overall",
+  "setting": "Table 2 main results",
+  "models_scored": 7,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2409.06851",
+  "code": "https://github.com/kangreen0210/LIME",
+  "pdf": "https://arxiv.org/pdf/2409.06851.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/lime.svg"
+}

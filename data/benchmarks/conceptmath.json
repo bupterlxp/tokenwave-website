@@ -1,0 +1,104 @@
+{
+ "slug": "conceptmath",
+ "name": "ConceptMath",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Math",
+ "abstract": "ConceptMath is a bilingual concept-wise benchmark for mathematical reasoning. This page uses the Avg column from the paper's main table.",
+ "contributions": [
+  "The core value of ConceptMath is concept-level diagnosis rather than one coarse math score.",
+  "The page uses Avg to avoid fragmenting the site into too many education-system and prompting variants."
+ ],
+ "method": [
+  "ConceptMath moves math evaluation beyond average accuracy by measuring performance at the level of individual mathematical concepts.",
+  "The benchmark is bilingual in Chinese and English and organizes problems under a concept hierarchy, so models can be analyzed both globally and at fine granularity.",
+  "The paper shows that many models with strong average scores on traditional math benchmarks still exhibit severe weaknesses, or even catastrophic failures, on specific basic concepts.",
+  "As a result, ConceptMath serves not only as a leaderboard but also as a diagnostic tool for targeted improvement and concept-level fine-tuning."
+ ],
+ "metrics": [
+  {
+   "name": "Avg",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average ConceptMath score across systems and prompt settings."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_4",
+   "model": "GPT-4",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 78.02,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "qwen_72b",
+   "model": "Qwen-72B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 70.73,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gpt_3_5_turbo",
+   "model": "GPT-3.5 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 70.58,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "deepseek_math_7b",
+   "model": "DeepSeekMath-7B",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 64.02,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "yi_34b",
+   "model": "Yi-34B",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 57.31,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen_14b",
+   "model": "Qwen-14B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 54.36,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Avg",
+ "leaderboard_note": "The primary leaderboard uses Avg from Table 2. The paper also includes detailed splits by language system and prompting setup, which are not mixed here.",
+ "at_a_glance": {
+  "focus": "双语概念级数学推理",
+  "primary_metric": "Avg",
+  "setting": "Table 2 overall summary",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2402.14660",
+  "code": "https://github.com/conceptmath/conceptmath",
+  "pdf": "https://arxiv.org/pdf/2402.14660.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/conceptmath.svg"
+}

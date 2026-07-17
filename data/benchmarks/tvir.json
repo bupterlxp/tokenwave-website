@@ -1,0 +1,100 @@
+{
+ "slug": "tvir",
+ "name": "TVIR",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Search Agent",
+ "abstract": "TVIR evaluates text-visual interleaved deep-research report generation with joint textual and visual assessment. This page uses the Overall Avg from Table 1.",
+ "contributions": [],
+ "method": [
+  "TVIR targets deep-research agents that generate text-visual interleaved reports instead of text-only outputs.",
+  "The paper introduces TVIR-BENCH and TVIR-AGENT, and jointly evaluates citation support, writing quality, figure quality, and text-visual integration.",
+  "The results show that TVIR-Agent variants with explicit multimodal planning and writing pipelines outperform existing deep-research systems overall."
+ ],
+ "metrics": [
+  {
+   "name": "Overall Avg",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Mean of textual assessment and visual assessment in Table 1."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "tvir_agent_claude_4_5_sonnet",
+   "model": "TVIR-Agent (Claude 4.5 Sonnet)",
+   "org": "TVIR-Agent",
+   "color": "#d97706",
+   "score": 74.44,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "tvir_agent_qwen3_max",
+   "model": "TVIR-Agent (Qwen3-Max)",
+   "org": "TVIR-Agent",
+   "color": "#ff6a00",
+   "score": 73.53,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "tvir_agent_glm_4_7",
+   "model": "TVIR-Agent (GLM-4.7)",
+   "org": "TVIR-Agent",
+   "color": "#2563eb",
+   "score": 72.62,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "manus_1_6",
+   "model": "Manus-1.6",
+   "org": "Manus",
+   "color": "#0ea5e9",
+   "score": 69.73,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "claude_4_5_sonnet_search",
+   "model": "Claude 4.5 Sonnet w/Search",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 68.72,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "genspark_deep_research",
+   "model": "Genspark Deep Research",
+   "org": "Genspark",
+   "color": "#475569",
+   "score": 66.99,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall Avg",
+ "leaderboard_note": "The leaderboard uses the Overall Avg from Table 1 and keeps only systems with complete visual evaluation; the text-only Gemini-3-Pro Deep Research row is excluded.",
+ "at_a_glance": {
+  "focus": "图文交织研究报告",
+  "primary_metric": "Overall Avg",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://aclanthology.org/",
+  "code": "https://aclanthology.org/",
+  "pdf": null
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/tvir.svg"
+}

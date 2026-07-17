@@ -1,0 +1,115 @@
+{
+ "slug": "mtu_bench",
+ "name": "MTU-Bench",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Reasoning",
+ "abstract": "MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.",
+ "contributions": [
+  "M-M is the hardest setting and best reflects complex tool orchestration ability.",
+  "All four granularities are kept so the page can explain why models lead or lag on the aggregate leaderboard."
+ ],
+ "method": [
+  "MTU-Bench evaluates tool-use ability while emphasizing differences across multiple interaction granularities.",
+  "It covers single-turn and multi-turn settings, single-tool and multi-tool settings, as well as out-of-distribution tasks.",
+  "Unlike many prior benchmarks, it avoids GPT-based or human scoring and uses objective metrics derived from ground truth.",
+  "The benchmark is built by transforming existing high-quality tasks and is paired with MTU-Instruct for improvement.",
+  "This makes it both broader in coverage and cheaper to evaluate at scale."
+ ],
+ "metrics": [
+  {
+   "name": "M-M",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Multi-turn multi-tool performance."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "qwen_max",
+   "model": "Qwen-Max",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 45.08,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4",
+   "model": "GPT-4",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 41.36,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "glm_4_plus",
+   "model": "GLM-4-Plus",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 39.53,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "deepseek_v2_5",
+   "model": "DeepSeek-V2.5",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 30.62,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen2_72b_instruct",
+   "model": "Qwen2-72B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 25.13,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "llama_3_70b",
+   "model": "Llama-3-70B",
+   "org": "Meta",
+   "color": "#0668e1",
+   "score": 20.56,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "gpt_3_5_turbo",
+   "model": "GPT-3.5 Turbo",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 11.87,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "M-M",
+ "leaderboard_note": "The primary leaderboard uses M-M. The paper does not report a single unified overall score, so this page chooses the most representative hard setting as the main metric.",
+ "at_a_glance": {
+  "focus": "多粒度工具使用",
+  "primary_metric": "M-M",
+  "setting": "Main benchmark summary table",
+  "models_scored": 7,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2410.11710",
+  "code": "https://github.com/MTU-Bench-Team/MTU-Bench",
+  "pdf": "https://arxiv.org/pdf/2410.11710.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/mtu-bench.svg"
+}

@@ -1,0 +1,22 @@
+{
+ "slug": "scalelong",
+ "benchmark": "scalelong",
+ "title": "ScaleLong: Scaling Video Understanding to the Hour Mark",
+ "date": "2026-01-22",
+ "summary": "Minutes are easy; hours are not. ScaleLong stress-tests long-video understanding with questions whose evidence is scattered across durations that defeat frame-sampling shortcuts.",
+ "body": [
+  {"type": "p", "text": "Most \"long video\" benchmarks are long the way a hallway is long &mdash; you still see the far end from where you stand. ScaleLong is long the way a workday is long: the thing you need at hour one only makes sense because of something that happened in minute three, and nothing in between announces which moments matter."},
+  {"type": "h2", "text": "Four timescales, one clip"},
+  {"type": "p", "text": "The benchmark decomposes understanding into <b>clip, shot, event, and story</b> levels and asks questions at each scale over the same footage. That structure exposes a failure mode single-scale suites hide: models that are sharp at the shot level often collapse at the story level, because sparse frame sampling preserves texture while destroying narrative."},
+  {"type": "ul", "items": [
+    "Clip-level: perception &mdash; what is on screen right now.",
+    "Shot-level: local continuity &mdash; what just changed.",
+    "Event-level: causal grouping &mdash; what is happening.",
+    "Story-level: global integration &mdash; why it all happened."
+  ]},
+  {"type": "h2", "text": "Current results"},
+  {"type": "leaderboard", "top": 3, "intro": "Overall scores across timescales and task types:"},
+  {"type": "p", "text": "The leader clears the field by nine points, but no model approaches the ceiling &mdash; and per-timescale numbers fall with scale for every system tested. Hour-scale integration is not a bigger version of minute-scale understanding; it is a different capability, and today it belongs to no one."}
+ ],
+ "closing": "Timescale definitions, task splits, and the complete table are on the ScaleLong benchmark page."
+}

@@ -1,0 +1,100 @@
+{
+ "slug": "omnivideobench",
+ "name": "OmniVideoBench",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Omni Understanding",
+ "abstract": "OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work focuses on joint audio-visual understanding across music, speech, sound effects, and varying video durations.",
+  "It frames the task as genuine omni understanding rather than frame-only perception or text-only QA.",
+  "The results show clear performance drops even for strong omni models on longer videos and more complex audio conditions."
+ ],
+ "metrics": [
+  {
+   "name": "Avg",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average accuracy reported in the main OmniVideoBench table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gemini_3_0_pro",
+   "model": "Gemini 3.0 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 61.8,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 58.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gemini_3_0_flash",
+   "model": "Gemini 3.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 55.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_5_flash",
+   "model": "Gemini 2.5 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 52.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gemini_2_0_flash",
+   "model": "Gemini 2.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 41.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen3_omni_30b_a3b",
+   "model": "Qwen3-Omni-30B-A3B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 38.4,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Avg",
+ "leaderboard_note": "The leaderboard uses the Avg column from the main OmniVideoBench table.",
+ "at_a_glance": {
+  "focus": "音视频联合理解",
+  "primary_metric": "Avg",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2510.10689",
+  "code": "https://github.com/NJU-LINK/OmniVideoBench",
+  "pdf": "https://arxiv.org/pdf/2510.10689.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/omnivideobench.svg"
+}

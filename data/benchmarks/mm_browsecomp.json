@@ -1,0 +1,100 @@
+{
+ "slug": "mm_browsecomp",
+ "name": "MM-BrowseComp",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Multimodal Agent",
+ "abstract": "MM-BrowseComp evaluates multimodal browsing agents in open web environments. This page uses the Overall score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work targets browsing-agent tasks that require joint understanding of text, images, and videos.",
+  "It evaluates not only open-answer quality, but also support answers, cross-modal evidence integration, and domain-diverse web retrieval performance.",
+  "The results show a clear gap between genuinely tool-augmented systems and plain VLMs, highlighting the difficulty of multimodal browsing."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall score reported in the main MM-BrowseComp table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o3",
+   "model": "o3",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 29.02,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4_1",
+   "model": "GPT-4.1",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 7.59,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "o4_mini_high",
+   "model": "o4-mini-high",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 7.14,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_5_pro_preview_0506",
+   "model": "Gemini 2.5 Pro Preview 05-06",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 7.14,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "o4_mini",
+   "model": "o4-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 5.36,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "gemini_2_5_flash_preview_0520",
+   "model": "Gemini 2.5 Flash Preview 05-20",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 3.12,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The leaderboard uses the Overall column from the main table and keeps representative tool-augmented systems and multimodal models.",
+ "at_a_glance": {
+  "focus": "多模态网页浏览",
+  "primary_metric": "Overall",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2508.13186",
+  "code": "https://github.com/MMBrowseComp/MM-BrowseComp",
+  "pdf": "https://arxiv.org/pdf/2508.13186.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/mm-browsecomp.svg"
+}

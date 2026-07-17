@@ -1,0 +1,100 @@
+{
+ "slug": "multi_docker_eval",
+ "name": "Multi-Docker-Eval",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "Multi-Docker-Eval studies automatic environment building for software engineering agents. This page uses F2P under the SWE-Builder setting.",
+ "contributions": [],
+ "method": [
+  "This work extends software-engineering evaluation beyond code edits to the automatic construction of runnable environments.",
+  "Multi-Docker-Eval measures whether models can bring diverse repositories into a test-ready state across languages and setups.",
+  "The results show that environment building remains a major bottleneck for agentic software engineering, with large differences in success rate and cost."
+ ],
+ "metrics": [
+  {
+   "name": "F2P",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "First-to-pass rate on the SWE-Builder framework."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "deepseek_v3_1",
+   "model": "DeepSeek-V3.1",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 37.72,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "kimi_k2_0905",
+   "model": "Kimi-K2-0905",
+   "org": "Moonshot AI",
+   "color": "#06b6d4",
+   "score": 37.62,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "kimi_k2_thinking",
+   "model": "Kimi-K2-Thinking",
+   "org": "Moonshot AI",
+   "color": "#06b6d4",
+   "score": 36.53,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "claude_sonnet_4",
+   "model": "Claude Sonnet 4",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 35.53,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gpt_5_mini",
+   "model": "GPT-5 Mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 34.13,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "gpt_oss_120b",
+   "model": "GPT-OSS-120B",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 27,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "F2P",
+ "leaderboard_note": "The leaderboard uses F2P (%) under the SWE-Builder setting to reflect environment-building success.",
+ "at_a_glance": {
+  "focus": "自动环境构建",
+  "primary_metric": "F2P (%)",
+  "setting": "SWE-Builder",
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.06915",
+  "code": "https://github.com/Z2sJ4t/Multi-Docker-Eval",
+  "pdf": "https://arxiv.org/pdf/2512.06915.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/multi-docker-eval.svg"
+}

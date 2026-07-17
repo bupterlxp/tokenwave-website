@@ -1,0 +1,18 @@
+{
+ "slug": "omnivideobench",
+ "benchmark": "omnivideobench",
+ "title": "OmniVideoBench: When Models Must Watch and Listen at Once",
+ "date": "2026-05-14",
+ "summary": "True video understanding is audio-visual. OmniVideoBench probes whether omni models can integrate what they see with what they hear over long horizons, instead of answering from a single dominant modality.",
+ "body": [
+  {"type": "p", "text": "Play a cooking video with the sound off and you will still follow most of it. Play a lecture, a stand-up set, or a suspense scene with the sound off and you will miss the point entirely. Video understanding was never a vision problem &mdash; it is a synchronization problem, and OmniVideoBench is built to test exactly that."},
+  {"type": "h2", "text": "No single modality gets a free ride"},
+  {"type": "p", "text": "The benchmark covers music, speech, and sound effects across videos of widely varying duration, and its questions are constructed so that neither the eye nor the ear alone is sufficient. A model that transcribes audio brilliantly but ignores the frame &mdash; or captions frames while deaf to tone and timing &mdash; gets caught."},
+  {"type": "p", "text": "This design choice matters because \"omni\" models are often graded on the modality they happen to be best at. Averaging over unimodal questions rewards specialization; requiring joint evidence rewards integration. Only the second thing deserves the name omni."},
+  {"type": "h2", "text": "Where the field stands"},
+  {"type": "leaderboard", "top": 3, "intro": "The Avg column of the main table currently reads:"},
+  {"type": "p", "text": "One family occupies the podium, and the gap to everything else is wide. Even so, the leader lands around 62 &mdash; joint audio-visual reasoning over long horizons is nowhere near solved, it is merely led."},
+  {"type": "p", "text": "If your product involves meetings, media, tutoring, or anything where meaning arrives through two channels at once, this is the number to watch &mdash; not the captioning score."}
+ ],
+ "closing": "Duration splits, modality breakdowns, and the full table are on the OmniVideoBench page."
+}

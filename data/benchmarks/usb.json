@@ -1,0 +1,100 @@
+{
+ "slug": "usb",
+ "name": "USB",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Safety",
+ "abstract": "USB is a unified multimodal safety benchmark. This page uses the total ASRT, where lower is better.",
+ "contributions": [],
+ "method": [
+  "This work aims to unify multimodal safety evaluation across national safety, public safety, and ethical safety scenarios.",
+  "USB systematically measures failure under attack using multiple attack types and risk themes.",
+  "The main results show large differences in total ASRT across models, indicating that multimodal safety remains far from solved."
+ ],
+ "metrics": [
+  {
+   "name": "Total ASRT",
+   "direction": "lower",
+   "range": "[0, 100]",
+   "note": "Total ASRT reported in the USB main results table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "claude35_sonnet2",
+   "model": "Claude 3.5 Sonnet 2",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 15.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 37.83,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 40.93,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gemini_2_0_flash",
+   "model": "Gemini 2.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 46.51,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen_vl_max",
+   "model": "Qwen-VL-MAX",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 56.87,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "llava_v1_5_13b",
+   "model": "LLaVA-v1.5-13B",
+   "org": "LLaVA",
+   "color": "#0f766e",
+   "score": 72.72,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Total ASRT",
+ "leaderboard_note": "The leaderboard uses Total ASRT from the main table; lower values indicate better robustness.",
+ "at_a_glance": {
+  "focus": "统一多模态安全评测",
+  "primary_metric": "Total ASRT",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2505.23793",
+  "code": "https://github.com/Hongqiong12/USB-SafeBench",
+  "pdf": "https://arxiv.org/pdf/2505.23793.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/usb.svg"
+}

@@ -1,0 +1,23 @@
+{
+ "slug": "swe-compass",
+ "benchmark": "swe_compass",
+ "title": "SWE-Compass: Navigating Real-World Software Engineering with Agents",
+ "date": "2026-06-02",
+ "summary": "A compass needs more than one axis. We chart coding-agent capability across task types, repository scale, and iteration depth &mdash; and show why single-number leaderboards flatten the terrain that matters most.",
+ "body": [
+  {"type": "p", "text": "Ask three teams what \"good at coding\" means and you will get three different answers: closes issues, survives large repositories, doesn't break the build twice. SWE-Compass takes that ambiguity seriously. It spans <b>8 task types, 8 programming scenarios, and 10 programming languages</b>, with 2,000 curated instances drawn from authentic GitHub pull requests and refined through systematic validation."},
+  {"type": "h2", "text": "Fix the workflow, then compare the models"},
+  {"type": "p", "text": "The paper evaluates every model under two agent frameworks &mdash; SWE-Agent and Claude Code. Mixing those numbers into one column would blur the line between model ability and execution environment, so our leaderboard fixes a single workflow (Claude Code) and lets models differ only in the one variable that should matter."},
+  {"type": "quote", "text": "A leaderboard is an experiment. If two rows were produced under different harnesses, the table is comparing harnesses, not models."},
+  {"type": "leaderboard", "top": 3, "intro": "Under the Claude Code workflow, the AVG column reads:"},
+  {"type": "p", "text": "The spread is brutal and informative: the leader clears the runner-up by eleven points, and scores fall off quickly below the top three. Real-workflow coding remains far from saturated &mdash; the best model completes barely a third of what the benchmark asks."},
+  {"type": "h2", "text": "Reading the terrain, not the summit"},
+  {"type": "ul", "items": [
+    "Task types expose different failure modes: repair-style tasks reward precision, feature-building rewards planning depth.",
+    "Language coverage punishes English-plus-Python overfitting; ten languages keep the evaluation honest.",
+    "The difficulty hierarchy across scenarios is stable between frameworks &mdash; evidence it reflects the work itself, not harness quirks."
+  ]},
+  {"type": "p", "text": "That is what a compass is for. A single number tells you who is ahead; the axes tell you where to walk next."}
+ ],
+ "closing": "Full task taxonomy, metric definitions, and the complete leaderboard live on the SWE-Compass benchmark page."
+}

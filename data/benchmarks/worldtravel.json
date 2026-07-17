@@ -1,0 +1,100 @@
+{
+ "slug": "worldtravel",
+ "name": "WorldTravel",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Multimodal Agent",
+ "abstract": "WorldTravel evaluates multimodal travel-planning agents under tightly coupled real-world constraints. This page uses the Feasibility Rate from the multimodal setting.",
+ "contributions": [],
+ "method": [
+  "This work frames travel planning as a tightly constrained agent task that requires multimodal information and real-world scheduling rules.",
+  "It focuses on feasibility rather than superficial answer quality, requiring plans to satisfy time slots, reservation constraints, dwell time, and opening windows.",
+  "The main results show that even leading models still achieve low feasible-plan rates in the multimodal setting."
+ ],
+ "metrics": [
+  {
+   "name": "Feasibility Rate",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Feasible-plan rate in the multimodal setting."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_5_2",
+   "model": "GPT-5.2",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 19.33,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "claude_opus_4_5",
+   "model": "Claude Opus 4.5",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 14,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gemini_3_pro",
+   "model": "Gemini 3 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 8,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "doubao_1_8_pro",
+   "model": "Doubao-1.8-Pro",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gpt_5_1",
+   "model": "GPT-5.1",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 2.67,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "claude_sonnet_4_5",
+   "model": "Claude Sonnet 4.5",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 2.67,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Feasibility Rate",
+ "leaderboard_note": "The leaderboard uses the Feasibility Rate (%) from the multimodal setting and excludes the text-only setting.",
+ "at_a_glance": {
+  "focus": "真实约束旅行规划",
+  "primary_metric": "Feasibility Rate (%)",
+  "setting": "Multimodal setting",
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2602.08367",
+  "code": "https://arxiv.org/abs/2602.08367",
+  "pdf": "https://arxiv.org/pdf/2602.08367.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/worldtravel.svg"
+}

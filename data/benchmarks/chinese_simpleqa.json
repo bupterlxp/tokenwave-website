@@ -1,0 +1,144 @@
+{
+ "slug": "chinese_simpleqa",
+ "name": "Chinese SimpleQA",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Knowledge",
+ "abstract": "Chinese SimpleQA focuses on Chinese factual question answering. This page uses the F-score reported in the paper.",
+ "contributions": [
+  "The benchmark targets Chinese factuality rather than transferred English knowledge.",
+  "The page uses F-score to balance answer correctness and completeness."
+ ],
+ "method": [
+  "Chinese SimpleQA is the first comprehensive benchmark for factual short-form question answering in Chinese, designed to measure how reliably models answer concise fact-seeking questions.",
+  "It covers 6 broad topics and 99 subtopics, and combines strict quality control, static reference answers, and short QA pairs to keep evaluation reliable and reproducible.",
+  "The paper uses the benchmark to compare existing LLMs and further studies the effects of model scale, calibration, RAG, and alignment on Chinese factuality.",
+  "The results show that Chinese factuality rankings do not simply mirror English leaderboards, so Chinese-facing models still require dedicated evaluation and optimization."
+ ],
+ "metrics": [
+  {
+   "name": "F-score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "F-score on Chinese SimpleQA."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o1_preview",
+   "model": "o1-preview",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 67.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "doubao_1_5_pro",
+   "model": "Doubao-1.5-Pro",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 65.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "glm_4_plus",
+   "model": "GLM-4-Plus",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 60.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 59.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen_max",
+   "model": "Qwen-Max",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 57.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 56.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "deepseek_v2_5",
+   "model": "DeepSeek-V2.5",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 55.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 53.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 9,
+   "model_id": "yi_large",
+   "model": "Yi-Large",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 51.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 10,
+   "model_id": "qwen2_5_72b_instruct",
+   "model": "Qwen2.5-72B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 50.2,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "F-score",
+ "leaderboard_note": "The primary leaderboard uses F-score. For factuality benchmarks, this metric is more stable than a single raw accuracy number.",
+ "at_a_glance": {
+  "focus": "中文事实性问答",
+  "primary_metric": "F-score",
+  "setting": "Main leaderboard",
+  "models_scored": 10,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2411.07140",
+  "code": "https://github.com/OpenStellarTeam/ChineseSimpleQA",
+  "pdf": "https://arxiv.org/pdf/2411.07140.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/chinese-simpleqa.svg"
+}

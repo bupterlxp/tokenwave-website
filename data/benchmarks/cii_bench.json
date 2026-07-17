@@ -1,0 +1,114 @@
+{
+ "slug": "cii_bench",
+ "name": "CII-Bench",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Image Understanding",
+ "abstract": "CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper's main table.",
+ "contributions": [
+  "The paper highlights the gap between current models and deeper Chinese cultural understanding.",
+  "The page keeps Overall as the main leaderboard and surfaces the cultural-understanding angle in the supplementary section."
+ ],
+ "method": [
+  "CII-Bench evaluates higher-order understanding of Chinese visual content, focusing on whether models can capture implied semantics, emotions, and cultural signals in Chinese images.",
+  "Unlike generic image benchmarks, it draws images from the Chinese internet and Chinese traditional culture, and pairs them with manually reviewed questions and answers to preserve authentic Chinese context.",
+  "The paper shows that current MLLMs still lag far behind humans, especially on traditional-culture images and tasks requiring deeper semantic interpretation.",
+  "It also finds that emotion hints can noticeably improve performance, indicating that intrinsic understanding of image sentiment and Chinese cultural cues remains weak."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall benchmark accuracy."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "qwen2_vl_72b",
+   "model": "Qwen2-VL-72B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 64.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "glm_4v",
+   "model": "GLM-4V",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 60.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 60.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "internvl2_40b",
+   "model": "InternVL2-40B",
+   "org": "OpenGVLab",
+   "color": "#16a34a",
+   "score": 57.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen_vl_max",
+   "model": "Qwen-VL-MAX",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 56.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 54.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 54.1,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The primary leaderboard uses Overall from the main table. The paper also analyzes prompting variants and cultural subdomains, which are not mixed into the main leaderboard here.",
+ "at_a_glance": {
+  "focus": "中文图像深义理解",
+  "primary_metric": "Overall",
+  "setting": "Main benchmark table",
+  "models_scored": 7,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2410.13854",
+  "code": "https://cii-bench.github.io/",
+  "pdf": "https://arxiv.org/pdf/2410.13854.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/cii-bench.svg"
+}

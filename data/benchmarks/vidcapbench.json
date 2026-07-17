@@ -1,0 +1,100 @@
+{
+ "slug": "vidcapbench",
+ "name": "VidCapBench",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Video Captioning",
+ "abstract": "VidCapBench evaluates video caption quality across aesthetics, content, motion, and physical laws. This page uses the Overall Acc on VidCapBench-AE.",
+ "contributions": [],
+ "method": [
+  "This work addresses the limited coverage of quality dimensions in traditional video-caption benchmarks.",
+  "VidCapBench combines automated and human evaluation, covering aesthetics, content, motion, and physical laws.",
+  "The main results show relatively low overall accuracy across models, indicating that high-quality video captioning still requires stronger fine-grained perception and expression."
+ ],
+ "metrics": [
+  {
+   "name": "Overall Acc",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall accuracy on VidCapBench-AE."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gemini_1_5_pro_002",
+   "model": "Gemini 1.5 Pro 002",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 17.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4o_20240806",
+   "model": "GPT-4o-2024-08-06",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 16.8,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "mplug_owl3_7b",
+   "model": "mPLUG-Owl3-7B",
+   "org": "mPLUG",
+   "color": "#475569",
+   "score": 14.5,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "aria",
+   "model": "Aria",
+   "org": "Aria",
+   "color": "#475569",
+   "score": 14.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "cogvlm2_caption",
+   "model": "CogVLM2-Caption",
+   "org": "THUDM",
+   "color": "#9333ea",
+   "score": 13.1,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen2_vl_72b",
+   "model": "Qwen2-VL-72B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 12.2,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall Acc",
+ "leaderboard_note": "The leaderboard uses Overall Acc on VidCapBench-AE and does not recombine Precision, Coverage, or Conciseness.",
+ "at_a_glance": {
+  "focus": "综合视频描述评测",
+  "primary_metric": "Overall Acc",
+  "setting": "VidCapBench-AE",
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2502.12782",
+  "code": "https://arxiv.org/abs/2502.12782",
+  "pdf": "https://arxiv.org/pdf/2502.12782.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/vidcapbench.svg"
+}

@@ -1,0 +1,105 @@
+{
+ "slug": "rolellm",
+ "name": "RoleLLM",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Role-playing",
+ "abstract": "RoleLLM benchmarks and enhances role-playing abilities in language models. This page uses the avg score from the main English results table and keeps CUS, RAW, and SPE as finer-grained metrics.",
+ "contributions": [
+  "The work introduces not only a benchmark but also RoleGPT, RoleBench, and enhancement pipelines.",
+  "The page keeps style, accuracy, and role-specific knowledge as explicit dimensions."
+ ],
+ "method": [
+  "RoleLLM goes beyond proposing a benchmark and studies how to elicit and improve role-playing ability.",
+  "The paper organizes the pipeline into role profile construction, role-specific knowledge extraction, RoleGPT prompting, and role-conditioned tuning.",
+  "Based on this pipeline, it builds RoleBench, a large-scale and fine-grained dataset for role-playing evaluation.",
+  "It further trains RoleLLaMA and RoleGLM, showing clear gains for open models on role-playing tasks.",
+  "Its main contribution is integrating evaluation, prompting, data construction, and training into one framework."
+ ],
+ "metrics": [
+  {
+   "name": "avg",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average role-playing score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "rolegpt",
+   "model": "RoleGPT",
+   "org": "RoleLLM",
+   "color": "#7c3aed",
+   "score": 47.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "rolellama2_13b_chat",
+   "model": "RoleLLaMA2 (13B-Chat)",
+   "org": "RoleLLM",
+   "color": "#7c3aed",
+   "score": 44.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "character_ai",
+   "model": "Character.AI",
+   "org": "Character.AI",
+   "color": "#7c3aed",
+   "score": 39.3,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "rolellama_7b",
+   "model": "RoleLLaMA-7B",
+   "org": "RoleLLM",
+   "color": "#7c3aed",
+   "score": 36.2,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "alpaca_7b",
+   "model": "Alpaca-7B",
+   "org": "Stanford",
+   "color": "#4b5563",
+   "score": 28.8,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "vicuna_13b",
+   "model": "Vicuna-13B",
+   "org": "LMSYS",
+   "color": "#4b5563",
+   "score": 25.2,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "avg",
+ "leaderboard_note": "The primary leaderboard uses avg from the main English experiment table. The paper also reports Chinese and generalization settings; this page fixes the English main experiment for readability.",
+ "at_a_glance": {
+  "focus": "角色生成与扮演",
+  "primary_metric": "avg",
+  "setting": "English instruction generalization",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2310.00746",
+  "code": "https://github.com/InteractiveNLP-Team/RoleLLM-public",
+  "pdf": "https://arxiv.org/pdf/2310.00746.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/rolellm.svg"
+}

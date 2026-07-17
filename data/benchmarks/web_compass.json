@@ -1,0 +1,100 @@
+{
+ "slug": "web_compass",
+ "name": "WebCompass",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "WebCompass unifies evaluation for web generation, editing, and repair. This page uses the Overall score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work unifies web coding into generation, editing, and repair tasks, and jointly evaluates runnability, spec implementation, design quality, and interaction repair.",
+  "It uses real-browser execution and an agent-as-a-judge protocol to assess front-end development ability.",
+  "The main results show a clear lead for top closed-source systems, while open-source models still lag on complex multi-page and interactive tasks."
+ ],
+ "metrics": [
+  {
+   "name": "Overall",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall mean score across generation, editing, and repair dimensions."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "claude_opus_4_5",
+   "model": "Claude Opus 4.5",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 67.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_3_pro_preview",
+   "model": "Gemini 3 Pro Preview",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 66.68,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gemini_3_flash_preview",
+   "model": "Gemini 3 Flash Preview",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 65.42,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_5_2",
+   "model": "GPT-5.2",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 61.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "claude_sonnet_4_5",
+   "model": "Claude Sonnet 4.5",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 57.12,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen3_vl_235b_a22b_instruct",
+   "model": "Qwen3-VL-235B-A22B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 41.14,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall",
+ "leaderboard_note": "The leaderboard uses the Overall column from the main results table, which averages the nine fine-grained dimensions.",
+ "at_a_glance": {
+  "focus": "网页生成 / 编辑 / 修复",
+  "primary_metric": "Overall",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": null,
+  "code": "https://nju-link.github.io/WebCompass/",
+  "pdf": null
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/web-compass.svg"
+}

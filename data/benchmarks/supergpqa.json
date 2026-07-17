@@ -1,0 +1,144 @@
+{
+ "slug": "supergpqa",
+ "name": "SuperGPQA",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Knowledge",
+ "abstract": "SuperGPQA evaluates knowledge and reasoning across 285 graduate disciplines. This page uses Overall (sample).",
+ "contributions": [
+  "The benchmark extends far beyond common STEM areas to 285 graduate-level disciplines.",
+  "The page uses the sample-level overall because it maps most directly to total accuracy."
+ ],
+ "method": [
+  "SuperGPQA expands LLM knowledge evaluation from a handful of mainstream subjects to 285 graduate-level disciplines, aiming to cover a much broader slice of human expertise.",
+  "It uses a Human-LLM collaborative filtering pipeline to remove trivial or ambiguous questions, together with a large expert annotation process to maintain quality.",
+  "The reported results show that even the strongest current models still have substantial room for improvement across diverse and long-tail professional domains.",
+  "Beyond the leaderboard itself, the work also offers a methodology for organizing and managing large-scale discipline-level benchmark construction."
+ ],
+ "metrics": [
+  {
+   "name": "Overall (sample)",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall sample-level accuracy."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "deepseek_r1",
+   "model": "DeepSeek-R1",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 61.82,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "o1",
+   "model": "o1",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 60.24,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "o3_mini",
+   "model": "o3-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 55.22,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "doubao_1_5_pro",
+   "model": "Doubao-1.5-Pro",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 55.09,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen_max",
+   "model": "Qwen-Max",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 50.08,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 48.16,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "gemini_2_0_flash",
+   "model": "Gemini 2.0 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 47.73,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "deepseek_v3",
+   "model": "DeepSeek-V3",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 47.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 9,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 44.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 10,
+   "model_id": "qwen2_5_72b_instruct",
+   "model": "Qwen2.5-72B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 40.75,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall (sample)",
+ "leaderboard_note": "The primary leaderboard uses Overall (sample). The paper also reports subfield, field, and discipline-level results, which are not mixed here.",
+ "at_a_glance": {
+  "focus": "跨学科高阶知识",
+  "primary_metric": "Overall (sample)",
+  "setting": "Main leaderboard",
+  "models_scored": 10,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2502.14739",
+  "code": "https://arxiv.org/abs/2502.14739",
+  "pdf": "https://arxiv.org/pdf/2502.14739.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/supergpqa.svg"
+}

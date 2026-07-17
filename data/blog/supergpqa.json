@@ -1,0 +1,19 @@
+{
+ "slug": "supergpqa",
+ "benchmark": "supergpqa",
+ "title": "SuperGPQA: Graduate-Level Knowledge at Frontier Scale",
+ "date": "2026-06-28",
+ "summary": "How far does frontier-model knowledge really extend beyond the mainstream disciplines? We examine graduate-level question answering across hundreds of specialized fields and find that long-tail expertise remains the clearest gap between models.",
+ "body": [
+  {"type": "h2", "text": "The mainstream illusion"},
+  {"type": "p", "text": "Most knowledge benchmarks sample from the same comfortable center: mathematics, physics, computer science, a slice of law and medicine. Models ace them, leaderboards saturate, and it becomes tempting to conclude that knowledge is solved. SuperGPQA is built on the opposite suspicion &mdash; that the center was never the hard part."},
+  {"type": "p", "text": "The benchmark spans <b>285 graduate-level disciplines</b>, reaching past the familiar STEM core into fields most evaluation suites have never touched. Questions are filtered through a human&ndash;LLM collaborative pipeline that removes trivial or ambiguous items, with large-scale expert annotation keeping the bar at genuine graduate difficulty."},
+  {"type": "h2", "text": "What the leaderboard says"},
+  {"type": "leaderboard", "top": 3, "intro": "Scores are sample-level overall accuracy on the main leaderboard:"},
+  {"type": "p", "text": "Two things stand out. First, even the strongest reasoning models sit near 60 &mdash; on a 100-point scale, with every discipline in play, nobody is close to done. Second, the ordering compresses: models that look far apart on mainstream suites land within a few points of each other here, because no amount of instruction tuning substitutes for coverage of the long tail."},
+  {"type": "h2", "text": "Why the long tail matters"},
+  {"type": "p", "text": "A model that answers convincingly in twenty popular fields and quietly fabricates in the other two hundred is not a knowledge engine; it is a demo. The practical value of an assistant in materials science, veterinary pathology, or maritime law lives precisely where benchmark coverage has historically been thinnest. SuperGPQA makes that thin region measurable &mdash; and once measurable, improvable."},
+  {"type": "p", "text": "Beyond the scores, the paper's discipline-level methodology doubles as a blueprint for anyone who needs to build wide-coverage evaluations without letting quality collapse at scale."}
+ ],
+ "closing": "Explore the full leaderboard, metric definitions, and evaluation setup on the SuperGPQA benchmark page."
+}

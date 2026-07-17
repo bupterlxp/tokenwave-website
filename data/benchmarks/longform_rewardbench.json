@@ -1,0 +1,100 @@
+{
+ "slug": "longform_rewardbench",
+ "name": "Long-form RewardBench",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Long Context",
+ "abstract": "Long-form RewardBench evaluates reward models for long-form generation. This page uses the Long-form-RM Score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work focuses on reward models for long-form outputs rather than ordinary short-response preference judgments.",
+  "It covers QA, RAG, chat, writing, and reasoning subsets to test ranking quality on long responses.",
+  "The results show that the long-form reward-model landscape differs from traditional RewardBench, and robustness in long contexts remains challenging."
+ ],
+ "metrics": [
+  {
+   "name": "Long-form-RM Score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall Long-form RewardBench score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "skywork_reward_v2_llama_3_2_3b",
+   "model": "Skywork-Reward-V2-Llama-3.2-3B",
+   "org": "Skywork",
+   "color": "#8b5cf6",
+   "score": 74.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gpt_4_1_2025_04_14",
+   "model": "GPT-4.1-2025-04-14",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 74.6,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "claude_opus_4_20250514",
+   "model": "Claude Opus 4 (2025-05-14)",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 74.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "allenai_llama_3_1_70b_instruct_rm_rb2",
+   "model": "AllenAI Llama-3.1-70B-Instruct-RM-RB2",
+   "org": "AllenAI",
+   "color": "#4b5563",
+   "score": 74.4,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "allenai_tulu_3_70b_sft_rm_rb2",
+   "model": "AllenAI Tulu-3-70B-SFT-RM-RB2",
+   "org": "AllenAI",
+   "color": "#4b5563",
+   "score": 73.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "gemini_2_5_flash_preview_0417",
+   "model": "Gemini 2.5 Flash Preview 04-17",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 73.6,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Long-form-RM Score",
+ "leaderboard_note": "The leaderboard uses the Long-form-RM Score column from the main table.",
+ "at_a_glance": {
+  "focus": "长文本奖励模型",
+  "primary_metric": "Long-form-RM Score",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2603.12963",
+  "code": "https://github.com/HuihuiChyan/Long-formRMB",
+  "pdf": "https://arxiv.org/pdf/2603.12963.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/longform-rewardbench.svg"
+}

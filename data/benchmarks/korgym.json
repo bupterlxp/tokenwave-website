@@ -1,0 +1,104 @@
+{
+ "slug": "korgym",
+ "name": "KORGym",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Reasoning",
+ "abstract": "KORGym is a dynamic game platform for reasoning evaluation. This page uses the Avg Score from the paper's main table.",
+ "contributions": [
+  "KORGym replaces static questions with dynamic interactive games and emphasizes online decision-making.",
+  "The page uses Avg Score to stay aligned with the paper's main results."
+ ],
+ "method": [
+  "KORGym extends reasoning evaluation from static benchmarks to a dynamic game platform with interactive multi-turn tasks.",
+  "It offers more than fifty text or vision games and supports reinforcement-learning-style scenarios, so evaluation can capture strategy, interaction, and modality effects rather than final answers alone.",
+  "The paper uses KORGym to study a wide range of LLMs and VLMs, showing recurring reasoning patterns within model families and a continued advantage for closed-source systems.",
+  "In this sense, KORGym pushes reasoning evaluation toward settings that are closer to realistic interactive environments."
+ ],
+ "metrics": [
+  {
+   "name": "Avg Score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average KORGym score."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o3_mini",
+   "model": "o3-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 82,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "gemini_2_5_pro",
+   "model": "Gemini 2.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 79,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "o1",
+   "model": "o1",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 73,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "doubao_1_5_pro",
+   "model": "Doubao-1.5-Pro",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 72,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "deepseek_r1",
+   "model": "DeepSeek-R1",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 71,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "qwen3_32b",
+   "model": "Qwen3-32B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 60,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Avg Score",
+ "leaderboard_note": "The leaderboard directly uses Avg Score from the main table. The paper also provides analyses on other game subsets, which are not expanded here.",
+ "at_a_glance": {
+  "focus": "动态博弈推理",
+  "primary_metric": "Avg Score",
+  "setting": "Main benchmark table",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2505.14552",
+  "code": "https://razor233.github.io/KORGYM_HomePage/",
+  "pdf": "https://arxiv.org/pdf/2505.14552.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/korgym.svg"
+}

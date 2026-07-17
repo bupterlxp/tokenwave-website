@@ -1,0 +1,70 @@
+{
+ "slug": "codetracer",
+ "name": "CodeTracer",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "CodeTracer evaluates process-level tracing and localization for coding agents. This page uses the Overall F1 of the CodeTracer configuration from the main table.",
+ "contributions": [],
+ "method": [
+  "This work focuses on a question beyond final success: whether an agent can accurately trace intermediate states and localize the source of failure.",
+  "It introduces CodeTraceBench and reports step-level precision, recall, and F1 for process-aware localization.",
+  "The main results show substantial F1 gains when the CodeTracer framework is added to different backbones."
+ ],
+ "metrics": [
+  {
+   "name": "Overall F1",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall step-level F1 of the CodeTracer configuration."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "codetracer_gpt_5",
+   "model": "CodeTracer (GPT-5)",
+   "org": "CodeTracer",
+   "color": "#10a37f",
+   "score": 48.02,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "codetracer_claude_sonnet_4",
+   "model": "CodeTracer (Claude Sonnet 4)",
+   "org": "CodeTracer",
+   "color": "#d97706",
+   "score": 46.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "codetracer_deepseek_v3_2",
+   "model": "CodeTracer (DeepSeek-V3.2)",
+   "org": "CodeTracer",
+   "color": "#4a90d9",
+   "score": 46.14,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall F1",
+ "leaderboard_note": "The leaderboard uses the Overall F1 from the CodeTracer rows in the main table, excluding Bare LLM and Mini-CodeTracer baselines.",
+ "at_a_glance": {
+  "focus": "过程追踪与定位",
+  "primary_metric": "Overall F1",
+  "setting": "CodeTracer configuration",
+  "models_scored": 3,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2604.11641",
+  "code": "https://github.com/NJU-LINK/CodeTracer",
+  "pdf": "https://arxiv.org/pdf/2604.11641.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/codetracer.svg"
+}

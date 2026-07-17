@@ -1,0 +1,134 @@
+{
+ "slug": "chinese_safetyqa",
+ "name": "Chinese SafetyQA",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Safety",
+ "abstract": "Chinese SafetyQA evaluates Chinese safety factuality. This page uses the F-score reported in the paper.",
+ "contributions": [
+  "The work grounds safety evaluation in factual QA rather than only jailbreak behavior.",
+  "The page keeps the same primary metric as Chinese SimpleQA for easier side-by-side comparison."
+ ],
+ "method": [
+  "Chinese SafetyQA targets safety-related factual short-form QA in Chinese, asking whether models can answer legal, policy, and ethics questions accurately and harmlessly.",
+  "The benchmark follows the SimpleQA style while emphasizing Chinese coverage, diversity, quality control, static reference answers, and easy evaluation, and it further adds safety relevance and harmlessness as construction principles.",
+  "The paper uses this benchmark to compare mainstream LLMs and analyze how safety factuality relates to capabilities such as RAG and robustness under attacks.",
+  "The results suggest that alignment alone does not guarantee sufficient safety knowledge, and region-specific Chinese safety evaluation remains necessary before compliant deployment."
+ ],
+ "metrics": [
+  {
+   "name": "F-score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "F-score on Chinese SafetyQA."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "o1_preview",
+   "model": "o1-preview",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 73.12,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "qwen_max",
+   "model": "Qwen-Max",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 63.49,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "doubao_1_5_pro",
+   "model": "Doubao-1.5-Pro",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 63.08,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_4o",
+   "model": "GPT-4o",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 59.44,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen2_5_72b_instruct",
+   "model": "Qwen2.5-72B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 58.73,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "glm_4_plus",
+   "model": "GLM-4-Plus",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 57.79,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "claude_3_5_sonnet",
+   "model": "Claude 3.5 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 57.03,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "deepseek_v2_5",
+   "model": "DeepSeek-V2.5",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 55.07,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 9,
+   "model_id": "gemini_1_5_pro",
+   "model": "Gemini 1.5 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "score": 54.27,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "F-score",
+ "leaderboard_note": "The primary leaderboard uses F-score, consistent with the paper.",
+ "at_a_glance": {
+  "focus": "中文安全事实性",
+  "primary_metric": "F-score",
+  "setting": "Main leaderboard",
+  "models_scored": 9,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2412.15265",
+  "code": "https://openstellarteam.github.io/ChineseSafetyQA/",
+  "pdf": "https://arxiv.org/pdf/2412.15265.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/chinese-safetyqa.svg"
+}

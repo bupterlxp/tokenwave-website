@@ -1,0 +1,13 @@
+{
+ "_comment": "Curated cards shown at the top of benchmarks.html, in order. Blurbs are editorial copy; everything else on the card comes from data/benchmarks/<slug>.json.",
+ "featured": [
+  {"slug": "swe_compass", "blurb": "A unified evaluation for agentic coding ability. 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances derived from authentic GitHub pull requests."},
+  {"slug": "supergpqa", "blurb": "Graduate-level question answering across hundreds of specialized fields, probing how far frontier-model knowledge extends beyond the mainstream disciplines."},
+  {"slug": "omnivideobench", "blurb": "Audio-visual video understanding over long horizons: can omni models integrate what they see with what they hear, instead of answering from a single dominant modality?"},
+  {"slug": "t2av_compass", "blurb": "Semantic alignment, temporal synchrony, and perceptual quality for text-to-audio-video generation systems &mdash; measuring what generative systems can truly produce."},
+  {"slug": "mm_browsecomp", "blurb": "Multimodal browsing beyond text trails: search agents must follow evidence through images, charts, and pages that no text-only pipeline can shortcut."},
+  {"slug": "korgym", "blurb": "Knowledge-orthogonal reasoning in interactive game environments built on novel rules, separating genuine rule-following inference from pattern recall."},
+  {"slug": "scalelong", "blurb": "Long-video understanding stress-tested to the hour mark, with questions whose evidence is scattered across durations that defeat frame-sampling shortcuts."},
+  {"slug": "inverse_ifeval", "blurb": "Counter-intuitive instruction following: when the request contradicts the training prior, compliance means overriding the likely answer."}
+ ]
+}

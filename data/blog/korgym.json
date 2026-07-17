@@ -1,0 +1,18 @@
+{
+ "slug": "korgym",
+ "benchmark": "korgym",
+ "title": "KORGym: Knowledge-Orthogonal Reasoning in Interactive Games",
+ "date": "2026-02-16",
+ "summary": "Strip away memorized knowledge and what reasoning remains? KORGym places models in interactive game environments built on novel rules, separating genuine rule-following inference from pattern recall.",
+ "body": [
+  {"type": "p", "text": "Every static benchmark eventually becomes a memory test. Questions leak into training data, solution patterns get learned as templates, and \"reasoning\" scores quietly turn into recall scores. KORGym's answer is to stop asking questions and start dealing hands: interactive games with novel rules, where the only way to win is to actually infer."},
+  {"type": "h2", "text": "Games as instruments"},
+  {"type": "p", "text": "Each environment defines rules the model has never seen, then requires <b>multi-turn online decision-making</b> under those rules. Because the rules are knowledge-orthogonal &mdash; deliberately disconnected from facts a model could have memorized &mdash; performance isolates the inferential machinery itself: read the rules, build a working model, act, observe, revise."},
+  {"type": "quote", "text": "A model that reasons can play a game it has never seen. A model that recalls can only replay games it has."},
+  {"type": "h2", "text": "The standings"},
+  {"type": "leaderboard", "top": 3, "intro": "Average score across the game suite:"},
+  {"type": "p", "text": "Reasoning-tuned models dominate, and the ordering diverges noticeably from static reasoning suites &mdash; some models famous for benchmark math lose ground the moment rules go interactive. That divergence is the entire value of the platform: it measures the part of reasoning that static formats cannot reach."},
+  {"type": "p", "text": "Because games are generated dynamically, the platform also resists contamination by construction &mdash; next year's models cannot have memorized next year's boards."}
+ ],
+ "closing": "Game categories, scoring rules, and the full table are on the KORGym benchmark page."
+}

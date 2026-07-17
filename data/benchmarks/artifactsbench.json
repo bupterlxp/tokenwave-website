@@ -1,0 +1,103 @@
+{
+ "slug": "artifactsbench",
+ "name": "ArtifactsBench",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "ArtifactsBench evaluates interactive visual code generation with emphasis on visual quality, dynamic behavior, and interaction integrity. This page uses the AVG score from the main result table.",
+ "contributions": [
+  "The benchmark explicitly evaluates visual quality, dynamic feedback, and interaction integrity rather than only executability.",
+  "The paper reports strong agreement between its automated evaluation and human preference rankings from WebDev Arena."
+ ],
+ "method": [
+  "This work targets interactive visual artifacts such as web apps, small tools, games, and SVG generation, which are poorly covered by traditional code benchmarks.",
+  "It executes generated code, captures temporal screenshots, and evaluates code, visuals, and interaction with checklist-guided multimodal judges.",
+  "The paper builds 1,825 tasks and shows strong agreement with human preference, making ArtifactsBench a practical benchmark for user-facing code generation."
+ ],
+ "metrics": [
+  {
+   "name": "AVG",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall average score on the main ArtifactsBench table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "claude_4_0_sonnet",
+   "model": "Claude 4.0 Sonnet",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 55.76,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "deepseek_r1_0528",
+   "model": "DeepSeek-R1-0528",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 51.62,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "hunyuan_turbos_preview",
+   "model": "Hunyuan-Turbos-Preview",
+   "org": "Tencent",
+   "color": "#0ea5e9",
+   "score": 50.97,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "gpt_4_1_2025_04_14",
+   "model": "GPT-4.1-2025-04-14",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 48.23,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "seed_thinking_1_5",
+   "model": "Seed-Thinking-1.5",
+   "org": "ByteDance",
+   "color": "#ef4444",
+   "score": 47.92,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "deepseek_v3_0324",
+   "model": "DeepSeek-V3-0324",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 45.56,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "AVG",
+ "leaderboard_note": "The leaderboard uses the AVG column from the main result table under the Gemini-2.5-Pro referee setting.",
+ "at_a_glance": {
+  "focus": "交互式视觉代码生成",
+  "primary_metric": "AVG",
+  "setting": "Gemini referee main table",
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2507.04952",
+  "code": "https://artifactsbenchmark.github.io/",
+  "pdf": "https://arxiv.org/pdf/2507.04952.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/artifactsbench.svg"
+}

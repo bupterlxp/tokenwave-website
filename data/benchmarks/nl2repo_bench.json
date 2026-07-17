@@ -1,0 +1,100 @@
+{
+ "slug": "nl2repo_bench",
+ "name": "NL2Repo-Bench",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "NL2Repo-Bench evaluates long-horizon repository generation from natural-language requirements. This page uses the Overall Score from the paper's main table.",
+ "contributions": [],
+ "method": [
+  "This work shifts evaluation from local code completion to full repository-level software generation.",
+  "It builds tasks across web development, testing, utility libraries, and machine learning, with difficulty stratified by repository scale.",
+  "The main results show that even leading coding systems remain far from reliable completion on long-horizon repository generation."
+ ],
+ "metrics": [
+  {
+   "name": "Overall Score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Overall repository-generation score reported in the main results table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "claude_sonnet_4_5_claude_code",
+   "model": "Claude Sonnet 4.5 (Claude Code)",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 40.2,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "claude_sonnet_4_5",
+   "model": "Claude Sonnet 4.5",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 39.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "claude_sonnet_4_5_cursor",
+   "model": "Claude Sonnet 4.5 (Cursor)",
+   "org": "Cursor",
+   "color": "#d97706",
+   "score": 39.2,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "claude_sonnet_4",
+   "model": "Claude Sonnet 4",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 37,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "gemini_3_pro_cursor",
+   "model": "Gemini 3 Pro (Cursor)",
+   "org": "Cursor",
+   "color": "#4285f4",
+   "score": 34.2,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "deepseek_v3_2",
+   "model": "DeepSeek-V3.2",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 27.6,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Overall Score",
+ "leaderboard_note": "The leaderboard uses the Overall Score (%) from the main result table without recombining difficulty or domain columns.",
+ "at_a_glance": {
+  "focus": "长时程仓库生成",
+  "primary_metric": "Overall Score (%)",
+  "setting": null,
+  "models_scored": 6,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.12730",
+  "code": "https://github.com/multimodal-art-projection/NL2RepoBench",
+  "pdf": "https://arxiv.org/pdf/2512.12730.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/nl2repo-bench.svg"
+}

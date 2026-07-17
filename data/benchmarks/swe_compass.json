@@ -1,0 +1,95 @@
+{
+ "slug": "swe_compass",
+ "name": "SWE-Compass",
+ "domain": "agent",
+ "domain_name": "Agent",
+ "subcategory": "Code Agent",
+ "abstract": "SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.",
+ "contributions": [
+  "The paper reports results under both SWE-Agent and Claude Code workflows.",
+  "This page fixes one workflow so the leaderboard does not mix model differences with system differences."
+ ],
+ "method": [
+  "SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.",
+  "It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.",
+  "Most instances are derived from authentic GitHub pull requests and refined through systematic validation.",
+  "The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.",
+  "Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios."
+ ],
+ "metrics": [
+  {
+   "name": "AVG",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average score under the Claude Code workflow."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "claude_sonnet_4",
+   "model": "Claude Sonnet 4",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 32.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "qwen3_coder_480b",
+   "model": "Qwen3-Coder-480B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 21.9,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "qwen3_coder_30b",
+   "model": "Qwen3-Coder-30B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 21.6,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "qwen3_235b",
+   "model": "Qwen3-235B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 14.7,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "deepseek_v3",
+   "model": "DeepSeek-V3",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 9.8,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "AVG",
+ "leaderboard_note": "The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.",
+ "at_a_glance": {
+  "focus": "Agentic coding",
+  "primary_metric": "AVG",
+  "setting": "Claude Code workflow",
+  "models_scored": 5,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2511.05459",
+  "code": "https://arxiv.org/abs/2511.05459",
+  "pdf": "https://arxiv.org/pdf/2511.05459.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/swe-compass.svg"
+}

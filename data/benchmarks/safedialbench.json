@@ -1,0 +1,124 @@
+{
+ "slug": "safedialbench",
+ "name": "SafeDialBench",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Safety",
+ "abstract": "SafeDialBench evaluates safety and jailbreak resistance in multi-turn dialogue. This page uses ASR from the paper, where lower is better.",
+ "contributions": [
+  "This is one of the few benchmarks on the site where lower is better.",
+  "The page sorts and highlights the leaderboard with the ASR direction reversed."
+ ],
+ "method": [
+  "SafeDialBench focuses on multi-turn dialogue safety, asking whether models can consistently detect, handle, and resist unsafe requests under diverse jailbreak attacks.",
+  "It builds a two-level safety taxonomy covering 6 safety dimensions and 22 dialogue scenarios, and generates more than 4,000 multi-turn conversations in Chinese and English.",
+  "The paper also introduces an automatic assessment framework that breaks safety down into detection, handling, and consistency under attack.",
+  "The results reveal large safety differences across models and show that stronger reasoning ability does not automatically translate into safer behavior."
+ ],
+ "metrics": [
+  {
+   "name": "ASR",
+   "direction": "lower",
+   "range": "[0, 1]",
+   "note": "Attack success rate. Lower is better."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "deepseek_r1",
+   "model": "DeepSeek-R1",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 0.49,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "qwq_32b",
+   "model": "QwQ-32B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 0.49,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "yi_34b_chat",
+   "model": "Yi-34B-Chat",
+   "org": "01.AI",
+   "color": "#8b5cf6",
+   "score": 0.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "qwen2_5_14b_instruct",
+   "model": "Qwen2.5-14B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 0.58,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "qwen2_5_7b_instruct",
+   "model": "Qwen2.5-7B-Instruct",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 0.58,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "glm4_9b_chat",
+   "model": "GLM-4-9B-Chat",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 0.59,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "qwen_7b_chat",
+   "model": "Qwen-7B-Chat",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 0.61,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "chatglm3_6b",
+   "model": "ChatGLM3-6B",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 0.66,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "ASR",
+ "leaderboard_note": "The primary leaderboard uses ASR, where lower is better. To preserve a consistent site layout, the page keeps the same table style but reverses the sorting direction.",
+ "at_a_glance": {
+  "focus": "多轮对话安全",
+  "primary_metric": "ASR",
+  "setting": "Main ASR table",
+  "models_scored": 8,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2502.11090",
+  "code": "https://safedialbench.github.io/",
+  "pdf": "https://arxiv.org/pdf/2502.11090.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/safedialbench.svg"
+}

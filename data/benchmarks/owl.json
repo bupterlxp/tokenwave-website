@@ -1,0 +1,105 @@
+{
+ "slug": "owl",
+ "name": "OWL",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Knowledge",
+ "abstract": "OWL studies large language models for IT operations. This page uses the Average Score reported in the paper.",
+ "contributions": [
+  "OWL is closer to enterprise operations than generic QA.",
+  "The score is not a percentage, so the page preserves the paper's original scale."
+ ],
+ "method": [
+  "OWL targets the IT operations domain instead of generic chat or QA scenarios.",
+  "The paper builds Owl-Instruct and Owl-Bench to train and evaluate a specialized model for IT tasks.",
+  "It proposes HMCE for extending usable context and adopts a mixture-of-adapter strategy for tuning.",
+  "Experiments show that OWL outperforms contemporary general-purpose baselines on multiple IT tasks.",
+  "Its main message is that domain-specific LLMs and benchmarks are necessary for realistic IT operations use cases."
+ ],
+ "metrics": [
+  {
+   "name": "Average Score",
+   "direction": "higher",
+   "range": "[0, 10]",
+   "note": "Average task score reported by the paper."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "owl_13b",
+   "model": "OWL-13B",
+   "org": "OWL",
+   "color": "#475569",
+   "score": 8.86,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "llama_2_13b",
+   "model": "LLaMA2-13B",
+   "org": "Meta",
+   "color": "#0668e1",
+   "score": 8.57,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "qwen_7b",
+   "model": "Qwen-7B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 8.41,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "chatglm2_6b",
+   "model": "ChatGLM2-6B",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 8.27,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "internlm_7b",
+   "model": "InternLM-7B",
+   "org": "Shanghai AI Lab",
+   "color": "#16a34a",
+   "score": 8.19,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "chatglm_6b",
+   "model": "ChatGLM-6B",
+   "org": "Zhipu AI",
+   "color": "#2563eb",
+   "score": 8.12,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Average Score",
+ "leaderboard_note": "The primary leaderboard directly uses the paper's Average Score. Since the work is relatively early, the evaluated models reflect the period's mainstream systems.",
+ "at_a_glance": {
+  "focus": "IT 运维代理",
+  "primary_metric": "Average Score",
+  "setting": "Paper leaderboard",
+  "models_scored": 6,
+  "data_updated": "2026-04-15"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2309.09298",
+  "code": "https://github.com/HC-Guo/Owl",
+  "pdf": "https://arxiv.org/pdf/2309.09298.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/owl.svg"
+}

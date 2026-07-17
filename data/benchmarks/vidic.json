@@ -1,0 +1,70 @@
+{
+ "slug": "vidic",
+ "name": "ViDiC",
+ "domain": "multimodal",
+ "domain_name": "MLLM Benchmark",
+ "subcategory": "Video Captioning",
+ "abstract": "ViDiC evaluates video difference captioning by measuring how well models describe fine-grained differences and similarities between videos. This page uses the Average score from the main table.",
+ "contributions": [],
+ "method": [
+  "This work extends difference captioning from images to videos, requiring models to describe differences, similarities, and temporal changes between paired videos.",
+  "It emphasizes fine-grained factors such as position, background, camera motion, and filming technique, making the task more comparative than standard captioning.",
+  "The main results show strong performance from leading language models, but clear weaknesses remain on fine-grained categories."
+ ],
+ "metrics": [
+  {
+   "name": "Average",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Average score on the main ViDiC results table."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_5_mini",
+   "model": "GPT-5 Mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 95.22,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "deepseek_v3",
+   "model": "DeepSeek-V3",
+   "org": "DeepSeek",
+   "color": "#4a90d9",
+   "score": 89.37,
+   "source": "official",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "qwen3_32b",
+   "model": "Qwen3-32B",
+   "org": "Alibaba",
+   "color": "#ff6a00",
+   "score": 87.23,
+   "source": "official",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Average",
+ "leaderboard_note": "The leaderboard uses the Average column from the main results table.",
+ "at_a_glance": {
+  "focus": "视频差异描述",
+  "primary_metric": "Average",
+  "setting": null,
+  "models_scored": 3,
+  "data_updated": "2026-04-21"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.03405",
+  "code": "https://huggingface.co/datasets/NJU-LINK/ViDiC-1K",
+  "pdf": "https://arxiv.org/pdf/2512.03405.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/vidic.svg"
+}
