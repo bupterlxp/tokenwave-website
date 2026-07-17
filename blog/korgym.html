@@ -61,19 +61,27 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">50+</div><div class="l">interactive games</div></div>
+        <div class="stat-tile"><div class="v">82</div><div class="l">top score (Avg Score)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">22</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>Strip away memorized knowledge and what reasoning remains? KORGym places models in interactive game environments built on novel rules, separating genuine rule-following inference from pattern recall.</p>
 
         <p>Every static benchmark eventually becomes a memory test. Questions leak into training data, solution patterns get learned as templates, and "reasoning" scores quietly turn into recall scores. KORGym's answer is to stop asking questions and start dealing hands: interactive games with novel rules, where the only way to win is to actually infer.</p>
 
-        <h2>Games as instruments</h2>
+        <h2 id="games-as-instruments">Games as instruments</h2>
 
         <p>Each environment defines rules the model has never seen, then requires <b>multi-turn online decision-making</b> under those rules. Because the rules are knowledge-orthogonal &mdash; deliberately disconnected from facts a model could have memorized &mdash; performance isolates the inferential machinery itself: read the rules, build a working model, act, observe, revise.</p>
 
         <blockquote>A model that reasons can play a game it has never seen. A model that recalls can only replay games it has.</blockquote>
 
-        <h2>The standings</h2>
+        <h2 id="the-standings">The standings</h2>
 
         <p>Average score across the game suite:</p>
         <table class="data-table">
@@ -101,7 +109,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#games-as-instruments">Games as instruments</a>
+        <a href="#the-standings">The standings</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -118,6 +154,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

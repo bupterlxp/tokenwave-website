@@ -61,13 +61,21 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4</div><div class="l">reasoning timescales</div></div>
+        <div class="stat-tile"><div class="v">67.9</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">23.8</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>Minutes are easy; hours are not. ScaleLong stress-tests long-video understanding with questions whose evidence is scattered across durations that defeat frame-sampling shortcuts.</p>
 
         <p>Most "long video" benchmarks are long the way a hallway is long &mdash; you still see the far end from where you stand. ScaleLong is long the way a workday is long: the thing you need at hour one only makes sense because of something that happened in minute three, and nothing in between announces which moments matter.</p>
 
-        <h2>Four timescales, one clip</h2>
+        <h2 id="four-timescales-one-clip">Four timescales, one clip</h2>
 
         <p>The benchmark decomposes understanding into <b>clip, shot, event, and story</b> levels and asks questions at each scale over the same footage. That structure exposes a failure mode single-scale suites hide: models that are sharp at the shot level often collapse at the story level, because sparse frame sampling preserves texture while destroying narrative.</p>
 
@@ -78,7 +86,7 @@
             <li>Story-level: global integration &mdash; why it all happened.</li>
         </ul>
 
-        <h2>Current results</h2>
+        <h2 id="current-results">Current results</h2>
 
         <p>Overall scores across timescales and task types:</p>
         <table class="data-table">
@@ -104,7 +112,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#four-timescales-one-clip">Four timescales, one clip</a>
+        <a href="#current-results">Current results</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -121,6 +157,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

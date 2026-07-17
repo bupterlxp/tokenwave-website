@@ -815,7 +815,7 @@ tr.lead-row .rank { color: var(--accent-deep); }
 }
 
 /* ── Compare ───────────────────────────────────────────────── */
-.cmp { margin: 6px 0 60px; }
+.cmp { position: relative; margin: 6px 0 60px; }
 
 .cmp-toolbar {
     display: flex;
@@ -929,6 +929,135 @@ tr.lead-row .rank { color: var(--accent-deep); }
 }
 
 .cmp-table td.na { color: #cbd5e1; text-align: center; }
+
+.cmp-table th .thdot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 7px;
+    vertical-align: baseline;
+}
+
+/* Per-row score bar under each value (relative to the row's max) */
+.cmp-table td.num { min-width: 96px; }
+
+.cellbar {
+    display: block;
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    background: #f1f5f9;
+    overflow: hidden;
+}
+
+.cellbar span {
+    display: block;
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* "Show all models" toggle */
+.cmp-more { margin: 2px 0 22px; }
+
+.cmp-toggle {
+    font: 600 13.5px var(--sans);
+    color: var(--accent-ink);
+    background: none;
+    border: 1px dashed var(--line);
+    border-radius: var(--r-md);
+    width: 100%;
+    padding: 9px 12px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.cmp-toggle:hover { border-color: #bfdbfe; background: #fafbff; }
+.cmp-toggle .muted { font-weight: 400; }
+
+.cmp-copy {
+    font: 600 13px var(--sans);
+    color: var(--accent-deep);
+    background: var(--accent-soft);
+    border: 1px solid #dbeafe;
+    border-radius: var(--r-md);
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.cmp-copy:hover { border-color: #bfdbfe; }
+
+/* Domain profile chart */
+.cmp-chart { position: relative; margin: 4px 0 10px; }
+
+.cmp-chart svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-lg);
+    background: #fff;
+    padding: 8px 6px 2px;
+}
+
+.cmp-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0 2px 10px;
+    font-size: 13px;
+    color: #334155;
+}
+
+.cmp-legend .lg { display: inline-flex; align-items: center; gap: 7px; }
+.cmp-legend .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+.cmp-caveat {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 8px 2px 22px;
+    line-height: 1.55;
+}
+
+.cmp-bar { cursor: default; }
+.cmp-bar:hover path, .cmp-bar:hover rect:first-child { opacity: 0.82; }
+
+.cmp-tip {
+    position: absolute;
+    z-index: 5;
+    max-width: 240px;
+    padding: 7px 10px;
+    font: 12px/1.45 var(--sans);
+    color: #fff;
+    background: #0f172a;
+    border-radius: 8px;
+    pointer-events: none;
+    box-shadow: 0 8px 22px -10px rgba(15, 23, 42, 0.5);
+}
+
+/* Submit results page */
+.submit-box {
+    max-width: 640px;
+    margin: 10px 0 60px;
+    padding: 26px 30px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, #fafbff 0%, #ffffff 60%);
+}
+
+.submit-steps {
+    margin: 0 0 22px;
+    padding-left: 22px;
+}
+
+.submit-steps li { margin-bottom: 12px; }
+
+.submit-hint {
+    font-family: var(--mono);
+    font-size: 13px;
+    margin-top: -10px;
+}
 
 /* ── Footer — split layout ─────────────────────────────────── */
 .site-footer {

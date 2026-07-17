@@ -61,19 +61,27 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">3</div><div class="l">audio source types</div></div>
+        <div class="stat-tile"><div class="v">61.8</div><div class="l">top score (Avg)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">23.4</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>True video understanding is audio-visual. OmniVideoBench probes whether omni models can integrate what they see with what they hear over long horizons, instead of answering from a single dominant modality.</p>
 
         <p>Play a cooking video with the sound off and you will still follow most of it. Play a lecture, a stand-up set, or a suspense scene with the sound off and you will miss the point entirely. Video understanding was never a vision problem &mdash; it is a synchronization problem, and OmniVideoBench is built to test exactly that.</p>
 
-        <h2>No single modality gets a free ride</h2>
+        <h2 id="no-single-modality-gets-a-free-ride">No single modality gets a free ride</h2>
 
         <p>The benchmark covers music, speech, and sound effects across videos of widely varying duration, and its questions are constructed so that neither the eye nor the ear alone is sufficient. A model that transcribes audio brilliantly but ignores the frame &mdash; or captions frames while deaf to tone and timing &mdash; gets caught.</p>
 
         <p>This design choice matters because "omni" models are often graded on the modality they happen to be best at. Averaging over unimodal questions rewards specialization; requiring joint evidence rewards integration. Only the second thing deserves the name omni.</p>
 
-        <h2>Where the field stands</h2>
+        <h2 id="where-the-field-stands">Where the field stands</h2>
 
         <p>The Avg column of the main table currently reads:</p>
         <table class="data-table">
@@ -101,7 +109,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#no-single-modality-gets-a-free-ride">No single modality gets a free ride</a>
+        <a href="#where-the-field-stands">Where the field stands</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -118,6 +154,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

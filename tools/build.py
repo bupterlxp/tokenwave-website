@@ -22,6 +22,7 @@ Run:  python3 tools/build.py
 
 import html as htmlmod
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -159,6 +160,7 @@ def footer(depth):
                 <a href="{d}benchmarks.html">Benchmarks</a>
                 <a href="{d}compare.html">Compare</a>
                 <a href="{d}joinus.html">Join Us</a>
+                <a href="{d}submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -330,7 +332,9 @@ def build_detail(b, post_by_bench, editorial):
 
     if b["leaderboard"]:
         lb_note = f"<p>{esc(b['leaderboard_note'])}</p>\n        " if b.get("leaderboard_note") else ""
-        secs.append(("leaderboard", "Leaderboard", f"{lb_note}{leaderboard_table(b)}"))
+        submit_hint = (f'\n        <p class="submit-hint"><a href="{d}submit.html">Scored a model on {esc(b["name"])}? '
+                       f"Submit the result →</a></p>")
+        secs.append(("leaderboard", "Leaderboard", f"{lb_note}{leaderboard_table(b)}{submit_hint}"))
 
     if ed:
         secs.append(("reading-the-results", "Reading the results", paras(ed["reading"])))
@@ -523,11 +527,16 @@ def build_blog_list(posts, benches):
     write("blog.html", html)
 
 
-def build_post(p, benches):
+def build_post(p, benches, editorial):
     d = "../"
     b = benches[p["benchmark"]]
     fs = file_slug(b["slug"])
+    ed = editorial.get(b["slug"])
 
+    def hid(text):
+        return re.sub(r"[^a-z0-9]+", "-", re.sub(r"<[^>]+>", "", text).lower()).strip("-")
+
+    toc_entries = []
     blocks = []
     blocks.append(f"<p>{p['summary']}</p>")
     for blk in p["body"]:
@@ -535,7 +544,9 @@ def build_post(p, benches):
         if t == "p":
             blocks.append(f"<p>{blk['text']}</p>")
         elif t == "h2":
-            blocks.append(f"<h2>{blk['text']}</h2>")
+            anchor = hid(blk["text"])
+            toc_entries.append((anchor, blk["text"]))
+            blocks.append(f'<h2 id="{anchor}">{blk["text"]}</h2>')
         elif t == "ul":
             items = "\n            ".join(f"<li>{i}</li>" for i in blk["items"])
             blocks.append(f"<ul>\n            {items}\n        </ul>")
@@ -558,6 +569,27 @@ def build_post(p, benches):
     body = "\n\n        ".join(blocks)
     plain_summary = p["summary"].replace("&mdash;", "—")
 
+    stats_html = ""
+    if ed and ed.get("stats"):
+        tiles = "\n        ".join(
+            f'<div class="stat-tile"><div class="v">{esc(s["value"])}</div><div class="l">{esc(s["label"])}</div></div>'
+            for s in ed["stats"]
+        )
+        stats_html = f"""
+    <div class="stat-grid">
+        {tiles}
+    </div>
+"""
+
+    toc_html = ""
+    if len(toc_entries) >= 2:
+        toc_links = "\n        ".join(f'<a href="#{a}">{t}</a>' for a, t in toc_entries)
+        toc_html = f"""
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        {toc_links}
+    </nav>"""
+
     html = f"""{head(d, f"{p['title']} | TokenWave AI", plain_summary[:250], f"blog/{p['slug']}.html", og_type="article", published=p["date"])}
 {GEN_NOTE}
 {header(d, 'blog')}
@@ -576,13 +608,16 @@ def build_post(p, benches):
             </p>
         </div>
     </div>
+{stats_html}    <div class="detail-layout">
     <div class="markdown">
 
         {body}
 
         <p class="back-link"><a href="{d}blog.html">&larr; Back to Blog</a></p>
+    </div>{toc_html}
     </div>
 </article>
+{SCROLLSPY}
 {footer(d)}"""
     write(f"blog/{p['slug']}.html", html)
 
@@ -613,13 +648,22 @@ def build_compare(benches, models):
     for dom in DOMAIN_ORDER:
         for b in sorted((x for x in benches.values() if x["domain"] == dom), key=lambda x: x["name"].lower()):
             direction = "higher"
+            rng = None
             for m in b["metrics"]:
                 if m["name"] == b.get("leaderboard_metric"):
                     direction = m["direction"]
+                    rng = m.get("range")
                     break
             else:
                 if b["metrics"]:
                     direction = b["metrics"][0]["direction"]
+                    rng = b["metrics"][0].get("range")
+            # upper bound of the metric range, e.g. "[0, 100]" -> 100 (default 100)
+            rmax = 100.0
+            if rng:
+                m2 = re.search(r",\s*([0-9.]+)\s*\]", rng)
+                if m2:
+                    rmax = float(m2.group(1))
             bench_list.append({
                 "file": file_slug(b["slug"]),
                 "name": b["name"],
@@ -628,6 +672,7 @@ def build_compare(benches, models):
                 "subcategory": b["subcategory"],
                 "metric": b.get("leaderboard_metric"),
                 "dir": direction,
+                "rmax": rmax,
                 "scores": {r["model_id"]: r["score"] for r in b["leaderboard"] if r.get("model_id")},
             })
 
@@ -659,6 +704,35 @@ def build_compare(benches, models):
     return len(model_list)
 
 
+# ── submit page ──────────────────────────────────────────────────────────────
+
+def build_submit():
+    from urllib.parse import quote
+    d = ""
+    mail_subject = quote("Leaderboard submission: <benchmark> / <model>", safe="")
+    html = f"""{head(d, "Submit Results | TokenWave AI", "Submit a model result to a TokenWave leaderboard.", "submit.html")}
+{GEN_NOTE}
+{header(d, 'benchmarks')}
+<section class="page-header">
+    <div class="eyebrow">Submit results</div>
+    <h1>Scored a model? Put it on the board.</h1>
+    <p class="page-intro">We list results we can verify. Send us the following and we will review it for the next data refresh.</p>
+</section>
+
+<section class="submit-box">
+    <ol class="submit-steps">
+        <li><b>Benchmark &amp; setting</b> &mdash; which leaderboard, and the exact displayed setting (each page pins one; mixed settings are not comparable).</li>
+        <li><b>Model identity</b> &mdash; model name, version/date, and organization. Closed API models: include the exact model string.</li>
+        <li><b>Score &amp; metric</b> &mdash; the primary metric as defined on the benchmark page, with the score range you evaluated on.</li>
+        <li><b>Evidence</b> &mdash; a paper, technical report, or reproducible eval log. Self-reported numbers are labeled as such on the board.</li>
+    </ol>
+    <a class="button primary" href="mailto:contact@tokenwave.ai?subject={mail_subject}">Email your submission →</a>
+    <p class="muted" style="margin-top: 14px; font-size: 13.5px;">Sources are labeled Official / Community / Self-reported. We do not re-rank on request; we re-run the pipeline.</p>
+</section>
+{footer(d)}"""
+    write("submit.html", html)
+
+
 # ── seo files ────────────────────────────────────────────────────────────────
 
 def build_seo(benches, posts):
@@ -672,6 +746,7 @@ def build_seo(benches, posts):
         ("blog.html", latest_post, "weekly", "0.8"),
         ("compare.html", latest_bench, "weekly", "0.8"),
         ("joinus.html", latest, "monthly", "0.5"),
+        ("submit.html", latest, "monthly", "0.5"),
     ]
     for b in sorted(benches.values(), key=lambda x: file_slug(x["slug"])):
         urls.append((f"benchmarks/{file_slug(b['slug'])}.html",
@@ -709,8 +784,11 @@ def main():
 
     build_blog_list(posts, benches)
     for p in posts:
-        build_post(p, benches)
+        build_post(p, benches, editorial)
     print(f"blog/: {len(posts)} articles + blog.html")
+
+    build_submit()
+    print("submit.html")
 
     build_seo(benches, posts)
     print("sitemap.xml + robots.txt")

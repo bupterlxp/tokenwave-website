@@ -61,17 +61,25 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">75.66</div><div class="l">top score (Overall Score)</div></div>
+        <div class="stat-tile"><div class="v">4</div><div class="l">challenge conditions</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">8.5</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>Models follow instructions well &mdash; until the instruction contradicts their training prior. Inverse IFEval measures counter-intuitive instruction following, where compliance requires overriding the likely answer.</p>
 
         <p>Tell a model to answer in JSON and it answers in JSON. Tell it to write the buggy version of a function, to argue the unpopular side, to format things the "wrong" way &mdash; and something interesting happens: the training prior pushes back. Inverse IFEval is a benchmark made entirely of that push-back.</p>
 
-        <h2>Obedience is easy until it costs something</h2>
+        <h2 id="obedience-is-easy-until-it-costs-something">Obedience is easy until it costs something</h2>
 
         <p>Standard instruction-following suites measure formatting compliance along the grain of what models already want to produce. Inverse IFEval designs instructions that <b>conflict with common training conventions</b>, so every point scored is evidence the model can place the user's actual request above its own habits. That is not a stylistic skill &mdash; it is the load-bearing trust property of any system that edits, red-teams, or role-plays on command.</p>
 
-        <h2>Who overrides their instincts best</h2>
+        <h2 id="who-overrides-their-instincts-best">Who overrides their instincts best</h2>
 
         <p>Overall Score on the English main table:</p>
         <table class="data-table">
@@ -101,7 +109,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#obedience-is-easy-until-it-costs-something">Obedience is easy until it costs something</a>
+        <a href="#who-overrides-their-instincts-best">Who overrides their instincts best</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -118,6 +154,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

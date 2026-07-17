@@ -61,13 +61,21 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">500</div><div class="l">high-complexity prompts</div></div>
+        <div class="stat-tile"><div class="v">5</div><div class="l">evaluation dimensions</div></div>
+        <div class="stat-tile"><div class="v">70.29</div><div class="l">top score (Average)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>Generating video and audio together is harder than generating either alone. T2AV-Compass evaluates semantic alignment, temporal synchrony, and perceptual quality for text-to-audio-video systems.</p>
 
         <p>A door slams and the sound arrives a beat late. Nothing else is wrong with the clip &mdash; and yet everything is wrong with the clip. Human perception forgives soft textures and odd lighting long before it forgives broken synchrony, which is why text-to-audio-video generation cannot be graded as two separate tracks.</p>
 
-        <h2>Five axes, one verdict</h2>
+        <h2 id="five-axes-one-verdict">Five axes, one verdict</h2>
 
         <p>T2AV-Compass evaluates generation systems jointly on <b>video quality, audio quality, cross-modal alignment, instruction following, and realism</b>. The headline number is the average of a structured subjective evaluation &mdash; closer to how audiences actually judge generated media than any single automated proxy.</p>
 
@@ -84,7 +92,7 @@
             </tbody>
         </table>
 
-        <h2>A crowded summit is a finding</h2>
+        <h2 id="a-crowded-summit-is-a-finding">A crowded summit is a finding</h2>
 
         <p>Barely two points separate the top four systems. When a leaderboard compresses like this, it usually means the shared failure modes &mdash; here, fine-grained lip/action synchrony and faithful instruction following under composition &mdash; are the real frontier, and every lab is stuck on the same ones.</p>
 
@@ -106,7 +114,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#five-axes-one-verdict">Five axes, one verdict</a>
+        <a href="#a-crowded-summit-is-a-finding">A crowded summit is a finding</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -123,6 +159,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

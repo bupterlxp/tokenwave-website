@@ -61,13 +61,21 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">29.02</div><div class="l">top score (Overall)</div></div>
+        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">3</div><div class="l">modalities evaluated</div></div>
+        <div class="stat-tile"><div class="v">21.4</div><div class="l">first-to-second gap</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>Web research is not text-only. MM-BrowseComp asks search agents to follow evidence through images, charts, and pages that no text-only pipeline can shortcut, revealing a wide gap behind text-centric browsing scores.</p>
 
         <p>The web keeps its best secrets in pixels. Product details live in screenshots, scientific claims in figures, historical facts in scanned documents. MM-BrowseComp builds browsing tasks whose evidence chain runs <i>through</i> images, charts, and video &mdash; so an agent that only reads will follow the trail to a dead end.</p>
 
-        <h2>The gap nobody's text benchmark shows</h2>
+        <h2 id="the-gap-nobody-s-text-benchmark-shows">The gap nobody's text benchmark shows</h2>
 
         <p>The Overall column is not a ranking so much as a cliff:</p>
         <table class="data-table">
@@ -83,7 +91,7 @@
 
         <p>One system reaches 29; the next lands below 8. A twenty-one point drop between first and second place is the kind of result that usually signals a capability boundary rather than incremental engineering &mdash; most of today's agents browse with their eyes closed, and this benchmark is the first mirror that shows it.</p>
 
-        <h2>Why the tasks resist shortcuts</h2>
+        <h2 id="why-the-tasks-resist-shortcuts">Why the tasks resist shortcuts</h2>
 
         <ul>
             <li>Questions require joint reasoning over text, images, and video encountered mid-trajectory &mdash; not just at the final page.</li>
@@ -103,7 +111,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#the-gap-nobody-s-text-benchmark-shows">The gap nobody's text benchmark shows</a>
+        <a href="#why-the-tasks-resist-shortcuts">Why the tasks resist shortcuts</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -120,6 +156,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

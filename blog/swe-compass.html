@@ -61,13 +61,21 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">2,000</div><div class="l">curated instances</div></div>
+        <div class="stat-tile"><div class="v">8</div><div class="l">task types</div></div>
+        <div class="stat-tile"><div class="v">10</div><div class="l">programming languages</div></div>
+        <div class="stat-tile"><div class="v">32.9</div><div class="l">top score (AVG)</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>A compass needs more than one axis. We chart coding-agent capability across task types, repository scale, and iteration depth &mdash; and show why single-number leaderboards flatten the terrain that matters most.</p>
 
         <p>Ask three teams what "good at coding" means and you will get three different answers: closes issues, survives large repositories, doesn't break the build twice. SWE-Compass takes that ambiguity seriously. It spans <b>8 task types, 8 programming scenarios, and 10 programming languages</b>, with 2,000 curated instances drawn from authentic GitHub pull requests and refined through systematic validation.</p>
 
-        <h2>Fix the workflow, then compare the models</h2>
+        <h2 id="fix-the-workflow-then-compare-the-models">Fix the workflow, then compare the models</h2>
 
         <p>The paper evaluates every model under two agent frameworks &mdash; SWE-Agent and Claude Code. Mixing those numbers into one column would blur the line between model ability and execution environment, so our leaderboard fixes a single workflow (Claude Code) and lets models differ only in the one variable that should matter.</p>
 
@@ -87,7 +95,7 @@
 
         <p>The spread is brutal and informative: the leader clears the runner-up by eleven points, and scores fall off quickly below the top three. Real-workflow coding remains far from saturated &mdash; the best model completes barely a third of what the benchmark asks.</p>
 
-        <h2>Reading the terrain, not the summit</h2>
+        <h2 id="reading-the-terrain-not-the-summit">Reading the terrain, not the summit</h2>
 
         <ul>
             <li>Task types expose different failure modes: repair-style tasks reward precision, feature-building rewards planning depth.</li>
@@ -107,7 +115,35 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#fix-the-workflow-then-compare-the-models">Fix the workflow, then compare the models</a>
+        <a href="#reading-the-terrain-not-the-summit">Reading the terrain, not the summit</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -124,6 +160,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>

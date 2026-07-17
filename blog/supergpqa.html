@@ -61,17 +61,25 @@
             </p>
         </div>
     </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">285</div><div class="l">graduate disciplines</div></div>
+        <div class="stat-tile"><div class="v">61.82</div><div class="l">top score (Overall (sample))</div></div>
+        <div class="stat-tile"><div class="v">10</div><div class="l">models scored</div></div>
+        <div class="stat-tile"><div class="v">21.1</div><div class="l">score spread</div></div>
+    </div>
+    <div class="detail-layout">
     <div class="markdown">
 
         <p>How far does frontier-model knowledge really extend beyond the mainstream disciplines? We examine graduate-level question answering across hundreds of specialized fields and find that long-tail expertise remains the clearest gap between models.</p>
 
-        <h2>The mainstream illusion</h2>
+        <h2 id="the-mainstream-illusion">The mainstream illusion</h2>
 
         <p>Most knowledge benchmarks sample from the same comfortable center: mathematics, physics, computer science, a slice of law and medicine. Models ace them, leaderboards saturate, and it becomes tempting to conclude that knowledge is solved. SuperGPQA is built on the opposite suspicion &mdash; that the center was never the hard part.</p>
 
         <p>The benchmark spans <b>285 graduate-level disciplines</b>, reaching past the familiar STEM core into fields most evaluation suites have never touched. Questions are filtered through a human&ndash;LLM collaborative pipeline that removes trivial or ambiguous items, with large-scale expert annotation keeping the bar at genuine graduate difficulty.</p>
 
-        <h2>What the leaderboard says</h2>
+        <h2 id="what-the-leaderboard-says">What the leaderboard says</h2>
 
         <p>Scores are sample-level overall accuracy on the main leaderboard:</p>
         <table class="data-table">
@@ -87,7 +95,7 @@
 
         <p>Two things stand out. First, even the strongest reasoning models sit near 60 &mdash; on a 100-point scale, with every discipline in play, nobody is close to done. Second, the ordering compresses: models that look far apart on mainstream suites land within a few points of each other here, because no amount of instruction tuning substitutes for coverage of the long tail.</p>
 
-        <h2>Why the long tail matters</h2>
+        <h2 id="why-the-long-tail-matters">Why the long tail matters</h2>
 
         <p>A model that answers convincingly in twenty popular fields and quietly fabricates in the other two hundred is not a knowledge engine; it is a demo. The practical value of an assistant in materials science, veterinary pathology, or maritime law lives precisely where benchmark coverage has historically been thinnest. SuperGPQA makes that thin region measurable &mdash; and once measurable, improvable.</p>
 
@@ -103,7 +111,36 @@
 
         <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
+    <nav class="toc" aria-label="On this page">
+        <div class="toc-h">On this page</div>
+        <a href="#the-mainstream-illusion">The mainstream illusion</a>
+        <a href="#what-the-leaderboard-says">What the leaderboard says</a>
+        <a href="#why-the-long-tail-matters">Why the long tail matters</a>
+    </nav>
+    </div>
 </article>
+<script>
+(function () {
+    var toc = document.querySelector('.toc');
+    if (!toc || !('IntersectionObserver' in window)) return;
+    var links = {};
+    toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+    });
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+            var l = links[e.target.id];
+            if (l) l.classList.add('on');
+        });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) io.observe(el);
+    });
+})();
+</script>
 
     </main>
     <footer class="site-footer">
@@ -120,6 +157,7 @@
                 <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
+                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
