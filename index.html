@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TokenWave AI</title>
-    <meta name="description" content="Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.">
+    <title>TokenWave AI — Transparent, Comparable AI Benchmarks</title>
+    <meta name="description" content="Our mission is to chart the frontier of AI with transparent, comparable benchmarks across Agents, MLLMs, AIGC, and LLMs.">
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="TokenWave AI">
-    <meta property="og:description" content="Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.">
+    <meta property="og:title" content="TokenWave AI — Transparent, Comparable AI Benchmarks">
+    <meta property="og:description" content="48 benchmarks across Agents, MLLMs, AIGC, and LLMs — structured dimensions, leaderboards, and results in one comparable view.">
     <meta property="og:url" content="https://tokenwave.ai/">
+    <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TokenWave AI — Transparent, Comparable AI Benchmarks">
+    <meta name="twitter:description" content="48 benchmarks across Agents, MLLMs, AIGC, and LLMs — structured dimensions, leaderboards, and results in one comparable view.">
+    <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
+    <link rel="canonical" href="https://tokenwave.ai/">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
-    <!-- Fonts (self-hosted, no external dependency) -->
-    <style>
-    @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('static/fonts/SpaceMono-Regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('static/fonts/SpaceMono-Bold.woff2') format('woff2'); }
-    </style>
+    <link rel="icon" type="image/png" sizes="192x192" href="static/favicon-192.png">
+    <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
+    <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="static/css/style.css">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
@@ -27,13 +31,14 @@
 <body>
     <header class="site-header">
         <div class="container header-content">
-            <a class="logo" href="index.html">
+            <a class="logo" href="index.html" aria-label="TokenWave AI home">
                 <img src="static/images/logo.jpg" alt="TokenWave AI" class="logo-icon">
             </a>
             <nav>
                 <a href="index.html" class="active">Home</a>
                 <a href="blog.html">Blog</a>
                 <a href="benchmarks.html">Benchmarks</a>
+                <a href="compare.html">Compare</a>
                 <a href="joinus.html">Join Us</a>
             </nav>
         </div>
@@ -41,57 +46,83 @@
     <main class="container">
 
 <section class="hero">
-    <h1 class="typewriter" data-text="Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.">Our Mission is to Chart the Frontier of AI with Transparent, Comparable Benchmarks.</h1>
-    <div class="hero-divider"></div>
+    <h1>Our Mission is to Chart the Frontier of AI with <span class="hl">Transparent, Comparable Benchmarks</span>.</h1>
+    <div class="hero-rule"></div>
     <p>Curated. Transparent. Comparative. TokenWave brings together evaluations across Agents, MLLMs, AIGC, and LLMs&mdash;structured dimensions, benchmarks, and results in one navigable, comparable view.</p>
     <p>For inquiries, you can reach us at <a href="mailto:contact@tokenwave.ai"><b>contact@tokenwave.ai</b></a>.</p>
 
-    <div class="dict-entry">
-        <div class="dict-headword">
-            <span class="dict-word">TokenWave</span>
-            <span class="dict-phonetic">/ˈtoʊ.kən.weɪv/</span>
+    <div class="defband">
+        <div class="defband-head">
+            <span class="defband-word">TokenWave</span>
+            <span class="defband-phon">/ˈtoʊ.kən.weɪv/</span>
         </div>
-        <div class="dict-body">
-            <span class="dict-pos">n.</span>
-            <span class="dict-def"><b>Wave of Tokens</b> &mdash; We believe every wave of tokens a model emits carries a measurable signal of real capability.</span>
+        <div class="defband-body">
+            <span class="defband-pos">n.</span>
+            <span><b>Wave of Tokens</b> &mdash; We believe every wave of tokens a model emits carries a measurable signal of real capability.</span>
         </div>
     </div>
 
 </section>
 <script>
-function initTypewriter() {
-    var el = document.querySelector(".typewriter");
-    if (!el) return;
-    var text = el.dataset.text || el.textContent;
-    el.innerHTML = "";
-    var i = 0;
-    var speed = 22;
-    function typeNext() {
-        if (i <= text.length) {
-            el.innerHTML = text.slice(0, i).replace(/\n/g, '<br>') + '<span class="cursor"></span>';
-            i += 1;
-            setTimeout(typeNext, speed);
+/* Assemble the mission sentence word by word. */
+(function () {
+    var h = document.querySelector('.hero h1');
+    if (!h || h.dataset.split) return;
+    h.dataset.split = '1';
+    var delay = 0.25, STEP = 0.055;
+    function split(node) {
+        if (node.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            node.textContent.split(/(\s+)/).forEach(function (tok) {
+                if (!tok) return;
+                if (/^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(' ')); return; }
+                var s = document.createElement('span');
+                s.className = 'w';
+                s.style.setProperty('--d', delay.toFixed(3) + 's');
+                s.textContent = tok;
+                delay += STEP;
+                frag.appendChild(s);
+            });
+            node.parentNode.replaceChild(frag, node);
+        } else if (node.nodeType === 1) {
+            Array.prototype.slice.call(node.childNodes).forEach(split);
         }
     }
-    typeNext();
-}
-initTypewriter();
+    Array.prototype.slice.call(h.childNodes).forEach(split);
+    var hl = h.querySelector('.hl');
+    if (hl) hl.style.setProperty('--hd', (delay + 0.3).toFixed(3) + 's');
+})();
 </script>
 
     </main>
     <footer class="site-footer">
-        <div class="container">
-            <p>TokenWave AI · contact@tokenwave.ai </p>
-            <div class="social-links">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-wordmark">TokenWave AI</div>
+                <p>Charting the frontier of AI with transparent, comparable benchmarks.</p>
+                <p>&copy; 2026 TokenWave AI</p>
+            </div>
+            <div class="footer-col">
+                <div class="h">Site</div>
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="benchmarks.html">Benchmarks</a>
+                <a href="compare.html">Compare</a>
+                <a href="joinus.html">Join Us</a>
+            </div>
+            <div class="footer-col">
+                <div class="h">Contact</div>
+                <a href="mailto:contact@tokenwave.ai">contact@tokenwave.ai</a>
+                <a href="mailto:hr@tokenwave.ai">hr@tokenwave.ai</a>
                 <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on X">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                 </a>
             </div>
         </div>
     </footer>
-    <!-- Three.js Particle Background (bundled locally) -->
+    <!-- Three.js particle background (bundled locally) -->
     <script src="static/js/three.min.js" defer></script>
     <script src="static/js/particles.js" defer></script>
     <!-- Page transition state machine -->

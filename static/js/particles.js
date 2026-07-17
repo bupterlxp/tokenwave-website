@@ -75,7 +75,7 @@
     var dst  = new Float32Array(N * 3);  // lerp target
     var del  = new Float32Array(N);      // per-particle delay offset [0, MAX_DEL]
     var col  = new Float32Array(N * 3);  // RGB colours
-    var MAX_DEL = 0.38;                  // max stagger window (fraction of TRANS_DUR)
+    var MAX_DEL = 0.30;                  // max stagger window (fraction of TRANS_DUR)
 
     // Per-particle repulsion displacement and velocity (additive on top of base)
     var repX  = new Float32Array(N);
@@ -83,14 +83,16 @@
     var repVX = new Float32Array(N);
     var repVY = new Float32Array(N);
 
-    // Colour palette – grayscale (luminance-matched)
+    // Colour palette – the TokenWave current: logo blue flowing into
+    // violet, cooled with slate greys so the field stays quiet.
     var PALETTE = [
-      [0.80, 0.80, 0.80],
-      [0.63, 0.63, 0.63],
-      [0.73, 0.73, 0.73],
-      [0.67, 0.67, 0.67],
-      [0.57, 0.57, 0.57],
-      [0.71, 0.71, 0.71],
+      [0.231, 0.510, 0.965],   // #3B82F6 logo blue
+      [0.376, 0.647, 0.980],   // #60A5FA sky
+      [0.576, 0.773, 0.992],   // #93C5FD pale blue
+      [0.545, 0.361, 0.965],   // #8B5CF6 violet
+      [0.655, 0.545, 0.980],   // #A78BFA lavender
+      [0.580, 0.639, 0.722],   // #94A3B8 slate
+      [0.720, 0.750, 0.800],   // quiet grey
     ];
 
     // Initialise positions and per-particle properties
@@ -131,11 +133,11 @@
     geo.setAttribute('color',    new THREE.BufferAttribute(col, 3));
 
     var mat = new THREE.PointsMaterial({
-      size: 1.4,
+      size: 1.55,
       vertexColors: true,
       sizeAttenuation: true,
       transparent: true,
-      opacity: 0.70,
+      opacity: 0.55,
     });
 
     var points = new THREE.Points(geo, mat);
@@ -156,7 +158,7 @@
       var ctx = oc.getContext('2d');
       ctx.clearRect(0, 0, ow, oh);
       ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold ' + fontSize + 'px "Space Mono", monospace';
+      ctx.font = 'bold ' + fontSize + 'px "Plex Mono", Menlo, monospace';
       ctx.textAlign    = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(text, ow / 2, oh / 2);
@@ -214,6 +216,27 @@
       return darkPts.length > alphaPts.length * 0.08 ? darkPts : alphaPts;
     }
 
+    /**
+     * Wave field: three stacked sine bands spanning the viewport width.
+     * A literal "token wave" — the brand shape, no text needed.
+     */
+    function sampleWave() {
+      var out = [];
+      var ROWS = 3;
+      for (var r = 0; r < ROWS; r++) {
+        var yOff  = 30 - r * 30;               // stacked bands
+        var amp   = 13 + r * 5;                // deeper bands swing wider
+        var phase = r * 1.35;
+        for (var x = -118; x <= 118; x += 1.4) {
+          var y = yOff
+                + Math.sin(x * 0.046 + phase)        * amp * 0.62
+                + Math.sin(x * 0.013 + phase * 2.2)  * amp * 0.38;
+          out.push([x, y]);
+        }
+      }
+      return out;
+    }
+
     /* ─────────────────────────────────────────────────────────
        5.  Distribute a point list across all N particles → dst[]
     ───────────────────────────────────────────────────────── */
@@ -239,24 +262,22 @@
 
     /* ─────────────────────────────────────────────────────────
        6.  State machine
-           State indices:   0=scatter  1=TokenWave  2=scatter
-                            3=logo     4=scatter    5=AI
-           Repeating every 6 states.
+           Shape codes: 0=scatter  1="TokenWave"  2=wave field
+                        3=logo     5="AI"
+           Desktop cycle: scatter → wordmark → wave → logo → scatter → AI
     ───────────────────────────────────────────────────────── */
     var stateSeq   = getStateSeq();
     var HOLD_TIMES = getHoldTimes();
-    var TRANS_DUR  = 3.2;  // transition duration in seconds
+    var TRANS_DUR  = 2.6;  // transition duration in seconds
 
     function isMobile() {
       return window.innerWidth < 600 || /Mobi|Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
     }
     function getStateSeq() {
-      // 0:scatter, 1:TokenWave, 2:scatter, 3:logo, 4:scatter, 5:AI (desktop)
-      // 0:scatter, 1:logo,      2:scatter, 3:AI   (mobile)
-      return isMobile() ? [0,3,0,5] : [0,1,0,3,0,5];
+      return isMobile() ? [0,3,2,5] : [0,1,2,3,0,5];
     }
     function getHoldTimes() {
-      return isMobile() ? [3.5, 8.0, 3.0, 8.0] : [3.5, 8.0, 3.0, 8.0, 3.0, 8.0];
+      return isMobile() ? [2.8, 7.5, 6.0, 7.5] : [2.8, 7.5, 6.0, 7.5, 2.8, 7.5];
     }
 
     var stateIdx     = 0;
@@ -296,21 +317,28 @@
       }
     } catch (e) { /* sessionStorage unavailable or data corrupted – start fresh */ }
 
-    // Cached shape point arrays (loaded async)
+    // Cached shape point arrays (text/image load async; wave is synchronous)
     var wordmarkPts = null;
     var logoPts     = null;
     var aiPts       = null;
+    var wavePts     = sampleWave();
 
-    // Sample text shapes once fonts are ready
-    document.fonts.ready.then(function () {
-      wordmarkPts = sampleText('TokenWave', 100);
-      aiPts       = sampleText('AI',        160);
-    });
+    // Sample text shapes once the mono webfont is actually loaded
+    var fontSpec = '700 100px "Plex Mono"';
+    (document.fonts && document.fonts.load ? document.fonts.load(fontSpec) : Promise.resolve())
+      .catch(function () {})
+      .then(function () { return document.fonts.ready; })
+      .then(function () {
+        wordmarkPts = sampleText('TokenWave', 100);
+        aiPts       = sampleText('AI',        160);
+      });
 
-    // Load the company logo (path works from both root and subfolder pages)
+    // Load the company logo (subfolder pages need the ../ prefix)
     var logoImg       = new Image();
     logoImg.crossOrigin = 'anonymous';
-    logoImg.src       = (window.location.pathname.indexOf('/benchmarks/') !== -1 ? '../' : '') + 'static/images/logo.jpg';
+    var _path         = window.location.pathname;
+    var _sub          = _path.indexOf('/benchmarks/') !== -1 || _path.indexOf('/blog/') !== -1;
+    logoImg.src       = (_sub ? '../' : '') + 'static/images/logo.jpg';
     logoImg.onload    = function () {
       logoPts = sampleImage(logoImg);
     };
@@ -319,6 +347,7 @@
       var code = stateSeq[s % stateSeq.length];
       switch (code) {
         case 1: return wordmarkPts;
+        case 2: return wavePts;
         case 3: return logoPts;
         case 5: return aiPts;
         default: return null;   // scatter
@@ -357,20 +386,20 @@
     });
 
     // Repulsion constants
-    var REP_RADIUS = 55;   // hover radius (world units)
-    var REP_FORCE  = 90;   // max push acceleration (world units / s²)
-    var SPRING_K   = 10;   // spring stiffness pulling rep back to 0
-    var DAMP_C     = 8;    // linear damping coefficient
+    var REP_RADIUS = 60;   // hover radius (world units)
+    var REP_FORCE  = 100;  // max push acceleration (world units / s²)
+    var SPRING_K   = 9;    // spring stiffness pulling rep back to 0
+    var DAMP_C     = 7.5;  // linear damping coefficient
 
     /* ─────────────────────────────────────────────────────────
        8.  Scroll fade
     ───────────────────────────────────────────────────────── */
-    var BASE_OPACITY = 0.70;
+    var BASE_OPACITY = 0.55;
     window.addEventListener('scroll', function () {
       var sy     = window.scrollY;
-      var fadeSt = 150, fadeEn = 500;
+      var fadeSt = 120, fadeEn = 460;
       var frac   = Math.max(0, Math.min(1, (sy - fadeSt) / (fadeEn - fadeSt)));
-      mat.opacity = BASE_OPACITY * (1 - frac * 0.8);
+      mat.opacity = BASE_OPACITY * (1 - frac * 0.75);
     });
 
     // Off-screen canvas for snapshot capture (used only in freezeParticles, not every frame)
@@ -501,17 +530,24 @@
         // Fade float amplitude in from 0 after a transition ends
         floatBlend = Math.min(1.0, floatBlend + dt / FLOAT_FADE_DUR);
 
-        var isScatter = (stateIdx % 2 === 0);
+        var holdCode = stateSeq[stateIdx % stateSeq.length];
         for (var i = 0; i < N; i++) {
           var phase = i * 0.05;
-          if (isScatter) {
-            base[i*3]   = dst[i*3]   + Math.sin(time * 0.18 + phase)       * 1.8 * floatBlend;
-            base[i*3+1] = dst[i*3+1] + Math.cos(time * 0.14 + phase * 1.3) * 1.8 * floatBlend;
-            base[i*3+2] = dst[i*3+2] + Math.sin(time * 0.30 + phase * 0.7) * 8.0 * floatBlend;
+          if (holdCode === 0) {
+            // Scatter: slow volumetric drift
+            base[i*3]   = dst[i*3]   + Math.sin(time * 0.16 + phase)       * 2.0 * floatBlend;
+            base[i*3+1] = dst[i*3+1] + Math.cos(time * 0.13 + phase * 1.3) * 2.0 * floatBlend;
+            base[i*3+2] = dst[i*3+2] + Math.sin(time * 0.28 + phase * 0.7) * 7.0 * floatBlend;
+          } else if (holdCode === 2) {
+            // Wave field: bands keep travelling while held
+            base[i*3]   = dst[i*3];
+            base[i*3+1] = dst[i*3+1] + Math.sin(time * 1.15 + dst[i*3] * 0.055) * 2.6 * floatBlend;
+            base[i*3+2] = dst[i*3+2] + Math.sin(time * 0.45 + phase)            * 2.0 * floatBlend;
           } else {
-            base[i*3]   = dst[i*3]   + Math.sin(time * 0.50 + phase) * 0.30 * floatBlend;
-            base[i*3+1] = dst[i*3+1] + Math.cos(time * 0.40 + phase) * 0.30 * floatBlend;
-            base[i*3+2] = dst[i*3+2] + Math.sin(time * 0.60 + phase) * 1.2  * floatBlend;
+            // Glyph/logo: barely breathing
+            base[i*3]   = dst[i*3]   + Math.sin(time * 0.46 + phase) * 0.26 * floatBlend;
+            base[i*3+1] = dst[i*3+1] + Math.cos(time * 0.37 + phase) * 0.26 * floatBlend;
+            base[i*3+2] = dst[i*3+2] + Math.sin(time * 0.55 + phase) * 1.1  * floatBlend;
           }
         }
       }
@@ -562,8 +598,8 @@
         if (window.PageTransition) window.PageTransition.onParticlesReady();
       }
 
-      camera.position.x += (mouseNX *  8 - camera.position.x) * 0.04;
-      camera.position.y += (-mouseNY * 5 - camera.position.y) * 0.04;
+      camera.position.x += (mouseNX *  9   - camera.position.x) * 0.045;
+      camera.position.y += (-mouseNY * 5.5 - camera.position.y) * 0.045;
       camera.lookAt(0, 0, 0);
     }
 

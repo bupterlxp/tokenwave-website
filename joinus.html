@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TokenWave AI</title>
+    <title>Join Us | TokenWave AI</title>
     <meta name="description" content="Shape what comes next with TokenWave AI.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TokenWave AI">
+    <meta property="og:title" content="Join Us | TokenWave AI">
+    <meta property="og:description" content="Shape what comes next with TokenWave AI.">
+    <meta property="og:url" content="https://tokenwave.ai/joinus.html">
+    <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
+    <link rel="canonical" href="https://tokenwave.ai/joinus.html">
+
     <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
-    <!-- Fonts (self-hosted, no external dependency) -->
-    <style>
-    @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('static/fonts/SpaceMono-Regular.woff2') format('woff2'); }
-    @font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('static/fonts/SpaceMono-Bold.woff2') format('woff2'); }
-    </style>
+    <link rel="icon" type="image/png" sizes="192x192" href="static/favicon-192.png">
+    <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
+    <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="static/css/style.css">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
@@ -18,13 +28,14 @@
 <body>
     <header class="site-header">
         <div class="container header-content">
-            <a class="logo" href="index.html">
+            <a class="logo" href="index.html" aria-label="TokenWave AI home">
                 <img src="static/images/logo.jpg" alt="TokenWave AI" class="logo-icon">
             </a>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="blog.html">Blog</a>
                 <a href="benchmarks.html">Benchmarks</a>
+                <a href="compare.html">Compare</a>
                 <a href="joinus.html" class="active">Join Us</a>
             </nav>
         </div>
@@ -34,6 +45,7 @@
 <section class="page-header">
     <div class="eyebrow">Join Us</div>
     <h1>Shape what comes next with TokenWave AI.</h1>
+    <p class="page-intro">We are a small team obsessed with honest measurement. If that sounds like you, we want to talk.</p>
 </section>
 
 <ul class="plain-list">
@@ -47,22 +59,37 @@
     <li>Marketing / PR Manager</li>
 </ul>
 
-<p>Apply via <a href="mailto:hr@tokenwave.ai"><b>hr@tokenwave.ai</b></a></p>
+<p style="margin-bottom: 56px;">Apply via <a href="mailto:hr@tokenwave.ai"><b>hr@tokenwave.ai</b></a> &mdash; include a note on a benchmark you think the field gets wrong.</p>
 
     </main>
     <footer class="site-footer">
-        <div class="container">
-            <p>TokenWave AI · contact@tokenwave.ai </p>
-            <div class="social-links">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-wordmark">TokenWave AI</div>
+                <p>Charting the frontier of AI with transparent, comparable benchmarks.</p>
+                <p>&copy; 2026 TokenWave AI</p>
+            </div>
+            <div class="footer-col">
+                <div class="h">Site</div>
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="benchmarks.html">Benchmarks</a>
+                <a href="compare.html">Compare</a>
+                <a href="joinus.html">Join Us</a>
+            </div>
+            <div class="footer-col">
+                <div class="h">Contact</div>
+                <a href="mailto:contact@tokenwave.ai">contact@tokenwave.ai</a>
+                <a href="mailto:hr@tokenwave.ai">hr@tokenwave.ai</a>
                 <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Follow us on X">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                 </a>
             </div>
         </div>
     </footer>
-    <!-- Three.js Particle Background (bundled locally) -->
+    <!-- Three.js particle background (bundled locally) -->
     <script src="static/js/three.min.js" defer></script>
     <script src="static/js/particles.js" defer></script>
     <!-- Page transition state machine -->
