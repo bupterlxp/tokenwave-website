@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>HelloBench | TokenWave AI</title>
+    <meta name="description" content="HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="HelloBench | TokenWave AI">
+    <meta property="og:description" content="HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/hellobench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="HelloBench | TokenWave AI">
+    <meta name="twitter:description" content="HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/hellobench.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,74 +47,70 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/hellobench.svg');" role="img" aria-label="HelloBench — led by GPT-4o at 48.55"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">LLM Benchmark · Long Context</div>
+            <h1>HelloBench</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 GPT-4o: 48.55</span>
                 <span class="sep">·</span>
-                Code Agent
+                Long Context
                 <span class="sep">·</span>
                 updated 2026-04-15
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2409.16191" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/Quehry/HelloBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2409.16191.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>HelloBench evaluates long-form text generation. This page uses AVG S from the paper&#x27;s main experiment table.</p>
 
         <h2>Contributions</h2>
         <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
+            <li>The benchmark targets long-form quality rather than sheer output length.</li>
+            <li>This page uses AVG S to avoid fragmenting the main leaderboard into too many partial attributes.</li>
         </ul>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>HelloBench focuses on long-form generation rather than the more common long-context understanding setting.</li>
+            <li>It organizes tasks into five categories based on Bloom&#x27;s Taxonomy, including QA, summarization, chat, completion, and heuristic generation.</li>
+            <li>The paper also proposes HelloEval as a more efficient human-aligned evaluation method for long text quality.</li>
+            <li>Large-scale experiments show that current models face length ceilings, repetition, and clear quality degradation.</li>
+            <li>The benchmark highlights that generating longer text and generating better long text are not the same ability.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>AVG S</b> &mdash; Higher is better. Average long-form generation score. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The leaderboard uses AVG S from the main experiments table. The paper also analyzes other dimensions and word-count behavior, which are not used as the main leaderboard here.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>AVG S</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-4o</td><td class="num">48.55</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>Mistral-Large</td><td class="num">46.77</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>o1-mini</td><td class="num">46.08</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>Claude 3.5 Sonnet</td><td class="num">43.77</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Gemini 1.5 Pro</td><td class="num">39.24</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>DeepSeek-V2.5</td><td class="num">35.69</td><td>Official</td></tr>
+                <tr><td><span class="rank">7</span></td><td>Yi-Large</td><td class="num">32.99</td><td>Official</td></tr>
+                <tr><td><span class="rank">8</span></td><td>Qwen-Max</td><td class="num">28.36</td><td>Official</td></tr>
+                <tr><td><span class="rank">9</span></td><td>GLM-4-Plus</td><td class="num">24.78</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
+            <li><span class="k">Focus</span><span>Long-form text generation</span></li>
+            <li><span class="k">Primary metric</span><span>AVG S</span></li>
+            <li><span class="k">Displayed setting</span><span>Main proprietary-model table</span></li>
+            <li><span class="k">Models scored</span><span>9</span></li>
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
-
-        <div class="crosslink">
-            <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
-            </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
-        </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>

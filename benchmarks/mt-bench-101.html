@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>MT-Bench-101 | TokenWave AI</title>
+    <meta name="description" content="MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="MT-Bench-101 | TokenWave AI">
+    <meta property="og:description" content="MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/mt-bench-101.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="MT-Bench-101 | TokenWave AI">
+    <meta name="twitter:description" content="MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/mt-bench-101.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,74 +47,65 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/mt-bench-101.svg');" role="img" aria-label="MT-Bench-101 — led by GPT-4 at 8.86"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">LLM Benchmark · Instruction Following</div>
+            <h1>MT-Bench-101</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 GPT-4: 8.86</span>
                 <span class="sep">·</span>
-                Code Agent
+                Instruction Following
                 <span class="sep">·</span>
                 updated 2026-04-15
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2402.14762" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/mtbench101/mt-bench-101" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2402.14762.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>MT-Bench-101 evaluates fine-grained instruction following in multi-turn dialogue. This page uses the Avg score from the paper.</p>
 
         <h2>Contributions</h2>
         <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
+            <li>The benchmark emphasizes fine-grained multi-turn capability decomposition rather than a coarse chat score.</li>
+            <li>The page preserves the paper&#x27;s original 10-point scale.</li>
         </ul>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>MT-Bench-101 is designed for fine-grained evaluation of multi-turn dialogue, addressing the fact that prior dialogue benchmarks are often too coarse or too focused on single-turn settings.</li>
+            <li>By analyzing real multi-turn conversations, the paper builds a three-level ability taxonomy spanning 13 tasks, 1,388 dialogues, and 4,208 turns.</li>
+            <li>This allows the authors to compare models not only on overall dialogue quality but also on how their abilities change across turns within different tasks.</li>
+            <li>The study finds that common alignment techniques and chat-oriented designs do not clearly improve multi-turn ability, leaving real conversational interaction as a major challenge for LLMs.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>Avg</b> &mdash; Higher is better. Average MT-Bench-101 score. Score range: [0, 10].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The leaderboard directly uses the paper&#x27;s Avg. Because the benchmark itself is already a fine-grained decomposition, this page does not recombine additional columns.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Avg</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-4</td><td class="num">8.86</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>Yi-34B</td><td class="num">8.1</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>GPT-3.5 Turbo</td><td class="num">7.99</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>Qwen-14B</td><td class="num">7.82</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Mixtral-8x7B</td><td class="num">7.38</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
+            <li><span class="k">Focus</span><span>Multi-turn instruction following</span></li>
+            <li><span class="k">Primary metric</span><span>Avg</span></li>
+            <li><span class="k">Displayed setting</span><span>Main benchmark table</span></li>
             <li><span class="k">Models scored</span><span>5</span></li>
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
-
-        <div class="crosslink">
-            <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
-            </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
-        </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>

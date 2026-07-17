@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>Inverse IFEval | TokenWave AI</title>
+    <meta name="description" content="Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="Inverse IFEval | TokenWave AI">
+    <meta property="og:description" content="Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/inverse-ifeval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="Inverse IFEval | TokenWave AI">
+    <meta name="twitter:description" content="Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/inverse-ifeval.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,73 +47,66 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/inverse-ifeval.svg');" role="img" aria-label="Inverse IFEval — led by o3-high at 75.66"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">LLM Benchmark · Instruction Following</div>
+            <h1>Inverse IFEval</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 o3-high: 75.66</span>
                 <span class="sep">·</span>
-                Code Agent
+                Instruction Following
                 <span class="sep">·</span>
-                updated 2026-04-15
+                updated 2026-04-21
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2509.04292" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://huggingface.co/datasets/m-a-p/Inverse_IFEval" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2509.04292.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
-
-        <h2>Contributions</h2>
-        <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
-        </ul>
+        <p>Inverse IFEval studies whether models can break stubborn training conventions and still follow real instructions. This page uses the Overall Score from the English main table.</p>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>This work goes beyond conventional formatting compliance and explicitly designs inverse instructions that conflict with common training conventions.</li>
+            <li>The tasks test whether models can still obey real user intent under correction, counter-conventional formatting, dialogue intervention, and minimal-modification requirements.</li>
+            <li>The results show that even the strongest models still have clear weaknesses on inverse instruction following.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>Overall Score</b> &mdash; Higher is better. Overall score from the English Inverse IFEval main table. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The leaderboard uses the Overall Score from the English main table rather than recombining English and Chinese results.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall Score</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>o3-high</td><td class="num">75.66</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>o3-mini</td><td class="num">74.67</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>GPT-5-high</td><td class="num">73.72</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>Gemini 2.5 Pro</td><td class="num">70.55</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Gemini 2.5 Flash</td><td class="num">68.61</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Claude 4 Opus Thinking</td><td class="num">67.16</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-15</span></li>
+            <li><span class="k">Focus</span><span>Counter-intuitive instruction following</span></li>
+            <li><span class="k">Primary metric</span><span>Overall Score</span></li>
+            <li><span class="k">Displayed setting</span><span>English main table</span></li>
+            <li><span class="k">Models scored</span><span>6</span></li>
+            <li><span class="k">Data updated</span><span>2026-04-21</span></li>
         </ul>
 
         <div class="crosslink">
             <div>
                 <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
+                <p class="s">Inverse IFEval: When the Instruction Fights the Prior</p>
             </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
+            <a class="button primary" href="../blog/inverse-ifeval.html">Read note →</a>
         </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>

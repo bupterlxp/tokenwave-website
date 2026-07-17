@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>MTU-Bench | TokenWave AI</title>
+    <meta name="description" content="MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="MTU-Bench | TokenWave AI">
+    <meta property="og:description" content="MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/mtu-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="MTU-Bench | TokenWave AI">
+    <meta name="twitter:description" content="MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/mtu-bench.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,74 +47,68 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/mtu-bench.svg');" role="img" aria-label="MTU-Bench — led by Qwen-Max at 45.08"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">LLM Benchmark · Reasoning</div>
+            <h1>MTU-Bench</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 Qwen-Max: 45.08</span>
                 <span class="sep">·</span>
-                Code Agent
+                Reasoning
                 <span class="sep">·</span>
                 updated 2026-04-15
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.11710" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/MTU-Bench-Team/MTU-Bench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.11710.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>MTU-Bench evaluates tool use at multiple granularities. This page uses the most challenging Multi-turn Multi-tool (M-M) setting as the primary leaderboard and also keeps the other three settings.</p>
 
         <h2>Contributions</h2>
         <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
+            <li>M-M is the hardest setting and best reflects complex tool orchestration ability.</li>
+            <li>All four granularities are kept so the page can explain why models lead or lag on the aggregate leaderboard.</li>
         </ul>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>MTU-Bench evaluates tool-use ability while emphasizing differences across multiple interaction granularities.</li>
+            <li>It covers single-turn and multi-turn settings, single-tool and multi-tool settings, as well as out-of-distribution tasks.</li>
+            <li>Unlike many prior benchmarks, it avoids GPT-based or human scoring and uses objective metrics derived from ground truth.</li>
+            <li>The benchmark is built by transforming existing high-quality tasks and is paired with MTU-Instruct for improvement.</li>
+            <li>This makes it both broader in coverage and cheaper to evaluate at scale.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>M-M</b> &mdash; Higher is better. Multi-turn multi-tool performance. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The primary leaderboard uses M-M. The paper does not report a single unified overall score, so this page chooses the most representative hard setting as the main metric.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>M-M</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Qwen-Max</td><td class="num">45.08</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>GPT-4</td><td class="num">41.36</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>GLM-4-Plus</td><td class="num">39.53</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>DeepSeek-V2.5</td><td class="num">30.62</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Qwen2-72B-Instruct</td><td class="num">25.13</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Llama-3-70B</td><td class="num">20.56</td><td>Official</td></tr>
+                <tr><td><span class="rank">7</span></td><td>GPT-3.5 Turbo</td><td class="num">11.87</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
+            <li><span class="k">Focus</span><span>Multi-granularity tool use</span></li>
+            <li><span class="k">Primary metric</span><span>M-M</span></li>
+            <li><span class="k">Displayed setting</span><span>Main benchmark summary table</span></li>
+            <li><span class="k">Models scored</span><span>7</span></li>
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
-
-        <div class="crosslink">
-            <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
-            </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
-        </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>

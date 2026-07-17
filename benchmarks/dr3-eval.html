@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>DR3-Eval | TokenWave AI</title>
+    <meta name="description" content="DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="DR3-Eval | TokenWave AI">
+    <meta property="og:description" content="DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/dr3-eval.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="DR3-Eval | TokenWave AI">
+    <meta name="twitter:description" content="DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/dr3-eval.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,74 +47,67 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/dr3-eval.svg');" role="img" aria-label="DR3-Eval — led by Claude Sonnet 4 at 65.6"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">Agent · Search Agent</div>
+            <h1>DR3-Eval</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 Claude Sonnet 4: 65.6</span>
                 <span class="sep">·</span>
-                Code Agent
+                Search Agent
                 <span class="sep">·</span>
                 updated 2026-04-15
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button" href="https://github.com/NJU-LINK/DR3-Eval" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>DR3-Eval is a realistic and reproducible benchmark for deep research evaluation. This page uses the 512k Overall score from the official project page.</p>
 
         <h2>Contributions</h2>
         <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
+            <li>Even under the strongest current systems, the 512k setting remains challenging.</li>
+            <li>The work emphasizes realism, reproducibility, and failure analysis rather than a single score.</li>
         </ul>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>DR3-Eval is designed to make deep research evaluation more realistic, controllable, and reproducible at the same time.</li>
+            <li>It starts from real user multimodal files, builds a static sandbox for each task, and generates queries through reverse construction.</li>
+            <li>The benchmark centers on multi-file report generation rather than short QA or isolated retrieval.</li>
+            <li>Its evaluation protocol covers information recall, factual accuracy, citation coverage, instruction following, and depth quality.</li>
+            <li>The main contribution is addressing the long-standing tension between realism and reproducibility in deep research evaluation.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>Overall (512k)</b> &mdash; Higher is better. Overall score under the 512k evaluation setting. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The leaderboard uses the 512k Overall from the official DR3-Eval project page. Since a stable formal paper release is not yet the main public artifact, this page follows the official project page.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall (512k)</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">65.6</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>GLM-4.7</td><td class="num">64.1</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 2.5 Pro</td><td class="num">57</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>GPT-4.1</td><td class="num">51.4</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Qwen3-235B</td><td class="num">51</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Qwen3-32B</td><td class="num">47.4</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
+            <li><span class="k">Focus</span><span>Reproducible deep-research evaluation</span></li>
+            <li><span class="k">Primary metric</span><span>Overall (512k)</span></li>
+            <li><span class="k">Displayed setting</span><span>Official project page leaderboard</span></li>
+            <li><span class="k">Models scored</span><span>6</span></li>
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
-
-        <div class="crosslink">
-            <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
-            </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
-        </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>CII-Bench | TokenWave AI</title>
+    <meta name="description" content="CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="CII-Bench | TokenWave AI">
+    <meta property="og:description" content="CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/cii-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="CII-Bench | TokenWave AI">
+    <meta name="twitter:description" content="CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/cii-bench.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,74 +47,67 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/cii-bench.svg');" role="img" aria-label="CII-Bench — led by Qwen2-VL-72B at 64.4"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">MLLM Benchmark · Image Understanding</div>
+            <h1>CII-Bench</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 Qwen2-VL-72B: 64.4</span>
                 <span class="sep">·</span>
-                Code Agent
+                Image Understanding
                 <span class="sep">·</span>
                 updated 2026-04-15
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.13854" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://cii-bench.github.io/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.13854.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>CII-Bench studies deep implication understanding in Chinese images and cultural metaphors. This page uses the Overall score from the paper&#x27;s main table.</p>
 
         <h2>Contributions</h2>
         <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
+            <li>The paper highlights the gap between current models and deeper Chinese cultural understanding.</li>
+            <li>The page keeps Overall as the main leaderboard and surfaces the cultural-understanding angle in the supplementary section.</li>
         </ul>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>CII-Bench evaluates higher-order understanding of Chinese visual content, focusing on whether models can capture implied semantics, emotions, and cultural signals in Chinese images.</li>
+            <li>Unlike generic image benchmarks, it draws images from the Chinese internet and Chinese traditional culture, and pairs them with manually reviewed questions and answers to preserve authentic Chinese context.</li>
+            <li>The paper shows that current MLLMs still lag far behind humans, especially on traditional-culture images and tasks requiring deeper semantic interpretation.</li>
+            <li>It also finds that emotion hints can noticeably improve performance, indicating that intrinsic understanding of image sentiment and Chinese cultural cues remains weak.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>Overall</b> &mdash; Higher is better. Overall benchmark accuracy. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The primary leaderboard uses Overall from the main table. The paper also analyzes prompting variants and cultural subdomains, which are not mixed into the main leaderboard here.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Qwen2-VL-72B</td><td class="num">64.4</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>GLM-4V</td><td class="num">60.9</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 1.5 Pro</td><td class="num">60.1</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>InternVL2-40B</td><td class="num">57.9</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Qwen-VL-MAX</td><td class="num">56.9</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>GPT-4o</td><td class="num">54.1</td><td>Official</td></tr>
+                <tr><td><span class="rank">7</span></td><td>Claude 3.5 Sonnet</td><td class="num">54.1</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
+            <li><span class="k">Focus</span><span>Chinese image implication understanding</span></li>
+            <li><span class="k">Primary metric</span><span>Overall</span></li>
+            <li><span class="k">Displayed setting</span><span>Main benchmark table</span></li>
+            <li><span class="k">Models scored</span><span>7</span></li>
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
-
-        <div class="crosslink">
-            <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
-            </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
-        </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>

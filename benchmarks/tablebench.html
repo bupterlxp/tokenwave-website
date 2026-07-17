@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>TableBench | TokenWave AI</title>
+    <meta name="description" content="TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="TableBench | TokenWave AI">
+    <meta property="og:description" content="TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/tablebench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="TableBench | TokenWave AI">
+    <meta name="twitter:description" content="TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/tablebench.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,74 +47,67 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/tablebench.svg');" role="img" aria-label="TableBench — led by GPT-4 Turbo at 51.32"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">LLM Benchmark · Reasoning</div>
+            <h1>TableBench</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 GPT-4 Turbo: 51.32</span>
                 <span class="sep">·</span>
-                Code Agent
+                Reasoning
                 <span class="sep">·</span>
                 updated 2026-04-15
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2408.09174" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/TableBench/TableBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2408.09174.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>TableBench evaluates complex table question answering. This page uses Overall under the TCoT setting from the paper&#x27;s main results table.</p>
 
         <h2>Contributions</h2>
         <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
+            <li>The paper compares multiple reasoning protocols; this page fixes TCoT as the primary leaderboard.</li>
+            <li>This keeps the core structured-data reasoning challenge while avoiding excessive page complexity.</li>
         </ul>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>TableBench targets complex table question answering in realistic industrial scenarios, going beyond simple lookup to cover fact checking, numerical reasoning, data analysis, and visualization.</li>
+            <li>It spans four major capability groups and 18 subfields, and is built through scenario analysis, manual annotation, and explicit task-complexity design to better match real-world demands.</li>
+            <li>The paper also introduces TableInstruct and TABLELLM to study textual, symbolic, and program-based reasoning strategies for tabular tasks.</li>
+            <li>The experiments show that both open-source and proprietary models still fall short of practical table-analysis needs, with even the strongest systems remaining noticeably behind humans.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>Overall TCoT</b> &mdash; Higher is better. Overall score under the TCoT protocol. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The leaderboard uses Overall under the TCoT setting. The paper also reports other protocols, which are not mixed here.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall TCoT</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-4 Turbo</td><td class="num">51.32</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>GPT-4o</td><td class="num">50.39</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>DeepSeek-Chat-V2</td><td class="num">47.22</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>DeepSeekCoder-V2-Instruct</td><td class="num">44.26</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Llama-3.1-70B-Instruct</td><td class="num">43.85</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Yi-Large</td><td class="num">38.57</td><td>Official</td></tr>
+                <tr><td><span class="rank">7</span></td><td>Qwen2-72B-Instruct</td><td class="num">38.13</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
+            <li><span class="k">Focus</span><span>Complex table QA</span></li>
+            <li><span class="k">Primary metric</span><span>Overall TCoT</span></li>
+            <li><span class="k">Displayed setting</span><span>TCoT reasoning protocol</span></li>
+            <li><span class="k">Models scored</span><span>7</span></li>
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
-
-        <div class="crosslink">
-            <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
-            </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
-        </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
     </div>

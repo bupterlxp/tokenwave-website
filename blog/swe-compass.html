@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>SWE-Compass: Navigating Real-World Software Engineering with Agents | TokenWave AI</title>
+    <meta name="description" content="A compass needs more than one axis. We chart coding-agent capability across task types, repository scale, and iteration depth — and show why single-number leaderboards flatten the terrain that matters most.">
 
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="SWE-Compass: Navigating Real-World Software Engineering with Agents | TokenWave AI">
+    <meta property="og:description" content="A compass needs more than one axis. We chart coding-agent capability across task types, repository scale, and iteration depth — and show why single-number leaderboards flatten the terrain that matters most.">
+    <meta property="og:url" content="https://tokenwave.ai/blog/swe-compass.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
+    <meta property="article:published_time" content="2026-06-02">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="SWE-Compass: Navigating Real-World Software Engineering with Agents | TokenWave AI">
+    <meta name="twitter:description" content="A compass needs more than one axis. We chart coding-agent capability across task types, repository scale, and iteration depth — and show why single-number leaderboards flatten the terrain that matters most.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/blog/swe-compass.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -36,8 +37,8 @@
             </a>
             <nav>
                 <a href="../index.html">Home</a>
-                <a href="../blog.html">Blog</a>
-                <a href="../benchmarks.html" class="active">Benchmarks</a>
+                <a href="../blog.html" class="active">Blog</a>
+                <a href="../benchmarks.html">Benchmarks</a>
                 <a href="../compare.html">Compare</a>
                 <a href="../joinus.html">Join Us</a>
             </nav>
@@ -47,45 +48,32 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass artwork"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">Research note</div>
+            <h1>SWE-Compass: Navigating Real-World Software Engineering with Agents</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span>2026-06-02</span>
                 <span class="sep">·</span>
-                Code Agent
+                <span>SWE-Compass</span>
                 <span class="sep">·</span>
-                updated 2026-04-15
+                <span>1 min read</span>
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
-        <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
+        <p>A compass needs more than one axis. We chart coding-agent capability across task types, repository scale, and iteration depth &mdash; and show why single-number leaderboards flatten the terrain that matters most.</p>
 
-        <h2>Contributions</h2>
-        <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
-        </ul>
+        <p>Ask three teams what "good at coding" means and you will get three different answers: closes issues, survives large repositories, doesn't break the build twice. SWE-Compass takes that ambiguity seriously. It spans <b>8 task types, 8 programming scenarios, and 10 programming languages</b>, with 2,000 curated instances drawn from authentic GitHub pull requests and refined through systematic validation.</p>
 
-        <h2>Method &amp; evaluation</h2>
-        <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
-        </ul>
+        <h2>Fix the workflow, then compare the models</h2>
 
-        <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p>The paper evaluates every model under two agent frameworks &mdash; SWE-Agent and Claude Code. Mixing those numbers into one column would blur the line between model ability and execution environment, so our leaderboard fixes a single workflow (Claude Code) and lets models differ only in the one variable that should matter.</p>
 
-        <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <blockquote>A leaderboard is an experiment. If two rows were produced under different harnesses, the table is comparing harnesses, not models.</blockquote>
+
+        <p>Under the Claude Code workflow, the AVG column reads:</p>
         <table class="data-table">
             <thead>
                 <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
@@ -94,29 +82,30 @@
                 <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
                 <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
                 <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
             </tbody>
         </table>
 
-        <h2>At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-15</span></li>
+        <p>The spread is brutal and informative: the leader clears the runner-up by eleven points, and scores fall off quickly below the top three. Real-workflow coding remains far from saturated &mdash; the best model completes barely a third of what the benchmark asks.</p>
+
+        <h2>Reading the terrain, not the summit</h2>
+
+        <ul>
+            <li>Task types expose different failure modes: repair-style tasks reward precision, feature-building rewards planning depth.</li>
+            <li>Language coverage punishes English-plus-Python overfitting; ten languages keep the evaluation honest.</li>
+            <li>The difficulty hierarchy across scenarios is stable between frameworks &mdash; evidence it reflects the work itself, not harness quirks.</li>
         </ul>
+
+        <p>That is what a compass is for. A single number tells you who is ahead; the axes tell you where to walk next.</p>
 
         <div class="crosslink">
             <div>
-                <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
+                <p class="t">Full task taxonomy, metric definitions, and the complete leaderboard live on the SWE-Compass benchmark page.</p>
+                <p class="s">SWE-Compass &mdash; Code Agent · Agent</p>
             </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
+            <a class="button primary" href="../benchmarks/swe-compass.html">View benchmark →</a>
         </div>
 
-        <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
+        <p class="back-link"><a href="../blog.html">&larr; Back to Blog</a></p>
     </div>
 </article>
 

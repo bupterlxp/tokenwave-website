@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWE-Compass | TokenWave AI</title>
-    <meta name="description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <title>OmniVideoBench | TokenWave AI</title>
+    <meta name="description" content="OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="SWE-Compass | TokenWave AI">
-    <meta property="og:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <meta property="og:title" content="OmniVideoBench | TokenWave AI">
+    <meta property="og:description" content="OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/omnivideobench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SWE-Compass | TokenWave AI">
-    <meta name="twitter:description" content="SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.">
+    <meta name="twitter:title" content="OmniVideoBench | TokenWave AI">
+    <meta name="twitter:description" content="OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/swe-compass.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/omnivideobench.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,73 +47,65 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/swe-compass.svg');" role="img" aria-label="SWE-Compass — led by Claude Sonnet 4 at 32.9"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/omnivideobench.svg');" role="img" aria-label="OmniVideoBench — led by Gemini 3.0 Pro at 61.8"></div>
         <div class="detail-head">
-            <div class="eyebrow">Agent · Code Agent</div>
-            <h1>SWE-Compass</h1>
+            <div class="eyebrow">MLLM Benchmark · Omni Understanding</div>
+            <h1>OmniVideoBench</h1>
             <p class="detail-meta">
-                <span class="lead">🏆 Claude Sonnet 4: 32.9</span>
+                <span class="lead">🏆 Gemini 3.0 Pro: 61.8</span>
                 <span class="sep">·</span>
-                Code Agent
+                Omni Understanding
                 <span class="sep">·</span>
-                updated 2026-04-15
+                updated 2026-04-21
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2511.05459" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2511.05459.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2510.10689" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/NJU-LINK/OmniVideoBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2510.10689.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="markdown">
 
         <h2>Abstract</h2>
-        <p>SWE-Compass provides a unified evaluation for agentic coding ability. This page uses the AVG under the Claude Code workflow to avoid mixing different execution environments.</p>
-
-        <h2>Contributions</h2>
-        <ul>
-            <li>The paper reports results under both SWE-Agent and Claude Code workflows.</li>
-            <li>This page fixes one workflow so the leaderboard does not mix model differences with system differences.</li>
-        </ul>
+        <p>OmniVideoBench evaluates omni-models on audio-visual video understanding. This page uses the Avg score from the main table.</p>
 
         <h2>Method &amp; evaluation</h2>
         <ul>
-            <li>SWE-Compass aims to unify software engineering evaluation into a framework closer to real developer workflows.</li>
-            <li>It spans 8 task types, 8 programming scenarios, and 10 programming languages with 2,000 curated instances.</li>
-            <li>Most instances are derived from authentic GitHub pull requests and refined through systematic validation.</li>
-            <li>The paper benchmarks strong models under both SWE-Agent and Claude Code frameworks.</li>
-            <li>Results reveal a clear hierarchy of difficulty across tasks, languages, and programming scenarios.</li>
+            <li>This work focuses on joint audio-visual understanding across music, speech, sound effects, and varying video durations.</li>
+            <li>It frames the task as genuine omni understanding rather than frame-only perception or text-only QA.</li>
+            <li>The results show clear performance drops even for strong omni models on longer videos and more complex audio conditions.</li>
         </ul>
 
         <h2>Evaluation metrics</h2>
-        <p><b>AVG</b> &mdash; Higher is better. Average score under the Claude Code workflow. Score range: [0, 100].</p>
+        <p><b>Avg</b> &mdash; Higher is better. Average accuracy reported in the main OmniVideoBench table. Score range: [0, 100].</p>
 
         <h2>Leaderboard</h2>
-        <p>The primary leaderboard uses AVG under the Claude Code workflow. Mixing SWE-Agent and Claude Code would blur the boundary between model ability and execution environment.</p>
+        <p>The leaderboard uses the Avg column from the main OmniVideoBench table.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>AVG</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Avg</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4</td><td class="num">32.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Qwen3-Coder-480B-Instruct</td><td class="num">21.9</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Qwen3-Coder-30B-Instruct</td><td class="num">21.6</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Qwen3-235B</td><td class="num">14.7</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>DeepSeek-V3</td><td class="num">9.8</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Gemini 3.0 Pro</td><td class="num">61.8</td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>Gemini 2.5 Pro</td><td class="num">58.9</td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 3.0 Flash</td><td class="num">55.1</td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>Gemini 2.5 Flash</td><td class="num">52.4</td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Gemini 2.0 Flash</td><td class="num">41.5</td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Qwen3-Omni-30B-A3B</td><td class="num">38.4</td><td>Official</td></tr>
             </tbody>
         </table>
 
         <h2>At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>Agentic coding</span></li>
-            <li><span class="k">Primary metric</span><span>AVG</span></li>
-            <li><span class="k">Displayed setting</span><span>Claude Code workflow</span></li>
-            <li><span class="k">Models scored</span><span>5</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-15</span></li>
+            <li><span class="k">Focus</span><span>Audio-visual joint understanding</span></li>
+            <li><span class="k">Primary metric</span><span>Avg</span></li>
+            <li><span class="k">Models scored</span><span>6</span></li>
+            <li><span class="k">Data updated</span><span>2026-04-21</span></li>
         </ul>
 
         <div class="crosslink">
             <div>
                 <p class="t">Read the research note</p>
-                <p class="s">SWE-Compass: Navigating Real-World Software Engineering with Agents</p>
+                <p class="s">OmniVideoBench: When Models Must Watch and Listen at Once</p>
             </div>
-            <a class="button primary" href="../blog/swe-compass.html">Read note →</a>
+            <a class="button primary" href="../blog/omnivideobench.html">Read note →</a>
         </div>
 
         <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
