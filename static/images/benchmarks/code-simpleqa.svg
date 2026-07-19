@@ -1,0 +1,22 @@
+<!-- tokenwave:generated -->
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+ <title id="title">CodeSimpleQA benchmark illustration</title>
+ <desc id="desc">English and Chinese factual code questions converge into a verified answer.</desc>
+ <rect width="480" height="360" rx="28" fill="#f8fafc"/>
+ <rect x="34" y="34" width="412" height="292" rx="22" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
+ <text x="64" y="76" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">CodeSimpleQA</text>
+ <text x="64" y="101" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">Bilingual factual code QA</text>
+ <rect x="64" y="126" width="144" height="96" rx="14" fill="#eff6ff" stroke="#93c5fd"/>
+ <text x="82" y="153" fill="#2563eb" font-family="system-ui, sans-serif" font-size="13" font-weight="700">EN</text>
+ <text x="82" y="181" fill="#334155" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16">{ API? }</text>
+ <text x="82" y="204" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">782 questions</text>
+ <rect x="272" y="126" width="144" height="96" rx="14" fill="#fff7ed" stroke="#fdba74"/>
+ <text x="290" y="153" fill="#ea580c" font-family="system-ui, sans-serif" font-size="13" font-weight="700">中文</text>
+ <text x="290" y="181" fill="#334155" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16">&lt; 事实? &gt;</text>
+ <text x="290" y="204" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">716 questions</text>
+ <path d="M208 174H238M272 174H242" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+ <circle cx="240" cy="174" r="24" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+ <path d="m230 174 7 7 14-16" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+ <rect x="64" y="248" width="352" height="48" rx="12" fill="#0f172a"/>
+ <text x="84" y="277" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12">1,498 QA · 15+ languages · 21 CS domains</text>
+</svg>

@@ -1,0 +1,20 @@
+{
+ "slug": "workflow_gym",
+ "tagline": "Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow",
+ "stats": [
+  {"value": "338", "label": "professional tasks"},
+  {"value": "56", "label": "software environments"},
+  {"value": "30–110", "label": "atomic actions per task"},
+  {"value": "30.67", "label": "top Avg Pass"}
+ ],
+ "overview": [
+  "Workflow-GYM evaluates computer-use agents on the kind of long, specialized assignments that define professional desktop work: data analysis, engineering and design, finance and management, geography and environment, multimedia production, and scientific computing. Its 338 tasks run in 56 virtual-machine software environments, with every task requiring at least 30 atomic actions and the hardest extending to 110.",
+  "The agent receives a natural-language goal without intermediate hints, then must navigate the application, preserve the objective across stages, and produce a verifiable final state or artifact. Each task is attempted three times per model, yielding 1,014 trials. The main Avg Pass score is the percentage of successful trials reported in the paper's updated Table 2."
+ ],
+ "why": [
+  "Short GUI tasks can reward surface fluency: click the right menu, type one value, and stop. Professional workflows compound mistakes. An early omission can poison later calculations; a tool-specific misunderstanding can invalidate an export; and an agent may drift from the original objective after dozens of actions. Workflow-GYM makes those failure modes measurable under realistic software and final-artifact checks, which is much closer to deciding whether an agent can be trusted with actual work."
+ ],
+ "reading": [
+  "Gemini 3.1 Pro leads at 30.67 Avg Pass, only 0.99 points ahead of Kimi K2.6 at 29.68. The next cluster falls sharply: Seed-2.0-lite scores 18.24, GPT-5.4 scores 17.85, and GPT-5.4-mini scores 15.98, before Gemini 3 Flash closes the table at 7.89. Even the leader fails roughly 69% of trials. The leaderboard's shape supports the paper's central point: today's computer-use agents can operate software, but reliably carrying a professional objective through a long workflow is still rare."
+ ]
+}

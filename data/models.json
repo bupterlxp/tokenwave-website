@@ -878,5 +878,50 @@
   "name": "LLaVA-v1.5-13B",
   "org": "LLaVA",
   "color": "#0f766e"
+ },
+ "claude_sonnet_4_20250514": {
+  "name": "Claude Sonnet 4 (2025-05-14)",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "claude_sonnet_4_20250514_thinking": {
+  "name": "Claude Sonnet 4 Thinking (2025-05-14)",
+  "org": "Anthropic",
+  "color": "#d97706"
+ },
+ "chatgpt_4o_latest": {
+  "name": "ChatGPT-4o Latest",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "o3_mini_20250131": {
+  "name": "o3-mini-2025-01-31",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "gpt_4o_20241120": {
+  "name": "GPT-4o-2024-11-20",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "kimi_k2_6": {
+  "name": "Kimi K2.6",
+  "org": "Moonshot AI",
+  "color": "#06b6d4"
+ },
+ "gpt_5_4": {
+  "name": "GPT-5.4",
+  "org": "OpenAI",
+  "color": "#10a37f"
+ },
+ "seed_2_0_lite": {
+  "name": "Seed-2.0-lite",
+  "org": "ByteDance",
+  "color": "#ef4444"
+ },
+ "gpt_5_4_mini": {
+  "name": "GPT-5.4-mini",
+  "org": "OpenAI",
+  "color": "#10a37f"
  }
 }

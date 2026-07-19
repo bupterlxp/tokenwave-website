@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://tokenwave.ai/</loc><lastmod>2026-06-28</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://tokenwave.ai/benchmarks.html</loc><lastmod>2026-04-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tokenwave.ai/</loc><lastmod>2026-07-05</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks.html</loc><lastmod>2026-07-05</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://tokenwave.ai/blog.html</loc><lastmod>2026-06-28</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tokenwave.ai/compare.html</loc><lastmod>2026-04-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tokenwave.ai/joinus.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://tokenwave.ai/submit.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tokenwave.ai/compare.html</loc><lastmod>2026-07-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tokenwave.ai/joinus.html</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://tokenwave.ai/submit.html</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/acadreason.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/artifactsbench.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/chinese-safetyqa.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/chinese-simpleqa.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/cii-bench.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks/code-simpleqa.html</loc><lastmod>2025-12-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/codetracer.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/conceptmath.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/cot-error-detection.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -53,6 +54,7 @@
   <url><loc>https://tokenwave.ai/benchmarks/vidcapbench.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/vidic.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/web-compass.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks/workflow-gym.html</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/worldtravel.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/blog/supergpqa.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tokenwave.ai/blog/swe-compass.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>

@@ -1,0 +1,28 @@
+<!-- tokenwave:generated -->
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+ <title id="title">Workflow-GYM benchmark illustration</title>
+ <desc id="desc">A long chain of desktop workflow stages ends in a verified professional artifact.</desc>
+ <rect width="480" height="360" rx="28" fill="#f8fafc"/>
+ <rect x="34" y="34" width="412" height="292" rx="22" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
+ <text x="64" y="76" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">Workflow-GYM</text>
+ <text x="64" y="101" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">Long-horizon professional GUI workflows</text>
+ <path d="M94 180H386" fill="none" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+ <g font-family="system-ui, sans-serif" text-anchor="middle">
+  <circle cx="94" cy="180" r="24" fill="#dbeafe" stroke="#60a5fa" stroke-width="2"/>
+  <text x="94" y="184" fill="#1d4ed8" font-size="11" font-weight="700">PLAN</text>
+  <circle cx="192" cy="180" r="24" fill="#ede9fe" stroke="#a78bfa" stroke-width="2"/>
+  <text x="192" y="184" fill="#6d28d9" font-size="11" font-weight="700">EDIT</text>
+  <circle cx="288" cy="180" r="24" fill="#ffedd5" stroke="#fb923c" stroke-width="2"/>
+  <text x="288" y="184" fill="#c2410c" font-size="11" font-weight="700">CHECK</text>
+  <circle cx="386" cy="180" r="28" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <path d="m374 180 8 8 16-18" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+ <g fill="#94a3b8">
+  <circle cx="133" cy="180" r="3"/><circle cx="145" cy="180" r="3"/><circle cx="157" cy="180" r="3"/>
+  <circle cx="231" cy="180" r="3"/><circle cx="243" cy="180" r="3"/><circle cx="255" cy="180" r="3"/>
+  <circle cx="327" cy="180" r="3"/><circle cx="339" cy="180" r="3"/><circle cx="351" cy="180" r="3"/>
+ </g>
+ <rect x="64" y="244" width="352" height="52" rx="12" fill="#0f172a"/>
+ <text x="84" y="266" fill="#93c5fd" font-family="system-ui, sans-serif" font-size="11" font-weight="700">30–110 ATOMIC ACTIONS</text>
+ <text x="84" y="284" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12">338 tasks · 56 software environments</text>
+</svg>

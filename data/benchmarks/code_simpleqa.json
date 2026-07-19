@@ -1,0 +1,145 @@
+{
+ "slug": "code_simpleqa",
+ "name": "CodeSimpleQA",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Knowledge",
+ "abstract": "CodeSimpleQA evaluates factual programming knowledge in English and Chinese. This page reports a bilingual mean F1 derived by averaging the English and Chinese Avg. columns in the arXiv paper's Tables 3 and 4.",
+ "contributions": [
+  "The benchmark contains 1,498 human-curated question-answer pairs grounded in programming and computer-science documentation.",
+  "Its bilingual coverage spans English and Chinese, more than 15 programming languages, and 21 computer-science domains.",
+  "The paper separates factual code knowledge from code-generation execution and also releases a 66.9M-example instruction corpus for training."
+ ],
+ "method": [
+  "CodeSimpleQA contains 782 English and 716 Chinese question-answer pairs whose answers are verified against authoritative technical sources.",
+  "Questions cover programming languages, frameworks, systems, algorithms, databases, software engineering, security, and other computer-science topics.",
+  "The paper reports F1 by domain and an overall Avg. for each language in Tables 3 and 4.",
+  "For one bilingual leaderboard, TokenWave takes the arithmetic mean of each model's English Avg. and Chinese Avg.; this derived score is not a separate metric reported by the paper."
+ ],
+ "metrics": [
+  {
+   "name": "Bilingual mean F1",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "TokenWave-derived arithmetic mean of the English Avg. and Chinese Avg. F1 columns reported in arXiv Tables 3 and 4."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": "gpt_5",
+   "model": "GPT-5",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 65.05,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": "o3",
+   "model": "o3",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 61.65,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": "gpt_5_mini",
+   "model": "GPT-5 Mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 55.65,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 4,
+   "model_id": "o4_mini",
+   "model": "o4-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 53.3,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 5,
+   "model_id": "claude_sonnet_4_20250514_thinking",
+   "model": "Claude Sonnet 4 Thinking (2025-05-14)",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 52.5,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 6,
+   "model_id": "claude_sonnet_4_20250514",
+   "model": "Claude Sonnet 4 (2025-05-14)",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "score": 51.9,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 7,
+   "model_id": "chatgpt_4o_latest",
+   "model": "ChatGPT-4o Latest",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 50.95,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 8,
+   "model_id": "o3_mini_20250131",
+   "model": "o3-mini-2025-01-31",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 50.45,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 9,
+   "model_id": "gpt_oss_120b",
+   "model": "GPT-OSS-120B",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 50.35,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  },
+  {
+   "rank": 10,
+   "model_id": "gpt_4o_20241120",
+   "model": "GPT-4o-2024-11-20",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "score": 48.7,
+   "source": "arXiv Tables 3–4",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Bilingual mean F1",
+ "leaderboard_note": "Each score is the arithmetic mean of the paper's English Avg. and Chinese Avg. F1 values. It is a transparent TokenWave aggregation of arXiv Tables 3 and 4, not a separately reported paper metric.",
+ "at_a_glance": {
+  "focus": "Factual programming knowledge",
+  "primary_metric": "Bilingual mean F1",
+  "setting": "Mean of English and Chinese Avg. F1",
+  "models_scored": 10,
+  "data_updated": "2025-12-22"
+ },
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.19424",
+  "code": null,
+  "pdf": "https://arxiv.org/pdf/2512.19424.pdf"
+ },
+ "figures": [],
+ "image": "static/images/benchmarks/code-simpleqa.svg"
+}

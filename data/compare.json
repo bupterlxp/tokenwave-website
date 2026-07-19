@@ -141,8 +141,22 @@
    "coverage": 3
   },
   {
+   "id": "gpt_5_mini",
+   "name": "GPT-5 Mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "coverage": 3
+  },
+  {
    "id": "o1_mini",
    "name": "o1-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "coverage": 3
+  },
+  {
+   "id": "o3",
+   "name": "o3",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 3
@@ -218,6 +232,20 @@
    "coverage": 2
   },
   {
+   "id": "gemini_3_flash",
+   "name": "Gemini 3 Flash",
+   "org": "Google",
+   "color": "#4285f4",
+   "coverage": 2
+  },
+  {
+   "id": "gemini_3_1_pro",
+   "name": "Gemini 3.1 Pro",
+   "org": "Google",
+   "color": "#4285f4",
+   "coverage": 2
+  },
+  {
    "id": "gpt_4_1",
    "name": "GPT-4.1",
    "org": "OpenAI",
@@ -232,8 +260,8 @@
    "coverage": 2
   },
   {
-   "id": "gpt_5_mini",
-   "name": "GPT-5 Mini",
+   "id": "gpt_5",
+   "name": "GPT-5",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 2
@@ -241,6 +269,13 @@
   {
    "id": "gpt_5_2",
    "name": "GPT-5.2",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "coverage": 2
+  },
+  {
+   "id": "gpt_oss_120b",
+   "name": "GPT-OSS-120B",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 2
@@ -260,8 +295,8 @@
    "coverage": 2
   },
   {
-   "id": "o3",
-   "name": "o3",
+   "id": "o4_mini",
+   "name": "o4-mini",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 2
@@ -372,6 +407,13 @@
    "coverage": 1
   },
   {
+   "id": "chatgpt_4o_latest",
+   "name": "ChatGPT-4o Latest",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "coverage": 1
+  },
+  {
    "id": "claude35_sonnet2",
    "name": "Claude 3.5 Sonnet 2",
    "org": "Anthropic",
@@ -409,6 +451,20 @@
   {
    "id": "claude_opus_4_20250514",
    "name": "Claude Opus 4 (2025-05-14)",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "coverage": 1
+  },
+  {
+   "id": "claude_sonnet_4_20250514",
+   "name": "Claude Sonnet 4 (2025-05-14)",
+   "org": "Anthropic",
+   "color": "#d97706",
+   "coverage": 1
+  },
+  {
+   "id": "claude_sonnet_4_20250514_thinking",
+   "name": "Claude Sonnet 4 Thinking (2025-05-14)",
    "org": "Anthropic",
    "color": "#d97706",
    "coverage": 1
@@ -582,13 +638,6 @@
    "coverage": 1
   },
   {
-   "id": "gemini_3_flash",
-   "name": "Gemini 3 Flash",
-   "org": "Google",
-   "color": "#4285f4",
-   "coverage": 1
-  },
-  {
    "id": "gemini_3_flash_preview",
    "name": "Gemini 3 Flash Preview",
    "org": "Google",
@@ -626,13 +675,6 @@
   {
    "id": "gemini_3_0_pro",
    "name": "Gemini 3.0 Pro",
-   "org": "Google",
-   "color": "#4285f4",
-   "coverage": 1
-  },
-  {
-   "id": "gemini_3_1_pro",
-   "name": "Gemini 3.1 Pro",
    "org": "Google",
    "color": "#4285f4",
    "coverage": 1
@@ -680,8 +722,8 @@
    "coverage": 1
   },
   {
-   "id": "gpt_5",
-   "name": "GPT-5",
+   "id": "gpt_4o_20241120",
+   "name": "GPT-4o-2024-11-20",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 1
@@ -701,15 +743,22 @@
    "coverage": 1
   },
   {
-   "id": "gpt_oss",
-   "name": "GPT-OSS",
+   "id": "gpt_5_4",
+   "name": "GPT-5.4",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 1
   },
   {
-   "id": "gpt_oss_120b",
-   "name": "GPT-OSS-120B",
+   "id": "gpt_5_4_mini",
+   "name": "GPT-5.4-mini",
+   "org": "OpenAI",
+   "color": "#10a37f",
+   "coverage": 1
+  },
+  {
+   "id": "gpt_oss",
+   "name": "GPT-OSS",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 1
@@ -766,6 +815,13 @@
   {
    "id": "kimi_k2",
    "name": "Kimi K2",
+   "org": "Moonshot AI",
+   "color": "#06b6d4",
+   "coverage": 1
+  },
+  {
+   "id": "kimi_k2_6",
+   "name": "Kimi K2.6",
    "org": "Moonshot AI",
    "color": "#06b6d4",
    "coverage": 1
@@ -918,8 +974,8 @@
    "coverage": 1
   },
   {
-   "id": "o4_mini",
-   "name": "o4-mini",
+   "id": "o3_mini_20250131",
+   "name": "o3-mini-2025-01-31",
    "org": "OpenAI",
    "color": "#10a37f",
    "coverage": 1
@@ -1111,6 +1167,13 @@
    "name": "RoleLLaMA2 (13B-Chat)",
    "org": "RoleLLM",
    "color": "#7c3aed",
+   "coverage": 1
+  },
+  {
+   "id": "seed_2_0_lite",
+   "name": "Seed-2.0-lite",
+   "org": "ByteDance",
+   "color": "#ef4444",
    "coverage": 1
   },
   {
@@ -1481,6 +1544,24 @@
    }
   },
   {
+   "file": "workflow-gym",
+   "name": "Workflow-GYM",
+   "domain": "agent",
+   "domain_label": "Agent",
+   "subcategory": "GUI Agent",
+   "metric": "Avg Pass",
+   "dir": "higher",
+   "rmax": 100.0,
+   "scores": {
+    "gemini_3_1_pro": 30.67,
+    "kimi_k2_6": 29.68,
+    "seed_2_0_lite": 18.24,
+    "gpt_5_4": 17.85,
+    "gpt_5_4_mini": 15.98,
+    "gemini_3_flash": 7.89
+   }
+  },
+  {
    "file": "worldtravel",
    "name": "WorldTravel",
    "domain": "agent",
@@ -1790,6 +1871,28 @@
     "claude_3_5_sonnet": 53.5,
     "yi_large": 51.5,
     "qwen2_5_72b_instruct": 50.2
+   }
+  },
+  {
+   "file": "code-simpleqa",
+   "name": "CodeSimpleQA",
+   "domain": "llm",
+   "domain_label": "LLM",
+   "subcategory": "Knowledge",
+   "metric": "Bilingual mean F1",
+   "dir": "higher",
+   "rmax": 100.0,
+   "scores": {
+    "gpt_5": 65.05,
+    "o3": 61.65,
+    "gpt_5_mini": 55.65,
+    "o4_mini": 53.3,
+    "claude_sonnet_4_20250514_thinking": 52.5,
+    "claude_sonnet_4_20250514": 51.9,
+    "chatgpt_4o_latest": 50.95,
+    "o3_mini_20250131": 50.45,
+    "gpt_oss_120b": 50.35,
+    "gpt_4o_20241120": 48.7
    }
   },
   {
