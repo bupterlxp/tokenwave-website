@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="static/css/style.css?v=98f0afcb">
+    <link rel="stylesheet" href="static/css/style.css?v=cd9d920d">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -121,112 +121,125 @@
     </div>
 </section>
 
-<section class="home-section rv">
+<section class="home-section rv" style="padding-bottom: 64px;">
     <div class="evidence-h">Six directions</div>
-    <div class="dir-grid">
-        <a class="dir-card rv" href="research/benchmark.html">
-            <div class="dir-idx">01</div>
-            <h3>Benchmark</h3>
-            <p class="dir-blurb">Defining what counts as competence — occupation-anchored, verifier-checked measurement across knowledge, code, agents, and multimodal work.</p>
-            <div class="dir-foot"><span class="n">15 works</span><span class="arrow">&rarr;</span></div>
-        </a>
-        <a class="dir-card rv rv2" href="research/rl.html">
-            <div class="dir-idx">02</div>
-            <h3>Reinforcement Learning</h3>
-            <p class="dir-blurb">Training signal beyond imitation: policy optimization and exploration methods that turn verifiable feedback into reasoning ability.</p>
-            <div class="dir-foot"><span class="n">2 works</span><span class="arrow">&rarr;</span></div>
-        </a>
-        <a class="dir-card rv rv3" href="research/agents.html">
-            <div class="dir-idx">03</div>
-            <h3>Agents — the Auto Series</h3>
-            <p class="dir-blurb">Systems that carry a whole job, not a single step: autonomous pipelines that plan, execute, verify, and deliver finished work.</p>
-            <div class="dir-foot"><span class="n">4 works</span><span class="arrow">&rarr;</span></div>
-        </a>
-        <a class="dir-card rv" href="research/synthetic-data.html">
-            <div class="dir-idx">04</div>
-            <h3>Synthetic Data</h3>
-            <p class="dir-blurb">Manufacturing the training signal itself: instruction corpora mined, synthesized, and reconstructed at web scale.</p>
-            <div class="dir-foot"><span class="n">7 works</span><span class="arrow">&rarr;</span></div>
-        </a>
-        <a class="dir-card rv rv2" href="research/pretraining-compute.html">
-            <div class="dir-idx">05</div>
-            <h3>Pretraining Compute Allocation</h3>
-            <p class="dir-blurb">Spending compute where thinking happens: looped architectures, dynamic depth, and routing that allocate capacity per token instead of per model.</p>
-            <div class="dir-foot"><span class="n">4 works</span><span class="arrow">&rarr;</span></div>
-        </a>
-        <a class="dir-card rv rv3" href="research/foundation-models.html">
-            <div class="dir-idx">06</div>
-            <h3>Foundation Models</h3>
-            <p class="dir-blurb">Fully open model families — text, code, math, and music — released with their data pipelines, recipes, and checkpoints.</p>
-            <div class="dir-foot"><span class="n">6 works</span><span class="arrow">&rarr;</span></div>
-        </a>
-    </div>
-</section>
-
-<section class="home-section rv">
-    <div class="evidence-h">Field notes</div>
-    <div class="list">
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/workflow-gym.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span>2026-07-24</span>
-                <span class="sep">·</span>
-                <span class="pill">GUI Agent</span>
-                <span class="sep">·</span>
-                <span>2 min read</span>
+    <div class="dirline">
+        <div class="dl-item rv" id="benchmark">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">01</span>
+                    <h3>Benchmark</h3>
+                    <span class="dl-zh">评测基准</span>
+                </div>
+                <p class="dl-blurb">Defining what counts as competence — occupation-anchored, verifier-checked measurement across knowledge, code, agents, and multimodal work.</p>
+                <div class="dl-works">
+                <span class="dl-work">SuperGPQA</span>
+                <span class="dl-work">MMMU</span>
+                <span class="dl-work">MMMU-Pro</span>
+                <span class="dl-work">MMLU-Pro</span>
+                <span class="dl-work">KOR-Bench</span>
+                <span class="dl-work">NL2Repo-Bench</span>
+                <span class="dl-work">Workflow-GYM</span>
+                <span class="dl-work">OmniBench</span>
+                <span class="dl-work">WideSearch</span>
+                <span class="dl-work">CodeSimpleQA</span>
+                <span class="dl-work">SimpleVQA</span>
+                <span class="dl-work">CriticLean</span>
+                <span class="dl-work">FormalMATH</span>
+                <span class="dl-work">MM-BrowseComp</span>
+                <span class="dl-work">Omni-MATH</span>
+                </div>
             </div>
-            <h3><a href="research/workflow-gym.html">Workflow-GYM: When One Missed Stage Invalidates the Job</a></h3>
-            <p>Professional desktop work is not a sequence of clicks &mdash; it is a chain of dependent stages where an early omission poisons everything downstream. We look at what 338 long-horizon workflows across 56 software environments reveal about computer-use agents, and why even the leader fails two trials out of three.</p>
         </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/worldtravel.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span>2026-07-18</span>
-                <span class="sep">·</span>
-                <span class="pill">Multimodal Agent</span>
-                <span class="sep">·</span>
-                <span>1 min read</span>
+        <div class="dl-item rv" id="rl">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">02</span>
+                    <h3>Reinforcement Learning</h3>
+                    <span class="dl-zh">强化学习</span>
+                </div>
+                <p class="dl-blurb">Training signal beyond imitation: policy optimization and exploration methods that turn verifiable feedback into reasoning ability.</p>
+                <div class="dl-works">
+                <span class="dl-work">TreePO</span>
+                <span class="dl-work">FR3E</span>
+                </div>
             </div>
-            <h3><a href="research/worldtravel.html">WorldTravel: Would the Day Actually Work?</a></h3>
-            <p>A travel plan is easy to write and hard to keep. WorldTravel scores multimodal agents on a single unforgiving question &mdash; if a traveler followed this itinerary, would it survive contact with opening hours, reservations, and the clock? No model on the board manages it even one time in five.</p>
         </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/supergpqa.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span>2026-06-28</span>
-                <span class="sep">·</span>
-                <span class="pill">Knowledge</span>
-                <span class="sep">·</span>
-                <span>1 min read</span>
+        <div class="dl-item rv" id="agents">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">03</span>
+                    <h3>Agents — the Auto Series</h3>
+                    <span class="dl-zh">智能体</span>
+                </div>
+                <p class="dl-blurb">Systems that carry a whole job, not a single step: autonomous pipelines that plan, execute, verify, and deliver finished work.</p>
+                <div class="dl-works">
+                <span class="dl-work">AutoKaggle</span>
+                <span class="dl-work">AutoMV</span>
+                <span class="dl-work">Solvita</span>
+                <span class="dl-work">P2P</span>
+                </div>
             </div>
-            <h3><a href="research/supergpqa.html">SuperGPQA: Graduate-Level Knowledge at Frontier Scale</a></h3>
-            <p>How far does frontier-model knowledge really extend beyond the mainstream disciplines? We examine graduate-level question answering across hundreds of specialized fields and find that long-tail expertise remains the clearest gap between models.</p>
         </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/mm-browsecomp.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span>2026-03-30</span>
-                <span class="sep">·</span>
-                <span class="pill">Multimodal Agent</span>
-                <span class="sep">·</span>
-                <span>1 min read</span>
+        <div class="dl-item rv" id="synthetic-data">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">04</span>
+                    <h3>Synthetic Data</h3>
+                    <span class="dl-zh">数据合成</span>
+                </div>
+                <p class="dl-blurb">Manufacturing the training signal itself: instruction corpora mined, synthesized, and reconstructed at web scale.</p>
+                <div class="dl-works">
+                <span class="dl-work">MAmmoTH</span>
+                <span class="dl-work">MAmmoTH2</span>
+                <span class="dl-work">OpenCodeInterpreter</span>
+                <span class="dl-work">COIG</span>
+                <span class="dl-work">COIG-CQIA</span>
+                <span class="dl-work">REER</span>
+                <span class="dl-work">Understanding by Reconstruction: Reversing the Software Development Process for LLM Pretraining</span>
+                </div>
             </div>
-            <h3><a href="research/mm-browsecomp.html">MM-BrowseComp: Multimodal Browsing Beyond Text Trails</a></h3>
-            <p>Web research is not text-only. MM-BrowseComp asks search agents to follow evidence through images, charts, and pages that no text-only pipeline can shortcut, revealing a wide gap behind text-centric browsing scores.</p>
         </div>
-    </article>
-
+        <div class="dl-item rv" id="pretraining-compute">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">05</span>
+                    <h3>Pretraining Compute Allocation</h3>
+                    <span class="dl-zh">预训练动态算力分配</span>
+                </div>
+                <p class="dl-blurb">Spending compute where thinking happens: looped architectures, dynamic depth, and routing that allocate capacity per token instead of per model.</p>
+                <div class="dl-works">
+                <span class="dl-work">Ouro</span>
+                <span class="dl-work">Loop µP: On the Residual Scaling of Looped Transformers</span>
+                <span class="dl-work">DLCM</span>
+                <span class="dl-work">ConceptMoE</span>
+                </div>
+            </div>
+        </div>
+        <div class="dl-item rv" id="foundation-models">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">06</span>
+                    <h3>Foundation Models</h3>
+                    <span class="dl-zh">基础模型</span>
+                </div>
+                <p class="dl-blurb">Fully open model families — text, code, math, and music — released with their data pipelines, recipes, and checkpoints.</p>
+                <div class="dl-works">
+                <span class="dl-work">MAP-Neo</span>
+                <span class="dl-work">OProver</span>
+                <span class="dl-work">OpenCoder</span>
+                <span class="dl-work">D-CPT Law</span>
+                <span class="dl-work">MERT</span>
+                <span class="dl-work">YuE</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
