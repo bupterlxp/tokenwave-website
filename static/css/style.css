@@ -1713,3 +1713,18 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     background: transparent;
     box-shadow: inset 0 0 0 1.5px rgba(90, 100, 120, 0.5);
 }
+
+/* ── Mission-only landing ──────────────────────────────────── */
+.hero.solo {
+    min-height: calc(88vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0 56px;
+}
+.hero.solo h1 { max-width: 16ch; }
+.hero.solo .defband { margin-top: 9vh; max-width: 860px; }
+@media (max-width: 680px) {
+    .hero.solo { min-height: auto; padding: 64px 0 48px; }
+    .hero.solo .defband { margin-top: 48px; }
+}
