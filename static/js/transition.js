@@ -3,7 +3,7 @@
  * Two navigation modes:
  *   soft — between top-level pages: fetch the target, swap <main> in place,
  *          keep the particle canvas alive (no reload, no flicker).
- *   full — entering/leaving a detail page (benchmarks/, blog/): fade the
+ *   full — entering/leaving a detail page (benchmarks/, research/): fade the
  *          whole document, snapshot the particle field, restore on arrival.
  *
  * Contract with particles.js: window.PageTransition.onParticlesReady() is
@@ -14,7 +14,7 @@
   'use strict';
 
   var mainEl = document.querySelector('main');
-  var TOP_LEVEL = ['/', '/index.html', '/blog.html', '/benchmarks.html', '/compare.html', '/joinus.html'];
+  var TOP_LEVEL = ['/', '/index.html', '/careers.html', '/research.html', '/joinus.html'];
 
   var SOFT_OUT = 320;   // ms: main fade-out before fetch swap
   var SOFT_IN  = 360;   // ms: settle time before cards may rise
@@ -182,7 +182,7 @@
     var href = anchor.getAttribute('href');
     if (!href) return;
     if ((anchor.hostname && anchor.hostname !== window.location.hostname) ||
-        href.charAt(0) === '#' ||
+        href.indexOf('#') !== -1 ||
         href.indexOf('mailto:') === 0 ||
         (anchor.target && anchor.target !== '_self')) return;
     e.preventDefault();

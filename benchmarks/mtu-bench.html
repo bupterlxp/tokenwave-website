@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css?v=55542d9c">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -32,13 +32,23 @@
     <header class="site-header">
         <div class="container header-content">
             <a class="logo" href="../index.html" aria-label="TokenWave AI home">
-                <img src="../static/images/logo.jpg" alt="TokenWave AI" class="logo-icon">
+                <img src="../static/images/mark.svg" alt="" class="logo-icon">
+                <span class="logo-word">TokenWave<span class="ai">AI</span></span>
             </a>
             <nav>
                 <a href="../index.html">Home</a>
-                <a href="../blog.html">Blog</a>
-                <a href="../benchmarks.html" class="active">Benchmarks</a>
-                <a href="../compare.html">Compare</a>
+                <div class="nav-item">
+                    <a href="../careers.html" class="active" aria-haspopup="true">Careers</a>
+                    <div class="nav-menu" role="menu" aria-label="Careers">
+                        <a href="../careers.html#fde" role="menuitem">Forward-Deployed Engineer</a>
+                        <a href="../careers.html#software-engineering" role="menuitem">Software Engineer</a>
+                        <a href="../careers.html#model-evaluation" role="menuitem">Evaluation &amp; Data Specialist</a>
+                        <a href="../careers.html#research-analysis" role="menuitem">Research Analyst</a>
+                        <a href="../careers.html#media-operations" role="menuitem">Content &amp; Media Operator</a>
+                        <a href="../careers.html#trust-safety" role="menuitem">Customer Engagement Specialist</a>
+                    </div>
+                </div>
+                <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
             </nav>
         </div>
@@ -49,11 +59,11 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/mtu-bench.svg');" role="img" aria-label="MTU-Bench — led by Qwen-Max at 45.08"></div>
         <div class="detail-head">
-            <div class="eyebrow">LLM Benchmark · Reasoning</div>
+            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#fde">Forward-Deployed Engineer</a> · Reasoning</div>
             <h1>MTU-Bench</h1>
             <p class="detail-tagline">Tool use measured at four granularities, with multi-turn multi-tool orchestration as the hardest test.</p>
             <p class="detail-meta">
-                <span class="lead">🏆 Qwen-Max: 45.08</span>
+                <span class="lead">Leader &mdash; Qwen-Max · 45.08</span>
                 <span class="sep">·</span>
                 Reasoning
                 <span class="sep">·</span>
@@ -130,7 +140,7 @@
             <li><span class="k">Data updated</span><span>2026-04-15</span></li>
         </ul>
 
-        <p class="back-link"><a href="../benchmarks.html">&larr; Back to Benchmarks</a></p>
+        <p class="back-link"><a href="../careers.html#fde">&larr; Back to Forward-Deployed Engineer</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
@@ -173,15 +183,14 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Charting the frontier of AI with transparent, comparable benchmarks.</p>
+                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
                 <div class="h">Site</div>
                 <a href="../index.html">Home</a>
-                <a href="../blog.html">Blog</a>
-                <a href="../benchmarks.html">Benchmarks</a>
-                <a href="../compare.html">Compare</a>
+                <a href="../careers.html">Careers</a>
+                <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
                 <a href="../submit.html">Submit results</a>
             </div>
@@ -199,8 +208,10 @@
     </footer>
     <!-- Three.js particle background (bundled locally) -->
     <script src="../static/js/three.min.js" defer></script>
-    <script src="../static/js/particles.js" defer></script>
+    <script src="../static/js/particles.js?v=23eb8766" defer></script>
     <!-- Page transition state machine -->
-    <script src="../static/js/transition.js" defer></script>
+    <script src="../static/js/transition.js?v=66d99857" defer></script>
+    <!-- Reveals, count-ups, meters, board marquee -->
+    <script src="../static/js/site.js?v=5cf058d0" defer></script>
 </body>
 </html>

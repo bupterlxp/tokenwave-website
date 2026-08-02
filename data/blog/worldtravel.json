@@ -1,0 +1,18 @@
+{
+  "slug": "worldtravel",
+  "benchmark": "worldtravel",
+  "title": "WorldTravel: Would the Day Actually Work?",
+  "date": "2026-07-18",
+  "summary": "A travel plan is easy to write and hard to keep. WorldTravel scores multimodal agents on a single unforgiving question &mdash; if a traveler followed this itinerary, would it survive contact with opening hours, reservations, and the clock? No model on the board manages it even one time in five.",
+  "body": [
+    {"type": "h2", "text": "Feasibility is a metric you cannot flatter"},
+    {"type": "p", "text": "Most planning output is judged the way prose is judged: does it read well, does it look complete. WorldTravel replaces that with a feasibility check against real-world scheduling rules &mdash; time slots, reservation requirements, dwell times, opening windows. The constraints interlock, so an agent cannot patch one leg of an itinerary without disturbing the others, and the information needed to satisfy them is multimodal by construction."},
+    {"type": "p", "text": "That coupling is the point. A model that pattern-matches plausible itineraries instead of reasoning over schedules produces plans that sound right and fall apart on contact &mdash; a failure mode a text-quality score would never see."},
+    {"type": "h2", "text": "What the board says"},
+    {"type": "leaderboard", "intro": "The board reports the Feasibility Rate from the multimodal setting; the text-only setting is excluded.", "top": 4},
+    {"type": "p", "text": "GPT-5.2 leads at 19.33 on a 0&ndash;100 scale, with Claude Opus 4.5 at 14 and Gemini 3 Pro a further six points back. The spread matters less than the ceiling: the strongest multimodal agent available produces a workable day less than one time in five."},
+    {"type": "h2", "text": "Travel is the stand-in, not the subject"},
+    {"type": "p", "text": "Nobody certifies an agent to plan holidays. We track WorldTravel because interlocking external constraints are the shape of a much larger class of professional work &mdash; logistics, field operations, scheduling, anything where correctness is defined by the world rather than by the reader. When feasibility rates on this board start moving, it will say something about all of it."}
+  ],
+  "closing": "Explore the constraint types, settings, and full leaderboard on the WorldTravel benchmark page."
+}

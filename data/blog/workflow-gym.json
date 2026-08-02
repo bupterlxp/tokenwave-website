@@ -1,0 +1,18 @@
+{
+  "slug": "workflow-gym",
+  "benchmark": "workflow_gym",
+  "title": "Workflow-GYM: When One Missed Stage Invalidates the Job",
+  "date": "2026-07-24",
+  "summary": "Professional desktop work is not a sequence of clicks &mdash; it is a chain of dependent stages where an early omission poisons everything downstream. We look at what 338 long-horizon workflows across 56 software environments reveal about computer-use agents, and why even the leader fails two trials out of three.",
+  "body": [
+    {"type": "h2", "text": "Thirty actions is where fluency stops helping"},
+    {"type": "p", "text": "Short GUI benchmarks reward surface fluency: find the menu, type one value, stop. Workflow-GYM removes that shelter. Every one of its 338 tasks requires at least 30 atomic actions, and the hardest workflows extend to 110, spread across data analysis, engineering and design, finance, geography, multimedia production, and scientific computing. The agent receives a natural-language goal, no intermediate hints, and a virtual machine running the actual software &mdash; 56 environments in all."},
+    {"type": "p", "text": "Scoring is unforgiving in the way real work is unforgiving: the harness checks the final application state and the produced artifacts, not the elegance of the attempt. A workflow that omits one stage, propagates one early error, or drifts from the original objective simply does not pass."},
+    {"type": "h2", "text": "What the board says"},
+    {"type": "leaderboard", "intro": "Each task is attempted three times; the board reports the overall Avg Pass percentage from the paper's updated Table 2.", "top": 4},
+    {"type": "p", "text": "Gemini 3.1 Pro leads at 30.67, with Kimi K2.6 less than a point behind at 29.68 &mdash; and then the field falls off a cliff. Seed-2.0-lite manages 18.24, GPT-5.4 sits at 17.85, and the table closes in single digits. Read plainly: the best computer-use agent available today fails roughly 69% of professional workflow trials."},
+    {"type": "h2", "text": "Why we anchor forward-deployed engineering to it"},
+    {"type": "p", "text": "This is the benchmark that most closely resembles the day-to-day of a forward-deployed engineer: specialized software, long horizons, and a definition of done that lives in the artifact, not the transcript. The failure taxonomy it surfaces &mdash; stage omission, error propagation, objective drift, insufficient software knowledge &mdash; is precisely the gap list a harness has to close before an agent can hold the job. That is what makes the number honest, and what makes it useful."}
+  ],
+  "closing": "Explore the full leaderboard, task domains, and evaluation setup on the Workflow-GYM benchmark page."
+}

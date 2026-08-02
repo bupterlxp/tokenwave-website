@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorldTravel | TokenWave AI</title>
-    <meta name="description" content="Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.">
+    <title>WorldTravel: Would the Day Actually Work? | TokenWave AI</title>
+    <meta name="description" content="A travel plan is easy to write and hard to keep. WorldTravel scores multimodal agents on a single unforgiving question — if a traveler followed this itinerary, would it survive contact with opening hours, reservations, and the clock? No model on the ">
 
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="WorldTravel | TokenWave AI">
-    <meta property="og:description" content="Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/worldtravel.html">
+    <meta property="og:title" content="WorldTravel: Would the Day Actually Work? | TokenWave AI">
+    <meta property="og:description" content="A travel plan is easy to write and hard to keep. WorldTravel scores multimodal agents on a single unforgiving question — if a traveler followed this itinerary, would it survive contact with opening hours, reservations, and the clock? No model on the ">
+    <meta property="og:url" content="https://tokenwave.ai/research/worldtravel.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
+    <meta property="article:published_time" content="2026-07-18">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="WorldTravel | TokenWave AI">
-    <meta name="twitter:description" content="Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.">
+    <meta name="twitter:title" content="WorldTravel: Would the Day Actually Work? | TokenWave AI">
+    <meta name="twitter:description" content="A travel plan is easy to write and hard to keep. WorldTravel scores multimodal agents on a single unforgiving question — if a traveler followed this itinerary, would it survive contact with opening hours, reservations, and the clock? No model on the ">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/worldtravel.html">
+    <link rel="canonical" href="https://tokenwave.ai/research/worldtravel.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -38,7 +39,7 @@
             <nav>
                 <a href="../index.html">Home</a>
                 <div class="nav-item">
-                    <a href="../careers.html" class="active" aria-haspopup="true">Careers</a>
+                    <a href="../careers.html" aria-haspopup="true">Careers</a>
                     <div class="nav-menu" role="menu" aria-label="Careers">
                         <a href="../careers.html#fde" role="menuitem">Forward-Deployed Engineer</a>
                         <a href="../careers.html#software-engineering" role="menuitem">Software Engineer</a>
@@ -48,7 +49,7 @@
                         <a href="../careers.html#trust-safety" role="menuitem">Customer Engagement Specialist</a>
                     </div>
                 </div>
-                <a href="../research.html">Research</a>
+                <a href="../research.html" class="active">Research</a>
                 <a href="../joinus.html">Join Us</a>
             </nav>
         </div>
@@ -57,19 +58,17 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/worldtravel.svg');" role="img" aria-label="WorldTravel — led by GPT-5.2 at 19.33"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/worldtravel.svg');" role="img" aria-label="WorldTravel artwork"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#fde">Forward-Deployed Engineer</a> · Multimodal Agent</div>
-            <h1>WorldTravel</h1>
-            <p class="detail-tagline">Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.</p>
+            <div class="eyebrow">Research note</div>
+            <h1>WorldTravel: Would the Day Actually Work?</h1>
             <p class="detail-meta">
-                <span class="lead">Leader &mdash; GPT-5.2 · 19.33</span>
+                <span>2026-07-18</span>
                 <span class="sep">·</span>
-                Multimodal Agent
+                <span>WorldTravel</span>
                 <span class="sep">·</span>
-                updated 2026-04-21
+                <span>1 min read</span>
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2602.08367" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2602.08367.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
 
@@ -82,25 +81,17 @@
     <div class="detail-layout">
     <div class="markdown">
 
-        <h2 id="overview">Overview</h2>
-        <p>WorldTravel asks a simple question of multimodal agents: if a traveler followed the plan this model produced, would the day actually work? Each task couples planning to real-world scheduling rules — time slots, reservation requirements, dwell times, opening windows — and the constraints interlock, so an agent cannot adjust one leg of an itinerary without disturbing the others. The information required to satisfy them is multimodal, and this page scores the multimodal setting only.</p>
-        <p>Performance is reported as a Feasibility Rate: the share of plans, on a 0–100 scale, that satisfy every constraint at once. There is no partial credit for an itinerary that reads well but violates a single opening window or reservation rule. Framing quality as feasibility rather than fluency is the benchmark&#x27;s central design choice, and the headline result justifies it — even leading models produce feasible plans only a small fraction of the time.</p>
+        <p>A travel plan is easy to write and hard to keep. WorldTravel scores multimodal agents on a single unforgiving question &mdash; if a traveler followed this itinerary, would it survive contact with opening hours, reservations, and the clock? No model on the board manages it even one time in five.</p>
 
-        <h2 id="why-it-matters">Why it matters</h2>
-        <p>Travel planning is a stand-in for a broad class of agent work: tasks where correctness is defined by external constraints, not by how plausible the output sounds. A feasibility metric is hard to flatter. Because the constraints are coupled, models that pattern-match itineraries rather than reason over schedules fail in ways a text-quality score would hide — and the same coupling appears in logistics, scheduling, and any deployment where a plan must actually execute.</p>
+        <h2 id="feasibility-is-a-metric-you-cannot-flatter">Feasibility is a metric you cannot flatter</h2>
 
-        <h2 id="method">Method &amp; evaluation</h2>
-        <ul>
-            <li>This work frames travel planning as a tightly constrained agent task that requires multimodal information and real-world scheduling rules.</li>
-            <li>It focuses on feasibility rather than superficial answer quality, requiring plans to satisfy time slots, reservation constraints, dwell time, and opening windows.</li>
-            <li>The main results show that even leading models still achieve low feasible-plan rates in the multimodal setting.</li>
-        </ul>
+        <p>Most planning output is judged the way prose is judged: does it read well, does it look complete. WorldTravel replaces that with a feasibility check against real-world scheduling rules &mdash; time slots, reservation requirements, dwell times, opening windows. The constraints interlock, so an agent cannot patch one leg of an itinerary without disturbing the others, and the information needed to satisfy them is multimodal by construction.</p>
 
-        <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Feasibility Rate</b> &mdash; Higher is better. Feasible-plan rate in the multimodal setting. Score range: [0, 100].</p>
+        <p>That coupling is the point. A model that pattern-matches plausible itineraries instead of reasoning over schedules produces plans that sound right and fall apart on contact &mdash; a failure mode a text-quality score would never see.</p>
 
-        <h2 id="leaderboard">Leaderboard</h2>
-        <p>The leaderboard uses the Feasibility Rate (%) from the multimodal setting and excludes the text-only setting.</p>
+        <h2 id="what-the-board-says">What the board says</h2>
+
+        <p>The board reports the Feasibility Rate from the multimodal setting; the text-only setting is excluded.</p>
         <table class="data-table">
             <thead>
                 <tr><th>#</th><th>Model</th><th>Feasibility Rate</th><th>Source</th></tr>
@@ -110,44 +101,30 @@
                 <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14</td><td>Official</td></tr>
                 <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8</td><td>Official</td></tr>
                 <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>GPT-5.1</td><td class="num">2.67</td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Claude Sonnet 4.5</td><td class="num">2.67</td><td>Official</td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on WorldTravel? Submit the result →</a></p>
 
-        <h2 id="reading-the-results">Reading the results</h2>
-        <p>GPT-5.2 leads at 19.33, still under a fifth of the 0–100 range, with Claude Opus 4.5 second at 14 and Gemini 3 Pro a further six points back at 8. Doubao-1.8-Pro takes 4, and GPT-5.1 and Claude Sonnet 4.5 share the floor at 2.67. That is a 16.7-point spread, but the more important number is the ceiling: no model on the board produces a feasible plan even one time in five.</p>
-        <p>The most telling gap sits inside a single lab: GPT-5.1 scores 2.67 and GPT-5.2 scores 19.33, a sevenfold jump between successive generations. Feasibility under coupled constraints looks less like a capability the field is converging on and more like one that arrives abruptly — and even after that jump, roughly four plans in five from the best model still fail.</p>
+        <p>GPT-5.2 leads at 19.33 on a 0&ndash;100 scale, with Claude Opus 4.5 at 14 and Gemini 3 Pro a further six points back. The spread matters less than the ceiling: the strongest multimodal agent available produces a workable day less than one time in five.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Real-constraint travel planning</span></li>
-            <li><span class="k">Primary metric</span><span>Feasibility Rate (%)</span></li>
-            <li><span class="k">Displayed setting</span><span>Multimodal setting</span></li>
-            <li><span class="k">Models scored</span><span>6</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-21</span></li>
-        </ul>
+        <h2 id="travel-is-the-stand-in-not-the-subject">Travel is the stand-in, not the subject</h2>
+
+        <p>Nobody certifies an agent to plan holidays. We track WorldTravel because interlocking external constraints are the shape of a much larger class of professional work &mdash; logistics, field operations, scheduling, anything where correctness is defined by the world rather than by the reader. When feasibility rates on this board start moving, it will say something about all of it.</p>
 
         <div class="crosslink">
             <div>
-                <p class="t">Read the research note</p>
-                <p class="s">WorldTravel: Would the Day Actually Work?</p>
+                <p class="t">Explore the constraint types, settings, and full leaderboard on the WorldTravel benchmark page.</p>
+                <p class="s">WorldTravel &mdash; Multimodal Agent · Agent</p>
             </div>
-            <a class="button primary" href="../research/worldtravel.html">Read note →</a>
+            <a class="button primary" href="../benchmarks/worldtravel.html">View benchmark →</a>
         </div>
 
-        <p class="back-link"><a href="../careers.html#fde">&larr; Back to Forward-Deployed Engineer</a></p>
+        <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
-        <a href="#overview">Overview</a>
-        <a href="#why-it-matters">Why it matters</a>
-        <a href="#method">Method &amp; evaluation</a>
-        <a href="#metrics">Evaluation metrics</a>
-        <a href="#leaderboard">Leaderboard</a>
-        <a href="#reading-the-results">Reading the results</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#feasibility-is-a-metric-you-cannot-flatter">Feasibility is a metric you cannot flatter</a>
+        <a href="#what-the-board-says">What the board says</a>
+        <a href="#travel-is-the-stand-in-not-the-subject">Travel is the stand-in, not the subject</a>
     </nav>
     </div>
 </article>
