@@ -1,0 +1,64 @@
+{
+ "slug": "formalmath",
+ "name": "FormalMATH",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Formal Math",
+ "abstract": "FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics. The strongest prover reaches 16.46% under practical sampling budgets — formal reasoning remains largely open.",
+ "contributions": [
+  "5,560 formally verified Lean4 problems — over twenty times the scale of MiniF2F's test split.",
+  "A human-in-the-loop autoformalization pipeline: specialist LLMs draft statements, multi-LLM semantic checks and negation-based disproof filter them, and IMO-medalist-level experts verify.",
+  "Reveals pronounced domain bias: provers do far better in algebra than calculus, and over-rely on simplified automation tactics."
+ ],
+ "method": [
+  "Statements are autoformalized from natural-language problems, then filtered by semantic verification and disproof of negations.",
+  "Provers are evaluated under fixed sampling budgets; a proof must check in Lean4.",
+  "The paper also finds natural-language solution guidance can hurt formal proof success."
+ ],
+ "metrics": [
+  {
+   "name": "Success rate",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Share of statements formally proven within the sampling budget (pass@32 for whole-proof generation)."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": null,
+   "model": "Kimina-Prover",
+   "org": "Numina & Kimi",
+   "color": "#94a3b8",
+   "score": 16.46,
+   "source": "arXiv paper (pass@32)",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": null,
+   "model": "BFS-Prover",
+   "org": "ByteDance",
+   "color": "#94a3b8",
+   "score": 11.13,
+   "source": "arXiv paper (best-first search)",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Success rate",
+ "leaderboard_note": "Scores are from the FormalMATH technical report under its stated sampling budgets; settings differ by prover family.",
+ "links": {
+  "paper": "https://arxiv.org/abs/2505.02735",
+  "code": "https://github.com/Sphere-AI-Lab/FormalMATH-Bench",
+  "pdf": "https://arxiv.org/pdf/2505.02735.pdf"
+ },
+ "image": "static/images/benchmarks/formalmath.svg",
+ "at_a_glance": {
+  "focus": "Formal proof in Lean4",
+  "primary_metric": "Success rate",
+  "setting": "Pass@32 whole-proof generation",
+  "models_scored": 2,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

@@ -1,0 +1,43 @@
+{
+ "slug": "autokaggle",
+ "name": "AutoKaggle",
+ "domain": "agent",
+ "domain_name": "Agent Benchmark",
+ "subcategory": "Data Science Agent",
+ "abstract": "AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page will be populated at the next TokenWave data refresh.",
+ "contributions": [
+  "Treats a Kaggle competition as one deliverable pipeline, not isolated code snippets.",
+  "A phase-based workflow with cooperating agents (reading, planning, coding, reviewing, summarizing) plus iterative debugging and unit tests.",
+  "Includes a machine-learning tools library so agents assemble reliable pipelines instead of improvising every step."
+ ],
+ "method": [
+  "Each competition run proceeds through fixed phases with validation gates between them.",
+  "Generated code is unit-tested and debugged in place before the pipeline advances.",
+  "Runs are scored on completion of a valid submission and on solution quality across competitions."
+ ],
+ "metrics": [
+  {
+   "name": "Completion rate",
+   "direction": "higher",
+   "range": "[0, 1]",
+   "note": "Share of competition runs that end in a valid, reproducible submission."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Completion rate",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2410.20424",
+  "code": "https://github.com/multimodal-art-projection/AutoKaggle",
+  "pdf": "https://arxiv.org/pdf/2410.20424.pdf"
+ },
+ "image": "static/images/benchmarks/autokaggle.svg",
+ "at_a_glance": {
+  "focus": "End-to-end data-science pipelines",
+  "primary_metric": "Completion rate",
+  "setting": "Multi-phase agent runs on Kaggle tasks",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

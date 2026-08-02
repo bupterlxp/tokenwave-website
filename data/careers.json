@@ -1,14 +1,41 @@
 {
-  "_comment": "Career dossiers for careers.html. Narrowed to the coding career for launch — the full six-career roster is preserved in data/archive/careers-full.json. Career slugs must exist in data/benchmarks/; only benchmarks referenced by a career or a published research note get pages built.",
+  "_comment": "Career dossiers for careers.html. Four launch careers; the earlier six-occupation roster is preserved in data/archive/careers-full.json. Career slugs must exist in data/benchmarks/; only benchmarks referenced by a career or a published research note get pages built.",
   "careers": [
     {
-      "id": "software-engineering",
-      "name": "Software Engineer",
+      "id": "programmer",
+      "name": "Programmer",
       "status": "certifying",
       "tagline": "Ships the feature, reviews the diff, keeps the repository alive",
-      "description": "Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This is the career TokenWave certifies first, measured on benchmarks we design and maintain in-house — whether an agent can turn a brief into a working repository, whether it actually knows the ecosystems it codes in, and whether its work survives a real browser. The gap between an agent you supervise and one you trust lives here.",
-      "duties": "Feature implementation · Code review & testing · Repository delivery",
-      "benchmarks": ["nl2repo_bench", "code_simpleqa", "web_compass"]
+      "description": "Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This dossier covers the full craft — turning a brief into a working repository, knowing the ecosystems you code in, editing living code rather than generating throwaway snippets, and running what you wrote until it passes. Anchored by TokenWave's own benchmarks and the open-source code stack behind them.",
+      "duties": "Feature implementation · Code review & editing · Repository delivery",
+      "benchmarks": ["nl2repo_bench", "code_simpleqa", "codeeditorbench", "opencoder", "opencodeinterpreter"]
+    },
+    {
+      "id": "mathematician",
+      "name": "Mathematician",
+      "status": "certifying",
+      "tagline": "Every claim carries a proof, and the proof must check",
+      "description": "Mathematics is the profession with the hardest verifier on earth: a proof either checks or it does not. This dossier spans the discipline's full range — formal theorem proving in Lean4 where the frontier proves barely one statement in six, Olympiad-level problem solving past the saturated school suites, and the critic's craft of judging formalizations without rubber-stamping them.",
+      "duties": "Formal proof · Competition problem solving · Formalization review",
+      "benchmarks": ["formalmath", "omni_math", "criticlean"]
+    },
+    {
+      "id": "mle",
+      "name": "Machine Learning Engineer",
+      "status": "certifying",
+      "tagline": "From raw data to a submitted model, end to end",
+      "description": "The MLE's deliverable is a pipeline that survives contact with real data: understand the problem, engineer the features, train, validate, debug, and ship a submission that scores. This dossier measures that arc end to end — autonomous data-science pipelines on real competitions, and the deeper question of how much better an agent gets after twelve unbroken hours inside a real environment.",
+      "duties": "Data-science pipelines · Model training & validation · Long-horizon iteration",
+      "benchmarks": ["autokaggle", "edgebench"]
+    },
+    {
+      "id": "av-editor",
+      "name": "Audio & Video Editor",
+      "status": "certifying",
+      "tagline": "From raw material to a cut that holds together",
+      "description": "Editing is judged on the finished cut: pacing, continuity, sound and image locked together, delivered through professional tools. This dossier measures both halves of the job — whether an agent can carry a full song to a coherent, expert-judged music video, and whether it can drive real desktop production software through the long multimedia workflows the trade runs on.",
+      "duties": "Music-video production · Multimedia workflows · Post-production QA",
+      "benchmarks": ["automv", "workflow_gym"]
     }
   ]
 }

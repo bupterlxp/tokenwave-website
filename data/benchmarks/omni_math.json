@@ -1,0 +1,43 @@
+{
+ "slug": "omni_math",
+ "name": "Omni-MATH",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Olympiad Math",
+ "abstract": "Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking. It measures competition mathematics specifically, past the saturation of GSM8K and MATH. Results on this page will be populated at the next TokenWave data refresh.",
+ "contributions": [
+  "4,428 competition-level problems with rigorous human annotation.",
+  "33 sub-domains across more than 10 difficulty levels enable fine-grained diagnosis, not one blended score.",
+  "Ships Omni-Judge, an open evaluator for checking free-form competition answers."
+ ],
+ "method": [
+  "Problems are curated from Olympiad sources and annotated by domain and difficulty.",
+  "Models answer free-form; Omni-Judge verifies equivalence against reference answers.",
+  "Analysis at release showed frontier reasoning models still failing a large share of higher-tier problems."
+ ],
+ "metrics": [
+  {
+   "name": "Accuracy",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Judge-verified answer accuracy across the full set."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Accuracy",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2410.07985",
+  "code": "https://github.com/KbsdJames/Omni-MATH",
+  "pdf": "https://arxiv.org/pdf/2410.07985.pdf"
+ },
+ "image": "static/images/benchmarks/omni-math.svg",
+ "at_a_glance": {
+  "focus": "Olympiad-level mathematics",
+  "primary_metric": "Accuracy",
+  "setting": "Free-form answers, judge-verified",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

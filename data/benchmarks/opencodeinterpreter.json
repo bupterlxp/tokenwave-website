@@ -1,0 +1,43 @@
+{
+ "slug": "opencodeinterpreter",
+ "name": "OpenCodeInterpreter",
+ "domain": "agent",
+ "domain_name": "Agent Benchmark",
+ "subcategory": "Code Execution",
+ "abstract": "OpenCodeInterpreter closes the loop between writing code and running it: models generate, execute, and refine code using execution results and feedback, trained on the Code-Feedback corpus of multi-turn interactions. Results on this page will be populated at the next TokenWave data refresh.",
+ "contributions": [
+  "Integrates code generation with execution and iterative refinement instead of one-shot output.",
+  "Releases Code-Feedback, a 68K multi-turn dataset of code, execution results, and human feedback.",
+  "Shows that execution-driven refinement substantially narrows the gap to proprietary code-interpreter systems."
+ ],
+ "method": [
+  "Each turn the model proposes code, observes execution output, and revises until the task passes or budget runs out.",
+  "Training data mixes single-turn packing, execution-feedback traces, and human-feedback corrections.",
+  "Evaluation uses standard code-generation suites with and without refinement rounds."
+ ],
+ "metrics": [
+  {
+   "name": "Pass@1 with refinement",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Execution-checked success after iterative refinement."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Pass@1 with refinement",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2402.14658",
+  "code": "https://github.com/OpenCodeInterpreter/OpenCodeInterpreter",
+  "pdf": "https://arxiv.org/pdf/2402.14658.pdf"
+ },
+ "image": "static/images/benchmarks/opencodeinterpreter.svg",
+ "at_a_glance": {
+  "focus": "Generate, execute, refine",
+  "primary_metric": "Pass@1 with refinement",
+  "setting": "Multi-turn execution feedback",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

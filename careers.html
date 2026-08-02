@@ -37,7 +37,15 @@
             </a>
             <nav>
                 <a href="index.html">Home</a>
-                <a href="careers.html"{ class="active"}>Careers</a>
+                <div class="nav-item">
+                    <a href="careers.html" class="active" aria-haspopup="true">Careers</a>
+                    <div class="nav-menu" role="menu" aria-label="Careers">
+                        <a href="careers.html#programmer" role="menuitem">Programmer</a>
+                        <a href="careers.html#mathematician" role="menuitem">Mathematician</a>
+                        <a href="careers.html#mle" role="menuitem">Machine Learning Engineer</a>
+                        <a href="careers.html#av-editor" role="menuitem">Audio &amp; Video Editor</a>
+                    </div>
+                </div>
                 <a href="research.html">Research</a>
                 <a href="joinus.html">Join Us</a>
             </nav>
@@ -48,31 +56,41 @@
 <section class="page-header">
     <div class="eyebrow">Careers</div>
     <h1>The careers agents are learning to hold.</h1>
-    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house. 3 benchmarks, 1 career in certification, 44 models on the boards. More dossiers are in definition.</p>
+    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house. 12 benchmarks, 4 careers in certification, 46 models on the boards. More dossiers are in definition.</p>
 </section>
 
+<nav class="career-nav" aria-label="Careers on this page">
+        <a href="#programmer">Programmer</a>
+        <span class="sep">/</span>
+        <a href="#mathematician">Mathematician</a>
+        <span class="sep">/</span>
+        <a href="#mle">Machine Learning Engineer</a>
+        <span class="sep">/</span>
+        <a href="#av-editor">Audio &amp; Video Editor</a>
+</nav>
+
 <section class="career-index">
-    <div class="career-block rv" id="software-engineering">
+    <div class="career-block rv" id="programmer">
         <div class="career-head">
             <div class="career-meta">
                 <span class="career-idx">01</span>
                 <span class="career-status st-certifying">Certifying now</span>
             </div>
-            <h2>Software Engineer</h2>
+            <h2>Programmer</h2>
             <p class="career-tagline">Ships the feature, reviews the diff, keeps the repository alive.</p>
-            <p class="career-desc">Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This is the career TokenWave certifies first, measured on benchmarks we design and maintain in-house — whether an agent can turn a brief into a working repository, whether it actually knows the ecosystems it codes in, and whether its work survives a real browser. The gap between an agent you supervise and one you trust lives here.</p>
-            <p class="career-duties">Feature implementation · Code review &amp; testing · Repository delivery</p>
+            <p class="career-desc">Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This dossier covers the full craft — turning a brief into a working repository, knowing the ecosystems you code in, editing living code rather than generating throwaway snippets, and running what you wrote until it passes. Anchored by TokenWave&#x27;s own benchmarks and the open-source code stack behind them.</p>
+            <p class="career-duties">Feature implementation · Code review &amp; editing · Repository delivery</p>
             <div class="readiness">
                 <div class="readiness-top">
                     <span class="k">Frontier readiness</span>
-                    <span class="v">58%</span>
+                    <span class="v">53%</span>
                 </div>
-                <div class="meter"><span data-w="58"></span></div>
-                <p class="readiness-note">Mean leading score across the dossier's 3 scored benchmarks, normalized to each metric's range.</p>
+                <div class="meter"><span data-w="53"></span></div>
+                <p class="readiness-note">Mean leading score across the dossier's 2 scored benchmarks, normalized to each metric's range.</p>
             </div>
         </div>
         <div class="career-evidence">
-            <div class="evidence-h">The evidence &mdash; 3 benchmarks</div>
+            <div class="evidence-h">The evidence &mdash; 5 benchmarks</div>
             <div class="chip-grid">
             <a class="bench-chip" href="benchmarks/nl2repo-bench.html">
                 <span class="name">NL2Repo-Bench</span>
@@ -82,9 +100,120 @@
                 <span class="name">CodeSimpleQA</span>
                 <span class="sub">Knowledge <span class="sep">·</span> 65.05</span>
             </a>
-            <a class="bench-chip" href="benchmarks/web-compass.html">
-                <span class="name">WebCompass</span>
-                <span class="sub">Code Agent <span class="sep">·</span> 67.4</span>
+            <a class="bench-chip" href="benchmarks/codeeditorbench.html">
+                <span class="name">CodeEditorBench</span>
+                <span class="sub">Code Editing</span>
+            </a>
+            <a class="bench-chip" href="benchmarks/opencoder.html">
+                <span class="name">OpenCoder</span>
+                <span class="sub">Open Code LLM</span>
+            </a>
+            <a class="bench-chip" href="benchmarks/opencodeinterpreter.html">
+                <span class="name">OpenCodeInterpreter</span>
+                <span class="sub">Code Execution</span>
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="career-block rv" id="mathematician">
+        <div class="career-head">
+            <div class="career-meta">
+                <span class="career-idx">02</span>
+                <span class="career-status st-certifying">Certifying now</span>
+            </div>
+            <h2>Mathematician</h2>
+            <p class="career-tagline">Every claim carries a proof, and the proof must check.</p>
+            <p class="career-desc">Mathematics is the profession with the hardest verifier on earth: a proof either checks or it does not. This dossier spans the discipline&#x27;s full range — formal theorem proving in Lean4 where the frontier proves barely one statement in six, Olympiad-level problem solving past the saturated school suites, and the critic&#x27;s craft of judging formalizations without rubber-stamping them.</p>
+            <p class="career-duties">Formal proof · Competition problem solving · Formalization review</p>
+            <div class="readiness">
+                <div class="readiness-top">
+                    <span class="k">Frontier readiness</span>
+                    <span class="v">53%</span>
+                </div>
+                <div class="meter"><span data-w="53"></span></div>
+                <p class="readiness-note">Mean leading score across the dossier's 2 scored benchmarks, normalized to each metric's range.</p>
+            </div>
+        </div>
+        <div class="career-evidence">
+            <div class="evidence-h">The evidence &mdash; 3 benchmarks</div>
+            <div class="chip-grid">
+            <a class="bench-chip" href="benchmarks/formalmath.html">
+                <span class="name">FormalMATH</span>
+                <span class="sub">Formal Math <span class="sep">·</span> 16.46</span>
+            </a>
+            <a class="bench-chip" href="benchmarks/omni-math.html">
+                <span class="name">Omni-MATH</span>
+                <span class="sub">Olympiad Math</span>
+            </a>
+            <a class="bench-chip" href="benchmarks/criticlean.html">
+                <span class="name">CriticLean</span>
+                <span class="sub">Math <span class="sep">·</span> 89.2</span>
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="career-block rv" id="mle">
+        <div class="career-head">
+            <div class="career-meta">
+                <span class="career-idx">03</span>
+                <span class="career-status st-certifying">Certifying now</span>
+            </div>
+            <h2>Machine Learning Engineer</h2>
+            <p class="career-tagline">From raw data to a submitted model, end to end.</p>
+            <p class="career-desc">The MLE&#x27;s deliverable is a pipeline that survives contact with real data: understand the problem, engineer the features, train, validate, debug, and ship a submission that scores. This dossier measures that arc end to end — autonomous data-science pipelines on real competitions, and the deeper question of how much better an agent gets after twelve unbroken hours inside a real environment.</p>
+            <p class="career-duties">Data-science pipelines · Model training &amp; validation · Long-horizon iteration</p>
+            <div class="readiness">
+                <div class="readiness-top">
+                    <span class="k">Frontier readiness</span>
+                    <span class="v">51%</span>
+                </div>
+                <div class="meter"><span data-w="51"></span></div>
+                <p class="readiness-note">Mean leading score across the dossier's 1 scored benchmarks, normalized to each metric's range.</p>
+            </div>
+        </div>
+        <div class="career-evidence">
+            <div class="evidence-h">The evidence &mdash; 2 benchmarks</div>
+            <div class="chip-grid">
+            <a class="bench-chip" href="benchmarks/autokaggle.html">
+                <span class="name">AutoKaggle</span>
+                <span class="sub">Data Science Agent</span>
+            </a>
+            <a class="bench-chip" href="benchmarks/edgebench.html">
+                <span class="name">EdgeBench</span>
+                <span class="sub">Environment Learning <span class="sep">·</span> 51.3</span>
+            </a>
+            </div>
+        </div>
+    </div>
+    <div class="career-block rv" id="av-editor">
+        <div class="career-head">
+            <div class="career-meta">
+                <span class="career-idx">04</span>
+                <span class="career-status st-certifying">Certifying now</span>
+            </div>
+            <h2>Audio &amp; Video Editor</h2>
+            <p class="career-tagline">From raw material to a cut that holds together.</p>
+            <p class="career-desc">Editing is judged on the finished cut: pacing, continuity, sound and image locked together, delivered through professional tools. This dossier measures both halves of the job — whether an agent can carry a full song to a coherent, expert-judged music video, and whether it can drive real desktop production software through the long multimedia workflows the trade runs on.</p>
+            <p class="career-duties">Music-video production · Multimedia workflows · Post-production QA</p>
+            <div class="readiness">
+                <div class="readiness-top">
+                    <span class="k">Frontier readiness</span>
+                    <span class="v">28%</span>
+                </div>
+                <div class="meter"><span data-w="28"></span></div>
+                <p class="readiness-note">Mean leading score across the dossier's 2 scored benchmarks, normalized to each metric's range.</p>
+            </div>
+        </div>
+        <div class="career-evidence">
+            <div class="evidence-h">The evidence &mdash; 2 benchmarks</div>
+            <div class="chip-grid">
+            <a class="bench-chip" href="benchmarks/automv.html">
+                <span class="name">AutoMV</span>
+                <span class="sub">Music Video <span class="sep">·</span> 24.4</span>
+            </a>
+            <a class="bench-chip" href="benchmarks/workflow-gym.html">
+                <span class="name">Workflow-GYM</span>
+                <span class="sub">GUI Agent <span class="sep">·</span> 30.67</span>
             </a>
             </div>
         </div>
@@ -128,17 +257,142 @@
     </article>
 
     <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/web-compass.svg');"></div>
+        <div class="card-image" style="background-image: url('static/images/benchmarks/codeeditorbench.svg');"></div>
         <div class="card-body">
             <div class="card-meta">
-                <span class="lead">Leader &mdash; Claude Opus 4.5 · 67.4</span>
+                Code Editing
                 <span class="sep">·</span>
-                Code Agent
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/codeeditorbench.html">CodeEditorBench</a></h3>
+            <p>CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/opencoder.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                Open Code LLM
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/opencoder.html">OpenCoder</a></h3>
+            <p>OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/opencodeinterpreter.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                Code Execution
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/opencodeinterpreter.html">OpenCodeInterpreter</a></h3>
+            <p>OpenCodeInterpreter closes the loop between writing code and running it: models generate, execute, and refine code using execution results and feedback, trained on the Code-Feedback corpus of multi-turn interactions.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/formalmath.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                <span class="lead">Leader &mdash; Kimina-Prover · 16.46</span>
+                <span class="sep">·</span>
+                Formal Math
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/formalmath.html">FormalMATH</a></h3>
+            <p>FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/omni-math.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                Olympiad Math
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/omni-math.html">Omni-MATH</a></h3>
+            <p>Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/criticlean.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                <span class="lead">Leader &mdash; Gemini 2.5 Pro · 89.2</span>
+                <span class="sep">·</span>
+                Math
                 <span class="sep">·</span>
                 updated 2026-04-21
             </div>
-            <h3><a href="benchmarks/web-compass.html">WebCompass</a></h3>
-            <p>Web coding measured whole — generation, editing, and repair, judged by an agent in a real browser.</p>
+            <h3><a href="benchmarks/criticlean.html">CriticLean</a></h3>
+            <p>Measuring whether models can serve as reliable critics for mathematical formalization in Lean.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/autokaggle.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                Data Science Agent
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/autokaggle.html">AutoKaggle</a></h3>
+            <p>AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/edgebench.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                <span class="lead">Leader &mdash; Claude Opus 4.8 · 51.3</span>
+                <span class="sep">·</span>
+                Environment Learning
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/edgebench.html">EdgeBench</a></h3>
+            <p>EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/automv.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                <span class="lead">Leader &mdash; AutoMV (M-A-P) · 24.4</span>
+                <span class="sep">·</span>
+                Music Video
+                <span class="sep">·</span>
+                updated 2026-08-03
+            </div>
+            <h3><a href="benchmarks/automv.html">AutoMV</a></h3>
+            <p>AutoMV turns a full song into a coherent music video with a multi-agent system — and ships the first music-to-video evaluation benchmark: four categories and twelve expert criteria, with an LLM judge that tracks professional raters.</p>
+        </div>
+    </article>
+
+    <article class="card card-row">
+        <div class="card-image" style="background-image: url('static/images/benchmarks/workflow-gym.svg');"></div>
+        <div class="card-body">
+            <div class="card-meta">
+                <span class="lead">Leader &mdash; Gemini 3.1 Pro · 30.67</span>
+                <span class="sep">·</span>
+                GUI Agent
+                <span class="sep">·</span>
+                updated 2026-07-05
+            </div>
+            <h3><a href="benchmarks/workflow-gym.html">Workflow-GYM</a></h3>
+            <p>Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
         </div>
     </article>
 
@@ -179,7 +433,7 @@
     <!-- Page transition state machine -->
     <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="static/js/home-data.js?v=e93341c4" defer></script>
+    <script src="static/js/home-data.js?v=6aac8ea1" defer></script>
     <script src="static/js/site.js?v=bf397a8c" defer></script>
 </body>
 </html>

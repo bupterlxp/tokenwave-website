@@ -1,0 +1,54 @@
+{
+ "slug": "edgebench",
+ "name": "EdgeBench",
+ "domain": "agent",
+ "domain_name": "Agent Benchmark",
+ "subcategory": "Environment Learning",
+ "abstract": "EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation. Performance follows a log-sigmoid law in interaction time (R² = 0.998) — the benchmark behind the environment-learning scaling law.",
+ "contributions": [
+  "134 expert-built real-world tasks spanning science and ML, systems engineering, optimization, professional knowledge work, formal math, and games; experts averaged 57.2 hours per task.",
+  "Every task supports 12+ hours of agent operation, with extended runs beyond 72 hours; 51 tasks are public and 83 held out against contamination.",
+  "The SForge harness isolates the agent's work container from ephemeral judge containers, giving granular feedback in a closed improvement loop."
+ ],
+ "method": [
+  "Agents work in an executable environment, submit repeatedly, and receive pass rates and failing-test feedback until timeout.",
+  "The best submission across the run is the task score.",
+  "Across ~38,000 hours of interaction, score follows a log-sigmoid function of environment time; learning speed roughly doubles every three months across model generations."
+ ],
+ "metrics": [
+  {
+   "name": "Score @12h",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Best-submission score after 12 hours of environment interaction, averaged over tasks."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": null,
+   "model": "Claude Opus 4.8",
+   "org": "Anthropic",
+   "color": "#94a3b8",
+   "score": 51.3,
+   "source": "EdgeBench public snapshot",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "Score @12h",
+ "leaderboard_note": "Published snapshot of the public task set; a full run is compute-intensive, so coverage grows slowly.",
+ "links": {
+  "paper": "https://arxiv.org/abs/2607.05155",
+  "code": "https://github.com/ByteDance-Seed/EdgeBench",
+  "pdf": "https://arxiv.org/pdf/2607.05155.pdf"
+ },
+ "image": "static/images/benchmarks/edgebench.svg",
+ "at_a_glance": {
+  "focus": "Learning from real environments",
+  "primary_metric": "Score @12h",
+  "setting": "12–72 hour closed-loop runs",
+  "models_scored": 1,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

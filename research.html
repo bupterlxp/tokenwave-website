@@ -37,7 +37,15 @@
             </a>
             <nav>
                 <a href="index.html">Home</a>
-                <a href="careers.html"{}>Careers</a>
+                <div class="nav-item">
+                    <a href="careers.html" aria-haspopup="true">Careers</a>
+                    <div class="nav-menu" role="menu" aria-label="Careers">
+                        <a href="careers.html#programmer" role="menuitem">Programmer</a>
+                        <a href="careers.html#mathematician" role="menuitem">Mathematician</a>
+                        <a href="careers.html#mle" role="menuitem">Machine Learning Engineer</a>
+                        <a href="careers.html#av-editor" role="menuitem">Audio &amp; Video Editor</a>
+                    </div>
+                </div>
                 <a href="research.html" class="active">Research</a>
                 <a href="joinus.html">Join Us</a>
             </nav>
@@ -149,7 +157,7 @@
     <!-- Page transition state machine -->
     <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="static/js/home-data.js?v=e93341c4" defer></script>
+    <script src="static/js/home-data.js?v=6aac8ea1" defer></script>
     <script src="static/js/site.js?v=bf397a8c" defer></script>
 </body>
 </html>

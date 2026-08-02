@@ -37,7 +37,15 @@
             </a>
             <nav>
                 <a href="../index.html">Home</a>
-                <a href="../careers.html"{ class="active"}>Careers</a>
+                <div class="nav-item">
+                    <a href="../careers.html" class="active" aria-haspopup="true">Careers</a>
+                    <div class="nav-menu" role="menu" aria-label="Careers">
+                        <a href="../careers.html#programmer" role="menuitem">Programmer</a>
+                        <a href="../careers.html#mathematician" role="menuitem">Mathematician</a>
+                        <a href="../careers.html#mle" role="menuitem">Machine Learning Engineer</a>
+                        <a href="../careers.html#av-editor" role="menuitem">Audio &amp; Video Editor</a>
+                    </div>
+                </div>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
             </nav>
@@ -49,7 +57,7 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/workflow-gym.svg');" role="img" aria-label="Workflow-GYM — led by Gemini 3.1 Pro at 30.67"></div>
         <div class="detail-head">
-            <div class="eyebrow">Research · GUI Agent</div>
+            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#av-editor">Audio &amp; Video Editor</a> · GUI Agent</div>
             <h1>Workflow-GYM</h1>
             <p class="detail-tagline">Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
             <p class="detail-meta">
@@ -134,7 +142,7 @@
             <a class="button primary" href="../research/workflow-gym.html">Read note →</a>
         </div>
 
-        <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
+        <p class="back-link"><a href="../careers.html#av-editor">&larr; Back to Audio &amp; Video Editor</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
@@ -206,7 +214,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=e93341c4" defer></script>
+    <script src="../static/js/home-data.js?v=6aac8ea1" defer></script>
     <script src="../static/js/site.js?v=bf397a8c" defer></script>
 </body>
 </html>

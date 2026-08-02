@@ -1,0 +1,43 @@
+{
+ "slug": "codeeditorbench",
+ "name": "CodeEditorBench",
+ "domain": "agent",
+ "domain_name": "Agent Benchmark",
+ "subcategory": "Code Editing",
+ "abstract": "CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes. Results on this page will be populated at the next TokenWave data refresh.",
+ "contributions": [
+  "Frames code editing as its own capability, distinct from one-shot code generation.",
+  "Covers four editing scenarios — debug, translate, polish, and requirement switching — sourced from real submissions and curated exercises.",
+  "Provides an online judge so edited programs are executed and checked, not pattern-matched."
+ ],
+ "method": [
+  "Tasks are drawn from multiple languages and difficulty tiers, each paired with test cases.",
+  "Models receive the original code plus an editing instruction and must return a working revision.",
+  "Evaluation executes the revised program against hidden tests in the judge environment."
+ ],
+ "metrics": [
+  {
+   "name": "Pass rate",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Share of editing tasks whose revised program passes the hidden tests."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Pass rate",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2404.03543",
+  "code": "https://github.com/CodeEditorBench/CodeEditorBench",
+  "pdf": "https://arxiv.org/pdf/2404.03543.pdf"
+ },
+ "image": "static/images/benchmarks/codeeditorbench.svg",
+ "at_a_glance": {
+  "focus": "Code editing, not generation",
+  "primary_metric": "Pass rate",
+  "setting": "Execution-checked editing tasks",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

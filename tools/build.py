@@ -648,7 +648,11 @@ def build_careers_page(benches, careers, models_tracked, editorial):
     for slug in (s for c in careers for s in c["benchmarks"]):
         b = benches[slug]
         ed = editorial.get(slug)
-        blurb = (ed["tagline"] + ".") if ed else (b["abstract"] or "")[:180]
+        if ed:
+            blurb = ed["tagline"] + "."
+        else:
+            first = (b["abstract"] or "").split(". ")[0]
+            blurb = (first + ".") if first else b["name"]
         lab_cards.append(card(d, f"benchmarks/{file_slug(slug)}.html", b["image"],
                               bench_meta_line(b), b["name"], esc(blurb)))
 

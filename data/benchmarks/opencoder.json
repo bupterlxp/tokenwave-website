@@ -1,0 +1,43 @@
+{
+ "slug": "opencoder",
+ "name": "OpenCoder",
+ "domain": "llm",
+ "domain_name": "LLM Benchmark",
+ "subcategory": "Open Code LLM",
+ "abstract": "OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size. TokenWave tracks it as the transparency baseline for the Programmer career.",
+ "contributions": [
+  "Releases the full production chain of a competitive code LLM: reproducible data pipeline, the RefineCode pretraining corpus, and intermediate checkpoints.",
+  "RefineCode contains roughly 2.5 trillion tokens of code-heavy data with language-specific cleaning rules.",
+  "Documents which pretraining and annealing choices actually move code capability, verified by ablation."
+ ],
+ "method": [
+  "Pretraining data is cleaned with per-language heuristics and deduplication, then annealed with high-quality synthetic data.",
+  "Instruction tuning uses a large curated SFT set; every stage is released for inspection.",
+  "The paper reports standard code-benchmark results against open and closed models of comparable size."
+ ],
+ "metrics": [
+  {
+   "name": "Openness",
+   "direction": "higher",
+   "range": null,
+   "note": "Tracked qualitatively: the project's value is the reproducible recipe, not a single score."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Openness",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2411.04905",
+  "code": "https://github.com/OpenCoder-llm/OpenCoder-llm",
+  "pdf": "https://arxiv.org/pdf/2411.04905.pdf"
+ },
+ "image": "static/images/benchmarks/opencoder.svg",
+ "at_a_glance": {
+  "focus": "Fully open code-LLM recipe",
+  "primary_metric": "Openness",
+  "setting": "Reproducible pipeline and checkpoints",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

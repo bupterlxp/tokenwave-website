@@ -1,0 +1,74 @@
+{
+ "slug": "automv",
+ "name": "AutoMV",
+ "domain": "aigc",
+ "domain_name": "AIGC Benchmark",
+ "subcategory": "Music Video",
+ "abstract": "AutoMV turns a full song into a coherent music video with a multi-agent system — and ships the first music-to-video evaluation benchmark: four categories and twelve expert criteria, with an LLM judge that tracks professional raters. TokenWave anchors the Audio & Video Editor career to it.",
+ "contributions": [
+  "The first open benchmark for music-to-video quality: Music Content, Technical, Post-production, and Art, refined into twelve criteria scored 1–5.",
+  "LLM-Score, an automatic judge whose ratings largely align with independent musicians and music-industry professionals.",
+  "A generation system to match: screenwriter and director agents, a character bank for identity consistency, and a verifier that sends failed shots back for regeneration."
+ ],
+ "method": [
+  "Evaluation runs on 30 professionally released songs across English, Chinese, Japanese, and Korean.",
+  "Expert raters watch full videos with audio and score every sub-criterion; LLM-Score approximates the same rubric automatically.",
+  "Cross-system comparison also reports audio-visual alignment via ImageBind score."
+ ],
+ "metrics": [
+  {
+   "name": "ImageBind score",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Audio-visual alignment between the generated video and the song; the paper's cross-system comparison metric."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": null,
+   "model": "AutoMV (M-A-P)",
+   "org": "M-A-P",
+   "color": "#94a3b8",
+   "score": 24.4,
+   "source": "arXiv paper",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": null,
+   "model": "Revid.ai-base",
+   "org": "Revid.ai",
+   "color": "#94a3b8",
+   "score": 19.9,
+   "source": "arXiv paper",
+   "date": null
+  },
+  {
+   "rank": 3,
+   "model_id": null,
+   "model": "OpenArt-story",
+   "org": "OpenArt",
+   "color": "#94a3b8",
+   "score": 18.5,
+   "source": "arXiv paper",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "ImageBind score",
+ "leaderboard_note": "Rows are generation systems, not base models; scores from the paper's cross-system comparison on the 30-song set.",
+ "links": {
+  "paper": "https://arxiv.org/abs/2512.12196",
+  "code": "https://github.com/multimodal-art-projection/AutoMV",
+  "pdf": "https://arxiv.org/pdf/2512.12196.pdf"
+ },
+ "image": "static/images/benchmarks/automv.svg",
+ "at_a_glance": {
+  "focus": "Music-to-video generation quality",
+  "primary_metric": "ImageBind score",
+  "setting": "12 criteria · expert + LLM judging",
+  "models_scored": 3,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}
