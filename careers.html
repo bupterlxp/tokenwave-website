@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="static/css/style.css?v=1f207cd8">
+    <link rel="stylesheet" href="static/css/style.css?v=3c0ab80e">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -37,15 +37,7 @@
             </a>
             <nav>
                 <a href="index.html">Home</a>
-                <div class="nav-item">
-                    <a href="careers.html" class="active" aria-haspopup="true">Careers</a>
-                    <div class="nav-menu" role="menu" aria-label="Careers">
-                        <a href="careers.html#programmer" role="menuitem">Programmer</a>
-                        <a href="careers.html#mathematician" role="menuitem">Mathematician</a>
-                        <a href="careers.html#mle" role="menuitem">Machine Learning Engineer</a>
-                        <a href="careers.html#av-editor" role="menuitem">Audio &amp; Video Editor</a>
-                    </div>
-                </div>
+                <a href="careers.html" class="active">Careers</a>
                 <a href="research.html">Research</a>
                 <a href="joinus.html">Join Us</a>
             </nav>
@@ -59,7 +51,7 @@
     <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house. 12 benchmarks, 4 careers in certification, 46 models on the boards. More dossiers are in definition.</p>
 </section>
 
-<nav class="career-nav" aria-label="Careers on this page">
+<nav class="career-strip" aria-label="Careers on this page">
         <a href="#programmer">Programmer</a>
         <span class="sep">/</span>
         <a href="#mathematician">Mathematician</a>
@@ -69,7 +61,14 @@
         <a href="#av-editor">Audio &amp; Video Editor</a>
 </nav>
 
-<section class="career-index">
+<div class="careers-layout">
+    <nav class="rail" aria-label="Careers on this page">
+        <a href="#programmer"><span class="dot"></span><span class="lbl">Programmer</span></a>
+        <a href="#mathematician"><span class="dot"></span><span class="lbl">Mathematician</span></a>
+        <a href="#mle"><span class="dot"></span><span class="lbl">Machine Learning Engineer</span></a>
+        <a href="#av-editor"><span class="dot"></span><span class="lbl">Audio &amp; Video Editor</span></a>
+    </nav>
+    <section class="career-index">
     <div class="career-block rv" id="programmer">
         <div class="career-head">
             <div class="career-meta">
@@ -91,28 +90,46 @@
         </div>
         <div class="career-evidence">
             <div class="evidence-h">The evidence &mdash; 5 benchmarks</div>
-            <div class="chip-grid">
-            <a class="bench-chip" href="benchmarks/nl2repo-bench.html">
-                <span class="name">NL2Repo-Bench</span>
-                <span class="sub">Code Agent <span class="sep">·</span> 40.2</span>
+            <a class="ev-card" href="benchmarks/nl2repo-bench.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Code Agent <span class="sep">·</span> <span class="lead">Claude Sonnet 4.5 (Claude Code) · 40.2</span></div>
+                    <h3>NL2Repo-Bench</h3>
+                    <p>Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/nl2repo-bench.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/code-simpleqa.html">
-                <span class="name">CodeSimpleQA</span>
-                <span class="sub">Knowledge <span class="sep">·</span> 65.05</span>
+            <a class="ev-card" href="benchmarks/code-simpleqa.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Knowledge <span class="sep">·</span> <span class="lead">GPT-5 · 65.05</span></div>
+                    <h3>CodeSimpleQA</h3>
+                    <p>Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/code-simpleqa.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/codeeditorbench.html">
-                <span class="name">CodeEditorBench</span>
-                <span class="sub">Code Editing</span>
+            <a class="ev-card" href="benchmarks/codeeditorbench.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Code Editing <span class="sep">·</span> board pending</div>
+                    <h3>CodeEditorBench</h3>
+                    <p>CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/codeeditorbench.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/opencoder.html">
-                <span class="name">OpenCoder</span>
-                <span class="sub">Open Code LLM</span>
+            <a class="ev-card" href="benchmarks/opencoder.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Open Code LLM <span class="sep">·</span> board pending</div>
+                    <h3>OpenCoder</h3>
+                    <p>OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/opencoder.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/opencodeinterpreter.html">
-                <span class="name">OpenCodeInterpreter</span>
-                <span class="sub">Code Execution</span>
+            <a class="ev-card" href="benchmarks/opencodeinterpreter.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Code Execution <span class="sep">·</span> board pending</div>
+                    <h3>OpenCodeInterpreter</h3>
+                    <p>OpenCodeInterpreter closes the loop between writing code and running it: models generate, execute, and refine code using execution results and feedback, trained on the Code-Feedback corpus of multi-turn interactions.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/opencodeinterpreter.svg');"></div>
             </a>
-            </div>
         </div>
     </div>
     <div class="career-block rv" id="mathematician">
@@ -136,20 +153,30 @@
         </div>
         <div class="career-evidence">
             <div class="evidence-h">The evidence &mdash; 3 benchmarks</div>
-            <div class="chip-grid">
-            <a class="bench-chip" href="benchmarks/formalmath.html">
-                <span class="name">FormalMATH</span>
-                <span class="sub">Formal Math <span class="sep">·</span> 16.46</span>
+            <a class="ev-card" href="benchmarks/formalmath.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Formal Math <span class="sep">·</span> <span class="lead">Kimina-Prover · 16.46</span></div>
+                    <h3>FormalMATH</h3>
+                    <p>FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/formalmath.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/omni-math.html">
-                <span class="name">Omni-MATH</span>
-                <span class="sub">Olympiad Math</span>
+            <a class="ev-card" href="benchmarks/omni-math.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Olympiad Math <span class="sep">·</span> board pending</div>
+                    <h3>Omni-MATH</h3>
+                    <p>Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/omni-math.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/criticlean.html">
-                <span class="name">CriticLean</span>
-                <span class="sub">Math <span class="sep">·</span> 89.2</span>
+            <a class="ev-card" href="benchmarks/criticlean.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Math <span class="sep">·</span> <span class="lead">Gemini 2.5 Pro · 89.2</span></div>
+                    <h3>CriticLean</h3>
+                    <p>Measuring whether models can serve as reliable critics for mathematical formalization in Lean.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/criticlean.svg');"></div>
             </a>
-            </div>
         </div>
     </div>
     <div class="career-block rv" id="mle">
@@ -173,16 +200,22 @@
         </div>
         <div class="career-evidence">
             <div class="evidence-h">The evidence &mdash; 2 benchmarks</div>
-            <div class="chip-grid">
-            <a class="bench-chip" href="benchmarks/autokaggle.html">
-                <span class="name">AutoKaggle</span>
-                <span class="sub">Data Science Agent</span>
+            <a class="ev-card" href="benchmarks/autokaggle.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Data Science Agent <span class="sep">·</span> board pending</div>
+                    <h3>AutoKaggle</h3>
+                    <p>AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/autokaggle.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/edgebench.html">
-                <span class="name">EdgeBench</span>
-                <span class="sub">Environment Learning <span class="sep">·</span> 51.3</span>
+            <a class="ev-card" href="benchmarks/edgebench.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Environment Learning <span class="sep">·</span> <span class="lead">Claude Opus 4.8 · 51.3</span></div>
+                    <h3>EdgeBench</h3>
+                    <p>EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/edgebench.svg');"></div>
             </a>
-            </div>
         </div>
     </div>
     <div class="career-block rv" id="av-editor">
@@ -206,198 +239,26 @@
         </div>
         <div class="career-evidence">
             <div class="evidence-h">The evidence &mdash; 2 benchmarks</div>
-            <div class="chip-grid">
-            <a class="bench-chip" href="benchmarks/automv.html">
-                <span class="name">AutoMV</span>
-                <span class="sub">Music Video <span class="sep">·</span> 24.4</span>
+            <a class="ev-card" href="benchmarks/automv.html">
+                <div class="ev-body">
+                    <div class="ev-meta">Music Video <span class="sep">·</span> <span class="lead">AutoMV (M-A-P) · 24.4</span></div>
+                    <h3>AutoMV</h3>
+                    <p>AutoMV turns a full song into a coherent music video with a multi-agent system — and ships the first music-to-video evaluation benchmark: four categories and twelve expert criteria, with an LLM judge that tracks professional raters.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/automv.svg');"></div>
             </a>
-            <a class="bench-chip" href="benchmarks/workflow-gym.html">
-                <span class="name">Workflow-GYM</span>
-                <span class="sub">GUI Agent <span class="sep">·</span> 30.67</span>
+            <a class="ev-card" href="benchmarks/workflow-gym.html">
+                <div class="ev-body">
+                    <div class="ev-meta">GUI Agent <span class="sep">·</span> <span class="lead">Gemini 3.1 Pro · 30.67</span></div>
+                    <h3>Workflow-GYM</h3>
+                    <p>Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
+                </div>
+                <div class="ev-img" style="background-image: url('static/images/benchmarks/workflow-gym.svg');"></div>
             </a>
-            </div>
         </div>
     </div>
-</section>
-
-<section class="lab-note rv">
-    <div class="evidence-h">From the TokenWave lab</div>
-    <h2>The benchmarks behind the certification.</h2>
-    <p>Certification standards are only as good as the evaluations behind them. Every benchmark in this dossier is designed and maintained by TokenWave &mdash; built where the field's existing measurements stop short of the work we certify.</p>
-    <div class="list">
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/nl2repo-bench.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; Claude Sonnet 4.5 (Claude Code) · 40.2</span>
-                <span class="sep">·</span>
-                Code Agent
-                <span class="sep">·</span>
-                updated 2026-04-21
-            </div>
-            <h3><a href="benchmarks/nl2repo-bench.html">NL2Repo-Bench</a></h3>
-            <p>Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/code-simpleqa.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; GPT-5 · 65.05</span>
-                <span class="sep">·</span>
-                Knowledge
-                <span class="sep">·</span>
-                updated 2025-12-22
-            </div>
-            <h3><a href="benchmarks/code-simpleqa.html">CodeSimpleQA</a></h3>
-            <p>Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/codeeditorbench.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                Code Editing
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/codeeditorbench.html">CodeEditorBench</a></h3>
-            <p>CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/opencoder.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                Open Code LLM
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/opencoder.html">OpenCoder</a></h3>
-            <p>OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/opencodeinterpreter.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                Code Execution
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/opencodeinterpreter.html">OpenCodeInterpreter</a></h3>
-            <p>OpenCodeInterpreter closes the loop between writing code and running it: models generate, execute, and refine code using execution results and feedback, trained on the Code-Feedback corpus of multi-turn interactions.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/formalmath.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; Kimina-Prover · 16.46</span>
-                <span class="sep">·</span>
-                Formal Math
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/formalmath.html">FormalMATH</a></h3>
-            <p>FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/omni-math.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                Olympiad Math
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/omni-math.html">Omni-MATH</a></h3>
-            <p>Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/criticlean.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; Gemini 2.5 Pro · 89.2</span>
-                <span class="sep">·</span>
-                Math
-                <span class="sep">·</span>
-                updated 2026-04-21
-            </div>
-            <h3><a href="benchmarks/criticlean.html">CriticLean</a></h3>
-            <p>Measuring whether models can serve as reliable critics for mathematical formalization in Lean.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/autokaggle.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                Data Science Agent
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/autokaggle.html">AutoKaggle</a></h3>
-            <p>AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/edgebench.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; Claude Opus 4.8 · 51.3</span>
-                <span class="sep">·</span>
-                Environment Learning
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/edgebench.html">EdgeBench</a></h3>
-            <p>EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/automv.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; AutoMV (M-A-P) · 24.4</span>
-                <span class="sep">·</span>
-                Music Video
-                <span class="sep">·</span>
-                updated 2026-08-03
-            </div>
-            <h3><a href="benchmarks/automv.html">AutoMV</a></h3>
-            <p>AutoMV turns a full song into a coherent music video with a multi-agent system — and ships the first music-to-video evaluation benchmark: four categories and twelve expert criteria, with an LLM judge that tracks professional raters.</p>
-        </div>
-    </article>
-
-    <article class="card card-row">
-        <div class="card-image" style="background-image: url('static/images/benchmarks/workflow-gym.svg');"></div>
-        <div class="card-body">
-            <div class="card-meta">
-                <span class="lead">Leader &mdash; Gemini 3.1 Pro · 30.67</span>
-                <span class="sep">·</span>
-                GUI Agent
-                <span class="sep">·</span>
-                updated 2026-07-05
-            </div>
-            <h3><a href="benchmarks/workflow-gym.html">Workflow-GYM</a></h3>
-            <p>Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
-        </div>
-    </article>
-
-    </div>
-</section>
+    </section>
+</div>
 
     </main>
     <footer class="site-footer">
@@ -434,6 +295,6 @@
     <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
     <script src="static/js/home-data.js?v=6aac8ea1" defer></script>
-    <script src="static/js/site.js?v=bf397a8c" defer></script>
+    <script src="static/js/site.js?v=beb381bc" defer></script>
 </body>
 </html>

@@ -143,19 +143,6 @@ def head(depth, title, desc, path, og_type="website", published=None):
 CAREERS_NAV = []
 
 
-def careers_menu(depth):
-    if len(CAREERS_NAV) < 2:
-        return '<a href="{d}careers.html"{{cls}}>Careers</a>'.replace('{d}', depth)
-    items = "\n                        ".join(
-        f'<a href="{depth}careers.html#{cid}" role="menuitem">{esc(name)}</a>'
-        for cid, name in CAREERS_NAV
-    )
-    return f"""<div class="nav-item">
-                    <a href="{depth}careers.html"{{cls}} aria-haspopup="true">Careers</a>
-                    <div class="nav-menu" role="menu" aria-label="Careers">
-                        {items}
-                    </div>
-                </div>"""
 
 
 def header(depth, active):
@@ -163,7 +150,6 @@ def header(depth, active):
     def nav(href, label, key):
         cls = ' class="active"' if key == active else ""
         return f'<a href="{d}{href}"{cls}>{label}</a>'
-    careers_cls = ' class="active"' if active == "careers" else ""
     return f"""<body>
     <header class="site-header">
         <div class="container header-content">
@@ -173,7 +159,7 @@ def header(depth, active):
             </a>
             <nav>
                 {nav('index.html', 'Home', 'home')}
-                {careers_menu(d).replace('{cls}', careers_cls)}
+                {nav('careers.html', 'Careers', 'careers')}
                 {nav('research.html', 'Research', 'research')}
                 {nav('joinus.html', 'Join Us', 'joinus')}
             </nav>
@@ -585,30 +571,39 @@ STATUS_LABEL = {"certifying": "Certifying now", "next": "Next in line"}
 def build_careers_page(benches, careers, models_tracked, editorial):
     d = ""
 
-    track_nav = ""
-    if len(careers) >= 2:
-        links = '\n        <span class="sep">/</span>\n        '.join(
-            f'<a href="#{c["id"]}">{esc(c["name"])}</a>' for c in careers
-        )
-        track_nav = f"""
-<nav class="career-nav" aria-label="Careers on this page">
-        {links}
-</nav>
-"""
+    rail = "\n        ".join(
+        f'<a href="#{c["id"]}"><span class="dot"></span><span class="lbl">{esc(c["name"])}</span></a>'
+        for c in careers
+    )
+    strip = "\n        <span class=\"sep\">/</span>\n        ".join(
+        f'<a href="#{c["id"]}">{esc(c["name"])}</a>' for c in careers
+    )
 
     blocks = []
     for i, c in enumerate(careers):
-        chips = []
+        cards = []
         for slug in c["benchmarks"]:
             b = benches[slug]
             fs = file_slug(slug)
+            ed = editorial.get(slug)
             lead = leader_of(b)
-            sub = esc(b["subcategory"])
+            if ed:
+                blurb = ed["tagline"] + "."
+            else:
+                first = (b["abstract"] or "").split(". ")[0]
+                blurb = (first + ".") if first else b["name"]
             if lead:
-                sub += f' <span class="sep">·</span> {fmt_score(lead["score"])}'
-            chips.append(f"""            <a class="bench-chip" href="benchmarks/{fs}.html">
-                <span class="name">{esc(b['name'])}</span>
-                <span class="sub">{sub}</span>
+                meta = (f'{esc(b["subcategory"])} <span class="sep">·</span> '
+                        f'<span class="lead">{esc(lead["model"])} · {fmt_score(lead["score"])}</span>')
+            else:
+                meta = f'{esc(b["subcategory"])} <span class="sep">·</span> board pending'
+            cards.append(f"""            <a class="ev-card" href="benchmarks/{fs}.html">
+                <div class="ev-body">
+                    <div class="ev-meta">{meta}</div>
+                    <h3>{esc(b['name'])}</h3>
+                    <p>{esc(blurb)}</p>
+                </div>
+                <div class="ev-img" style="background-image: url('{esc(b['image'])}');"></div>
             </a>""")
 
         readiness_html = ""
@@ -637,24 +632,9 @@ def build_careers_page(benches, careers, models_tracked, editorial):
         </div>
         <div class="career-evidence">
             <div class="evidence-h">The evidence &mdash; {len(c['benchmarks'])} benchmarks</div>
-            <div class="chip-grid">
-{chr(10).join(chips)}
-            </div>
+{chr(10).join(cards)}
         </div>
     </div>""")
-
-    # Cards for the career's own benchmarks, with editorial blurbs.
-    lab_cards = []
-    for slug in (s for c in careers for s in c["benchmarks"]):
-        b = benches[slug]
-        ed = editorial.get(slug)
-        if ed:
-            blurb = ed["tagline"] + "."
-        else:
-            first = (b["abstract"] or "").split(". ")[0]
-            blurb = (first + ".") if first else b["name"]
-        lab_cards.append(card(d, f"benchmarks/{file_slug(slug)}.html", b["image"],
-                              bench_meta_line(b), b["name"], esc(blurb)))
 
     n = sum(len(c["benchmarks"]) for c in careers)
     career_word = "career" if len(careers) == 1 else "careers"
@@ -668,19 +648,19 @@ def build_careers_page(benches, careers, models_tracked, editorial):
     <h1>The careers agents are learning to hold.</h1>
     <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house. {n} benchmarks, {len(careers)} {career_word} in certification, {models_tracked} models on the boards. More dossiers are in definition.</p>
 </section>
-{track_nav}
-<section class="career-index">
-{chr(10).join(blocks)}
-</section>
 
-<section class="lab-note rv">
-    <div class="evidence-h">From the TokenWave lab</div>
-    <h2>The benchmarks behind the certification.</h2>
-    <p>Certification standards are only as good as the evaluations behind them. Every benchmark in this dossier is designed and maintained by TokenWave &mdash; built where the field's existing measurements stop short of the work we certify.</p>
-    <div class="list">
-{''.join(lab_cards)}
-    </div>
-</section>
+<nav class="career-strip" aria-label="Careers on this page">
+        {strip}
+</nav>
+
+<div class="careers-layout">
+    <nav class="rail" aria-label="Careers on this page">
+        {rail}
+    </nav>
+    <section class="career-index">
+{chr(10).join(blocks)}
+    </section>
+</div>
 {footer(d)}"""
     write("careers.html", html)
 

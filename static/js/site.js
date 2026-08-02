@@ -18,24 +18,6 @@
 
   /* ════ One-time wiring (survives <main> swaps) ════════════ */
 
-  /* Header dropdown: managed open state — pure :hover thrashes when
-     the pointer crosses the trigger→menu boundary. */
-  document.querySelectorAll('.site-header .nav-item').forEach(function (item) {
-    var closeTimer = null;
-    item.addEventListener('pointerenter', function (e) {
-      if (e.pointerType === 'touch') return;
-      clearTimeout(closeTimer);
-      item.classList.add('open');
-    });
-    item.addEventListener('pointerleave', function () {
-      clearTimeout(closeTimer);
-      closeTimer = setTimeout(function () { item.classList.remove('open'); }, 350);
-    });
-    item.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') item.classList.remove('open');
-    });
-  });
-
   /* Scroll progress hairline */
   if (!REDUCED) {
     var prog = document.createElement('div');
@@ -54,7 +36,7 @@
   }
 
   /* Cursor spotlight on cards (delegated — new nodes just work) */
-  var SPOT_SEL = '.bench-chip, .list .card, .rc-card, .report-panel, .cx-row, .stat-tile';
+  var SPOT_SEL = '.bench-chip, .list .card, .rc-card, .report-panel, .cx-row, .stat-tile, .ev-card';
   document.addEventListener('pointermove', function (e) {
     if (e.pointerType === 'touch') return;
     var el = e.target.closest && e.target.closest(SPOT_SEL);
@@ -107,6 +89,29 @@
         el.classList.add('in');
       });
     }, 2500);
+
+    /* Side rail scrollspy (careers) */
+    var rail = document.querySelector('.rail');
+    if (rail && 'IntersectionObserver' in window) {
+      var links = {};
+      rail.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+      });
+      var ro2 = watch(new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); });
+          var l = links[en.target.id];
+          if (l) l.classList.add('on');
+        });
+      }, { rootMargin: '-20% 0px -55% 0px' }));
+      Object.keys(links).forEach(function (k) {
+        var el = document.getElementById(k);
+        if (el) ro2.observe(el);
+      });
+      var first = rail.querySelector('a');
+      if (first) first.classList.add('on');
+    }
 
     /* Scroll reveals */
     var rvs = document.querySelectorAll('.rv:not(.in)');
