@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | TokenWave AI</title>
-    <meta name="description" content="Notes from measuring real work — what the numbers say about the careers agents are learning to hold.">
+    <meta name="description" content="TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Research | TokenWave AI">
-    <meta property="og:description" content="Notes from measuring real work — what the numbers say about the careers agents are learning to hold.">
+    <meta property="og:description" content="TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.">
     <meta property="og:url" content="https://tokenwave.ai/research.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Research | TokenWave AI">
-    <meta name="twitter:description" content="Notes from measuring real work — what the numbers say about the careers agents are learning to hold.">
+    <meta name="twitter:description" content="TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/research.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="static/css/style.css?v=3c0ab80e">
+    <link rel="stylesheet" href="static/css/style.css?v=98f0afcb">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,11 +47,125 @@
 
 <section class="page-header">
     <div class="eyebrow">Research</div>
-    <h1>Notes from measuring real work.</h1>
-    <p class="page-intro">One benchmark, one finding at a time &mdash; what the numbers actually say about the careers agents are learning to hold.</p>
+    <h1>The work behind the standard.</h1>
+    <p class="page-intro">Benchmarks are only the visible edge. TokenWave's research spans six directions &mdash; from measurement itself to the open models it measures &mdash; built in the open with the M-A-P community.</p>
 </section>
 
-<section class="list">
+<section class="home-section rv" style="padding-top: 26px;">
+    <div class="evidence-h">Flagship work</div>
+    <div class="feat-grid">
+        <a class="rc-card rv" href="benchmarks/supergpqa.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/supergpqa.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Knowledge benchmark</span></div>
+                <h3>SuperGPQA</h3>
+                <p class="rc-blurb">Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.</p>
+            </div>
+        </a>
+        <a class="rc-card rv rv2" href="benchmarks/nl2repo-bench.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/nl2repo-bench.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Coding benchmark</span></div>
+                <h3>NL2Repo-Bench</h3>
+                <p class="rc-blurb">Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
+            </div>
+        </a>
+        <a class="rc-card rv rv2" href="benchmarks/workflow-gym.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/workflow-gym.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>GUI-agent benchmark</span></div>
+                <h3>Workflow-GYM</h3>
+                <p class="rc-blurb">Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
+            </div>
+        </a>
+        <a class="rc-card rv rv3" href="benchmarks/opencoder.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/opencoder.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Open code LLM</span></div>
+                <h3>OpenCoder</h3>
+                <p class="rc-blurb">OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size.</p>
+            </div>
+        </a>
+        <a class="rc-card rv" href="benchmarks/oprover.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/oprover.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Formal theorem prover</span></div>
+                <h3>OProver</h3>
+                <p class="rc-blurb">OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference.</p>
+            </div>
+        </a>
+        <a class="rc-card rv rv2" href="benchmarks/ouro.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/ouro.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Looped language models</span></div>
+                <h3>Ouro</h3>
+                <p class="rc-blurb">Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens.</p>
+            </div>
+        </a>
+        <a class="rc-card rv rv2" href="benchmarks/yue.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/yue.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Music foundation model</span></div>
+                <h3>YuE</h3>
+                <p class="rc-blurb">YuE is M-A-P&#x27;s open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe.</p>
+            </div>
+        </a>
+        <a class="rc-card rv rv3" href="benchmarks/mammoth2.html">
+            <div class="rc-img" style="background-image:url('static/images/benchmarks/mammoth2.svg')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>Web-scale instruction data</span></div>
+                <h3>MAmmoTH2</h3>
+                <p class="rc-blurb">MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks dramatically without human annotation or frontier-model distillation..</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<section class="home-section rv">
+    <div class="evidence-h">Six directions</div>
+    <div class="dir-grid">
+        <a class="dir-card rv" href="research/benchmark.html">
+            <div class="dir-idx">01</div>
+            <h3>Benchmark</h3>
+            <p class="dir-blurb">Defining what counts as competence — occupation-anchored, verifier-checked measurement across knowledge, code, agents, and multimodal work.</p>
+            <div class="dir-foot"><span class="n">15 works</span><span class="arrow">&rarr;</span></div>
+        </a>
+        <a class="dir-card rv rv2" href="research/rl.html">
+            <div class="dir-idx">02</div>
+            <h3>Reinforcement Learning</h3>
+            <p class="dir-blurb">Training signal beyond imitation: policy optimization and exploration methods that turn verifiable feedback into reasoning ability.</p>
+            <div class="dir-foot"><span class="n">2 works</span><span class="arrow">&rarr;</span></div>
+        </a>
+        <a class="dir-card rv rv3" href="research/agents.html">
+            <div class="dir-idx">03</div>
+            <h3>Agents — the Auto Series</h3>
+            <p class="dir-blurb">Systems that carry a whole job, not a single step: autonomous pipelines that plan, execute, verify, and deliver finished work.</p>
+            <div class="dir-foot"><span class="n">4 works</span><span class="arrow">&rarr;</span></div>
+        </a>
+        <a class="dir-card rv" href="research/synthetic-data.html">
+            <div class="dir-idx">04</div>
+            <h3>Synthetic Data</h3>
+            <p class="dir-blurb">Manufacturing the training signal itself: instruction corpora mined, synthesized, and reconstructed at web scale.</p>
+            <div class="dir-foot"><span class="n">7 works</span><span class="arrow">&rarr;</span></div>
+        </a>
+        <a class="dir-card rv rv2" href="research/pretraining-compute.html">
+            <div class="dir-idx">05</div>
+            <h3>Pretraining Compute Allocation</h3>
+            <p class="dir-blurb">Spending compute where thinking happens: looped architectures, dynamic depth, and routing that allocate capacity per token instead of per model.</p>
+            <div class="dir-foot"><span class="n">4 works</span><span class="arrow">&rarr;</span></div>
+        </a>
+        <a class="dir-card rv rv3" href="research/foundation-models.html">
+            <div class="dir-idx">06</div>
+            <h3>Foundation Models</h3>
+            <p class="dir-blurb">Fully open model families — text, code, math, and music — released with their data pipelines, recipes, and checkpoints.</p>
+            <div class="dir-foot"><span class="n">6 works</span><span class="arrow">&rarr;</span></div>
+        </a>
+    </div>
+</section>
+
+<section class="home-section rv">
+    <div class="evidence-h">Field notes</div>
+    <div class="list">
 
     <article class="card card-row">
         <div class="card-image" style="background-image: url('static/images/benchmarks/workflow-gym.svg');"></div>
@@ -113,6 +227,7 @@
         </div>
     </article>
 
+    </div>
 </section>
 
     </main>
@@ -149,7 +264,7 @@
     <!-- Page transition state machine -->
     <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="static/js/home-data.js?v=6aac8ea1" defer></script>
-    <script src="static/js/site.js?v=beb381bc" defer></script>
+    <script src="static/js/home-data.js?v=cf0bbe82" defer></script>
+    <script src="static/js/site.js?v=1e3c5f45" defer></script>
 </body>
 </html>

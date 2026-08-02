@@ -1,0 +1,64 @@
+{
+ "slug": "oprover",
+ "name": "OProver",
+ "domain": "llm",
+ "domain_name": "Research",
+ "subcategory": "Formal Math",
+ "abstract": "OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference. OProver-32B sets the open-weight state of the art on MiniF2F and outperforms a 671B prover across all five of its evaluations.",
+ "contributions": [
+  "Unifies retrieval augmentation, Lean4 compiler feedback, and iterative repair with the training strategy and data construction, instead of treating them as inference-time modules.",
+  "Releases OProofs: 1.77M Lean statements with 6.86M compiler-verified proofs and serialized proving trajectories, including failed attempts and repairs.",
+  "OProver-32B reaches 93.3 on MiniF2F (Pass@32), state of the art among open-weight whole-proof provers, beating DeepSeek-Prover-V2 at 671B on all five reported benchmarks."
+ ],
+ "method": [
+  "Continued pretraining is followed by iterative post-training: each round runs agentic proving, indexes newly verified proofs into the retrieval memory, converts repair trajectories to SFT data, and sends unresolved cases to RL.",
+  "At inference the prover retrieves compiler-verified proofs, attempts a proof, and revises against Lean4 compiler feedback across rounds.",
+  "Pass@32 rises monotonically through the loop: OProver-8B climbs from 79.5 to 91.8 on MiniF2F across three rounds."
+ ],
+ "metrics": [
+  {
+   "name": "MiniF2F Pass@32",
+   "direction": "higher",
+   "range": "[0, 100]",
+   "note": "Share of MiniF2F-Test statements proven within 32 samples; proofs must check in Lean4."
+  }
+ ],
+ "leaderboard": [
+  {
+   "rank": 1,
+   "model_id": null,
+   "model": "OProver-32B",
+   "org": "M-A-P",
+   "color": "#94a3b8",
+   "score": 93.3,
+   "source": "arXiv paper",
+   "date": null
+  },
+  {
+   "rank": 2,
+   "model_id": null,
+   "model": "OProver-8B",
+   "org": "M-A-P",
+   "color": "#94a3b8",
+   "score": 91.8,
+   "source": "arXiv paper",
+   "date": null
+  }
+ ],
+ "leaderboard_metric": "MiniF2F Pass@32",
+ "leaderboard_note": "Rows are the released OProver models; full five-benchmark results are in the paper.",
+ "links": {
+  "paper": "https://arxiv.org/abs/2605.17283",
+  "code": "https://github.com/multimodal-art-projection/OProver",
+  "pdf": "https://arxiv.org/pdf/2605.17283.pdf"
+ },
+ "image": "static/images/benchmarks/oprover.svg",
+ "at_a_glance": {
+  "focus": "Agentic theorem proving in Lean4",
+  "primary_metric": "MiniF2F Pass@32",
+  "setting": "Whole-proof generation, Pass@32",
+  "models_scored": 2,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

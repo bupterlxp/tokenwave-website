@@ -91,6 +91,11 @@ def load():
         posts.append(json.loads(f.read_text(encoding="utf-8")))
     posts.sort(key=lambda p: p["date"], reverse=True)
 
+    research = json.loads((DATA / "research.json").read_text(encoding="utf-8"))
+    for f in research["featured"]:
+        if f["slug"] not in benches:
+            raise SystemExit(f"research.json: unknown featured slug {f['slug']!r}")
+
     editorial = {}
     ed_dir = DATA / "editorial"
     if ed_dir.exists():
@@ -98,7 +103,7 @@ def load():
             e = json.loads(f.read_text(encoding="utf-8"))
             editorial[e["slug"]] = e
 
-    return benches, models, careers, posts, editorial
+    return benches, models, careers, posts, editorial, research
 
 
 # ── shared page chrome ───────────────────────────────────────────────────────
@@ -697,32 +702,108 @@ def read_minutes(post):
     return max(1, round(words / 200))
 
 
-def build_research_list(posts, benches):
+def build_research_home(posts, benches, research, editorial):
     d = ""
-    cards = []
-    for p in posts:
-        b = benches[p["benchmark"]]
-        meta = (f'<span>{esc(p["date"])}</span>\n                '
+
+    feats = []
+    for i, f in enumerate(research["featured"]):
+        b = benches[f["slug"]]
+        fs = file_slug(f["slug"])
+        ed = editorial.get(f["slug"])
+        if ed:
+            blurb = ed["tagline"] + "."
+        else:
+            first = (b["abstract"] or "").split(". ")[0]
+            blurb = (first + ".") if first else b["name"]
+        stagger = " rv2" if i % 4 in (1, 2) else (" rv3" if i % 4 == 3 else "")
+        feats.append(f"""        <a class="rc-card rv{stagger}" href="benchmarks/{fs}.html">
+            <div class="rc-img" style="background-image:url('{esc(b['image'])}')"></div>
+            <div class="rc-body">
+                <div class="rc-meta"><span>{esc(f['label'])}</span></div>
+                <h3>{esc(b['name'])}</h3>
+                <p class="rc-blurb">{esc(blurb)}</p>
+            </div>
+        </a>""")
+
+    dirs = []
+    for i, dr in enumerate(research["directions"]):
+        preview = " · ".join(w if len(w) < 34 else w[:31] + "…" for w in dr["works"][:3])
+        stagger = " rv2" if i % 3 == 1 else (" rv3" if i % 3 == 2 else "")
+        dirs.append(f"""        <a class="dir-card rv{stagger}" href="research/{dr['id']}.html">
+            <div class="dir-idx">{i + 1:02d}</div>
+            <h3>{esc(dr['name'])}</h3>
+            <p class="dir-blurb">{esc(dr['blurb'])}</p>
+            <div class="dir-foot"><span class="n">{len(dr['works'])} works</span><span class="arrow">&rarr;</span></div>
+        </a>""")
+
+    notes = []
+    for p_ in posts:
+        b = benches[p_["benchmark"]]
+        meta = (f'<span>{esc(p_["date"])}</span>\n                '
                 f'<span class="sep">·</span>\n                '
                 f'<span class="pill">{esc(b["subcategory"])}</span>\n                '
                 f'<span class="sep">·</span>\n                '
-                f'<span>{read_minutes(p)} min read</span>')
-        cards.append(card(d, f"research/{p['slug']}.html", b["image"], meta, p["title"], p["summary"]))
+                f'<span>{read_minutes(p_)} min read</span>')
+        notes.append(card(d, f"research/{p_['slug']}.html", b["image"], meta, p_["title"], p_["summary"]))
 
-    html = f"""{head(d, "Research | TokenWave AI", "Notes from measuring real work — what the numbers say about the careers agents are learning to hold.", "research.html")}
+    html = f"""{head(d, "Research | TokenWave AI", "TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.", "research.html")}
 {GEN_NOTE}
 {header(d, 'research')}
 <section class="page-header">
     <div class="eyebrow">Research</div>
-    <h1>Notes from measuring real work.</h1>
-    <p class="page-intro">One benchmark, one finding at a time &mdash; what the numbers actually say about the careers agents are learning to hold.</p>
+    <h1>The work behind the standard.</h1>
+    <p class="page-intro">Benchmarks are only the visible edge. TokenWave's research spans six directions &mdash; from measurement itself to the open models it measures &mdash; built in the open with the M-A-P community.</p>
 </section>
 
-<section class="list">
-{''.join(cards)}
+<section class="home-section rv" style="padding-top: 26px;">
+    <div class="evidence-h">Flagship work</div>
+    <div class="feat-grid">
+{chr(10).join(feats)}
+    </div>
+</section>
+
+<section class="home-section rv">
+    <div class="evidence-h">Six directions</div>
+    <div class="dir-grid">
+{chr(10).join(dirs)}
+    </div>
+</section>
+
+<section class="home-section rv">
+    <div class="evidence-h">Field notes</div>
+    <div class="list">
+{''.join(notes)}
+    </div>
 </section>
 {footer(d)}"""
     write("research.html", html)
+
+
+def build_direction_pages(research):
+    d = "../"
+    for i, dr in enumerate(research["directions"]):
+        rows = "\n".join(
+            f"""        <li><span class="wk-i">{j + 1:02d}</span><span class="wk-n">{esc(w)}</span></li>"""
+            for j, w in enumerate(dr["works"])
+        )
+        html = f"""{head(d, f"{dr['name']} | TokenWave Research", dr['blurb'], f"research/{dr['id']}.html")}
+{GEN_NOTE}
+{header(d, 'research')}
+<section class="page-header">
+    <div class="eyebrow">Research direction {i + 1:02d}</div>
+    <h1>{esc(dr['name'])}<span class="dir-zh">{esc(dr['zh'])}</span></h1>
+    <p class="page-intro">{esc(dr['blurb'])}</p>
+</section>
+
+<section class="works">
+    <div class="evidence-h">Selected work &mdash; {len(dr['works'])}</div>
+    <ul class="works-list">
+{rows}
+    </ul>
+    <p class="back-link"><a href="{d}research.html">&larr; Back to Research</a></p>
+</section>
+{footer(d)}"""
+        write(f"research/{dr['id']}.html", html)
 
 
 def build_post(p, benches, editorial):
@@ -873,7 +954,7 @@ def stamp_static_assets():
 
 # ── seo files ────────────────────────────────────────────────────────────────
 
-def build_seo(benches, posts):
+def build_seo(benches, posts, research_dirs):
     latest_bench = max(b["at_a_glance"].get("data_updated") or "2026-01-01" for b in benches.values())
     latest_post = max(p["date"] for p in posts)
     latest = max(latest_bench, latest_post)
@@ -890,6 +971,8 @@ def build_seo(benches, posts):
                      b["at_a_glance"].get("data_updated") or latest_bench, "monthly", "0.7"))
     for p in posts:
         urls.append((f"research/{p['slug']}.html", p["date"], "monthly", "0.6"))
+    for dr in research_dirs:
+        urls.append((f"research/{dr['id']}.html", latest, "monthly", "0.6"))
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -905,14 +988,14 @@ def build_seo(benches, posts):
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    benches, models, careers, posts, editorial = load()
+    benches, models, careers, posts, editorial, research = load()
     post_by_bench = {p["benchmark"]: p for p in posts}
     career_of = {slug: c for c in careers for slug in c["benchmarks"]}
     CAREERS_NAV[:] = [(c["id"], c["name"]) for c in careers]
 
     # Published = benchmarks a career or a published research note points at.
     # Everything else stays in data/ but gets no page.
-    publish = set(career_of) | set(post_by_bench)
+    publish = set(career_of) | set(post_by_bench) | {f["slug"] for f in research["featured"]}
     pub = {s: benches[s] for s in sorted(publish)}
 
     global V_HOME
@@ -940,12 +1023,14 @@ def main():
     print(f"careers.html: {len(careers)} career(s), "
           f"{models_tracked} models tracked on published boards (+ benchmarks.html redirect)")
 
-    build_research_list(posts, benches)
+    build_research_home(posts, benches, research, editorial)
+    build_direction_pages(research)
     for p in posts:
         build_post(p, benches, editorial)
     build_redirect("blog.html", "research.html", "Research",
                    "Our notes moved to")
-    print(f"research/: {len(posts)} notes + research.html (+ blog.html redirect)")
+    print(f"research/: {len(posts)} notes + {len(research['directions'])} direction pages "
+          f"+ research.html (+ blog.html redirect)")
 
     build_submit()
     print("submit.html")
@@ -953,7 +1038,7 @@ def main():
     stamp_static_assets()
     print("index.html + joinus.html: asset fingerprints refreshed")
 
-    build_seo(pub, posts)
+    build_seo(pub, posts, research['directions'])
     print("sitemap.xml + robots.txt")
 
 

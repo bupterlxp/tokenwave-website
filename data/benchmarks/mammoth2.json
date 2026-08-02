@@ -1,0 +1,43 @@
+{
+ "slug": "mammoth2",
+ "name": "MAmmoTH2",
+ "domain": "llm",
+ "domain_name": "Research",
+ "subcategory": "Synthetic Data",
+ "abstract": "MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks dramatically without human annotation or frontier-model distillation.",
+ "contributions": [
+  "A three-stage pipeline — recall candidate documents, extract Q&A pairs, refine them — yields the ~10M-example WebInstruct corpus from the open web.",
+  "Requires neither crowdworkers nor distillation from proprietary models, changing the cost structure of instruction data.",
+  "Tuning on WebInstruct lifts base models sharply on reasoning suites, and MAmmoTH2-Plus variants remain competitive instruction models at their scale."
+ ],
+ "method": [
+  "Recall finds instruction-shaped documents in web corpora; extraction isolates the Q&A; refinement cleans and completes the pairs.",
+  "The paper reports large math-reasoning gains for tuned models against their own baselines.",
+  "Follows MAmmoTH, whose MathInstruct corpus hybridized chain-of-thought and program-of-thought rationales."
+ ],
+ "metrics": [
+  {
+   "name": "Instruction-data yield",
+   "direction": "higher",
+   "range": null,
+   "note": "Tracked qualitatively: corpus scale and downstream reasoning gains reported by the paper."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Instruction-data yield",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2405.03548",
+  "code": "https://github.com/TIGER-AI-Lab/MAmmoTH2",
+  "pdf": "https://arxiv.org/pdf/2405.03548.pdf"
+ },
+ "image": "static/images/benchmarks/mammoth2.svg",
+ "at_a_glance": {
+  "focus": "Instructions mined from the web",
+  "primary_metric": "Instruction-data yield",
+  "setting": "~10M pairs, no annotation",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

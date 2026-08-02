@@ -12,16 +12,26 @@
   <url><loc>https://tokenwave.ai/benchmarks/criticlean.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/edgebench.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/formalmath.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks/mammoth2.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/mm-browsecomp.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/nl2repo-bench.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/omni-math.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/opencodeinterpreter.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/opencoder.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks/oprover.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks/ouro.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/supergpqa.html</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/workflow-gym.html</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/benchmarks/worldtravel.html</loc><lastmod>2026-04-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://tokenwave.ai/benchmarks/yue.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://tokenwave.ai/research/workflow-gym.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tokenwave.ai/research/worldtravel.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tokenwave.ai/research/supergpqa.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tokenwave.ai/research/mm-browsecomp.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tokenwave.ai/research/benchmark.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tokenwave.ai/research/rl.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tokenwave.ai/research/agents.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tokenwave.ai/research/synthetic-data.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tokenwave.ai/research/pretraining-compute.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tokenwave.ai/research/foundation-models.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

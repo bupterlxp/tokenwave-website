@@ -1,0 +1,43 @@
+{
+ "slug": "ouro",
+ "name": "Ouro",
+ "domain": "llm",
+ "domain_name": "Research",
+ "subcategory": "Pretraining",
+ "abstract": "Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens. The 1.4B and 2.6B models match standard LLMs several times their size, establishing loop depth as a third scaling axis beyond parameters and data.",
+ "contributions": [
+  "Pre-trains latent reasoning directly: iterative computation in a shared layer block, an entropy-regularized objective for learned depth allocation, and 7.7T training tokens.",
+  "Ouro-2.6B outperforms dense baselines up to 8B on reasoning-heavy suites — 55.73 MMLU-Pro, 80.46 BBH, 90.85 MATH500 against Qwen3-8B-Base's 53.72 / 77.65 / 62.30.",
+  "Controlled experiments attribute the gain to superior knowledge manipulation rather than added knowledge capacity; safety and trace faithfulness improve with recurrent depth."
+ ],
+ "method": [
+  "A recurrent architecture applies the same block repeatedly, spending more latent compute on harder tokens instead of longer chains of thought.",
+  "Depth allocation is learned during pretraining with an entropy-regularized objective.",
+  "Thinking variants extend the family: Ouro-1.4B-Thinking competes with 4B models and Ouro-2.6B-Thinking with 8B models on math and science sets."
+ ],
+ "metrics": [
+  {
+   "name": "Parameter efficiency",
+   "direction": "higher",
+   "range": null,
+   "note": "Tracked qualitatively: matched-baseline size ratio across reasoning suites; see the paper's controlled comparisons."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Parameter efficiency",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2510.25741",
+  "code": "https://ouro-llm.github.io",
+  "pdf": "https://arxiv.org/pdf/2510.25741.pdf"
+ },
+ "image": "static/images/benchmarks/ouro.svg",
+ "at_a_glance": {
+  "focus": "Looped LMs · latent reasoning",
+  "primary_metric": "Parameter efficiency",
+  "setting": "Loop depth as a scaling axis",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

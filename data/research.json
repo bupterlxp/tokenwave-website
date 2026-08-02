@@ -1,0 +1,57 @@
+{
+  "_comment": "Research home structure. featured: works with their own pages (slug must exist in data/benchmarks/). directions: the six research directions; each gets research/<id>.html and its works are listed WITHOUT links by design.",
+  "featured": [
+    {"slug": "supergpqa", "label": "Knowledge benchmark"},
+    {"slug": "nl2repo_bench", "label": "Coding benchmark"},
+    {"slug": "workflow_gym", "label": "GUI-agent benchmark"},
+    {"slug": "opencoder", "label": "Open code LLM"},
+    {"slug": "oprover", "label": "Formal theorem prover"},
+    {"slug": "ouro", "label": "Looped language models"},
+    {"slug": "yue", "label": "Music foundation model"},
+    {"slug": "mammoth2", "label": "Web-scale instruction data"}
+  ],
+  "directions": [
+    {
+      "id": "benchmark",
+      "name": "Benchmark",
+      "zh": "评测基准",
+      "blurb": "Defining what counts as competence — occupation-anchored, verifier-checked measurement across knowledge, code, agents, and multimodal work.",
+      "works": ["SuperGPQA", "MMMU", "MMMU-Pro", "MMLU-Pro", "KOR-Bench", "NL2Repo-Bench", "Workflow-GYM", "OmniBench", "WideSearch", "CodeSimpleQA", "SimpleVQA", "CriticLean", "FormalMATH", "MM-BrowseComp", "Omni-MATH"]
+    },
+    {
+      "id": "rl",
+      "name": "Reinforcement Learning",
+      "zh": "强化学习",
+      "blurb": "Training signal beyond imitation: policy optimization and exploration methods that turn verifiable feedback into reasoning ability.",
+      "works": ["TreePO", "FR3E"]
+    },
+    {
+      "id": "agents",
+      "name": "Agents — the Auto Series",
+      "zh": "智能体",
+      "blurb": "Systems that carry a whole job, not a single step: autonomous pipelines that plan, execute, verify, and deliver finished work.",
+      "works": ["AutoKaggle", "AutoMV", "Solvita", "P2P"]
+    },
+    {
+      "id": "synthetic-data",
+      "name": "Synthetic Data",
+      "zh": "数据合成",
+      "blurb": "Manufacturing the training signal itself: instruction corpora mined, synthesized, and reconstructed at web scale.",
+      "works": ["MAmmoTH", "MAmmoTH2", "OpenCodeInterpreter", "COIG", "COIG-CQIA", "REER", "Understanding by Reconstruction: Reversing the Software Development Process for LLM Pretraining"]
+    },
+    {
+      "id": "pretraining-compute",
+      "name": "Pretraining Compute Allocation",
+      "zh": "预训练动态算力分配",
+      "blurb": "Spending compute where thinking happens: looped architectures, dynamic depth, and routing that allocate capacity per token instead of per model.",
+      "works": ["Ouro", "Loop µP: On the Residual Scaling of Looped Transformers", "DLCM", "ConceptMoE"]
+    },
+    {
+      "id": "foundation-models",
+      "name": "Foundation Models",
+      "zh": "基础模型",
+      "blurb": "Fully open model families — text, code, math, and music — released with their data pipelines, recipes, and checkpoints.",
+      "works": ["MAP-Neo", "OProver", "OpenCoder", "D-CPT Law", "MERT", "YuE"]
+    }
+  ]
+}

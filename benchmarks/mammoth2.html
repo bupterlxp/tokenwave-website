@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoKaggle | TokenWave AI</title>
-    <meta name="description" content="AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page">
+    <title>MAmmoTH2 | TokenWave AI</title>
+    <meta name="description" content="MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks drama">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="AutoKaggle | TokenWave AI">
-    <meta property="og:description" content="AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/autokaggle.html">
+    <meta property="og:title" content="MAmmoTH2 | TokenWave AI">
+    <meta property="og:description" content="MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks drama">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/mammoth2.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AutoKaggle | TokenWave AI">
-    <meta name="twitter:description" content="AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page">
+    <meta name="twitter:title" content="MAmmoTH2 | TokenWave AI">
+    <meta name="twitter:description" content="MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks drama">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/autokaggle.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/mammoth2.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,50 +47,50 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/autokaggle.svg');" role="img" aria-label="AutoKaggle"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/mammoth2.svg');" role="img" aria-label="MAmmoTH2"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#mle">Machine Learning Engineer</a> · Data Science Agent</div>
-            <h1>AutoKaggle</h1>
+            <div class="eyebrow">Research · Synthetic Data</div>
+            <h1>MAmmoTH2</h1>
             <p class="detail-meta">
-                Data Science Agent
+                Synthetic Data
                 <span class="sep">·</span>
                 updated 2026-08-03
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.20424" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/AutoKaggle" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.20424.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2405.03548" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/TIGER-AI-Lab/MAmmoTH2" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2405.03548.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="abstract">Abstract</h2>
-        <p>AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page will be populated at the next TokenWave data refresh.</p>
+        <p>MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks dramatically without human annotation or frontier-model distillation.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>Treats a Kaggle competition as one deliverable pipeline, not isolated code snippets.</li>
-            <li>A phase-based workflow with cooperating agents (reading, planning, coding, reviewing, summarizing) plus iterative debugging and unit tests.</li>
-            <li>Includes a machine-learning tools library so agents assemble reliable pipelines instead of improvising every step.</li>
+            <li>A three-stage pipeline — recall candidate documents, extract Q&amp;A pairs, refine them — yields the ~10M-example WebInstruct corpus from the open web.</li>
+            <li>Requires neither crowdworkers nor distillation from proprietary models, changing the cost structure of instruction data.</li>
+            <li>Tuning on WebInstruct lifts base models sharply on reasoning suites, and MAmmoTH2-Plus variants remain competitive instruction models at their scale.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Each competition run proceeds through fixed phases with validation gates between them.</li>
-            <li>Generated code is unit-tested and debugged in place before the pipeline advances.</li>
-            <li>Runs are scored on completion of a valid submission and on solution quality across competitions.</li>
+            <li>Recall finds instruction-shaped documents in web corpora; extraction isolates the Q&amp;A; refinement cleans and completes the pairs.</li>
+            <li>The paper reports large math-reasoning gains for tuned models against their own baselines.</li>
+            <li>Follows MAmmoTH, whose MathInstruct corpus hybridized chain-of-thought and program-of-thought rationales.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Completion rate</b> &mdash; Higher is better. Share of competition runs that end in a valid, reproducible submission. Score range: [0, 1].</p>
+        <p><b>Instruction-data yield</b> &mdash; Higher is better. Tracked qualitatively: corpus scale and downstream reasoning gains reported by the paper.</p>
 
         <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>End-to-end data-science pipelines</span></li>
-            <li><span class="k">Primary metric</span><span>Completion rate</span></li>
-            <li><span class="k">Displayed setting</span><span>Multi-phase agent runs on Kaggle tasks</span></li>
+            <li><span class="k">Focus</span><span>Instructions mined from the web</span></li>
+            <li><span class="k">Primary metric</span><span>Instruction-data yield</span></li>
+            <li><span class="k">Displayed setting</span><span>~10M pairs, no annotation</span></li>
             <li><span class="k">Data updated</span><span>2026-08-03</span></li>
         </ul>
 
-        <p class="back-link"><a href="../careers.html#mle">&larr; Back to Machine Learning Engineer</a></p>
+        <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>

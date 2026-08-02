@@ -1,0 +1,43 @@
+{
+ "slug": "yue",
+ "name": "YuE",
+ "domain": "llm",
+ "domain_name": "Research",
+ "subcategory": "Music Generation",
+ "abstract": "YuE is M-A-P's open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe. It anchors the open end of the lyrics-to-song problem the way open code models anchored programming.",
+ "contributions": [
+  "Generates complete songs — verse, chorus, vocals, and instrumental accompaniment — from lyrics, at multi-minute length with structural coherence.",
+  "Supports multiple languages and vocal styles, with in-context conditioning for style, melody, and voice.",
+  "Fully open release: model weights, inference stack, and recipe, making it the reference open lyrics-to-song system."
+ ],
+ "method": [
+  "A dual-track token design models vocals and accompaniment jointly while keeping them separable.",
+  "Long-context audio tokenization sustains song-level structure instead of short clips.",
+  "Evaluation combines human preference studies with audio-quality and lyric-alignment measures against commercial systems."
+ ],
+ "metrics": [
+  {
+   "name": "Song-level quality",
+   "direction": "higher",
+   "range": null,
+   "note": "Tracked qualitatively via the paper's human preference and alignment studies."
+  }
+ ],
+ "leaderboard": [],
+ "leaderboard_metric": "Song-level quality",
+ "leaderboard_note": null,
+ "links": {
+  "paper": "https://arxiv.org/abs/2503.08638",
+  "code": "https://github.com/multimodal-art-projection/YuE",
+  "pdf": "https://arxiv.org/pdf/2503.08638.pdf"
+ },
+ "image": "static/images/benchmarks/yue.svg",
+ "at_a_glance": {
+  "focus": "Open lyrics-to-song generation",
+  "primary_metric": "Song-level quality",
+  "setting": "Full songs, weights released",
+  "models_scored": null,
+  "data_updated": "2026-08-03"
+ },
+ "figures": []
+}

@@ -36,7 +36,7 @@
   }
 
   /* Cursor spotlight on cards (delegated — new nodes just work) */
-  var SPOT_SEL = '.bench-chip, .list .card, .rc-card, .report-panel, .cx-row, .stat-tile, .ev-card';
+  var SPOT_SEL = '.bench-chip, .list .card, .rc-card, .report-panel, .cx-row, .stat-tile, .ev-card, .dir-card';
   document.addEventListener('pointermove', function (e) {
     if (e.pointerType === 'touch') return;
     var el = e.target.closest && e.target.closest(SPOT_SEL);

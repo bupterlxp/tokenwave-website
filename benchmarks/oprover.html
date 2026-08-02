@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoKaggle | TokenWave AI</title>
-    <meta name="description" content="AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page">
+    <title>OProver | TokenWave AI</title>
+    <meta name="description" content="OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference. OProver-32B sets the open-weight state of the art on M">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
-    <meta property="og:title" content="AutoKaggle | TokenWave AI">
-    <meta property="og:description" content="AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page">
-    <meta property="og:url" content="https://tokenwave.ai/benchmarks/autokaggle.html">
+    <meta property="og:title" content="OProver | TokenWave AI">
+    <meta property="og:description" content="OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference. OProver-32B sets the open-weight state of the art on M">
+    <meta property="og:url" content="https://tokenwave.ai/benchmarks/oprover.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AutoKaggle | TokenWave AI">
-    <meta name="twitter:description" content="AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page">
+    <meta name="twitter:title" content="OProver | TokenWave AI">
+    <meta name="twitter:description" content="OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference. OProver-32B sets the open-weight state of the art on M">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
-    <link rel="canonical" href="https://tokenwave.ai/benchmarks/autokaggle.html">
+    <link rel="canonical" href="https://tokenwave.ai/benchmarks/oprover.html">
 
     <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="../static/favicon-192.png">
@@ -47,50 +47,66 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/autokaggle.svg');" role="img" aria-label="AutoKaggle"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/oprover.svg');" role="img" aria-label="OProver — led by OProver-32B at 93.3"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#mle">Machine Learning Engineer</a> · Data Science Agent</div>
-            <h1>AutoKaggle</h1>
+            <div class="eyebrow">Research · Formal Math</div>
+            <h1>OProver</h1>
             <p class="detail-meta">
-                Data Science Agent
+                <span class="lead">Leader &mdash; OProver-32B · 93.3</span>
+                <span class="sep">·</span>
+                Formal Math
                 <span class="sep">·</span>
                 updated 2026-08-03
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.20424" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/AutoKaggle" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.20424.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2605.17283" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/OProver" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2605.17283.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
         </div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="abstract">Abstract</h2>
-        <p>AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page will be populated at the next TokenWave data refresh.</p>
+        <p>OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference. OProver-32B sets the open-weight state of the art on MiniF2F and outperforms a 671B prover across all five of its evaluations.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>Treats a Kaggle competition as one deliverable pipeline, not isolated code snippets.</li>
-            <li>A phase-based workflow with cooperating agents (reading, planning, coding, reviewing, summarizing) plus iterative debugging and unit tests.</li>
-            <li>Includes a machine-learning tools library so agents assemble reliable pipelines instead of improvising every step.</li>
+            <li>Unifies retrieval augmentation, Lean4 compiler feedback, and iterative repair with the training strategy and data construction, instead of treating them as inference-time modules.</li>
+            <li>Releases OProofs: 1.77M Lean statements with 6.86M compiler-verified proofs and serialized proving trajectories, including failed attempts and repairs.</li>
+            <li>OProver-32B reaches 93.3 on MiniF2F (Pass@32), state of the art among open-weight whole-proof provers, beating DeepSeek-Prover-V2 at 671B on all five reported benchmarks.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Each competition run proceeds through fixed phases with validation gates between them.</li>
-            <li>Generated code is unit-tested and debugged in place before the pipeline advances.</li>
-            <li>Runs are scored on completion of a valid submission and on solution quality across competitions.</li>
+            <li>Continued pretraining is followed by iterative post-training: each round runs agentic proving, indexes newly verified proofs into the retrieval memory, converts repair trajectories to SFT data, and sends unresolved cases to RL.</li>
+            <li>At inference the prover retrieves compiler-verified proofs, attempts a proof, and revises against Lean4 compiler feedback across rounds.</li>
+            <li>Pass@32 rises monotonically through the loop: OProver-8B climbs from 79.5 to 91.8 on MiniF2F across three rounds.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Completion rate</b> &mdash; Higher is better. Share of competition runs that end in a valid, reproducible submission. Score range: [0, 1].</p>
+        <p><b>MiniF2F Pass@32</b> &mdash; Higher is better. Share of MiniF2F-Test statements proven within 32 samples; proofs must check in Lean4. Score range: [0, 100].</p>
+
+        <h2 id="leaderboard">Leaderboard</h2>
+        <p>Rows are the released OProver models; full five-benchmark results are in the paper.</p>
+        <table class="data-table">
+            <thead>
+                <tr><th>#</th><th>Model</th><th>MiniF2F Pass@32</th><th>Source</th></tr>
+            </thead>
+            <tbody>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>OProver-32B</td><td class="num">93.3<span class="lb-track"><span class="lb-bar" data-w="93.3"></span></span></td><td>arXiv paper</td></tr>
+                <tr><td><span class="rank">2</span></td><td>OProver-8B</td><td class="num">91.8<span class="lb-track"><span class="lb-bar" data-w="91.8"></span></span></td><td>arXiv paper</td></tr>
+            </tbody>
+        </table>
+        <p class="submit-hint"><a href="../submit.html">Scored a model on OProver? Submit the result →</a></p>
 
         <h2 id="at-a-glance">At a glance</h2>
         <ul class="glance">
-            <li><span class="k">Focus</span><span>End-to-end data-science pipelines</span></li>
-            <li><span class="k">Primary metric</span><span>Completion rate</span></li>
-            <li><span class="k">Displayed setting</span><span>Multi-phase agent runs on Kaggle tasks</span></li>
+            <li><span class="k">Focus</span><span>Agentic theorem proving in Lean4</span></li>
+            <li><span class="k">Primary metric</span><span>MiniF2F Pass@32</span></li>
+            <li><span class="k">Displayed setting</span><span>Whole-proof generation, Pass@32</span></li>
+            <li><span class="k">Models scored</span><span>2</span></li>
             <li><span class="k">Data updated</span><span>2026-08-03</span></li>
         </ul>
 
-        <p class="back-link"><a href="../careers.html#mle">&larr; Back to Machine Learning Engineer</a></p>
+        <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
@@ -98,6 +114,7 @@
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
+        <a href="#leaderboard">Leaderboard</a>
         <a href="#at-a-glance">At a glance</a>
     </nav>
     </div>
