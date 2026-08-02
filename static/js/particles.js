@@ -174,19 +174,43 @@
 
     var time = Math.random() * 100;   /* start mid-flow, never at zero-phase */
 
+    var RIP_R2 = 34 * 34;   /* ripple radius² in world units */
     function step(dt) {
       time += dt;
+      /* ease the ripple center so it glides, never jumps */
+      rippleX += (rippleTX - rippleX) * Math.min(1, dt * 6);
+      rippleZ += (rippleTZ - rippleZ) * Math.min(1, dt * 6);
+      var breathe = 0.65 + 0.35 * Math.sin(time * 2.1);
       for (var i = 0; i < N; i++) {
-        pos[i * 3 + 1] = heightAt(gx[i] * 6.4, gz[i] * 6.4, time);
+        var h = heightAt(gx[i] * 6.4, gz[i] * 6.4, time);
+        var dx = gx[i] * SPAN_X - rippleX;
+        var dz = (-gz[i] * SPAN_Z - 26) - rippleZ;
+        var r2 = dx * dx + dz * dz;
+        if (r2 < RIP_R2 * 4) {
+          h += Math.exp(-r2 / RIP_R2) * 8.5 * breathe;
+        }
+        pos[i * 3 + 1] = h;
       }
       geo.attributes.position.needsUpdate = true;
     }
 
-    /* ── 4. Pointer parallax (subtle, camera only) ─────────── */
+    /* ── 4. Pointer parallax + surface ripple ──────────────── */
     var mx = 0, my = 0;
+    var _ray = new THREE.Raycaster();
+    var _ndc = new THREE.Vector2();
+    var _plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 26); /* y = -26 */
+    var _hit = new THREE.Vector3();
+    var rippleX = 9999, rippleZ = 9999;      /* eased toward target */
+    var rippleTX = 9999, rippleTZ = 9999;    /* raycast target */
     window.addEventListener('mousemove', function (e) {
       mx = (e.clientX / window.innerWidth - 0.5) * 2;
       my = (e.clientY / window.innerHeight - 0.5) * 2;
+      _ndc.set(mx, -my);
+      _ray.setFromCamera(_ndc, camera);
+      if (_ray.ray.intersectPlane(_plane, _hit)) {
+        rippleTX = _hit.x;
+        rippleTZ = _hit.z;
+      }
     });
 
     /* ── 5. Scroll fade ────────────────────────────────────── */

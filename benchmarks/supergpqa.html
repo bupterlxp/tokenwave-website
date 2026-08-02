@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=55542d9c">
+    <link rel="stylesheet" href="../static/css/style.css?v=3c5c09fb">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -37,17 +37,7 @@
             </a>
             <nav>
                 <a href="../index.html">Home</a>
-                <div class="nav-item">
-                    <a href="../careers.html" class="active" aria-haspopup="true">Careers</a>
-                    <div class="nav-menu" role="menu" aria-label="Careers">
-                        <a href="../careers.html#fde" role="menuitem">Forward-Deployed Engineer</a>
-                        <a href="../careers.html#software-engineering" role="menuitem">Software Engineer</a>
-                        <a href="../careers.html#model-evaluation" role="menuitem">Evaluation &amp; Data Specialist</a>
-                        <a href="../careers.html#research-analysis" role="menuitem">Research Analyst</a>
-                        <a href="../careers.html#media-operations" role="menuitem">Content &amp; Media Operator</a>
-                        <a href="../careers.html#trust-safety" role="menuitem">Customer Engagement Specialist</a>
-                    </div>
-                </div>
+                <a href="../careers.html"{ class="active"}>Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
             </nav>
@@ -59,7 +49,7 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/supergpqa.svg');" role="img" aria-label="SuperGPQA — led by DeepSeek-R1 at 61.82"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#research-analysis">Research Analyst</a> · Knowledge</div>
+            <div class="eyebrow">Research · Knowledge</div>
             <h1>SuperGPQA</h1>
             <p class="detail-tagline">Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.</p>
             <p class="detail-meta">
@@ -115,16 +105,16 @@
                 <tr><th>#</th><th>Model</th><th>Overall (sample)</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>DeepSeek-R1</td><td class="num">61.82</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>o1</td><td class="num">60.24</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>o3-mini</td><td class="num">55.22</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Doubao-1.5-Pro</td><td class="num">55.09</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>Qwen-Max</td><td class="num">50.08</td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Claude 3.5 Sonnet</td><td class="num">48.16</td><td>Official</td></tr>
-                <tr><td><span class="rank">7</span></td><td>Gemini 2.0 Flash</td><td class="num">47.73</td><td>Official</td></tr>
-                <tr><td><span class="rank">8</span></td><td>DeepSeek-V3</td><td class="num">47.4</td><td>Official</td></tr>
-                <tr><td><span class="rank">9</span></td><td>GPT-4o</td><td class="num">44.4</td><td>Official</td></tr>
-                <tr><td><span class="rank">10</span></td><td>Qwen2.5-72B-Instruct</td><td class="num">40.75</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>DeepSeek-R1</td><td class="num">61.82<span class="lb-track"><span class="lb-bar" data-w="61.8"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>o1</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>o3-mini</td><td class="num">55.22<span class="lb-track"><span class="lb-bar" data-w="55.2"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>Doubao-1.5-Pro</td><td class="num">55.09<span class="lb-track"><span class="lb-bar" data-w="55.1"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>Qwen-Max</td><td class="num">50.08<span class="lb-track"><span class="lb-bar" data-w="50.1"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Claude 3.5 Sonnet</td><td class="num">48.16<span class="lb-track"><span class="lb-bar" data-w="48.2"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">7</span></td><td>Gemini 2.0 Flash</td><td class="num">47.73<span class="lb-track"><span class="lb-bar" data-w="47.7"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">8</span></td><td>DeepSeek-V3</td><td class="num">47.4<span class="lb-track"><span class="lb-bar" data-w="47.4"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">9</span></td><td>GPT-4o</td><td class="num">44.4<span class="lb-track"><span class="lb-bar" data-w="44.4"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">10</span></td><td>Qwen2.5-72B-Instruct</td><td class="num">40.75<span class="lb-track"><span class="lb-bar" data-w="40.8"></span></span></td><td>Official</td></tr>
             </tbody>
         </table>
         <p class="submit-hint"><a href="../submit.html">Scored a model on SuperGPQA? Submit the result →</a></p>
@@ -150,7 +140,7 @@
             <a class="button primary" href="../research/supergpqa.html">Read note →</a>
         </div>
 
-        <p class="back-link"><a href="../careers.html#research-analysis">&larr; Back to Research Analyst</a></p>
+        <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
@@ -218,10 +208,11 @@
     </footer>
     <!-- Three.js particle background (bundled locally) -->
     <script src="../static/js/three.min.js" defer></script>
-    <script src="../static/js/particles.js?v=23eb8766" defer></script>
+    <script src="../static/js/particles.js?v=cbd614be" defer></script>
     <!-- Page transition state machine -->
-    <script src="../static/js/transition.js?v=66d99857" defer></script>
-    <!-- Reveals, count-ups, meters, board marquee -->
-    <script src="../static/js/site.js?v=5cf058d0" defer></script>
+    <script src="../static/js/transition.js?v=1d19e261" defer></script>
+    <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
+    <script src="../static/js/home-data.js?v=e93341c4" defer></script>
+    <script src="../static/js/site.js?v=bf397a8c" defer></script>
 </body>
 </html>

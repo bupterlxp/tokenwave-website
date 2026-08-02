@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=55542d9c">
+    <link rel="stylesheet" href="../static/css/style.css?v=3c5c09fb">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -37,17 +37,7 @@
             </a>
             <nav>
                 <a href="../index.html">Home</a>
-                <div class="nav-item">
-                    <a href="../careers.html" class="active" aria-haspopup="true">Careers</a>
-                    <div class="nav-menu" role="menu" aria-label="Careers">
-                        <a href="../careers.html#fde" role="menuitem">Forward-Deployed Engineer</a>
-                        <a href="../careers.html#software-engineering" role="menuitem">Software Engineer</a>
-                        <a href="../careers.html#model-evaluation" role="menuitem">Evaluation &amp; Data Specialist</a>
-                        <a href="../careers.html#research-analysis" role="menuitem">Research Analyst</a>
-                        <a href="../careers.html#media-operations" role="menuitem">Content &amp; Media Operator</a>
-                        <a href="../careers.html#trust-safety" role="menuitem">Customer Engagement Specialist</a>
-                    </div>
-                </div>
+                <a href="../careers.html"{ class="active"}>Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
             </nav>
@@ -59,7 +49,7 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/worldtravel.svg');" role="img" aria-label="WorldTravel — led by GPT-5.2 at 19.33"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#fde">Forward-Deployed Engineer</a> · Multimodal Agent</div>
+            <div class="eyebrow">Research · Multimodal Agent</div>
             <h1>WorldTravel</h1>
             <p class="detail-tagline">Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.</p>
             <p class="detail-meta">
@@ -106,12 +96,12 @@
                 <tr><th>#</th><th>Model</th><th>Feasibility Rate</th><th>Source</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5.2</td><td class="num">19.33</td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14</td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8</td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4</td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>GPT-5.1</td><td class="num">2.67</td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Claude Sonnet 4.5</td><td class="num">2.67</td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5.2</td><td class="num">19.33<span class="lb-track"><span class="lb-bar" data-w="19.3"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14<span class="lb-track"><span class="lb-bar" data-w="14.0"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8<span class="lb-track"><span class="lb-bar" data-w="8.0"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4<span class="lb-track"><span class="lb-bar" data-w="4.0"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">5</span></td><td>GPT-5.1</td><td class="num">2.67<span class="lb-track"><span class="lb-bar" data-w="2.7"></span></span></td><td>Official</td></tr>
+                <tr><td><span class="rank">6</span></td><td>Claude Sonnet 4.5</td><td class="num">2.67<span class="lb-track"><span class="lb-bar" data-w="2.7"></span></span></td><td>Official</td></tr>
             </tbody>
         </table>
         <p class="submit-hint"><a href="../submit.html">Scored a model on WorldTravel? Submit the result →</a></p>
@@ -137,7 +127,7 @@
             <a class="button primary" href="../research/worldtravel.html">Read note →</a>
         </div>
 
-        <p class="back-link"><a href="../careers.html#fde">&larr; Back to Forward-Deployed Engineer</a></p>
+        <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
@@ -204,10 +194,11 @@
     </footer>
     <!-- Three.js particle background (bundled locally) -->
     <script src="../static/js/three.min.js" defer></script>
-    <script src="../static/js/particles.js?v=23eb8766" defer></script>
+    <script src="../static/js/particles.js?v=cbd614be" defer></script>
     <!-- Page transition state machine -->
-    <script src="../static/js/transition.js?v=66d99857" defer></script>
-    <!-- Reveals, count-ups, meters, board marquee -->
-    <script src="../static/js/site.js?v=5cf058d0" defer></script>
+    <script src="../static/js/transition.js?v=1d19e261" defer></script>
+    <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
+    <script src="../static/js/home-data.js?v=e93341c4" defer></script>
+    <script src="../static/js/site.js?v=bf397a8c" defer></script>
 </body>
 </html>

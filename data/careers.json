@@ -1,59 +1,14 @@
 {
-  "_comment": "Career dossiers for careers.html. Each entry is a real occupation an agent is learning to hold; benchmarks are the evidence. Every slug in data/benchmarks/ must appear exactly once across careers (tools/build.py enforces this). status: 'certifying' = first roles TokenWave certifies, 'next' = on the roadmap.",
+  "_comment": "Career dossiers for careers.html. Narrowed to the coding career for launch — the full six-career roster is preserved in data/archive/careers-full.json. Career slugs must exist in data/benchmarks/; only benchmarks referenced by a career or a published research note get pages built.",
   "careers": [
-    {
-      "id": "fde",
-      "name": "Forward-Deployed Engineer",
-      "status": "certifying",
-      "tagline": "The engineer who makes AI work inside someone else's stack",
-      "description": "A forward-deployed engineer is judged on one thing: whether the system runs in the customer's environment, not the vendor's demo. The work is unglamorous and unforgiving — standing up infrastructure, wiring tools and permissions together, carrying a workflow across terminal, browser, and GUI until it verifiably finishes. An agent that holds this job must sustain execution over long horizons and recover when the environment pushes back.",
-      "duties": "Environment bring-up · Incident response · Long-horizon tool & GUI workflows",
-      "benchmarks": ["workflow_gym", "multi_docker_eval", "owl", "mtu_bench", "mm_browsecomp", "worldtravel"]
-    },
     {
       "id": "software-engineering",
       "name": "Software Engineer",
       "status": "certifying",
       "tagline": "Ships the feature, reviews the diff, keeps the repository alive",
-      "description": "Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This dossier spans the full delivery loop — implementing features against a living repository, generating and completing code across languages and stacks, building interactive front ends, and the review-side craft of tracing executions and localizing faults. The gap between an agent you supervise and one you trust lives here.",
-      "duties": "Feature implementation · Code review & testing · Repository maintenance",
-      "benchmarks": ["swe_compass", "fullstack_bench", "nl2repo_bench", "m2rc_eval", "mceval", "codetracer", "web_compass", "artifactsbench", "code_simpleqa"]
-    },
-    {
-      "id": "model-evaluation",
-      "name": "Evaluation & Data Specialist",
-      "status": "certifying",
-      "tagline": "Judges model output for a living — including other agents'",
-      "description": "Our own profession, held to its own standard. An evaluation specialist reads long-form output and scores it consistently, finds the error buried two hundred steps into a reasoning chain, critiques formal work without rubber-stamping it, and refuses the shortcuts that quietly inflate scores. The reasoning and structured-data probes in this dossier are the same ones an eval team runs before anything ships to a customer.",
-      "duties": "Benchmark construction · Reward & critic modeling · Regression review",
-      "benchmarks": ["longform_rewardbench", "cot_error_detection", "criticlean", "inverse_ifeval", "mt_bench_101", "lime", "kor_bench", "korgym", "conceptmath", "tablebench"]
-    },
-    {
-      "id": "research-analysis",
-      "name": "Research Analyst",
-      "status": "next",
-      "tagline": "Delivers the defensible answer, with sources attached",
-      "description": "The analyst's deliverable is a conclusion someone will act on — which means every claim has to survive scrutiny. This dossier measures the full arc of the job: multi-hop research across the open web, literature-grade reasoning, evidence-backed report writing, and the factual recall that anchors all of it. Fluent prose is easy; an audit trail is the profession.",
-      "duties": "Deep research · Competitive & academic analysis · Long-form reporting",
-      "benchmarks": ["acadreason", "dr3_eval", "finder", "tvir", "supergpqa", "chinese_simpleqa", "hellobench"]
-    },
-    {
-      "id": "media-operations",
-      "name": "Content & Media Operator",
-      "status": "next",
-      "tagline": "Watches everything, misses nothing, describes it to spec",
-      "description": "Media operations run on dense, sustained perception: hour-long footage that must be understood at multiple time scales, images whose meaning is implied rather than stated, captions written to a brief, and generated audio-video that has to be quality-checked before it ships. This dossier covers the multimodal competence the role consumes daily, from archive tagging to creative review.",
-      "duties": "Content tagging & captioning · Archive search · Generated-media QA",
-      "benchmarks": ["omnibench", "omnivideobench", "omnicap_if", "mvu_eval", "mt_video_bench", "scalelong", "iv_bench", "vidcapbench", "if_vidcap", "vidic", "ii_bench", "cii_bench", "t2av_compass"]
-    },
-    {
-      "id": "trust-safety",
-      "name": "Customer Engagement Specialist",
-      "status": "next",
-      "tagline": "Carries the brand through a thousand conversations",
-      "description": "A customer-facing role is a liability the moment it drifts — out of policy, out of character, or into a confident wrong answer on a sensitive topic. This dossier tests what the job actually demands: safety that holds under sustained multi-turn pressure, factual reliability where it is non-negotiable, and a persona that stays coherent across a long interaction instead of dissolving into a generic assistant.",
-      "duties": "Customer engagement · Policy compliance · Persona-driven service",
-      "benchmarks": ["safedialbench", "chinese_safetyqa", "usb", "rolellm", "roleagent"]
+      "description": "Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This is the career TokenWave certifies first, measured on benchmarks we design and maintain in-house — whether an agent can turn a brief into a working repository, whether it actually knows the ecosystems it codes in, and whether its work survives a real browser. The gap between an agent you supervise and one you trust lives here.",
+      "duties": "Feature implementation · Code review & testing · Repository delivery",
+      "benchmarks": ["nl2repo_bench", "code_simpleqa", "web_compass"]
     }
   ]
 }

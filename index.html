@@ -10,12 +10,12 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="TokenWave AI — Real Work, Verified">
-    <meta property="og:description" content="From real SOPs to certified Agent Services: 50 occupation-anchored benchmarks across 6 careers, with verifiers, leaderboards, and a data flywheel behind them.">
+    <meta property="og:description" content="From real SOPs to certified Agent Services: in-house benchmarks, career dossiers, verifiers, leaderboards, and a data flywheel behind them.">
     <meta property="og:url" content="https://tokenwave.ai/">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TokenWave AI — Real Work, Verified">
-    <meta name="twitter:description" content="From real SOPs to certified Agent Services: 50 occupation-anchored benchmarks across 6 careers, with verifiers, leaderboards, and a data flywheel behind them.">
+    <meta name="twitter:description" content="From real SOPs to certified Agent Services: in-house benchmarks, career dossiers, verifiers, leaderboards, and a data flywheel behind them.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/">
 
@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="static/css/style.css?v=55542d9c">
+    <link rel="stylesheet" href="static/css/style.css?v=3c5c09fb">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -37,17 +37,7 @@
             </a>
             <nav>
                 <a href="index.html" class="active">Home</a>
-                <div class="nav-item">
-                    <a href="careers.html" aria-haspopup="true">Careers</a>
-                    <div class="nav-menu" role="menu" aria-label="Careers">
-                        <a href="careers.html#fde" role="menuitem">Forward-Deployed Engineer</a>
-                        <a href="careers.html#software-engineering" role="menuitem">Software Engineer</a>
-                        <a href="careers.html#model-evaluation" role="menuitem">Evaluation &amp; Data Specialist</a>
-                        <a href="careers.html#research-analysis" role="menuitem">Research Analyst</a>
-                        <a href="careers.html#media-operations" role="menuitem">Content &amp; Media Operator</a>
-                        <a href="careers.html#trust-safety" role="menuitem">Customer Engagement Specialist</a>
-                    </div>
-                </div>
+                <a href="careers.html">Careers</a>
                 <a href="research.html">Research</a>
                 <a href="joinus.html">Join Us</a>
             </nav>
@@ -121,7 +111,7 @@
                 <li><span class="k">RUN</span> Every delivery traced: steps, tools, cost, approvals, final artifact</li>
             </ul>
         </div>
-        <div class="report-panel rv rv2" role="img" aria-label="Illustrative certification report">
+        <div class="report-panel rv rv2" id="report-sim" role="img" aria-label="Illustrative certification report">
             <div class="rp-head">
                 <span class="rp-title">WORK UNIT · WF-0338</span>
                 <span class="rp-badge">VERIFIED</span>
@@ -141,7 +131,8 @@
     <div class="eyebrow">The flywheel</div>
     <h2>From real SOPs to a self-improving service network.</h2>
     <p>One professional SOP becomes a capability asset, then a subscribable service; every real delivery produces the next round of higher-value data.</p>
-    <div class="flywheel">
+    <div class="flywheel flow">
+        <div class="fly-track" aria-hidden="true"></div>
         <div class="fly-step rv">
             <div class="n">01</div>
             <h3>SOP Completion</h3>
@@ -168,11 +159,19 @@
 
 <section class="home-section rv">
     <div class="eyebrow">The careers</div>
-    <h2>Six professions under measurement.</h2>
-    <p>Each career is a dossier: the work a professional actually ships, and the benchmarks that test whether an agent can carry it. Frontier readiness is the mean leading score across the dossier, normalized to each metric's range.</p>
+    <h2>Coding is the first career we certify.</h2>
+    <p>Each career is a dossier: the work a professional actually ships, and benchmarks we design in-house to test whether an agent can carry it. Frontier readiness is the mean leading score across the dossier, normalized to each metric's range.</p>
     <div class="career-x" id="career-index">
-        <noscript><p class="muted">Browse the full dossiers on the <a href="careers.html">Careers</a> page.</p></noscript>
+        <noscript><p class="muted">Browse the full dossier on the <a href="careers.html">Careers</a> page.</p></noscript>
     </div>
+    <div class="career-roadmap" aria-label="Careers in definition">
+        <div class="ghost-row"><span class="cx-i">02</span><span class="gr-n">Forward-Deployed Engineer</span><span class="gr-st">In definition</span></div>
+        <div class="ghost-row"><span class="cx-i">03</span><span class="gr-n">Evaluation &amp; Data Specialist</span><span class="gr-st">In definition</span></div>
+        <div class="ghost-row"><span class="cx-i">04</span><span class="gr-n">Research Analyst</span><span class="gr-st">In definition</span></div>
+        <div class="ghost-row"><span class="cx-i">05</span><span class="gr-n">Content &amp; Media Operator</span><span class="gr-st">In definition</span></div>
+        <div class="ghost-row"><span class="cx-i">06</span><span class="gr-n">Customer Engagement Specialist</span><span class="gr-st">In definition</span></div>
+    </div>
+    <p class="fr-link"><a href="careers.html">The Software Engineer dossier &rarr;</a></p>
 </section>
 
 <section class="home-section rv">
@@ -205,10 +204,10 @@
 
 <section class="home-section rv">
     <div class="numbers-strip">
-        <div class="num-item"><div class="v" data-count="50">50</div><div class="l">Occupation-anchored benchmarks</div></div>
-        <div class="num-item"><div class="v" data-count="6">6</div><div class="l">Careers under measurement</div></div>
-        <div class="num-item"><div class="v" data-count="3">3</div><div class="l">Roles in certification</div></div>
-        <div class="num-item"><div class="v" data-count="185">185</div><div class="l">Models on the boards</div></div>
+        <div class="num-item"><div class="v" data-count="3">3</div><div class="l">Benchmarks built in-house</div></div>
+        <div class="num-item"><div class="v" data-count="1">1</div><div class="l">Career in certification</div></div>
+        <div class="num-item"><div class="v" data-count="4">4</div><div class="l">Research notes published</div></div>
+        <div class="num-item"><div class="v" data-count="44">44</div><div class="l">Models on the boards</div></div>
     </div>
 </section>
 
@@ -292,13 +291,13 @@
         </div>
     </footer>
     <!-- Live board data (generated by tools/build.py) -->
-    <script src="static/js/home-data.js?v=54c8636d" defer></script>
+    <script src="static/js/home-data.js?v=e93341c4" defer></script>
     <!-- Three.js wave field (bundled locally) -->
     <script src="static/js/three.min.js" defer></script>
-    <script src="static/js/particles.js?v=23eb8766" defer></script>
+    <script src="static/js/particles.js?v=cbd614be" defer></script>
     <!-- Page transition state machine -->
-    <script src="static/js/transition.js?v=66d99857" defer></script>
+    <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Reveals, count-ups, meters, board marquee -->
-    <script src="static/js/site.js?v=5cf058d0" defer></script>
+    <script src="static/js/site.js?v=bf397a8c" defer></script>
 </body>
 </html>

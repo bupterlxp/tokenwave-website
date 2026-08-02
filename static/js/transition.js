@@ -107,6 +107,10 @@
         else s.textContent = old.textContent;
         old.parentNode.replaceChild(s, old);
       });
+
+      // Re-arm site.js enhancements (reveals, charts, marquee, …) on the
+      // freshly injected <main> — they were wired to the old DOM.
+      window.dispatchEvent(new Event('tw:swap'));
     },
 
     navigate: function (mode, href) {

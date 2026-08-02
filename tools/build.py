@@ -47,6 +47,7 @@ V_CSS = asset_v("static/css/style.css")
 V_PARTICLES = asset_v("static/js/particles.js")
 V_TRANSITION = asset_v("static/js/transition.js")
 V_SITE = asset_v("static/js/site.js")
+V_HOME = ""  # set in main() after home-data.js is generated
 
 
 def esc(s):
@@ -79,12 +80,11 @@ def load():
 
     careers = json.loads((DATA / "careers.json").read_text(encoding="utf-8"))["careers"]
     assigned = [s for c in careers for s in c["benchmarks"]]
-    if sorted(assigned) != sorted(benches):
-        missing = set(benches) - set(assigned)
-        extra = set(assigned) - set(benches)
-        dupes = {s for s in assigned if assigned.count(s) > 1}
-        raise SystemExit(f"careers.json coverage error — missing: {missing or '{}'}, "
-                         f"unknown: {extra or '{}'}, duplicated: {dupes or '{}'}")
+    unknown = set(assigned) - set(benches)
+    dupes = {s for s in assigned if assigned.count(s) > 1}
+    if unknown or dupes:
+        raise SystemExit(f"careers.json error — unknown: {unknown or '{}'}, "
+                         f"duplicated: {dupes or '{}'}")
 
     posts = []
     for f in sorted((DATA / "blog").glob("*.json")):
@@ -144,6 +144,8 @@ CAREERS_NAV = []
 
 
 def careers_menu(depth):
+    if len(CAREERS_NAV) < 2:
+        return '<a href="{d}careers.html"{{cls}}>Careers</a>'.replace('{d}', depth)
     items = "\n                        ".join(
         f'<a href="{depth}careers.html#{cid}" role="menuitem">{esc(name)}</a>'
         for cid, name in CAREERS_NAV
@@ -217,7 +219,8 @@ def footer(depth):
     <script src="{d}static/js/particles.js?v={V_PARTICLES}" defer></script>
     <!-- Page transition state machine -->
     <script src="{d}static/js/transition.js?v={V_TRANSITION}" defer></script>
-    <!-- Reveals, count-ups, meters, board marquee -->
+    <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
+    <script src="{d}static/js/home-data.js?v={V_HOME}" defer></script>
     <script src="{d}static/js/site.js?v={V_SITE}" defer></script>
 </body>
 </html>
@@ -272,6 +275,7 @@ def leaderboard_table(b, top=None, depth=""):
     metric = b.get("leaderboard_metric") or "Score"
     rows = b["leaderboard"][:top] if top else b["leaderboard"]
     has_date = any(r.get("date") for r in rows)
+    rmax, direction = metric_rmax(b)
     head_cells = f"<th>#</th><th>Model</th><th>{esc(metric)}</th><th>Source</th>"
     if has_date:
         head_cells += "<th>Date</th>"
@@ -279,10 +283,15 @@ def leaderboard_table(b, top=None, depth=""):
     src_label = {"official": "Official", "community": "Community", "self_reported": "Self-reported"}
     for r in rows:
         cls = ' class="lead-row"' if r["rank"] == 1 else ""
+        score_cell = fmt_score(r["score"])
+        if direction == "higher" and isinstance(r["score"], (int, float)) and rmax > 0:
+            w = min(100.0, r["score"] / rmax * 100)
+            score_cell += (f'<span class="lb-track"><span class="lb-bar" '
+                           f'data-w="{w:.1f}"></span></span>')
         cells = [
             f'<td><span class="rank">{r["rank"]}</span></td>',
             f'<td>{esc(r["model"])}</td>',
-            f'<td class="num">{fmt_score(r["score"])}</td>',
+            f'<td class="num">{score_cell}</td>',
             f'<td>{esc(src_label.get(r.get("source"), r.get("source") or "–"))}</td>',
         ]
         if has_date:
@@ -440,6 +449,15 @@ def build_detail(b, post_by_bench, editorial, career):
     lead = leader_of(b)
     lead_alt = f"{b['name']} — led by {lead['model']} at {fmt_score(lead['score'])}" if lead else b["name"]
 
+    if career:
+        eyebrow = (f'<a class="eyebrow-link" href="{d}careers.html#{career["id"]}">'
+                   f'{esc(career["name"])}</a> · {esc(b["subcategory"])}')
+        back_link = (f'<a href="{d}careers.html#{career["id"]}">&larr; Back to '
+                     f'{esc(career["name"])}</a>')
+    else:
+        eyebrow = f'Research · {esc(b["subcategory"])}'
+        back_link = f'<a href="{d}research.html">&larr; Back to Research</a>'
+
     html = f"""{head(d, f"{b['name']} | TokenWave AI", desc, f"benchmarks/{fs}.html")}
 {GEN_NOTE}
 {header(d, 'careers')}
@@ -447,7 +465,7 @@ def build_detail(b, post_by_bench, editorial, career):
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('{d}{esc(b['image'])}');" role="img" aria-label="{esc(lead_alt)}"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="{d}careers.html#{career['id']}">{esc(career['name'])}</a> · {esc(b['subcategory'])}</div>
+            <div class="eyebrow">{eyebrow}</div>
             <h1>{esc(b['name'])}</h1>{tagline_html}
             <p class="detail-meta">
                 {bench_meta_line(b)}
@@ -459,7 +477,7 @@ def build_detail(b, post_by_bench, editorial, career):
 
         {body_sections}
 
-        <p class="back-link"><a href="{d}careers.html#{career['id']}">&larr; Back to {esc(career['name'])}</a></p>
+        <p class="back-link">{back_link}</p>
     </div>{toc_html}
     </div>
 </article>
@@ -564,16 +582,19 @@ def count_models_tracked(benches):
 STATUS_LABEL = {"certifying": "Certifying now", "next": "Next in line"}
 
 
-# Benchmarks built in-house, spotlighted at the foot of the careers page.
-LAB_SLUGS = ["nl2repo_bench", "code_simpleqa", "web_compass"]
-
-
 def build_careers_page(benches, careers, models_tracked, editorial):
     d = ""
 
-    track_nav = '\n        <span class="sep">/</span>\n        '.join(
-        f'<a href="#{c["id"]}">{esc(c["name"])}</a>' for c in careers
-    )
+    track_nav = ""
+    if len(careers) >= 2:
+        links = '\n        <span class="sep">/</span>\n        '.join(
+            f'<a href="#{c["id"]}">{esc(c["name"])}</a>' for c in careers
+        )
+        track_nav = f"""
+<nav class="career-nav" aria-label="Careers on this page">
+        {links}
+</nav>
+"""
 
     blocks = []
     for i, c in enumerate(careers):
@@ -622,38 +643,36 @@ def build_careers_page(benches, careers, models_tracked, editorial):
         </div>
     </div>""")
 
+    # Cards for the career's own benchmarks, with editorial blurbs.
     lab_cards = []
-    for slug in LAB_SLUGS:
+    for slug in (s for c in careers for s in c["benchmarks"]):
         b = benches[slug]
         ed = editorial.get(slug)
         blurb = (ed["tagline"] + ".") if ed else (b["abstract"] or "")[:180]
         lab_cards.append(card(d, f"benchmarks/{file_slug(slug)}.html", b["image"],
                               bench_meta_line(b), b["name"], esc(blurb)))
 
-    n = len(benches)
+    n = sum(len(c["benchmarks"]) for c in careers)
+    career_word = "career" if len(careers) == 1 else "careers"
     desc = ("The careers agents are learning to hold — real occupations, each measured "
-            "by the benchmarks that test whether a model can carry the work.")
+            "by benchmarks TokenWave designs and maintains in-house.")
     html = f"""{head(d, "Careers | TokenWave AI", desc, "careers.html")}
 {GEN_NOTE}
 {header(d, 'careers')}
 <section class="page-header">
     <div class="eyebrow">Careers</div>
     <h1>The careers agents are learning to hold.</h1>
-    <p class="page-intro">We measure models against occupations, not abstract skills. Each career below is defined by the work a professional actually ships &mdash; and by the benchmarks that test whether an agent can carry it. {n} benchmarks, {len(careers)} careers, {models_tracked} models on the boards.</p>
+    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house. {n} benchmarks, {len(careers)} {career_word} in certification, {models_tracked} models on the boards. More dossiers are in definition.</p>
 </section>
-
-<nav class="career-nav" aria-label="Careers on this page">
-        {track_nav}
-</nav>
-
+{track_nav}
 <section class="career-index">
 {chr(10).join(blocks)}
 </section>
 
 <section class="lab-note rv">
     <div class="evidence-h">From the TokenWave lab</div>
-    <h2>Benchmarks we build ourselves.</h2>
-    <p>Certification standards are only as good as the evaluations behind them. These are benchmarks TokenWave designs and maintains in-house &mdash; built where the field's existing measurements stop short of the work we certify.</p>
+    <h2>The benchmarks behind the certification.</h2>
+    <p>Certification standards are only as good as the evaluations behind them. Every benchmark in this dossier is designed and maintained by TokenWave &mdash; built where the field's existing measurements stop short of the work we certify.</p>
     <div class="list">
 {''.join(lab_cards)}
     </div>
@@ -907,19 +926,35 @@ def main():
     career_of = {slug: c for c in careers for slug in c["benchmarks"]}
     CAREERS_NAV[:] = [(c["id"], c["name"]) for c in careers]
 
-    for b in benches.values():
-        build_detail(b, post_by_bench, editorial, career_of[b["slug"]])
-    print(f"benchmarks/: {len(benches)} detail pages ({len(editorial)} with editorial layer)")
+    # Published = benchmarks a career or a published research note points at.
+    # Everything else stays in data/ but gets no page.
+    publish = set(career_of) | set(post_by_bench)
+    pub = {s: benches[s] for s in sorted(publish)}
 
-    board_rows = build_home_data(benches, careers)
+    global V_HOME
+    board_rows = build_home_data(pub, careers)
+    V_HOME = asset_v("static/js/home-data.js")
     print(f"static/js/home-data.js: {board_rows} board rows + frontier + careers")
 
-    models_tracked = count_models_tracked(benches)
-    build_careers_page(benches, careers, models_tracked, editorial)
+    # Default career context for research-only benchmarks: the first career.
+    for b in pub.values():
+        build_detail(b, post_by_bench, editorial, career_of.get(b["slug"]))
+    print(f"benchmarks/: {len(pub)} detail pages published "
+          f"({len(benches) - len(pub)} in data/ unpublished)")
+
+    stale = [f for f in (ROOT / "benchmarks").glob("*.html")
+             if f.stem not in {file_slug(s) for s in publish}]
+    for f in stale:
+        f.unlink()
+    if stale:
+        print(f"benchmarks/: removed {len(stale)} unpublished pages")
+
+    models_tracked = count_models_tracked(pub)
+    build_careers_page(pub, careers, models_tracked, editorial)
     build_redirect("benchmarks.html", "careers.html", "Careers",
                    "The benchmark index now lives on")
-    print(f"careers.html: {len(careers)} careers covering {len(benches)} benchmarks, "
-          f"{models_tracked} models tracked (+ benchmarks.html redirect)")
+    print(f"careers.html: {len(careers)} career(s), "
+          f"{models_tracked} models tracked on published boards (+ benchmarks.html redirect)")
 
     build_research_list(posts, benches)
     for p in posts:
@@ -934,7 +969,7 @@ def main():
     stamp_static_assets()
     print("index.html + joinus.html: asset fingerprints refreshed")
 
-    build_seo(benches, posts)
+    build_seo(pub, posts)
     print("sitemap.xml + robots.txt")
 
 
