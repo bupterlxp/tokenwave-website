@@ -168,7 +168,7 @@ def header(depth, active):
     <header class="site-header">
         <div class="container header-content">
             <a class="logo" href="{d}index.html" aria-label="TokenWave AI home">
-                <img src="{d}static/images/mark.svg" alt="" class="logo-icon">
+                <img src="{d}static/images/mark.png" alt="" class="logo-icon">
                 <span class="logo-word">TokenWave<span class="ai">AI</span></span>
             </a>
             <nav>
