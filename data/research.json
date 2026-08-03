@@ -138,7 +138,7 @@
           "ax": "2509.06160"
         },
         {
-          "t": "Understanding by Reconstruction: Reversing the Software Development Process for LLM Pretraining",
+          "t": "Understanding by Reconstruction",
           "ax": "2603.11103"
         }
       ]
@@ -151,10 +151,13 @@
       "works": [
         "Ouro",
         {
-          "t": "Loop µP: On the Residual Scaling of Looped Transformers",
+          "t": "Loop µP",
           "ax": "2606.18524"
         },
-        "DLCM",
+        {
+          "t": "DLCM",
+          "ax": "2512.24617"
+        },
         {
           "t": "ConceptMoE",
           "ax": "2601.21420"

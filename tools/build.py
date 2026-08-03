@@ -704,6 +704,9 @@ def read_minutes(post):
 
 def build_research_home(posts, benches, research, editorial):
     d = ""
+    # Paper links for plain-name works that exist in data/benchmarks/
+    paper_by_name = {b["name"]: b["links"].get("paper")
+                     for b in benches.values() if b["links"].get("paper")}
 
     feats = []
     for i, f in enumerate(research["featured"]):
@@ -729,11 +732,16 @@ def build_research_home(posts, benches, research, editorial):
     for i, dr in enumerate(research["directions"]):
         pills = []
         for w in dr["works"]:
+            name = w["t"] if isinstance(w, dict) else w
+            url = None
             if isinstance(w, dict) and w.get("ax"):
-                pills.append(f'<a class="dl-work dl-link" href="https://arxiv.org/abs/{esc(w["ax"])}" '
-                             f'target="_blank" rel="noopener noreferrer">{esc(w["t"])}<span class="x">&#8599;</span></a>')
+                url = f'https://arxiv.org/abs/{w["ax"]}'
+            elif name in paper_by_name:
+                url = paper_by_name[name]
+            if url:
+                pills.append(f'<a class="dl-work dl-link" href="{esc(url)}" '
+                             f'target="_blank" rel="noopener noreferrer">{esc(name)}<span class="x">&#8599;</span></a>')
             else:
-                name = w["t"] if isinstance(w, dict) else w
                 pills.append(f'<span class="dl-work">{esc(name)}</span>')
         tags = "\n                ".join(pills)
         dirs.append(f"""        <div class="dl-item rv" id="{dr['id']}">
