@@ -1033,51 +1033,6 @@ tr.lead-row .rank { color: var(--accent-bright); }
     margin: 0 0 22px;
 }
 
-/* Frontier readiness meter — single-hue magnitude, direct-labeled */
-.readiness { max-width: 420px; }
-.readiness-top {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 7px;
-}
-.readiness-top .k {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dim);
-}
-.readiness-top .v {
-    font-family: var(--mono);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--ink);
-}
-.meter {
-    height: 3px;
-    border-radius: 2px;
-    background: rgba(148, 163, 184, 0.15);
-    overflow: hidden;
-}
-.meter span {
-    display: block;
-    height: 100%;
-    width: 0;
-    border-radius: 2px;
-    background: var(--accent);
-    transition: width 1.1s var(--ease-out) 0.15s;
-}
-.readiness-note {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    color: var(--dim);
-    line-height: 1.6;
-    margin: 8px 0 0;
-}
-
 .evidence-h {
     font-family: var(--mono);
     font-size: 11px;

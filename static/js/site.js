@@ -177,29 +177,6 @@
       }, { threshold: 0.35 });
     }
 
-    /* Careers readiness index (home) */
-    var cidx = document.getElementById('career-index');
-    if (cidx && window.TW_CAREERS && window.TW_CAREERS.length &&
-        !cidx.querySelector('.cx-row')) {
-      var STATUS = { certifying: 'Certifying now', next: 'Next in line' };
-      var chtml = '';
-      window.TW_CAREERS.forEach(function (c, i) {
-        chtml +=
-          '<a class="cx-row" href="careers.html#' + c.id + '">' +
-            '<span class="cx-i">' + (i < 9 ? '0' : '') + (i + 1) + '</span>' +
-            '<span class="cx-n">' + c.name + '</span>' +
-            '<span class="cx-st career-status st-' + c.status + '">' + (STATUS[c.status] || '') + '</span>' +
-            '<span class="cx-meter meter"><span data-w="' + (c.pct || 0) + '"></span></span>' +
-            '<span class="cx-v">' + (c.pct != null ? c.pct + '%' : '–') + '</span>' +
-            '<span class="cx-c">' + c.n + ' benchmarks</span>' +
-          '</a>';
-      });
-      cidx.innerHTML = chtml;
-      onVisible(cidx.querySelectorAll('.meter span[data-w]'), function (el) {
-        el.style.width = el.getAttribute('data-w') + '%';
-      }, { threshold: 0.6 });
-    }
-
     /* Live board marquee (home) */
     var board = document.getElementById('board-track');
     if (board && window.TW_BOARD && window.TW_BOARD.length && !board.childElementCount) {
