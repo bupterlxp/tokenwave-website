@@ -727,9 +727,15 @@ def build_research_home(posts, benches, research, editorial):
 
     dirs = []
     for i, dr in enumerate(research["directions"]):
-        tags = "\n                ".join(
-            f'<span class="dl-work">{esc(w)}</span>' for w in dr["works"]
-        )
+        pills = []
+        for w in dr["works"]:
+            if isinstance(w, dict) and w.get("ax"):
+                pills.append(f'<a class="dl-work dl-link" href="https://arxiv.org/abs/{esc(w["ax"])}" '
+                             f'target="_blank" rel="noopener noreferrer">{esc(w["t"])}<span class="x">&#8599;</span></a>')
+            else:
+                name = w["t"] if isinstance(w, dict) else w
+                pills.append(f'<span class="dl-work">{esc(name)}</span>')
+        tags = "\n                ".join(pills)
         dirs.append(f"""        <div class="dl-item rv" id="{dr['id']}">
             <div class="dl-marker" aria-hidden="true"></div>
             <div class="dl-body">

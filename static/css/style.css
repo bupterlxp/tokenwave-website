@@ -1931,3 +1931,17 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     .dl-item { grid-template-columns: 28px minmax(0, 1fr); }
     .dl-head h3 { font-size: 18px; }
 }
+
+/* Direction pills that link to their paper */
+a.dl-work.dl-link { transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease; }
+a.dl-work.dl-link:hover {
+    border-color: rgba(96, 165, 250, 0.45);
+    color: var(--accent-bright);
+    background: var(--panel-hover);
+}
+.dl-work .x {
+    font-size: 10px;
+    color: var(--dim);
+    margin-left: 5px;
+}
+a.dl-work.dl-link:hover .x { color: var(--accent-bright); }
