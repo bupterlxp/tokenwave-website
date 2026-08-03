@@ -641,8 +641,6 @@ def build_careers_page(benches, careers, models_tracked, editorial):
         </div>
     </div>""")
 
-    n = sum(len(c["benchmarks"]) for c in careers)
-    career_word = "career" if len(careers) == 1 else "careers"
     desc = ("The careers agents are learning to hold — real occupations, each measured "
             "by benchmarks TokenWave designs and maintains in-house.")
     html = f"""{head(d, "Careers | TokenWave AI", desc, "careers.html")}
@@ -651,7 +649,7 @@ def build_careers_page(benches, careers, models_tracked, editorial):
 <section class="page-header">
     <div class="eyebrow">Careers</div>
     <h1>The careers agents are learning to hold.</h1>
-    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house. {n} benchmarks, {len(careers)} {career_word} in certification, {models_tracked} models on the boards. More dossiers are in definition.</p>
+    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house.</p>
 </section>
 
 <nav class="career-strip" aria-label="Careers on this page">

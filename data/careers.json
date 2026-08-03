@@ -6,36 +6,52 @@
       "name": "Programmer",
       "status": "certifying",
       "tagline": "Ships the feature, reviews the diff, keeps the repository alive",
-      "description": "Software is where agent claims meet the cleanest acceptance test: the code either works or it does not. This dossier covers the full craft — turning a brief into a working repository, knowing the ecosystems you code in, editing living code rather than generating throwaway snippets, and running what you wrote until it passes. Anchored by TokenWave's own benchmarks and the open-source code stack behind them.",
-      "duties": "Feature implementation · Code review & editing · Repository delivery",
-      "benchmarks": ["nl2repo_bench", "code_simpleqa", "codeeditorbench", "opencoder", "opencodeinterpreter"]
+      "description": "A programmer lives inside the repository and the toolchain: requirements arrive through issues and tickets, context flows through Slack threads and design docs, code moves through GitHub — branches, pull requests, reviews — and nothing ships until CI is green. The job demands reading a requirement and turning it into working code, navigating and editing a living codebase without breaking it, writing the tests that prove the change, and debugging until everything passes.",
+      "duties": "Requirement understanding · Coding & code review · Testing & debugging",
+      "benchmarks": [
+        "nl2repo_bench",
+        "code_simpleqa",
+        "codeeditorbench",
+        "opencoder",
+        "opencodeinterpreter"
+      ]
     },
     {
       "id": "mathematician",
       "name": "Mathematician",
       "status": "certifying",
       "tagline": "Every claim carries a proof, and the proof must check",
-      "description": "Mathematics is the profession with the hardest verifier on earth: a proof either checks or it does not. This dossier spans the discipline's full range — formal theorem proving in Lean4 where the frontier proves barely one statement in six, Olympiad-level problem solving past the saturated school suites, and the critic's craft of judging formalizations without rubber-stamping them.",
-      "duties": "Formal proof · Competition problem solving · Formalization review",
-      "benchmarks": ["formalmath", "omni_math", "criticlean"]
+      "description": "A mathematician works between the literature and the blackboard — reading papers, writing LaTeX, and increasingly working inside proof assistants like Lean, where every step must satisfy the checker. The job demands stating a problem precisely, constructing a proof argument step by step, verifying each claim rather than trusting intuition, and reviewing others' work critically — from competition problems to formalized theorems.",
+      "duties": "Problem formalization · Proof construction · Critical review",
+      "benchmarks": [
+        "formalmath",
+        "omni_math",
+        "criticlean"
+      ]
     },
     {
       "id": "mle",
       "name": "Machine Learning Engineer",
       "status": "certifying",
       "tagline": "From raw data to a submitted model, end to end",
-      "description": "The MLE's deliverable is a pipeline that survives contact with real data: understand the problem, engineer the features, train, validate, debug, and ship a submission that scores. This dossier measures that arc end to end — autonomous data-science pipelines on real competitions, and the deeper question of how much better an agent gets after twelve unbroken hours inside a real environment.",
-      "duties": "Data-science pipelines · Model training & validation · Long-horizon iteration",
-      "benchmarks": ["autokaggle", "edgebench"]
+      "description": "A machine learning engineer moves between notebooks, data warehouses, and GPU clusters: pulling and cleaning data, tracking experiments, scheduling training runs, and watching validation curves — with the pipeline versioned in Git like any other code. The job demands understanding the problem behind the data, engineering features, training and validating models, debugging pipelines when metrics collapse, and iterating over long horizons until the submission actually scores.",
+      "duties": "Data understanding · Training & validation · Long-horizon iteration",
+      "benchmarks": [
+        "autokaggle",
+        "edgebench"
+      ]
     },
     {
       "id": "av-editor",
       "name": "Audio & Video Editor",
       "status": "certifying",
       "tagline": "From raw material to a cut that holds together",
-      "description": "Editing is judged on the finished cut: pacing, continuity, sound and image locked together, delivered through professional tools. This dossier measures both halves of the job — whether an agent can carry a full song to a coherent, expert-judged music video, and whether it can drive real desktop production software through the long multimedia workflows the trade runs on.",
-      "duties": "Music-video production · Multimedia workflows · Post-production QA",
-      "benchmarks": ["automv", "workflow_gym"]
+      "description": "An editor works inside professional production suites — non-linear editors, digital audio workstations, asset libraries, and review tools — turning raw footage and audio into a finished cut. The job demands reading a creative brief, cutting to structure and pacing, locking sound and image together, driving long multi-step tool workflows without losing the thread, and quality-checking the deliverable before it ships.",
+      "duties": "Brief understanding · Cutting & sound-image sync · Delivery QA",
+      "benchmarks": [
+        "automv",
+        "workflow_gym"
+      ]
     }
   ]
 }
