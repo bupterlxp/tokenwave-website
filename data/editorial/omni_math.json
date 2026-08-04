@@ -1,0 +1,36 @@
+{
+  "slug": "omni_math",
+  "tagline": "A 4,428-problem Olympiad set with domain, difficulty, and judge-reliability analysis",
+  "stats": [
+    {
+      "value": "4,428",
+      "label": "competition problems"
+    },
+    {
+      "value": "33+",
+      "label": "mathematical subdomains"
+    },
+    {
+      "value": "10+",
+      "label": "difficulty levels"
+    },
+    {
+      "value": "60.54%",
+      "label": "top overall accuracy"
+    }
+  ],
+  "overview": [
+    "Omni-MATH was built after GSM8K and MATH had stopped separating the strongest reasoning systems. It contains 4,428 text-only competition problems, all at Olympiad level rather than mixing mathematics with multimodal perception or general knowledge. The source pool spans introductory competitions, national and international Olympiads, Putnam, and the International Mathematics Competition for University Students.",
+    "The construction counts are unusually transparent. Official contest pages contribute 3,242 retained problems after rule filtering and human review, AoPS Wiki contributes 298, and AoPS Forum contributes 888. Forum items must provide multiple candidate solutions with consistent final answers before they reach annotators. The finished problems are organized into more than 33 subdomains and fine-grained difficulty ratings from 0 to 10.",
+    "Free-form Olympiad answers defeat simple string matching: equivalent expressions may look different, and a correct final answer may require interpreting the surrounding reasoning. The main experiment therefore uses GPT-4o to compare each complete model solution with the reference. Omni-Judge is an open, lower-cost verifier trained on those judgments, while Omni-MATH-Rule is a separate deterministically checkable subset. The TokenWave table uses only full-set, GPT-4o-evaluated Overall Accuracy from the paper's main Table 3."
+  ],
+  "why": [
+    "One overall score is useful only if the underlying test remains discriminative. Omni-MATH's upper difficulty tiers and Olympiad-only scope leave substantial headroom even for reasoning-focused systems, while its domain tree shows whether gains come from algebra and calculus or extend to scarcer areas such as discrete mathematics.",
+    "Evaluator choice is part of the benchmark contract. GPT-4o achieves 98% agreement with human labels on the paper's meta-evaluation, and Omni-Judge exceeds 90% consistency with GPT-4o. Keeping the full-set judge-based scores separate from Omni-MATH-Rule prevents an easier-to-grade subset from being mistaken for the benchmark's main 4,428-problem result."
+  ],
+  "reading": [
+    "OpenAI o1-mini leads at 60.54% Overall Accuracy, with o1-preview at 52.55%. The 7.99-point gap between the two is large, but even o1-mini misses nearly two out of five problems. The best vanilla open model in the source table, Qwen2.5-MATH-72B-Instruct, scores 36.20%, 24.34 points behind the leader.",
+    "Reward-model selection does not produce a clean scaling curve. Qwen2.5-MATH-72B RM@8 reaches 36.34%, just 0.14 points above the vanilla model, while RM@256 falls to 35.95%. The 7B RM@256 variant scores 35.79%. Those tightly grouped values are why the paper concludes that conventional Best-of-N scaling is limited here: increasing candidates and applying a reward model does not reliably locate better Olympiad solutions.",
+    "The domain and tier columns reveal where the aggregate comes from. o1-mini scores 67.82 in algebra but 37.68 in discrete mathematics; its T1 accuracy is 82.23 and its T4 accuracy is 42.69. The benchmark is not merely lowering every model by the same amount—harder tiers and discrete problems expose specific weaknesses that easier arithmetic suites average away."
+  ]
+}

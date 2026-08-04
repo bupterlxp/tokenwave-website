@@ -1,30 +1,47 @@
 {
- "slug": "mammoth2",
- "name": "MAmmoTH2",
- "domain": "llm",
+  "slug": "mammoth2",
+  "name": "MAmmoTH2",
+  "paper_type": "data",
+  "domain": "llm",
  "domain_name": "Research",
  "subcategory": "Synthetic Data",
- "abstract": "MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks dramatically without human annotation or frontier-model distillation.",
- "contributions": [
-  "A three-stage pipeline — recall candidate documents, extract Q&A pairs, refine them — yields the ~10M-example WebInstruct corpus from the open web.",
-  "Requires neither crowdworkers nor distillation from proprietary models, changing the cost structure of instruction data.",
-  "Tuning on WebInstruct lifts base models sharply on reasoning suites, and MAmmoTH2-Plus variants remain competitive instruction models at their scale."
- ],
- "method": [
-  "Recall finds instruction-shaped documents in web corpora; extraction isolates the Q&A; refinement cleans and completes the pairs.",
-  "The paper reports large math-reasoning gains for tuned models against their own baselines.",
-  "Follows MAmmoTH, whose MathInstruct corpus hybridized chain-of-thought and program-of-thought rationales."
- ],
- "metrics": [
-  {
-   "name": "Instruction-data yield",
-   "direction": "higher",
-   "range": null,
-   "note": "Tracked qualitatively: corpus scale and downstream reasoning gains reported by the paper."
-  }
- ],
+  "abstract": "MAmmoTH2 is primarily a data and instruction-tuning study built around WEBINSTRUCT, a corpus of 10 million instruction-response pairs (about 5 billion tokens) mined from web pretraining data. The pipeline recalls candidate Common Crawl documents with fastText classifiers, extracts naturally occurring question-answer pairs, removes benchmark overlap, and uses open models to repair formatting or add missing reasoning. The authors tune Mistral-7B, Llama-3-8B, Mixtral-8×7B, and Yi-34B bases on WEBINSTRUCT, then build Plus variants with additional public instruction data. On seven held-out reasoning benchmarks, MAmmoTH2-7B improves the Mistral-7B average by 14.0 points; MATH rises from 11.2 to 36.7 and GSM8K from 36.2 to 68.4. The work studies instruction scale, refinement models, loss functions, subject domains, and residual data errors.",
+  "contributions": [
+    "Releases WEBINSTRUCT: 10 million web-mined instruction-response pairs totaling roughly 5 billion tokens, positioned between small supervised-tuning sets and noisier continued-pretraining corpora.",
+    "Introduces a recall-extract-refine pipeline that narrows 18 million recalled documents to about 5 million candidate Q-A pairs, then uses Mixtral-8×22B and Qwen-72B refinements to produce 10 million diverse training examples.",
+    "Avoids human crowdsourcing and does not generate the instruction corpus by GPT-4 answer distillation; proprietary models are used only for domain filtering, while Q-A extraction/refinement uses the reported open models.",
+    "Shows gains across model families and scales: WEBINSTRUCT-only tuning raises Mistral-7B's seven-task average by 14.0 points, Llama-3-8B by 8.8, Mixtral-8×7B by 6.5, and Yi-34B by 5.8.",
+    "Audits 50 refined samples: annotators judged 78% improved by refinement and 10% to contain newly introduced hallucinations, documenting both the benefit and the remaining data risk."
+  ],
+  "method": [
+    "Recall begins with 100K educational-site positives and 100K Common Crawl negatives. A fastText classifier first scans 100B tokens; domain filtering and a second classifier then recall 40B tokens and retain 18M raw documents.",
+    "Rule-based HTML preprocessing removes ads, boilerplate, and site text. Qwen-72B extracts natural question-answer pairs, with only about 30% of recalled documents yielding candidates; 10-gram matches against evaluation questions or answers are removed for decontamination.",
+    "Mixtral-8×22B and Qwen-72B independently reformat extracted pairs, remove unrelated content, and add intermediate reasoning when an answer lacks an explanation. Merging both refinement streams yields the final 10M-pair WEBINSTRUCT set.",
+    "Mistral-7B, Llama-3-8B, Mixtral-8×7B, and Yi-34B are fine-tuned for two epochs with maximum sequence length 4096, global batch size 512, cosine scheduling and 3% warm-up on 32 A100 GPUs. Plus variants continue tuning with OpenHermes 2.5, Code-Feedback, and Math-Plus.",
+    "Reasoning evaluation covers TheoremQA, MATH, GSM8K, GPQA, MMLU-STEM, BBH, and ARC-C using the paper's benchmark-specific few-shot chain-of-thought settings. Additional tests cover EvalPlus code generation, MMLU/MMLU-Pro, MT-Bench, AlpacaEval 2.0, and Arena-Hard."
+  ],
+  "metrics": [
+    {
+      "name": "Reasoning accuracy",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage correct on each reasoning dataset under its reported few-shot chain-of-thought setting: 5-shot TheoremQA/GPQA/MMLU-STEM, 4-shot MATH/GSM8K, 3-shot BBH, and 8-shot ARC-C."
+    },
+    {
+      "name": "Seven-benchmark average",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Arithmetic mean of accuracy on TheoremQA, MATH, GSM8K, GPQA, MMLU-STEM, BBH, and ARC-C; used to summarize gains over each base model."
+    },
+    {
+      "name": "EvalPlus code-generation accuracy",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "The paper reports HumanEval and MBPP accuracy together with the stricter HumanEval+ and MBPP+ results, and summarizes each pair by their average."
+    }
+  ],
  "leaderboard": [],
- "leaderboard_metric": "Instruction-data yield",
+  "leaderboard_metric": "Seven-benchmark average",
  "leaderboard_note": null,
  "links": {
   "paper": "https://arxiv.org/abs/2405.03548",
@@ -39,5 +56,14 @@
   "models_scored": null,
   "data_updated": "2026-08-03"
  },
- "figures": []
+  "figures": [
+    {
+      "image": "static/images/benchmarks/mammoth2/figure-3-webinstruct-pipeline.png",
+      "caption": "Figure 3 (paper, PDF p. 3): WEBINSTRUCT's three stages—fastText-based recall from Common Crawl, LLM extraction with benchmark decontamination, and LLM refinement of the resulting Q-A pairs. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/mammoth2/figure-5-scaling-study.png",
+      "caption": "Figure 5 (paper, PDF p. 7): Mistral-7B accuracy on MATH, TheoremQA, and ARC-C as instruction count scales from 1M to 10M, comparing extracted versus refined Q-A data and LM versus supervised fine-tuning loss. Source: paper."
+    }
+  ]
 }

@@ -1,16 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-
-<line x1="60" y1="171" x2="440" y2="171" stroke="#9ca3af" stroke-width="2"/>
-<line x1="60" y1="166" x2="60" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="98" y1="166" x2="98" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="136" y1="166" x2="136" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="174" y1="166" x2="174" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="212" y1="166" x2="212" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="250" y1="166" x2="250" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="288" y1="166" x2="288" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="326" y1="166" x2="326" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="364" y1="166" x2="364" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="402" y1="166" x2="402" y2="176" stroke="#9ca3af" stroke-width="1.2"/><line x1="440" y1="166" x2="440" y2="176" stroke="#9ca3af" stroke-width="1.2"/>
-<circle cx="98" cy="171" r="7" fill="#0891b2" opacity="0.8"/><circle cx="250" cy="171" r="7" fill="#0891b2" opacity="0.8"/><circle cx="402" cy="171" r="7" fill="#0891b2" opacity="0.8"/>
-<text x="60" y="200" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">0:00</text>
-<text x="416" y="200" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">1:00:00</text>
-<path d="M 98 160 C 140 100 210 100 250 160" stroke="#0891b2" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
-<path d="M 250 160 C 300 100 360 100 402 160" stroke="#0891b2" stroke-width="1.8" fill="none" stroke-dasharray="5 4"/>
-<text x="250" y="86" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">evidence scattered across the hour</text>
-<text x="250" y="240" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">frame sampling fails when clues span durations</text>
-
-<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Hour-scale video QA with dispersed evidence.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=scalelong layout=timeline -->
+<title id="title">ScaleLong benchmark illustration</title>
+<desc id="desc">Evidence distributed across short, medium, and hour-scale video spans before retrieval.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#8d7cff" stop-opacity=".22"/><stop offset="1" stop-color="#8d7cff" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8d7cff"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="101" cy="167" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">ScaleLong</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#8d7cff">MULTIMODAL</text>
+<path d="M 70.0 204 L 183.33333333333331 144" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 183.33333333333331 144 L 296.66666666666663 204" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 296.66666666666663 204 L 410.0 144" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<rect x="32.0" y="179" width="76" height="50" rx="7" fill="#101d30" stroke="#8d7cff" stroke-width="2"/>
+<rect x="37.0" y="182" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="37.0" y="221" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="52.0" y="182" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="52.0" y="221" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="67.0" y="182" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="67.0" y="221" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="82.0" y="182" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="82.0" y="221" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="97.0" y="182" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="97.0" y="221" width="6" height="5" rx="1" fill="#31435d"/>
+<path d="M 62.0 194 L 84.0 204 L 62.0 214 Z" fill="#8d7cff"/>
+<text x="70.0" y="252" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">seconds</text>
+<circle cx="183.33333333333331" cy="144" r="29" fill="#101d30" stroke="#8d7cff" stroke-width="2"/><path d="M 183.33333333333331 144 V 127 M 183.33333333333331 144 L 197.33333333333331 152" stroke="#c7d3e5" stroke-width="3" stroke-linecap="round"/>
+<text x="183.33333333333331" y="192" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">minutes</text>
+<circle cx="296.66666666666663" cy="204" r="29" fill="#101d30" stroke="#8d7cff" stroke-width="2"/><path d="M 296.66666666666663 204 V 187 M 296.66666666666663 204 L 310.66666666666663 212" stroke="#c7d3e5" stroke-width="3" stroke-linecap="round"/>
+<text x="296.66666666666663" y="252" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">hours</text>
+<path d="M 384.0 117 H 428.0 L 442.0 131 V 171 H 384.0 Z" fill="#101d30" stroke="#8d7cff" stroke-width="2"/>
+<path d="M 428.0 117 V 131 H 442.0" fill="none" stroke="#8d7cff" stroke-width="2"/>
+<line x1="391.0" y1="136" x2="432.0" y2="136" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="391.0" y1="145" x2="429.0" y2="145" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="391.0" y1="154" x2="426.0" y2="154" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="410.0" y="192" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">retrieve</text>
 </svg>

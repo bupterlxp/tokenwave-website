@@ -1,22 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<text x="70" y="58" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">looped language models · 7.7T tokens</text>
-<rect x="70" y="120" width="96" height="96" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
-<text x="118" y="162" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#1e40af">shared</text>
-<text x="118" y="178" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#1e40af">block</text>
-<path d="M166 140 C214 108 214 228 166 196" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#a)"/>
-<text x="212" y="172" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#7c3aed">&#215;R</text>
-<defs><marker id="a" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#7c3aed"/></marker></defs>
-<rect x="258" y="124" width="66" height="14" rx="4" fill="#2563eb" opacity="1"/>
-<text x="328" y="135" font-family="Space Mono, Menlo, monospace" font-size="9" fill="#6b7280"> Ouro 1.4B</text>
-<rect x="258" y="150" width="96" height="14" rx="4" fill="#2563eb" opacity="1"/>
-<text x="358" y="161" font-family="Space Mono, Menlo, monospace" font-size="9" fill="#6b7280"> Ouro 2.6B</text>
-<rect x="258" y="176" width="190" height="14" rx="4" fill="#94a3b8" opacity="0.55"/>
-<text x="452" y="187" font-family="Space Mono, Menlo, monospace" font-size="9" fill="#6b7280"> matches 8B</text>
-<rect x="258" y="202" width="240" height="14" rx="4" fill="#cbd5e1" opacity="0.55"/>
-<text x="502" y="213" font-family="Space Mono, Menlo, monospace" font-size="9" fill="#6b7280"> up to 12B</text>
-<text x="258" y="248" font-family="Space Mono, Menlo, monospace" font-size="9" fill="#9ca3af">reasoning-suite reach vs dense baselines</text>
-<text x="70" y="292" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">one block, applied R times in latent space</text>
-<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Loop depth joins parameters and data as a scaling axis.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=ouro layout=cycle -->
+<title id="title">Ouro benchmark illustration</title>
+<desc id="desc">A shared transformer block looping at variable depth to allocate latent compute per token.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#e16fae" stop-opacity=".22"/><stop offset="1" stop-color="#e16fae" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e16fae"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="116" cy="111" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">Ouro</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#e16fae">LLM</text>
+<path d="M 240 103 L 366 180" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 366 180 L 240 257" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 240 257 L 114 180" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 114 180 L 240 103" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="203" y="74" width="74" height="58" rx="12" fill="#101d30" stroke="#e16fae" stroke-width="1.7"/>
+<text x="240" y="110" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#e16fae">tok</text>
+<text x="240" y="151" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">token</text>
+<rect x="332" y="156" width="68" height="15" rx="5" fill="#101d30" stroke="#31435d" stroke-width="1.8"/>
+<rect x="336" y="177" width="60" height="15" rx="5" fill="#101d30" stroke="#e16fae" stroke-width="1.8"/>
+<rect x="340" y="198" width="52" height="15" rx="5" fill="#101d30" stroke="#31435d" stroke-width="1.8"/>
+<text x="366" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">shared block</text>
+<rect x="203" y="228" width="74" height="58" rx="12" fill="#101d30" stroke="#e16fae" stroke-width="1.7"/>
+<text x="240" y="264" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#e16fae">↻</text>
+<text x="240" y="305" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">× depth</text>
+<line x1="81" y1="204" x2="81" y2="156" stroke="#31435d" stroke-width="2"/><line x1="81" y1="204" x2="149" y2="204" stroke="#31435d" stroke-width="2"/>
+<path d="M 86 194 L 102 184 L 116 190 L 132 168 L 147 160" fill="none" stroke="#e16fae" stroke-width="3"/>
+<circle cx="86" cy="194" r="3" fill="#e16fae"/>
+<circle cx="102" cy="184" r="3" fill="#e16fae"/>
+<circle cx="116" cy="190" r="3" fill="#e16fae"/>
+<circle cx="132" cy="168" r="3" fill="#e16fae"/>
+<circle cx="147" cy="160" r="3" fill="#e16fae"/>
+<text x="114" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">allocation</text>
 </svg>

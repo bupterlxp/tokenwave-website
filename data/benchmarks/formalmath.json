@@ -1,64 +1,120 @@
 {
- "slug": "formalmath",
- "name": "FormalMATH",
- "domain": "llm",
- "domain_name": "LLM Benchmark",
- "subcategory": "Formal Math",
- "abstract": "FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics. The strongest prover reaches 16.46% under practical sampling budgets — formal reasoning remains largely open.",
- "contributions": [
-  "5,560 formally verified Lean4 problems — over twenty times the scale of MiniF2F's test split.",
-  "A human-in-the-loop autoformalization pipeline: specialist LLMs draft statements, multi-LLM semantic checks and negation-based disproof filter them, and IMO-medalist-level experts verify.",
-  "Reveals pronounced domain bias: provers do far better in algebra than calculus, and over-rely on simplified automation tactics."
- ],
- "method": [
-  "Statements are autoformalized from natural-language problems, then filtered by semantic verification and disproof of negations.",
-  "Provers are evaluated under fixed sampling budgets; a proof must check in Lean4.",
-  "The paper also finds natural-language solution guidance can hurt formal proof success."
- ],
- "metrics": [
-  {
-   "name": "Success rate",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Share of statements formally proven within the sampling budget (pass@32 for whole-proof generation)."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": null,
-   "model": "Kimina-Prover",
-   "org": "Numina & Kimi",
-   "color": "#94a3b8",
-   "score": 16.46,
-   "source": "arXiv paper (pass@32)",
-   "date": null
+  "slug": "formalmath",
+  "name": "FormalMATH",
+  "paper_type": "benchmark",
+  "domain": "llm",
+  "domain_name": "LLM Benchmark",
+  "subcategory": "Formal Math",
+  "abstract": "FormalMATH is a Lean 4 theorem-proving benchmark with 5,560 expert-verified statements spanning high-school Olympiad problems and undergraduate mathematics. Its domains include algebra, geometry, number theory, discrete mathematics, precalculus, integration, differentiation, multivariable calculus, and sequences. Construction combines best-of-N candidates from multiple autoformalizers, Lean compiler checks, unanimous semantic review by several general-purpose models, negation-based disproof, and final validation by 12 Olympiad-medalist-level experts. The paper evaluates both complete-proof single-pass generators and best-first search systems, measuring whether at least one generated proof compiles. TokenWave's leaderboard keeps only the directly comparable full-set single-pass Pass@32 results: Kimina-Prover reaches 16.46%, while every other displayed prover remains below 14%. A separate 425-problem FormalMATH-Lite split supports higher-budget scaling experiments.",
+  "contributions": [
+    "Releases 5,560 formally verified Lean 4 theorem statements across high-school and undergraduate mathematics, 22.8 times the size of MiniF2F's 244-problem test set.",
+    "Introduces a human-in-the-loop construction pipeline combining multi-model autoformalization, compiler validation, multi-LLM semantic checking, negation-based disproof, and expert review.",
+    "Provides full-benchmark evaluations for single-pass and search-based theorem provers, plus a 425-problem FormalMATH-Lite subset for controlled test-time-scaling studies.",
+    "Documents domain imbalance, diminishing returns from large sampling budgets, overuse of automation tactics, and differences among vanilla, naive-CoT, and natural-language-augmented proof generation."
+  ],
+  "method": [
+    "Natural-language problems are collected from high-school sources such as Omni-MATH and BlueMO and undergraduate sources such as U-MATH, HARDMath, and DEMI-MathAnalysis. The final 5,560 statements cover distinct high-school and undergraduate domain taxonomies.",
+    "A compile-and-filter stage first produces 9,260 natural-language/Lean statement pairs for fine-tuning specialized autoformalizers. Multiple autoformalizer models then sample candidate statements with best-of-N generation.",
+    "Every candidate must type-check in Lean 4. Surviving statements are back-translated and compared with the source problem by multiple general-purpose LLMs; only unanimous semantic approvals continue to negation-based disproof with theorem provers.",
+    "Twelve Olympiad-medalist-level experts perform the final semantic check. Manual review costs an average of $6.89 per statement over 22 days and retains 72.09% of the candidates that reach this stage, yielding 21.7% of the original natural-language pool.",
+    "A proof is successful only if Lean accepts it. Single-pass systems sample complete proofs, while best-first systems expand tactics over N search attempts, S tactics per expansion, and T expansion steps; their budgets are therefore reported separately.",
+    "The HTML leaderboard uses the five full-set single-pass generation rows at Pass@32. BFS-Prover and InternLM-Prover are excluded because their 1 × 32 × 100 search budgets are not equivalent to 32 complete proof samples."
+  ],
+  "metrics": [
+    {
+      "name": "Full-set Pass@32 (%)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of all 5,560 statements for which at least one of 32 independently generated complete proofs is accepted by Lean; used for the displayed single-pass leaderboard."
+    },
+    {
+      "name": "Best-first Pass@N×S×T",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Success rate for search-based provers with N search attempts, S tactics proposed per expansion, and T expansion iterations; reported separately from single-pass Pass@K."
+    },
+    {
+      "name": "FormalMATH-Lite Pass@K",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Pass@K on a stratified 425-problem subset (359 high-school and 66 undergraduate problems) used for budgets up to 3,200 complete samples and larger search budgets."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "kimina_prover_7b",
+      "model": "Kimina-Prover-7B",
+      "org": "Numina / Kimi",
+      "color": "#94a3b8",
+      "score": 16.46,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "stp_lean",
+      "model": "STP-Lean",
+      "org": null,
+      "color": "#94a3b8",
+      "score": 13.87,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "goedel_prover",
+      "model": "Goedel-Prover",
+      "org": null,
+      "color": "#94a3b8",
+      "score": 13.53,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "deepseek_prover_v1_5_rl",
+      "model": "DeepSeek-Prover-V1.5-RL",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 10.18,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "deepseek_prover_v1_5_sft",
+      "model": "DeepSeek-Prover-V1.5-SFT",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 8.97,
+      "source": "official",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Full-set Pass@32 (%)",
+  "leaderboard_note": "All displayed rows use the full 5,560-problem benchmark, single-pass complete-proof generation, and 32 samples. Search-based BFS and InternLM results in Figure 2a use a different 1 × 32 × 100 tactic-search budget and are intentionally not mixed into this ranking.",
+  "at_a_glance": {
+    "focus": "Lean 4 proof generation across high-school and undergraduate math",
+    "primary_metric": "Full-set Pass@32 (%)",
+    "setting": "Single-pass complete-proof generation",
+    "models_scored": 5,
+    "data_updated": "2025-05-05"
   },
-  {
-   "rank": 2,
-   "model_id": null,
-   "model": "BFS-Prover",
-   "org": "ByteDance",
-   "color": "#94a3b8",
-   "score": 11.13,
-   "source": "arXiv paper (best-first search)",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Success rate",
- "leaderboard_note": "Scores are from the FormalMATH technical report under its stated sampling budgets; settings differ by prover family.",
- "links": {
-  "paper": "https://arxiv.org/abs/2505.02735",
-  "code": "https://github.com/Sphere-AI-Lab/FormalMATH-Bench",
-  "pdf": "https://arxiv.org/pdf/2505.02735.pdf"
- },
- "image": "static/images/benchmarks/formalmath.svg",
- "at_a_glance": {
-  "focus": "Formal proof in Lean4",
-  "primary_metric": "Success rate",
-  "setting": "Pass@32 whole-proof generation",
-  "models_scored": 2,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "links": {
+    "paper": "https://arxiv.org/abs/2505.02735",
+    "code": "https://github.com/Sphere-AI-Lab/FormalMATH-Bench",
+    "pdf": "https://arxiv.org/pdf/2505.02735.pdf"
+  },
+  "figures": [
+    {
+      "image": "static/images/benchmarks/formalmath/figure-1-autoformalization-pipeline.png",
+      "caption": "Figure 1 (PDF p. 2): Human-in-the-loop statement construction with repeated multi-autoformalizer sampling, Lean syntax checks, multi-LLM semantic checks, negation-based disproof, and expert validation. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/formalmath/figure-3-domain-distribution.png",
+      "caption": "Figure 3 (PDF p. 5): Separate domain distributions for the undergraduate and high-school portions of the full FormalMATH set; undergraduate data is calculus-heavy, while high-school data is dominated by algebra and number theory. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/formalmath.svg"
 }

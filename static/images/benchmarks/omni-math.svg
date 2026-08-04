@@ -1,17 +1,33 @@
-<!-- tokenwave:generated -->
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
- <title id="title">Omni-MATH benchmark illustration</title>
- <desc id="desc">Competition math beyond saturated school-level suites.</desc>
- <rect width="480" height="360" rx="28" fill="#f8fafc"/>
- <rect x="34" y="34" width="412" height="292" rx="22" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
- <text x="64" y="80" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="700">Omni-MATH</text>
- <text x="64" y="106" fill="#64748b" font-family="system-ui, sans-serif" font-size="13">Olympiad-level mathematics</text>
- <path d="M64 216 Q114 184 164 216 T264 216 T364 216 T412 196" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
- <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#A855F7"/>
- </linearGradient></defs>
- <rect x="64" y="258" width="10" height="10" rx="3" fill="#3B82F6"/>
- <rect x="82" y="264" width="7" height="7" rx="2" fill="#7C5CFA"/>
- <rect x="96" y="258" width="5" height="5" rx="2" fill="#A855F7"/>
- <text x="64" y="302" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">TOKENWAVE · CAREER EVIDENCE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=omni_math layout=merge -->
+<title id="title">Omni-MATH benchmark illustration</title>
+<desc id="desc">Algebra, geometry, and number theory problems organized across Olympiad difficulty levels.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#ff8a66" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a66" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#ff8a66"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="286" cy="260" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">Omni-MATH</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#ff8a66">LLM</text>
+<path d="M 112 112.0 L 362 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 112 185.0 L 362 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 112 258.0 L 362 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="75" y="83" width="74" height="58" rx="9" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="112" y="119.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">x²</text>
+<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">algebra</text>
+<rect x="75" y="156" width="74" height="58" rx="12" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="112" y="192.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">△ ○</text>
+<text x="112" y="233.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">geometry</text>
+<rect x="75" y="229" width="74" height="58" rx="9" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="112" y="265.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">ℕ</text>
+<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">number theory</text>
+<circle cx="362" cy="184" r="27" fill="#ff8a66" opacity=".16" stroke="#ff8a66" stroke-width="2"/>
+<path d="M 350 153 L 359 172 L 366 153 M 368 153 L 373 172" stroke="#ff8a66" stroke-width="5"/>
+<text x="362" y="192" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="20" font-weight="700" fill="#e8eef9">1</text>
+<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">Olympiad</text>
 </svg>

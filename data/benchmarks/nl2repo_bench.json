@@ -1,100 +1,190 @@
 {
- "slug": "nl2repo_bench",
- "name": "NL2Repo-Bench",
- "domain": "agent",
- "domain_name": "Agent",
- "subcategory": "Code Agent",
- "abstract": "NL2Repo-Bench evaluates long-horizon repository generation from natural-language requirements. This page uses the Overall Score from the paper's main table.",
- "contributions": [],
- "method": [
-  "This work shifts evaluation from local code completion to full repository-level software generation.",
-  "It builds tasks across web development, testing, utility libraries, and machine learning, with difficulty stratified by repository scale.",
-  "The main results show that even leading coding systems remain far from reliable completion on long-horizon repository generation."
- ],
- "metrics": [
-  {
-   "name": "Overall Score",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Overall repository-generation score reported in the main results table."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "claude_sonnet_4_5_claude_code",
-   "model": "Claude Sonnet 4.5 (Claude Code)",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 40.2,
-   "source": "official",
-   "date": null
+  "slug": "nl2repo_bench",
+  "name": "NL2Repo-Bench",
+  "paper_type": "benchmark",
+  "domain": "agent",
+  "domain_name": "Agent Benchmark",
+  "subcategory": "Repository Generation",
+  "abstract": "NL2Repo-Bench evaluates whether a coding agent can reconstruct a complete Python library from one natural-language specification and an empty workspace. The benchmark contains 104 repositories across nine application categories; task documents average about 18,800 tokens and describe project goals, dependencies, structure, APIs, and implementation nodes without exposing source code or tests. Target repositories range from 300 to 120,000 lines, include passing upstream pytest suites, and receive task-specific Docker environments. Agents autonomously design, implement, package, and debug the repository, after which the hidden original tests run to completion. The primary score averages test-case pass rates, while Pass@1 counts repositories whose entire suite passes. Claude Sonnet 4.5 in Claude Code leads at 40.2% average pass rate but fully completes only three of 104 repositories.",
+  "contributions": [
+    "Formalizes from-scratch repository generation from a single requirements document: the agent receives no scaffolding, function signatures outside the document, source files, or visible tests.",
+    "Builds 104 quality-controlled Python-library tasks across nine categories, with specifications averaging 18,800 tokens and difficulty splits based on original repository size.",
+    "Pairs each task with a verified Docker image and the unmodified upstream pytest behavior, yielding execution-based evaluation rather than an LLM or qualitative judge.",
+    "Benchmarks twelve model-framework configurations and analyzes long-horizon failure modes including early stopping, non-finish behavior, tool-use allocation, context pressure, and iteration limits."
+  ],
+  "method": [
+    "Candidate repositories must contain 300–120,000 lines of code, have at least 10 GitHub stars, have been created or updated within three years, include pytest tests, and pass their full native suite in the curated environment.",
+    "Annotators reverse-engineer each repository into a four-part document: Project Description, Supports, API Usage Guide, and Implementation Nodes. An AST scanner inventories classes, functions, signatures, and locations to check specification coverage.",
+    "Human experts review signatures and behavior, static checks compare documented APIs with the source inventory, and preliminary agent runs are inspected by a senior Python engineer to remove specification or environment faults.",
+    "At evaluation time the workspace contains only the task document. The agent may use its available tools without human follow-up or a fixed iteration cap, then submits a package that is installed inside the task's controlled test image.",
+    "The hidden upstream pytest suite executes all collectable cases even when some collection errors occur. Per-task test pass rate is averaged over 104 tasks; a separate Pass@1 count records tasks for which every test passes."
+  ],
+  "metrics": [
+    {
+      "name": "Average Test Pass Rate",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Mean percentage of hidden upstream pytest cases passed across the 104 generated repositories; this is the paper's Overall Score."
+    },
+    {
+      "name": "Repository Pass@1",
+      "direction": "higher",
+      "range": "[0, 104]",
+      "note": "Count of repositories for which the generated package passes the complete upstream test suite in one run."
+    },
+    {
+      "name": "Difficulty Pass Rate",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Average test pass rate split by original project size: Easy at no more than 1,500 LOC (26 tasks), Medium at 1,500–4,000 LOC (46), and Hard at at least 4,000 LOC (32)."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "claude_sonnet_4_5_claude_code",
+      "model": "Claude Sonnet 4.5 (Claude Code)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 40.2,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "claude_sonnet_4_5",
+      "model": "Claude Sonnet 4.5 (OpenHands)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 39.9,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "claude_sonnet_4_5_cursor",
+      "model": "Claude Sonnet 4.5 (Cursor)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 39.2,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "claude_sonnet_4",
+      "model": "Claude Sonnet 4 (OpenHands)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 37.0,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "gemini_3_pro_cursor",
+      "model": "Gemini 3 Pro (Cursor)",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 34.2,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 6,
+      "model_id": "deepseek_v3_2",
+      "model": "DeepSeek-V3.2 (OpenHands)",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 27.6,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 7,
+      "model_id": "kimi_k2",
+      "model": "Kimi-K2 (OpenHands)",
+      "org": "Moonshot AI",
+      "color": "#06b6d4",
+      "score": 22.7,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 8,
+      "model_id": "deepseek_v3_1",
+      "model": "DeepSeek-V3.1 (OpenHands)",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 22.2,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 9,
+      "model_id": "gpt_5",
+      "model": "GPT-5 (OpenHands)",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 21.7,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 10,
+      "model_id": "qwen3_235b_instruct",
+      "model": "Qwen3-235B-Instruct (OpenHands)",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 17.9,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 11,
+      "model_id": "glm_4_6",
+      "model": "GLM-4.6 (OpenHands)",
+      "org": "Z.ai",
+      "color": "#7c3aed",
+      "score": 17.5,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 12,
+      "model_id": "qwen3_235b_thinking",
+      "model": "Qwen3-235B-Thinking (OpenHands)",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 13.8,
+      "source": "arXiv Table 3",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Average Test Pass Rate (%)",
+  "leaderboard_note": "All rows use the same 104 specifications and hidden upstream tests. OpenHands is the default framework; Claude Code and Cursor variants are labeled explicitly. Gemini 3 Pro uses Cursor because the paper reports agent-loop errors in OpenHands.",
+  "show_source": false,
+  "at_a_glance": {
+    "focus": "From-scratch Python repository generation",
+    "primary_metric": "Average Test Pass Rate (%)",
+    "setting": "104 tasks, hidden upstream pytest suites",
+    "models_scored": 12,
+    "data_updated": "2026-08-04"
   },
-  {
-   "rank": 2,
-   "model_id": "claude_sonnet_4_5",
-   "model": "Claude Sonnet 4.5",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 39.9,
-   "source": "official",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2512.12730",
+    "code": "https://github.com/multimodal-art-projection/NL2RepoBench",
+    "pdf": "https://arxiv.org/pdf/2512.12730.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "claude_sonnet_4_5_cursor",
-   "model": "Claude Sonnet 4.5 (Cursor)",
-   "org": "Cursor",
-   "color": "#d97706",
-   "score": 39.2,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "claude_sonnet_4",
-   "model": "Claude Sonnet 4",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 37,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "gemini_3_pro_cursor",
-   "model": "Gemini 3 Pro (Cursor)",
-   "org": "Cursor",
-   "color": "#4285f4",
-   "score": 34.2,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "deepseek_v3_2",
-   "model": "DeepSeek-V3.2",
-   "org": "DeepSeek",
-   "color": "#4a90d9",
-   "score": 27.6,
-   "source": "official",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Overall Score",
- "leaderboard_note": "The leaderboard uses the Overall Score (%) from the main result table without recombining difficulty or domain columns.",
- "at_a_glance": {
-  "focus": "长时程仓库生成",
-  "primary_metric": "Overall Score (%)",
-  "setting": null,
-  "models_scored": 6,
-  "data_updated": "2026-04-21"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2512.12730",
-  "code": "https://github.com/multimodal-art-projection/NL2RepoBench",
-  "pdf": "https://arxiv.org/pdf/2512.12730.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/nl2repo-bench.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/nl2repo-bench/figure-1-task-document.png",
+      "caption": "Figure 1 (paper, PDF p. 2): A task specification showing the project overview, pinned environment, expected repository structure, API usage guide, and detailed implementation nodes supplied to the agent. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/nl2repo-bench/figure-2-construction-pipeline.png",
+      "caption": "Figure 2 (paper, PDF p. 5): Four-stage construction pipeline covering repository selection, reverse-engineered and AST-assisted document writing, test-image creation, and human/static/agent-based verification. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/nl2repo-bench.svg"
 }

@@ -1,27 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<line x1="240" y1="168" x2="322.8" y2="176.9" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="285.4" y2="217.6" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="212.2" y2="239.0" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="156.5" y2="181.7" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="155.7" y2="121.5" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="222.8" y2="100.4" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="314.5" y2="122.9" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="314.5" y1="122.9" x2="322.8" y2="176.9" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
-<line x1="156.5" y1="181.7" x2="222.8" y2="100.4" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
-<line x1="212.2" y1="239.0" x2="322.8" y2="176.9" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
-<circle cx="322.8" cy="176.9" r="9" fill="#0891b2" opacity="0.85"/>
-<circle cx="285.4" cy="217.6" r="9" fill="#0891b2" opacity="0.85"/>
-<circle cx="212.2" cy="239.0" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="156.5" cy="181.7" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="155.7" cy="121.5" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="222.8" cy="100.4" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="314.5" cy="122.9" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="240" cy="168" r="13" fill="#475569"/>
-<circle cx="240" cy="168" r="5" fill="#ffffff"/>
-<text x="240" y="204" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">agent</text>
-<text x="240" y="66" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">6 models · multi-hop evidence</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Deep research agents.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=finder layout=flow -->
+<title id="title">FINDER benchmark illustration</title>
+<desc id="desc">A research query expanded into sources, a structured evidence checklist, and an analyst report.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#e16fae" stop-opacity=".22"/><stop offset="1" stop-color="#e16fae" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e16fae"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="320" cy="250" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">FINDER</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#e16fae">AGENT</text>
+<path d="M 72.0 184 L 184.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 184.0 184 L 296.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 296.0 184 L 408.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<circle cx="67.0" cy="179" r="22" fill="#101d30" stroke="#e16fae" stroke-width="3"/>
+<line x1="82.0" y1="195" x2="101.0" y2="212" stroke="#e16fae" stroke-width="6" stroke-linecap="round"/>
+<text x="72.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">query</text>
+<path d="M 158.0 157 H 202.0 L 216.0 171 V 211 H 158.0 Z" fill="#101d30" stroke="#e16fae" stroke-width="2"/>
+<path d="M 202.0 157 V 171 H 216.0" fill="none" stroke="#e16fae" stroke-width="2"/>
+<text x="167.0" y="177" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#e16fae">1</text>
+<line x1="176.0" y1="176" x2="206.0" y2="176" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="167.0" y="186" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#e16fae">2</text>
+<line x1="176.0" y1="185" x2="203.0" y2="185" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="167.0" y="195" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#e16fae">3</text>
+<line x1="176.0" y1="194" x2="200.0" y2="194" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="167.0" y="204" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#e16fae">4</text>
+<line x1="176.0" y1="203" x2="197.0" y2="203" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="184.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">sources</text>
+<path d="M 270.0 157 H 314.0 L 328.0 171 V 211 H 270.0 Z" fill="#101d30" stroke="#e16fae" stroke-width="2"/>
+<path d="M 314.0 157 V 171 H 328.0" fill="none" stroke="#e16fae" stroke-width="2"/>
+<rect x="277.0" y="172" width="5" height="5" rx="1" fill="#e16fae"/>
+<line x1="288.0" y1="176" x2="318.0" y2="176" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<rect x="277.0" y="181" width="5" height="5" rx="1" fill="#e16fae"/>
+<line x1="288.0" y1="185" x2="315.0" y2="185" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<rect x="277.0" y="190" width="5" height="5" rx="1" fill="#e16fae"/>
+<line x1="288.0" y1="194" x2="312.0" y2="194" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<rect x="277.0" y="199" width="5" height="5" rx="1" fill="#e16fae"/>
+<line x1="288.0" y1="203" x2="309.0" y2="203" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="296.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">419 checks</text>
+<path d="M 382.0 157 H 426.0 L 440.0 171 V 211 H 382.0 Z" fill="#101d30" stroke="#e16fae" stroke-width="2"/>
+<path d="M 426.0 157 V 171 H 440.0" fill="none" stroke="#e16fae" stroke-width="2"/>
+<line x1="389.0" y1="176" x2="430.0" y2="176" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="389.0" y1="185" x2="427.0" y2="185" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="389.0" y1="194" x2="424.0" y2="194" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="408.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">report</text>
 </svg>

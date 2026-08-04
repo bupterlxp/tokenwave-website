@@ -1,22 +1,36 @@
-<!-- tokenwave:generated -->
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
- <title id="title">CodeSimpleQA benchmark illustration</title>
- <desc id="desc">English and Chinese factual code questions converge into a verified answer.</desc>
- <rect width="480" height="360" rx="28" fill="#f8fafc"/>
- <rect x="34" y="34" width="412" height="292" rx="22" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
- <text x="64" y="76" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700">CodeSimpleQA</text>
- <text x="64" y="101" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">Bilingual factual code QA</text>
- <rect x="64" y="126" width="144" height="96" rx="14" fill="#eff6ff" stroke="#93c5fd"/>
- <text x="82" y="153" fill="#2563eb" font-family="system-ui, sans-serif" font-size="13" font-weight="700">EN</text>
- <text x="82" y="181" fill="#334155" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16">{ API? }</text>
- <text x="82" y="204" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">782 questions</text>
- <rect x="272" y="126" width="144" height="96" rx="14" fill="#fff7ed" stroke="#fdba74"/>
- <text x="290" y="153" fill="#ea580c" font-family="system-ui, sans-serif" font-size="13" font-weight="700">中文</text>
- <text x="290" y="181" fill="#334155" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16">&lt; 事实? &gt;</text>
- <text x="290" y="204" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">716 questions</text>
- <path d="M208 174H238M272 174H242" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
- <circle cx="240" cy="174" r="24" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
- <path d="m230 174 7 7 14-16" fill="none" stroke="#059669" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
- <rect x="64" y="248" width="352" height="48" rx="12" fill="#0f172a"/>
- <text x="84" y="277" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12">1,498 QA · 15+ languages · 21 CS domains</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=code_simpleqa layout=merge -->
+<title id="title">CodeSimpleQA benchmark illustration</title>
+<desc id="desc">English and Chinese programming questions grounded in documentation and code facts.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#8d7cff" stop-opacity=".22"/><stop offset="1" stop-color="#8d7cff" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8d7cff"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="256" cy="85" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">CodeSimpleQA</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#8d7cff">LLM</text>
+<path d="M 112 112.0 L 362 184" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 112 258.0 L 362 184" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="71" y="83" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="71" y1="98.0" x2="153" y2="98.0" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="83" cy="91.0" r="2.2" fill="#8d7cff"/>
+<circle cx="92" cy="91.0" r="2.2" fill="#31435d"/>
+<circle cx="101" cy="91.0" r="2.2" fill="#31435d"/>
+<line x1="84" y1="108.0" x2="130" y2="108.0" stroke="#8d7cff" stroke-width="3" opacity=".8"/>
+<line x1="84" y1="117.0" x2="141" y2="117.0" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
+<line x1="84" y1="126.0" x2="119" y2="126.0" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
+<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">API facts</text>
+<rect x="75" y="229" width="74" height="58" rx="9" fill="#101d30" stroke="#8d7cff" stroke-width="1.7"/>
+<text x="112" y="265.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#8d7cff">EN 中</text>
+<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">EN / 中文</text>
+<rect x="323" y="160" width="57" height="30" rx="11" fill="#101d30" stroke="#c7d3e5" stroke-width="1.8"/>
+<rect x="349" y="187" width="54" height="28" rx="11" fill="#8d7cff" opacity=".72"/>
+<line x1="335" y1="174" x2="366" y2="174" stroke="#c7d3e5" stroke-width="3"/>
+<line x1="362" y1="200" x2="389" y2="200" stroke="#e8eef9" stroke-width="3" opacity=".8"/>
+<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">1,498 QA</text>
 </svg>

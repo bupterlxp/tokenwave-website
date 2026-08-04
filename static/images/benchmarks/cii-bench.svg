@@ -1,48 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<rect x="84" y="92" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="124" y="92" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="164" y="92" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="204" y="92" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="244" y="92" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="284" y="92" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="324" y="92" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="364" y="92" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="84" y="132" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="124" y="132" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="164" y="132" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="204" y="132" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="244" y="132" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="284" y="132" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="324" y="132" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="364" y="132" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="84" y="172" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="124" y="172" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="164" y="172" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="204" y="172" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="244" y="172" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="284" y="172" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="324" y="172" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="364" y="172" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="84" y="212" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="124" y="212" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="164" y="212" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="204" y="212" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="244" y="212" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="284" y="212" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="324" y="212" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="364" y="212" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="84" y="252" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="124" y="252" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="164" y="252" width="32" height="32" fill="#059669" opacity="0.72" rx="5"/>
-<rect x="204" y="252" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="244" y="252" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="284" y="252" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<rect x="324" y="252" width="32" height="32" fill="#059669" opacity="0.10" rx="5"/>
-<rect x="364" y="252" width="32" height="32" fill="#059669" opacity="0.32" rx="5"/>
-<text x="240" y="76" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">image understanding · per-dimension scores</text>
-<text x="240" y="308" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#9ca3af">dimensions ×  models</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Chinese image implication understanding.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=cii_bench layout=flow -->
+<title id="title">CII-Bench benchmark illustration</title>
+<desc id="desc">A Chinese image interpreted through cultural context, metaphor, and emotion.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#ff8a66" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a66" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#ff8a66"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="117" cy="198" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">CII-Bench</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#ff8a66">MULTIMODAL</text>
+<path d="M 72.0 184 L 240.0 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 240.0 184 L 408.0 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="34.0" y="159" width="76" height="50" rx="7" fill="#101d30" stroke="#ff8a66" stroke-width="2"/>
+<circle cx="54.0" cy="175" r="6" fill="#ff8a66"/>
+<path d="M 42.0 200 L 64.0 179 L 77.0 192 L 92.0 177 L 103.0 200 Z" fill="#c7d3e5" opacity=".65"/>
+<text x="72.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">image</text>
+<rect x="203" y="155" width="74" height="58" rx="9" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="240.0" y="191" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">文 化</text>
+<text x="240.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">culture</text>
+<rect x="371" y="155" width="74" height="58" rx="12" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="408.0" y="191" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">◎</text>
+<text x="408.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">implication</text>
 </svg>

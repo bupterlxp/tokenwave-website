@@ -1,38 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<rect x="60" y="78" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="100" y="78" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="140" y="78" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="180" y="78" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="220" y="78" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="60" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="100" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="140" y="118" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="180" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="220" y="118" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="60" y="158" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="100" y="158" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="140" y="158" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="180" y="158" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="220" y="158" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="60" y="198" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="100" y="198" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="140" y="198" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="180" y="198" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="220" y="198" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="60" y="238" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="100" y="238" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="140" y="238" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="180" y="238" width="34" height="34" fill="#2563eb" opacity="0.55" rx="6"/>
-<rect x="220" y="238" width="34" height="34" fill="#2563eb" opacity="0.12" rx="6"/>
-<rect x="292" y="86" width="140" height="170" fill="none" stroke="#2563eb" stroke-width="2" rx="8"/>
-<text x="362" y="114" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">novel rules</text>
-<line x1="308" y1="130" x2="416" y2="130" stroke="#e5e7eb" stroke-width="1.5"/>
-<text x="308" y="152" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">R1: flip on 3</text>
-<text x="308" y="172" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">R2: mirror row</text>
-<text x="308" y="192" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#6b7280">R3: score +2</text>
-<text x="308" y="228" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#2563eb" font-weight="bold">knowledge = 0</text>
-
-<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Knowledge-orthogonal reasoning in interactive games.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=korgym layout=cycle -->
+<title id="title">KORGym benchmark illustration</title>
+<desc id="desc">An agent inferring changing game rules, acting on a board, and learning from the result.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#ff8a66" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a66" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#ff8a66"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="138" cy="189" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">KORGym</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#ff8a66">LLM</text>
+<path d="M 240 103 L 366 180" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 366 180 L 240 257" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 240 257 L 114 180" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 114 180 L 240 103" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="203" y="74" width="74" height="58" rx="9" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="240" y="110" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">⊕  △  ≡</text>
+<text x="240" y="151" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">rules</text>
+<rect x="329" y="151" width="74" height="58" rx="12" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="366" y="187" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">▦</text>
+<text x="366" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">game</text>
+<circle cx="240" cy="246" r="18" fill="#ff8a66" opacity=".22" stroke="#ff8a66" stroke-width="2"/>
+<path d="M 211 285 C 215 261 265 261 269 285" fill="#101d30" stroke="#ff8a66" stroke-width="2"/>
+<text x="240" y="305" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">agent</text>
+<circle cx="114" cy="180" r="27" fill="#ff8a66" opacity=".16" stroke="#ff8a66" stroke-width="2"/>
+<path d="M 101 180 L 111 190 L 130 167" fill="none" stroke="#ff8a66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">feedback</text>
 </svg>

@@ -1,17 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<line x1="68" y1="72" x2="68" y2="252" stroke="#9ca3af" stroke-width="1.5"/>
-<line x1="68" y1="252" x2="442" y2="252" stroke="#9ca3af" stroke-width="1.5"/>
-<rect x="78" y="96.0" width="34" height="156.0" fill="#2563eb" opacity="1.00" rx="2"/>
-<rect x="135" y="176.4" width="34" height="75.6" fill="#2563eb" opacity="0.89" rx="2"/>
-<rect x="193" y="179.8" width="34" height="72.2" fill="#2563eb" opacity="0.78" rx="2"/>
-<rect x="250" y="210.2" width="34" height="41.8" fill="#2563eb" opacity="0.67" rx="2"/>
-<rect x="307" y="216.2" width="34" height="35.8" fill="#2563eb" opacity="0.56" rx="2"/>
-<rect x="365" y="224.0" width="34" height="28.0" fill="#2563eb" opacity="0.45" rx="2"/>
-<text x="95.0" y="86.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#2563eb" font-weight="bold">73.12</text>
-<text x="260.0" y="272" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#9ca3af">top 6 models, F-score</text>
-<text x="68" y="58" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">safety</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Chinese safety factuality.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=chinese_safetyqa layout=merge -->
+<title id="title">Chinese SafetyQA benchmark illustration</title>
+<desc id="desc">Chinese safety questions grounded in policy and culture sources, checked for factuality and harmlessness.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#e8bd57" stop-opacity=".22"/><stop offset="1" stop-color="#e8bd57" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e8bd57"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="140" cy="227" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">Chinese SafetyQA</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#e8bd57">LLM</text>
+<path d="M 112 112.0 L 362 184" fill="none" stroke="#e8bd57" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 112 258.0 L 362 184" fill="none" stroke="#e8bd57" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="73" y="88.0" width="57" height="30" rx="11" fill="#101d30" stroke="#c7d3e5" stroke-width="1.8"/>
+<rect x="99" y="115.0" width="54" height="28" rx="11" fill="#e8bd57" opacity=".72"/>
+<line x1="85" y1="102.0" x2="116" y2="102.0" stroke="#c7d3e5" stroke-width="3"/>
+<line x1="112" y1="128.0" x2="139" y2="128.0" stroke="#e8eef9" stroke-width="3" opacity=".8"/>
+<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">中文问题</text>
+<rect x="75" y="229" width="74" height="58" rx="9" fill="#101d30" stroke="#e8bd57" stroke-width="1.7"/>
+<text x="112" y="265.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#e8bd57">文 化</text>
+<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">sources</text>
+<path d="M 362 153 L 391 165 V 186 C 391 206 373 215 362 221 C 351 215 333 206 333 186 V 165 Z" fill="#e8bd57" opacity=".18" stroke="#e8bd57" stroke-width="2"/>
+<path d="M 351 184 L 359 192 L 376 173" fill="none" stroke="#e8bd57" stroke-width="4"/>
+<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">safe facts</text>
 </svg>

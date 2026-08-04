@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorldTravel | TokenWave AI</title>
-    <meta name="description" content="Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.">
+    <meta name="description" content="Itineraries checked for executable temporal feasibility after agents recover constraints from rendered travel pages.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="WorldTravel | TokenWave AI">
-    <meta property="og:description" content="Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.">
+    <meta property="og:description" content="Itineraries checked for executable temporal feasibility after agents recover constraints from rendered travel pages.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/worldtravel.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WorldTravel | TokenWave AI">
-    <meta name="twitter:description" content="Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.">
+    <meta name="twitter:description" content="Itineraries checked for executable temporal feasibility after agents recover constraints from rendered travel pages.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/worldtravel.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -49,75 +49,92 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/worldtravel.svg');" role="img" aria-label="WorldTravel — led by GPT-5.2 at 19.33"></div>
         <div class="detail-head">
-            <div class="eyebrow">Research · Multimodal Agent</div>
+            <div class="eyebrow">Research · Multimodal Planning</div>
             <h1>WorldTravel</h1>
-            <p class="detail-tagline">Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints.</p>
+            <p class="detail-tagline">Itineraries checked for executable temporal feasibility after agents recover constraints from rendered travel pages.</p>
             <p class="detail-meta">
+                Benchmark paper
+                <span class="sep">·</span>
                 <span class="lead">Leader &mdash; GPT-5.2 · 19.33</span>
                 <span class="sep">·</span>
-                Multimodal Agent
+                Multimodal Planning
                 <span class="sep">·</span>
-                updated 2026-04-21
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2602.08367" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2602.08367.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2602.08367" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
         </div>
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">4</div><div class="l">constraint types</div></div>
-        <div class="stat-tile"><div class="v">19.33</div><div class="l">top score (Feasibility Rate)</div></div>
-        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">16.7</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">150</div><div class="l">travel scenarios</div></div>
+        <div class="stat-tile"><div class="v">2,003</div><div class="l">rendered webpages</div></div>
+        <div class="stat-tile"><div class="v">15+</div><div class="l">constraints per task on average</div></div>
+        <div class="stat-tile"><div class="v">19.33</div><div class="l">top multimodal feasibility</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="overview">Overview</h2>
-        <p>WorldTravel asks a simple question of multimodal agents: if a traveler followed the plan this model produced, would the day actually work? Each task couples planning to real-world scheduling rules — time slots, reservation requirements, dwell times, opening windows — and the constraints interlock, so an agent cannot adjust one leg of an itinerary without disturbing the others. The information required to satisfy them is multimodal, and this page scores the multimodal setting only.</p>
-        <p>Performance is reported as a Feasibility Rate: the share of plans, on a 0–100 scale, that satisfy every constraint at once. There is no partial credit for an itinerary that reads well but violates a single opening window or reservation rule. Framing quality as feasibility rather than fluency is the benchmark&#x27;s central design choice, and the headline result justifies it — even leading models produce feasible plans only a small fraction of the time.</p>
+        <p>WorldTravel treats itinerary generation as a constrained scheduling problem rather than a prose task. The benchmark contains 150 scenarios, with 30 each in Berlin, Vienna, Rome, Barcelona, and Florence. Each task requires coordinating between 10 and 23 hard and soft constraints, more than 15 on average, and up to five temporal anchors such as timed museum entries, performances, or restaurant reservations. A single invalid slot, closure conflict, short dwell time, or missed travel buffer makes the full itinerary infeasible.</p>
+        <p>WorldTravel-Webscape supplies the information through 2,003 rendered webpages covering 36 attractions, 25 restaurants, 26 hotels, booking systems, menus, guides, and transportation matrices. Eight environment APIs return screenshots rather than JSON records. Relevant facts are distributed across page types and visual states—such as a grayed-out sold-out slot—so the agent must retrieve, perceive, and reconcile parameters before planning.</p>
+        <p>Evaluation is executable and decomposed. Feasibility Rate requires every hard temporal check to pass. Constraint Violation measures the fraction of hard constraints missed even when the complete plan fails. Optimality given Feasible evaluates cost calculations and preference choices only among feasible itineraries. The main table includes both text and multimodal conditions; this page keeps the seven multimodal rows together because they share the screenshot-returning environment.</p>
 
         <h2 id="why-it-matters">Why it matters</h2>
-        <p>Travel planning is a stand-in for a broad class of agent work: tasks where correctness is defined by external constraints, not by how plausible the output sounds. A feasibility metric is hard to flatter. Because the constraints are coupled, models that pattern-match itineraries rather than reason over schedules fail in ways a text-quality score would hide — and the same coupling appears in logistics, scheduling, and any deployment where a plan must actually execute.</p>
+        <p>Travel planning exposes two independent failure surfaces. An agent can misread the environment—confusing availability, hours, prices, or dwell-time guidance—or it can extract every parameter and still fail to coordinate them globally. The paired text and screenshot settings estimate the first gap, while the Gold-parameter ablation shows that perfect access does not remove the second.</p>
+        <p>The all-hard-constraints definition avoids the common problem of fluent but unusable plans receiving high quality scores. It also generalizes beyond travel: production scheduling, logistics, appointment coordination, and resource allocation all share the property that local choices consume options downstream and one violated temporal boundary can invalidate the whole output.</p>
+
+        <h2 id="contributions">Contributions</h2>
+        <ul>
+            <li>Introduces 150 automatically verifiable travel-planning scenarios across five European cities, each combining 10–23 temporal, cost, and preference constraints with more than 15 constraints on average.</li>
+            <li>Builds WorldTravel-Webscape with 2,003 rendered webpages covering 36 attractions, 25 restaurants, 26 hotels, booking interfaces, guides, menus, and transportation matrices.</li>
+            <li>Formalizes four hard temporal constraint classes and two soft decision classes, with task-specific boolean verification functions for feasibility, violation rate, and conditional optimality.</li>
+            <li>Evaluates ten text models and seven multimodal models, isolating a visual Perception–Action Gap and a planning-capacity threshold near ten hard constraints through text, screenshot, and Gold-parameter ablations.</li>
+        </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>This work frames travel planning as a tightly constrained agent task that requires multimodal information and real-world scheduling rules.</li>
-            <li>It focuses on feasibility rather than superficial answer quality, requiring plans to satisfy time slots, reservation constraints, dwell time, and opening windows.</li>
-            <li>The main results show that even leading models still achieve low feasible-plan rates in the multimodal setting.</li>
+            <li>The benchmark contains 30 tasks for each of Berlin, Vienna, Rome, Barcelona, and Florence. Experts combine official operating and pricing data with practical dwell-time, queue, and travel information, then adjust availability to create tightly coupled but solvable itineraries.</li>
+            <li>WorldTravel-Webscape distributes facts across 2,003 static pages with varied layouts. Its eight attraction, restaurant, hotel, and routing APIs return rendered screenshots, forcing OCR, UI-state interpretation, and cross-page evidence integration.</li>
+            <li>Every itinerary is represented as ordered activities with start times, durations, and discrete choices. Hard checks cover timed-entry slots, operating windows, minimum dwell time, and travel plus arrival buffers; soft checks cover exact cost combinations and hotel selection.</li>
+            <li>Each task passes author review, independent cross-solving, and external validation, and includes a reference itinerary, explicit constraint annotations, and executable verification functions. Pilot runs filter ambiguous or trivial cases.</li>
+            <li>The main experiment evaluates 150 tasks in a text setting with parameters extracted into text and a multimodal setting with screenshot-returning tools. The leaderboard uses only the latter; a 30-task Gold-parameter ablation separately tests planning under perfect hard-constraint access.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Feasibility Rate</b> &mdash; Higher is better. Feasible-plan rate in the multimodal setting. Score range: [0, 100].</p>
+        <p><b>Feasibility Rate</b> &mdash; Higher is better. Percentage of tasks for which every hard temporal constraint is satisfied; one hard violation makes the complete itinerary infeasible. Score range: [0, 100].</p>
+        <p><b>Constraint Violation</b> &mdash; Lower is better. Average percentage of hard constraints violated across all tasks, retaining partial diagnostic signal when the itinerary is not fully feasible. Score range: [0, 100].</p>
+        <p><b>Optimality | Feasible</b> &mdash; Higher is better. Average soft-constraint satisfaction for cost computation and preference choices, calculated only over temporally feasible itineraries. Score range: [0, 100].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>The leaderboard uses the Feasibility Rate (%) from the multimodal setting and excludes the text-only setting.</p>
+        <p>All seven rows use the 150-task multimodal setting in which the environment APIs return rendered webpage screenshots. Text-setting scores and the 30-task Gold-parameter ablation are separate conditions and are not mixed into this ranking.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Feasibility Rate</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Feasibility Rate (%)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5.2</td><td class="num">19.33<span class="lb-track"><span class="lb-bar" data-w="19.3"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14<span class="lb-track"><span class="lb-bar" data-w="14.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8<span class="lb-track"><span class="lb-bar" data-w="8.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4<span class="lb-track"><span class="lb-bar" data-w="4.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>GPT-5.1</td><td class="num">2.67<span class="lb-track"><span class="lb-bar" data-w="2.7"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Claude Sonnet 4.5</td><td class="num">2.67<span class="lb-track"><span class="lb-bar" data-w="2.7"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5.2</td><td class="num">19.33<span class="lb-track"><span class="lb-bar" data-w="19.3"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14<span class="lb-track"><span class="lb-bar" data-w="14.0"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8<span class="lb-track"><span class="lb-bar" data-w="8.0"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4<span class="lb-track"><span class="lb-bar" data-w="4.0"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>GPT-5.1</td><td class="num">2.67<span class="lb-track"><span class="lb-bar" data-w="2.7"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>Claude Sonnet 4.5</td><td class="num">2.67<span class="lb-track"><span class="lb-bar" data-w="2.7"></span></span></td></tr>
+                <tr><td><span class="rank">7</span></td><td>Gemini 2.5 Pro</td><td class="num">1.33<span class="lb-track"><span class="lb-bar" data-w="1.3"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on WorldTravel? Submit the result →</a></p>
 
         <h2 id="reading-the-results">Reading the results</h2>
-        <p>GPT-5.2 leads at 19.33, still under a fifth of the 0–100 range, with Claude Opus 4.5 second at 14 and Gemini 3 Pro a further six points back at 8. Doubao-1.8-Pro takes 4, and GPT-5.1 and Claude Sonnet 4.5 share the floor at 2.67. That is a 16.7-point spread, but the more important number is the ceiling: no model on the board produces a feasible plan even one time in five.</p>
-        <p>The most telling gap sits inside a single lab: GPT-5.1 scores 2.67 and GPT-5.2 scores 19.33, a sevenfold jump between successive generations. Feasibility under coupled constraints looks less like a capability the field is converging on and more like one that arrives abruptly — and even after that jump, roughly four plans in five from the best model still fail.</p>
+        <p>GPT-5.2 leads multimodal Feasibility Rate at 19.33%, followed by Claude Opus 4.5 at 14.00% and Gemini 3 Pro at 8.00%. Doubao-1.8-Pro reaches 4.00%; GPT-5.1 and Claude Sonnet 4.5 tie at 2.67%; Gemini 2.5 Pro records 1.33%. These are full-task pass rates, so a system can satisfy many individual constraints and still receive zero feasibility on a scenario.</p>
+        <p>The paired settings quantify the perception cost. GPT-5.2 falls from 32.67% with text-extracted parameters to 19.33% from screenshots, while Claude Opus 4.5 falls from 21.33% to 14.00% and Gemini 3 Pro from 14.67% to 8.00%. Planning remains a separate bottleneck: across text models, average feasibility drops from 36.3% at 6–7 hard constraints to 18.3% at 8–9, 3.4% at 10–11, and 3.1% at 12 or more. Timed-entry and operating-window constraints average only 27% satisfaction in text and 16% in vision.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Real-constraint travel planning</span></li>
-            <li><span class="k">Primary metric</span><span>Feasibility Rate (%)</span></li>
-            <li><span class="k">Displayed setting</span><span>Multimodal setting</span></li>
-            <li><span class="k">Models scored</span><span>6</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-21</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/worldtravel/figure-2-data-construction.png" alt="Figure 2 (paper, PDF p. 3): Data collection, city selection, webpage synthesis, expert task design, and manual plus multi-model quality control that produces 150 verified tasks. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (paper, PDF p. 3): Data collection, city selection, webpage synthesis, expert task design, and manual plus multi-model quality control that produces 150 verified tasks. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/worldtravel/figure-5-constraint-analysis.png" alt="Figure 5 (paper, PDF p. 10): Text-setting feasibility as hard constraints increase and average satisfaction by constraint type in text versus vision; feasibility drops sharply at 10 constraints and timed-entry slots are hardest. Source: paper." loading="lazy">
+            <figcaption>Figure 5 (paper, PDF p. 10): Text-setting feasibility as hard constraints increase and average satisfaction by constraint type in text versus vision; feasibility drops sharply at 10 constraints and timed-entry slots are hardest. Source: paper.</figcaption>
+        </figure>
 
         <div class="crosslink">
             <div>
@@ -133,11 +150,12 @@
         <div class="toc-h">On this page</div>
         <a href="#overview">Overview</a>
         <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
         <a href="#reading-the-results">Reading the results</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -169,7 +187,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -178,7 +196,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -198,7 +215,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

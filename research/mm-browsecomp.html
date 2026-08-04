@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -63,10 +63,10 @@
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">29.02</div><div class="l">top score (Overall)</div></div>
-        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">3</div><div class="l">modalities evaluated</div></div>
-        <div class="stat-tile"><div class="v">21.4</div><div class="l">first-to-second gap</div></div>
+        <div class="stat-tile"><div class="v">224</div><div class="l">verified questions</div></div>
+        <div class="stat-tile"><div class="v">22</div><div class="l">multimodal subtasks</div></div>
+        <div class="stat-tile"><div class="v">57%</div><div class="l">prompts with images</div></div>
+        <div class="stat-tile"><div class="v">29.02</div><div class="l">top tool-augmented OA</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
@@ -80,12 +80,12 @@
         <p>The Overall column is not a ranking so much as a cliff:</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Overall</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall Accuracy (Pass@1)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>o3</td><td class="num">29.02<span class="lb-track"><span class="lb-bar" data-w="29.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>GPT-4.1</td><td class="num">7.59<span class="lb-track"><span class="lb-bar" data-w="7.6"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>o4-mini-high</td><td class="num">7.14<span class="lb-track"><span class="lb-bar" data-w="7.1"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>o3 (official tools)</td><td class="num">29.02<span class="lb-track"><span class="lb-bar" data-w="29.0"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>Gemini 2.5 Pro Preview 05-06 (official tools)</td><td class="num">7.14<span class="lb-track"><span class="lb-bar" data-w="7.1"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 2.5 Flash Preview 05-20 (official tools)</td><td class="num">3.12<span class="lb-track"><span class="lb-bar" data-w="3.1"></span></span></td></tr>
             </tbody>
         </table>
 
@@ -104,7 +104,7 @@
         <div class="crosslink">
             <div>
                 <p class="t">Task construction details and the full agent table are on the MM-BrowseComp benchmark page.</p>
-                <p class="s">MM-BrowseComp &mdash; Multimodal Agent · Agent</p>
+                <p class="s">MM-BrowseComp &mdash; Multimodal Browsing · Agent Benchmark</p>
             </div>
             <a class="button primary" href="../benchmarks/mm-browsecomp.html">View benchmark →</a>
         </div>
@@ -146,7 +146,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -155,7 +155,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -175,7 +174,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

@@ -1,20 +1,35 @@
 {
- "slug": "workflow_gym",
- "tagline": "Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow",
- "stats": [
-  {"value": "338", "label": "professional tasks"},
-  {"value": "56", "label": "software environments"},
-  {"value": "30–110", "label": "atomic actions per task"},
-  {"value": "30.67", "label": "top Avg Pass"}
- ],
- "overview": [
-  "Workflow-GYM evaluates computer-use agents on the kind of long, specialized assignments that define professional desktop work: data analysis, engineering and design, finance and management, geography and environment, multimedia production, and scientific computing. Its 338 tasks run in 56 virtual-machine software environments, with every task requiring at least 30 atomic actions and the hardest extending to 110.",
-  "The agent receives a natural-language goal without intermediate hints, then must navigate the application, preserve the objective across stages, and produce a verifiable final state or artifact. Each task is attempted three times per model, yielding 1,014 trials. The main Avg Pass score is the percentage of successful trials reported in the paper's updated Table 2."
- ],
- "why": [
-  "Short GUI tasks can reward surface fluency: click the right menu, type one value, and stop. Professional workflows compound mistakes. An early omission can poison later calculations; a tool-specific misunderstanding can invalidate an export; and an agent may drift from the original objective after dozens of actions. Workflow-GYM makes those failure modes measurable under realistic software and final-artifact checks, which is much closer to deciding whether an agent can be trusted with actual work."
- ],
- "reading": [
-  "Gemini 3.1 Pro leads at 30.67 Avg Pass, only 0.99 points ahead of Kimi K2.6 at 29.68. The next cluster falls sharply: Seed-2.0-lite scores 18.24, GPT-5.4 scores 17.85, and GPT-5.4-mini scores 15.98, before Gemini 3 Flash closes the table at 7.89. Even the leader fails roughly 69% of trials. The leaderboard's shape supports the paper's central point: today's computer-use agents can operate software, but reliably carrying a professional objective through a long workflow is still rare."
- ]
+  "slug": "workflow_gym",
+  "tagline": "Specialized desktop work scored at the final artifact or GUI state after 30 to 110 dependent actions",
+  "stats": [
+    {
+      "value": "338",
+      "label": "professional tasks"
+    },
+    {
+      "value": "56",
+      "label": "software VMs"
+    },
+    {
+      "value": "30–110",
+      "label": "expert steps per task"
+    },
+    {
+      "value": "30.67",
+      "label": "top Avg Pass"
+    }
+  ],
+  "overview": [
+    "Workflow-GYM evaluates whether a computer-use agent can complete a professional objective inside specialized desktop software, not merely execute a short click sequence. Its 338 tasks cover data analysis, engineering and design, finance and management, geography and environment, multimedia and creative work, and scientific computing. These expand into 23 subdomains and 56 pinned virtual-machine environments, including CAD, GIS, medical imaging, circuit design, statistics, databases, audio/video production, and scientific simulation.",
+    "Seventy-one domain experts contributed workflows from their own practice. From more than 1,000 candidates, tasks were retained only if they required specialized knowledge and software, were not directly recoverable from a public tutorial, involved at least 30 atomic GUI actions, and had a closed success condition. The released set contains 129 Easy tasks with 30–44 expert steps, 159 Medium tasks with 45–60, and 50 Hard tasks with 61–110.",
+    "At test time the agent sees one natural-language objective and no intermediate hints. A hidden expert procedure proves that the task can be completed from the initialized VM, but the agent must discover its own path within 400 screenshot-action rounds. Evaluation checks either the produced artifact or final GUI state against task-specific criteria. Each model runs every task three times, so Avg Pass is calculated over 1,014 trials and Pass@3 records whether at least one attempt succeeds."
+  ],
+  "why": [
+    "Professional GUI work is brittle in a way that atomic computer-use tasks are not. Choosing the wrong base object in a CAD workflow, omitting a layout stage, or drifting toward an intermediate subgoal can leave dozens of later actions locally plausible while making the final artifact irrecoverably wrong. Final-state verification captures that compounding behavior rather than rewarding isolated correct clicks.",
+    "The benchmark also separates planning from execution through guidance ablations. Expert step-by-step text improves every tested model, and video demonstrations add further gains on a controlled 100-task subset. Yet failures persist through localization errors, skipped instructions, repeated-action loops, and inability to recover once the live interface diverges from demonstrated frames. This makes Workflow-GYM useful for diagnosing both high-level workflow control and low-level GUI reliability."
+  ],
+  "reading": [
+    "Gemini 3.1 Pro leads Avg Pass at 30.67%, only 0.99 points ahead of Kimi K2.6 at 29.68%. The order reverses on Pass@3: Kimi reaches 41.42% and Gemini 41.12%, indicating that Gemini is marginally more consistent per trial while Kimi solves a slightly larger set at least once. Seed-2.0-Lite is third at 18.24%, ahead of GPT-5.4 at 17.85, GPT-5.4-mini at 15.98, and Gemini 3 Flash at 7.89.",
+    "Longer procedures reliably lower success. Gemini 3.1 Pro drops from 39.28% on Easy to 26.62% on Medium and 21.33% on Hard; Gemini 3 Flash falls from 12.14% to 6.08% and 2.67%. Domain results are also uneven: Kimi K2.6 reaches 45.24% on Data Analysis but 21.48% on Engineering and Design, while Gemini 3.1 Pro scores 39.88% and 24.44% respectively. No system solves even one third of all trials, so the leaderboard is measuring substantial unresolved headroom rather than near-saturation."
+  ]
 }

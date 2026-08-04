@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenCoder | TokenWave AI</title>
-    <meta name="description" content="OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size. TokenWave track">
+    <meta name="description" content="OpenCoder is a code-language-model and reproducibility paper, not a benchmark. It releases 1.5B- and 8B-parameter models together with RefineCode, a 960-billion-token pretraining corpus spanning 607 programming languages, the processing pipeline, sup">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="OpenCoder | TokenWave AI">
-    <meta property="og:description" content="OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size. TokenWave track">
+    <meta property="og:description" content="OpenCoder is a code-language-model and reproducibility paper, not a benchmark. It releases 1.5B- and 8B-parameter models together with RefineCode, a 960-billion-token pretraining corpus spanning 607 programming languages, the processing pipeline, sup">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/opencoder.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OpenCoder | TokenWave AI">
-    <meta name="twitter:description" content="OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size. TokenWave track">
+    <meta name="twitter:description" content="OpenCoder is a code-language-model and reproducibility paper, not a benchmark. It releases 1.5B- and 8B-parameter models together with RefineCode, a 960-billion-token pretraining corpus spanning 607 programming languages, the processing pipeline, sup">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/opencoder.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -52,43 +52,54 @@
             <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#programmer">Programmer</a> · Open Code LLM</div>
             <h1>OpenCoder</h1>
             <p class="detail-meta">
+                Model paper
+                <span class="sep">·</span>
                 Open Code LLM
                 <span class="sep">·</span>
                 updated 2026-08-03
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2411.04905" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/OpenCoder-llm/OpenCoder-llm" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2411.04905.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2411.04905" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/OpenCoder-llm/OpenCoder-llm" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="abstract">Abstract</h2>
-        <p>OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size. TokenWave tracks it as the transparency baseline for the Programmer career.</p>
+        <p>OpenCoder is a code-language-model and reproducibility paper, not a benchmark. It releases 1.5B- and 8B-parameter models together with RefineCode, a 960-billion-token pretraining corpus spanning 607 programming languages, the processing pipeline, supervised-tuning data, intermediate checkpoints, and training protocols. Raw code passes file-level exact and fuzzy deduplication, code-aware filtering, privacy transformations, and language balancing; code-related web text is recalled with classifiers. The 8B model is pretrained on 2.5 trillion tokens and annealed on 100 billion tokens that mix the original distribution with algorithmic and verified synthetic data, then instruction-tuned in two stages. OpenCoder-8B-Instruct reports 83.5 HumanEval, 78.7 HumanEval+, 79.1 MBPP, 69.0 MBPP+, 40.3 BigCodeBench Full, 16.9 BigCodeBench Hard, and 23.2 on LiveCodeBench.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>Releases the full production chain of a competitive code LLM: reproducible data pipeline, the RefineCode pretraining corpus, and intermediate checkpoints.</li>
-            <li>RefineCode contains roughly 2.5 trillion tokens of code-heavy data with language-specific cleaning rules.</li>
-            <li>Documents which pretraining and annealing choices actually move code capability, verified by ablation.</li>
+            <li>Releases both model families and the development artifacts needed to reproduce them: processing code, RefineCode, large-scale SFT corpora, intermediate checkpoints, evaluation code, and detailed pretraining/post-training protocols.</li>
+            <li>Constructs RefineCode with 960B tokens across 607 programming languages using more than 130 filtering rules; its largest components are 755B GitHub-code tokens, 120B from The Stack v2, and 75B of code-related web text.</li>
+            <li>Runs controlled data ablations showing that file-level deduplication retains 32.74B Python tokens versus 99.47B for repository-level deduplication while training more efficiently, and that GitHub-star filtering reduces diversity and downstream performance.</li>
+            <li>Trains 1.5B and 8B base models on 2T and 2.5T tokens respectively, followed by 100B-token annealing; the 8B run is documented as 512 H100 GPUs for 187.5 hours (96,000 GPU-hours).</li>
+            <li>Uses 4.0M broad examples in SFT stage 1 and 367K high-quality code-specific examples in stage 2. In the 1.5B ablation, two-stage tuning raises HumanEval from 52.4 to 70.1 and BigCodeBench from 22.1 to 31.5 over stage 1 alone.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Pretraining data is cleaned with per-language heuristics and deduplication, then annealed with high-quality synthetic data.</li>
-            <li>Instruction tuning uses a large curated SFT set; every stage is released for inspection.</li>
-            <li>The paper reports standard code-benchmark results against open and closed models of comparable size.</li>
+            <li>RefineCode preprocessing removes oversized/non-code files; SHA-256 exact deduplication and 5-gram MinHash/LSH fuzzy deduplication operate at file level; transformations strip repetitive copyright text and reduce PII; general and language-specific rules filter low-information code before sampling.</li>
+            <li>A fastText loop recalls code-related pages from Common Crawl, FineWeb, SkyPile, AutoMathText, and GitHub text files. Combined with GitHub code, notebooks, and The Stack v2, this produces the reported 960B-token corpus.</li>
+            <li>The 1.5B and 8B decoder models use 4K and 8K context windows. They train with a warmup-stable-decay schedule on 2T and 2.5T tokens, then anneal on 83.94B RefineCode tokens, 12.44B algorithmic tokens, 2.71B verified code snippets, and 0.91B code-textbook tokens.</li>
+            <li>Post-training first uses 0.7M real-user, 2.3M diverse synthetic, and 1.0M filtered Infinity-Instruct examples, then 36K McEval, 111K Evol-Instruct, 110K educational, and 110K package/API examples. Generated Python examples are executed against tests before retention.</li>
+            <li>SFT data is decontaminated by removing HumanEval/MBPP entry points and 10-gram overlaps. Evaluation reports HumanEval (0-shot), MBPP (3-shot), EvalPlus, BigCodeBench, the May 2023–September 2024 LiveCodeBench split, MultiPL-E, 40-language McEval, and 18-language MdEval.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Openness</b> &mdash; Higher is better. Tracked qualitatively: the project&#x27;s value is the reproducible recipe, not a single score.</p>
+        <p><b>EvalPlus pass@1</b> &mdash; Higher is better. Percentage of problems solved by the first generated program on HumanEval/MBPP and their stricter HumanEval+/MBPP+ test suites; HumanEval is 0-shot and MBPP is reported with 3-shot prompting. Score range: [0, 100].</p>
+        <p><b>BigCodeBench pass@1</b> &mdash; Higher is better. Execution-checked success on practical library-using tasks, reported for Full and Hard subsets in both completion and instruction settings. Score range: [0, 100].</p>
+        <p><b>LiveCodeBench pass@1</b> &mdash; Higher is better. Average success on the contamination-resistant May 2023–September 2024 competitive-programming split used for instruct models. Score range: [0, 100].</p>
+        <p><b>MultiPL-E pass@1</b> &mdash; Higher is better. Per-language and macro-average code-generation success across Python, Java, C++, C#, TypeScript, JavaScript, PHP, and Bash translations. Score range: [0, 100].</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Fully open code-LLM recipe</span></li>
-            <li><span class="k">Primary metric</span><span>Openness</span></li>
-            <li><span class="k">Displayed setting</span><span>Reproducible pipeline and checkpoints</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/opencoder/figure-2-pretraining-data-pipeline.png" alt="Figure 2 (paper, PDF p. 6): OpenCoder&#x27;s raw-code pipeline—preprocessing, file-level deduplication, transformation, filtering, and sampling—and its iterative classifier/URL-annotation pipeline for recalling code-related web data. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (paper, PDF p. 6): OpenCoder&#x27;s raw-code pipeline—preprocessing, file-level deduplication, transformation, filtering, and sampling—and its iterative classifier/URL-annotation pipeline for recalling code-related web data. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/opencoder/table-7-instruct-results.png" alt="Table 7 (paper, PDF p. 15): Instruct-model results on HumanEval, HumanEval+, MBPP, MBPP+, BigCodeBench Full/Hard, and LiveCodeBench, with OpenCoder-1.5B and OpenCoder-8B compared against similarly sized code models. Source: paper." loading="lazy">
+            <figcaption>Table 7 (paper, PDF p. 15): Instruct-model results on HumanEval, HumanEval+, MBPP, MBPP+, BigCodeBench Full/Hard, and LiveCodeBench, with OpenCoder-1.5B and OpenCoder-8B compared against similarly sized code models. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#programmer">&larr; Back to Programmer</a></p>
     </div>
@@ -98,7 +109,7 @@
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -130,7 +141,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -139,7 +150,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -159,7 +169,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

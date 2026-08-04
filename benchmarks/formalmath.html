@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FormalMATH | TokenWave AI</title>
-    <meta name="description" content="FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics. The strongest prover reaches 16.46% under practic">
+    <meta name="description" content="A 5,560-statement Lean 4 test across Olympiad and undergraduate mathematics.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="FormalMATH | TokenWave AI">
-    <meta property="og:description" content="FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics. The strongest prover reaches 16.46% under practic">
+    <meta property="og:description" content="A 5,560-statement Lean 4 test across Olympiad and undergraduate mathematics.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/formalmath.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FormalMATH | TokenWave AI">
-    <meta name="twitter:description" content="FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics. The strongest prover reaches 16.46% under practic">
+    <meta name="twitter:description" content="A 5,560-statement Lean 4 test across Olympiad and undergraduate mathematics.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/formalmath.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,75 +47,107 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/formalmath.svg');" role="img" aria-label="FormalMATH — led by Kimina-Prover at 16.46"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/formalmath.svg');" role="img" aria-label="FormalMATH — led by Kimina-Prover-7B at 16.46"></div>
         <div class="detail-head">
             <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#mathematician">Mathematician</a> · Formal Math</div>
             <h1>FormalMATH</h1>
+            <p class="detail-tagline">A 5,560-statement Lean 4 test across Olympiad and undergraduate mathematics.</p>
             <p class="detail-meta">
-                <span class="lead">Leader &mdash; Kimina-Prover · 16.46</span>
+                Benchmark paper
+                <span class="sep">·</span>
+                <span class="lead">Leader &mdash; Kimina-Prover-7B · 16.46</span>
                 <span class="sep">·</span>
                 Formal Math
                 <span class="sep">·</span>
-                updated 2026-08-03
+                updated 2025-05-05
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2505.02735" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/Sphere-AI-Lab/FormalMATH-Bench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2505.02735.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2505.02735" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/Sphere-AI-Lab/FormalMATH-Bench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">5,560</div><div class="l">verified Lean statements</div></div>
+        <div class="stat-tile"><div class="v">12</div><div class="l">expert validators</div></div>
+        <div class="stat-tile"><div class="v">72.09%</div><div class="l">final-stage preservation</div></div>
+        <div class="stat-tile"><div class="v">16.46%</div><div class="l">top full-set Pass@32</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
-        <h2 id="abstract">Abstract</h2>
-        <p>FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics. The strongest prover reaches 16.46% under practical sampling budgets — formal reasoning remains largely open.</p>
+        <h2 id="overview">Overview</h2>
+        <p>FormalMATH expands formal theorem-proving evaluation in two directions at once. Its 5,560 Lean 4 statements are 22.8 times the size of MiniF2F&#x27;s 244-problem test set, and the source mathematics ranges from high-school Olympiad problems to undergraduate integration, differentiation, multivariable calculus, algebra, and sequences. A prover receives a formal theorem statement with a proof hole and must produce code that Lean accepts.</p>
+        <p>Constructing a large benchmark is difficult because compilation checks syntax, not semantic fidelity to the original problem. The authors first train autoformalizers on 9,260 compile-checked pairs, then sample candidates from multiple models. Candidates pass through the Lean compiler, unanimous semantic review by several general-purpose LLMs, negation-based attempts to disprove the statement, and finally review by 12 Olympiad-medalist-level experts. The expert stage retains 72.09% of what reaches it and costs an average of $6.89 per statement over 22 days.</p>
+        <p>The paper evaluates two fundamentally different prover families. Single-pass systems emit a complete proof trajectory; best-first systems inspect intermediate proof states and expand candidate tactics. Because 32 complete samples are not equivalent to a 1 × 32 × 100 tactic-search budget, TokenWave&#x27;s leaderboard includes only full-set single-pass Pass@32 rows. Search results remain part of the paper&#x27;s analysis but do not determine rank here.</p>
+
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Formal proof benchmarks can saturate while still covering a narrow slice of mathematics. MiniF2F concentrates on high-school algebra and number theory, while ProofNet is small and undergraduate-focused. FormalMATH&#x27;s size and split domain structure make it harder for a prover to hide a training bias behind one aggregate success rate.</p>
+        <p>The construction pipeline is also part of the benchmark&#x27;s value. A compiling but mistranslated theorem makes proof generation easier or tests the wrong claim. Multi-model semantic checks, attempted disproof, and expert review are defenses against that silent failure, and the reported preservation funnel makes the cost of each defense inspectable.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>5,560 formally verified Lean4 problems — over twenty times the scale of MiniF2F&#x27;s test split.</li>
-            <li>A human-in-the-loop autoformalization pipeline: specialist LLMs draft statements, multi-LLM semantic checks and negation-based disproof filter them, and IMO-medalist-level experts verify.</li>
-            <li>Reveals pronounced domain bias: provers do far better in algebra than calculus, and over-rely on simplified automation tactics.</li>
+            <li>Releases 5,560 formally verified Lean 4 theorem statements across high-school and undergraduate mathematics, 22.8 times the size of MiniF2F&#x27;s 244-problem test set.</li>
+            <li>Introduces a human-in-the-loop construction pipeline combining multi-model autoformalization, compiler validation, multi-LLM semantic checking, negation-based disproof, and expert review.</li>
+            <li>Provides full-benchmark evaluations for single-pass and search-based theorem provers, plus a 425-problem FormalMATH-Lite subset for controlled test-time-scaling studies.</li>
+            <li>Documents domain imbalance, diminishing returns from large sampling budgets, overuse of automation tactics, and differences among vanilla, naive-CoT, and natural-language-augmented proof generation.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Statements are autoformalized from natural-language problems, then filtered by semantic verification and disproof of negations.</li>
-            <li>Provers are evaluated under fixed sampling budgets; a proof must check in Lean4.</li>
-            <li>The paper also finds natural-language solution guidance can hurt formal proof success.</li>
+            <li>Natural-language problems are collected from high-school sources such as Omni-MATH and BlueMO and undergraduate sources such as U-MATH, HARDMath, and DEMI-MathAnalysis. The final 5,560 statements cover distinct high-school and undergraduate domain taxonomies.</li>
+            <li>A compile-and-filter stage first produces 9,260 natural-language/Lean statement pairs for fine-tuning specialized autoformalizers. Multiple autoformalizer models then sample candidate statements with best-of-N generation.</li>
+            <li>Every candidate must type-check in Lean 4. Surviving statements are back-translated and compared with the source problem by multiple general-purpose LLMs; only unanimous semantic approvals continue to negation-based disproof with theorem provers.</li>
+            <li>Twelve Olympiad-medalist-level experts perform the final semantic check. Manual review costs an average of $6.89 per statement over 22 days and retains 72.09% of the candidates that reach this stage, yielding 21.7% of the original natural-language pool.</li>
+            <li>A proof is successful only if Lean accepts it. Single-pass systems sample complete proofs, while best-first systems expand tactics over N search attempts, S tactics per expansion, and T expansion steps; their budgets are therefore reported separately.</li>
+            <li>The HTML leaderboard uses the five full-set single-pass generation rows at Pass@32. BFS-Prover and InternLM-Prover are excluded because their 1 × 32 × 100 search budgets are not equivalent to 32 complete proof samples.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Success rate</b> &mdash; Higher is better. Share of statements formally proven within the sampling budget (pass@32 for whole-proof generation). Score range: [0, 100].</p>
+        <p><b>Full-set Pass@32 (%)</b> &mdash; Higher is better. Percentage of all 5,560 statements for which at least one of 32 independently generated complete proofs is accepted by Lean; used for the displayed single-pass leaderboard. Score range: [0, 100].</p>
+        <p><b>Best-first Pass@N×S×T</b> &mdash; Higher is better. Success rate for search-based provers with N search attempts, S tactics proposed per expansion, and T expansion iterations; reported separately from single-pass Pass@K. Score range: [0, 100].</p>
+        <p><b>FormalMATH-Lite Pass@K</b> &mdash; Higher is better. Pass@K on a stratified 425-problem subset (359 high-school and 66 undergraduate problems) used for budgets up to 3,200 complete samples and larger search budgets. Score range: [0, 100].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>Scores are from the FormalMATH technical report under its stated sampling budgets; settings differ by prover family.</p>
+        <p>All displayed rows use the full 5,560-problem benchmark, single-pass complete-proof generation, and 32 samples. Search-based BFS and InternLM results in Figure 2a use a different 1 × 32 × 100 tactic-search budget and are intentionally not mixed into this ranking.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Success rate</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Full-set Pass@32 (%)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Kimina-Prover</td><td class="num">16.46<span class="lb-track"><span class="lb-bar" data-w="16.5"></span></span></td><td>arXiv paper (pass@32)</td></tr>
-                <tr><td><span class="rank">2</span></td><td>BFS-Prover</td><td class="num">11.13<span class="lb-track"><span class="lb-bar" data-w="11.1"></span></span></td><td>arXiv paper (best-first search)</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Kimina-Prover-7B</td><td class="num">16.46<span class="lb-track"><span class="lb-bar" data-w="16.5"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>STP-Lean</td><td class="num">13.87<span class="lb-track"><span class="lb-bar" data-w="13.9"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Goedel-Prover</td><td class="num">13.53<span class="lb-track"><span class="lb-bar" data-w="13.5"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>DeepSeek-Prover-V1.5-RL</td><td class="num">10.18<span class="lb-track"><span class="lb-bar" data-w="10.2"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>DeepSeek-Prover-V1.5-SFT</td><td class="num">8.97<span class="lb-track"><span class="lb-bar" data-w="9.0"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on FormalMATH? Submit the result →</a></p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Formal proof in Lean4</span></li>
-            <li><span class="k">Primary metric</span><span>Success rate</span></li>
-            <li><span class="k">Displayed setting</span><span>Pass@32 whole-proof generation</span></li>
-            <li><span class="k">Models scored</span><span>2</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Kimina-Prover-7B leads the directly comparable full-set single-pass setting at 16.46% Pass@32. STP-Lean scores 13.87% and Goedel-Prover 13.53%, only 0.34 points apart. Kimina&#x27;s margin over second place is 2.59 points, but the more consequential observation is that the strongest prover fails to find any accepted proof for more than five out of six statements even after 32 samples.</p>
+        <p>DeepSeek-Prover-V1.5-RL reaches 10.18%, compared with 8.97% for its SFT counterpart, an absolute gain of 1.21 points. The paper contrasts that modest improvement with stronger gains from self-play and expert iteration, while cautioning that all methods operate at low absolute success rates on the full set.</p>
+        <p>The aggregate conceals large domain gaps. The paper reports Goedel-Prover at 50% on undergraduate algebra but 5.21% on calculus and 0% on discrete mathematics under its analysis setting. FormalMATH-Lite experiments also show diminishing returns: increasing STP from Pass@32 to Pass@3200 raises accuracy by only 4.58 points. More sampling helps, but it does not repair missing domain coverage or brittle formal reasoning by itself.</p>
+
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/formalmath/figure-1-autoformalization-pipeline.png" alt="Figure 1 (PDF p. 2): Human-in-the-loop statement construction with repeated multi-autoformalizer sampling, Lean syntax checks, multi-LLM semantic checks, negation-based disproof, and expert validation. Source: paper." loading="lazy">
+            <figcaption>Figure 1 (PDF p. 2): Human-in-the-loop statement construction with repeated multi-autoformalizer sampling, Lean syntax checks, multi-LLM semantic checks, negation-based disproof, and expert validation. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/formalmath/figure-3-domain-distribution.png" alt="Figure 3 (PDF p. 5): Separate domain distributions for the undergraduate and high-school portions of the full FormalMATH set; undergraduate data is calculus-heavy, while high-school data is dominated by algebra and number theory. Source: paper." loading="lazy">
+            <figcaption>Figure 3 (PDF p. 5): Separate domain distributions for the undergraduate and high-school portions of the full FormalMATH set; undergraduate data is calculus-heavy, while high-school data is dominated by algebra and number theory. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#mathematician">&larr; Back to Mathematician</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
-        <a href="#abstract">Abstract</a>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -147,7 +179,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -156,7 +188,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -176,7 +207,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

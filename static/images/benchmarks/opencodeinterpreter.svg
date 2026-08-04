@@ -1,17 +1,50 @@
-<!-- tokenwave:generated -->
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
- <title id="title">OpenCodeInterpreter benchmark illustration</title>
- <desc id="desc">Code that is run and fixed, not just written.</desc>
- <rect width="480" height="360" rx="28" fill="#f8fafc"/>
- <rect x="34" y="34" width="412" height="292" rx="22" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
- <text x="64" y="80" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="700">OpenCodeInterpreter</text>
- <text x="64" y="106" fill="#64748b" font-family="system-ui, sans-serif" font-size="13">Generate, execute, refine</text>
- <path d="M64 216 Q114 192 164 216 T264 216 T364 216 T412 184" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
- <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#A855F7"/>
- </linearGradient></defs>
- <rect x="64" y="258" width="10" height="10" rx="3" fill="#3B82F6"/>
- <rect x="82" y="264" width="7" height="7" rx="2" fill="#7C5CFA"/>
- <rect x="96" y="258" width="5" height="5" rx="2" fill="#A855F7"/>
- <text x="64" y="302" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">TOKENWAVE · CAREER EVIDENCE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=opencodeinterpreter layout=cycle -->
+<title id="title">OpenCodeInterpreter benchmark illustration</title>
+<desc id="desc">A code model generating, executing, reading terminal feedback, and repairing its answer.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#25c2a0" stop-opacity=".22"/><stop offset="1" stop-color="#25c2a0" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#25c2a0"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="290" cy="114" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">OpenCodeInterpreter</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#25c2a0">AGENT</text>
+<path d="M 240 103 L 366 180" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 366 180 L 240 257" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 240 257 L 114 180" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 114 180 L 240 103" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="199" y="74" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="199" y1="89" x2="281" y2="89" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="211" cy="82" r="2.2" fill="#25c2a0"/>
+<circle cx="220" cy="82" r="2.2" fill="#31435d"/>
+<circle cx="229" cy="82" r="2.2" fill="#31435d"/>
+<line x1="212" y1="99" x2="258" y2="99" stroke="#25c2a0" stroke-width="3" opacity=".8"/>
+<line x1="212" y1="108" x2="269" y2="108" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
+<line x1="212" y1="117" x2="247" y2="117" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
+<text x="240" y="151" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">generate</text>
+<rect x="325" y="151" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="325" y1="166" x2="407" y2="166" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="337" cy="159" r="2.2" fill="#25c2a0"/>
+<circle cx="346" cy="159" r="2.2" fill="#31435d"/>
+<circle cx="355" cy="159" r="2.2" fill="#31435d"/>
+<text x="338" y="185" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="14" font-weight="700" fill="#25c2a0">$</text>
+<line x1="353" y1="182" x2="393" y2="182" stroke="#c7d3e5" stroke-width="2"/>
+<text x="366" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">execute</text>
+<rect x="199" y="228" width="82" height="58" rx="8" fill="#101d30" stroke="#25c2a0" stroke-width="1.7"/>
+<line x1="199" y1="243" x2="281" y2="243" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="211" cy="236" r="2.2" fill="#25c2a0"/>
+<circle cx="220" cy="236" r="2.2" fill="#31435d"/>
+<circle cx="229" cy="236" r="2.2" fill="#31435d"/>
+<text x="219" y="262" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff806e">−</text>
+<text x="261" y="262" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#45d6a5">+</text>
+<line x1="240" y1="249" x2="240" y2="277" stroke="#31435d"/>
+<text x="240" y="305" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">repair</text>
+<circle cx="114" cy="180" r="27" fill="#25c2a0" opacity=".16" stroke="#25c2a0" stroke-width="2"/>
+<path d="M 101 180 L 111 190 L 130 167" fill="none" stroke="#25c2a0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">pass</text>
 </svg>

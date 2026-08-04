@@ -1,34 +1,35 @@
 {
- "slug": "nl2repo_bench",
- "tagline": "Whether a coding agent can turn a natural-language brief into a complete working repository",
- "stats": [
-  {
-   "value": "4",
-   "label": "task domains"
-  },
-  {
-   "value": "40.2",
-   "label": "top score (Overall Score)"
-  },
-  {
-   "value": "6",
-   "label": "models scored"
-  },
-  {
-   "value": "12.6",
-   "label": "score spread"
-  }
- ],
- "overview": [
-  "Most code benchmarks hand a model a file and ask for the missing piece. NL2Repo-Bench asks for the whole project: given natural-language requirements, the system must generate a complete repository, end to end. The shift matters because repository generation is a long-horizon task — architecture decisions made early either hold up or quietly poison everything built on top of them.",
-  "Tasks span four domains — web development, testing, utility libraries, and machine learning — and difficulty is stratified by repository scale, so the benchmark separates systems that can scaffold a small tool from those that can sustain coherence across a larger codebase. Performance rolls up into a single Overall Score on a 0-100 scale, taken directly from the paper's main results table.",
-  "The headline finding is blunt: even the strongest coding systems remain far from reliable completion on long-horizon repository generation. Across the metric's 0-100 range, no evaluated model reaches 41 — a reminder that fluent generation at the function level does not yet translate into dependable delivery at the repository level, where early mistakes compound instead of staying contained."
- ],
- "why": [
-  "Anyone hiring an agent to build software is buying a repository, not a diff. NL2Repo-Bench measures that delivery gap directly: whether a system can hold a requirements brief in view across the many dependent decisions a full project demands, in domains as different as web development and machine learning. And because difficulty is stratified by repository scale, the benchmark can show where coherence gives out — not just that it does."
- ],
- "reading": [
-  "Claude Sonnet 4.5 running inside Claude Code leads at 40.2, but the more telling number is the single point separating it from the same model in Cursor at 39.2, with the bare model at 39.9 between them. On this benchmark the harness barely moves the needle; the model does. Claude Sonnet 4, at 37, trails its successor by roughly three points, and Claude models hold the top four slots outright.",
-  "Below the Claude cluster the field spreads out: Gemini 3 Pro in Cursor sits at 34.2 and DeepSeek-V3.2 at 27.6, a 12.6-point spread from top to bottom. The more important distance is upward. With the leader at 40.2 on a 0-100 metric, nearly sixty points of the range are unclaimed — long-horizon repository generation is still mostly headroom, whoever you ask."
- ]
+  "slug": "nl2repo_bench",
+  "tagline": "Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite",
+  "stats": [
+    {
+      "value": "104",
+      "label": "repository tasks"
+    },
+    {
+      "value": "9",
+      "label": "library categories"
+    },
+    {
+      "value": "18.8k",
+      "label": "average input tokens"
+    },
+    {
+      "value": "40.2",
+      "label": "top average test pass rate"
+    }
+  ],
+  "overview": [
+    "NL2Repo-Bench starts where function completion and repository repair benchmarks stop. An agent receives one natural-language document and an otherwise empty workspace, then must choose an architecture, create every file, manage dependencies, implement cross-module behavior, and package an installable Python library. No source code, scaffold, or test case is visible during the main evaluation. The resulting repository is installed in a controlled image and checked against the original project's upstream pytest suite.",
+    "The 104 tasks cover nine categories: web development, testing, utility libraries, machine learning, data analysis and processing, database interaction, networking, batch file processing, and system tools. Input documents average approximately 18,800 tokens. Difficulty is based on original source size: 26 Easy repositories at no more than 1,500 LOC, 46 Medium at 1,500–4,000 LOC, and 32 Hard at 4,000 LOC or more. Candidate repositories had to be recent, have at least ten stars, and pass their own tests before inclusion.",
+    "Specifications are produced through reverse engineering rather than free-form summarization. An AST scanner inventories functions, classes, signatures, and locations; annotators describe the project, environment, file structure, API behavior, and critical implementation nodes; static checks compare the document with the inventory. Preliminary agent failures are then reviewed by a senior Python engineer so omissions in the document or container can be repaired instead of being counted as model failures."
+  ],
+  "why": [
+    "Repository generation compounds errors across time and files. A plausible parser implementation can still break a grader, packaging can invalidate otherwise correct modules, and an early architectural choice can make later behavior impossible to reconcile. Averaging hidden test outcomes captures partial functional progress, while the complete-suite Pass@1 count shows whether that progress ever becomes a deliverable repository.",
+    "The benchmark also makes the information boundary explicit. When the paper reveals all hidden tests to Claude Sonnet 4.5 in Claude Code, average pass rate rises from 40.2% to 59.4% and fully passed repositories increase from 3 to 18. The remaining forty-point gap under that deliberately easier condition suggests that missing requirements are only part of the problem; coordination and large-scale implementation remain limiting."
+  ],
+  "reading": [
+    "Claude Sonnet 4.5 occupies the top three rows across Claude Code (40.2), OpenHands (39.9), and Cursor (39.2). The one-point range supports the paper's claim that, for this model and setup, changing the harness matters less than changing the underlying model. Claude Sonnet 4 follows at 37.0 and Gemini 3 Pro in Cursor at 34.2; DeepSeek-V3.2 is the strongest remaining OpenHands system at 27.6.",
+    "Average test pass rate and complete-repository success tell different stories. The leaderboard winner fully passes only 3 of 104 repositories, while the lower-scoring Claude Sonnet 4 fully passes 5. For the winning system, average pass rate falls from 51.8% on Easy tasks to 44.5% on Medium and 25.1% on Hard. The benchmark therefore shows widespread partial implementation but very little reliable end-to-end completion, particularly once the original codebase exceeds 4,000 lines."
+  ]
 }

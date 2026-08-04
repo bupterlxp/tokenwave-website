@@ -1,17 +1,36 @@
-<!-- tokenwave:generated -->
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
- <title id="title">EdgeBench benchmark illustration</title>
- <desc id="desc">What an agent becomes after twelve hours in a real environment.</desc>
- <rect width="480" height="360" rx="28" fill="#f8fafc"/>
- <rect x="34" y="34" width="412" height="292" rx="22" fill="#fff" stroke="#dbe4ee" stroke-width="2"/>
- <text x="64" y="80" fill="#0f172a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" font-weight="700">EdgeBench</text>
- <text x="64" y="106" fill="#64748b" font-family="system-ui, sans-serif" font-size="13">Learning from real environments</text>
- <path d="M64 216 Q114 176 164 216 T264 216 T364 216 T412 184" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round"/>
- <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#A855F7"/>
- </linearGradient></defs>
- <rect x="64" y="258" width="10" height="10" rx="3" fill="#3B82F6"/>
- <rect x="82" y="264" width="7" height="7" rx="2" fill="#7C5CFA"/>
- <rect x="96" y="258" width="5" height="5" rx="2" fill="#A855F7"/>
- <text x="64" y="302" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11">TOKENWAVE · CAREER EVIDENCE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=edgebench layout=timeline -->
+<title id="title">EdgeBench benchmark illustration</title>
+<desc id="desc">An agent learning from real environment interactions over a long training horizon.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#25c2a0" stop-opacity=".22"/><stop offset="1" stop-color="#25c2a0" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#25c2a0"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="147" cy="169" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">EdgeBench</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#25c2a0">AGENT</text>
+<path d="M 70.0 204 L 183.33333333333331 144" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 183.33333333333331 144 L 296.66666666666663 204" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 296.66666666666663 204 L 410.0 144" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<rect x="33" y="175" width="74" height="58" rx="12" fill="#101d30" stroke="#25c2a0" stroke-width="1.7"/>
+<text x="70.0" y="211" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#25c2a0">↻</text>
+<text x="70.0" y="252" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">environment</text>
+<circle cx="183.33333333333331" cy="144" r="29" fill="#101d30" stroke="#25c2a0" stroke-width="2"/><path d="M 183.33333333333331 144 V 127 M 183.33333333333331 144 L 197.33333333333331 152" stroke="#c7d3e5" stroke-width="3" stroke-linecap="round"/>
+<text x="183.33333333333331" y="192" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">12–72 h</text>
+<line x1="263.66666666666663" y1="228" x2="263.66666666666663" y2="180" stroke="#31435d" stroke-width="2"/><line x1="263.66666666666663" y1="228" x2="331.66666666666663" y2="228" stroke="#31435d" stroke-width="2"/>
+<path d="M 268.66666666666663 218 L 284.66666666666663 208 L 298.66666666666663 214 L 314.66666666666663 192 L 329.66666666666663 184" fill="none" stroke="#25c2a0" stroke-width="3"/>
+<circle cx="268.66666666666663" cy="218" r="3" fill="#25c2a0"/>
+<circle cx="284.66666666666663" cy="208" r="3" fill="#25c2a0"/>
+<circle cx="298.66666666666663" cy="214" r="3" fill="#25c2a0"/>
+<circle cx="314.66666666666663" cy="192" r="3" fill="#25c2a0"/>
+<circle cx="329.66666666666663" cy="184" r="3" fill="#25c2a0"/>
+<text x="296.66666666666663" y="252" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">learning</text>
+<circle cx="410.0" cy="144" r="27" fill="#25c2a0" opacity=".16" stroke="#25c2a0" stroke-width="2"/>
+<path d="M 397.0 144 L 407.0 154 L 426.0 131" fill="none" stroke="#25c2a0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="410.0" y="192" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">competence</text>
 </svg>

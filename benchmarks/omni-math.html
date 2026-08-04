@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omni-MATH | TokenWave AI</title>
-    <meta name="description" content="Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking. It measures competition mathematics specifically, past the saturation of GSM8K">
+    <meta name="description" content="A 4,428-problem Olympiad set with domain, difficulty, and judge-reliability analysis.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Omni-MATH | TokenWave AI">
-    <meta property="og:description" content="Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking. It measures competition mathematics specifically, past the saturation of GSM8K">
+    <meta property="og:description" content="A 4,428-problem Olympiad set with domain, difficulty, and judge-reliability analysis.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/omni-math.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Omni-MATH | TokenWave AI">
-    <meta name="twitter:description" content="Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking. It measures competition mathematics specifically, past the saturation of GSM8K">
+    <meta name="twitter:description" content="A 4,428-problem Olympiad set with domain, difficulty, and judge-reliability analysis.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/omni-math.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,58 +47,108 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/omni-math.svg');" role="img" aria-label="Omni-MATH"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/omni-math.svg');" role="img" aria-label="Omni-MATH — led by OpenAI o1-mini at 60.54"></div>
         <div class="detail-head">
             <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#mathematician">Mathematician</a> · Olympiad Math</div>
             <h1>Omni-MATH</h1>
+            <p class="detail-tagline">A 4,428-problem Olympiad set with domain, difficulty, and judge-reliability analysis.</p>
             <p class="detail-meta">
+                Benchmark paper
+                <span class="sep">·</span>
+                <span class="lead">Leader &mdash; OpenAI o1-mini · 60.54</span>
+                <span class="sep">·</span>
                 Olympiad Math
                 <span class="sep">·</span>
-                updated 2026-08-03
+                updated 2024-12-24
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.07985" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/KbsdJames/Omni-MATH" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2410.07985.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2410.07985" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/KbsdJames/Omni-MATH" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">4,428</div><div class="l">competition problems</div></div>
+        <div class="stat-tile"><div class="v">33+</div><div class="l">mathematical subdomains</div></div>
+        <div class="stat-tile"><div class="v">10+</div><div class="l">difficulty levels</div></div>
+        <div class="stat-tile"><div class="v">60.54%</div><div class="l">top overall accuracy</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
-        <h2 id="abstract">Abstract</h2>
-        <p>Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking. It measures competition mathematics specifically, past the saturation of GSM8K and MATH. Results on this page will be populated at the next TokenWave data refresh.</p>
+        <h2 id="overview">Overview</h2>
+        <p>Omni-MATH was built after GSM8K and MATH had stopped separating the strongest reasoning systems. It contains 4,428 text-only competition problems, all at Olympiad level rather than mixing mathematics with multimodal perception or general knowledge. The source pool spans introductory competitions, national and international Olympiads, Putnam, and the International Mathematics Competition for University Students.</p>
+        <p>The construction counts are unusually transparent. Official contest pages contribute 3,242 retained problems after rule filtering and human review, AoPS Wiki contributes 298, and AoPS Forum contributes 888. Forum items must provide multiple candidate solutions with consistent final answers before they reach annotators. The finished problems are organized into more than 33 subdomains and fine-grained difficulty ratings from 0 to 10.</p>
+        <p>Free-form Olympiad answers defeat simple string matching: equivalent expressions may look different, and a correct final answer may require interpreting the surrounding reasoning. The main experiment therefore uses GPT-4o to compare each complete model solution with the reference. Omni-Judge is an open, lower-cost verifier trained on those judgments, while Omni-MATH-Rule is a separate deterministically checkable subset. The TokenWave table uses only full-set, GPT-4o-evaluated Overall Accuracy from the paper&#x27;s main Table 3.</p>
+
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>One overall score is useful only if the underlying test remains discriminative. Omni-MATH&#x27;s upper difficulty tiers and Olympiad-only scope leave substantial headroom even for reasoning-focused systems, while its domain tree shows whether gains come from algebra and calculus or extend to scarcer areas such as discrete mathematics.</p>
+        <p>Evaluator choice is part of the benchmark contract. GPT-4o achieves 98% agreement with human labels on the paper&#x27;s meta-evaluation, and Omni-Judge exceeds 90% consistency with GPT-4o. Keeping the full-set judge-based scores separate from Omni-MATH-Rule prevents an easier-to-grade subset from being mistaken for the benchmark&#x27;s main 4,428-problem result.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>4,428 competition-level problems with rigorous human annotation.</li>
-            <li>33 sub-domains across more than 10 difficulty levels enable fine-grained diagnosis, not one blended score.</li>
-            <li>Ships Omni-Judge, an open evaluator for checking free-form competition answers.</li>
+            <li>Releases 4,428 English, text-only Olympiad-level mathematics problems with solutions, final answers, source metadata, domain labels, and difficulty labels.</li>
+            <li>Builds a hierarchical taxonomy with more than 33 mathematical subdomains and difficulty ratings from introductory competitions through international Olympiad and university contests.</li>
+            <li>Validates free-form answer evaluation with GPT-4o and releases Omni-Judge, trained on GPT-4o labels, as a lower-cost open verifier with more than 90% consistency against GPT-4o.</li>
+            <li>Evaluates 15 vanilla and test-time-scaled model settings by overall, domain, and four difficulty-tier accuracies, with contamination and evaluator-reliability analyses.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Problems are curated from Olympiad sources and annotated by domain and difficulty.</li>
-            <li>Models answer free-form; Omni-Judge verifies equivalence against reference answers.</li>
-            <li>Analysis at release showed frontier reasoning models still failing a large share of higher-tier problems.</li>
+            <li>The collection starts with 3,750 items from official contest pages, 8,575 from AoPS Wiki, and 17,502 from AoPS Forum. Rule filtering and human review retain 3,242, 298, and 888 items respectively, totaling 4,428.</li>
+            <li>Official PDFs are converted to LaTeX with MathPix. Forum problems require at least three candidate answers and consistent extracted finals; four annotators each review 550 of the 1,100 filtered items so every item has two labels, yielding 92.7% cross-validation accuracy and 97.3% accuracy in a 150-item audit.</li>
+            <li>Difficulty is assigned on a 0–10 contest scale, including fractional levels, using AoPS ratings where available and GPT-4o in-context classification otherwise. GPT-4o also maps each problem into a guidebook-derived hierarchical domain tree with more than 33 leaves.</li>
+            <li>Fifteen model settings answer the full set with repository-specific prompts. GPT-4o receives the original problem, the reference answer, and the complete model solution, then judges whether the model&#x27;s conclusion is consistent with the reference.</li>
+            <li>Omni-Judge is trained from roughly 17,618 GPT-4o-labeled examples, with about 2,200 validation and 2,200 test examples drawn from non-overlapping questions. It generates an extracted answer, judgment, and explanation, but the leaderboard here retains the paper&#x27;s GPT-4o-evaluated main-table scores.</li>
+            <li>The table ranks Overall Acc from the full 4,428 problems. Omni-MATH-Rule is a separate filtered subset for deterministic checking and is not used in any displayed row.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Accuracy</b> &mdash; Higher is better. Judge-verified answer accuracy across the full set. Score range: [0, 100].</p>
+        <p><b>Overall Acc (%)</b> &mdash; Higher is better. Percentage of all 4,428 model solutions judged correct by GPT-4o; the primary metric for the displayed leaderboard. Score range: [0, 100].</p>
+        <p><b>Domain Accuracy</b> &mdash; Higher is better. Accuracy reported for first-level domains: algebra, precalculus, calculus, geometry, discrete mathematics, number theory, and applied mathematics. Score range: [0, 100].</p>
+        <p><b>Difficulty-tier Accuracy</b> &mdash; Higher is better. Accuracy by four bins derived from the fine-grained difficulty tag: T1 = 1–3, T2 = 3–5, T3 = 5–7, and T4 = 7–10. Score range: [0, 100].</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Olympiad-level mathematics</span></li>
-            <li><span class="k">Primary metric</span><span>Accuracy</span></li>
-            <li><span class="k">Displayed setting</span><span>Free-form answers, judge-verified</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="leaderboard">Leaderboard</h2>
+        <p>Top six rows by Overall Acc in Table 3. Every score covers the complete 4,428-problem Omni-MATH set and uses GPT-4o as evaluator. Vanilla and reward-model-selected inference settings remain explicitly labeled; no Omni-MATH-Rule result is included.</p>
+        <table class="data-table">
+            <thead>
+                <tr><th>#</th><th>Model</th><th>Overall Acc (%)</th></tr>
+            </thead>
+            <tbody>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>OpenAI o1-mini</td><td class="num">60.54<span class="lb-track"><span class="lb-bar" data-w="60.5"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>OpenAI o1-preview</td><td class="num">52.55<span class="lb-track"><span class="lb-bar" data-w="52.5"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Qwen2.5-MATH-72B-Instruct RM@8</td><td class="num">36.34<span class="lb-track"><span class="lb-bar" data-w="36.3"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>Qwen2.5-MATH-72B-Instruct</td><td class="num">36.2<span class="lb-track"><span class="lb-bar" data-w="36.2"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>Qwen2.5-MATH-72B-Instruct RM@256</td><td class="num">35.95<span class="lb-track"><span class="lb-bar" data-w="36.0"></span></span></td></tr>
+                <tr><td><span class="rank">6</span></td><td>Qwen2.5-MATH-7B-Instruct RM@256</td><td class="num">35.79<span class="lb-track"><span class="lb-bar" data-w="35.8"></span></span></td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>OpenAI o1-mini leads at 60.54% Overall Accuracy, with o1-preview at 52.55%. The 7.99-point gap between the two is large, but even o1-mini misses nearly two out of five problems. The best vanilla open model in the source table, Qwen2.5-MATH-72B-Instruct, scores 36.20%, 24.34 points behind the leader.</p>
+        <p>Reward-model selection does not produce a clean scaling curve. Qwen2.5-MATH-72B RM@8 reaches 36.34%, just 0.14 points above the vanilla model, while RM@256 falls to 35.95%. The 7B RM@256 variant scores 35.79%. Those tightly grouped values are why the paper concludes that conventional Best-of-N scaling is limited here: increasing candidates and applying a reward model does not reliably locate better Olympiad solutions.</p>
+        <p>The domain and tier columns reveal where the aggregate comes from. o1-mini scores 67.82 in algebra but 37.68 in discrete mathematics; its T1 accuracy is 82.23 and its T4 accuracy is 42.69. The benchmark is not merely lowering every model by the same amount—harder tiers and discrete problems expose specific weaknesses that easier arithmetic suites average away.</p>
+
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/omni-math/figure-2-benchmark-overview.png" alt="Figure 2 (PDF p. 3): Omni-MATH&#x27;s competition tiers, hierarchical domain taxonomy, and the fields attached to one worked problem, including source and difficulty. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (PDF p. 3): Omni-MATH&#x27;s competition tiers, hierarchical domain taxonomy, and the fields attached to one worked problem, including source and difficulty. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/omni-math/figure-3-collection-annotation.png" alt="Figure 3 (PDF p. 4): Collection and filtering paths for official contest pages, AoPS Wiki, and AoPS Forum, followed by manual checks of completeness, LaTeX formatting, and source fidelity. Source: paper." loading="lazy">
+            <figcaption>Figure 3 (PDF p. 4): Collection and filtering paths for official contest pages, AoPS Wiki, and AoPS Forum, followed by manual checks of completeness, LaTeX formatting, and source fidelity. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#mathematician">&larr; Back to Mathematician</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
-        <a href="#abstract">Abstract</a>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -130,7 +180,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -139,7 +189,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -159,7 +208,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

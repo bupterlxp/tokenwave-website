@@ -12,7 +12,7 @@ Outputs:
     benchmarks/<slug>.html  x50       research/<slug>.html
     careers.html                      research.html
     benchmarks.html (redirect)        blog.html (redirect)
-    submit.html                       sitemap.xml, robots.txt
+    sitemap.xml, robots.txt
 
 data/blog/archive/ holds written-but-unpublished notes; only top-level
 data/blog/*.json is published.
@@ -182,7 +182,7 @@ def footer(depth):
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -191,7 +191,6 @@ def footer(depth):
                 <a href="{d}careers.html">Careers</a>
                 <a href="{d}research.html">Research</a>
                 <a href="{d}joinus.html">Join Us</a>
-                <a href="{d}submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -230,14 +229,35 @@ def file_slug(slug):
     return slug.replace("_", "-")
 
 
+BENCHMARK_PAPER_TYPES = {"benchmark", "benchmark_system"}
+PAPER_TYPE_LABELS = {
+    "benchmark": "Benchmark paper",
+    "benchmark_system": "Benchmark & system paper",
+    "system": "System paper",
+    "model": "Model paper",
+    "training": "Training & data paper",
+    "data": "Data paper",
+}
+
+
+def is_benchmark_paper(b):
+    """Only benchmark papers own a site leaderboard."""
+    return b.get("paper_type", "benchmark") in BENCHMARK_PAPER_TYPES
+
+
+def paper_type_label(b):
+    kind = b.get("paper_type", "benchmark")
+    return PAPER_TYPE_LABELS.get(kind, kind.replace("_", " ").title())
+
+
 def leader_of(b):
-    lb = b["leaderboard"]
+    lb = b["leaderboard"] if is_benchmark_paper(b) else []
     return lb[0] if lb else None
 
 
 def bench_meta_line(b):
     lead = leader_of(b)
-    bits = []
+    bits = [esc(paper_type_label(b))]
     if lead:
         bits.append(f'<span class="lead">Leader &mdash; {esc(lead["model"])} · {fmt_score(lead["score"])}</span>')
     bits.append(esc(b["subcategory"]))
@@ -266,8 +286,13 @@ def leaderboard_table(b, top=None, depth=""):
     metric = b.get("leaderboard_metric") or "Score"
     rows = b["leaderboard"][:top] if top else b["leaderboard"]
     has_date = any(r.get("date") for r in rows)
+    # Source provenance stays in the structured data and setting note; the
+    # public table focuses on comparable model/score rows.
+    show_source = b.get("show_source", False)
     rmax, direction = metric_rmax(b)
-    head_cells = f"<th>#</th><th>Model</th><th>{esc(metric)}</th><th>Source</th>"
+    head_cells = f"<th>#</th><th>Model</th><th>{esc(metric)}</th>"
+    if show_source:
+        head_cells += "<th>Source</th>"
     if has_date:
         head_cells += "<th>Date</th>"
     out = [f"<table class=\"data-table\">\n            <thead>\n                <tr>{head_cells}</tr>\n            </thead>\n            <tbody>"]
@@ -283,8 +308,9 @@ def leaderboard_table(b, top=None, depth=""):
             f'<td><span class="rank">{r["rank"]}</span></td>',
             f'<td>{esc(r["model"])}</td>',
             f'<td class="num">{score_cell}</td>',
-            f'<td>{esc(src_label.get(r.get("source"), r.get("source") or "–"))}</td>',
         ]
+        if show_source:
+            cells.append(f'<td>{esc(src_label.get(r.get("source"), r.get("source") or "–"))}</td>')
         if has_date:
             cells.append(f'<td class="num">{esc(r.get("date") or "–")}</td>')
         out.append(f"                <tr{cls}>{''.join(cells)}</tr>")
@@ -322,9 +348,9 @@ SCROLLSPY = """<script>
 def build_detail(b, post_by_bench, editorial, career):
     d = "../"
     fs = file_slug(b["slug"])
-    g = b["at_a_glance"]
     ed = editorial.get(b["slug"])
-    desc = (ed["tagline"] + "." if ed else
+    benchmark_paper = is_benchmark_paper(b)
+    desc = (ed["tagline"] + "." if ed and benchmark_paper else
             (b["abstract"][:250].strip() if b["abstract"] else f"{b['name']} on TokenWave AI."))
 
     actions = []
@@ -332,8 +358,6 @@ def build_detail(b, post_by_bench, editorial, career):
         actions.append(f'<a class="button primary" href="{esc(b["links"]["paper"])}" target="_blank" rel="noopener noreferrer">Paper ↗</a>')
     if b["links"].get("code") and b["links"].get("code") != b["links"].get("paper"):
         actions.append(f'<a class="button" href="{esc(b["links"]["code"])}" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a>')
-    if b["links"].get("pdf"):
-        actions.append(f'<a class="button" href="{esc(b["links"]["pdf"])}" target="_blank" rel="noopener noreferrer">PDF ↗</a>')
     actions_html = ""
     if actions:
         actions_html = f'\n    <div class="detail-actions">{" ".join(actions)}</div>'
@@ -344,7 +368,7 @@ def build_detail(b, post_by_bench, editorial, career):
     # (anchor id, TOC title, body html) — TOC and h2 anchors come from this list
     secs = []
 
-    if ed:
+    if ed and benchmark_paper:
         secs.append(("overview", "Overview", paras(ed["overview"])))
         secs.append(("why-it-matters", "Why it matters", paras(ed["why"])))
     elif b["abstract"]:
@@ -370,13 +394,11 @@ def build_detail(b, post_by_bench, editorial, career):
             parts.append(f"<p>{' '.join(bits)}</p>")
         secs.append(("metrics", "Evaluation metrics", "\n        ".join(parts)))
 
-    if b["leaderboard"]:
+    if benchmark_paper and b["leaderboard"]:
         lb_note = f"<p>{esc(b['leaderboard_note'])}</p>\n        " if b.get("leaderboard_note") else ""
-        submit_hint = (f'\n        <p class="submit-hint"><a href="{d}submit.html">Scored a model on {esc(b["name"])}? '
-                       f"Submit the result →</a></p>")
-        secs.append(("leaderboard", "Leaderboard", f"{lb_note}{leaderboard_table(b)}{submit_hint}"))
+        secs.append(("leaderboard", "Leaderboard", f"{lb_note}{leaderboard_table(b)}"))
 
-    if ed:
+    if ed and benchmark_paper:
         secs.append(("reading-the-results", "Reading the results", paras(ed["reading"])))
 
     if b.get("figures"):
@@ -386,19 +408,7 @@ def build_detail(b, post_by_bench, editorial, career):
                 f'<figure>\n            <img src="{d}{esc(f["image"])}" alt="{esc(f["caption"] or b["name"] + " figure")}" loading="lazy">\n'
                 f'            <figcaption>{esc(f["caption"])}</figcaption>\n        </figure>'
             )
-        secs.append(("paper-figures", "Paper figures", "\n        ".join(figs)))
-
-    glance_rows = []
-    for key, label in [("focus", "Focus"), ("primary_metric", "Primary metric"),
-                       ("setting", "Displayed setting"), ("models_scored", "Models scored"),
-                       ("data_updated", "Data updated")]:
-        val = g.get(key)
-        if val in (None, "", "None"):
-            continue
-        glance_rows.append(f'            <li><span class="k">{label}</span><span>{esc(val)}</span></li>')
-    if glance_rows:
-        secs.append(("at-a-glance", "At a glance",
-                     "<ul class=\"glance\">\n" + "\n".join(glance_rows) + "\n        </ul>"))
+        secs.append(("paper-figures", "Figures &amp; tables", "\n        ".join(figs)))
 
     body_parts = [f'<h2 id="{sid}">{title}</h2>\n        {body}' for sid, title, body in secs]
 
@@ -423,10 +433,11 @@ def build_detail(b, post_by_bench, editorial, career):
         {toc_links}
     </nav>"""
 
-    tagline_html = f'\n            <p class="detail-tagline">{esc(ed["tagline"])}.</p>' if ed else ""
+    tagline_html = (f'\n            <p class="detail-tagline">{esc(ed["tagline"])}.</p>'
+                    if ed and benchmark_paper else "")
 
     stats_html = ""
-    if ed and ed.get("stats"):
+    if ed and benchmark_paper and ed.get("stats"):
         tiles = "\n        ".join(
             f'<div class="stat-tile"><div class="v">{esc(s["value"])}</div><div class="l">{esc(s["label"])}</div></div>'
             for s in ed["stats"]
@@ -534,13 +545,15 @@ def build_home_data(benches, careers):
 def count_models_tracked(benches):
     ids = set()
     for b in benches.values():
+        if not is_benchmark_paper(b):
+            continue
         for r in b["leaderboard"]:
             if r.get("model_id"):
                 ids.add(r["model_id"])
     return len(ids)
 
 
-STATUS_LABEL = {"certifying": "Certifying now", "next": "Next in line"}
+STATUS_LABEL = {"certifying": "Current coverage", "next": "Next in line"}
 
 
 def build_careers_page(benches, careers, models_tracked, editorial):
@@ -562,16 +575,18 @@ def build_careers_page(benches, careers, models_tracked, editorial):
             fs = file_slug(slug)
             ed = editorial.get(slug)
             lead = leader_of(b)
-            if ed:
+            if ed and is_benchmark_paper(b):
                 blurb = ed["tagline"] + "."
             else:
                 first = (b["abstract"] or "").split(". ")[0]
                 blurb = (first + ".") if first else b["name"]
             if lead:
-                meta = (f'{esc(b["subcategory"])} <span class="sep">·</span> '
+                meta = (f'{esc(paper_type_label(b))} <span class="sep">·</span> '
+                        f'{esc(b["subcategory"])} <span class="sep">·</span> '
                         f'<span class="lead">{esc(lead["model"])} · {fmt_score(lead["score"])}</span>')
             else:
-                meta = f'{esc(b["subcategory"])} <span class="sep">·</span> board pending'
+                meta = (f'{esc(paper_type_label(b))} <span class="sep">·</span> '
+                        f'{esc(b["subcategory"])}')
             cards.append(f"""            <a class="ev-card" href="benchmarks/{fs}.html">
                 <div class="ev-body">
                     <div class="ev-meta">{meta}</div>
@@ -593,20 +608,20 @@ def build_careers_page(benches, careers, models_tracked, editorial):
             <p class="career-duties">{esc(c['duties'])}</p>
         </div>
         <div class="career-evidence">
-            <div class="evidence-h">The evidence &mdash; {len(c['benchmarks'])} benchmarks</div>
+            <div class="evidence-h">{len(c['benchmarks'])} papers and benchmarks</div>
 {chr(10).join(cards)}
         </div>
     </div>""")
 
-    desc = ("The careers agents are learning to hold — real occupations, each measured "
-            "by benchmarks TokenWave designs and maintains in-house.")
+    desc = ("Benchmarks organized around professional roles in programming, mathematics, "
+            "machine learning, and audio/video production.")
     html = f"""{head(d, "Careers | TokenWave AI", desc, "careers.html")}
 {GEN_NOTE}
 {header(d, 'careers')}
 <section class="page-header">
     <div class="eyebrow">Careers</div>
-    <h1>The careers agents are learning to hold.</h1>
-    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house.</p>
+    <h1>Professional roles we evaluate.</h1>
+    <p class="page-intro">Each role groups papers and benchmarks around concrete tasks in programming, mathematics, machine learning, and audio/video production.</p>
 </section>
 
 <nav class="career-strip" aria-label="Careers on this page">
@@ -668,7 +683,7 @@ def build_research_home(posts, benches, research, editorial):
         b = benches[f["slug"]]
         fs = file_slug(f["slug"])
         ed = editorial.get(f["slug"])
-        if ed:
+        if ed and is_benchmark_paper(b):
             blurb = ed["tagline"] + "."
         else:
             first = (b["abstract"] or "").split(". ")[0]
@@ -714,24 +729,24 @@ def build_research_home(posts, benches, research, editorial):
             </div>
         </div>""")
 
-    html = f"""{head(d, "Research | TokenWave AI", "TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.", "research.html")}
+    html = f"""{head(d, "Research | TokenWave AI", "TokenWave research in benchmarks, synthetic data, agents, reinforcement learning, foundation models, and pretraining compute allocation.", "research.html")}
 {GEN_NOTE}
 {header(d, 'research')}
 <section class="page-header">
     <div class="eyebrow">Research</div>
-    <h1>The work behind the standard.</h1>
-    <p class="page-intro">Benchmarks are only the visible edge. TokenWave's research spans six directions &mdash; from measurement itself to the open models it measures &mdash; built in the open with the M-A-P community.</p>
+    <h1>Research areas and selected projects.</h1>
+    <p class="page-intro">TokenWave works on benchmarks, synthetic data, agents, reinforcement learning, foundation models, and pretraining compute allocation with the M-A-P community.</p>
 </section>
 
 <section class="home-section rv" style="padding-top: 26px;">
-    <div class="evidence-h">Flagship work</div>
+    <div class="evidence-h">Selected projects</div>
     <div class="feat-grid">
 {chr(10).join(feats)}
     </div>
 </section>
 
 <section class="home-section rv" style="padding-bottom: 64px;">
-    <div class="evidence-h">Six directions</div>
+    <div class="evidence-h">Research areas</div>
     <div class="dirline">
 {chr(10).join(dirs)}
     </div>
@@ -835,35 +850,6 @@ def build_post(p, benches, editorial):
     write(f"research/{p['slug']}.html", html)
 
 
-# ── submit page ──────────────────────────────────────────────────────────────
-
-def build_submit():
-    from urllib.parse import quote
-    d = ""
-    mail_subject = quote("Leaderboard submission: <benchmark> / <model>", safe="")
-    html = f"""{head(d, "Submit Results | TokenWave AI", "Submit a model result to a TokenWave leaderboard.", "submit.html")}
-{GEN_NOTE}
-{header(d, 'careers')}
-<section class="page-header">
-    <div class="eyebrow">Submit results</div>
-    <h1>Scored a model? Put it on the board.</h1>
-    <p class="page-intro">We list results we can verify. Send us the following and we will review it for the next data refresh.</p>
-</section>
-
-<section class="submit-box">
-    <ol class="submit-steps">
-        <li><b>Benchmark &amp; setting</b> &mdash; which leaderboard, and the exact displayed setting (each page pins one; mixed settings are not comparable).</li>
-        <li><b>Model identity</b> &mdash; model name, version/date, and organization. Closed API models: include the exact model string.</li>
-        <li><b>Score &amp; metric</b> &mdash; the primary metric as defined on the benchmark page, with the score range you evaluated on.</li>
-        <li><b>Evidence</b> &mdash; a paper, technical report, or reproducible eval log. Self-reported numbers are labeled as such on the board.</li>
-    </ol>
-    <a class="button primary" href="mailto:contact@tokenwave.ai?subject={mail_subject}">Email your submission →</a>
-    <p class="muted" style="margin-top: 14px; font-size: 13.5px;">Sources are labeled Official / Community / Self-reported. We do not re-rank on request; we re-run the pipeline.</p>
-</section>
-{footer(d)}"""
-    write("submit.html", html)
-
-
 # ── hand-maintained pages: refresh asset fingerprints ────────────────────────
 
 def stamp_static_assets():
@@ -898,7 +884,6 @@ def build_seo(benches, posts):
         ("careers.html", latest_bench, "weekly", "0.9"),
         ("research.html", latest_post, "weekly", "0.8"),
         ("joinus.html", latest, "monthly", "0.5"),
-        ("submit.html", latest, "monthly", "0.5"),
     ]
     for b in sorted(benches.values(), key=lambda x: file_slug(x["slug"])):
         urls.append((f"benchmarks/{file_slug(b['slug'])}.html",
@@ -961,9 +946,6 @@ def main():
     build_redirect("blog.html", "research.html", "Research",
                    "Our notes moved to")
     print(f"research/: {len(posts)} note pages + research.html (+ blog.html redirect)")
-
-    build_submit()
-    print("submit.html")
 
     stamp_static_assets()
     print("index.html + joinus.html: asset fingerprints refreshed")

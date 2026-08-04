@@ -1,105 +1,130 @@
 {
- "slug": "workflow_gym",
- "name": "Workflow-GYM",
- "domain": "agent",
- "domain_name": "Agent Benchmark",
- "subcategory": "GUI Agent",
- "abstract": "Workflow-GYM evaluates computer-use agents on long-horizon professional workflows in specialized software. This page uses Avg Pass (%) from the arXiv paper's updated Table 2.",
- "contributions": [
-  "The benchmark contains 338 realistic professional tasks spanning six domains and 56 virtual-machine software environments.",
-  "Every task requires at least 30 atomic actions, with the hardest workflows extending to 110 steps.",
-  "Evaluation checks final application state and produced artifacts, exposing stage omission, error propagation, objective drift, and insufficient software knowledge."
- ],
- "method": [
-  "Domain experts design real workflows under four constraints: realism, domain specificity, long-horizon complexity, and verifiability.",
-  "Agents receive a natural-language objective without intermediate hints and must operate specialized desktop software to finish the workflow end to end.",
-  "The suite covers Data Analysis; Engineering & Design; Finance & Management; Geography & Environment; Multimedia & Creative; and Scientific Computing.",
-  "Each model runs every one of the 338 tasks three times, producing 1,014 trials; Avg Pass is the overall successful-trial percentage."
- ],
- "metrics": [
-  {
-   "name": "Avg Pass",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Overall successful-trial percentage averaged across 338 tasks and three runs per task, as reported in arXiv Table 2."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "gemini_3_1_pro",
-   "model": "Gemini 3.1 Pro",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 30.67,
-   "source": "arXiv Table 2",
-   "date": null
+  "slug": "workflow_gym",
+  "name": "Workflow-GYM",
+  "paper_type": "benchmark",
+  "domain": "agent",
+  "domain_name": "Agent Benchmark",
+  "subcategory": "Professional GUI Workflows",
+  "abstract": "Workflow-GYM evaluates computer-use agents on long-horizon work in specialized desktop software. Seventy-one domain experts helped reduce more than 1,000 candidate workflows to 338 tasks spanning six primary domains, 23 subdomains, and 56 virtual-machine environments. Every task requires 30–110 atomic GUI actions and provides only a natural-language objective at test time; hidden expert procedures establish solvability but are not shown to the agent. Success is determined from the final artifact or GUI state using deterministic checks where possible and rubric-conditioned model judges otherwise. Six frontier systems receive a 400-interaction budget and three independent trials per task, producing 1,014 trials. Gemini 3.1 Pro leads average trial success at 30.67%, while Kimi K2.6 leads Pass@3 at 41.42%; all systems degrade substantially on workflows requiring 61–110 steps.",
+  "contributions": [
+    "Introduces 338 authentic professional GUI tasks across six domains, 23 subdomains, and 56 software-specific virtual machines, selected from more than 1,000 expert proposals.",
+    "Targets genuinely long workflows: every task requires at least 30 atomic actions, with 129 Easy tasks at 30–44 steps, 159 Medium at 45–60, and 50 Hard at 61–110.",
+    "Defines artifact- and GUI-state-based success criteria, hidden expert execution procedures, and a three-stage validation process covering environment, instruction, and end-to-end agent failures.",
+    "Runs six frontier model-agent systems for three trials on all 338 tasks and analyzes outcome failures, stage omission, error propagation, objective drift, software-knowledge gaps, action loops, and procedural-guidance ablations."
+  ],
+  "method": [
+    "Domain experts propose workflows from their own professional practice. Tasks must require specialized software and domain knowledge, take at least 30 atomic GUI actions, resist retrieval from public tutorials, and admit an objective success criterion.",
+    "Fifty-six full virtual-machine images provide pinned professional software. At runtime, task-specific inputs and configuration are injected, the required application is pre-launched, and unrelated login or setup steps are removed.",
+    "Each task includes a self-contained objective, a final artifact or target GUI state, deterministic evaluation criteria, and a hidden atomic expert procedure. Experts replay that procedure to verify both environment and task solvability.",
+    "At test time an agent sees only the objective and interacts through its model-specific GUI framework for at most 400 screenshot-action rounds. Every task is run independently three times for each system.",
+    "Artifacts are checked with task-appropriate rules or LLM-based rubrics; final GUI states are judged from screenshots and validated criteria, using Seed-1.8 for non-rule-based cases. Avg Pass averages all 1,014 binary trial outcomes."
+  ],
+  "metrics": [
+    {
+      "name": "Avg Pass",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of successful trials across 338 tasks and three independent runs per task (1,014 binary outcomes)."
+    },
+    {
+      "name": "Pass@3",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of tasks solved in at least one of the three independent attempts."
+    },
+    {
+      "name": "Difficulty Avg Pass",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Average trial success split by hidden expert procedure length: Easy 30–44 steps, Medium 45–60, and Hard 61–110."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "gemini_3_1_pro",
+      "model": "Gemini 3.1 Pro",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 30.67,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "kimi_k2_6",
+      "model": "Kimi K2.6",
+      "org": "Moonshot AI",
+      "color": "#06b6d4",
+      "score": 29.68,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "seed_2_0_lite",
+      "model": "Seed-2.0-Lite",
+      "org": "ByteDance",
+      "color": "#ef4444",
+      "score": 18.24,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "gpt_5_4",
+      "model": "GPT-5.4",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 17.85,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "gpt_5_4_mini",
+      "model": "GPT-5.4-mini",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 15.98,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 6,
+      "model_id": "gemini_3_flash",
+      "model": "Gemini 3 Flash",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 7.89,
+      "source": "arXiv Table 2",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Avg Pass (%)",
+  "leaderboard_note": "All six rows use the updated 338-task, three-trial, 400-interaction setting from Table 2. Each model uses its aligned GUI-agent framework, so the results represent complete model-framework systems.",
+  "show_source": false,
+  "at_a_glance": {
+    "focus": "Long-horizon professional GUI work",
+    "primary_metric": "Avg Pass (%)",
+    "setting": "338 tasks × 3 trials, 400 interactions",
+    "models_scored": 6,
+    "data_updated": "2026-08-04"
   },
-  {
-   "rank": 2,
-   "model_id": "kimi_k2_6",
-   "model": "Kimi K2.6",
-   "org": "Moonshot AI",
-   "color": "#06b6d4",
-   "score": 29.68,
-   "source": "arXiv Table 2",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2606.11042",
+    "code": "https://workflow-gym.github.io/",
+    "pdf": "https://arxiv.org/pdf/2606.11042.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "seed_2_0_lite",
-   "model": "Seed-2.0-lite",
-   "org": "ByteDance",
-   "color": "#ef4444",
-   "score": 18.24,
-   "source": "arXiv Table 2",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "gpt_5_4",
-   "model": "GPT-5.4",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 17.85,
-   "source": "arXiv Table 2",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "gpt_5_4_mini",
-   "model": "GPT-5.4-mini",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 15.98,
-   "source": "arXiv Table 2",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "gemini_3_flash",
-   "model": "Gemini 3 Flash",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 7.89,
-   "source": "arXiv Table 2",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Avg Pass",
- "leaderboard_note": "The primary leaderboard uses the overall Avg Pass percentage from the paper's updated Table 2. Each of 338 tasks is attempted three times.",
- "at_a_glance": {
-  "focus": "Long-horizon professional GUI workflows",
-  "primary_metric": "Avg Pass",
-  "setting": "338 tasks × 3 trials",
-  "models_scored": 6,
-  "data_updated": "2026-07-05"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2606.11042",
-  "code": "https://workflow-gym.github.io/",
-  "pdf": "https://arxiv.org/pdf/2606.11042.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/workflow-gym.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/workflow-gym/figure-2-construction-pipeline.png",
+      "caption": "Figure 2 (paper, PDF p. 4): Expert workflow selection, reusable VM setup, task instructions and hidden procedures, and the environment/instruction/end-to-end validation gates used before release. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/workflow-gym/figure-3-domain-distribution.png",
+      "caption": "Figure 3 (paper, PDF p. 7): Distribution of 338 tasks across six primary domains and 23 subdomains, from statistics, CAD, and finance to GIS, media production, and scientific simulation. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/workflow-gym.svg"
 }

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeSimpleQA | TokenWave AI</title>
-    <meta name="description" content="Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.">
+    <meta name="description" content="Bilingual factual programming questions, scored separately from executable code generation.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="CodeSimpleQA | TokenWave AI">
-    <meta property="og:description" content="Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.">
+    <meta property="og:description" content="Bilingual factual programming questions, scored separately from executable code generation.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/code-simpleqa.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CodeSimpleQA | TokenWave AI">
-    <meta name="twitter:description" content="Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.">
+    <meta name="twitter:description" content="Bilingual factual programming questions, scored separately from executable code generation.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/code-simpleqa.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -51,84 +51,95 @@
         <div class="detail-head">
             <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#programmer">Programmer</a> · Knowledge</div>
             <h1>CodeSimpleQA</h1>
-            <p class="detail-tagline">Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.</p>
+            <p class="detail-tagline">Bilingual factual programming questions, scored separately from executable code generation.</p>
             <p class="detail-meta">
+                Benchmark paper
+                <span class="sep">·</span>
                 <span class="lead">Leader &mdash; GPT-5 · 65.05</span>
                 <span class="sep">·</span>
                 Knowledge
                 <span class="sep">·</span>
                 updated 2025-12-22
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.19424" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2512.19424.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.19424" target="_blank" rel="noopener noreferrer">Paper ↗</a></div>
         </div>
     </div>
 
     <div class="stat-grid">
         <div class="stat-tile"><div class="v">1,498</div><div class="l">curated QA pairs</div></div>
-        <div class="stat-tile"><div class="v">2</div><div class="l">languages</div></div>
-        <div class="stat-tile"><div class="v">21</div><div class="l">CS domains</div></div>
+        <div class="stat-tile"><div class="v">21</div><div class="l">computer-science domains</div></div>
+        <div class="stat-tile"><div class="v">66.9M</div><div class="l">instruction samples</div></div>
         <div class="stat-tile"><div class="v">65.05</div><div class="l">top bilingual mean F1</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="overview">Overview</h2>
-        <p>CodeSimpleQA tests a part of coding intelligence that execution benchmarks often blur: whether a model knows concrete facts about programming languages, frameworks, systems, algorithms, databases, and software practice. Its 1,498 human-curated question-answer pairs are split between 782 English and 716 Chinese items, cover more than 15 programming languages and 21 computer-science domains, and are checked against authoritative technical sources.</p>
-        <p>The paper reports separate domain-level F1 tables for Chinese and English. To keep the site comparison bilingual, TokenWave averages each model&#x27;s English Avg. and Chinese Avg. values. The resulting Bilingual mean F1 is therefore a transparent derived score, not a third metric claimed by the authors; the original language-specific values remain traceable to Tables 3 and 4.</p>
+        <p>CodeSimpleQA tests a layer of coding competence that execution benchmarks do not isolate: whether a model can state a programming fact correctly. Its 1,498 questions comprise 782 English and 716 Chinese items, span more than 15 programming languages and 21 computer-science domains, and use concise reference answers grounded in code-related documents. The distribution is broad rather than uniform: general-language questions dominate, while individual language subsets include Java, Python, C#, C/C++, SQL, PHP, JavaScript, Kotlin, Ruby, Swift, Go, Rust, and others.</p>
+        <p>The evaluation follows the SimpleQA distinction among correct, incorrect, and not-attempted responses. Correct Given Attempted measures how often a model is right after it chooses to answer; F-score is the harmonic mean of that value and the overall Correct rate. This matters because a system that guesses constantly and one that refuses difficult questions can otherwise look deceptively similar under a single accuracy number.</p>
+        <p>The paper also treats the benchmark as a target for model improvement. CodeSimpleQA-Instruct contains 53,571,094 English and 13,359,625 Chinese samples. Its pipeline retrieves technical documents, filters source and content quality, clusters code-text embeddings, generates objective QA pairs, and applies automated plus human verification before SFT and GRPO experiments. The benchmark and training corpus are related, but the leaderboard here uses only held-out CodeSimpleQA evaluation results.</p>
 
         <h2 id="why-it-matters">Why it matters</h2>
-        <p>A model can produce executable code while still hallucinating an API contract, a language rule, or a systems fact. Those errors are especially costly in code review, debugging, migration, and technical support, where an authoritative-sounding false detail can steer an entire implementation. CodeSimpleQA isolates that factual layer and, by testing both English and Chinese, shows whether technical knowledge transfers across the two languages rather than hiding behind an English-only aggregate.</p>
+        <p>Executable code can still be built on a false premise: a hallucinated API contract, a mistaken language rule, or an incorrect systems claim. Those errors surface in code review, debugging, migration, and technical support, where an authoritative-sounding answer may redirect the implementation before any test is run. CodeSimpleQA makes that factual layer visible instead of allowing execution success to stand in for knowledge.</p>
+        <p>The bilingual split also prevents an English result from hiding uneven transfer. TokenWave therefore averages the paper&#x27;s Chinese and English overall F-scores for models present in both tables. The combined number is deliberately labeled as a site-derived mean; readers who need language-specific or domain-specific diagnosis should use the two source tables and the paper&#x27;s 21-domain breakdown.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>The benchmark contains 1,498 human-curated question-answer pairs grounded in programming and computer-science documentation.</li>
-            <li>Its bilingual coverage spans English and Chinese, more than 15 programming languages, and 21 computer-science domains.</li>
-            <li>The paper separates factual code knowledge from code-generation execution and also releases a 66.9M-example instruction corpus for training.</li>
+            <li>Introduces a bilingual factual-code benchmark with 1,498 items: 782 English questions and 716 Chinese questions, all paired with concise reference answers.</li>
+            <li>Covers more than 15 programming languages and 21 computer-science domains, with answers grounded in technical documents rather than inferred from whether generated code executes.</li>
+            <li>Uses the SimpleQA-style correct, incorrect, and not-attempted outcome taxonomy and reports Correct Given Attempted and F-score so abstention is not treated the same as a factual error.</li>
+            <li>Releases CodeSimpleQA-Instruct with 53,571,094 English and 13,359,625 Chinese samples and evaluates factuality-oriented SFT and GRPO post-training.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>CodeSimpleQA contains 782 English and 716 Chinese question-answer pairs whose answers are verified against authoritative technical sources.</li>
-            <li>Questions cover programming languages, frameworks, systems, algorithms, databases, software engineering, security, and other computer-science topics.</li>
-            <li>The paper reports F1 by domain and an overall Avg. for each language in Tables 3 and 4.</li>
-            <li>For one bilingual leaderboard, TokenWave takes the arithmetic mean of each model&#x27;s English Avg. and Chinese Avg.; this derived score is not a separate metric reported by the paper.</li>
+            <li>The evaluation set contains 782 English and 716 Chinese QA pairs distributed across 21 domains; software engineering, web technologies, programming languages, and operating systems are among the largest categories.</li>
+            <li>Questions are drawn from Code WebQA, self-constructed material, and human-written content grounded in sources such as official documentation, GitHub, and Stack Overflow. Eight annotators and three engineers curate the data; a manually constructed subset retains 312 of roughly 1,500 candidates after review by at least three people.</li>
+            <li>Models receive a short factual question and are instructed to answer in no more than 64 words. A reference-aware judge assigns CORRECT, INCORRECT, or NOT_ATTEMPTED according to whether the response contains the reference answer and whether it introduces a contradiction.</li>
+            <li>The paper reports domain-level and overall F-scores separately for Chinese and English. The TokenWave table uses only models appearing in both tables and takes the arithmetic mean of the two reported overall values.</li>
+            <li>The companion training pipeline recalls code-related Common Crawl documents, filters for source and content quality, clusters code-text embeddings with DBSCAN, generates QA pairs at low temperature, and retains only pairs that pass automated and human quality checks.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Bilingual mean F1</b> &mdash; Higher is better. TokenWave-derived arithmetic mean of the English Avg. and Chinese Avg. F1 columns reported in arXiv Tables 3 and 4. Score range: [0, 100].</p>
+        <p><b>Bilingual mean F1</b> &mdash; Higher is better. TokenWave-derived arithmetic mean of the Chinese Avg. and English Avg. F-scores reported by the paper; used only for this site&#x27;s bilingual leaderboard. Score range: [0, 100].</p>
+        <p><b>F-score</b> &mdash; Higher is better. Harmonic mean of the Correct rate and Correct Given Attempted, reported by domain and as an overall average for each language. Score range: [0, 100].</p>
+        <p><b>Correct</b> &mdash; Higher is better. Percentage of responses that fully contain the reference answer without contradictory content. Score range: [0, 100].</p>
+        <p><b>Correct Given Attempted</b> &mdash; Higher is better. Percentage of correct responses among questions the model attempted; separates answer precision from willingness to answer. Score range: [0, 100].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>Each score is the arithmetic mean of the paper&#x27;s English Avg. and Chinese Avg. F1 values. It is a transparent TokenWave aggregation of arXiv Tables 3 and 4, not a separately reported paper metric.</p>
+        <p>Each score is the arithmetic mean of the paper&#x27;s Chinese Avg. and English Avg. F-scores. This site aggregation makes bilingual performance readable in one table; it is not a third metric introduced by the authors.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Bilingual mean F1</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Bilingual mean F1</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5</td><td class="num">65.05<span class="lb-track"><span class="lb-bar" data-w="65.0"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">2</span></td><td>o3</td><td class="num">61.65<span class="lb-track"><span class="lb-bar" data-w="61.6"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">3</span></td><td>GPT-5 Mini</td><td class="num">55.65<span class="lb-track"><span class="lb-bar" data-w="55.6"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">4</span></td><td>o4-mini</td><td class="num">53.3<span class="lb-track"><span class="lb-bar" data-w="53.3"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">5</span></td><td>Claude Sonnet 4 Thinking (2025-05-14)</td><td class="num">52.5<span class="lb-track"><span class="lb-bar" data-w="52.5"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Claude Sonnet 4 (2025-05-14)</td><td class="num">51.9<span class="lb-track"><span class="lb-bar" data-w="51.9"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">7</span></td><td>ChatGPT-4o Latest</td><td class="num">50.95<span class="lb-track"><span class="lb-bar" data-w="51.0"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">8</span></td><td>o3-mini-2025-01-31</td><td class="num">50.45<span class="lb-track"><span class="lb-bar" data-w="50.5"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">9</span></td><td>GPT-OSS-120B</td><td class="num">50.35<span class="lb-track"><span class="lb-bar" data-w="50.4"></span></span></td><td>arXiv Tables 3–4</td></tr>
-                <tr><td><span class="rank">10</span></td><td>GPT-4o-2024-11-20</td><td class="num">48.7<span class="lb-track"><span class="lb-bar" data-w="48.7"></span></span></td><td>arXiv Tables 3–4</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5</td><td class="num">65.05<span class="lb-track"><span class="lb-bar" data-w="65.0"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>o3</td><td class="num">61.65<span class="lb-track"><span class="lb-bar" data-w="61.6"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>GPT-5 Mini</td><td class="num">55.65<span class="lb-track"><span class="lb-bar" data-w="55.6"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>o4-mini</td><td class="num">53.3<span class="lb-track"><span class="lb-bar" data-w="53.3"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>Claude Sonnet 4 Thinking (2025-05-14)</td><td class="num">52.5<span class="lb-track"><span class="lb-bar" data-w="52.5"></span></span></td></tr>
+                <tr><td><span class="rank">6</span></td><td>Claude Sonnet 4 (2025-05-14)</td><td class="num">51.9<span class="lb-track"><span class="lb-bar" data-w="51.9"></span></span></td></tr>
+                <tr><td><span class="rank">7</span></td><td>ChatGPT-4o Latest</td><td class="num">50.95<span class="lb-track"><span class="lb-bar" data-w="51.0"></span></span></td></tr>
+                <tr><td><span class="rank">8</span></td><td>o3-mini-2025-01-31</td><td class="num">50.45<span class="lb-track"><span class="lb-bar" data-w="50.5"></span></span></td></tr>
+                <tr><td><span class="rank">9</span></td><td>GPT-OSS-120B</td><td class="num">50.35<span class="lb-track"><span class="lb-bar" data-w="50.4"></span></span></td></tr>
+                <tr><td><span class="rank">10</span></td><td>GPT-4o-2024-11-20</td><td class="num">48.7<span class="lb-track"><span class="lb-bar" data-w="48.7"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on CodeSimpleQA? Submit the result →</a></p>
 
         <h2 id="reading-the-results">Reading the results</h2>
-        <p>GPT-5 leads the bilingual aggregation at 65.05, followed by o3 at 61.65 — a 3.40-point gap. GPT-5 Mini is another 6.00 points back at 55.65, while o4-mini and the two Claude Sonnet 4 variants occupy the next band from 53.30 to 51.90. The top-ten spread reaches 16.35 points, yet even the leader leaves almost 35 points of the scale unclaimed. On this benchmark, factual programming knowledge remains a distinct and visibly unsolved capability.</p>
+        <p>GPT-5 leads the bilingual aggregation at 65.05, formed from 67.2 Chinese F-score and 62.9 English F-score. o3 follows at 61.65, a 3.40-point gap, while GPT-5 Mini is another 6.00 points back at 55.65. The first separation is therefore between the two strongest reasoning-oriented systems and the rest of the field, not merely between vendors.</p>
+        <p>The middle of the table is compact: o4-mini scores 53.30, Claude Sonnet 4 Thinking 52.50, and Claude Sonnet 4 without thinking 51.90. ChatGPT-4o Latest, o3-mini, and GPT-OSS-120B all fall between 50.35 and 50.95. Small changes in answer rate or calibration can reorder this band, so the per-language Correct and Correct Given Attempted metrics are useful when comparing nearby models.</p>
+        <p>GPT-4o-2024-11-20 closes the displayed top ten at 48.70, leaving a 16.35-point spread from first to tenth. More importantly, the leader remains 34.95 points below the top of the scale. Even on short, reference-grounded programming questions, the paper&#x27;s results do not support treating factual code knowledge as solved.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Factual programming knowledge</span></li>
-            <li><span class="k">Primary metric</span><span>Bilingual mean F1</span></li>
-            <li><span class="k">Displayed setting</span><span>Mean of English and Chinese Avg. F1</span></li>
-            <li><span class="k">Models scored</span><span>10</span></li>
-            <li><span class="k">Data updated</span><span>2025-12-22</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/code-simpleqa/figure-2-data-statistics.png" alt="Figure 2 (PDF p. 2): Programming-language sample counts and the minimum, average, and maximum character lengths of questions and answers in CodeSimpleQA. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (PDF p. 2): Programming-language sample counts and the minimum, average, and maximum character lengths of questions and answers in CodeSimpleQA. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/code-simpleqa/figure-4-construction-pipeline.png" alt="Figure 4 (PDF p. 4): The benchmark-construction pipeline, from code-document collection and clustered QA generation through LLM verification and multi-stage human quality control. Source: paper." loading="lazy">
+            <figcaption>Figure 4 (PDF p. 4): The benchmark-construction pipeline, from code-document collection and clustered QA generation through LLM verification and multi-stage human quality control. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#programmer">&larr; Back to Programmer</a></p>
     </div>
@@ -141,7 +152,7 @@
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
         <a href="#reading-the-results">Reading the results</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -173,7 +184,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -182,7 +193,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -202,7 +212,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

@@ -1,43 +1,130 @@
 {
- "slug": "omni_math",
- "name": "Omni-MATH",
- "domain": "llm",
- "domain_name": "LLM Benchmark",
- "subcategory": "Olympiad Math",
- "abstract": "Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking. It measures competition mathematics specifically, past the saturation of GSM8K and MATH. Results on this page will be populated at the next TokenWave data refresh.",
- "contributions": [
-  "4,428 competition-level problems with rigorous human annotation.",
-  "33 sub-domains across more than 10 difficulty levels enable fine-grained diagnosis, not one blended score.",
-  "Ships Omni-Judge, an open evaluator for checking free-form competition answers."
- ],
- "method": [
-  "Problems are curated from Olympiad sources and annotated by domain and difficulty.",
-  "Models answer free-form; Omni-Judge verifies equivalence against reference answers.",
-  "Analysis at release showed frontier reasoning models still failing a large share of higher-tier problems."
- ],
- "metrics": [
-  {
-   "name": "Accuracy",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Judge-verified answer accuracy across the full set."
-  }
- ],
- "leaderboard": [],
- "leaderboard_metric": "Accuracy",
- "leaderboard_note": null,
- "links": {
-  "paper": "https://arxiv.org/abs/2410.07985",
-  "code": "https://github.com/KbsdJames/Omni-MATH",
-  "pdf": "https://arxiv.org/pdf/2410.07985.pdf"
- },
- "image": "static/images/benchmarks/omni-math.svg",
- "at_a_glance": {
-  "focus": "Olympiad-level mathematics",
-  "primary_metric": "Accuracy",
-  "setting": "Free-form answers, judge-verified",
-  "models_scored": null,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "slug": "omni_math",
+  "name": "Omni-MATH",
+  "paper_type": "benchmark",
+  "domain": "llm",
+  "domain_name": "LLM Benchmark",
+  "subcategory": "Olympiad Math",
+  "abstract": "Omni-MATH evaluates text-only Olympiad mathematics with 4,428 competition problems, each paired with a worked solution and final answer. Problems come from official contest pages, the AoPS Wiki, and consistency-filtered AoPS forum solutions, then receive professional human review. A hierarchical taxonomy supplies more than 33 subdomains, while difficulty scores span more than 10 levels on a 0–10 scale. Because free-form mathematical answers are often equivalent despite different notation, the main evaluation gives GPT-4o the problem, reference answer, and model solution and asks it to judge correctness. The displayed leaderboard uses Overall Accuracy on the complete 4,428-problem set under that evaluator, including both vanilla and explicitly labeled test-time-scaled rows. It does not use the smaller rule-evaluable Omni-MATH-Rule subset or mix rule-based scores into the ranking.",
+  "contributions": [
+    "Releases 4,428 English, text-only Olympiad-level mathematics problems with solutions, final answers, source metadata, domain labels, and difficulty labels.",
+    "Builds a hierarchical taxonomy with more than 33 mathematical subdomains and difficulty ratings from introductory competitions through international Olympiad and university contests.",
+    "Validates free-form answer evaluation with GPT-4o and releases Omni-Judge, trained on GPT-4o labels, as a lower-cost open verifier with more than 90% consistency against GPT-4o.",
+    "Evaluates 15 vanilla and test-time-scaled model settings by overall, domain, and four difficulty-tier accuracies, with contamination and evaluator-reliability analyses."
+  ],
+  "method": [
+    "The collection starts with 3,750 items from official contest pages, 8,575 from AoPS Wiki, and 17,502 from AoPS Forum. Rule filtering and human review retain 3,242, 298, and 888 items respectively, totaling 4,428.",
+    "Official PDFs are converted to LaTeX with MathPix. Forum problems require at least three candidate answers and consistent extracted finals; four annotators each review 550 of the 1,100 filtered items so every item has two labels, yielding 92.7% cross-validation accuracy and 97.3% accuracy in a 150-item audit.",
+    "Difficulty is assigned on a 0–10 contest scale, including fractional levels, using AoPS ratings where available and GPT-4o in-context classification otherwise. GPT-4o also maps each problem into a guidebook-derived hierarchical domain tree with more than 33 leaves.",
+    "Fifteen model settings answer the full set with repository-specific prompts. GPT-4o receives the original problem, the reference answer, and the complete model solution, then judges whether the model's conclusion is consistent with the reference.",
+    "Omni-Judge is trained from roughly 17,618 GPT-4o-labeled examples, with about 2,200 validation and 2,200 test examples drawn from non-overlapping questions. It generates an extracted answer, judgment, and explanation, but the leaderboard here retains the paper's GPT-4o-evaluated main-table scores.",
+    "The table ranks Overall Acc from the full 4,428 problems. Omni-MATH-Rule is a separate filtered subset for deterministic checking and is not used in any displayed row."
+  ],
+  "metrics": [
+    {
+      "name": "Overall Acc (%)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of all 4,428 model solutions judged correct by GPT-4o; the primary metric for the displayed leaderboard."
+    },
+    {
+      "name": "Domain Accuracy",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Accuracy reported for first-level domains: algebra, precalculus, calculus, geometry, discrete mathematics, number theory, and applied mathematics."
+    },
+    {
+      "name": "Difficulty-tier Accuracy",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Accuracy by four bins derived from the fine-grained difficulty tag: T1 = 1–3, T2 = 3–5, T3 = 5–7, and T4 = 7–10."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "o1_mini",
+      "model": "OpenAI o1-mini",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 60.54,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "o1_preview",
+      "model": "OpenAI o1-preview",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 52.55,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "qwen2_5_math_72b_instruct_rm8",
+      "model": "Qwen2.5-MATH-72B-Instruct RM@8",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 36.34,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "qwen2_5_math_72b_instruct",
+      "model": "Qwen2.5-MATH-72B-Instruct",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 36.2,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "qwen2_5_math_72b_instruct_rm256",
+      "model": "Qwen2.5-MATH-72B-Instruct RM@256",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 35.95,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 6,
+      "model_id": "qwen2_5_math_7b_instruct_rm256",
+      "model": "Qwen2.5-MATH-7B-Instruct RM@256",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 35.79,
+      "source": "official",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Overall Acc (%)",
+  "leaderboard_note": "Top six rows by Overall Acc in Table 3. Every score covers the complete 4,428-problem Omni-MATH set and uses GPT-4o as evaluator. Vanilla and reward-model-selected inference settings remain explicitly labeled; no Omni-MATH-Rule result is included.",
+  "at_a_glance": {
+    "focus": "Text-only Olympiad mathematics",
+    "primary_metric": "Overall Acc (%)",
+    "setting": "4,428 problems, GPT-4o evaluator",
+    "models_scored": 6,
+    "data_updated": "2024-12-24"
+  },
+  "links": {
+    "paper": "https://arxiv.org/abs/2410.07985",
+    "code": "https://github.com/KbsdJames/Omni-MATH",
+    "pdf": "https://arxiv.org/pdf/2410.07985.pdf"
+  },
+  "figures": [
+    {
+      "image": "static/images/benchmarks/omni-math/figure-2-benchmark-overview.png",
+      "caption": "Figure 2 (PDF p. 3): Omni-MATH's competition tiers, hierarchical domain taxonomy, and the fields attached to one worked problem, including source and difficulty. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/omni-math/figure-3-collection-annotation.png",
+      "caption": "Figure 3 (PDF p. 4): Collection and filtering paths for official contest pages, AoPS Wiki, and AoPS Forum, followed by manual checks of completeness, LaTeX formatting, and source fidelity. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/omni-math.svg"
 }

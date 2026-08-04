@@ -1,30 +1,52 @@
 {
- "slug": "autokaggle",
- "name": "AutoKaggle",
- "domain": "agent",
+  "slug": "autokaggle",
+  "name": "AutoKaggle",
+  "paper_type": "system",
+  "domain": "agent",
  "domain_name": "Agent Benchmark",
  "subcategory": "Data Science Agent",
- "abstract": "AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission. Results on this page will be populated at the next TokenWave data refresh.",
- "contributions": [
-  "Treats a Kaggle competition as one deliverable pipeline, not isolated code snippets.",
-  "A phase-based workflow with cooperating agents (reading, planning, coding, reviewing, summarizing) plus iterative debugging and unit tests.",
-  "Includes a machine-learning tools library so agents assemble reliable pipelines instead of improvising every step."
- ],
- "method": [
-  "Each competition run proceeds through fixed phases with validation gates between them.",
-  "Generated code is unit-tested and debugged in place before the pipeline advances.",
-  "Runs are scored on completion of a valid submission and on solution quality across competitions."
- ],
- "metrics": [
-  {
-   "name": "Completion rate",
-   "direction": "higher",
-   "range": "[0, 1]",
-   "note": "Share of competition runs that end in a valid, reproducible submission."
-  }
- ],
+  "abstract": "AutoKaggle is an end-to-end multi-agent system for solving tabular Kaggle competitions, rather than a benchmark release. It divides a competition into six phases, from background understanding and exploratory analysis through data cleaning, feature engineering, modelling, validation, and prediction. Five specialized agents read the task, plan each phase, implement code, review outputs, and summarize decisions. Generated programs are executed, debugged, and checked with phase-specific unit tests before later stages can consume their artifacts; a reusable machine-learning tools library supplies validated operations. The paper evaluates the system on eight classification and regression competitions, with five trials per task. In the GPT-4o setting, AutoKaggle reports a made-submission rate of 0.85, a valid-submission rate of 0.83, and a comprehensive score of 0.821.",
+  "contributions": [
+    "Defines a six-phase competition workflow operated by five roles—Reader, Planner, Developer, Reviewer, and Summarizer—with two explicit human-intervention points.",
+    "Combines code execution, error localization and correction, regeneration, and phase-specific unit tests; in the four-task ablation, adding unit tests raises the reported completion rate from 0.10 to 0.85.",
+    "Provides a reusable tools library for data cleaning, feature engineering, and model building, validation, and prediction, together with reports that preserve intermediate decisions and outputs.",
+    "Evaluates eight Kaggle tasks over five trials each. The GPT-4o configuration reaches 0.83 valid submissions and 0.821 comprehensive score, compared with AIDE's 0.58 and 0.641 under the paper's setup."
+  ],
+  "method": [
+    "The only task inputs are an overview.txt assembled from the Kaggle overview and data-description pages plus the original competition files. The workflow covers background understanding, preliminary EDA, data cleaning, in-depth EDA, feature engineering, and model building/validation/prediction.",
+    "The Reader extracts task facts; the Planner decomposes the current phase; the Developer writes and executes code; the Reviewer checks artifacts and test failures; and the Summarizer records findings for subsequent phases.",
+    "Within a phase, the Developer may attempt up to five code corrections. Repeated similar errors can trigger regeneration from scratch, and a phase can run for at most three iterations before the run is marked failed.",
+    "Predefined unit tests check both execution and logical properties such as missing values, duplicates, schema consistency, and prediction outputs. Validated machine-learning tools are retrieved for cleaning, feature engineering, modelling, ensembling, and hyperparameter search.",
+    "Evaluation uses four classic and four post-2024 Kaggle competitions, spanning classification and regression, with five trials per task. GPT-4o-mini serves Reader, Reviewer, and Summarizer; GPT-4o or o1-mini serves Planner; GPT-4o serves Developer; AIDE with GPT-4o is the baseline."
+  ],
+  "metrics": [
+    {
+      "name": "Made Submission (MS)",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Fraction of trials that generate a submission.csv file, whether or not Kaggle accepts it."
+    },
+    {
+      "name": "Valid Submission (VS)",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Fraction of trials whose submission can be uploaded and scored without shape, category, or other submission errors."
+    },
+    {
+      "name": "Average Normalized Performance Score (ANPS)",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Mean task score over successful trials after converting lower-is-better metrics s to 1/(1+s) and retaining bounded higher-is-better scores as reported."
+    },
+    {
+      "name": "Comprehensive Score (CS)",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Equal-weight combination of reliability and solution quality: CS = 0.5 × VS + 0.5 × ANPS."
+    }
+  ],
  "leaderboard": [],
- "leaderboard_metric": "Completion rate",
+  "leaderboard_metric": "Comprehensive Score",
  "leaderboard_note": null,
  "links": {
   "paper": "https://arxiv.org/abs/2410.20424",
@@ -39,5 +61,14 @@
   "models_scored": null,
   "data_updated": "2026-08-03"
  },
- "figures": []
+  "figures": [
+    {
+      "image": "static/images/benchmarks/autokaggle/figure-1-framework.png",
+      "caption": "Figure 1 (paper, PDF p. 3): AutoKaggle's six-phase workflow, five collaborating agent roles, human intervention points, reporting path, and retrieval from the machine-learning tools library. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/autokaggle/table-1-results.png",
+      "caption": "Table 1 (paper, PDF p. 7): Made Submission, Valid Submission, and Comprehensive Score across four classic and four recent Kaggle tasks, each repeated for five trials, comparing AutoKaggle planner settings with AIDE. Source: paper."
+    }
+  ]
 }

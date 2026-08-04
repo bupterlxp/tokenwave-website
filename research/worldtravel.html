@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -63,10 +63,10 @@
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">4</div><div class="l">constraint types</div></div>
-        <div class="stat-tile"><div class="v">19.33</div><div class="l">top score (Feasibility Rate)</div></div>
-        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">16.7</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">150</div><div class="l">travel scenarios</div></div>
+        <div class="stat-tile"><div class="v">2,003</div><div class="l">rendered webpages</div></div>
+        <div class="stat-tile"><div class="v">15+</div><div class="l">constraints per task on average</div></div>
+        <div class="stat-tile"><div class="v">19.33</div><div class="l">top multimodal feasibility</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
@@ -84,13 +84,13 @@
         <p>The board reports the Feasibility Rate from the multimodal setting; the text-only setting is excluded.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Feasibility Rate</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Feasibility Rate (%)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5.2</td><td class="num">19.33<span class="lb-track"><span class="lb-bar" data-w="19.3"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14<span class="lb-track"><span class="lb-bar" data-w="14.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8<span class="lb-track"><span class="lb-bar" data-w="8.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4<span class="lb-track"><span class="lb-bar" data-w="4.0"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-5.2</td><td class="num">19.33<span class="lb-track"><span class="lb-bar" data-w="19.3"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>Claude Opus 4.5</td><td class="num">14<span class="lb-track"><span class="lb-bar" data-w="14.0"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 3 Pro</td><td class="num">8<span class="lb-track"><span class="lb-bar" data-w="8.0"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>Doubao-1.8-Pro</td><td class="num">4<span class="lb-track"><span class="lb-bar" data-w="4.0"></span></span></td></tr>
             </tbody>
         </table>
 
@@ -103,7 +103,7 @@
         <div class="crosslink">
             <div>
                 <p class="t">Explore the constraint types, settings, and full leaderboard on the WorldTravel benchmark page.</p>
-                <p class="s">WorldTravel &mdash; Multimodal Agent · Agent</p>
+                <p class="s">WorldTravel &mdash; Multimodal Planning · Agent Benchmark</p>
             </div>
             <a class="button primary" href="../benchmarks/worldtravel.html">View benchmark →</a>
         </div>
@@ -146,7 +146,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -155,7 +155,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -175,7 +174,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

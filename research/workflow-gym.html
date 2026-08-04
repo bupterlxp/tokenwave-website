@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -64,8 +64,8 @@
 
     <div class="stat-grid">
         <div class="stat-tile"><div class="v">338</div><div class="l">professional tasks</div></div>
-        <div class="stat-tile"><div class="v">56</div><div class="l">software environments</div></div>
-        <div class="stat-tile"><div class="v">30–110</div><div class="l">atomic actions per task</div></div>
+        <div class="stat-tile"><div class="v">56</div><div class="l">software VMs</div></div>
+        <div class="stat-tile"><div class="v">30–110</div><div class="l">expert steps per task</div></div>
         <div class="stat-tile"><div class="v">30.67</div><div class="l">top Avg Pass</div></div>
     </div>
     <div class="detail-layout">
@@ -84,13 +84,13 @@
         <p>Each task is attempted three times; the board reports the overall Avg Pass percentage from the paper's updated Table 2.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Avg Pass</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Avg Pass (%)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Gemini 3.1 Pro</td><td class="num">30.67<span class="lb-track"><span class="lb-bar" data-w="30.7"></span></span></td><td>arXiv Table 2</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Kimi K2.6</td><td class="num">29.68<span class="lb-track"><span class="lb-bar" data-w="29.7"></span></span></td><td>arXiv Table 2</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Seed-2.0-lite</td><td class="num">18.24<span class="lb-track"><span class="lb-bar" data-w="18.2"></span></span></td><td>arXiv Table 2</td></tr>
-                <tr><td><span class="rank">4</span></td><td>GPT-5.4</td><td class="num">17.85<span class="lb-track"><span class="lb-bar" data-w="17.9"></span></span></td><td>arXiv Table 2</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Gemini 3.1 Pro</td><td class="num">30.67<span class="lb-track"><span class="lb-bar" data-w="30.7"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>Kimi K2.6</td><td class="num">29.68<span class="lb-track"><span class="lb-bar" data-w="29.7"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Seed-2.0-Lite</td><td class="num">18.24<span class="lb-track"><span class="lb-bar" data-w="18.2"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>GPT-5.4</td><td class="num">17.85<span class="lb-track"><span class="lb-bar" data-w="17.9"></span></span></td></tr>
             </tbody>
         </table>
 
@@ -103,7 +103,7 @@
         <div class="crosslink">
             <div>
                 <p class="t">Explore the full leaderboard, task domains, and evaluation setup on the Workflow-GYM benchmark page.</p>
-                <p class="s">Workflow-GYM &mdash; GUI Agent · Agent Benchmark</p>
+                <p class="s">Workflow-GYM &mdash; Professional GUI Workflows · Agent Benchmark</p>
             </div>
             <a class="button primary" href="../benchmarks/workflow-gym.html">View benchmark →</a>
         </div>
@@ -146,7 +146,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -155,7 +155,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -175,7 +174,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

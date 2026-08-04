@@ -1,144 +1,176 @@
 {
- "slug": "supergpqa",
- "name": "SuperGPQA",
- "domain": "llm",
- "domain_name": "LLM Benchmark",
- "subcategory": "Knowledge",
- "abstract": "SuperGPQA evaluates knowledge and reasoning across 285 graduate disciplines. This page uses Overall (sample).",
- "contributions": [
-  "The benchmark extends far beyond common STEM areas to 285 graduate-level disciplines.",
-  "The page uses the sample-level overall because it maps most directly to total accuracy."
- ],
- "method": [
-  "SuperGPQA expands LLM knowledge evaluation from a handful of mainstream subjects to 285 graduate-level disciplines, aiming to cover a much broader slice of human expertise.",
-  "It uses a Human-LLM collaborative filtering pipeline to remove trivial or ambiguous questions, together with a large expert annotation process to maintain quality.",
-  "The reported results show that even the strongest current models still have substantial room for improvement across diverse and long-tail professional domains.",
-  "Beyond the leaderboard itself, the work also offers a methodology for organizing and managing large-scale discipline-level benchmark construction."
- ],
- "metrics": [
-  {
-   "name": "Overall (sample)",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Overall sample-level accuracy."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "deepseek_r1",
-   "model": "DeepSeek-R1",
-   "org": "DeepSeek",
-   "color": "#4a90d9",
-   "score": 61.82,
-   "source": "official",
-   "date": null
+  "slug": "supergpqa",
+  "name": "SuperGPQA",
+  "paper_type": "benchmark",
+  "domain": "llm",
+  "domain_name": "LLM Benchmark",
+  "subcategory": "Graduate Knowledge",
+  "abstract": "SuperGPQA evaluates graduate-level knowledge and reasoning with 26,529 multiple-choice questions organized into 13 disciplines, 72 fields, and 285 subfields. Every subfield has at least 50 questions; items average 9.67 options, and 42.33% require calculation or formal reasoning. More than 80 expert annotators participated in a human–LLM pipeline that screens credible sources, translates or rewrites questions, generates distractors, and applies rule-based, model-based, and expert review. The paper evaluates six reasoning-model families, 28 chat models, and 17 base models. Reasoning and chat systems use zero-shot prompts at temperature 0, whereas base models use five-shot prompts and are excluded from the comparable leaderboard here. DeepSeek-R1 leads sample-weighted accuracy at 61.82%; the benchmark also reports macro averages over subfields, fields, and disciplines to counter the dataset's uneven subject distribution.",
+  "contributions": [
+    "Builds a 26,529-question graduate benchmark spanning 13 disciplines, 72 fields, and 285 subfields, with at least 50 questions per subfield and an average of 9.67 answer options.",
+    "Develops a large-scale human–LLM construction workflow covering expert source screening, translation and multiple-choice conversion, distractor generation, plagiarism checks, and rule/model/expert quality inspection.",
+    "Reports sample-weighted and macro-averaged accuracy at three taxonomy levels, plus Easy, Middle, and Hard splits, so performance is not represented only by the STEM-heavy sample distribution.",
+    "Evaluates reasoning, chat, instruct, and base models under disclosed zero-shot or five-shot protocols and analyzes prompt robustness, subfield cues, scaling, difficulty profiles, and disciplinary discrimination."
+  ],
+  "method": [
+    "Expert annotators collect questions and solutions from credible sources; crowd annotators translate non-English material, convert open questions to multiple choice, standardize statement-combination items, and add plausible distractors.",
+    "Rule checks validate formatting, options, answers, difficulty, and taxonomy fields. Seven contemporary LLMs flag invalid, ambiguous, trivial, multimodal, incomplete, or low-discrimination items for unrestricted expert review, which averages more than 30 minutes per suspicious question.",
+    "The final 26,529 items cover 285 subfields with at least 50 each. Science, Engineering, and Medicine contribute 77.2% of samples, so the paper reports both sample-weighted accuracy and unweighted averages across subfields, fields, and disciplines.",
+    "Reasoning and chat models are evaluated zero-shot; base models use a five-shot protocol following MMLU-Pro. Temperature is 0, maximum generation is 32k tokens for reasoning models and 4k for all other models.",
+    "Exact-match multiple-choice accuracy is computed overall and by Easy, Middle, and Hard labels. Additional experiments vary the presence of subfield names and evaluate Qwen2.5 models under 24 semantically equivalent prompt formats."
+  ],
+  "metrics": [
+    {
+      "name": "Overall (sample)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Micro-averaged multiple-choice accuracy across all 26,529 questions; this is the metric used by the leaderboard."
+    },
+    {
+      "name": "Overall (subfield)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Unweighted mean of the 285 subfield accuracies, reducing the influence of subfields with more questions."
+    },
+    {
+      "name": "Overall (field)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Unweighted mean accuracy across 72 fields."
+    },
+    {
+      "name": "Overall (discipline)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Unweighted mean accuracy across 13 top-level disciplines, the broadest macro-balanced view."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "deepseek_r1",
+      "model": "DeepSeek-R1",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 61.82,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "o1",
+      "model": "o1-2024-12-17",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 60.24,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "deepseek_r1_zero",
+      "model": "DeepSeek-R1-Zero",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 60.24,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "o3_mini_high",
+      "model": "o3-mini-2025-01-31-high",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 55.22,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "doubao_1_5_pro_250115",
+      "model": "Doubao-1.5-Pro-32k-250115",
+      "org": "ByteDance",
+      "color": "#ef4444",
+      "score": 55.09,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 6,
+      "model_id": "o3_mini_medium",
+      "model": "o3-mini-2025-01-31-medium",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 52.69,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 7,
+      "model_id": "doubao_1_5_pro_241225",
+      "model": "Doubao-1.5-Pro-32k-241225",
+      "org": "ByteDance",
+      "color": "#ef4444",
+      "score": 50.93,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 8,
+      "model_id": "qwen_max_20250125",
+      "model": "Qwen-Max-2025-01-25",
+      "org": "Alibaba",
+      "color": "#ff6a00",
+      "score": 50.08,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 9,
+      "model_id": "claude_3_5_sonnet",
+      "model": "Claude 3.5 Sonnet-20241022",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 48.16,
+      "source": "arXiv Table 5",
+      "date": null
+    },
+    {
+      "rank": 10,
+      "model_id": "o3_mini_low",
+      "model": "o3-mini-2025-01-31-low",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 48.03,
+      "source": "arXiv Table 5",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Overall (sample)",
+  "leaderboard_note": "The ranking uses sample-weighted accuracy from the paper's zero-shot reasoning and chat-model setting. Five-shot base-model rows are not mixed into this table; macro subfield, field, and discipline scores remain available as separate metrics.",
+  "show_source": false,
+  "at_a_glance": {
+    "focus": "Graduate knowledge across long-tail disciplines",
+    "primary_metric": "Overall (sample)",
+    "setting": "Zero-shot reasoning and chat models, temperature 0",
+    "models_scored": 10,
+    "data_updated": "2026-08-04"
   },
-  {
-   "rank": 2,
-   "model_id": "o1",
-   "model": "o1",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 60.24,
-   "source": "official",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2502.14739",
+    "code": "https://supergpqa.github.io/",
+    "pdf": "https://arxiv.org/pdf/2502.14739.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "o3_mini",
-   "model": "o3-mini",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 55.22,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "doubao_1_5_pro",
-   "model": "Doubao-1.5-Pro",
-   "org": "ByteDance",
-   "color": "#ef4444",
-   "score": 55.09,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "qwen_max",
-   "model": "Qwen-Max",
-   "org": "Alibaba",
-   "color": "#ff6a00",
-   "score": 50.08,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "claude_3_5_sonnet",
-   "model": "Claude 3.5 Sonnet",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 48.16,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 7,
-   "model_id": "gemini_2_0_flash",
-   "model": "Gemini 2.0 Flash",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 47.73,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 8,
-   "model_id": "deepseek_v3",
-   "model": "DeepSeek-V3",
-   "org": "DeepSeek",
-   "color": "#4a90d9",
-   "score": 47.4,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 9,
-   "model_id": "gpt_4o",
-   "model": "GPT-4o",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 44.4,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 10,
-   "model_id": "qwen2_5_72b_instruct",
-   "model": "Qwen2.5-72B-Instruct",
-   "org": "Alibaba",
-   "color": "#ff6a00",
-   "score": 40.75,
-   "source": "official",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Overall (sample)",
- "leaderboard_note": "The primary leaderboard uses Overall (sample). The paper also reports subfield, field, and discipline-level results, which are not mixed here.",
- "at_a_glance": {
-  "focus": "跨学科高阶知识",
-  "primary_metric": "Overall (sample)",
-  "setting": "Main leaderboard",
-  "models_scored": 10,
-  "data_updated": "2026-04-15"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2502.14739",
-  "code": "https://arxiv.org/abs/2502.14739",
-  "pdf": "https://arxiv.org/pdf/2502.14739.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/supergpqa.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/supergpqa/figure-2-data-collection.png",
+      "caption": "Figure 2 (paper, PDF p. 6): SuperGPQA's source-screening, transcription, and quality-inspection pipeline, including expert sourcing, distractor generation, and rule-, model-, and human-based checks. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/supergpqa/figure-7-scaling-robustness.png",
+      "caption": "Figure 7 (paper, PDF p. 20): Qwen2.5 accuracy from 0.5B to 72B with and without subfield cues, and robustness across 24 semantically equivalent prompts; larger models gain more from cues and show lower prompt variance. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/supergpqa.svg"
 }

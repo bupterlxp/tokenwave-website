@@ -1,100 +1,140 @@
 {
- "slug": "worldtravel",
- "name": "WorldTravel",
- "domain": "agent",
- "domain_name": "Agent",
- "subcategory": "Multimodal Agent",
- "abstract": "WorldTravel evaluates multimodal travel-planning agents under tightly coupled real-world constraints. This page uses the Feasibility Rate from the multimodal setting.",
- "contributions": [],
- "method": [
-  "This work frames travel planning as a tightly constrained agent task that requires multimodal information and real-world scheduling rules.",
-  "It focuses on feasibility rather than superficial answer quality, requiring plans to satisfy time slots, reservation constraints, dwell time, and opening windows.",
-  "The main results show that even leading models still achieve low feasible-plan rates in the multimodal setting."
- ],
- "metrics": [
-  {
-   "name": "Feasibility Rate",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Feasible-plan rate in the multimodal setting."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "gpt_5_2",
-   "model": "GPT-5.2",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 19.33,
-   "source": "official",
-   "date": null
+  "slug": "worldtravel",
+  "name": "WorldTravel",
+  "paper_type": "benchmark",
+  "domain": "agent",
+  "domain_name": "Agent Benchmark",
+  "subcategory": "Multimodal Planning",
+  "abstract": "WorldTravel evaluates itinerary agents under coupled scheduling constraints and visual information retrieval. It contains 150 scenarios—30 each for Berlin, Vienna, Rome, Barcelona, and Florence—with 10–23 hard and soft constraints per task and more than 15 on average. WorldTravel-Webscape provides 2,003 rendered pages for 36 attractions, 25 restaurants, and 26 hotels. Eight APIs return screenshots rather than structured records, requiring agents to recover opening windows, timed-entry availability, travel buffers, dwell times, prices, and preferences across pages. Deterministic verification reports whether all hard constraints hold, the fraction violated, and soft-constraint optimality among feasible plans. In the comparable multimodal setting, GPT-5.2 leads seven vision-language models at 19.33% feasibility, down from 32.67% with text-extracted parameters; average feasibility collapses to 3.4% once tasks reach 10–11 hard constraints.",
+  "contributions": [
+    "Introduces 150 automatically verifiable travel-planning scenarios across five European cities, each combining 10–23 temporal, cost, and preference constraints with more than 15 constraints on average.",
+    "Builds WorldTravel-Webscape with 2,003 rendered webpages covering 36 attractions, 25 restaurants, 26 hotels, booking interfaces, guides, menus, and transportation matrices.",
+    "Formalizes four hard temporal constraint classes and two soft decision classes, with task-specific boolean verification functions for feasibility, violation rate, and conditional optimality.",
+    "Evaluates ten text models and seven multimodal models, isolating a visual Perception–Action Gap and a planning-capacity threshold near ten hard constraints through text, screenshot, and Gold-parameter ablations."
+  ],
+  "method": [
+    "The benchmark contains 30 tasks for each of Berlin, Vienna, Rome, Barcelona, and Florence. Experts combine official operating and pricing data with practical dwell-time, queue, and travel information, then adjust availability to create tightly coupled but solvable itineraries.",
+    "WorldTravel-Webscape distributes facts across 2,003 static pages with varied layouts. Its eight attraction, restaurant, hotel, and routing APIs return rendered screenshots, forcing OCR, UI-state interpretation, and cross-page evidence integration.",
+    "Every itinerary is represented as ordered activities with start times, durations, and discrete choices. Hard checks cover timed-entry slots, operating windows, minimum dwell time, and travel plus arrival buffers; soft checks cover exact cost combinations and hotel selection.",
+    "Each task passes author review, independent cross-solving, and external validation, and includes a reference itinerary, explicit constraint annotations, and executable verification functions. Pilot runs filter ambiguous or trivial cases.",
+    "The main experiment evaluates 150 tasks in a text setting with parameters extracted into text and a multimodal setting with screenshot-returning tools. The leaderboard uses only the latter; a 30-task Gold-parameter ablation separately tests planning under perfect hard-constraint access."
+  ],
+  "metrics": [
+    {
+      "name": "Feasibility Rate",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of tasks for which every hard temporal constraint is satisfied; one hard violation makes the complete itinerary infeasible."
+    },
+    {
+      "name": "Constraint Violation",
+      "direction": "lower",
+      "range": "[0, 100]",
+      "note": "Average percentage of hard constraints violated across all tasks, retaining partial diagnostic signal when the itinerary is not fully feasible."
+    },
+    {
+      "name": "Optimality | Feasible",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Average soft-constraint satisfaction for cost computation and preference choices, calculated only over temporally feasible itineraries."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "gpt_5_2",
+      "model": "GPT-5.2",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 19.33,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "claude_opus_4_5",
+      "model": "Claude Opus 4.5",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 14.0,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "gemini_3_pro",
+      "model": "Gemini 3 Pro",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 8.0,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "doubao_1_8_pro",
+      "model": "Doubao-1.8-Pro",
+      "org": "ByteDance",
+      "color": "#ef4444",
+      "score": 4.0,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "gpt_5_1",
+      "model": "GPT-5.1",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 2.67,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "claude_sonnet_4_5",
+      "model": "Claude Sonnet 4.5",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 2.67,
+      "source": "arXiv Table 3",
+      "date": null
+    },
+    {
+      "rank": 7,
+      "model_id": "gemini_2_5_pro",
+      "model": "Gemini 2.5 Pro",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 1.33,
+      "source": "arXiv Table 3",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Feasibility Rate (%)",
+  "leaderboard_note": "All seven rows use the 150-task multimodal setting in which the environment APIs return rendered webpage screenshots. Text-setting scores and the 30-task Gold-parameter ablation are separate conditions and are not mixed into this ranking.",
+  "show_source": false,
+  "at_a_glance": {
+    "focus": "Travel planning under visual and coupled constraints",
+    "primary_metric": "Feasibility Rate (%)",
+    "setting": "150-task multimodal Webscape setting",
+    "models_scored": 7,
+    "data_updated": "2026-08-04"
   },
-  {
-   "rank": 2,
-   "model_id": "claude_opus_4_5",
-   "model": "Claude Opus 4.5",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 14,
-   "source": "official",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2602.08367",
+    "code": "https://arxiv.org/abs/2602.08367",
+    "pdf": "https://arxiv.org/pdf/2602.08367.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "gemini_3_pro",
-   "model": "Gemini 3 Pro",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 8,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "doubao_1_8_pro",
-   "model": "Doubao-1.8-Pro",
-   "org": "ByteDance",
-   "color": "#ef4444",
-   "score": 4,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "gpt_5_1",
-   "model": "GPT-5.1",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 2.67,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "claude_sonnet_4_5",
-   "model": "Claude Sonnet 4.5",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 2.67,
-   "source": "official",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Feasibility Rate",
- "leaderboard_note": "The leaderboard uses the Feasibility Rate (%) from the multimodal setting and excludes the text-only setting.",
- "at_a_glance": {
-  "focus": "真实约束旅行规划",
-  "primary_metric": "Feasibility Rate (%)",
-  "setting": "Multimodal setting",
-  "models_scored": 6,
-  "data_updated": "2026-04-21"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2602.08367",
-  "code": "https://arxiv.org/abs/2602.08367",
-  "pdf": "https://arxiv.org/pdf/2602.08367.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/worldtravel.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/worldtravel/figure-2-data-construction.png",
+      "caption": "Figure 2 (paper, PDF p. 3): Data collection, city selection, webpage synthesis, expert task design, and manual plus multi-model quality control that produces 150 verified tasks. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/worldtravel/figure-5-constraint-analysis.png",
+      "caption": "Figure 5 (paper, PDF p. 10): Text-setting feasibility as hard constraints increase and average satisfaction by constraint type in text versus vision; feasibility drops sharply at 10 constraints and timed-entry slots are hardest. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/worldtravel.svg"
 }

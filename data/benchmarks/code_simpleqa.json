@@ -1,145 +1,176 @@
 {
- "slug": "code_simpleqa",
- "name": "CodeSimpleQA",
- "domain": "llm",
- "domain_name": "LLM Benchmark",
- "subcategory": "Knowledge",
- "abstract": "CodeSimpleQA evaluates factual programming knowledge in English and Chinese. This page reports a bilingual mean F1 derived by averaging the English and Chinese Avg. columns in the arXiv paper's Tables 3 and 4.",
- "contributions": [
-  "The benchmark contains 1,498 human-curated question-answer pairs grounded in programming and computer-science documentation.",
-  "Its bilingual coverage spans English and Chinese, more than 15 programming languages, and 21 computer-science domains.",
-  "The paper separates factual code knowledge from code-generation execution and also releases a 66.9M-example instruction corpus for training."
- ],
- "method": [
-  "CodeSimpleQA contains 782 English and 716 Chinese question-answer pairs whose answers are verified against authoritative technical sources.",
-  "Questions cover programming languages, frameworks, systems, algorithms, databases, software engineering, security, and other computer-science topics.",
-  "The paper reports F1 by domain and an overall Avg. for each language in Tables 3 and 4.",
-  "For one bilingual leaderboard, TokenWave takes the arithmetic mean of each model's English Avg. and Chinese Avg.; this derived score is not a separate metric reported by the paper."
- ],
- "metrics": [
-  {
-   "name": "Bilingual mean F1",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "TokenWave-derived arithmetic mean of the English Avg. and Chinese Avg. F1 columns reported in arXiv Tables 3 and 4."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "gpt_5",
-   "model": "GPT-5",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 65.05,
-   "source": "arXiv Tables 3–4",
-   "date": null
+  "slug": "code_simpleqa",
+  "name": "CodeSimpleQA",
+  "paper_type": "benchmark",
+  "domain": "llm",
+  "domain_name": "LLM Benchmark",
+  "subcategory": "Knowledge",
+  "abstract": "CodeSimpleQA isolates factual programming knowledge from executable code generation. It contains 1,498 expert-checked question-answer pairs—782 English and 716 Chinese—covering more than 15 programming languages and 21 computer-science domains, including software engineering, operating systems, databases, cybersecurity, and web technologies. Answers are grounded in code-related documents, and model responses are classified as correct, incorrect, or not attempted, with F-score balancing coverage and correctness among attempted answers. The paper also releases CodeSimpleQA-Instruct, 66.9M bilingual samples built through document retrieval, clustering, QA generation, automated verification, and human review, then studies SFT and GRPO post-training. TokenWave's leaderboard averages each model's Chinese and English domain-average F-scores; this bilingual mean is a transparent aggregation rather than a separately named paper metric.",
+  "contributions": [
+    "Introduces a bilingual factual-code benchmark with 1,498 items: 782 English questions and 716 Chinese questions, all paired with concise reference answers.",
+    "Covers more than 15 programming languages and 21 computer-science domains, with answers grounded in technical documents rather than inferred from whether generated code executes.",
+    "Uses the SimpleQA-style correct, incorrect, and not-attempted outcome taxonomy and reports Correct Given Attempted and F-score so abstention is not treated the same as a factual error.",
+    "Releases CodeSimpleQA-Instruct with 53,571,094 English and 13,359,625 Chinese samples and evaluates factuality-oriented SFT and GRPO post-training."
+  ],
+  "method": [
+    "The evaluation set contains 782 English and 716 Chinese QA pairs distributed across 21 domains; software engineering, web technologies, programming languages, and operating systems are among the largest categories.",
+    "Questions are drawn from Code WebQA, self-constructed material, and human-written content grounded in sources such as official documentation, GitHub, and Stack Overflow. Eight annotators and three engineers curate the data; a manually constructed subset retains 312 of roughly 1,500 candidates after review by at least three people.",
+    "Models receive a short factual question and are instructed to answer in no more than 64 words. A reference-aware judge assigns CORRECT, INCORRECT, or NOT_ATTEMPTED according to whether the response contains the reference answer and whether it introduces a contradiction.",
+    "The paper reports domain-level and overall F-scores separately for Chinese and English. The TokenWave table uses only models appearing in both tables and takes the arithmetic mean of the two reported overall values.",
+    "The companion training pipeline recalls code-related Common Crawl documents, filters for source and content quality, clusters code-text embeddings with DBSCAN, generates QA pairs at low temperature, and retains only pairs that pass automated and human quality checks."
+  ],
+  "metrics": [
+    {
+      "name": "Bilingual mean F1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "TokenWave-derived arithmetic mean of the Chinese Avg. and English Avg. F-scores reported by the paper; used only for this site's bilingual leaderboard."
+    },
+    {
+      "name": "F-score",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Harmonic mean of the Correct rate and Correct Given Attempted, reported by domain and as an overall average for each language."
+    },
+    {
+      "name": "Correct",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of responses that fully contain the reference answer without contradictory content."
+    },
+    {
+      "name": "Correct Given Attempted",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of correct responses among questions the model attempted; separates answer precision from willingness to answer."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "gpt_5",
+      "model": "GPT-5",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 65.05,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "o3",
+      "model": "o3",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 61.65,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "gpt_5_mini",
+      "model": "GPT-5 Mini",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 55.65,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "o4_mini",
+      "model": "o4-mini",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 53.3,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "claude_sonnet_4_20250514_thinking",
+      "model": "Claude Sonnet 4 Thinking (2025-05-14)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 52.5,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 6,
+      "model_id": "claude_sonnet_4_20250514",
+      "model": "Claude Sonnet 4 (2025-05-14)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 51.9,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 7,
+      "model_id": "chatgpt_4o_latest",
+      "model": "ChatGPT-4o Latest",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 50.95,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 8,
+      "model_id": "o3_mini_20250131",
+      "model": "o3-mini-2025-01-31",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 50.45,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 9,
+      "model_id": "gpt_oss_120b",
+      "model": "GPT-OSS-120B",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 50.35,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 10,
+      "model_id": "gpt_4o_20241120",
+      "model": "GPT-4o-2024-11-20",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 48.7,
+      "source": "official",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Bilingual mean F1",
+  "leaderboard_note": "Each score is the arithmetic mean of the paper's Chinese Avg. and English Avg. F-scores. This site aggregation makes bilingual performance readable in one table; it is not a third metric introduced by the authors.",
+  "show_source": false,
+  "at_a_glance": {
+    "focus": "Bilingual factual programming knowledge",
+    "primary_metric": "Bilingual mean F1",
+    "setting": "Mean of Chinese and English overall F-score",
+    "models_scored": 10,
+    "data_updated": "2025-12-22"
   },
-  {
-   "rank": 2,
-   "model_id": "o3",
-   "model": "o3",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 61.65,
-   "source": "arXiv Tables 3–4",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2512.19424",
+    "code": null,
+    "pdf": "https://arxiv.org/pdf/2512.19424.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "gpt_5_mini",
-   "model": "GPT-5 Mini",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 55.65,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "o4_mini",
-   "model": "o4-mini",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 53.3,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "claude_sonnet_4_20250514_thinking",
-   "model": "Claude Sonnet 4 Thinking (2025-05-14)",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 52.5,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "claude_sonnet_4_20250514",
-   "model": "Claude Sonnet 4 (2025-05-14)",
-   "org": "Anthropic",
-   "color": "#d97706",
-   "score": 51.9,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 7,
-   "model_id": "chatgpt_4o_latest",
-   "model": "ChatGPT-4o Latest",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 50.95,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 8,
-   "model_id": "o3_mini_20250131",
-   "model": "o3-mini-2025-01-31",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 50.45,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 9,
-   "model_id": "gpt_oss_120b",
-   "model": "GPT-OSS-120B",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 50.35,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  },
-  {
-   "rank": 10,
-   "model_id": "gpt_4o_20241120",
-   "model": "GPT-4o-2024-11-20",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 48.7,
-   "source": "arXiv Tables 3–4",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Bilingual mean F1",
- "leaderboard_note": "Each score is the arithmetic mean of the paper's English Avg. and Chinese Avg. F1 values. It is a transparent TokenWave aggregation of arXiv Tables 3 and 4, not a separately reported paper metric.",
- "at_a_glance": {
-  "focus": "Factual programming knowledge",
-  "primary_metric": "Bilingual mean F1",
-  "setting": "Mean of English and Chinese Avg. F1",
-  "models_scored": 10,
-  "data_updated": "2025-12-22"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2512.19424",
-  "code": null,
-  "pdf": "https://arxiv.org/pdf/2512.19424.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/code-simpleqa.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/code-simpleqa/figure-2-data-statistics.png",
+      "caption": "Figure 2 (PDF p. 2): Programming-language sample counts and the minimum, average, and maximum character lengths of questions and answers in CodeSimpleQA. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/code-simpleqa/figure-4-construction-pipeline.png",
+      "caption": "Figure 4 (PDF p. 4): The benchmark-construction pipeline, from code-document collection and clustered QA generation through LLM verification and multi-stage human quality control. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/code-simpleqa.svg"
 }

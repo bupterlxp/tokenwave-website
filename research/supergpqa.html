@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -63,10 +63,10 @@
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">285</div><div class="l">graduate disciplines</div></div>
-        <div class="stat-tile"><div class="v">61.82</div><div class="l">top score (Overall (sample))</div></div>
-        <div class="stat-tile"><div class="v">10</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">21.1</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">26,529</div><div class="l">questions</div></div>
+        <div class="stat-tile"><div class="v">285</div><div class="l">graduate subfields</div></div>
+        <div class="stat-tile"><div class="v">9.67</div><div class="l">average answer options</div></div>
+        <div class="stat-tile"><div class="v">61.82</div><div class="l">top sample accuracy</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
@@ -84,12 +84,12 @@
         <p>Scores are sample-level overall accuracy on the main leaderboard:</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Overall (sample)</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall (sample)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>DeepSeek-R1</td><td class="num">61.82<span class="lb-track"><span class="lb-bar" data-w="61.8"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>o1</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>o3-mini</td><td class="num">55.22<span class="lb-track"><span class="lb-bar" data-w="55.2"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>DeepSeek-R1</td><td class="num">61.82<span class="lb-track"><span class="lb-bar" data-w="61.8"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>o1-2024-12-17</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>DeepSeek-R1-Zero</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td></tr>
             </tbody>
         </table>
 
@@ -104,7 +104,7 @@
         <div class="crosslink">
             <div>
                 <p class="t">Explore the full leaderboard, metric definitions, and evaluation setup on the SuperGPQA benchmark page.</p>
-                <p class="s">SuperGPQA &mdash; Knowledge · LLM Benchmark</p>
+                <p class="s">SuperGPQA &mdash; Graduate Knowledge · LLM Benchmark</p>
             </div>
             <a class="button primary" href="../benchmarks/supergpqa.html">View benchmark →</a>
         </div>
@@ -147,7 +147,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -156,7 +156,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -176,7 +175,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

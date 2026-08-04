@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAmmoTH2 | TokenWave AI</title>
-    <meta name="description" content="MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks drama">
+    <meta name="description" content="MAmmoTH2 is primarily a data and instruction-tuning study built around WEBINSTRUCT, a corpus of 10 million instruction-response pairs (about 5 billion tokens) mined from web pretraining data. The pipeline recalls candidate Common Crawl documents with">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="MAmmoTH2 | TokenWave AI">
-    <meta property="og:description" content="MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks drama">
+    <meta property="og:description" content="MAmmoTH2 is primarily a data and instruction-tuning study built around WEBINSTRUCT, a corpus of 10 million instruction-response pairs (about 5 billion tokens) mined from web pretraining data. The pipeline recalls candidate Common Crawl documents with">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/mammoth2.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MAmmoTH2 | TokenWave AI">
-    <meta name="twitter:description" content="MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks drama">
+    <meta name="twitter:description" content="MAmmoTH2 is primarily a data and instruction-tuning study built around WEBINSTRUCT, a corpus of 10 million instruction-response pairs (about 5 billion tokens) mined from web pretraining data. The pipeline recalls candidate Common Crawl documents with">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/mammoth2.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -52,43 +52,53 @@
             <div class="eyebrow">Research · Synthetic Data</div>
             <h1>MAmmoTH2</h1>
             <p class="detail-meta">
+                Data paper
+                <span class="sep">·</span>
                 Synthetic Data
                 <span class="sep">·</span>
                 updated 2026-08-03
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2405.03548" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/TIGER-AI-Lab/MAmmoTH2" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2405.03548.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2405.03548" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/TIGER-AI-Lab/MAmmoTH2" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="abstract">Abstract</h2>
-        <p>MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks dramatically without human annotation or frontier-model distillation.</p>
+        <p>MAmmoTH2 is primarily a data and instruction-tuning study built around WEBINSTRUCT, a corpus of 10 million instruction-response pairs (about 5 billion tokens) mined from web pretraining data. The pipeline recalls candidate Common Crawl documents with fastText classifiers, extracts naturally occurring question-answer pairs, removes benchmark overlap, and uses open models to repair formatting or add missing reasoning. The authors tune Mistral-7B, Llama-3-8B, Mixtral-8×7B, and Yi-34B bases on WEBINSTRUCT, then build Plus variants with additional public instruction data. On seven held-out reasoning benchmarks, MAmmoTH2-7B improves the Mistral-7B average by 14.0 points; MATH rises from 11.2 to 36.7 and GSM8K from 36.2 to 68.4. The work studies instruction scale, refinement models, loss functions, subject domains, and residual data errors.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>A three-stage pipeline — recall candidate documents, extract Q&amp;A pairs, refine them — yields the ~10M-example WebInstruct corpus from the open web.</li>
-            <li>Requires neither crowdworkers nor distillation from proprietary models, changing the cost structure of instruction data.</li>
-            <li>Tuning on WebInstruct lifts base models sharply on reasoning suites, and MAmmoTH2-Plus variants remain competitive instruction models at their scale.</li>
+            <li>Releases WEBINSTRUCT: 10 million web-mined instruction-response pairs totaling roughly 5 billion tokens, positioned between small supervised-tuning sets and noisier continued-pretraining corpora.</li>
+            <li>Introduces a recall-extract-refine pipeline that narrows 18 million recalled documents to about 5 million candidate Q-A pairs, then uses Mixtral-8×22B and Qwen-72B refinements to produce 10 million diverse training examples.</li>
+            <li>Avoids human crowdsourcing and does not generate the instruction corpus by GPT-4 answer distillation; proprietary models are used only for domain filtering, while Q-A extraction/refinement uses the reported open models.</li>
+            <li>Shows gains across model families and scales: WEBINSTRUCT-only tuning raises Mistral-7B&#x27;s seven-task average by 14.0 points, Llama-3-8B by 8.8, Mixtral-8×7B by 6.5, and Yi-34B by 5.8.</li>
+            <li>Audits 50 refined samples: annotators judged 78% improved by refinement and 10% to contain newly introduced hallucinations, documenting both the benefit and the remaining data risk.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Recall finds instruction-shaped documents in web corpora; extraction isolates the Q&amp;A; refinement cleans and completes the pairs.</li>
-            <li>The paper reports large math-reasoning gains for tuned models against their own baselines.</li>
-            <li>Follows MAmmoTH, whose MathInstruct corpus hybridized chain-of-thought and program-of-thought rationales.</li>
+            <li>Recall begins with 100K educational-site positives and 100K Common Crawl negatives. A fastText classifier first scans 100B tokens; domain filtering and a second classifier then recall 40B tokens and retain 18M raw documents.</li>
+            <li>Rule-based HTML preprocessing removes ads, boilerplate, and site text. Qwen-72B extracts natural question-answer pairs, with only about 30% of recalled documents yielding candidates; 10-gram matches against evaluation questions or answers are removed for decontamination.</li>
+            <li>Mixtral-8×22B and Qwen-72B independently reformat extracted pairs, remove unrelated content, and add intermediate reasoning when an answer lacks an explanation. Merging both refinement streams yields the final 10M-pair WEBINSTRUCT set.</li>
+            <li>Mistral-7B, Llama-3-8B, Mixtral-8×7B, and Yi-34B are fine-tuned for two epochs with maximum sequence length 4096, global batch size 512, cosine scheduling and 3% warm-up on 32 A100 GPUs. Plus variants continue tuning with OpenHermes 2.5, Code-Feedback, and Math-Plus.</li>
+            <li>Reasoning evaluation covers TheoremQA, MATH, GSM8K, GPQA, MMLU-STEM, BBH, and ARC-C using the paper&#x27;s benchmark-specific few-shot chain-of-thought settings. Additional tests cover EvalPlus code generation, MMLU/MMLU-Pro, MT-Bench, AlpacaEval 2.0, and Arena-Hard.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Instruction-data yield</b> &mdash; Higher is better. Tracked qualitatively: corpus scale and downstream reasoning gains reported by the paper.</p>
+        <p><b>Reasoning accuracy</b> &mdash; Higher is better. Percentage correct on each reasoning dataset under its reported few-shot chain-of-thought setting: 5-shot TheoremQA/GPQA/MMLU-STEM, 4-shot MATH/GSM8K, 3-shot BBH, and 8-shot ARC-C. Score range: [0, 100].</p>
+        <p><b>Seven-benchmark average</b> &mdash; Higher is better. Arithmetic mean of accuracy on TheoremQA, MATH, GSM8K, GPQA, MMLU-STEM, BBH, and ARC-C; used to summarize gains over each base model. Score range: [0, 100].</p>
+        <p><b>EvalPlus code-generation accuracy</b> &mdash; Higher is better. The paper reports HumanEval and MBPP accuracy together with the stricter HumanEval+ and MBPP+ results, and summarizes each pair by their average. Score range: [0, 100].</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Instructions mined from the web</span></li>
-            <li><span class="k">Primary metric</span><span>Instruction-data yield</span></li>
-            <li><span class="k">Displayed setting</span><span>~10M pairs, no annotation</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/mammoth2/figure-3-webinstruct-pipeline.png" alt="Figure 3 (paper, PDF p. 3): WEBINSTRUCT&#x27;s three stages—fastText-based recall from Common Crawl, LLM extraction with benchmark decontamination, and LLM refinement of the resulting Q-A pairs. Source: paper." loading="lazy">
+            <figcaption>Figure 3 (paper, PDF p. 3): WEBINSTRUCT&#x27;s three stages—fastText-based recall from Common Crawl, LLM extraction with benchmark decontamination, and LLM refinement of the resulting Q-A pairs. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/mammoth2/figure-5-scaling-study.png" alt="Figure 5 (paper, PDF p. 7): Mistral-7B accuracy on MATH, TheoremQA, and ARC-C as instruction count scales from 1M to 10M, comparing extracted versus refined Q-A data and LM versus supervised fine-tuning loss. Source: paper." loading="lazy">
+            <figcaption>Figure 5 (paper, PDF p. 7): Mistral-7B accuracy on MATH, TheoremQA, and ARC-C as instruction count scales from 1M to 10M, comparing extracted versus refined Q-A data and LM versus supervised fine-tuning loss. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
@@ -98,7 +108,7 @@
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -130,7 +140,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -139,7 +149,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -159,7 +168,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

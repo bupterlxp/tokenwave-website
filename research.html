@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | TokenWave AI</title>
-    <meta name="description" content="TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.">
+    <meta name="description" content="TokenWave research in benchmarks, synthetic data, agents, reinforcement learning, foundation models, and pretraining compute allocation.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Research | TokenWave AI">
-    <meta property="og:description" content="TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.">
+    <meta property="og:description" content="TokenWave research in benchmarks, synthetic data, agents, reinforcement learning, foundation models, and pretraining compute allocation.">
     <meta property="og:url" content="https://tokenwave.ai/research.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Research | TokenWave AI">
-    <meta name="twitter:description" content="TokenWave research: open benchmarks, agents, synthetic data, pretraining compute, and foundation models — with the flagship works behind them.">
+    <meta name="twitter:description" content="TokenWave research in benchmarks, synthetic data, agents, reinforcement learning, foundation models, and pretraining compute allocation.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/research.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,19 +47,19 @@
 
 <section class="page-header">
     <div class="eyebrow">Research</div>
-    <h1>The work behind the standard.</h1>
-    <p class="page-intro">Benchmarks are only the visible edge. TokenWave's research spans six directions &mdash; from measurement itself to the open models it measures &mdash; built in the open with the M-A-P community.</p>
+    <h1>Research areas and selected projects.</h1>
+    <p class="page-intro">TokenWave works on benchmarks, synthetic data, agents, reinforcement learning, foundation models, and pretraining compute allocation with the M-A-P community.</p>
 </section>
 
 <section class="home-section rv" style="padding-top: 26px;">
-    <div class="evidence-h">Flagship work</div>
+    <div class="evidence-h">Selected projects</div>
     <div class="feat-grid">
         <a class="rc-card rv" href="benchmarks/supergpqa.html">
             <div class="rc-img" style="background-image:url('static/images/benchmarks/supergpqa.svg')"></div>
             <div class="rc-body">
                 <div class="rc-meta"><span>Knowledge benchmark</span></div>
                 <h3>SuperGPQA</h3>
-                <p class="rc-blurb">Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.</p>
+                <p class="rc-blurb">Graduate multiple-choice evaluation across 285 subfields, with sample-weighted and taxonomy-balanced views.</p>
             </div>
         </a>
         <a class="rc-card rv rv2" href="benchmarks/nl2repo-bench.html">
@@ -67,7 +67,7 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>Coding benchmark</span></div>
                 <h3>NL2Repo-Bench</h3>
-                <p class="rc-blurb">Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
+                <p class="rc-blurb">Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite.</p>
             </div>
         </a>
         <a class="rc-card rv rv2" href="benchmarks/workflow-gym.html">
@@ -75,7 +75,7 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>GUI-agent benchmark</span></div>
                 <h3>Workflow-GYM</h3>
-                <p class="rc-blurb">Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
+                <p class="rc-blurb">Specialized desktop work scored at the final artifact or GUI state after 30 to 110 dependent actions.</p>
             </div>
         </a>
         <a class="rc-card rv rv3" href="benchmarks/opencoder.html">
@@ -83,7 +83,7 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>Open code LLM</span></div>
                 <h3>OpenCoder</h3>
-                <p class="rc-blurb">OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size.</p>
+                <p class="rc-blurb">OpenCoder is a code-language-model and reproducibility paper, not a benchmark.</p>
             </div>
         </a>
         <a class="rc-card rv" href="benchmarks/oprover.html">
@@ -91,7 +91,7 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>Formal theorem prover</span></div>
                 <h3>OProver</h3>
-                <p class="rc-blurb">OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference.</p>
+                <p class="rc-blurb">OProver is an agentic Lean 4 theorem-proving system whose retrieval, compiler feedback, and proof repair are represented during training as well as inference; it is not a new benchmark.</p>
             </div>
         </a>
         <a class="rc-card rv rv2" href="benchmarks/ouro.html">
@@ -99,7 +99,7 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>Looped language models</span></div>
                 <h3>Ouro</h3>
-                <p class="rc-blurb">Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens.</p>
+                <p class="rc-blurb">Ouro is a family of 1.4B- and 2.6B-parameter foundation models built with a looped decoder architecture, not an evaluation benchmark.</p>
             </div>
         </a>
         <a class="rc-card rv rv2" href="benchmarks/yue.html">
@@ -107,7 +107,7 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>Music foundation model</span></div>
                 <h3>YuE</h3>
-                <p class="rc-blurb">YuE is M-A-P&#x27;s open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe.</p>
+                <p class="rc-blurb">YuE is an open foundation-model family for long-form lyrics-to-song generation, not a benchmark.</p>
             </div>
         </a>
         <a class="rc-card rv rv3" href="benchmarks/mammoth2.html">
@@ -115,14 +115,14 @@
             <div class="rc-body">
                 <div class="rc-meta"><span>Web-scale instruction data</span></div>
                 <h3>MAmmoTH2</h3>
-                <p class="rc-blurb">MAmmoTH2 shows that the web already contains the instruction data everyone pays to create: it harvests roughly ten million naturally occurring instruction–response pairs from pretraining corpora, then refines them — lifting reasoning benchmarks dramatically without human annotation or frontier-model distillation..</p>
+                <p class="rc-blurb">MAmmoTH2 is primarily a data and instruction-tuning study built around WEBINSTRUCT, a corpus of 10 million instruction-response pairs (about 5 billion tokens) mined from web pretraining data.</p>
             </div>
         </a>
     </div>
 </section>
 
 <section class="home-section rv" style="padding-bottom: 64px;">
-    <div class="evidence-h">Six directions</div>
+    <div class="evidence-h">Research areas</div>
     <div class="dirline">
         <div class="dl-item rv" id="benchmark">
             <div class="dl-marker" aria-hidden="true"></div>
@@ -132,7 +132,7 @@
                     <h3>Benchmark</h3>
                     <span class="dl-zh">评测基准</span>
                 </div>
-                <p class="dl-blurb">Defining what counts as competence — occupation-anchored, verifier-checked measurement across knowledge, code, agents, and multimodal work.</p>
+                <p class="dl-blurb">Benchmarks for knowledge, coding, agent, and multimodal tasks, with occupation-based task design and automated verification.</p>
                 <div class="dl-works">
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2502.14739" target="_blank" rel="noopener noreferrer">SuperGPQA<span class="x">&#8599;</span></a>
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2311.16502" target="_blank" rel="noopener noreferrer">MMMU<span class="x">&#8599;</span></a>
@@ -152,47 +152,15 @@
                 </div>
             </div>
         </div>
-        <div class="dl-item rv" id="rl">
-            <div class="dl-marker" aria-hidden="true"></div>
-            <div class="dl-body">
-                <div class="dl-head">
-                    <span class="dl-idx">02</span>
-                    <h3>Reinforcement Learning</h3>
-                    <span class="dl-zh">强化学习</span>
-                </div>
-                <p class="dl-blurb">Training signal beyond imitation: policy optimization and exploration methods that turn verifiable feedback into reasoning ability.</p>
-                <div class="dl-works">
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2508.17445" target="_blank" rel="noopener noreferrer">TreePO<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2507.07017" target="_blank" rel="noopener noreferrer">FR3E<span class="x">&#8599;</span></a>
-                </div>
-            </div>
-        </div>
-        <div class="dl-item rv" id="agents">
-            <div class="dl-marker" aria-hidden="true"></div>
-            <div class="dl-body">
-                <div class="dl-head">
-                    <span class="dl-idx">03</span>
-                    <h3>Agents — the Auto Series</h3>
-                    <span class="dl-zh">智能体</span>
-                </div>
-                <p class="dl-blurb">Systems that carry a whole job, not a single step: autonomous pipelines that plan, execute, verify, and deliver finished work.</p>
-                <div class="dl-works">
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2410.20424" target="_blank" rel="noopener noreferrer">AutoKaggle<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2512.12196" target="_blank" rel="noopener noreferrer">AutoMV<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2605.15301" target="_blank" rel="noopener noreferrer">Solvita<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2505.17104" target="_blank" rel="noopener noreferrer">P2P<span class="x">&#8599;</span></a>
-                </div>
-            </div>
-        </div>
         <div class="dl-item rv" id="synthetic-data">
             <div class="dl-marker" aria-hidden="true"></div>
             <div class="dl-body">
                 <div class="dl-head">
-                    <span class="dl-idx">04</span>
+                    <span class="dl-idx">02</span>
                     <h3>Synthetic Data</h3>
                     <span class="dl-zh">数据合成</span>
                 </div>
-                <p class="dl-blurb">Manufacturing the training signal itself: instruction corpora mined, synthesized, and reconstructed at web scale.</p>
+                <p class="dl-blurb">Methods for mining, generating, and reconstructing instruction data at web scale.</p>
                 <div class="dl-works">
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2309.05653" target="_blank" rel="noopener noreferrer">MAmmoTH<span class="x">&#8599;</span></a>
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2405.03548" target="_blank" rel="noopener noreferrer">MAmmoTH2<span class="x">&#8599;</span></a>
@@ -204,20 +172,35 @@
                 </div>
             </div>
         </div>
-        <div class="dl-item rv" id="pretraining-compute">
+        <div class="dl-item rv" id="agents">
             <div class="dl-marker" aria-hidden="true"></div>
             <div class="dl-body">
                 <div class="dl-head">
-                    <span class="dl-idx">05</span>
-                    <h3>Pretraining Compute Allocation</h3>
-                    <span class="dl-zh">预训练动态算力分配</span>
+                    <span class="dl-idx">03</span>
+                    <h3>Agents</h3>
+                    <span class="dl-zh">智能体</span>
                 </div>
-                <p class="dl-blurb">Spending compute where thinking happens: looped architectures, dynamic depth, and routing that allocate capacity per token instead of per model.</p>
+                <p class="dl-blurb">Systems that plan, execute, and verify multi-step tasks in data science, media production, and other workflows.</p>
                 <div class="dl-works">
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2510.25741" target="_blank" rel="noopener noreferrer">Ouro<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2606.18524" target="_blank" rel="noopener noreferrer">Loop µP<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2512.24617" target="_blank" rel="noopener noreferrer">DLCM<span class="x">&#8599;</span></a>
-                <a class="dl-work dl-link" href="https://arxiv.org/abs/2601.21420" target="_blank" rel="noopener noreferrer">ConceptMoE<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2410.20424" target="_blank" rel="noopener noreferrer">AutoKaggle<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2512.12196" target="_blank" rel="noopener noreferrer">AutoMV<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2605.15301" target="_blank" rel="noopener noreferrer">Solvita<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2505.17104" target="_blank" rel="noopener noreferrer">P2P<span class="x">&#8599;</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="dl-item rv" id="rl">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">04</span>
+                    <h3>Reinforcement Learning</h3>
+                    <span class="dl-zh">强化学习</span>
+                </div>
+                <p class="dl-blurb">Policy optimization and exploration methods trained with verifiable feedback.</p>
+                <div class="dl-works">
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2508.17445" target="_blank" rel="noopener noreferrer">TreePO<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2507.07017" target="_blank" rel="noopener noreferrer">FR3E<span class="x">&#8599;</span></a>
                 </div>
             </div>
         </div>
@@ -225,11 +208,11 @@
             <div class="dl-marker" aria-hidden="true"></div>
             <div class="dl-body">
                 <div class="dl-head">
-                    <span class="dl-idx">06</span>
+                    <span class="dl-idx">05</span>
                     <h3>Foundation Models</h3>
                     <span class="dl-zh">基础模型</span>
                 </div>
-                <p class="dl-blurb">Fully open model families — text, code, math, and music — released with their data pipelines, recipes, and checkpoints.</p>
+                <p class="dl-blurb">Open text, code, math, and music model families released with data pipelines, training recipes, and checkpoints.</p>
                 <div class="dl-works">
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2405.19327" target="_blank" rel="noopener noreferrer">MAP-Neo<span class="x">&#8599;</span></a>
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2605.17283" target="_blank" rel="noopener noreferrer">OProver<span class="x">&#8599;</span></a>
@@ -237,6 +220,23 @@
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2406.01375" target="_blank" rel="noopener noreferrer">D-CPT Law<span class="x">&#8599;</span></a>
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2306.00107" target="_blank" rel="noopener noreferrer">MERT<span class="x">&#8599;</span></a>
                 <a class="dl-work dl-link" href="https://arxiv.org/abs/2503.08638" target="_blank" rel="noopener noreferrer">YuE<span class="x">&#8599;</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="dl-item rv" id="pretraining-compute">
+            <div class="dl-marker" aria-hidden="true"></div>
+            <div class="dl-body">
+                <div class="dl-head">
+                    <span class="dl-idx">06</span>
+                    <h3>Pretraining Compute Allocation</h3>
+                    <span class="dl-zh">预训练动态算力分配</span>
+                </div>
+                <p class="dl-blurb">Looped architectures, dynamic depth, and routing methods that vary compute by token.</p>
+                <div class="dl-works">
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2510.25741" target="_blank" rel="noopener noreferrer">Ouro<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2606.18524" target="_blank" rel="noopener noreferrer">Loop µP<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2512.24617" target="_blank" rel="noopener noreferrer">DLCM<span class="x">&#8599;</span></a>
+                <a class="dl-work dl-link" href="https://arxiv.org/abs/2601.21420" target="_blank" rel="noopener noreferrer">ConceptMoE<span class="x">&#8599;</span></a>
                 </div>
             </div>
         </div>
@@ -248,7 +248,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -257,7 +257,6 @@
                 <a href="careers.html">Careers</a>
                 <a href="research.html">Research</a>
                 <a href="joinus.html">Join Us</a>
-                <a href="submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -277,7 +276,7 @@
     <!-- Page transition state machine -->
     <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="static/js/home-data.js?v=3c087529" defer></script>
+    <script src="static/js/home-data.js?v=56d9625f" defer></script>
     <script src="static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

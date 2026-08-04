@@ -1,0 +1,35 @@
+{
+  "slug": "edgebench",
+  "tagline": "Day-scale environment learning measured through repeated interaction, hidden judging, and 134 real tasks",
+  "stats": [
+    {
+      "value": "134",
+      "label": "real-world tasks"
+    },
+    {
+      "value": "12h",
+      "label": "main budget per trial"
+    },
+    {
+      "value": "~38k",
+      "label": "agent interaction hours"
+    },
+    {
+      "value": "51.3",
+      "label": "top Overall Score @12h"
+    }
+  ],
+  "overview": [
+    "EdgeBench measures a different quantity from conventional endpoint benchmarks: how much an agent improves while working in an unfamiliar environment. Its 134 tasks span scientific research and machine learning, production software, open-ended optimization, professional deliverables, machine-checked theorem proving, and interactive games. Every task is designed to sustain at least 12 hours of work. The recorded human expert effort averages 57.2 hours per task and reaches 320 hours, indicating that the time budget reflects the task contract rather than an artificial delay.",
+    "The evaluation exposes two feedback loops. Inside the work container, an agent can run compilers, simulators, development splits, proof checkers, or game episodes as often as needed. Authoritative evaluation is separate: a submission is sent to an isolated judge with hidden tests, unseen seeds, private data, or client-style rubrics, and only the configured score or diagnostic feedback returns. Host-side snapshots score the trajectory at fixed intervals without revealing those measurements to the agent, so progress can be reconstructed even between explicit submissions.",
+    "The main experiment runs five frontier agent systems three times on every task for 12 hours, then reports best-so-far performance at two-hour intervals. The systems are not harness-identical: GPT models use Codex with a 256k compact window, GLM-5.1 and DeepSeek-V4-Pro use Claude Code with 200k, and Claude Opus 4.8 primarily uses Claude Code with a 1M window. The leaderboard therefore compares the paper's complete evaluated systems under the same tasks and duration, not isolated model APIs."
+  ],
+  "why": [
+    "A final score cannot distinguish prior knowledge from adaptation. EdgeBench records the full trajectory, allowing researchers to ask whether an agent uses feedback to preserve gains, revise a strategy, and accumulate experience instead of merely sampling more attempts. The paper's restart ablation reinforces this distinction: continuous experience outperforms spending the same 12-hour budget on independent restarts across the tested slice.",
+    "The benchmark also makes long-horizon evaluation operationally concrete. Hidden assets are isolated from the work container, feedback is submission-gated, asynchronous judges can run while the agent continues working, and infrastructure incidents are tracked. Those choices matter at day scale, where service interruptions, context compaction, and evaluator leakage can otherwise be mistaken for model behavior."
+  ],
+  "reading": [
+    "Claude Opus 4.8 leads the common 12-hour table at 51.3, followed by GPT-5.5 at 48.4. GPT-5.4 reaches 39.3, GLM-5.1 37.4, and DeepSeek-V4-Pro preview 31.0. Every system improves materially after the two-hour mark: Opus rises from 39.0 to 51.3, GPT-5.5 from 36.8 to 48.4, GPT-5.4 from 29.7 to 39.3, GLM-5.1 from 26.0 to 37.4, and DeepSeek from 23.3 to 31.0. A two-hour leaderboard would therefore discard between 7.7 and 12.3 points of observed learning.",
+    "The aggregate curves are unusually regular despite jagged individual tasks. Across all 134 tasks, the five log-sigmoid fits have R² values of at least 0.997 and a mean of 0.998; fits on 28-hour and 72-hour subsets remain at least 0.993. That is evidence about population-level trajectories, not a claim that any single task improves smoothly. Category scores also differ sharply—Opus reaches 67.4 in Code but 36.5 in Optimization—so the overall score should be paired with the family breakdown when diagnosing a system."
+  ]
+}

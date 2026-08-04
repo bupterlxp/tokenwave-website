@@ -1,64 +1,69 @@
 {
- "slug": "oprover",
- "name": "OProver",
- "domain": "llm",
- "domain_name": "Research",
- "subcategory": "Formal Math",
- "abstract": "OProver is a unified framework for agentic formal theorem proving in Lean4: retrieval, compiler feedback, and multi-round repair are built into training itself rather than bolted on at inference. OProver-32B sets the open-weight state of the art on MiniF2F and outperforms a 671B prover across all five of its evaluations.",
- "contributions": [
-  "Unifies retrieval augmentation, Lean4 compiler feedback, and iterative repair with the training strategy and data construction, instead of treating them as inference-time modules.",
-  "Releases OProofs: 1.77M Lean statements with 6.86M compiler-verified proofs and serialized proving trajectories, including failed attempts and repairs.",
-  "OProver-32B reaches 93.3 on MiniF2F (Pass@32), state of the art among open-weight whole-proof provers, beating DeepSeek-Prover-V2 at 671B on all five reported benchmarks."
- ],
- "method": [
-  "Continued pretraining is followed by iterative post-training: each round runs agentic proving, indexes newly verified proofs into the retrieval memory, converts repair trajectories to SFT data, and sends unresolved cases to RL.",
-  "At inference the prover retrieves compiler-verified proofs, attempts a proof, and revises against Lean4 compiler feedback across rounds.",
-  "Pass@32 rises monotonically through the loop: OProver-8B climbs from 79.5 to 91.8 on MiniF2F across three rounds."
- ],
- "metrics": [
-  {
-   "name": "MiniF2F Pass@32",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Share of MiniF2F-Test statements proven within 32 samples; proofs must check in Lean4."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": null,
-   "model": "OProver-32B",
-   "org": "M-A-P",
-   "color": "#94a3b8",
-   "score": 93.3,
-   "source": "arXiv paper",
-   "date": null
+  "slug": "oprover",
+  "name": "OProver",
+  "paper_type": "system",
+  "domain": "llm",
+  "domain_name": "Research",
+  "subcategory": "Formal Theorem Proving",
+  "abstract": "OProver is an agentic Lean 4 theorem-proving system whose retrieval, compiler feedback, and proof repair are represented during training as well as inference; it is not a new benchmark. A proving rollout conditions on a target theorem, semantically retrieved verified proofs, the most recent failed attempt, and raw Lean diagnostics, then revises the proof over a bounded number of rounds. Training starts with 65 billion tokens of Lean, code, mathematics, and long-chain reasoning, then alternates agentic rollouts, supervised learning on round-level repairs, and GSPO reinforcement learning on partially solved hard cases. The accompanying OProofs corpus contains 1.77 million unique statements, 6.86 million compiler-verified proofs, 1.07 million agentic trajectories, and 280,000 repair examples. OProver-8B and 32B are evaluated on five established Lean benchmarks under Pass@32 and compute-controlled protocols.",
+  "contributions": [
+    "Uses the same retrieval-grounded, feedback-conditioned state at rollout collection, supervised fine-tuning, reinforcement learning, and inference, reducing the mismatch created when repair tools are added only at test time.",
+    "Constructs OProofs from public Lean resources plus autoformalized Common Crawl and GitHub mathematics, retaining 1.77M statements, 6.86M verified proofs, 4.33M retrieval contexts, 869K examples with compiler feedback, and 164K multi-round repair trajectories.",
+    "Introduces a co-evolution loop in which newly verified proofs expand both OProofs and its retrieval index, successful repair transitions become SFT examples, and theorem groups with non-trivial success rates supply group-relative RL signal.",
+    "Evaluates dense 8B and 32B provers on MiniF2F, MathOlympiadBench, ProofNet, ProverBench, and PutnamBench. The 32B system reports Pass@32 of 93.3, 22.8, 33.2, 58.2, and 11.3 respectively under the paper's agentic protocol."
+  ],
+  "method": [
+    "OProofs has two construction branches. Public Lean statements are deduplicated and proved with open provers; informal mathematics mined from Common Crawl and GitHub is filtered, autoformalized with CriticLean, proved agentically, and retained only after Lean 4 verification.",
+    "At each proving round, a theorem–proof sentence encoder retrieves the top-k semantically related compiler-verified proofs. The policy receives those references together with the theorem, only the previous attempt, and unmodified Lean error text rather than the full history.",
+    "A successful attempt terminates the rollout and enters the retrieval memory; a failed attempt is revised until the round budget is exhausted. A sample in evaluation is one complete multi-round rollout and succeeds when any round produces a Lean-verified proof.",
+    "Continued pretraining uses 65B tokens: approximately 30% Lean data from OProofs, 20% OpenCoder code, 40% Nemotron-Math-4-Plus mathematics, and 10% ProLong-64K long-chain reasoning.",
+    "Iterative post-training decomposes rollouts into mappings from theorem, retrieved context, previous attempt, and feedback to the next proof. These round-level examples train SFT; GSPO then pools rewards across attempts and rounds, assigning reward only to Lean-verified outputs, with a small format bonus.",
+    "Evaluation uses 244 MiniF2F test problems, 360 MathOlympiadBench problems, 186 ProofNet theorems, 325 ProverBench problems, and 672 PutnamBench problems. Unless stated otherwise, Pass@32 is estimated from 64 independent rollouts."
+  ],
+  "metrics": [
+    {
+      "name": "Pass@32",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "The standard unbiased estimate of the probability that at least one of 32 samples proves a theorem, computed from 64 independent samples per statement unless noted. For OProver, each sample is a multi-round rollout and every accepted proof must compile in Lean 4."
+    },
+    {
+      "name": "BestPass(B)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Best success rate attainable under total test-time budget B, maximizing over allocations where refinement depth R multiplied by sampling width k equals B. It separates gains from agentic depth from gains due only to more samples."
+    },
+    {
+      "name": "Lean verification",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Binary proof validity returned by the Lean 4 compiler. It is the success criterion for evaluation, the gate for adding proofs to OProofs, and the RL reward prerequisite; formatting receives additional reward only after verification succeeds."
+    }
+  ],
+  "leaderboard": [],
+  "leaderboard_metric": "Pass@32",
+  "leaderboard_note": null,
+  "links": {
+    "paper": "https://arxiv.org/abs/2605.17283",
+    "code": "https://github.com/multimodal-art-projection/OProver",
+    "pdf": "https://arxiv.org/pdf/2605.17283.pdf"
   },
-  {
-   "rank": 2,
-   "model_id": null,
-   "model": "OProver-8B",
-   "org": "M-A-P",
-   "color": "#94a3b8",
-   "score": 91.8,
-   "source": "arXiv paper",
-   "date": null
-  }
- ],
- "leaderboard_metric": "MiniF2F Pass@32",
- "leaderboard_note": "Rows are the released OProver models; full five-benchmark results are in the paper.",
- "links": {
-  "paper": "https://arxiv.org/abs/2605.17283",
-  "code": "https://github.com/multimodal-art-projection/OProver",
-  "pdf": "https://arxiv.org/pdf/2605.17283.pdf"
- },
- "image": "static/images/benchmarks/oprover.svg",
- "at_a_glance": {
-  "focus": "Agentic theorem proving in Lean4",
-  "primary_metric": "MiniF2F Pass@32",
-  "setting": "Whole-proof generation, Pass@32",
-  "models_scored": 2,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "image": "static/images/benchmarks/oprover.svg",
+  "at_a_glance": {
+    "focus": "Retrieval- and feedback-trained Lean proving",
+    "primary_metric": "Pass@32",
+    "setting": "Five Lean 4 suites · multi-round rollouts",
+    "models_scored": null,
+    "data_updated": "2026-08-04"
+  },
+  "figures": [
+    {
+      "image": "static/images/benchmarks/oprover/figure-2-framework-overview.png",
+      "caption": "Figure 2 (paper, PDF p. 4): OProofs construction, retrieval- and compiler-guided agentic proving, and the iterative CPT/SFT/RL training loop that feeds verified proofs back into the corpus and retrieval memory. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/oprover/table-2-theorem-proving-results.png",
+      "caption": "Table 2 (paper, PDF p. 10): Pass@32 across MathOlympiadBench, MiniF2F, ProofNet, ProverBench, and PutnamBench for open reasoning models, whole-proof provers, and OProver-8B/32B; daggers mark baseline scores not rerun by the authors. Source: paper."
+    }
+  ]
 }

@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MM-BrowseComp | TokenWave AI</title>
-    <meta name="description" content="Testing whether browsing agents can integrate evidence from text, images, and video on the open web.">
+    <meta name="description" content="Open-web questions whose decisive evidence lives in images and video, with the reasoning path checked step by step.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="MM-BrowseComp | TokenWave AI">
-    <meta property="og:description" content="Testing whether browsing agents can integrate evidence from text, images, and video on the open web.">
+    <meta property="og:description" content="Open-web questions whose decisive evidence lives in images and video, with the reasoning path checked step by step.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/mm-browsecomp.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MM-BrowseComp | TokenWave AI">
-    <meta name="twitter:description" content="Testing whether browsing agents can integrate evidence from text, images, and video on the open web.">
+    <meta name="twitter:description" content="Open-web questions whose decisive evidence lives in images and video, with the reasoning path checked step by step.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/mm-browsecomp.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,77 +47,90 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/mm-browsecomp.svg');" role="img" aria-label="MM-BrowseComp — led by o3 at 29.02"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/mm-browsecomp.svg');" role="img" aria-label="MM-BrowseComp — led by o3 (official tools) at 29.02"></div>
         <div class="detail-head">
-            <div class="eyebrow">Research · Multimodal Agent</div>
+            <div class="eyebrow">Research · Multimodal Browsing</div>
             <h1>MM-BrowseComp</h1>
-            <p class="detail-tagline">Testing whether browsing agents can integrate evidence from text, images, and video on the open web.</p>
+            <p class="detail-tagline">Open-web questions whose decisive evidence lives in images and video, with the reasoning path checked step by step.</p>
             <p class="detail-meta">
-                <span class="lead">Leader &mdash; o3 · 29.02</span>
+                Benchmark paper
                 <span class="sep">·</span>
-                Multimodal Agent
+                <span class="lead">Leader &mdash; o3 (official tools) · 29.02</span>
                 <span class="sep">·</span>
-                updated 2026-04-21
+                Multimodal Browsing
+                <span class="sep">·</span>
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2508.13186" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/MMBrowseComp/MM-BrowseComp" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2508.13186.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2508.13186" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/MMBrowseComp/MM-BrowseComp" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">29.02</div><div class="l">top score (Overall)</div></div>
-        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">3</div><div class="l">modalities evaluated</div></div>
-        <div class="stat-tile"><div class="v">21.4</div><div class="l">first-to-second gap</div></div>
+        <div class="stat-tile"><div class="v">224</div><div class="l">verified questions</div></div>
+        <div class="stat-tile"><div class="v">22</div><div class="l">multimodal subtasks</div></div>
+        <div class="stat-tile"><div class="v">57%</div><div class="l">prompts with images</div></div>
+        <div class="stat-tile"><div class="v">29.02</div><div class="l">top tool-augmented OA</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="overview">Overview</h2>
-        <p>MM-BrowseComp asks whether an agent can answer questions that live on the open web but not in any single place or modality. Its tasks require joint understanding of text, images, and videos, so an agent must browse, retrieve, and read across formats rather than lean on one well-indexed page. Performance is summarized as an Overall score on a 0–100 scale, taken from the paper&#x27;s main results table.</p>
-        <p>The evaluation reaches past final answers. Alongside open-answer quality, it examines support answers, cross-modal evidence integration, and retrieval across a diverse spread of web domains. The intent is to separate agents that can defend an answer — pointing to evidence gathered from the pages they actually visited, in whatever modality it appeared — from agents that merely produce a plausible string.</p>
+        <p>MM-BrowseComp targets questions that cannot be solved by reading only webpage text. Its 224 items span 22 subtasks in media, technology, society, geography, and academics. Some prompts begin with an image and others begin with text, but all require retrieving and reasoning over image or video evidence somewhere in the browsing process. The final answers remain short phrases—names, numbers, or colors—so answer checking is tractable even though the search path is open-ended.</p>
+        <p>Every question also carries an irreducible checklist: an ordered set of evidence and reasoning steps that should be necessary to reach the answer. This supports three levels of scoring. Overall Accuracy checks the answer alone; Strict Accuracy requires both the correct answer and completion of every checklist item; Average Checklist Score gives partial credit for completing portions of the path. A correct guess can therefore raise OA without being counted as a strict solution.</p>
+        <p>The construction process started with 300 candidates authored by more than twenty master&#x27;s- and PhD-level researchers. Questions had to resist a single web-enabled attempt by Gemini 2.5 Pro and GPT-4o, remain unsolved by another annotator after five minutes of active search, avoid text-only shortcuts, and preserve a unique, temporally stable answer. After pilot calibration, secondary review, tool-dependency checks, and factual verification, 161 items were accepted directly, 63 revised, and 76 discarded.</p>
 
         <h2 id="why-it-matters">Why it matters</h2>
-        <p>Real web pages carry meaning in more than markup. A browsing agent that reads only text will miss whatever a page expresses through images or video, and it will miss it silently — the answer simply comes back wrong or unsupported. MM-BrowseComp tests the pipeline end to end: retrieve across diverse domains, extract from multiple modalities, integrate the pieces into one supported answer. That is the shape of the deployed task, not a simplification of it.</p>
-        <p>The paper&#x27;s central empirical contrast is also its most practical: genuinely tool-augmented systems and plain VLMs are separated by a clear gap on the same questions. Multimodal browsing is not a skill strong models exhibit for free — it has to be built. For anyone deciding whether a browsing harness is worth the engineering, this benchmark puts a number on the difference.</p>
+        <p>A browsing agent can fail before reasoning begins: it may never open the relevant image, lack a video-processing tool, or discard visual details when handing work to a text-only subagent. Final-answer scoring collapses all of those failures into one zero. MM-BrowseComp&#x27;s checklists expose where the pipeline breaks and whether an apparently correct answer is actually supported by the retrieved evidence.</p>
+        <p>The benchmark also distinguishes native multimodal tool use from strong language reasoning wrapped around lossy visual tools. That distinction is operationally important for research systems: adding more independent attempts can improve the chance of landing on the right answer, but the paper&#x27;s scaling experiment shows little corresponding gain in Strict Accuracy, indicating that repeated sampling does not repair the underlying reasoning path.</p>
+
+        <h2 id="contributions">Contributions</h2>
+        <ul>
+            <li>Introduces 224 difficult multimodal web-search questions across 22 subtasks and five categories; 57% have image-bearing prompts and all require image or video evidence during retrieval.</li>
+            <li>Associates every question with a concise, temporally stable answer and an irreducible checklist that specifies the minimum evidence and reasoning path needed to derive it.</li>
+            <li>Uses a three-phase construction and validation process that filters questions solvable by Gemini 2.5 Pro or GPT-4o without tools, by a second annotator within five minutes, or by simple textual shortcuts.</li>
+            <li>Separates final-answer accuracy from reasoning-path validity through Overall Accuracy, Strict Accuracy, and Average Checklist Score, including modality-specific checklist analysis and test-time scaling experiments.</li>
+        </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>This work targets browsing-agent tasks that require joint understanding of text, images, and videos.</li>
-            <li>It evaluates not only open-answer quality, but also support answers, cross-modal evidence integration, and domain-diverse web retrieval performance.</li>
-            <li>The results show a clear gap between genuinely tool-augmented systems and plain VLMs, highlighting the difficulty of multimodal browsing.</li>
+            <li>More than twenty master&#x27;s- and PhD-level AI researchers authored questions across 22 assigned subtasks; the five top-level categories account for 29% Media, 26% Technology, 18% Society, 13% Geography, and 14% Academics.</li>
+            <li>Annotators begin from a known fact and reverse-engineer a multi-hop question whose answer is short, unique, and stable. Essential evidence must live in images or video rather than be recoverable from a text-only shortcut.</li>
+            <li>Each item includes an ordered, irreducible checklist. The final pool was reduced from 300 candidates to 224: 161 accepted directly, 63 revised, and 76 discarded after calibration, secondary review, tool-dependency screening, and factual verification.</li>
+            <li>The main table separates tool-free VLMs, official tool-augmented VLMs, and open-source agent frameworks. Tool-free and official tool-augmented systems use all 224 questions; compute-intensive open-source agents use a stratified 54-question subset and are not mixed into this page&#x27;s leaderboard.</li>
+            <li>All results are Pass@1. GPT-4o-2024-11-20 judges final-answer correctness and checklist completion from a required answer plus problem-solving roadmap; Strict Accuracy passes only when both the answer and every checklist item pass.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Overall</b> &mdash; Higher is better. Overall score reported in the main MM-BrowseComp table. Score range: [0, 100].</p>
+        <p><b>Overall Accuracy (OA)</b> &mdash; Higher is better. Pass@1 percentage of questions with a correct final answer, independent of whether the full checklist is demonstrated. Score range: [0, 100].</p>
+        <p><b>Strict Accuracy (SA)</b> &mdash; Higher is better. Pass@1 percentage for which the final answer is correct and every item in the associated irreducible reasoning checklist is completed. Score range: [0, 100].</p>
+        <p><b>Average Checklist Score (AVG CS)</b> &mdash; Higher is better. Mean fraction of checklist items completed across questions, providing partial credit for valid intermediate retrieval and reasoning steps. Score range: [0, 100].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>The leaderboard uses the Overall column from the main table and keeps representative tool-augmented systems and multimodal models.</p>
+        <p>This table keeps only the paper&#x27;s full 224-question Tool-Augmented VLM setting. Tool-free VLMs use a different tool condition, and open-source agents were evaluated on a 54-question subset, so neither group is mixed into the ranking.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Overall</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall Accuracy (Pass@1)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>o3</td><td class="num">29.02<span class="lb-track"><span class="lb-bar" data-w="29.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>GPT-4.1</td><td class="num">7.59<span class="lb-track"><span class="lb-bar" data-w="7.6"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>o4-mini-high</td><td class="num">7.14<span class="lb-track"><span class="lb-bar" data-w="7.1"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Gemini 2.5 Pro Preview 05-06</td><td class="num">7.14<span class="lb-track"><span class="lb-bar" data-w="7.1"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>o4-mini</td><td class="num">5.36<span class="lb-track"><span class="lb-bar" data-w="5.4"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Gemini 2.5 Flash Preview 05-20</td><td class="num">3.12<span class="lb-track"><span class="lb-bar" data-w="3.1"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>o3 (official tools)</td><td class="num">29.02<span class="lb-track"><span class="lb-bar" data-w="29.0"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>Gemini 2.5 Pro Preview 05-06 (official tools)</td><td class="num">7.14<span class="lb-track"><span class="lb-bar" data-w="7.1"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini 2.5 Flash Preview 05-20 (official tools)</td><td class="num">3.12<span class="lb-track"><span class="lb-bar" data-w="3.1"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on MM-BrowseComp? Submit the result →</a></p>
 
         <h2 id="reading-the-results">Reading the results</h2>
-        <p>o3 leads at 29.02 on the Overall metric, and nothing else is close: GPT-4.1 sits second at 7.59, a gap of 21.4 points — nearly five times the spread of the entire rest of the field, which is compressed between 7.59 and 3.12. o4-mini-high and Gemini 2.5 Pro Preview tie exactly at 7.14, a hint that the mid-table reflects a shared limitation more than it distinguishes systems.</p>
-        <p>The ceiling is the other headline. Even the leader clears less than a third of the 0–100 range, and five of the six models score in single digits. As of the April 2026 update, MM-BrowseComp reads as an early-stage benchmark in the useful sense: the ordering is informative, but roughly 71 points of headroom remain, and this table is unlikely to look the same for long.</p>
+        <p>Within the comparable full-dataset tool-augmented group, o3 leads at 29.02% Overall Accuracy. Gemini 2.5 Pro Preview 05-06 reaches 7.14% and Gemini 2.5 Flash Preview 05-20 reaches 3.12%, leaving a 21.88-point gap between first and second. The tool-free and open-source-agent rows in the paper use different tool or dataset conditions and are deliberately excluded from this ranking.</p>
+        <p>The diagnostic metrics are less forgiving than final answers. o3 records 19.64% Strict Accuracy and 36.49% Average Checklist Score, compared with 29.02% OA. Its modality-specific checklist completion is 62.13% on textual items and 52.72% on image/video items. For Agent-R1, increasing independent runs from one to sixteen lifts OA under aggregation, while SA remains around the low single digits; the extra compute increases successful answer sampling more than it improves complete multimodal reasoning.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Multimodal web browsing</span></li>
-            <li><span class="k">Primary metric</span><span>Overall</span></li>
-            <li><span class="k">Models scored</span><span>6</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-21</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/mm-browsecomp/figure-3-task-composition.png" alt="Figure 3 (paper, PDF p. 5): Distribution of 224 questions across five categories and 22 subtasks, with per-subtask counts and prompt-image status; 57% of prompts contain images. Source: paper." loading="lazy">
+            <figcaption>Figure 3 (paper, PDF p. 5): Distribution of 224 questions across five categories and 22 subtasks, with per-subtask counts and prompt-image status; 57% of prompts contain images. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/mm-browsecomp/figure-4-test-time-scaling.png" alt="Figure 4 (paper, PDF p. 10): Agent-R1 test-time scaling from 1 to 16 independent runs under best-of-N, weighted voting, and majority voting; Overall Accuracy rises while Strict Accuracy remains nearly flat. Source: paper." loading="lazy">
+            <figcaption>Figure 4 (paper, PDF p. 10): Agent-R1 test-time scaling from 1 to 16 independent runs under best-of-N, weighted voting, and majority voting; Overall Accuracy rises while Strict Accuracy remains nearly flat. Source: paper.</figcaption>
+        </figure>
 
         <div class="crosslink">
             <div>
@@ -133,11 +146,12 @@
         <div class="toc-h">On this page</div>
         <a href="#overview">Overview</a>
         <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
         <a href="#reading-the-results">Reading the results</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -169,7 +183,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -178,7 +192,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -198,7 +211,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

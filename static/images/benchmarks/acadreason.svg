@@ -1,27 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<line x1="240" y1="168" x2="321.0" y2="180.8" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="259.4" y2="227.7" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="180.6" y2="225.3" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="136.9" y2="195.4" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="163.9" y2="123.0" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="240.9" y2="89.8" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="240" y1="168" x2="303.0" y2="112.2" stroke="#e5e7eb" stroke-width="1.5"/>
-<line x1="163.9" y1="123.0" x2="259.4" y2="227.7" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
-<line x1="163.9" y1="123.0" x2="303.0" y2="112.2" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
-<line x1="240.9" y1="89.8" x2="259.4" y2="227.7" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="4 4"/>
-<circle cx="321.0" cy="180.8" r="9" fill="#2563eb" opacity="0.85"/>
-<circle cx="259.4" cy="227.7" r="9" fill="#2563eb" opacity="0.85"/>
-<circle cx="180.6" cy="225.3" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="136.9" cy="195.4" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="163.9" cy="123.0" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="240.9" cy="89.8" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="303.0" cy="112.2" r="7" fill="#ffffff" stroke="#475569" stroke-width="2"/>
-<circle cx="240" cy="168" r="13" fill="#475569"/>
-<circle cx="240" cy="168" r="5" fill="#ffffff"/>
-<text x="240" y="204" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">agent</text>
-<text x="240" y="66" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">6 models · multi-hop evidence</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Academic research reasoning.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=acadreason layout=orbit -->
+<title id="title">ACADREASON benchmark illustration</title>
+<desc id="desc">A research question gathering papers, citations, and cross-disciplinary evidence into a synthesis.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#25c2a0" stop-opacity=".22"/><stop offset="1" stop-color="#25c2a0" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#25c2a0"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="322" cy="153" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">ACADREASON</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#25c2a0">AGENT</text>
+<path d="M 92 128 L 272 178" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 92 238 L 272 178" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 240 270 L 272 178" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 66 101 H 110 L 124 115 V 155 H 66 Z" fill="#101d30" stroke="#25c2a0" stroke-width="2"/>
+<path d="M 110 101 V 115 H 124" fill="none" stroke="#25c2a0" stroke-width="2"/>
+<line x1="73" y1="120" x2="114" y2="120" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="73" y1="129" x2="111" y2="129" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="73" y1="138" x2="108" y2="138" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="92" y="176" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">papers</text>
+<path d="M 66 211 H 110 L 124 225 V 265 H 66 Z" fill="#101d30" stroke="#25c2a0" stroke-width="2"/>
+<path d="M 110 211 V 225 H 124" fill="none" stroke="#25c2a0" stroke-width="2"/>
+<text x="75" y="231" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#25c2a0">1</text>
+<line x1="84" y1="230" x2="114" y2="230" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="75" y="240" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#25c2a0">2</text>
+<line x1="84" y1="239" x2="111" y2="239" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="75" y="249" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#25c2a0">3</text>
+<line x1="84" y1="248" x2="108" y2="248" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="75" y="258" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="7" font-weight="500" fill="#25c2a0">4</text>
+<line x1="84" y1="257" x2="105" y2="257" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="92" y="286" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">citations</text>
+<circle cx="235" cy="265" r="22" fill="#101d30" stroke="#25c2a0" stroke-width="3"/>
+<line x1="250" y1="281" x2="269" y2="298" stroke="#25c2a0" stroke-width="6" stroke-linecap="round"/>
+<text x="240" y="318" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">search</text>
+<path d="M 246 151 H 290 L 304 165 V 205 H 246 Z" fill="#101d30" stroke="#25c2a0" stroke-width="2"/>
+<path d="M 290 151 V 165 H 304" fill="none" stroke="#25c2a0" stroke-width="2"/>
+<line x1="253" y1="170" x2="294" y2="170" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="253" y1="179" x2="291" y2="179" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="253" y1="188" x2="288" y2="188" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="272" y="226" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">synthesis</text>
 </svg>

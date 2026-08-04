@@ -1,43 +1,130 @@
 {
- "slug": "codeeditorbench",
- "name": "CodeEditorBench",
- "domain": "agent",
- "domain_name": "Agent Benchmark",
- "subcategory": "Code Editing",
- "abstract": "CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes. Results on this page will be populated at the next TokenWave data refresh.",
- "contributions": [
-  "Frames code editing as its own capability, distinct from one-shot code generation.",
-  "Covers four editing scenarios — debug, translate, polish, and requirement switching — sourced from real submissions and curated exercises.",
-  "Provides an online judge so edited programs are executed and checked, not pattern-matched."
- ],
- "method": [
-  "Tasks are drawn from multiple languages and difficulty tiers, each paired with test cases.",
-  "Models receive the original code plus an editing instruction and must return a working revision.",
-  "Evaluation executes the revised program against hidden tests in the judge environment."
- ],
- "metrics": [
-  {
-   "name": "Pass rate",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Share of editing tasks whose revised program passes the hidden tests."
-  }
- ],
- "leaderboard": [],
- "leaderboard_metric": "Pass rate",
- "leaderboard_note": null,
- "links": {
-  "paper": "https://arxiv.org/abs/2404.03543",
-  "code": "https://github.com/CodeEditorBench/CodeEditorBench",
-  "pdf": "https://arxiv.org/pdf/2404.03543.pdf"
- },
- "image": "static/images/benchmarks/codeeditorbench.svg",
- "at_a_glance": {
-  "focus": "Code editing, not generation",
-  "primary_metric": "Pass rate",
-  "setting": "Execution-checked editing tasks",
-  "models_scored": null,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "slug": "codeeditorbench",
+  "name": "CodeEditorBench",
+  "paper_type": "benchmark",
+  "domain": "agent",
+  "domain_name": "Agent Benchmark",
+  "subcategory": "Code Editing",
+  "abstract": "CodeEditorBench evaluates whether language models can revise existing programs rather than generate a solution from scratch. Its 7,961 tasks cover debugging, translation, performance polishing, and requirement switching in C++, Java, and Python, with an average of 44 execution tests per task (minimum 8, maximum 446). Problems originate from five coding sources and are assembled into Primary and timestamp-filtered Plus splits. Nineteen models are prompted in zero-shot and three-shot settings, decoded greedily, post-processed into compilable programs, and judged in an online execution system. Debug, translation, and switching use pass@1; polishing requires correctness plus measured time or memory improvement. The main table's Plus zero-shot Win Rate averages each model's relative rank across the four task categories.",
+  "contributions": [
+    "Defines four execution-checked code-editing scenarios—debugging, translation, polishing, and requirement switching—rather than treating editing as ordinary code completion.",
+    "Releases 7,961 tasks sourced from LeetCode, CodeContests, CodeXGLUE, CodeNet, and TACO, with an average of 44 tests and explicit difficulty, language, error-count, and relation-strength annotations.",
+    "Introduces CodeEditorBench_Plus, a timestamp-filtered split intended to reduce contamination visible in the original Primary split.",
+    "Provides a Dockerized online-judge workflow, task-specific pass criteria, zero-shot and three-shot prompts, and a rank-normalized Win Rate for comparing performance across heterogeneous editing tasks."
+  ],
+  "method": [
+    "Source programs longer than 800 lines or roughly 1,000 tokens are filtered out. The retained tasks cover C++, Java, and Python and are stratified by language, easy/medium/hard difficulty, injected error count, translation direction, and strong or weak requirement relation.",
+    "Debug tasks inject one to four error types. Translation and polishing examples are sampled by code complexity in a 3:4:1 ratio. Requirement-switch tasks pair closely related LeetCode problems or weakly related problems found by shared tags and BERT similarity of at least 0.92.",
+    "GPT-4, GLM-4, and Qwen-72B-Chat supplement missing and boundary test inputs; expected outputs are produced by running the reference solution in the online judge. Code templates add the headers, I/O handling, and wrappers required for local compilation.",
+    "The paper evaluates 19 models with greedy decoding in zero-shot and three-shot settings. Maximum new tokens are 1,024 for API models and 2,048 for open models; generated text is cleaned, parsed, integrated into a language template, and compiled before judging.",
+    "For Debug, Translate, and Requirement Switch, a task passes only when all tests succeed under time and memory limits. For Polish, the original runtime and memory are averaged over 20 executions; a correct generated edit is measured twice and must reduce runtime or memory to receive a non-zero optimization score.",
+    "The displayed leaderboard takes the Plus value outside parentheses from the zero-shot block of Table 1. Per-category ranks are converted to 1 − (rank − 1) / 19 and averaged to obtain Win Rate."
+  ],
+  "metrics": [
+    {
+      "name": "Plus zero-shot Win Rate",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Mean rank-normalized score across Debug, Translate, Switch, and Polish on CodeEditorBench_Plus; each category contributes 1 − (rank − 1) / 19."
+    },
+    {
+      "name": "pass@1",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Fraction of greedy model outputs that pass every online-judge test for Debug, Translate, or Requirement Switch; translation is executed in the target-language environment."
+    },
+    {
+      "name": "Mean OptScore",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Mean non-negative relative reduction in runtime and memory for Polish outputs that remain functionally correct; incorrect programs receive zero."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "gpt_4",
+      "model": "GPT-4",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 0.855,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "openci_ds_33b",
+      "model": "OpenCI-DS-33B",
+      "org": "M-A-P",
+      "color": "#8b5cf6",
+      "score": 0.776,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "gemini_ultra",
+      "model": "Gemini-Ultra",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 0.75,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": "deepseek_coder_33b_instruct",
+      "model": "DS-33B-INST",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 0.737,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": "gemini_pro",
+      "model": "Gemini-Pro",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 0.737,
+      "source": "official",
+      "date": null
+    },
+    {
+      "rank": 6,
+      "model_id": "gpt_3_5_turbo",
+      "model": "GPT-3.5-Turbo",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 0.724,
+      "source": "official",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Plus zero-shot Win Rate",
+  "leaderboard_note": "Top six rows from Table 1 under the same setting: CodeEditorBench_Plus values (outside parentheses), zero-shot prompting, and greedy decoding. Win Rate is an average of relative category ranks, not a raw task pass percentage.",
+  "at_a_glance": {
+    "focus": "Execution-checked code editing",
+    "primary_metric": "Plus zero-shot Win Rate",
+    "setting": "Plus split, zero-shot, greedy decoding",
+    "models_scored": 6,
+    "data_updated": "2025-04-08"
+  },
+  "links": {
+    "paper": "https://arxiv.org/abs/2404.03543",
+    "code": "https://github.com/CodeEditorBench/CodeEditorBench",
+    "pdf": "https://arxiv.org/pdf/2404.03543.pdf"
+  },
+  "figures": [
+    {
+      "image": "static/images/benchmarks/codeeditorbench/figure-1-overview.png",
+      "caption": "Figure 1 (PDF p. 2): End-to-end benchmark flow from five source datasets and generated test cases through prompt construction, code extraction, template integration, compilation, and online-judge scoring. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/codeeditorbench/figure-4-pass-rate-distribution.png",
+      "caption": "Figure 4 (PDF p. 9): Distribution of model pass rates on CodeEditorBench_Plus, showing translation as the strongest category on average and requirement switching as the weakest. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/codeeditorbench.svg"
 }

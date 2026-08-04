@@ -1,34 +1,35 @@
 {
- "slug": "mm_browsecomp",
- "tagline": "Testing whether browsing agents can integrate evidence from text, images, and video on the open web",
- "stats": [
-  {
-   "value": "29.02",
-   "label": "top score (Overall)"
-  },
-  {
-   "value": "6",
-   "label": "models scored"
-  },
-  {
-   "value": "3",
-   "label": "modalities evaluated"
-  },
-  {
-   "value": "21.4",
-   "label": "first-to-second gap"
-  }
- ],
- "overview": [
-  "MM-BrowseComp asks whether an agent can answer questions that live on the open web but not in any single place or modality. Its tasks require joint understanding of text, images, and videos, so an agent must browse, retrieve, and read across formats rather than lean on one well-indexed page. Performance is summarized as an Overall score on a 0–100 scale, taken from the paper's main results table.",
-  "The evaluation reaches past final answers. Alongside open-answer quality, it examines support answers, cross-modal evidence integration, and retrieval across a diverse spread of web domains. The intent is to separate agents that can defend an answer — pointing to evidence gathered from the pages they actually visited, in whatever modality it appeared — from agents that merely produce a plausible string."
- ],
- "why": [
-  "Real web pages carry meaning in more than markup. A browsing agent that reads only text will miss whatever a page expresses through images or video, and it will miss it silently — the answer simply comes back wrong or unsupported. MM-BrowseComp tests the pipeline end to end: retrieve across diverse domains, extract from multiple modalities, integrate the pieces into one supported answer. That is the shape of the deployed task, not a simplification of it.",
-  "The paper's central empirical contrast is also its most practical: genuinely tool-augmented systems and plain VLMs are separated by a clear gap on the same questions. Multimodal browsing is not a skill strong models exhibit for free — it has to be built. For anyone deciding whether a browsing harness is worth the engineering, this benchmark puts a number on the difference."
- ],
- "reading": [
-  "o3 leads at 29.02 on the Overall metric, and nothing else is close: GPT-4.1 sits second at 7.59, a gap of 21.4 points — nearly five times the spread of the entire rest of the field, which is compressed between 7.59 and 3.12. o4-mini-high and Gemini 2.5 Pro Preview tie exactly at 7.14, a hint that the mid-table reflects a shared limitation more than it distinguishes systems.",
-  "The ceiling is the other headline. Even the leader clears less than a third of the 0–100 range, and five of the six models score in single digits. As of the April 2026 update, MM-BrowseComp reads as an early-stage benchmark in the useful sense: the ordering is informative, but roughly 71 points of headroom remain, and this table is unlikely to look the same for long."
- ]
+  "slug": "mm_browsecomp",
+  "tagline": "Open-web questions whose decisive evidence lives in images and video, with the reasoning path checked step by step",
+  "stats": [
+    {
+      "value": "224",
+      "label": "verified questions"
+    },
+    {
+      "value": "22",
+      "label": "multimodal subtasks"
+    },
+    {
+      "value": "57%",
+      "label": "prompts with images"
+    },
+    {
+      "value": "29.02",
+      "label": "top tool-augmented OA"
+    }
+  ],
+  "overview": [
+    "MM-BrowseComp targets questions that cannot be solved by reading only webpage text. Its 224 items span 22 subtasks in media, technology, society, geography, and academics. Some prompts begin with an image and others begin with text, but all require retrieving and reasoning over image or video evidence somewhere in the browsing process. The final answers remain short phrases—names, numbers, or colors—so answer checking is tractable even though the search path is open-ended.",
+    "Every question also carries an irreducible checklist: an ordered set of evidence and reasoning steps that should be necessary to reach the answer. This supports three levels of scoring. Overall Accuracy checks the answer alone; Strict Accuracy requires both the correct answer and completion of every checklist item; Average Checklist Score gives partial credit for completing portions of the path. A correct guess can therefore raise OA without being counted as a strict solution.",
+    "The construction process started with 300 candidates authored by more than twenty master's- and PhD-level researchers. Questions had to resist a single web-enabled attempt by Gemini 2.5 Pro and GPT-4o, remain unsolved by another annotator after five minutes of active search, avoid text-only shortcuts, and preserve a unique, temporally stable answer. After pilot calibration, secondary review, tool-dependency checks, and factual verification, 161 items were accepted directly, 63 revised, and 76 discarded."
+  ],
+  "why": [
+    "A browsing agent can fail before reasoning begins: it may never open the relevant image, lack a video-processing tool, or discard visual details when handing work to a text-only subagent. Final-answer scoring collapses all of those failures into one zero. MM-BrowseComp's checklists expose where the pipeline breaks and whether an apparently correct answer is actually supported by the retrieved evidence.",
+    "The benchmark also distinguishes native multimodal tool use from strong language reasoning wrapped around lossy visual tools. That distinction is operationally important for research systems: adding more independent attempts can improve the chance of landing on the right answer, but the paper's scaling experiment shows little corresponding gain in Strict Accuracy, indicating that repeated sampling does not repair the underlying reasoning path."
+  ],
+  "reading": [
+    "Within the comparable full-dataset tool-augmented group, o3 leads at 29.02% Overall Accuracy. Gemini 2.5 Pro Preview 05-06 reaches 7.14% and Gemini 2.5 Flash Preview 05-20 reaches 3.12%, leaving a 21.88-point gap between first and second. The tool-free and open-source-agent rows in the paper use different tool or dataset conditions and are deliberately excluded from this ranking.",
+    "The diagnostic metrics are less forgiving than final answers. o3 records 19.64% Strict Accuracy and 36.49% Average Checklist Score, compared with 29.02% OA. Its modality-specific checklist completion is 62.13% on textual items and 52.72% on image/video items. For Agent-R1, increasing independent runs from one to sixteen lifts OA under aggregation, while SA remains around the low single digits; the extra compute increases successful answer sampling more than it improves complete multimodal reasoning."
+  ]
 }

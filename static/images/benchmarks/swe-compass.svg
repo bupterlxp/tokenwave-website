@@ -1,23 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-
-<circle cx="120" cy="150" r="72" fill="none" stroke="#475569" stroke-width="2"/>
-<circle cx="120" cy="150" r="52" fill="none" stroke="#e5e7eb" stroke-width="1"/>
-<polygon points="120,92 132,150 120,208 108,150" fill="#475569" opacity="0.85"/>
-<polygon points="62,150 120,138 178,150 120,162" fill="#475569" opacity="0.35"/>
-<circle cx="120" cy="150" r="6" fill="#ffffff" stroke="#475569" stroke-width="2.5"/>
-<text x="120" y="76" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#6b7280">N</text>
-<line x1="250" y1="80" x2="250" y2="240" stroke="#9ca3af" stroke-width="1.5"/>
-<line x1="250" y1="240" x2="440" y2="240" stroke="#9ca3af" stroke-width="1.5"/>
-<rect x="268" y="130.3" width="26" height="109.7" fill="#475569" opacity="1.00" rx="2"/>
-<rect x="306" y="167.0" width="26" height="73.0" fill="#475569" opacity="0.87" rx="2"/>
-<rect x="344" y="168.0" width="26" height="72.0" fill="#475569" opacity="0.74" rx="2"/>
-<rect x="382" y="191.0" width="26" height="49.0" fill="#475569" opacity="0.61" rx="2"/>
-<rect x="420" y="207.3" width="26" height="32.7" fill="#475569" opacity="0.48" rx="2"/>
-<text x="281" y="112" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#475569" font-weight="bold">32.9</text>
-<text x="345" y="258" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="10" fill="#9ca3af">models, AVG @ Claude Code</text>
-<text x="250" y="70" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">8 tasks x 10 langs, n=2000</text>
-
-<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Unified evaluation of agentic coding across real workflows.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=swe_compass layout=orbit -->
+<title id="title">SWE-Compass benchmark illustration</title>
+<desc id="desc">A software issue moving through repository navigation, agent edits, and test verification.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#ff8a66" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a66" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#ff8a66"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="226" cy="124" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">SWE-Compass</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#ff8a66">AGENT</text>
+<path d="M 92 128 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 92 238 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<path d="M 240 270 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
+<rect x="55" y="99" width="74" height="58" rx="12" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
+<text x="92" y="135" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff8a66">#42</text>
+<text x="92" y="176" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">issue</text>
+<circle cx="67" cy="221" r="7" fill="#ff8a66"/>
+<path d="M 74 221 H 88 V 221 H 95" fill="none" stroke="#31435d" stroke-width="2"/>
+<rect x="95" y="214" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
+<path d="M 74 221 H 88 V 242 H 95" fill="none" stroke="#31435d" stroke-width="2"/>
+<rect x="95" y="235" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
+<path d="M 74 221 H 88 V 256 H 119" fill="none" stroke="#31435d" stroke-width="2"/>
+<rect x="119" y="249" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
+<text x="92" y="286" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">repository</text>
+<circle cx="240" cy="259" r="18" fill="#ff8a66" opacity=".22" stroke="#ff8a66" stroke-width="2"/>
+<path d="M 211 298 C 215 274 265 274 269 298" fill="#101d30" stroke="#ff8a66" stroke-width="2"/>
+<text x="240" y="318" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">coding agent</text>
+<circle cx="272" cy="178" r="27" fill="#ff8a66" opacity=".16" stroke="#ff8a66" stroke-width="2"/>
+<path d="M 259 178 L 269 188 L 288 165" fill="none" stroke="#ff8a66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="272" y="226" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">tests</text>
 </svg>

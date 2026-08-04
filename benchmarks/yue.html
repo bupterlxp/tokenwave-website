@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YuE | TokenWave AI</title>
-    <meta name="description" content="YuE is M-A-P&#x27;s open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe. It anchors the open end of the lyr">
+    <meta name="description" content="YuE is an open foundation-model family for long-form lyrics-to-song generation, not a benchmark. Its two-stage autoregressive design first predicts separate vocal and accompaniment tokens from lyrics, structural labels, style metadata, and optional r">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="YuE | TokenWave AI">
-    <meta property="og:description" content="YuE is M-A-P&#x27;s open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe. It anchors the open end of the lyr">
+    <meta property="og:description" content="YuE is an open foundation-model family for long-form lyrics-to-song generation, not a benchmark. Its two-stage autoregressive design first predicts separate vocal and accompaniment tokens from lyrics, structural labels, style metadata, and optional r">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/yue.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="YuE | TokenWave AI">
-    <meta name="twitter:description" content="YuE is M-A-P&#x27;s open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe. It anchors the open end of the lyr">
+    <meta name="twitter:description" content="YuE is an open foundation-model family for long-form lyrics-to-song generation, not a benchmark. Its two-stage autoregressive design first predicts separate vocal and accompaniment tokens from lyrics, structural labels, style metadata, and optional r">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/yue.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -49,46 +49,58 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/yue.svg');" role="img" aria-label="YuE"></div>
         <div class="detail-head">
-            <div class="eyebrow">Research · Music Generation</div>
+            <div class="eyebrow">Research · Music Foundation Model</div>
             <h1>YuE</h1>
             <p class="detail-meta">
-                Music Generation
+                Model paper
                 <span class="sep">·</span>
-                updated 2026-08-03
+                Music Foundation Model
+                <span class="sep">·</span>
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2503.08638" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/YuE" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2503.08638.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2503.08638" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/YuE" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="abstract">Abstract</h2>
-        <p>YuE is M-A-P&#x27;s open foundation model family for full-song music generation: from lyrics to a complete, structured song — vocals, accompaniment, and multi-minute coherence — released with weights and training recipe. It anchors the open end of the lyrics-to-song problem the way open code models anchored programming.</p>
+        <p>YuE is an open foundation-model family for long-form lyrics-to-song generation, not a benchmark. Its two-stage autoregressive design first predicts separate vocal and accompaniment tokens from lyrics, structural labels, style metadata, and optional reference audio, then fills residual codec codebooks before reconstructing 44.1 kHz audio. Segment-level conditioning refreshes lyric and section information throughout a song, while delayed in-context-learning data reduces direct copying from reference audio. The 7B Stage-1 model is trained to 1.75 trillion tokens and annealed for 40 billion more; the 1B Stage-2 model receives a 2-trillion-token budget. Training data includes 70,000 hours of English and Chinese speech and 650,000 hours of in-the-wild music, roughly 10% with retained lyrics. Human evaluation compares 42 English songs per system with four January 2025 commercial services.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>Generates complete songs — verse, chorus, vocals, and instrumental accompaniment — from lyrics, at multi-minute length with structural coherence.</li>
-            <li>Supports multiple languages and vocal styles, with in-context conditioning for style, melody, and voice.</li>
-            <li>Fully open release: model weights, inference stack, and recipe, making it the reference open lyrics-to-song system.</li>
+            <li>Introduces track-decoupled next-token prediction, interleaving vocal and accompaniment tokens at every audio frame so each track remains explicit while both are modeled in one standard autoregressive sequence.</li>
+            <li>Uses structural progressive conditioning: songs are segmented into about 14 sections on average, and each verse, chorus, bridge, intro, or outro refreshes its label, lyrics, and audio boundary tokens to limit long-context condition decay.</li>
+            <li>Redesigns music in-context learning around 20–40-second single- or dual-track references without requiring a transcript, activates it only during annealing, and supports continuation-independent style, vocal, and accompaniment conditioning.</li>
+            <li>Scales a two-stage LLaMA2-based model on large speech and music corpora, releases the training and inference implementation, and documents unsuccessful acoustic-token, unconditional-pretraining, and early-ICL choices rather than omitting them.</li>
+            <li>Evaluates full-song musicality, control, acoustic distribution, vocal range, duration, alignment, multilingual adaptation, representation quality on MARBLE, and memorization against established datasets and commercial systems.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>A dual-track token design models vocals and accompaniment jointly while keeping them separable.</li>
-            <li>Long-context audio tokenization sustains song-level structure instead of short clips.</li>
-            <li>Evaluation combines human preference studies with audio-quality and lyric-alignment measures against commercial systems.</li>
+            <li>X-Codec converts 16 kHz audio at 50 frames per second using 12 residual-VQ codebooks of size 1024; YuE uses the first eight. Stage 1 predicts semantic-rich codebook-0 tokens, Stage 2 predicts codebooks 1–7, and a lightweight Vocos-based module upsamples reconstruction to 44.1 kHz.</li>
+            <li>Dual-NTP inserts a vocal token followed by an accompaniment token for each frame. About 40% of music tracks are separated with an ensemble of htdemucs_ft, Kim_Vocal_1, and UVR-MDX-NET-Inst_3, giving the model an explicit source-separation prior.</li>
+            <li>All-in-one segmentation supplies intro, verse, chorus, bridge, and outro boundaries. The sequence interleaves each section label and its lyric text with start/end-of-audio tokens and dual-track audio codes; forced decoding inserts the next user-provided section prompt after every generated segment.</li>
+            <li>A 20–40-second reference can contain vocals, accompaniment, a mixture, or both separated tracks. Reference codes are prepended only during the final annealing phase; earlier activation was rejected because the model copied the prompt and lost lyric control.</li>
+            <li>Stage-1 training warms up over 280B tokens, reaches 1T tokens at constant learning rate, adds 750B tokens at 16K context, and anneals on 40B high-quality control tokens. The 7B scaling run uses as many as 512 H800 GPUs; Stage 2 is a 1B model trained with an 8K context and a 2T-token budget.</li>
+            <li>The main evaluation generates 42 English full-length songs per system from shared genre, instrument, emotion, lyric, tempo, and 30-second chorus-reference prompts. Forty blind raters—including 12 speech/music-AI experts and seven trained musicians—make pairwise judgments against Suno V4, Udio, Hailuo, and Tiangong.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Song-level quality</b> &mdash; Higher is better. Tracked qualitatively via the paper&#x27;s human preference and alignment studies.</p>
+        <p><b>Human pairwise preference</b> &mdash; Higher is better. Blind A/B win, tie, and loss rates across overall musicality, vocal and accompaniment quality, arrangement, melody, structure, lyric adherence, genre, instrumentation, emotion, and tempo/rhythm control. Lyrics following is judged manually because Whisper was not reliable enough. Score range: [0, 100].</p>
+        <p><b>CLaMP 3 alignment</b> &mdash; Higher is better. Music-specific text–audio representation similarity. YuE records 0.240 in Table 3; across systems, this metric correlates with human lyric, genre, instrumentation, emotion, and tempo-control preferences more consistently than CLAP.</p>
+        <p><b>Frechet Audio Distance</b> &mdash; Lower is better. Distance between generated and reference audio-feature distributions using the paper&#x27;s audioldm_eval setup. The authors caution that FAD has sample-size and domain biases and correlates weakly with their vocal/accompaniment quality judgments. Score range: [0, ∞).</p>
+        <p><b>Song-level vocal range</b> &mdash; Higher is better. Pitch span in semitones estimated with RMVPE after filtering notes shorter than 40 ms and manually checking outputs. It measures vocal agility; YuE&#x27;s median is about 27 semitones and the cross-system correlation with musicality is 0.857.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Open lyrics-to-song generation</span></li>
-            <li><span class="k">Primary metric</span><span>Song-level quality</span></li>
-            <li><span class="k">Displayed setting</span><span>Full songs, weights released</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/yue/figure-4-stage-1-framework.png" alt="Figure 4 (paper, PDF p. 8): YuE Stage-1 token layouts for lyrics-to-song, text-to-speech, unconditional mixed music, and unconditional separated music, showing Dual-NTP pairs, interleaved structural text, and optional in-context audio. Source: paper." loading="lazy">
+            <figcaption>Figure 4 (paper, PDF p. 8): YuE Stage-1 token layouts for lyrics-to-song, text-to-speech, unconditional mixed music, and unconditional separated music, showing Dual-NTP pairs, interleaved structural text, and optional in-context audio. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/yue/figure-6-human-evaluation.png" alt="Figure 6 (paper, PDF p. 16): Blind human comparison of YuE with Udio, Suno V4, Hailuo, and Tiangong—average pairwise preference across all rated aspects and YuE&#x27;s win/tie/loss distribution for musicality. Source: paper." loading="lazy">
+            <figcaption>Figure 6 (paper, PDF p. 16): Blind human comparison of YuE with Udio, Suno V4, Hailuo, and Tiangong—average pairwise preference across all rated aspects and YuE&#x27;s win/tie/loss distribution for musicality. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
@@ -98,7 +110,7 @@
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -130,7 +142,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -139,7 +151,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -159,7 +170,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

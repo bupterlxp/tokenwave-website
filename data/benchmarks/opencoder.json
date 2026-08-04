@@ -1,30 +1,53 @@
 {
- "slug": "opencoder",
- "name": "OpenCoder",
- "domain": "llm",
+  "slug": "opencoder",
+  "name": "OpenCoder",
+  "paper_type": "model",
+  "domain": "llm",
  "domain_name": "LLM Benchmark",
  "subcategory": "Open Code LLM",
- "abstract": "OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size. TokenWave tracks it as the transparency baseline for the Programmer career.",
- "contributions": [
-  "Releases the full production chain of a competitive code LLM: reproducible data pipeline, the RefineCode pretraining corpus, and intermediate checkpoints.",
-  "RefineCode contains roughly 2.5 trillion tokens of code-heavy data with language-specific cleaning rules.",
-  "Documents which pretraining and annealing choices actually move code capability, verified by ablation."
- ],
- "method": [
-  "Pretraining data is cleaned with per-language heuristics and deduplication, then annealed with high-quality synthetic data.",
-  "Instruction tuning uses a large curated SFT set; every stage is released for inspection.",
-  "The paper reports standard code-benchmark results against open and closed models of comparable size."
- ],
- "metrics": [
-  {
-   "name": "Openness",
-   "direction": "higher",
-   "range": null,
-   "note": "Tracked qualitatively: the project's value is the reproducible recipe, not a single score."
-  }
- ],
+  "abstract": "OpenCoder is a code-language-model and reproducibility paper, not a benchmark. It releases 1.5B- and 8B-parameter models together with RefineCode, a 960-billion-token pretraining corpus spanning 607 programming languages, the processing pipeline, supervised-tuning data, intermediate checkpoints, and training protocols. Raw code passes file-level exact and fuzzy deduplication, code-aware filtering, privacy transformations, and language balancing; code-related web text is recalled with classifiers. The 8B model is pretrained on 2.5 trillion tokens and annealed on 100 billion tokens that mix the original distribution with algorithmic and verified synthetic data, then instruction-tuned in two stages. OpenCoder-8B-Instruct reports 83.5 HumanEval, 78.7 HumanEval+, 79.1 MBPP, 69.0 MBPP+, 40.3 BigCodeBench Full, 16.9 BigCodeBench Hard, and 23.2 on LiveCodeBench.",
+  "contributions": [
+    "Releases both model families and the development artifacts needed to reproduce them: processing code, RefineCode, large-scale SFT corpora, intermediate checkpoints, evaluation code, and detailed pretraining/post-training protocols.",
+    "Constructs RefineCode with 960B tokens across 607 programming languages using more than 130 filtering rules; its largest components are 755B GitHub-code tokens, 120B from The Stack v2, and 75B of code-related web text.",
+    "Runs controlled data ablations showing that file-level deduplication retains 32.74B Python tokens versus 99.47B for repository-level deduplication while training more efficiently, and that GitHub-star filtering reduces diversity and downstream performance.",
+    "Trains 1.5B and 8B base models on 2T and 2.5T tokens respectively, followed by 100B-token annealing; the 8B run is documented as 512 H100 GPUs for 187.5 hours (96,000 GPU-hours).",
+    "Uses 4.0M broad examples in SFT stage 1 and 367K high-quality code-specific examples in stage 2. In the 1.5B ablation, two-stage tuning raises HumanEval from 52.4 to 70.1 and BigCodeBench from 22.1 to 31.5 over stage 1 alone."
+  ],
+  "method": [
+    "RefineCode preprocessing removes oversized/non-code files; SHA-256 exact deduplication and 5-gram MinHash/LSH fuzzy deduplication operate at file level; transformations strip repetitive copyright text and reduce PII; general and language-specific rules filter low-information code before sampling.",
+    "A fastText loop recalls code-related pages from Common Crawl, FineWeb, SkyPile, AutoMathText, and GitHub text files. Combined with GitHub code, notebooks, and The Stack v2, this produces the reported 960B-token corpus.",
+    "The 1.5B and 8B decoder models use 4K and 8K context windows. They train with a warmup-stable-decay schedule on 2T and 2.5T tokens, then anneal on 83.94B RefineCode tokens, 12.44B algorithmic tokens, 2.71B verified code snippets, and 0.91B code-textbook tokens.",
+    "Post-training first uses 0.7M real-user, 2.3M diverse synthetic, and 1.0M filtered Infinity-Instruct examples, then 36K McEval, 111K Evol-Instruct, 110K educational, and 110K package/API examples. Generated Python examples are executed against tests before retention.",
+    "SFT data is decontaminated by removing HumanEval/MBPP entry points and 10-gram overlaps. Evaluation reports HumanEval (0-shot), MBPP (3-shot), EvalPlus, BigCodeBench, the May 2023–September 2024 LiveCodeBench split, MultiPL-E, 40-language McEval, and 18-language MdEval."
+  ],
+  "metrics": [
+    {
+      "name": "EvalPlus pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of problems solved by the first generated program on HumanEval/MBPP and their stricter HumanEval+/MBPP+ test suites; HumanEval is 0-shot and MBPP is reported with 3-shot prompting."
+    },
+    {
+      "name": "BigCodeBench pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Execution-checked success on practical library-using tasks, reported for Full and Hard subsets in both completion and instruction settings."
+    },
+    {
+      "name": "LiveCodeBench pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Average success on the contamination-resistant May 2023–September 2024 competitive-programming split used for instruct models."
+    },
+    {
+      "name": "MultiPL-E pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Per-language and macro-average code-generation success across Python, Java, C++, C#, TypeScript, JavaScript, PHP, and Bash translations."
+    }
+  ],
  "leaderboard": [],
- "leaderboard_metric": "Openness",
+  "leaderboard_metric": "EvalPlus pass@1",
  "leaderboard_note": null,
  "links": {
   "paper": "https://arxiv.org/abs/2411.04905",
@@ -39,5 +62,14 @@
   "models_scored": null,
   "data_updated": "2026-08-03"
  },
- "figures": []
+  "figures": [
+    {
+      "image": "static/images/benchmarks/opencoder/figure-2-pretraining-data-pipeline.png",
+      "caption": "Figure 2 (paper, PDF p. 6): OpenCoder's raw-code pipeline—preprocessing, file-level deduplication, transformation, filtering, and sampling—and its iterative classifier/URL-annotation pipeline for recalling code-related web data. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/opencoder/table-7-instruct-results.png",
+      "caption": "Table 7 (paper, PDF p. 15): Instruct-model results on HumanEval, HumanEval+, MBPP, MBPP+, BigCodeBench Full/Hard, and LiveCodeBench, with OpenCoder-1.5B and OpenCoder-8B compared against similarly sized code models. Source: paper."
+    }
+  ]
 }

@@ -1,100 +1,100 @@
 {
- "slug": "mm_browsecomp",
- "name": "MM-BrowseComp",
- "domain": "agent",
- "domain_name": "Agent",
- "subcategory": "Multimodal Agent",
- "abstract": "MM-BrowseComp evaluates multimodal browsing agents in open web environments. This page uses the Overall score from the main table.",
- "contributions": [],
- "method": [
-  "This work targets browsing-agent tasks that require joint understanding of text, images, and videos.",
-  "It evaluates not only open-answer quality, but also support answers, cross-modal evidence integration, and domain-diverse web retrieval performance.",
-  "The results show a clear gap between genuinely tool-augmented systems and plain VLMs, highlighting the difficulty of multimodal browsing."
- ],
- "metrics": [
-  {
-   "name": "Overall",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Overall score reported in the main MM-BrowseComp table."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "o3",
-   "model": "o3",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 29.02,
-   "source": "official",
-   "date": null
+  "slug": "mm_browsecomp",
+  "name": "MM-BrowseComp",
+  "paper_type": "benchmark",
+  "domain": "agent",
+  "domain_name": "Agent Benchmark",
+  "subcategory": "Multimodal Browsing",
+  "abstract": "MM-BrowseComp evaluates browsing systems that must retrieve and reason over visual evidence on the open web. Its 224 hand-built questions cover 22 subtasks in media, technology, society, geography, and academics; 57% include images in the prompt, while every question requires multimodal evidence during search. More than twenty master's- and PhD-level annotators reduced 300 candidates to 224 through calibration, secondary review, tool-dependency checks, and factual verification. Each item pairs a concise answer with an irreducible checklist describing the necessary search and reasoning path. Pass@1 evaluation reports final-answer accuracy, strict accuracy requiring every checklist step, and average checklist completion. In the comparable full-dataset tool-augmented setting, o3 reaches 29.02% overall accuracy, versus 7.14% for Gemini 2.5 Pro and 3.12% for Gemini 2.5 Flash.",
+  "contributions": [
+    "Introduces 224 difficult multimodal web-search questions across 22 subtasks and five categories; 57% have image-bearing prompts and all require image or video evidence during retrieval.",
+    "Associates every question with a concise, temporally stable answer and an irreducible checklist that specifies the minimum evidence and reasoning path needed to derive it.",
+    "Uses a three-phase construction and validation process that filters questions solvable by Gemini 2.5 Pro or GPT-4o without tools, by a second annotator within five minutes, or by simple textual shortcuts.",
+    "Separates final-answer accuracy from reasoning-path validity through Overall Accuracy, Strict Accuracy, and Average Checklist Score, including modality-specific checklist analysis and test-time scaling experiments."
+  ],
+  "method": [
+    "More than twenty master's- and PhD-level AI researchers authored questions across 22 assigned subtasks; the five top-level categories account for 29% Media, 26% Technology, 18% Society, 13% Geography, and 14% Academics.",
+    "Annotators begin from a known fact and reverse-engineer a multi-hop question whose answer is short, unique, and stable. Essential evidence must live in images or video rather than be recoverable from a text-only shortcut.",
+    "Each item includes an ordered, irreducible checklist. The final pool was reduced from 300 candidates to 224: 161 accepted directly, 63 revised, and 76 discarded after calibration, secondary review, tool-dependency screening, and factual verification.",
+    "The main table separates tool-free VLMs, official tool-augmented VLMs, and open-source agent frameworks. Tool-free and official tool-augmented systems use all 224 questions; compute-intensive open-source agents use a stratified 54-question subset and are not mixed into this page's leaderboard.",
+    "All results are Pass@1. GPT-4o-2024-11-20 judges final-answer correctness and checklist completion from a required answer plus problem-solving roadmap; Strict Accuracy passes only when both the answer and every checklist item pass."
+  ],
+  "metrics": [
+    {
+      "name": "Overall Accuracy (OA)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Pass@1 percentage of questions with a correct final answer, independent of whether the full checklist is demonstrated."
+    },
+    {
+      "name": "Strict Accuracy (SA)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Pass@1 percentage for which the final answer is correct and every item in the associated irreducible reasoning checklist is completed."
+    },
+    {
+      "name": "Average Checklist Score (AVG CS)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Mean fraction of checklist items completed across questions, providing partial credit for valid intermediate retrieval and reasoning steps."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": "o3",
+      "model": "o3 (official tools)",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 29.02,
+      "source": "arXiv Table 1",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": "gemini_2_5_pro_preview_0506",
+      "model": "Gemini 2.5 Pro Preview 05-06 (official tools)",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 7.14,
+      "source": "arXiv Table 1",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": "gemini_2_5_flash_preview_0520",
+      "model": "Gemini 2.5 Flash Preview 05-20 (official tools)",
+      "org": "Google",
+      "color": "#4285f4",
+      "score": 3.12,
+      "source": "arXiv Table 1",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Overall Accuracy (Pass@1)",
+  "leaderboard_note": "This table keeps only the paper's full 224-question Tool-Augmented VLM setting. Tool-free VLMs use a different tool condition, and open-source agents were evaluated on a 54-question subset, so neither group is mixed into the ranking.",
+  "show_source": false,
+  "at_a_glance": {
+    "focus": "Multimodal open-web browsing",
+    "primary_metric": "Overall Accuracy (Pass@1)",
+    "setting": "Tool-augmented VLMs, full 224-question set",
+    "models_scored": 3,
+    "data_updated": "2026-08-04"
   },
-  {
-   "rank": 2,
-   "model_id": "gpt_4_1",
-   "model": "GPT-4.1",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 7.59,
-   "source": "official",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2508.13186",
+    "code": "https://github.com/MMBrowseComp/MM-BrowseComp",
+    "pdf": "https://arxiv.org/pdf/2508.13186.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "o4_mini_high",
-   "model": "o4-mini-high",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 7.14,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "gemini_2_5_pro_preview_0506",
-   "model": "Gemini 2.5 Pro Preview 05-06",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 7.14,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "o4_mini",
-   "model": "o4-mini",
-   "org": "OpenAI",
-   "color": "#10a37f",
-   "score": 5.36,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "gemini_2_5_flash_preview_0520",
-   "model": "Gemini 2.5 Flash Preview 05-20",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 3.12,
-   "source": "official",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Overall",
- "leaderboard_note": "The leaderboard uses the Overall column from the main table and keeps representative tool-augmented systems and multimodal models.",
- "at_a_glance": {
-  "focus": "多模态网页浏览",
-  "primary_metric": "Overall",
-  "setting": null,
-  "models_scored": 6,
-  "data_updated": "2026-04-21"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2508.13186",
-  "code": "https://github.com/MMBrowseComp/MM-BrowseComp",
-  "pdf": "https://arxiv.org/pdf/2508.13186.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/mm-browsecomp.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/mm-browsecomp/figure-3-task-composition.png",
+      "caption": "Figure 3 (paper, PDF p. 5): Distribution of 224 questions across five categories and 22 subtasks, with per-subtask counts and prompt-image status; 57% of prompts contain images. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/mm-browsecomp/figure-4-test-time-scaling.png",
+      "caption": "Figure 4 (paper, PDF p. 10): Agent-R1 test-time scaling from 1 to 16 independent runs under best-of-N, weighted voting, and majority voting; Overall Accuracy rises while Strict Accuracy remains nearly flat. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/mm-browsecomp.svg"
 }

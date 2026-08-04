@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeEditorBench | TokenWave AI</title>
-    <meta name="description" content="CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes. Results on this page will be populated at the next TokenWave data refresh.">
+    <meta name="description" content="Execution-checked edits across debugging, translation, optimization, and changing requirements.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="CodeEditorBench | TokenWave AI">
-    <meta property="og:description" content="CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes. Results on this page will be populated at the next TokenWave data refresh.">
+    <meta property="og:description" content="Execution-checked edits across debugging, translation, optimization, and changing requirements.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/codeeditorbench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CodeEditorBench | TokenWave AI">
-    <meta name="twitter:description" content="CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes. Results on this page will be populated at the next TokenWave data refresh.">
+    <meta name="twitter:description" content="Execution-checked edits across debugging, translation, optimization, and changing requirements.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/codeeditorbench.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,58 +47,108 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/codeeditorbench.svg');" role="img" aria-label="CodeEditorBench"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/codeeditorbench.svg');" role="img" aria-label="CodeEditorBench — led by GPT-4 at 0.855"></div>
         <div class="detail-head">
             <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#programmer">Programmer</a> · Code Editing</div>
             <h1>CodeEditorBench</h1>
+            <p class="detail-tagline">Execution-checked edits across debugging, translation, optimization, and changing requirements.</p>
             <p class="detail-meta">
+                Benchmark paper
+                <span class="sep">·</span>
+                <span class="lead">Leader &mdash; GPT-4 · 0.855</span>
+                <span class="sep">·</span>
                 Code Editing
                 <span class="sep">·</span>
-                updated 2026-08-03
+                updated 2025-04-08
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2404.03543" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/CodeEditorBench/CodeEditorBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2404.03543.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2404.03543" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/CodeEditorBench/CodeEditorBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">7,961</div><div class="l">editing tasks</div></div>
+        <div class="stat-tile"><div class="v">44</div><div class="l">tests per task on average</div></div>
+        <div class="stat-tile"><div class="v">4</div><div class="l">editing scenarios</div></div>
+        <div class="stat-tile"><div class="v">0.855</div><div class="l">top Plus zero-shot Win Rate</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
-        <h2 id="abstract">Abstract</h2>
-        <p>CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes. Results on this page will be populated at the next TokenWave data refresh.</p>
+        <h2 id="overview">Overview</h2>
+        <p>CodeEditorBench starts from an observation that code generation benchmarks miss much of day-to-day maintenance. A model may need to repair a faulty program, translate working logic into another language, make an implementation faster without changing its behavior, or adapt existing code after the requirement changes. The benchmark turns those four situations into 7,961 execution-checked tasks in C++, Java, and Python.</p>
+        <p>The tasks are sourced from LeetCode, CodeContests, CodeXGLUE, CodeNet, and TACO. They carry an average of 44 tests, with no task having fewer than eight and some having as many as 446. Missing and boundary inputs are supplemented with GPT-4, GLM-4, and Qwen-72B-Chat, but expected outputs come from executing the reference program. Generated edits are cleaned, placed into language-specific templates, compiled, and run in a Dockerized online judge.</p>
+        <p>The paper distinguishes the original Primary split from CodeEditorBench_Plus, which applies timestamp filtering to reduce contamination. Table 1 reports both values in each cell: Plus outside parentheses and Primary inside. TokenWave uses only the Plus, zero-shot, greedy-decoding Win Rate so every displayed model shares the same split, prompting regime, decoding strategy, and rank aggregation.</p>
+
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>Editing exposes constraints that a fresh-generation prompt can avoid. The answer must preserve behavior that is still correct, satisfy a target language or changed specification, fit an existing I/O wrapper, and survive a larger test suite. For polishing, functional correctness is only the entry condition; the edit must also reduce measured runtime or memory. These requirements make a high score evidence of controlled modification rather than code-shaped text generation.</p>
+        <p>The Plus split matters because the paper observes differences above 0.2 between Primary and Plus pass@1 for some model-category pairs. A model can appear stronger when older source problems are familiar. Keeping the timestamp-filtered values separate makes the headline comparison less vulnerable to that effect.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>Frames code editing as its own capability, distinct from one-shot code generation.</li>
-            <li>Covers four editing scenarios — debug, translate, polish, and requirement switching — sourced from real submissions and curated exercises.</li>
-            <li>Provides an online judge so edited programs are executed and checked, not pattern-matched.</li>
+            <li>Defines four execution-checked code-editing scenarios—debugging, translation, polishing, and requirement switching—rather than treating editing as ordinary code completion.</li>
+            <li>Releases 7,961 tasks sourced from LeetCode, CodeContests, CodeXGLUE, CodeNet, and TACO, with an average of 44 tests and explicit difficulty, language, error-count, and relation-strength annotations.</li>
+            <li>Introduces CodeEditorBench_Plus, a timestamp-filtered split intended to reduce contamination visible in the original Primary split.</li>
+            <li>Provides a Dockerized online-judge workflow, task-specific pass criteria, zero-shot and three-shot prompts, and a rank-normalized Win Rate for comparing performance across heterogeneous editing tasks.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Tasks are drawn from multiple languages and difficulty tiers, each paired with test cases.</li>
-            <li>Models receive the original code plus an editing instruction and must return a working revision.</li>
-            <li>Evaluation executes the revised program against hidden tests in the judge environment.</li>
+            <li>Source programs longer than 800 lines or roughly 1,000 tokens are filtered out. The retained tasks cover C++, Java, and Python and are stratified by language, easy/medium/hard difficulty, injected error count, translation direction, and strong or weak requirement relation.</li>
+            <li>Debug tasks inject one to four error types. Translation and polishing examples are sampled by code complexity in a 3:4:1 ratio. Requirement-switch tasks pair closely related LeetCode problems or weakly related problems found by shared tags and BERT similarity of at least 0.92.</li>
+            <li>GPT-4, GLM-4, and Qwen-72B-Chat supplement missing and boundary test inputs; expected outputs are produced by running the reference solution in the online judge. Code templates add the headers, I/O handling, and wrappers required for local compilation.</li>
+            <li>The paper evaluates 19 models with greedy decoding in zero-shot and three-shot settings. Maximum new tokens are 1,024 for API models and 2,048 for open models; generated text is cleaned, parsed, integrated into a language template, and compiled before judging.</li>
+            <li>For Debug, Translate, and Requirement Switch, a task passes only when all tests succeed under time and memory limits. For Polish, the original runtime and memory are averaged over 20 executions; a correct generated edit is measured twice and must reduce runtime or memory to receive a non-zero optimization score.</li>
+            <li>The displayed leaderboard takes the Plus value outside parentheses from the zero-shot block of Table 1. Per-category ranks are converted to 1 − (rank − 1) / 19 and averaged to obtain Win Rate.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Pass rate</b> &mdash; Higher is better. Share of editing tasks whose revised program passes the hidden tests. Score range: [0, 100].</p>
+        <p><b>Plus zero-shot Win Rate</b> &mdash; Higher is better. Mean rank-normalized score across Debug, Translate, Switch, and Polish on CodeEditorBench_Plus; each category contributes 1 − (rank − 1) / 19. Score range: [0, 1].</p>
+        <p><b>pass@1</b> &mdash; Higher is better. Fraction of greedy model outputs that pass every online-judge test for Debug, Translate, or Requirement Switch; translation is executed in the target-language environment. Score range: [0, 1].</p>
+        <p><b>Mean OptScore</b> &mdash; Higher is better. Mean non-negative relative reduction in runtime and memory for Polish outputs that remain functionally correct; incorrect programs receive zero. Score range: [0, 1].</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Code editing, not generation</span></li>
-            <li><span class="k">Primary metric</span><span>Pass rate</span></li>
-            <li><span class="k">Displayed setting</span><span>Execution-checked editing tasks</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="leaderboard">Leaderboard</h2>
+        <p>Top six rows from Table 1 under the same setting: CodeEditorBench_Plus values (outside parentheses), zero-shot prompting, and greedy decoding. Win Rate is an average of relative category ranks, not a raw task pass percentage.</p>
+        <table class="data-table">
+            <thead>
+                <tr><th>#</th><th>Model</th><th>Plus zero-shot Win Rate</th></tr>
+            </thead>
+            <tbody>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>GPT-4</td><td class="num">0.855<span class="lb-track"><span class="lb-bar" data-w="85.5"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>OpenCI-DS-33B</td><td class="num">0.776<span class="lb-track"><span class="lb-bar" data-w="77.6"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Gemini-Ultra</td><td class="num">0.75<span class="lb-track"><span class="lb-bar" data-w="75.0"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>DS-33B-INST</td><td class="num">0.737<span class="lb-track"><span class="lb-bar" data-w="73.7"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>Gemini-Pro</td><td class="num">0.737<span class="lb-track"><span class="lb-bar" data-w="73.7"></span></span></td></tr>
+                <tr><td><span class="rank">6</span></td><td>GPT-3.5-Turbo</td><td class="num">0.724<span class="lb-track"><span class="lb-bar" data-w="72.4"></span></span></td></tr>
+            </tbody>
+        </table>
+
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>GPT-4 leads the Plus zero-shot table at 0.855. OpenCI-DS-33B is second at 0.776, a gap of 0.079, and is the strongest open model in this setting. Gemini-Ultra follows at 0.750. DS-33B-INST and Gemini-Pro tie at 0.737, while GPT-3.5-Turbo closes the displayed top six at 0.724.</p>
+        <p>Win Rate is not the fraction of all 7,961 tasks solved. Each model is ranked separately on Debug, Translate, Switch, and Polish; a rank is converted to 1 − (rank − 1) / 19, then the four values are averaged. GPT-4&#x27;s 0.855 therefore means consistently strong relative placement across task types, while a model with one exceptional specialty and several weak categories can rank lower despite a comparable raw pass rate in that specialty.</p>
+        <p>The category distribution explains why one aggregate is not enough. Across model outputs on Plus, requirement switching has an 11.18% pass rate, debugging is about 20%, and translation about 30%. For polishing, 37.47% of outputs remain functionally correct, but only 19.23% both pass the tests and improve runtime or memory. The benchmark&#x27;s hardest failures are thus not confined to syntax: preserving intent under a changed requirement and producing a real optimization remain uncommon.</p>
+
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/codeeditorbench/figure-1-overview.png" alt="Figure 1 (PDF p. 2): End-to-end benchmark flow from five source datasets and generated test cases through prompt construction, code extraction, template integration, compilation, and online-judge scoring. Source: paper." loading="lazy">
+            <figcaption>Figure 1 (PDF p. 2): End-to-end benchmark flow from five source datasets and generated test cases through prompt construction, code extraction, template integration, compilation, and online-judge scoring. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/codeeditorbench/figure-4-pass-rate-distribution.png" alt="Figure 4 (PDF p. 9): Distribution of model pass rates on CodeEditorBench_Plus, showing translation as the strongest category on average and requirement switching as the weakest. Source: paper." loading="lazy">
+            <figcaption>Figure 4 (PDF p. 9): Distribution of model pass rates on CodeEditorBench_Plus, showing translation as the strongest category on average and requirement switching as the weakest. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#programmer">&larr; Back to Programmer</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
-        <a href="#abstract">Abstract</a>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -130,7 +180,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -139,7 +189,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -159,7 +208,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

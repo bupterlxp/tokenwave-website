@@ -1,21 +1,35 @@
 {
- "slug": "worldtravel",
- "tagline": "Travel planning as a feasibility test: multimodal agents against interlocking real-world constraints",
- "stats": [
-  {"value": "4", "label": "constraint types"},
-  {"value": "19.33", "label": "top score (Feasibility Rate)"},
-  {"value": "6", "label": "models scored"},
-  {"value": "16.7", "label": "score spread"}
- ],
- "overview": [
-  "WorldTravel asks a simple question of multimodal agents: if a traveler followed the plan this model produced, would the day actually work? Each task couples planning to real-world scheduling rules — time slots, reservation requirements, dwell times, opening windows — and the constraints interlock, so an agent cannot adjust one leg of an itinerary without disturbing the others. The information required to satisfy them is multimodal, and this page scores the multimodal setting only.",
-  "Performance is reported as a Feasibility Rate: the share of plans, on a 0–100 scale, that satisfy every constraint at once. There is no partial credit for an itinerary that reads well but violates a single opening window or reservation rule. Framing quality as feasibility rather than fluency is the benchmark's central design choice, and the headline result justifies it — even leading models produce feasible plans only a small fraction of the time."
- ],
- "why": [
-  "Travel planning is a stand-in for a broad class of agent work: tasks where correctness is defined by external constraints, not by how plausible the output sounds. A feasibility metric is hard to flatter. Because the constraints are coupled, models that pattern-match itineraries rather than reason over schedules fail in ways a text-quality score would hide — and the same coupling appears in logistics, scheduling, and any deployment where a plan must actually execute."
- ],
- "reading": [
-  "GPT-5.2 leads at 19.33, still under a fifth of the 0–100 range, with Claude Opus 4.5 second at 14 and Gemini 3 Pro a further six points back at 8. Doubao-1.8-Pro takes 4, and GPT-5.1 and Claude Sonnet 4.5 share the floor at 2.67. That is a 16.7-point spread, but the more important number is the ceiling: no model on the board produces a feasible plan even one time in five.",
-  "The most telling gap sits inside a single lab: GPT-5.1 scores 2.67 and GPT-5.2 scores 19.33, a sevenfold jump between successive generations. Feasibility under coupled constraints looks less like a capability the field is converging on and more like one that arrives abruptly — and even after that jump, roughly four plans in five from the best model still fail."
- ]
+  "slug": "worldtravel",
+  "tagline": "Itineraries checked for executable temporal feasibility after agents recover constraints from rendered travel pages",
+  "stats": [
+    {
+      "value": "150",
+      "label": "travel scenarios"
+    },
+    {
+      "value": "2,003",
+      "label": "rendered webpages"
+    },
+    {
+      "value": "15+",
+      "label": "constraints per task on average"
+    },
+    {
+      "value": "19.33",
+      "label": "top multimodal feasibility"
+    }
+  ],
+  "overview": [
+    "WorldTravel treats itinerary generation as a constrained scheduling problem rather than a prose task. The benchmark contains 150 scenarios, with 30 each in Berlin, Vienna, Rome, Barcelona, and Florence. Each task requires coordinating between 10 and 23 hard and soft constraints, more than 15 on average, and up to five temporal anchors such as timed museum entries, performances, or restaurant reservations. A single invalid slot, closure conflict, short dwell time, or missed travel buffer makes the full itinerary infeasible.",
+    "WorldTravel-Webscape supplies the information through 2,003 rendered webpages covering 36 attractions, 25 restaurants, 26 hotels, booking systems, menus, guides, and transportation matrices. Eight environment APIs return screenshots rather than JSON records. Relevant facts are distributed across page types and visual states—such as a grayed-out sold-out slot—so the agent must retrieve, perceive, and reconcile parameters before planning.",
+    "Evaluation is executable and decomposed. Feasibility Rate requires every hard temporal check to pass. Constraint Violation measures the fraction of hard constraints missed even when the complete plan fails. Optimality given Feasible evaluates cost calculations and preference choices only among feasible itineraries. The main table includes both text and multimodal conditions; this page keeps the seven multimodal rows together because they share the screenshot-returning environment."
+  ],
+  "why": [
+    "Travel planning exposes two independent failure surfaces. An agent can misread the environment—confusing availability, hours, prices, or dwell-time guidance—or it can extract every parameter and still fail to coordinate them globally. The paired text and screenshot settings estimate the first gap, while the Gold-parameter ablation shows that perfect access does not remove the second.",
+    "The all-hard-constraints definition avoids the common problem of fluent but unusable plans receiving high quality scores. It also generalizes beyond travel: production scheduling, logistics, appointment coordination, and resource allocation all share the property that local choices consume options downstream and one violated temporal boundary can invalidate the whole output."
+  ],
+  "reading": [
+    "GPT-5.2 leads multimodal Feasibility Rate at 19.33%, followed by Claude Opus 4.5 at 14.00% and Gemini 3 Pro at 8.00%. Doubao-1.8-Pro reaches 4.00%; GPT-5.1 and Claude Sonnet 4.5 tie at 2.67%; Gemini 2.5 Pro records 1.33%. These are full-task pass rates, so a system can satisfy many individual constraints and still receive zero feasibility on a scenario.",
+    "The paired settings quantify the perception cost. GPT-5.2 falls from 32.67% with text-extracted parameters to 19.33% from screenshots, while Claude Opus 4.5 falls from 21.33% to 14.00% and Gemini 3 Pro from 14.67% to 8.00%. Planning remains a separate bottleneck: across text models, average feasibility drops from 36.3% at 6–7 hard constraints to 18.3% at 8–9, 3.4% at 10–11, and 3.1% at 12 or more. Timed-entry and operating-window constraints average only 27% satisfaction in text and 16% in vision."
+  ]
 }

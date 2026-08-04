@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ouro | TokenWave AI</title>
-    <meta name="description" content="Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens. The 1.4B and 2.6B models match standard LLMs sev">
+    <meta name="description" content="Ouro is a family of 1.4B- and 2.6B-parameter foundation models built with a looped decoder architecture, not an evaluation benchmark. A shared stack of Transformer layers is applied repeatedly so recurrent depth adds latent computation without adding">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Ouro | TokenWave AI">
-    <meta property="og:description" content="Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens. The 1.4B and 2.6B models match standard LLMs sev">
+    <meta property="og:description" content="Ouro is a family of 1.4B- and 2.6B-parameter foundation models built with a looped decoder architecture, not an evaluation benchmark. A shared stack of Transformer layers is applied repeatedly so recurrent depth adds latent computation without adding">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/ouro.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ouro | TokenWave AI">
-    <meta name="twitter:description" content="Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens. The 1.4B and 2.6B models match standard LLMs sev">
+    <meta name="twitter:description" content="Ouro is a family of 1.4B- and 2.6B-parameter foundation models built with a looped decoder architecture, not an evaluation benchmark. A shared stack of Transformer layers is applied repeatedly so recurrent depth adds latent computation without adding">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/ouro.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -49,46 +49,58 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/ouro.svg');" role="img" aria-label="Ouro"></div>
         <div class="detail-head">
-            <div class="eyebrow">Research · Pretraining</div>
+            <div class="eyebrow">Research · Foundation Model Architecture</div>
             <h1>Ouro</h1>
             <p class="detail-meta">
-                Pretraining
+                Model paper
                 <span class="sep">·</span>
-                updated 2026-08-03
+                Foundation Model Architecture
+                <span class="sep">·</span>
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2510.25741" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://ouro-llm.github.io" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2510.25741.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2510.25741" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://ouro-llm.github.io" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="abstract">Abstract</h2>
-        <p>Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens. The 1.4B and 2.6B models match standard LLMs several times their size, establishing loop depth as a third scaling axis beyond parameters and data.</p>
+        <p>Ouro is a family of 1.4B- and 2.6B-parameter foundation models built with a looped decoder architecture, not an evaluation benchmark. A shared stack of Transformer layers is applied repeatedly so recurrent depth adds latent computation without adding parameters or output tokens. An exit gate estimates a distribution over depths, and entropy regularization prevents training from collapsing to always using the deepest step; a second gate-only stage learns to stop when an additional loop no longer improves token loss. The base models are trained on 7.7 trillion tokens through stable pretraining, high-quality annealing, long-context training, and mid-training, then Thinking variants receive supervised reasoning tuning on 8.3 million examples. Evaluations use existing knowledge, reasoning, math, coding, safety, and trace-faithfulness tasks, with controlled synthetic studies separating factual storage from knowledge manipulation.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>Pre-trains latent reasoning directly: iterative computation in a shared layer block, an entropy-regularized objective for learned depth allocation, and 7.7T training tokens.</li>
-            <li>Ouro-2.6B outperforms dense baselines up to 8B on reasoning-heavy suites — 55.73 MMLU-Pro, 80.46 BBH, 90.85 MATH500 against Qwen3-8B-Base&#x27;s 53.72 / 77.65 / 62.30.</li>
-            <li>Controlled experiments attribute the gain to superior knowledge manipulation rather than added knowledge capacity; safety and trace faithfulness improve with recurrent depth.</li>
+            <li>Scales parameter-shared Looped Language Models to 7.7T-token foundation-model training and releases 1.4B and 2.6B base and Thinking variants trained for four recurrent steps.</li>
+            <li>Introduces an entropy-regularized expected language-modeling objective with a depth-unbiased uniform prior, followed by gate-only training that labels continuation from the measured token-loss improvement at each loop.</li>
+            <li>Documents an end-to-end open-data recipe: 6T-token stable pretraining, 1.4T-token continual-training annealing, 20B-token 64K-context training, 300B-token mid-training, and an 8.3M-example reasoning SFT stage.</li>
+            <li>Shows through controlled synthetic biographies that looping leaves knowledge storage near two bits per parameter but improves composition and multi-hop manipulation; separate experiments study recurrent-depth scaling, early exit, KV-cache reuse, safety, and reasoning-trace faithfulness.</li>
+            <li>Reports that the 2.6B R4 base model reaches 55.73 MMLU-Pro, 80.46 BBH, and 90.85 MATH500, while the 1.4B R4 model reaches 71.02 BBH, 78.92 GSM8K, and 82.40 MATH500 under the paper&#x27;s shared evaluation harness.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>A recurrent architecture applies the same block repeatedly, spending more latent compute on harder tokens instead of longer chains of thought.</li>
-            <li>Depth allocation is learned during pretraining with an entropy-regularized objective.</li>
-            <li>Thinking variants extend the family: Ouro-1.4B-Thinking competes with 4B models and Ouro-2.6B-Thinking with 8B models on math and science sets.</li>
+            <li>Each decoder model uses multi-head attention with RoPE, SwiGLU feed-forward layers, sandwich RMSNorm, and a 49,152-token vocabulary. Ouro-1.4B has 24 layers at hidden size 2048; Ouro-2.6B duplicates the stack to 48 layers while preserving the same width.</li>
+            <li>The depth-L stack is reused for up to four recurrent steps at inference. A language-model head computes next-token loss after every step, while an exit gate converts the current hidden state into a per-step halting probability and supports threshold-based early exit.</li>
+            <li>Stage-I training minimizes the exit-probability-weighted language-model loss minus an entropy term, equivalent to a KL penalty toward a uniform prior over depths. Stage II freezes the language model and tunes only the gate from observed loss improvements to penalize both underthinking and overthinking.</li>
+            <li>The 7.7T-token base recipe uses 4K sequences for two 3T-token stable phases, 16K for 1.4T-token annealing, 64K for 20B long-context tokens, and 32K for 300B mid-training tokens. Training starts with eight loops, then moves to four for stability; batch size grows from 4M to 8M tokens.</li>
+            <li>Thinking models are supervised-tuned for two epochs at 32K context on 8.3M public examples: 3.5M mathematics, 3.2M code, 808K science, and 767K chat examples. Reported RLVR attempts did not improve on this SFT checkpoint and are not presented as part of the final recipe.</li>
+            <li>Base-model comparisons use lm-eval-harness and EvalPlus on shared prompts across MMLU, MMLU-Pro, BBH, ARC, commonsense, math, and code tasks. Thinking-model tests use one in-house harness, temperature 1.0, top-p 0.7, and a fixed judging rubric on AIME, OlympiadBench, BeyondAIME, HLE, GPQA, and SuperGPQA.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Parameter efficiency</b> &mdash; Higher is better. Tracked qualitatively: matched-baseline size ratio across reasoning suites; see the paper&#x27;s controlled comparisons.</p>
+        <p><b>Task accuracy</b> &mdash; Higher is better. Percentage correct on multiple-choice and exact-answer suites such as MMLU, MMLU-Pro, BBH, ARC, GSM8K, MATH500, OlympiadBench, GPQA, and SuperGPQA under the paper&#x27;s task-specific prompting settings. Score range: [0, 100].</p>
+        <p><b>AIME pass@1 / pass@10</b> &mdash; Higher is better. Success on the 30 integer-answer questions in each AIME 2024 and AIME 2025 set, reported for one sample and at least one success among ten samples. Thinking-model decoding uses temperature 1.0 and top-p 0.7. Score range: [0, 100].</p>
+        <p><b>EvalPlus pass@1</b> &mdash; Higher is better. First-sample execution success on HumanEval, MBPP, and their stricter HumanEval+ and MBPP+ test suites, evaluated with the same pipeline used for the compared base models. Score range: [0, 100].</p>
+        <p><b>Accuracy at exit depth</b> &mdash; Higher is better. Task accuracy paired with average recurrent exit round or a fixed depth. It measures the compute–quality trade-off of static exit, hidden-state thresholds, the pretrained gate, and the separately trained adaptive gate rather than collapsing them into a single efficiency score. Score range: [0, 100].</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Looped LMs · latent reasoning</span></li>
-            <li><span class="k">Primary metric</span><span>Parameter efficiency</span></li>
-            <li><span class="k">Displayed setting</span><span>Loop depth as a scaling axis</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/ouro/figure-3-looplm-architecture.png" alt="Figure 3 (paper, PDF p. 4): LoopLM training repeatedly applies a shared layer stack, computes language-model loss and exit probability at each recurrent step, and uses the learned cumulative exit probability for early termination at inference. Source: paper." loading="lazy">
+            <figcaption>Figure 3 (paper, PDF p. 4): LoopLM training repeatedly applies a shared layer stack, computes language-model loss and exit probability at each recurrent step, and uses the learned cumulative exit probability for early termination at inference. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/ouro/table-8-base-model-results.png" alt="Table 8 (paper, PDF p. 14): Ouro-2.6B R4 compared with 3B–12B dense base models on general, mathematics, and coding tasks, including model size and reported pretraining-token count for each system. Source: paper." loading="lazy">
+            <figcaption>Table 8 (paper, PDF p. 14): Ouro-2.6B R4 compared with 3B–12B dense base models on general, mathematics, and coding tasks, including model size and reported pretraining-token count for each system. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../research.html">&larr; Back to Research</a></p>
     </div>
@@ -98,7 +110,7 @@
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -130,7 +142,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -139,7 +151,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -159,7 +170,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

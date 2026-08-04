@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SuperGPQA | TokenWave AI</title>
-    <meta name="description" content="Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.">
+    <meta name="description" content="Graduate multiple-choice evaluation across 285 subfields, with sample-weighted and taxonomy-balanced views.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="SuperGPQA | TokenWave AI">
-    <meta property="og:description" content="Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.">
+    <meta property="og:description" content="Graduate multiple-choice evaluation across 285 subfields, with sample-weighted and taxonomy-balanced views.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/supergpqa.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SuperGPQA | TokenWave AI">
-    <meta name="twitter:description" content="Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.">
+    <meta name="twitter:description" content="Graduate multiple-choice evaluation across 285 subfields, with sample-weighted and taxonomy-balanced views.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/supergpqa.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -49,88 +49,96 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/supergpqa.svg');" role="img" aria-label="SuperGPQA — led by DeepSeek-R1 at 61.82"></div>
         <div class="detail-head">
-            <div class="eyebrow">Research · Knowledge</div>
+            <div class="eyebrow">Research · Graduate Knowledge</div>
             <h1>SuperGPQA</h1>
-            <p class="detail-tagline">Graduate-level knowledge and reasoning tested across 285 disciplines, far beyond the usual STEM shortlist.</p>
+            <p class="detail-tagline">Graduate multiple-choice evaluation across 285 subfields, with sample-weighted and taxonomy-balanced views.</p>
             <p class="detail-meta">
+                Benchmark paper
+                <span class="sep">·</span>
                 <span class="lead">Leader &mdash; DeepSeek-R1 · 61.82</span>
                 <span class="sep">·</span>
-                Knowledge
+                Graduate Knowledge
                 <span class="sep">·</span>
-                updated 2026-04-15
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2502.14739" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://arxiv.org/pdf/2502.14739.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2502.14739" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://supergpqa.github.io/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">285</div><div class="l">graduate disciplines</div></div>
-        <div class="stat-tile"><div class="v">61.82</div><div class="l">top score (Overall (sample))</div></div>
-        <div class="stat-tile"><div class="v">10</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">21.1</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">26,529</div><div class="l">questions</div></div>
+        <div class="stat-tile"><div class="v">285</div><div class="l">graduate subfields</div></div>
+        <div class="stat-tile"><div class="v">9.67</div><div class="l">average answer options</div></div>
+        <div class="stat-tile"><div class="v">61.82</div><div class="l">top sample accuracy</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="overview">Overview</h2>
-        <p>Most knowledge benchmarks sample from the same short list of mainstream subjects, which by now says less about breadth than about familiarity. SuperGPQA takes the opposite bet: it evaluates knowledge and reasoning across 285 graduate-level disciplines, deliberately reaching into the long tail of professional expertise. The goal is coverage of a much wider slice of what humans actually study and practice, not another pass over the fields where models are already well drilled.</p>
-        <p>Breadth at this scale creates a quality problem, and the construction pipeline is built around it. Questions pass through Human-LLM collaborative filtering that removes trivial or ambiguous items, backed by a large expert annotation effort. The paper treats this process as a contribution in its own right — a methodology for organizing and managing benchmark construction at the level of hundreds of disciplines, where no single annotation team can cover the ground alone.</p>
-        <p>Scoring is sample-level accuracy on a 0-100 scale, reported here as Overall (sample). The paper also breaks results out by subfield, field, and discipline, but this page keeps to the overall number because it maps most directly onto total accuracy: every question counts once, regardless of how crowded or sparse its discipline is. That choice makes the headline score easy to interpret while the finer-grained cuts remain in the paper.</p>
+        <p>SuperGPQA is a 26,529-question multiple-choice benchmark organized into 13 disciplines, 72 fields, and 285 graduate subfields. Every subfield contributes at least 50 questions, and the average item has 9.67 options rather than the conventional four. The benchmark includes long-tail areas such as agriculture, military science, light-industry engineering, and service-oriented disciplines alongside science, engineering, and medicine; 42.33% of all questions require calculation or formal reasoning.</p>
+        <p>Construction is a staged human–LLM process. Expert annotators first collect questions and solutions from credible sources. Crowd annotators translate, convert non-choice problems, standardize complex statement-selection items, and generate distractors. Rule checks validate the schema, multiple contemporary models flag suspicious or low-discrimination questions, and experts then solve and revise flagged items with unrestricted web access. The paper reports more than 80 expert annotators and more than 30 minutes of review per suspicious candidate in post-annotation interviews.</p>
+        <p>Question counts are intentionally not uniform: Science, Engineering, and Medicine make up 77.2% of samples because more items in those areas survived the difficulty and quality filters. SuperGPQA therefore reports four overall views. Overall (sample) treats every question equally, while Overall (subfield), Overall (field), and Overall (discipline) average equally within the corresponding taxonomy level. This page ranks the zero-shot reasoning and chat models by the first metric and keeps the macro scores separate.</p>
 
         <h2 id="why-it-matters">Why it matters</h2>
-        <p>Knowledge evaluation has mostly meant a rotation of familiar subjects, which rewards depth in well-trodden fields and says little about the rest. SuperGPQA&#x27;s design closes that loophole: with 285 graduate-level disciplines in play, a high overall score has to be earned across long-tail professional domains, not just the areas every benchmark already covers.</p>
-        <p>The filtering pipeline matters as much as the breadth. Because trivial and ambiguous questions are removed before scoring, movement on this leaderboard is harder to attribute to pattern-matching or lucky guessing. And the headline finding — that even the strongest current models leave substantial room for improvement — is exactly the kind of signal deployment decisions in specialized settings should rest on.</p>
+        <p>Broad subject labels can hide narrow coverage. A model may look strong on &#x27;science&#x27; while failing specialized optics, metallurgy, veterinary medicine, or transportation engineering. The 285-subfield taxonomy allows failures to be localized at the level where professional use actually occurs, while the minimum question count preserves enough samples for each subfield to be measured.</p>
+        <p>The multiple aggregation levels prevent one leaderboard number from silently inheriting the dataset&#x27;s STEM concentration. Sample accuracy is useful for the full released question pool; discipline-macro accuracy asks whether performance is balanced across thirteen top-level areas. Comparing the two reveals whether a system&#x27;s gains come from the largest categories or transfer to the long tail.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>The benchmark extends far beyond common STEM areas to 285 graduate-level disciplines.</li>
-            <li>The page uses the sample-level overall because it maps most directly to total accuracy.</li>
+            <li>Builds a 26,529-question graduate benchmark spanning 13 disciplines, 72 fields, and 285 subfields, with at least 50 questions per subfield and an average of 9.67 answer options.</li>
+            <li>Develops a large-scale human–LLM construction workflow covering expert source screening, translation and multiple-choice conversion, distractor generation, plagiarism checks, and rule/model/expert quality inspection.</li>
+            <li>Reports sample-weighted and macro-averaged accuracy at three taxonomy levels, plus Easy, Middle, and Hard splits, so performance is not represented only by the STEM-heavy sample distribution.</li>
+            <li>Evaluates reasoning, chat, instruct, and base models under disclosed zero-shot or five-shot protocols and analyzes prompt robustness, subfield cues, scaling, difficulty profiles, and disciplinary discrimination.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>SuperGPQA expands LLM knowledge evaluation from a handful of mainstream subjects to 285 graduate-level disciplines, aiming to cover a much broader slice of human expertise.</li>
-            <li>It uses a Human-LLM collaborative filtering pipeline to remove trivial or ambiguous questions, together with a large expert annotation process to maintain quality.</li>
-            <li>The reported results show that even the strongest current models still have substantial room for improvement across diverse and long-tail professional domains.</li>
-            <li>Beyond the leaderboard itself, the work also offers a methodology for organizing and managing large-scale discipline-level benchmark construction.</li>
+            <li>Expert annotators collect questions and solutions from credible sources; crowd annotators translate non-English material, convert open questions to multiple choice, standardize statement-combination items, and add plausible distractors.</li>
+            <li>Rule checks validate formatting, options, answers, difficulty, and taxonomy fields. Seven contemporary LLMs flag invalid, ambiguous, trivial, multimodal, incomplete, or low-discrimination items for unrestricted expert review, which averages more than 30 minutes per suspicious question.</li>
+            <li>The final 26,529 items cover 285 subfields with at least 50 each. Science, Engineering, and Medicine contribute 77.2% of samples, so the paper reports both sample-weighted accuracy and unweighted averages across subfields, fields, and disciplines.</li>
+            <li>Reasoning and chat models are evaluated zero-shot; base models use a five-shot protocol following MMLU-Pro. Temperature is 0, maximum generation is 32k tokens for reasoning models and 4k for all other models.</li>
+            <li>Exact-match multiple-choice accuracy is computed overall and by Easy, Middle, and Hard labels. Additional experiments vary the presence of subfield names and evaluate Qwen2.5 models under 24 semantically equivalent prompt formats.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Overall (sample)</b> &mdash; Higher is better. Overall sample-level accuracy. Score range: [0, 100].</p>
+        <p><b>Overall (sample)</b> &mdash; Higher is better. Micro-averaged multiple-choice accuracy across all 26,529 questions; this is the metric used by the leaderboard. Score range: [0, 100].</p>
+        <p><b>Overall (subfield)</b> &mdash; Higher is better. Unweighted mean of the 285 subfield accuracies, reducing the influence of subfields with more questions. Score range: [0, 100].</p>
+        <p><b>Overall (field)</b> &mdash; Higher is better. Unweighted mean accuracy across 72 fields. Score range: [0, 100].</p>
+        <p><b>Overall (discipline)</b> &mdash; Higher is better. Unweighted mean accuracy across 13 top-level disciplines, the broadest macro-balanced view. Score range: [0, 100].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>The primary leaderboard uses Overall (sample). The paper also reports subfield, field, and discipline-level results, which are not mixed here.</p>
+        <p>The ranking uses sample-weighted accuracy from the paper&#x27;s zero-shot reasoning and chat-model setting. Five-shot base-model rows are not mixed into this table; macro subfield, field, and discipline scores remain available as separate metrics.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Overall (sample)</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall (sample)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>DeepSeek-R1</td><td class="num">61.82<span class="lb-track"><span class="lb-bar" data-w="61.8"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>o1</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>o3-mini</td><td class="num">55.22<span class="lb-track"><span class="lb-bar" data-w="55.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Doubao-1.5-Pro</td><td class="num">55.09<span class="lb-track"><span class="lb-bar" data-w="55.1"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>Qwen-Max</td><td class="num">50.08<span class="lb-track"><span class="lb-bar" data-w="50.1"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>Claude 3.5 Sonnet</td><td class="num">48.16<span class="lb-track"><span class="lb-bar" data-w="48.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">7</span></td><td>Gemini 2.0 Flash</td><td class="num">47.73<span class="lb-track"><span class="lb-bar" data-w="47.7"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">8</span></td><td>DeepSeek-V3</td><td class="num">47.4<span class="lb-track"><span class="lb-bar" data-w="47.4"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">9</span></td><td>GPT-4o</td><td class="num">44.4<span class="lb-track"><span class="lb-bar" data-w="44.4"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">10</span></td><td>Qwen2.5-72B-Instruct</td><td class="num">40.75<span class="lb-track"><span class="lb-bar" data-w="40.8"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>DeepSeek-R1</td><td class="num">61.82<span class="lb-track"><span class="lb-bar" data-w="61.8"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>o1-2024-12-17</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>DeepSeek-R1-Zero</td><td class="num">60.24<span class="lb-track"><span class="lb-bar" data-w="60.2"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>o3-mini-2025-01-31-high</td><td class="num">55.22<span class="lb-track"><span class="lb-bar" data-w="55.2"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>Doubao-1.5-Pro-32k-250115</td><td class="num">55.09<span class="lb-track"><span class="lb-bar" data-w="55.1"></span></span></td></tr>
+                <tr><td><span class="rank">6</span></td><td>o3-mini-2025-01-31-medium</td><td class="num">52.69<span class="lb-track"><span class="lb-bar" data-w="52.7"></span></span></td></tr>
+                <tr><td><span class="rank">7</span></td><td>Doubao-1.5-Pro-32k-241225</td><td class="num">50.93<span class="lb-track"><span class="lb-bar" data-w="50.9"></span></span></td></tr>
+                <tr><td><span class="rank">8</span></td><td>Qwen-Max-2025-01-25</td><td class="num">50.08<span class="lb-track"><span class="lb-bar" data-w="50.1"></span></span></td></tr>
+                <tr><td><span class="rank">9</span></td><td>Claude 3.5 Sonnet-20241022</td><td class="num">48.16<span class="lb-track"><span class="lb-bar" data-w="48.2"></span></span></td></tr>
+                <tr><td><span class="rank">10</span></td><td>o3-mini-2025-01-31-low</td><td class="num">48.03<span class="lb-track"><span class="lb-bar" data-w="48.0"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on SuperGPQA? Submit the result →</a></p>
 
         <h2 id="reading-the-results">Reading the results</h2>
-        <p>DeepSeek-R1 sits on top at 61.82, with o1 close behind at 60.24 — a gap of just 1.6 points between the two leaders. Five points below, o3-mini and Doubao-1.5-Pro are effectively tied at 55.22 and 55.09. Then comes a dense midfield: Qwen-Max, Claude 3.5 Sonnet, Gemini 2.0 Flash, and DeepSeek-V3 all land within 2.7 points of each other, between 50.08 and 47.40.</p>
-        <p>The shape of the table is as informative as the order. Ten models span 21 points, from 61.82 down to Qwen2.5-72B-Instruct at 40.75, yet even the leader answers nearly four questions in ten incorrectly — 38 points of the 0-100 range still unclaimed. On a benchmark filtered to remove trivial items, that headroom reads as a genuine knowledge gap across the long tail of disciplines, not noise waiting to be optimized away.</p>
+        <p>DeepSeek-R1 leads zero-shot sample accuracy at 61.82%. o1-2024-12-17 and DeepSeek-R1-Zero tie at 60.24%, a detail missing from the previous page. A second cluster begins with o3-mini-high at 55.22 and Doubao-1.5-Pro-250115 at 55.09, followed by o3-mini-medium at 52.69. The top ten shown here all share the zero-shot reasoning/chat protocol; the paper&#x27;s five-shot base-model results are not inserted into the same ranking.</p>
+        <p>Difficulty splits show why the overall order alone is incomplete. DeepSeek-R1 scores 63.59 on Easy, 63.63 on Middle, and 56.87 on Hard. o3-mini-high moves in the opposite direction—53.05, 56.09, and 56.16—supporting the paper&#x27;s distinction between broad professional recall and reasoning-focused behavior. Macro scores can also change the leader: DeepSeek-R1-Zero posts 60.99 at the discipline level, above DeepSeek-R1&#x27;s 59.95, despite trailing it on sample-weighted accuracy.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Cross-disciplinary graduate knowledge</span></li>
-            <li><span class="k">Primary metric</span><span>Overall (sample)</span></li>
-            <li><span class="k">Displayed setting</span><span>Main leaderboard</span></li>
-            <li><span class="k">Models scored</span><span>10</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-15</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/supergpqa/figure-2-data-collection.png" alt="Figure 2 (paper, PDF p. 6): SuperGPQA&#x27;s source-screening, transcription, and quality-inspection pipeline, including expert sourcing, distractor generation, and rule-, model-, and human-based checks. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (paper, PDF p. 6): SuperGPQA&#x27;s source-screening, transcription, and quality-inspection pipeline, including expert sourcing, distractor generation, and rule-, model-, and human-based checks. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/supergpqa/figure-7-scaling-robustness.png" alt="Figure 7 (paper, PDF p. 20): Qwen2.5 accuracy from 0.5B to 72B with and without subfield cues, and robustness across 24 semantically equivalent prompts; larger models gain more from cues and show lower prompt variance. Source: paper." loading="lazy">
+            <figcaption>Figure 7 (paper, PDF p. 20): Qwen2.5 accuracy from 0.5B to 72B with and without subfield cues, and robustness across 24 semantically equivalent prompts; larger models gain more from cues and show lower prompt variance. Source: paper.</figcaption>
+        </figure>
 
         <div class="crosslink">
             <div>
@@ -151,7 +159,7 @@
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
         <a href="#reading-the-results">Reading the results</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -183,7 +191,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -192,7 +200,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -212,7 +219,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

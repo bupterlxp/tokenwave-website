@@ -1,0 +1,36 @@
+{
+  "slug": "formalmath",
+  "tagline": "A 5,560-statement Lean 4 test across Olympiad and undergraduate mathematics",
+  "stats": [
+    {
+      "value": "5,560",
+      "label": "verified Lean statements"
+    },
+    {
+      "value": "12",
+      "label": "expert validators"
+    },
+    {
+      "value": "72.09%",
+      "label": "final-stage preservation"
+    },
+    {
+      "value": "16.46%",
+      "label": "top full-set Pass@32"
+    }
+  ],
+  "overview": [
+    "FormalMATH expands formal theorem-proving evaluation in two directions at once. Its 5,560 Lean 4 statements are 22.8 times the size of MiniF2F's 244-problem test set, and the source mathematics ranges from high-school Olympiad problems to undergraduate integration, differentiation, multivariable calculus, algebra, and sequences. A prover receives a formal theorem statement with a proof hole and must produce code that Lean accepts.",
+    "Constructing a large benchmark is difficult because compilation checks syntax, not semantic fidelity to the original problem. The authors first train autoformalizers on 9,260 compile-checked pairs, then sample candidates from multiple models. Candidates pass through the Lean compiler, unanimous semantic review by several general-purpose LLMs, negation-based attempts to disprove the statement, and finally review by 12 Olympiad-medalist-level experts. The expert stage retains 72.09% of what reaches it and costs an average of $6.89 per statement over 22 days.",
+    "The paper evaluates two fundamentally different prover families. Single-pass systems emit a complete proof trajectory; best-first systems inspect intermediate proof states and expand candidate tactics. Because 32 complete samples are not equivalent to a 1 × 32 × 100 tactic-search budget, TokenWave's leaderboard includes only full-set single-pass Pass@32 rows. Search results remain part of the paper's analysis but do not determine rank here."
+  ],
+  "why": [
+    "Formal proof benchmarks can saturate while still covering a narrow slice of mathematics. MiniF2F concentrates on high-school algebra and number theory, while ProofNet is small and undergraduate-focused. FormalMATH's size and split domain structure make it harder for a prover to hide a training bias behind one aggregate success rate.",
+    "The construction pipeline is also part of the benchmark's value. A compiling but mistranslated theorem makes proof generation easier or tests the wrong claim. Multi-model semantic checks, attempted disproof, and expert review are defenses against that silent failure, and the reported preservation funnel makes the cost of each defense inspectable."
+  ],
+  "reading": [
+    "Kimina-Prover-7B leads the directly comparable full-set single-pass setting at 16.46% Pass@32. STP-Lean scores 13.87% and Goedel-Prover 13.53%, only 0.34 points apart. Kimina's margin over second place is 2.59 points, but the more consequential observation is that the strongest prover fails to find any accepted proof for more than five out of six statements even after 32 samples.",
+    "DeepSeek-Prover-V1.5-RL reaches 10.18%, compared with 8.97% for its SFT counterpart, an absolute gain of 1.21 points. The paper contrasts that modest improvement with stronger gains from self-play and expert iteration, while cautioning that all methods operate at low absolute success rates on the full set.",
+    "The aggregate conceals large domain gaps. The paper reports Goedel-Prover at 50% on undergraduate algebra but 5.21% on calculus and 0% on discrete mathematics under its analysis setting. FormalMATH-Lite experiments also show diminishing returns: increasing STP from Pass@32 to Pass@3200 raises accuracy by only 4.58 points. More sampling helps, but it does not repair missing domain coverage or brittle formal reasoning by itself."
+  ]
+}

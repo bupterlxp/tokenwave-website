@@ -1,43 +1,76 @@
 {
- "slug": "ouro",
- "name": "Ouro",
- "domain": "llm",
- "domain_name": "Research",
- "subcategory": "Pretraining",
- "abstract": "Ouro is a family of looped language models that build reasoning into pretraining: a shared block of layers is applied iteratively in latent space, with learned depth allocation, trained on 7.7T tokens. The 1.4B and 2.6B models match standard LLMs several times their size, establishing loop depth as a third scaling axis beyond parameters and data.",
- "contributions": [
-  "Pre-trains latent reasoning directly: iterative computation in a shared layer block, an entropy-regularized objective for learned depth allocation, and 7.7T training tokens.",
-  "Ouro-2.6B outperforms dense baselines up to 8B on reasoning-heavy suites — 55.73 MMLU-Pro, 80.46 BBH, 90.85 MATH500 against Qwen3-8B-Base's 53.72 / 77.65 / 62.30.",
-  "Controlled experiments attribute the gain to superior knowledge manipulation rather than added knowledge capacity; safety and trace faithfulness improve with recurrent depth."
- ],
- "method": [
-  "A recurrent architecture applies the same block repeatedly, spending more latent compute on harder tokens instead of longer chains of thought.",
-  "Depth allocation is learned during pretraining with an entropy-regularized objective.",
-  "Thinking variants extend the family: Ouro-1.4B-Thinking competes with 4B models and Ouro-2.6B-Thinking with 8B models on math and science sets."
- ],
- "metrics": [
-  {
-   "name": "Parameter efficiency",
-   "direction": "higher",
-   "range": null,
-   "note": "Tracked qualitatively: matched-baseline size ratio across reasoning suites; see the paper's controlled comparisons."
-  }
- ],
- "leaderboard": [],
- "leaderboard_metric": "Parameter efficiency",
- "leaderboard_note": null,
- "links": {
-  "paper": "https://arxiv.org/abs/2510.25741",
-  "code": "https://ouro-llm.github.io",
-  "pdf": "https://arxiv.org/pdf/2510.25741.pdf"
- },
- "image": "static/images/benchmarks/ouro.svg",
- "at_a_glance": {
-  "focus": "Looped LMs · latent reasoning",
-  "primary_metric": "Parameter efficiency",
-  "setting": "Loop depth as a scaling axis",
-  "models_scored": null,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "slug": "ouro",
+  "name": "Ouro",
+  "paper_type": "model",
+  "domain": "llm",
+  "domain_name": "Research",
+  "subcategory": "Foundation Model Architecture",
+  "abstract": "Ouro is a family of 1.4B- and 2.6B-parameter foundation models built with a looped decoder architecture, not an evaluation benchmark. A shared stack of Transformer layers is applied repeatedly so recurrent depth adds latent computation without adding parameters or output tokens. An exit gate estimates a distribution over depths, and entropy regularization prevents training from collapsing to always using the deepest step; a second gate-only stage learns to stop when an additional loop no longer improves token loss. The base models are trained on 7.7 trillion tokens through stable pretraining, high-quality annealing, long-context training, and mid-training, then Thinking variants receive supervised reasoning tuning on 8.3 million examples. Evaluations use existing knowledge, reasoning, math, coding, safety, and trace-faithfulness tasks, with controlled synthetic studies separating factual storage from knowledge manipulation.",
+  "contributions": [
+    "Scales parameter-shared Looped Language Models to 7.7T-token foundation-model training and releases 1.4B and 2.6B base and Thinking variants trained for four recurrent steps.",
+    "Introduces an entropy-regularized expected language-modeling objective with a depth-unbiased uniform prior, followed by gate-only training that labels continuation from the measured token-loss improvement at each loop.",
+    "Documents an end-to-end open-data recipe: 6T-token stable pretraining, 1.4T-token continual-training annealing, 20B-token 64K-context training, 300B-token mid-training, and an 8.3M-example reasoning SFT stage.",
+    "Shows through controlled synthetic biographies that looping leaves knowledge storage near two bits per parameter but improves composition and multi-hop manipulation; separate experiments study recurrent-depth scaling, early exit, KV-cache reuse, safety, and reasoning-trace faithfulness.",
+    "Reports that the 2.6B R4 base model reaches 55.73 MMLU-Pro, 80.46 BBH, and 90.85 MATH500, while the 1.4B R4 model reaches 71.02 BBH, 78.92 GSM8K, and 82.40 MATH500 under the paper's shared evaluation harness."
+  ],
+  "method": [
+    "Each decoder model uses multi-head attention with RoPE, SwiGLU feed-forward layers, sandwich RMSNorm, and a 49,152-token vocabulary. Ouro-1.4B has 24 layers at hidden size 2048; Ouro-2.6B duplicates the stack to 48 layers while preserving the same width.",
+    "The depth-L stack is reused for up to four recurrent steps at inference. A language-model head computes next-token loss after every step, while an exit gate converts the current hidden state into a per-step halting probability and supports threshold-based early exit.",
+    "Stage-I training minimizes the exit-probability-weighted language-model loss minus an entropy term, equivalent to a KL penalty toward a uniform prior over depths. Stage II freezes the language model and tunes only the gate from observed loss improvements to penalize both underthinking and overthinking.",
+    "The 7.7T-token base recipe uses 4K sequences for two 3T-token stable phases, 16K for 1.4T-token annealing, 64K for 20B long-context tokens, and 32K for 300B mid-training tokens. Training starts with eight loops, then moves to four for stability; batch size grows from 4M to 8M tokens.",
+    "Thinking models are supervised-tuned for two epochs at 32K context on 8.3M public examples: 3.5M mathematics, 3.2M code, 808K science, and 767K chat examples. Reported RLVR attempts did not improve on this SFT checkpoint and are not presented as part of the final recipe.",
+    "Base-model comparisons use lm-eval-harness and EvalPlus on shared prompts across MMLU, MMLU-Pro, BBH, ARC, commonsense, math, and code tasks. Thinking-model tests use one in-house harness, temperature 1.0, top-p 0.7, and a fixed judging rubric on AIME, OlympiadBench, BeyondAIME, HLE, GPQA, and SuperGPQA."
+  ],
+  "metrics": [
+    {
+      "name": "Task accuracy",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage correct on multiple-choice and exact-answer suites such as MMLU, MMLU-Pro, BBH, ARC, GSM8K, MATH500, OlympiadBench, GPQA, and SuperGPQA under the paper's task-specific prompting settings."
+    },
+    {
+      "name": "AIME pass@1 / pass@10",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Success on the 30 integer-answer questions in each AIME 2024 and AIME 2025 set, reported for one sample and at least one success among ten samples. Thinking-model decoding uses temperature 1.0 and top-p 0.7."
+    },
+    {
+      "name": "EvalPlus pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "First-sample execution success on HumanEval, MBPP, and their stricter HumanEval+ and MBPP+ test suites, evaluated with the same pipeline used for the compared base models."
+    },
+    {
+      "name": "Accuracy at exit depth",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Task accuracy paired with average recurrent exit round or a fixed depth. It measures the compute–quality trade-off of static exit, hidden-state thresholds, the pretrained gate, and the separately trained adaptive gate rather than collapsing them into a single efficiency score."
+    }
+  ],
+  "leaderboard": [],
+  "leaderboard_metric": "Task accuracy",
+  "leaderboard_note": null,
+  "links": {
+    "paper": "https://arxiv.org/abs/2510.25741",
+    "code": "https://ouro-llm.github.io",
+    "pdf": "https://arxiv.org/pdf/2510.25741.pdf"
+  },
+  "image": "static/images/benchmarks/ouro.svg",
+  "at_a_glance": {
+    "focus": "Looped foundation models for latent computation",
+    "primary_metric": "Task accuracy by recurrent depth",
+    "setting": "1.4B/2.6B parameters · 7.7T tokens",
+    "models_scored": null,
+    "data_updated": "2026-08-04"
+  },
+  "figures": [
+    {
+      "image": "static/images/benchmarks/ouro/figure-3-looplm-architecture.png",
+      "caption": "Figure 3 (paper, PDF p. 4): LoopLM training repeatedly applies a shared layer stack, computes language-model loss and exit probability at each recurrent step, and uses the learned cumulative exit probability for early termination at inference. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/ouro/table-8-base-model-results.png",
+      "caption": "Table 8 (paper, PDF p. 14): Ouro-2.6B R4 compared with 3B–12B dense base models on general, mathematics, and coding tasks, including model size and reported pretraining-token count for each system. Source: paper."
+    }
+  ]
 }

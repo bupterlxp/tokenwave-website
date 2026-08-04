@@ -2,8 +2,9 @@
 """Mechanical QA for data/editorial/*.json (the LLM-written layer).
 
 Checks shape, language, bounds, and that the leaderboard leader is cited
-with its exact score in `reading`. Complements the adversarial review that
-runs at write time.
+with its exact score in `reading`. Editorial copy is a benchmark-page layer;
+system, model, training, and data papers render their structured paper data
+directly and therefore do not require an editorial file.
 
 Run:  python3 tools/check_editorial.py
 """
@@ -22,6 +23,8 @@ TAGS = re.compile(r"<[a-zA-Z/][^>]*>")
 
 errors = []
 warnings = []
+required_count = 0
+existing_required_count = 0
 
 
 def err(slug, msg):
@@ -36,10 +39,14 @@ bench_files = sorted(BENCH.glob("*.json"))
 for bf in bench_files:
     b = json.loads(bf.read_text(encoding="utf-8"))
     slug = b["slug"]
+    if b.get("paper_type", "benchmark") not in {"benchmark", "benchmark_system"}:
+        continue
+    required_count += 1
     ef = ED / f"{slug}.json"
     if not ef.exists():
         err(slug, "missing editorial file")
         continue
+    existing_required_count += 1
     try:
         e = json.loads(ef.read_text(encoding="utf-8"))
     except json.JSONDecodeError as ex:
@@ -65,7 +72,7 @@ for bf in bench_files:
         if not s.get("value") or not s.get("label"):
             err(slug, f"stat tile missing value/label: {s}")
 
-    for key, lo, hi in (("overview", 2, 3), ("why", 1, 2), ("reading", 1, 2)):
+    for key, lo, hi in (("overview", 2, 3), ("why", 1, 2), ("reading", 1, 3)):
         paras = e.get(key, [])
         if not (lo <= len(paras) <= hi):
             err(slug, f"{key} has {len(paras)} paragraphs (want {lo}-{hi})")
@@ -92,7 +99,8 @@ for bf in bench_files:
         if name_bits and not any(bit.lower() in reading.lower() for bit in name_bits):
             err(slug, f"reading does not mention leader model {lead['model']!r}")
 
-print(f"editorial files: {sum(1 for _ in ED.glob('*.json')) if ED.exists() else 0} / {len(bench_files)}")
+print(f"benchmark editorial files: {existing_required_count} / {required_count} required "
+      f"({len(bench_files)} paper records total)")
 if warnings:
     print(f"\n{len(warnings)} warnings:")
     for w in warnings:

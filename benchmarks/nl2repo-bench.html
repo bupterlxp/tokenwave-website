@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NL2Repo-Bench | TokenWave AI</title>
-    <meta name="description" content="Whether a coding agent can turn a natural-language brief into a complete working repository.">
+    <meta name="description" content="Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="NL2Repo-Bench | TokenWave AI">
-    <meta property="og:description" content="Whether a coding agent can turn a natural-language brief into a complete working repository.">
+    <meta property="og:description" content="Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/nl2repo-bench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NL2Repo-Bench | TokenWave AI">
-    <meta name="twitter:description" content="Whether a coding agent can turn a natural-language brief into a complete working repository.">
+    <meta name="twitter:description" content="Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/nl2repo-bench.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -49,75 +49,97 @@
     <div class="detail-hero">
         <div class="detail-image" style="background-image: url('../static/images/benchmarks/nl2repo-bench.svg');" role="img" aria-label="NL2Repo-Bench — led by Claude Sonnet 4.5 (Claude Code) at 40.2"></div>
         <div class="detail-head">
-            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#programmer">Programmer</a> · Code Agent</div>
+            <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#programmer">Programmer</a> · Repository Generation</div>
             <h1>NL2Repo-Bench</h1>
-            <p class="detail-tagline">Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
+            <p class="detail-tagline">Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite.</p>
             <p class="detail-meta">
+                Benchmark paper
+                <span class="sep">·</span>
                 <span class="lead">Leader &mdash; Claude Sonnet 4.5 (Claude Code) · 40.2</span>
                 <span class="sep">·</span>
-                Code Agent
+                Repository Generation
                 <span class="sep">·</span>
-                updated 2026-04-21
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.12730" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/NL2RepoBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2512.12730.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2512.12730" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/multimodal-art-projection/NL2RepoBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
     </div>
 
     <div class="stat-grid">
-        <div class="stat-tile"><div class="v">4</div><div class="l">task domains</div></div>
-        <div class="stat-tile"><div class="v">40.2</div><div class="l">top score (Overall Score)</div></div>
-        <div class="stat-tile"><div class="v">6</div><div class="l">models scored</div></div>
-        <div class="stat-tile"><div class="v">12.6</div><div class="l">score spread</div></div>
+        <div class="stat-tile"><div class="v">104</div><div class="l">repository tasks</div></div>
+        <div class="stat-tile"><div class="v">9</div><div class="l">library categories</div></div>
+        <div class="stat-tile"><div class="v">18.8k</div><div class="l">average input tokens</div></div>
+        <div class="stat-tile"><div class="v">40.2</div><div class="l">top average test pass rate</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
         <h2 id="overview">Overview</h2>
-        <p>Most code benchmarks hand a model a file and ask for the missing piece. NL2Repo-Bench asks for the whole project: given natural-language requirements, the system must generate a complete repository, end to end. The shift matters because repository generation is a long-horizon task — architecture decisions made early either hold up or quietly poison everything built on top of them.</p>
-        <p>Tasks span four domains — web development, testing, utility libraries, and machine learning — and difficulty is stratified by repository scale, so the benchmark separates systems that can scaffold a small tool from those that can sustain coherence across a larger codebase. Performance rolls up into a single Overall Score on a 0-100 scale, taken directly from the paper&#x27;s main results table.</p>
-        <p>The headline finding is blunt: even the strongest coding systems remain far from reliable completion on long-horizon repository generation. Across the metric&#x27;s 0-100 range, no evaluated model reaches 41 — a reminder that fluent generation at the function level does not yet translate into dependable delivery at the repository level, where early mistakes compound instead of staying contained.</p>
+        <p>NL2Repo-Bench starts where function completion and repository repair benchmarks stop. An agent receives one natural-language document and an otherwise empty workspace, then must choose an architecture, create every file, manage dependencies, implement cross-module behavior, and package an installable Python library. No source code, scaffold, or test case is visible during the main evaluation. The resulting repository is installed in a controlled image and checked against the original project&#x27;s upstream pytest suite.</p>
+        <p>The 104 tasks cover nine categories: web development, testing, utility libraries, machine learning, data analysis and processing, database interaction, networking, batch file processing, and system tools. Input documents average approximately 18,800 tokens. Difficulty is based on original source size: 26 Easy repositories at no more than 1,500 LOC, 46 Medium at 1,500–4,000 LOC, and 32 Hard at 4,000 LOC or more. Candidate repositories had to be recent, have at least ten stars, and pass their own tests before inclusion.</p>
+        <p>Specifications are produced through reverse engineering rather than free-form summarization. An AST scanner inventories functions, classes, signatures, and locations; annotators describe the project, environment, file structure, API behavior, and critical implementation nodes; static checks compare the document with the inventory. Preliminary agent failures are then reviewed by a senior Python engineer so omissions in the document or container can be repaired instead of being counted as model failures.</p>
 
         <h2 id="why-it-matters">Why it matters</h2>
-        <p>Anyone hiring an agent to build software is buying a repository, not a diff. NL2Repo-Bench measures that delivery gap directly: whether a system can hold a requirements brief in view across the many dependent decisions a full project demands, in domains as different as web development and machine learning. And because difficulty is stratified by repository scale, the benchmark can show where coherence gives out — not just that it does.</p>
+        <p>Repository generation compounds errors across time and files. A plausible parser implementation can still break a grader, packaging can invalidate otherwise correct modules, and an early architectural choice can make later behavior impossible to reconcile. Averaging hidden test outcomes captures partial functional progress, while the complete-suite Pass@1 count shows whether that progress ever becomes a deliverable repository.</p>
+        <p>The benchmark also makes the information boundary explicit. When the paper reveals all hidden tests to Claude Sonnet 4.5 in Claude Code, average pass rate rises from 40.2% to 59.4% and fully passed repositories increase from 3 to 18. The remaining forty-point gap under that deliberately easier condition suggests that missing requirements are only part of the problem; coordination and large-scale implementation remain limiting.</p>
+
+        <h2 id="contributions">Contributions</h2>
+        <ul>
+            <li>Formalizes from-scratch repository generation from a single requirements document: the agent receives no scaffolding, function signatures outside the document, source files, or visible tests.</li>
+            <li>Builds 104 quality-controlled Python-library tasks across nine categories, with specifications averaging 18,800 tokens and difficulty splits based on original repository size.</li>
+            <li>Pairs each task with a verified Docker image and the unmodified upstream pytest behavior, yielding execution-based evaluation rather than an LLM or qualitative judge.</li>
+            <li>Benchmarks twelve model-framework configurations and analyzes long-horizon failure modes including early stopping, non-finish behavior, tool-use allocation, context pressure, and iteration limits.</li>
+        </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>This work shifts evaluation from local code completion to full repository-level software generation.</li>
-            <li>It builds tasks across web development, testing, utility libraries, and machine learning, with difficulty stratified by repository scale.</li>
-            <li>The main results show that even leading coding systems remain far from reliable completion on long-horizon repository generation.</li>
+            <li>Candidate repositories must contain 300–120,000 lines of code, have at least 10 GitHub stars, have been created or updated within three years, include pytest tests, and pass their full native suite in the curated environment.</li>
+            <li>Annotators reverse-engineer each repository into a four-part document: Project Description, Supports, API Usage Guide, and Implementation Nodes. An AST scanner inventories classes, functions, signatures, and locations to check specification coverage.</li>
+            <li>Human experts review signatures and behavior, static checks compare documented APIs with the source inventory, and preliminary agent runs are inspected by a senior Python engineer to remove specification or environment faults.</li>
+            <li>At evaluation time the workspace contains only the task document. The agent may use its available tools without human follow-up or a fixed iteration cap, then submits a package that is installed inside the task&#x27;s controlled test image.</li>
+            <li>The hidden upstream pytest suite executes all collectable cases even when some collection errors occur. Per-task test pass rate is averaged over 104 tasks; a separate Pass@1 count records tasks for which every test passes.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Overall Score</b> &mdash; Higher is better. Overall repository-generation score reported in the main results table. Score range: [0, 100].</p>
+        <p><b>Average Test Pass Rate</b> &mdash; Higher is better. Mean percentage of hidden upstream pytest cases passed across the 104 generated repositories; this is the paper&#x27;s Overall Score. Score range: [0, 100].</p>
+        <p><b>Repository Pass@1</b> &mdash; Higher is better. Count of repositories for which the generated package passes the complete upstream test suite in one run. Score range: [0, 104].</p>
+        <p><b>Difficulty Pass Rate</b> &mdash; Higher is better. Average test pass rate split by original project size: Easy at no more than 1,500 LOC (26 tasks), Medium at 1,500–4,000 LOC (46), and Hard at at least 4,000 LOC (32). Score range: [0, 100].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>The leaderboard uses the Overall Score (%) from the main result table without recombining difficulty or domain columns.</p>
+        <p>All rows use the same 104 specifications and hidden upstream tests. OpenHands is the default framework; Claude Code and Cursor variants are labeled explicitly. Gemini 3 Pro uses Cursor because the paper reports agent-loop errors in OpenHands.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Overall Score</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Average Test Pass Rate (%)</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4.5 (Claude Code)</td><td class="num">40.2<span class="lb-track"><span class="lb-bar" data-w="40.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">2</span></td><td>Claude Sonnet 4.5</td><td class="num">39.9<span class="lb-track"><span class="lb-bar" data-w="39.9"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">3</span></td><td>Claude Sonnet 4.5 (Cursor)</td><td class="num">39.2<span class="lb-track"><span class="lb-bar" data-w="39.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">4</span></td><td>Claude Sonnet 4</td><td class="num">37<span class="lb-track"><span class="lb-bar" data-w="37.0"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">5</span></td><td>Gemini 3 Pro (Cursor)</td><td class="num">34.2<span class="lb-track"><span class="lb-bar" data-w="34.2"></span></span></td><td>Official</td></tr>
-                <tr><td><span class="rank">6</span></td><td>DeepSeek-V3.2</td><td class="num">27.6<span class="lb-track"><span class="lb-bar" data-w="27.6"></span></span></td><td>Official</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Sonnet 4.5 (Claude Code)</td><td class="num">40.2<span class="lb-track"><span class="lb-bar" data-w="40.2"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>Claude Sonnet 4.5 (OpenHands)</td><td class="num">39.9<span class="lb-track"><span class="lb-bar" data-w="39.9"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>Claude Sonnet 4.5 (Cursor)</td><td class="num">39.2<span class="lb-track"><span class="lb-bar" data-w="39.2"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>Claude Sonnet 4 (OpenHands)</td><td class="num">37<span class="lb-track"><span class="lb-bar" data-w="37.0"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>Gemini 3 Pro (Cursor)</td><td class="num">34.2<span class="lb-track"><span class="lb-bar" data-w="34.2"></span></span></td></tr>
+                <tr><td><span class="rank">6</span></td><td>DeepSeek-V3.2 (OpenHands)</td><td class="num">27.6<span class="lb-track"><span class="lb-bar" data-w="27.6"></span></span></td></tr>
+                <tr><td><span class="rank">7</span></td><td>Kimi-K2 (OpenHands)</td><td class="num">22.7<span class="lb-track"><span class="lb-bar" data-w="22.7"></span></span></td></tr>
+                <tr><td><span class="rank">8</span></td><td>DeepSeek-V3.1 (OpenHands)</td><td class="num">22.2<span class="lb-track"><span class="lb-bar" data-w="22.2"></span></span></td></tr>
+                <tr><td><span class="rank">9</span></td><td>GPT-5 (OpenHands)</td><td class="num">21.7<span class="lb-track"><span class="lb-bar" data-w="21.7"></span></span></td></tr>
+                <tr><td><span class="rank">10</span></td><td>Qwen3-235B-Instruct (OpenHands)</td><td class="num">17.9<span class="lb-track"><span class="lb-bar" data-w="17.9"></span></span></td></tr>
+                <tr><td><span class="rank">11</span></td><td>GLM-4.6 (OpenHands)</td><td class="num">17.5<span class="lb-track"><span class="lb-bar" data-w="17.5"></span></span></td></tr>
+                <tr><td><span class="rank">12</span></td><td>Qwen3-235B-Thinking (OpenHands)</td><td class="num">13.8<span class="lb-track"><span class="lb-bar" data-w="13.8"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on NL2Repo-Bench? Submit the result →</a></p>
 
         <h2 id="reading-the-results">Reading the results</h2>
-        <p>Claude Sonnet 4.5 running inside Claude Code leads at 40.2, but the more telling number is the single point separating it from the same model in Cursor at 39.2, with the bare model at 39.9 between them. On this benchmark the harness barely moves the needle; the model does. Claude Sonnet 4, at 37, trails its successor by roughly three points, and Claude models hold the top four slots outright.</p>
-        <p>Below the Claude cluster the field spreads out: Gemini 3 Pro in Cursor sits at 34.2 and DeepSeek-V3.2 at 27.6, a 12.6-point spread from top to bottom. The more important distance is upward. With the leader at 40.2 on a 0-100 metric, nearly sixty points of the range are unclaimed — long-horizon repository generation is still mostly headroom, whoever you ask.</p>
+        <p>Claude Sonnet 4.5 occupies the top three rows across Claude Code (40.2), OpenHands (39.9), and Cursor (39.2). The one-point range supports the paper&#x27;s claim that, for this model and setup, changing the harness matters less than changing the underlying model. Claude Sonnet 4 follows at 37.0 and Gemini 3 Pro in Cursor at 34.2; DeepSeek-V3.2 is the strongest remaining OpenHands system at 27.6.</p>
+        <p>Average test pass rate and complete-repository success tell different stories. The leaderboard winner fully passes only 3 of 104 repositories, while the lower-scoring Claude Sonnet 4 fully passes 5. For the winning system, average pass rate falls from 51.8% on Easy tasks to 44.5% on Medium and 25.1% on Hard. The benchmark therefore shows widespread partial implementation but very little reliable end-to-end completion, particularly once the original codebase exceeds 4,000 lines.</p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Long-horizon repository generation</span></li>
-            <li><span class="k">Primary metric</span><span>Overall Score (%)</span></li>
-            <li><span class="k">Models scored</span><span>6</span></li>
-            <li><span class="k">Data updated</span><span>2026-04-21</span></li>
-        </ul>
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/nl2repo-bench/figure-1-task-document.png" alt="Figure 1 (paper, PDF p. 2): A task specification showing the project overview, pinned environment, expected repository structure, API usage guide, and detailed implementation nodes supplied to the agent. Source: paper." loading="lazy">
+            <figcaption>Figure 1 (paper, PDF p. 2): A task specification showing the project overview, pinned environment, expected repository structure, API usage guide, and detailed implementation nodes supplied to the agent. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/nl2repo-bench/figure-2-construction-pipeline.png" alt="Figure 2 (paper, PDF p. 5): Four-stage construction pipeline covering repository selection, reverse-engineered and AST-assisted document writing, test-image creation, and human/static/agent-based verification. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (paper, PDF p. 5): Four-stage construction pipeline covering repository selection, reverse-engineered and AST-assisted document writing, test-image creation, and human/static/agent-based verification. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#programmer">&larr; Back to Programmer</a></p>
     </div>
@@ -125,11 +147,12 @@
         <div class="toc-h">On this page</div>
         <a href="#overview">Overview</a>
         <a href="#why-it-matters">Why it matters</a>
+        <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
         <a href="#reading-the-results">Reading the results</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -161,7 +184,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -170,7 +193,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -190,7 +212,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

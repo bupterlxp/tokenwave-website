@@ -1,39 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<line x1="70" y1="76" x2="70" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
-<line x1="70" y1="250" x2="430" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
-<circle cx="270.7" cy="185.6" r="3.5" fill="#9ca3af" opacity="0.55"/>
-<circle cx="215.6" cy="193.5" r="4.1" fill="#9ca3af" opacity="0.55"/>
-<circle cx="337.9" cy="193.6" r="3.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="137.6" cy="221.6" r="4.5" fill="#9ca3af" opacity="0.55"/>
-<circle cx="398.0" cy="224.7" r="4.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="265.0" cy="164.5" r="4.1" fill="#9ca3af" opacity="0.55"/>
-<circle cx="318.4" cy="234.3" r="4.1" fill="#9ca3af" opacity="0.55"/>
-<circle cx="181.8" cy="190.5" r="3.0" fill="#9ca3af" opacity="0.55"/>
-<circle cx="265.5" cy="216.0" r="3.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="407.4" cy="210.0" r="4.4" fill="#9ca3af" opacity="0.55"/>
-<circle cx="197.0" cy="164.9" r="4.8" fill="#9ca3af" opacity="0.55"/>
-<circle cx="178.8" cy="230.7" r="5.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="330.4" cy="153.4" r="4.6" fill="#9ca3af" opacity="0.55"/>
-<circle cx="239.5" cy="223.1" r="3.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="109.0" cy="199.0" r="4.9" fill="#9ca3af" opacity="0.55"/>
-<circle cx="335.1" cy="227.1" r="4.5" fill="#9ca3af" opacity="0.55"/>
-<circle cx="153.1" cy="162.2" r="3.7" fill="#9ca3af" opacity="0.55"/>
-<circle cx="260.9" cy="236.2" r="3.0" fill="#9ca3af" opacity="0.55"/>
-<circle cx="104.6" cy="207.0" r="5.1" fill="#9ca3af" opacity="0.55"/>
-<circle cx="343.3" cy="136.8" r="4.9" fill="#9ca3af" opacity="0.55"/>
-<circle cx="305.8" cy="186.5" r="4.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="297.5" cy="157.1" r="4.9" fill="#9ca3af" opacity="0.55"/>
-<circle cx="128.9" cy="173.6" r="3.6" fill="#9ca3af" opacity="0.55"/>
-<circle cx="128.2" cy="170.0" r="4.1" fill="#9ca3af" opacity="0.55"/>
-<circle cx="173.0" cy="224.3" r="5.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="141.7" cy="221.9" r="4.0" fill="#9ca3af" opacity="0.55"/>
-<path d="M 86 220 C 180 112 320 92 414 98" stroke="#d97706" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-<circle cx="404" cy="104" r="6" fill="#d97706"/>
-<text x="404" y="88" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#d97706" font-weight="bold">frontier</text>
-<text x="250.0" y="270" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#9ca3af">problem difficulty →</text>
-<text x="66" y="66" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">solve rate</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Bilingual concept-level math reasoning.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=conceptmath layout=merge -->
+<title id="title">ConceptMath benchmark illustration</title>
+<desc id="desc">Bilingual math problems mapped to a concept tree that exposes a weak concept.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#8d7cff" stop-opacity=".22"/><stop offset="1" stop-color="#8d7cff" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#8d7cff"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="226" cy="98" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">ConceptMath</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#8d7cff">LLM</text>
+<path d="M 112 112.0 L 362 184" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 112 258.0 L 362 184" fill="none" stroke="#8d7cff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="75" y="83" width="74" height="58" rx="9" fill="#101d30" stroke="#8d7cff" stroke-width="1.7"/>
+<text x="112" y="119.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#8d7cff">EN 中</text>
+<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">双语</text>
+<circle cx="87" cy="241.0" r="7" fill="#8d7cff"/>
+<path d="M 94 241.0 H 108 V 241.0 H 115" fill="none" stroke="#31435d" stroke-width="2"/>
+<rect x="115" y="234.0" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
+<path d="M 94 241.0 H 108 V 262.0 H 115" fill="none" stroke="#31435d" stroke-width="2"/>
+<rect x="115" y="255.0" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
+<path d="M 94 241.0 H 108 V 276.0 H 139" fill="none" stroke="#31435d" stroke-width="2"/>
+<rect x="139" y="269.0" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
+<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">concepts</text>
+<line x1="329" y1="208" x2="329" y2="160" stroke="#31435d" stroke-width="2"/><line x1="329" y1="208" x2="397" y2="208" stroke="#31435d" stroke-width="2"/>
+<path d="M 334 198 L 350 188 L 364 194 L 380 172 L 395 164" fill="none" stroke="#8d7cff" stroke-width="3"/>
+<circle cx="334" cy="198" r="3" fill="#8d7cff"/>
+<circle cx="350" cy="188" r="3" fill="#8d7cff"/>
+<circle cx="364" cy="194" r="3" fill="#8d7cff"/>
+<circle cx="380" cy="172" r="3" fill="#8d7cff"/>
+<circle cx="395" cy="164" r="3" fill="#8d7cff"/>
+<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">weak spot</text>
 </svg>

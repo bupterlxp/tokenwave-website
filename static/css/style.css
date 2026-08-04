@@ -806,35 +806,6 @@ tr.lead-row td:first-child { box-shadow: inset 2px 0 0 var(--accent); }
 .rank { font-family: var(--mono); color: var(--dim); }
 tr.lead-row .rank { color: var(--accent-bright); }
 
-/* At-a-glance facts */
-.glance {
-    list-style: none;
-    margin: 12px 0 20px;
-    padding: 0;
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-}
-
-.glance li {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 12px;
-    padding: 10px 16px;
-    font-size: 14.5px;
-}
-
-.glance li:nth-child(odd) { background: var(--panel); }
-
-.glance .k {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--dim);
-    padding-top: 3px;
-}
-
 /* Cross-link box (article ⇄ benchmark) */
 .crosslink {
     display: flex;
@@ -856,8 +827,6 @@ tr.lead-row .rank { color: var(--accent-bright); }
 .back-link { margin-top: 32px; font-family: var(--mono); font-size: 13.5px; }
 .back-link a { color: var(--dim); }
 .back-link a:hover { color: var(--accent-bright); text-decoration: none; }
-
-.submit-hint { font-family: var(--mono); font-size: 13px; }
 
 /* ── Plain lists (Join Us) ─────────────────────────────────── */
 .plain-list {
@@ -885,20 +854,6 @@ tr.lead-row .rank { color: var(--accent-bright); }
     border-radius: 50%;
     background: var(--current);
 }
-
-/* ── Submit results page ───────────────────────────────────── */
-.submit-box {
-    max-width: 660px;
-    margin: 10px 0 64px;
-    padding: 28px 32px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: var(--panel);
-}
-
-.submit-steps { margin: 0 0 22px; padding-left: 22px; color: var(--ink-2); }
-.submit-steps li { margin-bottom: 12px; }
-.submit-steps b { color: var(--ink); }
 
 /* ── Footer — split layout ─────────────────────────────────── */
 .site-footer {
@@ -1193,7 +1148,6 @@ tr.lead-row .rank { color: var(--accent-bright); }
     .detail-hero { grid-template-columns: 1fr; }
     .detail-image { order: 1; }
     .detail-head { order: 2; }
-    .glance li { grid-template-columns: 1fr; gap: 2px; }
     .footer-grid { flex-direction: column; gap: 18px; }
     .markdown { font-size: 16.5px; }
     .home-cta { flex-direction: column; align-items: flex-start; }

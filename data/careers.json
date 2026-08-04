@@ -5,7 +5,7 @@
       "id": "programmer",
       "name": "Programmer",
       "status": "certifying",
-      "tagline": "Ships the feature, reviews the diff, keeps the repository alive",
+      "tagline": "Repository-level implementation, code editing, review, testing, and debugging",
       "description": "A programmer lives inside the repository and the toolchain: requirements arrive through issues and tickets, context flows through Slack threads and design docs, code moves through GitHub — branches, pull requests, reviews — and nothing ships until CI is green. The job demands reading a requirement and turning it into working code, navigating and editing a living codebase without breaking it, writing the tests that prove the change, and debugging until everything passes.",
       "duties": "Requirement understanding · Coding & code review · Testing & debugging",
       "benchmarks": [
@@ -20,7 +20,7 @@
       "id": "mathematician",
       "name": "Mathematician",
       "status": "certifying",
-      "tagline": "Every claim carries a proof, and the proof must check",
+      "tagline": "Problem solving, proof construction, formalization, and proof checking",
       "description": "A mathematician works between the literature and the blackboard — reading papers, writing LaTeX, and increasingly working inside proof assistants like Lean, where every step must satisfy the checker. The job demands stating a problem precisely, constructing a proof argument step by step, verifying each claim rather than trusting intuition, and reviewing others' work critically — from competition problems to formalized theorems.",
       "duties": "Problem formalization · Proof construction · Critical review",
       "benchmarks": [
@@ -33,7 +33,7 @@
       "id": "mle",
       "name": "Machine Learning Engineer",
       "status": "certifying",
-      "tagline": "From raw data to a submitted model, end to end",
+      "tagline": "Data preparation, model training, validation, and pipeline debugging",
       "description": "A machine learning engineer moves between notebooks, data warehouses, and GPU clusters: pulling and cleaning data, tracking experiments, scheduling training runs, and watching validation curves — with the pipeline versioned in Git like any other code. The job demands understanding the problem behind the data, engineering features, training and validating models, debugging pipelines when metrics collapse, and iterating over long horizons until the submission actually scores.",
       "duties": "Data understanding · Training & validation · Long-horizon iteration",
       "benchmarks": [
@@ -45,7 +45,7 @@
       "id": "av-editor",
       "name": "Audio & Video Editor",
       "status": "certifying",
-      "tagline": "From raw material to a cut that holds together",
+      "tagline": "Video and audio editing, synchronization, and delivery quality control",
       "description": "An editor works inside professional production suites — non-linear editors, digital audio workstations, asset libraries, and review tools — turning raw footage and audio into a finished cut. The job demands reading a creative brief, cutting to structure and pacing, locking sound and image together, driving long multi-step tool workflows without losing the thread, and quality-checking the deliverable before it ships.",
       "duties": "Brief understanding · Cutting & sound-image sync · Delivery QA",
       "benchmarks": [

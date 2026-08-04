@@ -1,66 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<rect x="56" y="86" width="52" height="40" fill="#0891b2" opacity="0.25" rx="4"/><rect x="118" y="86" width="52" height="40" fill="#0891b2" opacity="0.37" rx="4"/><rect x="180" y="86" width="52" height="40" fill="#0891b2" opacity="0.49" rx="4"/><rect x="242" y="86" width="52" height="40" fill="#0891b2" opacity="0.61" rx="4"/><rect x="304" y="86" width="52" height="40" fill="#0891b2" opacity="0.73" rx="4"/><rect x="366" y="86" width="52" height="40" fill="#0891b2" opacity="0.85" rx="4"/>
-<rect x="56.0" y="196.0" width="3.6" height="8.0" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="62.4" y="190.9" width="3.6" height="18.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="68.8" y="181.9" width="3.6" height="36.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="75.2" y="187.2" width="3.6" height="25.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="81.6" y="184.3" width="3.6" height="31.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="88.0" y="191.3" width="3.6" height="17.5" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="94.4" y="194.6" width="3.6" height="10.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="100.8" y="186.8" width="3.6" height="26.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="107.2" y="188.0" width="3.6" height="24.1" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="113.6" y="183.2" width="3.6" height="33.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="120.0" y="189.8" width="3.6" height="20.5" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="126.4" y="193.9" width="3.6" height="12.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="132.8" y="191.9" width="3.6" height="16.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="139.2" y="182.3" width="3.6" height="35.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="145.6" y="186.6" width="3.6" height="26.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="152.0" y="186.1" width="3.6" height="27.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="158.4" y="186.9" width="3.6" height="26.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="164.8" y="194.6" width="3.6" height="10.9" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="171.2" y="189.2" width="3.6" height="21.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="177.6" y="185.1" width="3.6" height="29.8" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="184.0" y="176.3" width="3.6" height="47.4" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="190.4" y="188.7" width="3.6" height="22.6" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="196.8" y="187.8" width="3.6" height="24.5" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="203.2" y="195.0" width="3.6" height="9.9" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="209.6" y="190.2" width="3.6" height="19.5" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="216.0" y="187.3" width="3.6" height="25.4" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="222.4" y="184.5" width="3.6" height="31.1" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="228.8" y="182.5" width="3.6" height="34.9" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="235.2" y="192.9" width="3.6" height="14.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="241.6" y="192.4" width="3.6" height="15.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="248.0" y="184.8" width="3.6" height="30.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="254.4" y="183.9" width="3.6" height="32.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="260.8" y="182.2" width="3.6" height="35.7" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="267.2" y="190.4" width="3.6" height="19.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="273.6" y="194.7" width="3.6" height="10.6" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="280.0" y="191.9" width="3.6" height="16.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="286.4" y="182.8" width="3.6" height="34.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="292.8" y="182.9" width="3.6" height="34.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="299.2" y="185.6" width="3.6" height="28.9" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="305.6" y="188.3" width="3.6" height="23.5" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="312.0" y="195.9" width="3.6" height="8.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="318.4" y="189.9" width="3.6" height="20.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="324.8" y="180.3" width="3.6" height="39.4" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="331.2" y="179.7" width="3.6" height="40.6" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="337.6" y="187.2" width="3.6" height="25.6" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="344.0" y="190.4" width="3.6" height="19.1" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="350.4" y="193.6" width="3.6" height="12.8" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="356.8" y="183.8" width="3.6" height="32.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="363.2" y="180.0" width="3.6" height="40.0" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="369.6" y="184.9" width="3.6" height="30.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="376.0" y="182.2" width="3.6" height="35.6" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="382.4" y="193.9" width="3.6" height="12.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="388.8" y="191.8" width="3.6" height="16.3" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="395.2" y="182.9" width="3.6" height="34.2" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="401.6" y="186.3" width="3.6" height="27.4" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<rect x="408.0" y="183.3" width="3.6" height="33.5" fill="#0891b2" opacity="0.7" rx="1.8"/>
-<text x="56" y="70" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">visual stream</text>
-<text x="56" y="252" font-family="Space Mono, Menlo, monospace" font-size="11" fill="#374151" font-weight="bold">audio stream</text>
-<path d="M 240 132 L 240 168" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3"/>
-
-<text x="240" y="345" text-anchor="middle" font-family="Space Mono, Menlo, monospace" font-size="12.5" fill="#6b7280">Figure 1: Synchronized audio-visual reasoning over long horizons.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=omnivideobench layout=merge -->
+<title id="title">OmniVideoBench benchmark illustration</title>
+<desc id="desc">Synchronized visual and audio streams queried together for video understanding.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#25c2a0" stop-opacity=".22"/><stop offset="1" stop-color="#25c2a0" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#25c2a0"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="250" cy="116" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">OmniVideoBench</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#25c2a0">MULTIMODAL</text>
+<path d="M 112 112.0 L 362 184" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 112 258.0 L 362 184" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="74" y="87.0" width="76" height="50" rx="7" fill="#101d30" stroke="#25c2a0" stroke-width="2"/>
+<rect x="79" y="90.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="79" y="129.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="94" y="90.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="94" y="129.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="109" y="90.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="109" y="129.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="124" y="90.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="124" y="129.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="139" y="90.0" width="6" height="5" rx="1" fill="#31435d"/>
+<rect x="139" y="129.0" width="6" height="5" rx="1" fill="#31435d"/>
+<path d="M 104 102.0 L 126 112.0 L 104 122.0 Z" fill="#25c2a0"/>
+<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">visual</text>
+<rect x="78" y="250" width="4" height="16" rx="2" fill="#25c2a0" opacity=".85"/>
+<rect x="85" y="243.5" width="4" height="29" rx="2" fill="#c7d3e5" opacity=".85"/>
+<rect x="92" y="250.5" width="4" height="15" rx="2" fill="#c7d3e5" opacity=".85"/>
+<rect x="99" y="244" width="4" height="28" rx="2" fill="#25c2a0" opacity=".85"/>
+<rect x="106" y="251" width="4" height="14" rx="2" fill="#c7d3e5" opacity=".85"/>
+<rect x="113" y="244.5" width="4" height="27" rx="2" fill="#c7d3e5" opacity=".85"/>
+<rect x="120" y="251.5" width="4" height="13" rx="2" fill="#25c2a0" opacity=".85"/>
+<rect x="127" y="245" width="4" height="26" rx="2" fill="#c7d3e5" opacity=".85"/>
+<rect x="134" y="252" width="4" height="12" rx="2" fill="#c7d3e5" opacity=".85"/>
+<rect x="141" y="245.5" width="4" height="25" rx="2" fill="#25c2a0" opacity=".85"/>
+<rect x="148" y="252.5" width="4" height="11" rx="2" fill="#c7d3e5" opacity=".85"/>
+<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">audio</text>
+<rect x="323" y="160" width="57" height="30" rx="11" fill="#101d30" stroke="#c7d3e5" stroke-width="1.8"/>
+<rect x="349" y="187" width="54" height="28" rx="11" fill="#25c2a0" opacity=".72"/>
+<line x1="335" y1="174" x2="366" y2="174" stroke="#c7d3e5" stroke-width="3"/>
+<line x1="362" y1="200" x2="389" y2="200" stroke="#e8eef9" stroke-width="3" opacity=".8"/>
+<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">joint QA</text>
 </svg>

@@ -39,7 +39,7 @@
       "id": "benchmark",
       "name": "Benchmark",
       "zh": "评测基准",
-      "blurb": "Defining what counts as competence — occupation-anchored, verifier-checked measurement across knowledge, code, agents, and multimodal work.",
+      "blurb": "Benchmarks for knowledge, coding, agent, and multimodal tasks, with occupation-based task design and automated verification.",
       "works": [
         "SuperGPQA",
         {
@@ -80,44 +80,10 @@
       ]
     },
     {
-      "id": "rl",
-      "name": "Reinforcement Learning",
-      "zh": "强化学习",
-      "blurb": "Training signal beyond imitation: policy optimization and exploration methods that turn verifiable feedback into reasoning ability.",
-      "works": [
-        {
-          "t": "TreePO",
-          "ax": "2508.17445"
-        },
-        {
-          "t": "FR3E",
-          "ax": "2507.07017"
-        }
-      ]
-    },
-    {
-      "id": "agents",
-      "name": "Agents — the Auto Series",
-      "zh": "智能体",
-      "blurb": "Systems that carry a whole job, not a single step: autonomous pipelines that plan, execute, verify, and deliver finished work.",
-      "works": [
-        "AutoKaggle",
-        "AutoMV",
-        {
-          "t": "Solvita",
-          "ax": "2605.15301"
-        },
-        {
-          "t": "P2P",
-          "ax": "2505.17104"
-        }
-      ]
-    },
-    {
       "id": "synthetic-data",
       "name": "Synthetic Data",
       "zh": "数据合成",
-      "blurb": "Manufacturing the training signal itself: instruction corpora mined, synthesized, and reconstructed at web scale.",
+      "blurb": "Methods for mining, generating, and reconstructing instruction data at web scale.",
       "works": [
         {
           "t": "MAmmoTH",
@@ -144,23 +110,36 @@
       ]
     },
     {
-      "id": "pretraining-compute",
-      "name": "Pretraining Compute Allocation",
-      "zh": "预训练动态算力分配",
-      "blurb": "Spending compute where thinking happens: looped architectures, dynamic depth, and routing that allocate capacity per token instead of per model.",
+      "id": "agents",
+      "name": "Agents",
+      "zh": "智能体",
+      "blurb": "Systems that plan, execute, and verify multi-step tasks in data science, media production, and other workflows.",
       "works": [
-        "Ouro",
+        "AutoKaggle",
+        "AutoMV",
         {
-          "t": "Loop µP",
-          "ax": "2606.18524"
+          "t": "Solvita",
+          "ax": "2605.15301"
         },
         {
-          "t": "DLCM",
-          "ax": "2512.24617"
+          "t": "P2P",
+          "ax": "2505.17104"
+        }
+      ]
+    },
+    {
+      "id": "rl",
+      "name": "Reinforcement Learning",
+      "zh": "强化学习",
+      "blurb": "Policy optimization and exploration methods trained with verifiable feedback.",
+      "works": [
+        {
+          "t": "TreePO",
+          "ax": "2508.17445"
         },
         {
-          "t": "ConceptMoE",
-          "ax": "2601.21420"
+          "t": "FR3E",
+          "ax": "2507.07017"
         }
       ]
     },
@@ -168,7 +147,7 @@
       "id": "foundation-models",
       "name": "Foundation Models",
       "zh": "基础模型",
-      "blurb": "Fully open model families — text, code, math, and music — released with their data pipelines, recipes, and checkpoints.",
+      "blurb": "Open text, code, math, and music model families released with data pipelines, training recipes, and checkpoints.",
       "works": [
         {
           "t": "MAP-Neo",
@@ -185,6 +164,27 @@
           "ax": "2306.00107"
         },
         "YuE"
+      ]
+    },
+    {
+      "id": "pretraining-compute",
+      "name": "Pretraining Compute Allocation",
+      "zh": "预训练动态算力分配",
+      "blurb": "Looped architectures, dynamic depth, and routing methods that vary compute by token.",
+      "works": [
+        "Ouro",
+        {
+          "t": "Loop µP",
+          "ax": "2606.18524"
+        },
+        {
+          "t": "DLCM",
+          "ax": "2512.24617"
+        },
+        {
+          "t": "ConceptMoE",
+          "ax": "2601.21420"
+        }
       ]
     }
   ]

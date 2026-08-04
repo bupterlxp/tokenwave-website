@@ -1,39 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<line x1="70" y1="76" x2="70" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
-<line x1="70" y1="250" x2="430" y2="250" stroke="#9ca3af" stroke-width="1.5"/>
-<circle cx="303.5" cy="146.4" r="4.7" fill="#9ca3af" opacity="0.55"/>
-<circle cx="189.1" cy="160.8" r="3.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="180.6" cy="187.7" r="5.0" fill="#9ca3af" opacity="0.55"/>
-<circle cx="85.9" cy="193.8" r="3.7" fill="#9ca3af" opacity="0.55"/>
-<circle cx="292.5" cy="212.4" r="4.0" fill="#9ca3af" opacity="0.55"/>
-<circle cx="186.2" cy="196.0" r="3.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="343.3" cy="153.6" r="4.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="148.2" cy="232.1" r="4.8" fill="#9ca3af" opacity="0.55"/>
-<circle cx="118.4" cy="185.8" r="4.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="320.3" cy="197.5" r="4.0" fill="#9ca3af" opacity="0.55"/>
-<circle cx="176.8" cy="187.6" r="4.8" fill="#9ca3af" opacity="0.55"/>
-<circle cx="153.3" cy="236.0" r="4.9" fill="#9ca3af" opacity="0.55"/>
-<circle cx="129.7" cy="165.8" r="4.1" fill="#9ca3af" opacity="0.55"/>
-<circle cx="265.9" cy="231.3" r="4.6" fill="#9ca3af" opacity="0.55"/>
-<circle cx="89.8" cy="180.9" r="5.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="122.3" cy="188.3" r="4.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="146.6" cy="219.8" r="3.7" fill="#9ca3af" opacity="0.55"/>
-<circle cx="230.7" cy="235.5" r="5.4" fill="#9ca3af" opacity="0.55"/>
-<circle cx="300.4" cy="197.2" r="4.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="285.5" cy="175.5" r="4.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="101.7" cy="230.6" r="3.5" fill="#9ca3af" opacity="0.55"/>
-<circle cx="312.3" cy="185.7" r="3.7" fill="#9ca3af" opacity="0.55"/>
-<circle cx="286.4" cy="172.0" r="3.2" fill="#9ca3af" opacity="0.55"/>
-<circle cx="116.8" cy="214.2" r="4.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="119.3" cy="174.8" r="5.3" fill="#9ca3af" opacity="0.55"/>
-<circle cx="392.4" cy="229.4" r="3.9" fill="#9ca3af" opacity="0.55"/>
-<path d="M 86 220 C 180 112 320 92 414 98" stroke="#0891b2" stroke-width="2" fill="none" stroke-dasharray="6 4"/>
-<circle cx="404" cy="104" r="6" fill="#0891b2"/>
-<text x="404" y="88" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#0891b2" font-weight="bold">frontier</text>
-<text x="250.0" y="270" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#9ca3af">problem difficulty →</text>
-<text x="66" y="66" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">solve rate</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Complex table QA.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=tablebench layout=flow -->
+<title id="title">TableBench benchmark illustration</title>
+<desc id="desc">A reasoning path crossing table rows and columns before calculation and verification.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#ff8a66" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a66" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#ff8a66"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="241" cy="182" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">TableBench</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#ff8a66">LLM</text>
+<path d="M 72.0 184 L 184.0 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 184.0 184 L 296.0 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 296.0 184 L 408.0 184" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="31" y="155" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="31.0" y1="170" x2="113.0" y2="170" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="43.0" cy="163" r="2.2" fill="#ff8a66"/>
+<circle cx="52.0" cy="163" r="2.2" fill="#31435d"/>
+<circle cx="61.0" cy="163" r="2.2" fill="#31435d"/>
+<line x1="62.0" y1="176" x2="62.0" y2="205" stroke="#c7d3e5" opacity=".55"/>
+<line x1="82.0" y1="176" x2="82.0" y2="205" stroke="#c7d3e5" opacity=".55"/>
+<line x1="43.0" y1="186" x2="101.0" y2="186" stroke="#c7d3e5" opacity=".55"/>
+<line x1="43.0" y1="196" x2="101.0" y2="196" stroke="#c7d3e5" opacity=".55"/>
+<text x="72.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">complex table</text>
+<line x1="151.0" y1="208" x2="151.0" y2="160" stroke="#31435d" stroke-width="2"/><line x1="151.0" y1="208" x2="219.0" y2="208" stroke="#31435d" stroke-width="2"/>
+<path d="M 156.0 198 L 172.0 188 L 186.0 194 L 202.0 172 L 217.0 164" fill="none" stroke="#ff8a66" stroke-width="3"/>
+<circle cx="156.0" cy="198" r="3" fill="#ff8a66"/>
+<circle cx="172.0" cy="188" r="3" fill="#ff8a66"/>
+<circle cx="186.0" cy="194" r="3" fill="#ff8a66"/>
+<circle cx="202.0" cy="172" r="3" fill="#ff8a66"/>
+<circle cx="217.0" cy="164" r="3" fill="#ff8a66"/>
+<text x="184.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">reasoning</text>
+<line x1="263.0" y1="208" x2="263.0" y2="160" stroke="#31435d" stroke-width="2"/><line x1="263.0" y1="208" x2="331.0" y2="208" stroke="#31435d" stroke-width="2"/>
+<path d="M 268.0 198 L 284.0 188 L 298.0 194 L 314.0 172 L 329.0 164" fill="none" stroke="#ff8a66" stroke-width="3"/>
+<circle cx="268.0" cy="198" r="3" fill="#ff8a66"/>
+<circle cx="284.0" cy="188" r="3" fill="#ff8a66"/>
+<circle cx="298.0" cy="194" r="3" fill="#ff8a66"/>
+<circle cx="314.0" cy="172" r="3" fill="#ff8a66"/>
+<circle cx="329.0" cy="164" r="3" fill="#ff8a66"/>
+<text x="296.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">calculate</text>
+<path d="M 382.0 157 H 426.0 L 440.0 171 V 211 H 382.0 Z" fill="#101d30" stroke="#ff8a66" stroke-width="2"/>
+<path d="M 426.0 157 V 171 H 440.0" fill="none" stroke="#ff8a66" stroke-width="2"/>
+<line x1="389.0" y1="176" x2="430.0" y2="176" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="389.0" y1="185" x2="427.0" y2="185" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<line x1="389.0" y1="194" x2="424.0" y2="194" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
+<text x="408.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">verify</text>
 </svg>

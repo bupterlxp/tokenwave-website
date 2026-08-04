@@ -1,23 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360">
-<!-- tokenwave:generated -->
-<rect width="480" height="360" fill="#ffffff"/>
-<rect x="14" y="14" width="452" height="300" fill="none" stroke="#e5e7eb" stroke-width="1.5" rx="6"/>
-<rect x="43" y="134" width="82" height="46" fill="#ffffff" opacity="1" stroke="#475569" stroke-width="2" rx="8"/>
-<text x="84.0" y="161.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151">input</text>
-<path d="M 128 157.0 L 141 157.0" stroke="#6b7280" stroke-width="2"/>
-<path d="M 137 152.0 L 143 157.0 L 137 162.0" fill="none" stroke="#6b7280" stroke-width="2"/>
-<rect x="147" y="134" width="82" height="46" fill="#ffffff" opacity="1" stroke="#475569" stroke-width="2" rx="8"/>
-<text x="188.0" y="161.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151">plan</text>
-<path d="M 232 157.0 L 245 157.0" stroke="#6b7280" stroke-width="2"/>
-<path d="M 241 152.0 L 247 157.0 L 241 162.0" fill="none" stroke="#6b7280" stroke-width="2"/>
-<rect x="251" y="134" width="82" height="46" fill="#ffffff" opacity="1" stroke="#475569" stroke-width="2" rx="8"/>
-<text x="292.0" y="161.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151">act</text>
-<path d="M 336 157.0 L 349 157.0" stroke="#6b7280" stroke-width="2"/>
-<path d="M 345 152.0 L 351 157.0 L 345 162.0" fill="none" stroke="#6b7280" stroke-width="2"/>
-<rect x="355" y="134" width="82" height="46" fill="#7c3aed" opacity="0.9" stroke="#7c3aed" stroke-width="2" rx="8"/>
-<text x="396.0" y="161.0" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#ffffff" font-weight="bold">verify</text>
-<path d="M 372 186 C 240 236 125 236 84 188" stroke="#9ca3af" stroke-width="1.6" stroke-dasharray="5 4" fill="none"/>
-<text x="240" y="246" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="10" fill="#6b7280">iterate until constraints hold</text>
-<text x="240" y="92" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="11" fill="#374151" font-weight="bold">code agent</text>
-<text x="240" y="345" text-anchor="middle" font-family="Menlo, Consolas, monospace" font-size="12.5" fill="#6b7280">Figure 1: Web generation / editing / repair.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<!-- tokenwave:generated:v2 slug=web_compass layout=flow -->
+<title id="title">WebCompass benchmark illustration</title>
+<desc id="desc">Browser artifacts generated, edited, and repaired before specification and interaction checks.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#e16fae" stop-opacity=".22"/><stop offset="1" stop-color="#e16fae" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e16fae"/></marker>
+</defs>
+<rect width="480" height="360" rx="18" fill="url(#bg)"/>
+<rect width="480" height="360" rx="18" fill="url(#grid)"/>
+<circle cx="200" cy="183" r="145" fill="url(#halo)"/>
+<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
+<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">WebCompass</text>
+<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#e16fae">AGENT</text>
+<path d="M 72.0 184 L 184.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 184.0 184 L 296.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<path d="M 296.0 184 L 408.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
+<rect x="31" y="155" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="31.0" y1="170" x2="113.0" y2="170" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="43.0" cy="163" r="2.2" fill="#e16fae"/>
+<circle cx="52.0" cy="163" r="2.2" fill="#31435d"/>
+<circle cx="61.0" cy="163" r="2.2" fill="#31435d"/>
+<rect x="45.0" y="179" width="54" height="25" rx="3" fill="none" stroke="#c7d3e5" opacity=".75"/>
+<circle cx="56.0" cy="189" r="5" fill="#e16fae" opacity=".7"/>
+<text x="72.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">generate</text>
+<rect x="143" y="155" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="143.0" y1="170" x2="225.0" y2="170" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="155.0" cy="163" r="2.2" fill="#e16fae"/>
+<circle cx="164.0" cy="163" r="2.2" fill="#31435d"/>
+<circle cx="173.0" cy="163" r="2.2" fill="#31435d"/>
+<rect x="157.0" y="179" width="54" height="25" rx="3" fill="none" stroke="#c7d3e5" opacity=".75"/>
+<circle cx="168.0" cy="189" r="5" fill="#e16fae" opacity=".7"/>
+<text x="184.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">edit</text>
+<rect x="255" y="155" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
+<line x1="255.0" y1="170" x2="337.0" y2="170" stroke="#31435d" stroke-width="1.5"/>
+<circle cx="267.0" cy="163" r="2.2" fill="#e16fae"/>
+<circle cx="276.0" cy="163" r="2.2" fill="#31435d"/>
+<circle cx="285.0" cy="163" r="2.2" fill="#31435d"/>
+<rect x="269.0" y="179" width="54" height="25" rx="3" fill="none" stroke="#c7d3e5" opacity=".75"/>
+<circle cx="280.0" cy="189" r="5" fill="#e16fae" opacity=".7"/>
+<text x="296.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">repair</text>
+<circle cx="408.0" cy="184" r="27" fill="#e16fae" opacity=".16" stroke="#e16fae" stroke-width="2"/>
+<path d="M 395.0 184 L 405.0 194 L 424.0 171" fill="none" stroke="#e16fae" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="408.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">verify</text>
 </svg>

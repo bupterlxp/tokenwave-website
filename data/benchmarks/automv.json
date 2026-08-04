@@ -1,74 +1,69 @@
 {
- "slug": "automv",
- "name": "AutoMV",
- "domain": "aigc",
- "domain_name": "AIGC Benchmark",
- "subcategory": "Music Video",
- "abstract": "AutoMV turns a full song into a coherent music video with a multi-agent system — and ships the first music-to-video evaluation benchmark: four categories and twelve expert criteria, with an LLM judge that tracks professional raters. TokenWave anchors the Audio & Video Editor career to it.",
- "contributions": [
-  "The first open benchmark for music-to-video quality: Music Content, Technical, Post-production, and Art, refined into twelve criteria scored 1–5.",
-  "LLM-Score, an automatic judge whose ratings largely align with independent musicians and music-industry professionals.",
-  "A generation system to match: screenwriter and director agents, a character bank for identity consistency, and a verifier that sends failed shots back for regeneration."
- ],
- "method": [
-  "Evaluation runs on 30 professionally released songs across English, Chinese, Japanese, and Korean.",
-  "Expert raters watch full videos with audio and score every sub-criterion; LLM-Score approximates the same rubric automatically.",
-  "Cross-system comparison also reports audio-visual alignment via ImageBind score."
- ],
- "metrics": [
-  {
-   "name": "ImageBind score",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Audio-visual alignment between the generated video and the song; the paper's cross-system comparison metric."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": null,
-   "model": "AutoMV (M-A-P)",
-   "org": "M-A-P",
-   "color": "#94a3b8",
-   "score": 24.4,
-   "source": "arXiv paper",
-   "date": null
+  "slug": "automv",
+  "name": "AutoMV",
+  "paper_type": "system",
+  "domain": "aigc",
+  "domain_name": "Research",
+  "subcategory": "Music Video Generation",
+  "abstract": "AutoMV is a training-free multi-agent system for turning a complete song into a shot-based music video; the paper is principally a generation-system study, with a 30-song evaluation suite used to test it. Music preprocessing extracts caption, section structure, a separated vocal stem, and timestamped lyrics. A Gemini screenwriter converts that context into 3–15-second narrative units, a Doubao director specifies shots and keyframes, and a shared character bank carries appearance constraints across clips. The renderer routes general scenes to Doubao video generation and salient singing scenes to Wan-2.2 lip-sync generation. Gemini 2.5 Pro then filters up to three image or video candidates for physical plausibility, prompt alignment, and continuity. Evaluation covers professionally released English, Chinese, Japanese, and Korean songs, two closed commercial systems, and professional human-directed videos.",
+  "contributions": [
+    "Defines a training-free, full-song production pipeline that joins music-information retrieval, script and shot planning, image/video generation, lip synchronization, verification, and final compilation instead of generating disconnected short clips.",
+    "Introduces music-aware controls for long-form consistency: SongFormer section boundaries, htdemucs vocal separation, Whisper lyrics and timestamps, 1/24-second timing quantization, and a persistent character bank used by downstream prompts.",
+    "Builds a system evaluation on 30 professionally released songs spanning English, Chinese, Japanese, and Korean, with 12 criteria grouped into Technical, Post-Production, Music Content, and Art and rated by industry experts and multimodal judges.",
+    "Reports component ablations: removing lyric/timestamp context reduces content and audio–visual alignment; removing the character bank lowers character-consistency score from 3.07 to 1.22; removing the verifier reduces visual quality from 3.28 to 2.61."
+  ],
+  "method": [
+    "Qwen2.5-Omni captions genre, mood, instrumentation, and vocalist attributes; SongFormer segments musical structure; htdemucs separates vocals from accompaniment; Whisper transcribes the vocal stem, after which Gemini refines lyrics and timestamps.",
+    "The Gemini screenwriter divides the song at lyric and section boundaries into user-configurable 3–15-second shots. Boundaries are quantized to 1/24 second so clip durations remain aligned when the full video is assembled.",
+    "A Doubao director writes shot-level action, setting, and camera instructions and generates keyframes. Character descriptions covering appearance, age, gender, and attire are retrieved from a shared bank and injected into every relevant prompt.",
+    "General cinematic shots use Doubao video generation; shots where mouth articulation matters use Wan-2.2 with the separated vocal stem for lip synchronization. Longer segments are composed from 3–8-second subclips, optionally reusing the preceding end frame.",
+    "Gemini 2.5 Pro evaluates as many as three candidates per keyframe or clip. It rejects physically implausible outputs, then selects among surviving clips using instruction alignment and identity continuity before full-song compilation.",
+    "The paper compares AutoMV, Revid.ai-base, OpenArt-story, and professional videos on the same song inputs. Experts watch each full video with audio; the automated study uses ImageBind plus full-video Gemini scoring under the same 12-item rubric."
+  ],
+  "metrics": [
+    {
+      "name": "Expert weighted score",
+      "direction": "higher",
+      "range": "[1, 5]",
+      "note": "Industry practitioners rate 12 sub-criteria after watching each full music video with audio. Technical and Post-Production each contribute 20% of the total, while Music Content and Art each contribute 30%. AutoMV scores 2.42 versus 1.45 for OpenArt-story and 1.06 for Revid.ai-base."
+    },
+    {
+      "name": "Multimodal-judge score",
+      "direction": "higher",
+      "range": "[1, 5]",
+      "note": "Gemini receives the complete video and song and scores the same 12 criteria. Category scores are sub-criterion means and use the same 20/20/30/30 weighting; the paper separately reports correlation with human ratings rather than treating the judge as ground truth."
+    },
+    {
+      "name": "ImageBind audio–visual score",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Embedding similarity between sampled video frames and the corresponding audio, reported as a percentage. AutoMV records 24.4, compared with 19.9 for Revid.ai-base, 18.5 for OpenArt-story, and 24.1 for professional videos."
+    }
+  ],
+  "leaderboard": [],
+  "leaderboard_metric": "Expert weighted score",
+  "leaderboard_note": null,
+  "links": {
+    "paper": "https://arxiv.org/abs/2512.12196",
+    "code": "https://github.com/multimodal-art-projection/AutoMV",
+    "pdf": "https://arxiv.org/pdf/2512.12196.pdf"
   },
-  {
-   "rank": 2,
-   "model_id": null,
-   "model": "Revid.ai-base",
-   "org": "Revid.ai",
-   "color": "#94a3b8",
-   "score": 19.9,
-   "source": "arXiv paper",
-   "date": null
+  "image": "static/images/benchmarks/automv.svg",
+  "at_a_glance": {
+    "focus": "Full-song music-video generation",
+    "primary_metric": "Expert weighted score",
+    "setting": "30 songs · four languages · 12 criteria",
+    "models_scored": null,
+    "data_updated": "2026-08-04"
   },
-  {
-   "rank": 3,
-   "model_id": null,
-   "model": "OpenArt-story",
-   "org": "OpenArt",
-   "color": "#94a3b8",
-   "score": 18.5,
-   "source": "arXiv paper",
-   "date": null
-  }
- ],
- "leaderboard_metric": "ImageBind score",
- "leaderboard_note": "Rows are generation systems, not base models; scores from the paper's cross-system comparison on the 30-song set.",
- "links": {
-  "paper": "https://arxiv.org/abs/2512.12196",
-  "code": "https://github.com/multimodal-art-projection/AutoMV",
-  "pdf": "https://arxiv.org/pdf/2512.12196.pdf"
- },
- "image": "static/images/benchmarks/automv.svg",
- "at_a_glance": {
-  "focus": "Music-to-video generation quality",
-  "primary_metric": "ImageBind score",
-  "setting": "12 criteria · expert + LLM judging",
-  "models_scored": 3,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "figures": [
+    {
+      "image": "static/images/benchmarks/automv/figure-3-system-overview.png",
+      "caption": "Figure 3 (paper, PDF p. 7): AutoMV's end-to-end system—music preprocessing, structured context construction, screenwriter/director collaboration, persistent character bank, keyframe and video generation, verifier feedback, and full-video compilation. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/automv/table-1-system-evaluation.png",
+      "caption": "Table 1 (paper, PDF p. 10): Cost, runtime, ImageBind alignment, Gemini category ratings, and expert ratings for AutoMV, two commercial systems, three AutoMV ablations, and professional human-directed videos on the 30-song study. Source: paper."
+    }
+  ]
 }

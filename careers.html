@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers | TokenWave AI</title>
-    <meta name="description" content="The careers agents are learning to hold — real occupations, each measured by benchmarks TokenWave designs and maintains in-house.">
+    <meta name="description" content="Benchmarks organized around professional roles in programming, mathematics, machine learning, and audio/video production.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="Careers | TokenWave AI">
-    <meta property="og:description" content="The careers agents are learning to hold — real occupations, each measured by benchmarks TokenWave designs and maintains in-house.">
+    <meta property="og:description" content="Benchmarks organized around professional roles in programming, mathematics, machine learning, and audio/video production.">
     <meta property="og:url" content="https://tokenwave.ai/careers.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Careers | TokenWave AI">
-    <meta name="twitter:description" content="The careers agents are learning to hold — real occupations, each measured by benchmarks TokenWave designs and maintains in-house.">
+    <meta name="twitter:description" content="Benchmarks organized around professional roles in programming, mathematics, machine learning, and audio/video production.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/careers.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
     <link rel="preload" href="static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,8 +47,8 @@
 
 <section class="page-header">
     <div class="eyebrow">Careers</div>
-    <h1>The careers agents are learning to hold.</h1>
-    <p class="page-intro">We measure models against occupations, not abstract skills. Each career is defined by the work a professional actually ships &mdash; and by benchmarks we design and maintain in-house.</p>
+    <h1>Professional roles we evaluate.</h1>
+    <p class="page-intro">Each role groups papers and benchmarks around concrete tasks in programming, mathematics, machine learning, and audio/video production.</p>
 </section>
 
 <nav class="career-strip" aria-label="Careers on this page">
@@ -73,52 +73,52 @@
         <div class="career-head">
             <div class="career-meta">
                 <span class="career-idx">01</span>
-                <span class="career-status st-certifying">Certifying now</span>
+                <span class="career-status st-certifying">Current coverage</span>
             </div>
             <h2>Programmer</h2>
-            <p class="career-tagline">Ships the feature, reviews the diff, keeps the repository alive.</p>
+            <p class="career-tagline">Repository-level implementation, code editing, review, testing, and debugging.</p>
             <p class="career-desc">A programmer lives inside the repository and the toolchain: requirements arrive through issues and tickets, context flows through Slack threads and design docs, code moves through GitHub — branches, pull requests, reviews — and nothing ships until CI is green. The job demands reading a requirement and turning it into working code, navigating and editing a living codebase without breaking it, writing the tests that prove the change, and debugging until everything passes.</p>
             <p class="career-duties">Requirement understanding · Coding &amp; code review · Testing &amp; debugging</p>
         </div>
         <div class="career-evidence">
-            <div class="evidence-h">The evidence &mdash; 5 benchmarks</div>
+            <div class="evidence-h">5 papers and benchmarks</div>
             <a class="ev-card" href="benchmarks/nl2repo-bench.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Code Agent <span class="sep">·</span> <span class="lead">Claude Sonnet 4.5 (Claude Code) · 40.2</span></div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Repository Generation <span class="sep">·</span> <span class="lead">Claude Sonnet 4.5 (Claude Code) · 40.2</span></div>
                     <h3>NL2Repo-Bench</h3>
-                    <p>Whether a coding agent can turn a natural-language brief into a complete working repository.</p>
+                    <p>Complete Python libraries generated from one requirements document, with correctness decided by the original hidden test suite.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/nl2repo-bench.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/code-simpleqa.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Knowledge <span class="sep">·</span> <span class="lead">GPT-5 · 65.05</span></div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Knowledge <span class="sep">·</span> <span class="lead">GPT-5 · 65.05</span></div>
                     <h3>CodeSimpleQA</h3>
-                    <p>Bilingual factual code knowledge, separated from whether a model can merely execute a snippet.</p>
+                    <p>Bilingual factual programming questions, scored separately from executable code generation.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/code-simpleqa.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/codeeditorbench.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Code Editing <span class="sep">·</span> board pending</div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Code Editing <span class="sep">·</span> <span class="lead">GPT-4 · 0.855</span></div>
                     <h3>CodeEditorBench</h3>
-                    <p>CodeEditorBench evaluates large language models on code editing rather than generation: debugging, translating, polishing, and revising code when the requirement changes.</p>
+                    <p>Execution-checked edits across debugging, translation, optimization, and changing requirements.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/codeeditorbench.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/opencoder.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Open Code LLM <span class="sep">·</span> board pending</div>
+                    <div class="ev-meta">Model paper <span class="sep">·</span> Open Code LLM</div>
                     <h3>OpenCoder</h3>
-                    <p>OpenCoder is an open cookbook for building top-tier code language models: the complete, reproducible recipe — data pipeline, corpus, training details, and checkpoints — behind a code LLM family that matches leading models of its size.</p>
+                    <p>OpenCoder is a code-language-model and reproducibility paper, not a benchmark.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/opencoder.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/opencodeinterpreter.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Code Execution <span class="sep">·</span> board pending</div>
+                    <div class="ev-meta">System paper <span class="sep">·</span> Code Execution</div>
                     <h3>OpenCodeInterpreter</h3>
-                    <p>OpenCodeInterpreter closes the loop between writing code and running it: models generate, execute, and refine code using execution results and feedback, trained on the Code-Feedback corpus of multi-turn interactions.</p>
+                    <p>OpenCodeInterpreter is a family of open code-generation systems trained to revise programs after compiler output and user feedback, rather than a new benchmark.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/opencodeinterpreter.svg');"></div>
             </a>
@@ -128,36 +128,36 @@
         <div class="career-head">
             <div class="career-meta">
                 <span class="career-idx">02</span>
-                <span class="career-status st-certifying">Certifying now</span>
+                <span class="career-status st-certifying">Current coverage</span>
             </div>
             <h2>Mathematician</h2>
-            <p class="career-tagline">Every claim carries a proof, and the proof must check.</p>
+            <p class="career-tagline">Problem solving, proof construction, formalization, and proof checking.</p>
             <p class="career-desc">A mathematician works between the literature and the blackboard — reading papers, writing LaTeX, and increasingly working inside proof assistants like Lean, where every step must satisfy the checker. The job demands stating a problem precisely, constructing a proof argument step by step, verifying each claim rather than trusting intuition, and reviewing others&#x27; work critically — from competition problems to formalized theorems.</p>
             <p class="career-duties">Problem formalization · Proof construction · Critical review</p>
         </div>
         <div class="career-evidence">
-            <div class="evidence-h">The evidence &mdash; 3 benchmarks</div>
+            <div class="evidence-h">3 papers and benchmarks</div>
             <a class="ev-card" href="benchmarks/formalmath.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Formal Math <span class="sep">·</span> <span class="lead">Kimina-Prover · 16.46</span></div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Formal Math <span class="sep">·</span> <span class="lead">Kimina-Prover-7B · 16.46</span></div>
                     <h3>FormalMATH</h3>
-                    <p>FormalMATH is a large-scale Lean4 benchmark of 5,560 formally verified statements, from Olympiad challenges to undergraduate theorems across algebra, calculus, number theory, and discrete mathematics.</p>
+                    <p>A 5,560-statement Lean 4 test across Olympiad and undergraduate mathematics.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/formalmath.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/omni-math.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Olympiad Math <span class="sep">·</span> board pending</div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Olympiad Math <span class="sep">·</span> <span class="lead">OpenAI o1-mini · 60.54</span></div>
                     <h3>Omni-MATH</h3>
-                    <p>Omni-MATH is a 4,428-problem benchmark of Olympiad-level mathematics organized into 33 sub-domains and 10 difficulty tiers, with Omni-Judge for automated answer checking.</p>
+                    <p>A 4,428-problem Olympiad set with domain, difficulty, and judge-reliability analysis.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/omni-math.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/criticlean.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Math <span class="sep">·</span> <span class="lead">Gemini 2.5 Pro · 89.2</span></div>
+                    <div class="ev-meta">Training &amp; data paper <span class="sep">·</span> Formal Math Training</div>
                     <h3>CriticLean</h3>
-                    <p>Measuring whether models can serve as reliable critics for mathematical formalization in Lean.</p>
+                    <p>CriticLean is a critic-guided training framework for checking whether a Lean 4 formalization preserves the meaning of a natural-language mathematics problem.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/criticlean.svg');"></div>
             </a>
@@ -167,28 +167,28 @@
         <div class="career-head">
             <div class="career-meta">
                 <span class="career-idx">03</span>
-                <span class="career-status st-certifying">Certifying now</span>
+                <span class="career-status st-certifying">Current coverage</span>
             </div>
             <h2>Machine Learning Engineer</h2>
-            <p class="career-tagline">From raw data to a submitted model, end to end.</p>
+            <p class="career-tagline">Data preparation, model training, validation, and pipeline debugging.</p>
             <p class="career-desc">A machine learning engineer moves between notebooks, data warehouses, and GPU clusters: pulling and cleaning data, tracking experiments, scheduling training runs, and watching validation curves — with the pipeline versioned in Git like any other code. The job demands understanding the problem behind the data, engineering features, training and validating models, debugging pipelines when metrics collapse, and iterating over long horizons until the submission actually scores.</p>
             <p class="career-duties">Data understanding · Training &amp; validation · Long-horizon iteration</p>
         </div>
         <div class="career-evidence">
-            <div class="evidence-h">The evidence &mdash; 2 benchmarks</div>
+            <div class="evidence-h">2 papers and benchmarks</div>
             <a class="ev-card" href="benchmarks/autokaggle.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Data Science Agent <span class="sep">·</span> board pending</div>
+                    <div class="ev-meta">System paper <span class="sep">·</span> Data Science Agent</div>
                     <h3>AutoKaggle</h3>
-                    <p>AutoKaggle evaluates autonomous data-science work end to end: a phase-based multi-agent pipeline plans, writes, debugs, and validates complete Kaggle solutions — background understanding through feature engineering to submission.</p>
+                    <p>AutoKaggle is an end-to-end multi-agent system for solving tabular Kaggle competitions, rather than a benchmark release.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/autokaggle.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/edgebench.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Environment Learning <span class="sep">·</span> <span class="lead">Claude Opus 4.8 · 51.3</span></div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Environment Learning <span class="sep">·</span> <span class="lead">Claude Opus 4.8 (Claude Code, 1M) · 51.3</span></div>
                     <h3>EdgeBench</h3>
-                    <p>EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation.</p>
+                    <p>Day-scale environment learning measured through repeated interaction, hidden judging, and 134 real tasks.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/edgebench.svg');"></div>
             </a>
@@ -198,28 +198,28 @@
         <div class="career-head">
             <div class="career-meta">
                 <span class="career-idx">04</span>
-                <span class="career-status st-certifying">Certifying now</span>
+                <span class="career-status st-certifying">Current coverage</span>
             </div>
             <h2>Audio &amp; Video Editor</h2>
-            <p class="career-tagline">From raw material to a cut that holds together.</p>
+            <p class="career-tagline">Video and audio editing, synchronization, and delivery quality control.</p>
             <p class="career-desc">An editor works inside professional production suites — non-linear editors, digital audio workstations, asset libraries, and review tools — turning raw footage and audio into a finished cut. The job demands reading a creative brief, cutting to structure and pacing, locking sound and image together, driving long multi-step tool workflows without losing the thread, and quality-checking the deliverable before it ships.</p>
             <p class="career-duties">Brief understanding · Cutting &amp; sound-image sync · Delivery QA</p>
         </div>
         <div class="career-evidence">
-            <div class="evidence-h">The evidence &mdash; 2 benchmarks</div>
+            <div class="evidence-h">2 papers and benchmarks</div>
             <a class="ev-card" href="benchmarks/automv.html">
                 <div class="ev-body">
-                    <div class="ev-meta">Music Video <span class="sep">·</span> <span class="lead">AutoMV (M-A-P) · 24.4</span></div>
+                    <div class="ev-meta">System paper <span class="sep">·</span> Music Video Generation</div>
                     <h3>AutoMV</h3>
-                    <p>AutoMV turns a full song into a coherent music video with a multi-agent system — and ships the first music-to-video evaluation benchmark: four categories and twelve expert criteria, with an LLM judge that tracks professional raters.</p>
+                    <p>AutoMV is a training-free multi-agent system for turning a complete song into a shot-based music video; the paper is principally a generation-system study, with a 30-song evaluation suite used to test it.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/automv.svg');"></div>
             </a>
             <a class="ev-card" href="benchmarks/workflow-gym.html">
                 <div class="ev-body">
-                    <div class="ev-meta">GUI Agent <span class="sep">·</span> <span class="lead">Gemini 3.1 Pro · 30.67</span></div>
+                    <div class="ev-meta">Benchmark paper <span class="sep">·</span> Professional GUI Workflows <span class="sep">·</span> <span class="lead">Gemini 3.1 Pro · 30.67</span></div>
                     <h3>Workflow-GYM</h3>
-                    <p>Professional GUI work measured end to end, where one missed stage can invalidate the whole workflow.</p>
+                    <p>Specialized desktop work scored at the final artifact or GUI state after 30 to 110 dependent actions.</p>
                 </div>
                 <div class="ev-img" style="background-image: url('static/images/benchmarks/workflow-gym.svg');"></div>
             </a>
@@ -233,7 +233,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -242,7 +242,6 @@
                 <a href="careers.html">Careers</a>
                 <a href="research.html">Research</a>
                 <a href="joinus.html">Join Us</a>
-                <a href="submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -262,7 +261,7 @@
     <!-- Page transition state machine -->
     <script src="static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="static/js/home-data.js?v=3c087529" defer></script>
+    <script src="static/js/home-data.js?v=56d9625f" defer></script>
     <script src="static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

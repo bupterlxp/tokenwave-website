@@ -1,20 +1,36 @@
 {
- "slug": "code_simpleqa",
- "tagline": "Bilingual factual code knowledge, separated from whether a model can merely execute a snippet",
- "stats": [
-  {"value": "1,498", "label": "curated QA pairs"},
-  {"value": "2", "label": "languages"},
-  {"value": "21", "label": "CS domains"},
-  {"value": "65.05", "label": "top bilingual mean F1"}
- ],
- "overview": [
-  "CodeSimpleQA tests a part of coding intelligence that execution benchmarks often blur: whether a model knows concrete facts about programming languages, frameworks, systems, algorithms, databases, and software practice. Its 1,498 human-curated question-answer pairs are split between 782 English and 716 Chinese items, cover more than 15 programming languages and 21 computer-science domains, and are checked against authoritative technical sources.",
-  "The paper reports separate domain-level F1 tables for Chinese and English. To keep the site comparison bilingual, TokenWave averages each model's English Avg. and Chinese Avg. values. The resulting Bilingual mean F1 is therefore a transparent derived score, not a third metric claimed by the authors; the original language-specific values remain traceable to Tables 3 and 4."
- ],
- "why": [
-  "A model can produce executable code while still hallucinating an API contract, a language rule, or a systems fact. Those errors are especially costly in code review, debugging, migration, and technical support, where an authoritative-sounding false detail can steer an entire implementation. CodeSimpleQA isolates that factual layer and, by testing both English and Chinese, shows whether technical knowledge transfers across the two languages rather than hiding behind an English-only aggregate."
- ],
- "reading": [
-  "GPT-5 leads the bilingual aggregation at 65.05, followed by o3 at 61.65 — a 3.40-point gap. GPT-5 Mini is another 6.00 points back at 55.65, while o4-mini and the two Claude Sonnet 4 variants occupy the next band from 53.30 to 51.90. The top-ten spread reaches 16.35 points, yet even the leader leaves almost 35 points of the scale unclaimed. On this benchmark, factual programming knowledge remains a distinct and visibly unsolved capability."
- ]
+  "slug": "code_simpleqa",
+  "tagline": "Bilingual factual programming questions, scored separately from executable code generation",
+  "stats": [
+    {
+      "value": "1,498",
+      "label": "curated QA pairs"
+    },
+    {
+      "value": "21",
+      "label": "computer-science domains"
+    },
+    {
+      "value": "66.9M",
+      "label": "instruction samples"
+    },
+    {
+      "value": "65.05",
+      "label": "top bilingual mean F1"
+    }
+  ],
+  "overview": [
+    "CodeSimpleQA tests a layer of coding competence that execution benchmarks do not isolate: whether a model can state a programming fact correctly. Its 1,498 questions comprise 782 English and 716 Chinese items, span more than 15 programming languages and 21 computer-science domains, and use concise reference answers grounded in code-related documents. The distribution is broad rather than uniform: general-language questions dominate, while individual language subsets include Java, Python, C#, C/C++, SQL, PHP, JavaScript, Kotlin, Ruby, Swift, Go, Rust, and others.",
+    "The evaluation follows the SimpleQA distinction among correct, incorrect, and not-attempted responses. Correct Given Attempted measures how often a model is right after it chooses to answer; F-score is the harmonic mean of that value and the overall Correct rate. This matters because a system that guesses constantly and one that refuses difficult questions can otherwise look deceptively similar under a single accuracy number.",
+    "The paper also treats the benchmark as a target for model improvement. CodeSimpleQA-Instruct contains 53,571,094 English and 13,359,625 Chinese samples. Its pipeline retrieves technical documents, filters source and content quality, clusters code-text embeddings, generates objective QA pairs, and applies automated plus human verification before SFT and GRPO experiments. The benchmark and training corpus are related, but the leaderboard here uses only held-out CodeSimpleQA evaluation results."
+  ],
+  "why": [
+    "Executable code can still be built on a false premise: a hallucinated API contract, a mistaken language rule, or an incorrect systems claim. Those errors surface in code review, debugging, migration, and technical support, where an authoritative-sounding answer may redirect the implementation before any test is run. CodeSimpleQA makes that factual layer visible instead of allowing execution success to stand in for knowledge.",
+    "The bilingual split also prevents an English result from hiding uneven transfer. TokenWave therefore averages the paper's Chinese and English overall F-scores for models present in both tables. The combined number is deliberately labeled as a site-derived mean; readers who need language-specific or domain-specific diagnosis should use the two source tables and the paper's 21-domain breakdown."
+  ],
+  "reading": [
+    "GPT-5 leads the bilingual aggregation at 65.05, formed from 67.2 Chinese F-score and 62.9 English F-score. o3 follows at 61.65, a 3.40-point gap, while GPT-5 Mini is another 6.00 points back at 55.65. The first separation is therefore between the two strongest reasoning-oriented systems and the rest of the field, not merely between vendors.",
+    "The middle of the table is compact: o4-mini scores 53.30, Claude Sonnet 4 Thinking 52.50, and Claude Sonnet 4 without thinking 51.90. ChatGPT-4o Latest, o3-mini, and GPT-OSS-120B all fall between 50.35 and 50.95. Small changes in answer rate or calibration can reorder this band, so the per-language Correct and Correct Given Attempted metrics are useful when comparing nearby models.",
+    "GPT-4o-2024-11-20 closes the displayed top ten at 48.70, leaving a 16.35-point spread from first to tenth. More importantly, the leader remains 34.95 points below the top of the scale. Even on short, reference-grounded programming questions, the paper's results do not support treating factual code knowledge as solved."
+  ]
 }

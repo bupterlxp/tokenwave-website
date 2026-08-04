@@ -1,30 +1,47 @@
 {
- "slug": "opencodeinterpreter",
- "name": "OpenCodeInterpreter",
- "domain": "agent",
+  "slug": "opencodeinterpreter",
+  "name": "OpenCodeInterpreter",
+  "paper_type": "system",
+  "domain": "agent",
  "domain_name": "Agent Benchmark",
  "subcategory": "Code Execution",
- "abstract": "OpenCodeInterpreter closes the loop between writing code and running it: models generate, execute, and refine code using execution results and feedback, trained on the Code-Feedback corpus of multi-turn interactions. Results on this page will be populated at the next TokenWave data refresh.",
- "contributions": [
-  "Integrates code generation with execution and iterative refinement instead of one-shot output.",
-  "Releases Code-Feedback, a 68K multi-turn dataset of code, execution results, and human feedback.",
-  "Shows that execution-driven refinement substantially narrows the gap to proprietary code-interpreter systems."
- ],
- "method": [
-  "Each turn the model proposes code, observes execution output, and revises until the task passes or budget runs out.",
-  "Training data mixes single-turn packing, execution-feedback traces, and human-feedback corrections.",
-  "Evaluation uses standard code-generation suites with and without refinement rounds."
- ],
- "metrics": [
-  {
-   "name": "Pass@1 with refinement",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Execution-checked success after iterative refinement."
-  }
- ],
+  "abstract": "OpenCodeInterpreter is a family of open code-generation systems trained to revise programs after compiler output and user feedback, rather than a new benchmark. Its Code-Feedback dataset contains 68K multi-turn dialogues and 192K turns assembled through query packing, simulated interactions, deliberate code correction, and related or follow-up LeetCode problems. Models based on CodeLlama, DeepSeekCoder, and StarCoder2 are instruction-tuned on this feedback data mixed with high-quality single-turn examples. Evaluation uses HumanEval, MBPP, and their EvalPlus extensions in single-turn and two-round refinement settings. OpenCodeInterpreter-DeepSeekCoder-33B scores 79.0 average pass@1 (70.4 on the Plus suites) before feedback and 83.2 (76.4) with execution feedback; synthesized human feedback raises it to 88.0 (81.0), while the oracle-feedback condition reaches 91.6 (84.6).",
+  "contributions": [
+    "Releases Code-Feedback with 68K dialogues and 192K turns, explicitly representing multi-turn conversation, execution feedback, and human feedback rather than only static instruction-answer pairs.",
+    "Builds five data streams: 16K packed dialogues, 51K simulated interactions, 0.5K code-correction dialogues, 0.3K similar-problem dialogues, and 0.2K LeetCode follow-up dialogues.",
+    "Trains open interpreter variants across CodeLlama, DeepSeekCoder, and StarCoder2 scales so the same model can generate code, consume execution diagnostics, and revise its answer within the conversation.",
+    "Reports controlled feedback gains: the 33B DeepSeekCoder variant improves from 79.0 to 83.2 average pass@1 with execution feedback and to 88.0 with synthesized human feedback; the oracle-feedback result is 91.6.",
+    "Tests real multi-turn behavior on the 10 coding prompts in MT-Bench, where OpenCodeInterpreter-DS-33B scores 6.8 overall versus 5.5 for DeepSeekCoder-33B-Instruct under GPT-4 judging."
+  ],
+  "method": [
+    "The authors aggregate 287K queries from four open code-instruction datasets, score complexity twice with Qwen-72B-Chat, and retain 156K queries rated 4 or 5 as a challenging seed pool.",
+    "Single-turn packing groups semantically related queries; GPT-3.5/GPT-4 interaction simulation executes generated code and adds one of ten user-feedback categories; deliberate code-correction traces teach recovery from diagnostics; LeetCode tasks supply related and follow-up problems.",
+    "Base models are fine-tuned for three epochs with learning rate 2e-5, 5% warm-up, cosine scheduling, and a 4096-token cutoff. Code-Feedback is mixed with WizardCoder-110K single-turn data at the selected 1:2 feedback-to-single-turn ratio.",
+    "At inference, generated code is sanitized and executed. Failed solutions receive exception text, mismatched expected/actual outputs, or a timeout message; evaluation stops on success or after two refinement rounds.",
+    "HumanEval, MBPP, HumanEval+, and MBPP+ are decoded greedily and scored with EvalPlus pass@1. Multi-turn conditions isolate execution feedback, GPT-4-synthesized user feedback, and an oracle variant whose feedback generator can see the reference solution; MT-Bench adds 10 two-turn coding conversations."
+  ],
+  "metrics": [
+    {
+      "name": "EvalPlus pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of HumanEval, MBPP, HumanEval+, or MBPP+ tasks solved by the single greedily decoded candidate; refinement settings allow at most two feedback rounds."
+    },
+    {
+      "name": "Average pass@1",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Arithmetic mean of HumanEval and MBPP pass@1. The parenthesized Average+ reported by the paper is the corresponding mean of HumanEval+ and MBPP+."
+    },
+    {
+      "name": "MT-Bench coding score",
+      "direction": "higher",
+      "range": "[1, 10]",
+      "note": "GPT-4 judgment score on 10 coding conversations, reported separately for the first and follow-up turns and as their average."
+    }
+  ],
  "leaderboard": [],
- "leaderboard_metric": "Pass@1 with refinement",
+  "leaderboard_metric": "Average pass@1",
  "leaderboard_note": null,
  "links": {
   "paper": "https://arxiv.org/abs/2402.14658",
@@ -39,5 +56,14 @@
   "models_scored": null,
   "data_updated": "2026-08-03"
  },
- "figures": []
+  "figures": [
+    {
+      "image": "static/images/benchmarks/opencodeinterpreter/figure-1-execution-refinement.png",
+      "caption": "Figure 1 (paper, PDF p. 1): A code-interpreter exchange that uses an execution error to revise an IPv6 validator, followed by HumanEval pass@1 for 6.7B and 33B variants under single-turn, execution-feedback, synthesized-human-feedback, and oracle-feedback settings. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/opencodeinterpreter/figure-2-code-feedback.png",
+      "caption": "Figure 2 (paper, PDF p. 3): Code-Feedback's five construction streams and their sample/turn counts, with columns marking whether each stream contains multi-turn, execution-feedback, and human-feedback signals. Source: paper."
+    }
+  ]
 }

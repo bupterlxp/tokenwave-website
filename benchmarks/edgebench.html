@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EdgeBench | TokenWave AI</title>
-    <meta name="description" content="EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation. Performance follows a log-sigmoid law in interaction time (R² = 0.">
+    <meta name="description" content="Day-scale environment learning measured through repeated interaction, hidden judging, and 134 real tasks.">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="TokenWave AI">
     <meta property="og:title" content="EdgeBench | TokenWave AI">
-    <meta property="og:description" content="EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation. Performance follows a log-sigmoid law in interaction time (R² = 0.">
+    <meta property="og:description" content="Day-scale environment learning measured through repeated interaction, hidden judging, and 134 real tasks.">
     <meta property="og:url" content="https://tokenwave.ai/benchmarks/edgebench.html">
     <meta property="og:image" content="https://tokenwave.ai/static/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EdgeBench | TokenWave AI">
-    <meta name="twitter:description" content="EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation. Performance follows a log-sigmoid law in interaction time (R² = 0.">
+    <meta name="twitter:description" content="Day-scale environment learning measured through repeated interaction, hidden judging, and 134 real tasks.">
     <meta name="twitter:image" content="https://tokenwave.ai/static/images/og-default.png">
     <link rel="canonical" href="https://tokenwave.ai/benchmarks/edgebench.html">
 
@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
     <link rel="preload" href="../static/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../static/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../static/css/style.css?v=ab16133a">
+    <link rel="stylesheet" href="../static/css/style.css?v=2523af74">
     <!-- Pre-hide page if arriving via full-page transition (must run before first paint) -->
     <script>try{if(sessionStorage.getItem('tokenwave_transition')==='full'){document.documentElement.style.opacity='0';}}catch(e){}</script>
 </head>
@@ -47,74 +47,105 @@
 
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('../static/images/benchmarks/edgebench.svg');" role="img" aria-label="EdgeBench — led by Claude Opus 4.8 at 51.3"></div>
+        <div class="detail-image" style="background-image: url('../static/images/benchmarks/edgebench.svg');" role="img" aria-label="EdgeBench — led by Claude Opus 4.8 (Claude Code, 1M) at 51.3"></div>
         <div class="detail-head">
             <div class="eyebrow"><a class="eyebrow-link" href="../careers.html#mle">Machine Learning Engineer</a> · Environment Learning</div>
             <h1>EdgeBench</h1>
+            <p class="detail-tagline">Day-scale environment learning measured through repeated interaction, hidden judging, and 134 real tasks.</p>
             <p class="detail-meta">
-                <span class="lead">Leader &mdash; Claude Opus 4.8 · 51.3</span>
+                Benchmark paper
+                <span class="sep">·</span>
+                <span class="lead">Leader &mdash; Claude Opus 4.8 (Claude Code, 1M) · 51.3</span>
                 <span class="sep">·</span>
                 Environment Learning
                 <span class="sep">·</span>
-                updated 2026-08-03
+                updated 2026-08-04
             </p>
-    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2607.05155" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://github.com/ByteDance-Seed/EdgeBench" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a> <a class="button" href="https://arxiv.org/pdf/2607.05155.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></div>
+    <div class="detail-actions"><a class="button primary" href="https://arxiv.org/abs/2607.05155" target="_blank" rel="noopener noreferrer">Paper ↗</a> <a class="button" href="https://edge-bench.org/" target="_blank" rel="noopener noreferrer">Code &amp; Website ↗</a></div>
         </div>
+    </div>
+
+    <div class="stat-grid">
+        <div class="stat-tile"><div class="v">134</div><div class="l">real-world tasks</div></div>
+        <div class="stat-tile"><div class="v">12h</div><div class="l">main budget per trial</div></div>
+        <div class="stat-tile"><div class="v">~38k</div><div class="l">agent interaction hours</div></div>
+        <div class="stat-tile"><div class="v">51.3</div><div class="l">top Overall Score @12h</div></div>
     </div>
     <div class="detail-layout">
     <div class="markdown">
 
-        <h2 id="abstract">Abstract</h2>
-        <p>EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation. Performance follows a log-sigmoid law in interaction time (R² = 0.998) — the benchmark behind the environment-learning scaling law.</p>
+        <h2 id="overview">Overview</h2>
+        <p>EdgeBench measures a different quantity from conventional endpoint benchmarks: how much an agent improves while working in an unfamiliar environment. Its 134 tasks span scientific research and machine learning, production software, open-ended optimization, professional deliverables, machine-checked theorem proving, and interactive games. Every task is designed to sustain at least 12 hours of work. The recorded human expert effort averages 57.2 hours per task and reaches 320 hours, indicating that the time budget reflects the task contract rather than an artificial delay.</p>
+        <p>The evaluation exposes two feedback loops. Inside the work container, an agent can run compilers, simulators, development splits, proof checkers, or game episodes as often as needed. Authoritative evaluation is separate: a submission is sent to an isolated judge with hidden tests, unseen seeds, private data, or client-style rubrics, and only the configured score or diagnostic feedback returns. Host-side snapshots score the trajectory at fixed intervals without revealing those measurements to the agent, so progress can be reconstructed even between explicit submissions.</p>
+        <p>The main experiment runs five frontier agent systems three times on every task for 12 hours, then reports best-so-far performance at two-hour intervals. The systems are not harness-identical: GPT models use Codex with a 256k compact window, GLM-5.1 and DeepSeek-V4-Pro use Claude Code with 200k, and Claude Opus 4.8 primarily uses Claude Code with a 1M window. The leaderboard therefore compares the paper&#x27;s complete evaluated systems under the same tasks and duration, not isolated model APIs.</p>
+
+        <h2 id="why-it-matters">Why it matters</h2>
+        <p>A final score cannot distinguish prior knowledge from adaptation. EdgeBench records the full trajectory, allowing researchers to ask whether an agent uses feedback to preserve gains, revise a strategy, and accumulate experience instead of merely sampling more attempts. The paper&#x27;s restart ablation reinforces this distinction: continuous experience outperforms spending the same 12-hour budget on independent restarts across the tested slice.</p>
+        <p>The benchmark also makes long-horizon evaluation operationally concrete. Hidden assets are isolated from the work container, feedback is submission-gated, asynchronous judges can run while the agent continues working, and infrastructure incidents are tracked. Those choices matter at day scale, where service interruptions, context compaction, and evaluator leakage can otherwise be mistaken for model behavior.</p>
 
         <h2 id="contributions">Contributions</h2>
         <ul>
-            <li>134 expert-built real-world tasks spanning science and ML, systems engineering, optimization, professional knowledge work, formal math, and games; experts averaged 57.2 hours per task.</li>
-            <li>Every task supports 12+ hours of agent operation, with extended runs beyond 72 hours; 51 tasks are public and 83 held out against contamination.</li>
-            <li>The SForge harness isolates the agent&#x27;s work container from ephemeral judge containers, giving granular feedback in a closed improvement loop.</li>
+            <li>Introduces 134 day-scale executable tasks across six capability families, with 51 tasks publicly released and all tasks designed to sustain at least 12 hours of interaction.</li>
+            <li>Implements a dual-loop harness: agents iterate freely against local tools and visible development feedback, then submit artifacts to an isolated judge holding hidden tests, seeds, or grading criteria.</li>
+            <li>Collects three 12-hour trajectories for each task-model pair across five frontier agent systems, producing roughly 38,000 hours of interaction data and fixed-interval evaluator-only snapshots.</li>
+            <li>Shows that benchmark-average learning follows a three-parameter log-sigmoid law, remains stable on 28- and 72-hour subsets, and that frontier two-hour learning speed increased about eightfold over 221 days.</li>
         </ul>
 
         <h2 id="method">Method &amp; evaluation</h2>
         <ul>
-            <li>Agents work in an executable environment, submit repeatedly, and receive pass rates and failing-test feedback until timeout.</li>
-            <li>The best submission across the run is the task score.</li>
-            <li>Across ~38,000 hours of interaction, score follows a log-sigmoid function of environment time; learning speed roughly doubles every three months across model generations.</li>
+            <li>Experts selected unsaturated tasks that reward continued experimentation; the final taxonomy contains 39 science/ML, 36 systems/software, 19 optimization, 19 knowledge-work, 13 formal-proof, and 8 game tasks.</li>
+            <li>The agent works in a writable container with compilers, simulators, development splits, proof states, or game APIs. Hidden evaluation assets remain in a separate judge container mediated by a host-side server.</li>
+            <li>Agents may submit throughout a run and receive task-specific scores or diagnostics; the harness also evaluates snapshots at fixed intervals without exposing those snapshot scores to the agent.</li>
+            <li>Each of five systems receives three independent 12-hour runs per task. GPT-5.5 and GPT-5.4 use Codex with a 256k compact window; GLM-5.1 and DeepSeek-V4-Pro use Claude Code at 200k; Opus 4.8 primarily uses Claude Code at 1M.</li>
+            <li>For every elapsed-time budget, the benchmark takes each trajectory&#x27;s best-so-far task score and averages across tasks. The paper fits S(t)=Smax/[1+(tmid/t)^β] to the resulting aggregate curves.</li>
         </ul>
 
         <h2 id="metrics">Evaluation metrics</h2>
-        <p><b>Score @12h</b> &mdash; Higher is better. Best-submission score after 12 hours of environment interaction, averaged over tasks. Score range: [0, 100].</p>
+        <p><b>Overall Score @12h</b> &mdash; Higher is better. Benchmark-average best-so-far performance after 12 hours; task results are aggregated from up to three valid independent runs. Score range: [0, 100].</p>
+        <p><b>Category Score @12h</b> &mdash; Higher is better. The same 12-hour score reported separately for Science, Code, Optimization, Knowledge, Math, and Games. Score range: [0, 100].</p>
+        <p><b>Log-sigmoid fit R²</b> &mdash; Higher is better. Goodness of fit between the observed aggregate learning trajectory and the three-parameter log-sigmoid curve; all five 134-task fits are at least 0.997. Score range: [0, 1].</p>
 
         <h2 id="leaderboard">Leaderboard</h2>
-        <p>Published snapshot of the public task set; a full run is compute-intensive, so coverage grows slowly.</p>
+        <p>All five rows use the 134-task, 12-hour setting from Table 2. The paper evaluates complete agent systems with different harnesses and context windows, so these numbers should not be read as a model-API-only comparison.</p>
         <table class="data-table">
             <thead>
-                <tr><th>#</th><th>Model</th><th>Score @12h</th><th>Source</th></tr>
+                <tr><th>#</th><th>Model</th><th>Overall Score @12h</th></tr>
             </thead>
             <tbody>
-                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Opus 4.8</td><td class="num">51.3<span class="lb-track"><span class="lb-bar" data-w="51.3"></span></span></td><td>EdgeBench public snapshot</td></tr>
+                <tr class="lead-row"><td><span class="rank">1</span></td><td>Claude Opus 4.8 (Claude Code, 1M)</td><td class="num">51.3<span class="lb-track"><span class="lb-bar" data-w="51.3"></span></span></td></tr>
+                <tr><td><span class="rank">2</span></td><td>GPT-5.5 (Codex, 256k)</td><td class="num">48.4<span class="lb-track"><span class="lb-bar" data-w="48.4"></span></span></td></tr>
+                <tr><td><span class="rank">3</span></td><td>GPT-5.4 (Codex, 256k)</td><td class="num">39.3<span class="lb-track"><span class="lb-bar" data-w="39.3"></span></span></td></tr>
+                <tr><td><span class="rank">4</span></td><td>GLM-5.1 (Claude Code, 200k)</td><td class="num">37.4<span class="lb-track"><span class="lb-bar" data-w="37.4"></span></span></td></tr>
+                <tr><td><span class="rank">5</span></td><td>DeepSeek-V4-Pro preview (Claude Code, 200k)</td><td class="num">31<span class="lb-track"><span class="lb-bar" data-w="31.0"></span></span></td></tr>
             </tbody>
         </table>
-        <p class="submit-hint"><a href="../submit.html">Scored a model on EdgeBench? Submit the result →</a></p>
 
-        <h2 id="at-a-glance">At a glance</h2>
-        <ul class="glance">
-            <li><span class="k">Focus</span><span>Learning from real environments</span></li>
-            <li><span class="k">Primary metric</span><span>Score @12h</span></li>
-            <li><span class="k">Displayed setting</span><span>12–72 hour closed-loop runs</span></li>
-            <li><span class="k">Models scored</span><span>1</span></li>
-            <li><span class="k">Data updated</span><span>2026-08-03</span></li>
-        </ul>
+        <h2 id="reading-the-results">Reading the results</h2>
+        <p>Claude Opus 4.8 leads the common 12-hour table at 51.3, followed by GPT-5.5 at 48.4. GPT-5.4 reaches 39.3, GLM-5.1 37.4, and DeepSeek-V4-Pro preview 31.0. Every system improves materially after the two-hour mark: Opus rises from 39.0 to 51.3, GPT-5.5 from 36.8 to 48.4, GPT-5.4 from 29.7 to 39.3, GLM-5.1 from 26.0 to 37.4, and DeepSeek from 23.3 to 31.0. A two-hour leaderboard would therefore discard between 7.7 and 12.3 points of observed learning.</p>
+        <p>The aggregate curves are unusually regular despite jagged individual tasks. Across all 134 tasks, the five log-sigmoid fits have R² values of at least 0.997 and a mean of 0.998; fits on 28-hour and 72-hour subsets remain at least 0.993. That is evidence about population-level trajectories, not a claim that any single task improves smoothly. Category scores also differ sharply—Opus reaches 67.4 in Code but 36.5 in Optimization—so the overall score should be paired with the family breakdown when diagnosing a system.</p>
+
+        <h2 id="paper-figures">Figures &amp; tables</h2>
+        <figure>
+            <img src="../static/images/benchmarks/edgebench/figure-2-task-taxonomy.png" alt="Figure 2 (paper, PDF p. 2): EdgeBench&#x27;s 134 tasks split into six capability families—39 scientific/ML, 36 systems/software, 19 optimization, 19 professional knowledge-work, 13 formal-proof, and 8 game tasks—with representative task examples. Source: paper." loading="lazy">
+            <figcaption>Figure 2 (paper, PDF p. 2): EdgeBench&#x27;s 134 tasks split into six capability families—39 scientific/ML, 36 systems/software, 19 optimization, 19 professional knowledge-work, 13 formal-proof, and 8 game tasks—with representative task examples. Source: paper.</figcaption>
+        </figure>
+        <figure>
+            <img src="../static/images/benchmarks/edgebench/figure-3-feedback-loop.png" alt="Figure 3 (paper, PDF p. 4): The continuous local loop and submission-gated judge loop, plus concrete local and hidden feedback channels for software, science, knowledge-work, and game tasks. Source: paper." loading="lazy">
+            <figcaption>Figure 3 (paper, PDF p. 4): The continuous local loop and submission-gated judge loop, plus concrete local and hidden feedback channels for software, science, knowledge-work, and game tasks. Source: paper.</figcaption>
+        </figure>
 
         <p class="back-link"><a href="../careers.html#mle">&larr; Back to Machine Learning Engineer</a></p>
     </div>
     <nav class="toc" aria-label="On this page">
         <div class="toc-h">On this page</div>
-        <a href="#abstract">Abstract</a>
+        <a href="#overview">Overview</a>
+        <a href="#why-it-matters">Why it matters</a>
         <a href="#contributions">Contributions</a>
         <a href="#method">Method &amp; evaluation</a>
         <a href="#metrics">Evaluation metrics</a>
         <a href="#leaderboard">Leaderboard</a>
-        <a href="#at-a-glance">At a glance</a>
+        <a href="#reading-the-results">Reading the results</a>
+        <a href="#paper-figures">Figures &amp; tables</a>
     </nav>
     </div>
 </article>
@@ -146,7 +177,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Real work, verified &mdash; compiling professional workflows into benchmarks, harnesses, and agent services.</p>
+                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
@@ -155,7 +186,6 @@
                 <a href="../careers.html">Careers</a>
                 <a href="../research.html">Research</a>
                 <a href="../joinus.html">Join Us</a>
-                <a href="../submit.html">Submit results</a>
             </div>
             <div class="footer-col">
                 <div class="h">Contact</div>
@@ -175,7 +205,7 @@
     <!-- Page transition state machine -->
     <script src="../static/js/transition.js?v=1d19e261" defer></script>
     <!-- Live board data (generated) + reveals, count-ups, meters, marquee -->
-    <script src="../static/js/home-data.js?v=3c087529" defer></script>
+    <script src="../static/js/home-data.js?v=56d9625f" defer></script>
     <script src="../static/js/site.js?v=352853d2" defer></script>
 </body>
 </html>

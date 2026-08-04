@@ -1,54 +1,120 @@
 {
- "slug": "edgebench",
- "name": "EdgeBench",
- "domain": "agent",
- "domain_name": "Agent Benchmark",
- "subcategory": "Environment Learning",
- "abstract": "EdgeBench measures how agents learn from real environments over ultra-long horizons: 134 real-world tasks across six domains, each supporting 12 or more hours of continuous operation. Performance follows a log-sigmoid law in interaction time (R² = 0.998) — the benchmark behind the environment-learning scaling law.",
- "contributions": [
-  "134 expert-built real-world tasks spanning science and ML, systems engineering, optimization, professional knowledge work, formal math, and games; experts averaged 57.2 hours per task.",
-  "Every task supports 12+ hours of agent operation, with extended runs beyond 72 hours; 51 tasks are public and 83 held out against contamination.",
-  "The SForge harness isolates the agent's work container from ephemeral judge containers, giving granular feedback in a closed improvement loop."
- ],
- "method": [
-  "Agents work in an executable environment, submit repeatedly, and receive pass rates and failing-test feedback until timeout.",
-  "The best submission across the run is the task score.",
-  "Across ~38,000 hours of interaction, score follows a log-sigmoid function of environment time; learning speed roughly doubles every three months across model generations."
- ],
- "metrics": [
-  {
-   "name": "Score @12h",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Best-submission score after 12 hours of environment interaction, averaged over tasks."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": null,
-   "model": "Claude Opus 4.8",
-   "org": "Anthropic",
-   "color": "#94a3b8",
-   "score": 51.3,
-   "source": "EdgeBench public snapshot",
-   "date": null
-  }
- ],
- "leaderboard_metric": "Score @12h",
- "leaderboard_note": "Published snapshot of the public task set; a full run is compute-intensive, so coverage grows slowly.",
- "links": {
-  "paper": "https://arxiv.org/abs/2607.05155",
-  "code": "https://github.com/ByteDance-Seed/EdgeBench",
-  "pdf": "https://arxiv.org/pdf/2607.05155.pdf"
- },
- "image": "static/images/benchmarks/edgebench.svg",
- "at_a_glance": {
-  "focus": "Learning from real environments",
-  "primary_metric": "Score @12h",
-  "setting": "12–72 hour closed-loop runs",
-  "models_scored": 1,
-  "data_updated": "2026-08-03"
- },
- "figures": []
+  "slug": "edgebench",
+  "name": "EdgeBench",
+  "paper_type": "benchmark",
+  "domain": "agent",
+  "domain_name": "Agent Benchmark",
+  "subcategory": "Environment Learning",
+  "abstract": "EdgeBench evaluates whether autonomous agents improve through feedback in unfamiliar executable environments rather than only deliver a one-shot answer. It contains 134 expert-curated tasks across six families: 39 scientific and ML, 36 systems and software engineering, 19 optimization, 19 professional knowledge work, 13 formal proof, and 8 games. Every task supports at least 12 hours of operation; recorded expert effort averages 57.2 hours and reaches 320 hours. A local workspace supplies fast, manipulable feedback, while an isolated judge returns hidden-test, unseen-seed, or rubric feedback after submission. Five frontier agents were run in three independent 12-hour trials per task, totaling roughly 38,000 interaction hours. Aggregate best-so-far trajectories fit a log-sigmoid curve with R² of at least 0.997 for every model.",
+  "contributions": [
+    "Introduces 134 day-scale executable tasks across six capability families, with 51 tasks publicly released and all tasks designed to sustain at least 12 hours of interaction.",
+    "Implements a dual-loop harness: agents iterate freely against local tools and visible development feedback, then submit artifacts to an isolated judge holding hidden tests, seeds, or grading criteria.",
+    "Collects three 12-hour trajectories for each task-model pair across five frontier agent systems, producing roughly 38,000 hours of interaction data and fixed-interval evaluator-only snapshots.",
+    "Shows that benchmark-average learning follows a three-parameter log-sigmoid law, remains stable on 28- and 72-hour subsets, and that frontier two-hour learning speed increased about eightfold over 221 days."
+  ],
+  "method": [
+    "Experts selected unsaturated tasks that reward continued experimentation; the final taxonomy contains 39 science/ML, 36 systems/software, 19 optimization, 19 knowledge-work, 13 formal-proof, and 8 game tasks.",
+    "The agent works in a writable container with compilers, simulators, development splits, proof states, or game APIs. Hidden evaluation assets remain in a separate judge container mediated by a host-side server.",
+    "Agents may submit throughout a run and receive task-specific scores or diagnostics; the harness also evaluates snapshots at fixed intervals without exposing those snapshot scores to the agent.",
+    "Each of five systems receives three independent 12-hour runs per task. GPT-5.5 and GPT-5.4 use Codex with a 256k compact window; GLM-5.1 and DeepSeek-V4-Pro use Claude Code at 200k; Opus 4.8 primarily uses Claude Code at 1M.",
+    "For every elapsed-time budget, the benchmark takes each trajectory's best-so-far task score and averages across tasks. The paper fits S(t)=Smax/[1+(tmid/t)^β] to the resulting aggregate curves."
+  ],
+  "metrics": [
+    {
+      "name": "Overall Score @12h",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Benchmark-average best-so-far performance after 12 hours; task results are aggregated from up to three valid independent runs."
+    },
+    {
+      "name": "Category Score @12h",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "The same 12-hour score reported separately for Science, Code, Optimization, Knowledge, Math, and Games."
+    },
+    {
+      "name": "Log-sigmoid fit R²",
+      "direction": "higher",
+      "range": "[0, 1]",
+      "note": "Goodness of fit between the observed aggregate learning trajectory and the three-parameter log-sigmoid curve; all five 134-task fits are at least 0.997."
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": 1,
+      "model_id": null,
+      "model": "Claude Opus 4.8 (Claude Code, 1M)",
+      "org": "Anthropic",
+      "color": "#d97706",
+      "score": 51.3,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 2,
+      "model_id": null,
+      "model": "GPT-5.5 (Codex, 256k)",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 48.4,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 3,
+      "model_id": null,
+      "model": "GPT-5.4 (Codex, 256k)",
+      "org": "OpenAI",
+      "color": "#10a37f",
+      "score": 39.3,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 4,
+      "model_id": null,
+      "model": "GLM-5.1 (Claude Code, 200k)",
+      "org": "Z.ai",
+      "color": "#7c3aed",
+      "score": 37.4,
+      "source": "arXiv Table 2",
+      "date": null
+    },
+    {
+      "rank": 5,
+      "model_id": null,
+      "model": "DeepSeek-V4-Pro preview (Claude Code, 200k)",
+      "org": "DeepSeek",
+      "color": "#4a90d9",
+      "score": 31.0,
+      "source": "arXiv Table 2",
+      "date": null
+    }
+  ],
+  "leaderboard_metric": "Overall Score @12h",
+  "leaderboard_note": "All five rows use the 134-task, 12-hour setting from Table 2. The paper evaluates complete agent systems with different harnesses and context windows, so these numbers should not be read as a model-API-only comparison.",
+  "show_source": false,
+  "links": {
+    "paper": "https://arxiv.org/abs/2607.05155",
+    "code": "https://edge-bench.org/",
+    "pdf": "https://arxiv.org/pdf/2607.05155.pdf"
+  },
+  "image": "static/images/benchmarks/edgebench.svg",
+  "at_a_glance": {
+    "focus": "Learning from real environments",
+    "primary_metric": "Overall Score @12h",
+    "setting": "134 tasks, three 12-hour trials",
+    "models_scored": 5,
+    "data_updated": "2026-08-04"
+  },
+  "figures": [
+    {
+      "image": "static/images/benchmarks/edgebench/figure-2-task-taxonomy.png",
+      "caption": "Figure 2 (paper, PDF p. 2): EdgeBench's 134 tasks split into six capability families—39 scientific/ML, 36 systems/software, 19 optimization, 19 professional knowledge-work, 13 formal-proof, and 8 game tasks—with representative task examples. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/edgebench/figure-3-feedback-loop.png",
+      "caption": "Figure 3 (paper, PDF p. 4): The continuous local loop and submission-gated judge loop, plus concrete local and hidden feedback channels for software, science, knowledge-work, and game tasks. Source: paper."
+    }
+  ]
 }

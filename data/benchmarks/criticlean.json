@@ -1,100 +1,75 @@
 {
- "slug": "criticlean",
- "name": "CriticLean",
- "domain": "llm",
- "domain_name": "LLM Benchmark",
- "subcategory": "Math",
- "abstract": "CriticLean evaluates critic ability for mathematical formalization. This page uses ACC from the main table.",
- "contributions": [],
- "method": [
-  "This work studies critic ability in mathematical formalization, evaluating whether models can distinguish correct from incorrect reasoning or proof fragments.",
-  "CriticLeanBench combines critic signals, Lean verification, and testing, making the setup closer to realistic formalization workflows.",
-  "The results show that strong reasoning models perform best, but overall accuracy is still far from replacing human review."
- ],
- "metrics": [
-  {
-   "name": "ACC",
-   "direction": "higher",
-   "range": "[0, 100]",
-   "note": "Accuracy on the main CriticLean results table."
-  }
- ],
- "leaderboard": [
-  {
-   "rank": 1,
-   "model_id": "gemini_2_5_pro",
-   "model": "Gemini 2.5 Pro",
-   "org": "Google",
-   "color": "#4285f4",
-   "score": 89.2,
-   "source": "official",
-   "date": null
+  "slug": "criticlean",
+  "name": "CriticLean",
+  "paper_type": "training",
+  "domain": "llm",
+  "domain_name": "LLM Research",
+  "subcategory": "Formal Math Training",
+  "abstract": "CriticLean is a critic-guided training framework for checking whether a Lean 4 formalization preserves the meaning of a natural-language mathematics problem. The work trains CriticLeanGPT variants with supervised fine-tuning and GRPO reinforcement learning, using a 48,000-example mixture of critic, code, and mathematics data plus a 4,000-example expert-labeled RL seed. CriticLeanBench supplies 500 balanced correct and incorrect statement pairs for measuring semantic classification, while syntax is checked independently by the Lean compiler. The trained critic is then placed inside an iterative autoformalization loop: compilation or semantic errors trigger regeneration. That loop produces FineLeanCorpus, 285,957 verified statement pairs, including more than 36,000 high-difficulty Diamond examples. Reported results analyze accuracy, class-specific error rates, model scale, data scale, and Pass@k rather than defining a public model leaderboard.",
+  "contributions": [
+    "Introduces CriticLeanGPT, a family of Qwen-based semantic critics trained with supervised fine-tuning and rule-reward GRPO to judge natural-language-to-Lean 4 alignment.",
+    "Builds CriticLeanBench with 500 long-form examples balanced between 250 correct and 250 incorrect formalizations, validated by compiler checks, model screening, and human review.",
+    "Constructs CriticLeanInstruct as a 48,000-example 1:3 mixture of critic data and general code/mathematics reasoning data, anchored by 4,000 expert-labeled seed examples with detailed critique traces.",
+    "Uses compiler and critic feedback in an iterative autoformalization pipeline to create FineLeanCorpus with 285,957 entries and a 36,000-plus-example high-difficulty FineLeanCorpus-Diamond subset."
+  ],
+  "method": [
+    "CriticLeanBench draws mathematical statements from sources including Omni-MATH, AIME, U-MATH, DEMI-MathAnalysis, HARDMath, OlympiadBench, and BlueMO. Lean compilation and DeepSeek-R1 screening precede human validation; the final set has 250 semantically correct and 250 incorrect pairs averaging 700.94 Qwen2.5 tokens.",
+    "The 4,000-example seed set is split evenly between correct and incorrect cases. Human experts provide critique feedback, compiler messages accompany incorrect code, and Gemini 2.5 Pro expands the feedback into detailed reasoning traces.",
+    "Supervised fine-tuning uses CriticLeanInstruct, a 48,000-example mixture with one part critic data to three parts code and mathematics data. Qwen2.5 models at 7B, 14B, and 32B are compared with critic-only SFT and the mixed-data recipe.",
+    "GRPO training uses the 4,000 seed examples. The reward checks both whether the predicted judgment matches the expert label and whether the response obeys the required format; the final binary reward is the minimum of the two checks.",
+    "At inference, an autoformalizer proposes a Lean statement, the Lean compiler tests syntax and elaboration, and CriticLeanGPT tests semantic fidelity. Either a compilation error or critique error sends the example back for another generation attempt.",
+    "Evaluation reports single-response ACC, TPR, FPR, TNR, and FNR on CriticLeanBench, plus Pass@8 and Pass@32 analyses. The paper compares base, SFT, RL, and SFT-plus-RL variants alongside open and API baselines."
+  ],
+  "metrics": [
+    {
+      "name": "Accuracy (ACC)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Percentage of the 500 CriticLeanBench pairs assigned the correct semantic-consistency label."
+    },
+    {
+      "name": "True Positive Rate (TPR)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Recall on the 250 semantically correct formalizations."
+    },
+    {
+      "name": "True Negative Rate (TNR)",
+      "direction": "higher",
+      "range": "[0, 100]",
+      "note": "Recall on the 250 incorrect formalizations; especially relevant when the critic is used to reject bad autoformalizations."
+    },
+    {
+      "name": "False Negative Rate (FNR)",
+      "direction": "lower",
+      "range": "[0, 100]",
+      "note": "Percentage of incorrect formalizations mislabeled as correct; equal to 100 − TNR under the paper's class convention."
+    }
+  ],
+  "leaderboard": [],
+  "leaderboard_metric": null,
+  "leaderboard_note": null,
+  "at_a_glance": {
+    "focus": "Training semantic critics for Lean 4 autoformalization",
+    "primary_metric": "Accuracy and class-specific recall",
+    "setting": "500 balanced CriticLeanBench pairs",
+    "models_scored": null,
+    "data_updated": "2025-07-08"
   },
-  {
-   "rank": 2,
-   "model_id": "qwq_32b",
-   "model": "QwQ-32B",
-   "org": "Alibaba",
-   "color": "#ff6a00",
-   "score": 86.4,
-   "source": "official",
-   "date": null
+  "links": {
+    "paper": "https://arxiv.org/abs/2507.06181",
+    "code": "https://github.com/multimodal-art-projection/CriticLean",
+    "pdf": "https://arxiv.org/pdf/2507.06181.pdf"
   },
-  {
-   "rank": 3,
-   "model_id": "qwen3_32b",
-   "model": "Qwen3-32B",
-   "org": "Alibaba",
-   "color": "#ff6a00",
-   "score": 85.6,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 4,
-   "model_id": "qwen3_235b",
-   "model": "Qwen3-235B",
-   "org": "Alibaba",
-   "color": "#ff6a00",
-   "score": 84.8,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 5,
-   "model_id": "deepseek_r1",
-   "model": "DeepSeek-R1",
-   "org": "DeepSeek",
-   "color": "#4a90d9",
-   "score": 84,
-   "source": "official",
-   "date": null
-  },
-  {
-   "rank": 6,
-   "model_id": "qwen3_14b",
-   "model": "Qwen3-14B",
-   "org": "Alibaba",
-   "color": "#ff6a00",
-   "score": 83.6,
-   "source": "official",
-   "date": null
-  }
- ],
- "leaderboard_metric": "ACC",
- "leaderboard_note": "The leaderboard uses the ACC column from the main table.",
- "at_a_glance": {
-  "focus": "数学形式化 critic",
-  "primary_metric": "ACC",
-  "setting": null,
-  "models_scored": 6,
-  "data_updated": "2026-04-21"
- },
- "links": {
-  "paper": "https://arxiv.org/abs/2507.06181",
-  "code": "https://github.com/multimodal-art-projection/CriticLean",
-  "pdf": "https://arxiv.org/pdf/2507.06181.pdf"
- },
- "figures": [],
- "image": "static/images/benchmarks/criticlean.svg"
+  "figures": [
+    {
+      "image": "static/images/benchmarks/criticlean/figure-1-critic-guided-framework.png",
+      "caption": "Figure 1 (PDF p. 2): CriticLean's iterative autoformalization loop, where compiler feedback checks Lean syntax and CriticLeanGPT feedback checks semantic fidelity before a statement is accepted. Source: paper."
+    },
+    {
+      "image": "static/images/benchmarks/criticlean/figure-6-sft-data-scaling.png",
+      "caption": "Figure 6 (PDF p. 10): CriticLeanBench accuracy for 7B, 14B, and 32B Qwen2.5 models before SFT and after training with 16K or 48K examples, illustrating model- and data-scale effects. Source: paper."
+    }
+  ],
+  "image": "static/images/benchmarks/criticlean.svg"
 }
