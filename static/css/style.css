@@ -307,47 +307,31 @@ html.js .rv3 { transition-delay: 0.24s; }
     opacity: 0.85;
 }
 
-.defband-head {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
-}
-
-.defband-word {
-    font-size: clamp(30px, 3.8vw, 44px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    background: var(--current);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.defband-phon {
+.defband-kicker {
     font-family: var(--mono);
-    font-size: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--dim);
+    margin-bottom: 12px;
 }
 
-.defband-body { font-size: 16px; line-height: 1.75; color: var(--muted); max-width: 74ch; }
-.defband-body b { color: var(--ink); }
-
-.defband-body.brand-manifesto {
-    max-width: 32em;
-    font-size: clamp(18px, 2.1vw, 24px);
-    line-height: 1.65;
+.brand-manifesto {
+    max-width: 42em;
+    margin: 0;
+    font-family: var(--sans);
+    font-size: clamp(19px, 1.9vw, 23px);
+    font-weight: 400;
+    line-height: 1.5;
     letter-spacing: -0.012em;
     color: var(--ink-2);
 }
 
-.defband-pos {
-    font-family: var(--mono);
-    font-style: italic;
-    color: var(--dim);
-    margin-right: 8px;
+.manifesto-emphasis {
+    color: var(--ink);
+    font-weight: 600;
 }
 
 /* ── Page headers & eyebrows ───────────────────────────────── */
@@ -1620,21 +1604,6 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     max-width: 920px;
     padding: 30px 32px 28px;
 }
-.hero.solo .defband-word {
-    font-size: clamp(28px, 3.2vw, 38px);
-    font-weight: 600;
-}
-.hero.solo .defband-phon {
-    font-size: 11.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-.hero.solo .brand-manifesto {
-    max-width: 42em;
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.6;
-    letter-spacing: -0.006em;
-}
 @media (max-width: 680px) {
     .hero.solo { min-height: auto; padding: 64px 0 48px; }
     .hero.solo .defband { margin-top: 48px; }
@@ -1646,7 +1615,7 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     }
     .hero.solo .hero-thesis { font-size: 18px; line-height: 1.55; }
     .hero.solo .defband { padding: 24px 22px 22px; }
-    .hero.solo .brand-manifesto { font-size: 17px; }
+    .hero.solo .brand-manifesto { font-size: 18px; line-height: 1.55; }
 }
 
 /* ── Careers: side rail + evidence cards ───────────────────── */

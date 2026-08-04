@@ -47,12 +47,15 @@ for phrase in (
     "A data flywheel",
     "digital-worker revolution",
     "unleashing productivity",
-    "intelligence emerges",
+    "Intelligence emerges",
     "tokens flow and communicate",
     "unlocking productivity",
 ):
     if phrase not in home:
         errors.append(f"index.html: missing homepage mission phrase {phrase!r}")
+for stale_phrase in ("Brand statement", "TokenWave: intelligence emerges"):
+    if stale_phrase in home:
+        errors.append(f"index.html: stale brand block copy {stale_phrase!r}")
 if not (ROOT / "static" / "images" / "og-mission.png").is_file():
     errors.append("index.html: missing mission social card static/images/og-mission.png")
 
