@@ -413,12 +413,14 @@ def custom_scene(slug, accent_a, accent_b):
 
     if slug == "omni_math":
         return f'''
-<path d="M 56 284 L 238 62 L 424 284 Z" fill="{accent_a}" fill-opacity=".06" stroke="{A}" stroke-width="6" stroke-linejoin="round"/>
-<path d="M 91 243 H 389 M 125 202 H 355 M 159 161 H 321 M 195 118 H 285" stroke="{S}" stroke-width="4"/>
-<path d="M 112 284 C 156 236 164 207 208 178 C 245 154 268 124 309 83" fill="none" stroke="{A}" stroke-width="8" stroke-linecap="round"/>
-{txt(130, 263, "x²", 28, accent_a, weight=700)}{txt(240, 222, "△", 34, accent_b, weight=700)}{txt(335, 263, "ℕ", 31, accent_a, weight=700)}
-<path d="M 239 65 V 27 M 239 28 H 302 L 280 49 L 302 68 H 239" fill="{accent_b}" stroke="{accent_b}" stroke-width="3"/>
-<circle cx="309" cy="83" r="11" fill="{green}"/>
+<path d="M 72 48 H 344 L 407 111 V 306 H 72 Z" fill="#fff" stroke="{D}" stroke-width="6"/>
+<path d="M 344 48 V 111 H 407" fill="none" stroke="{D}" stroke-width="6"/>
+<path d="M 105 89 H 287" stroke="{S}" stroke-width="7" stroke-linecap="round"/>
+<path d="M 116 246 L 194 128 L 267 246 Z" fill="none" stroke="{A}" stroke-width="8" stroke-linejoin="round"/>
+<circle cx="194" cy="128" r="11" fill="{accent_b}"/><circle cx="116" cy="246" r="11" fill="{accent_a}"/><circle cx="267" cy="246" r="11" fill="{accent_a}"/>
+<path d="M 194 128 V 246 M 116 246 H 267" stroke="{S}" stroke-width="5" stroke-dasharray="8 8"/>
+{txt(333, 161, "x²", 32, accent_a, weight=700)}{txt(333, 211, "∑", 36, accent_b, weight=700)}{txt(333, 261, "ℕ", 31, D, weight=700)}
+<circle cx="385" cy="73" r="31" fill="{green}"/><path d="M 370 73 L 382 86 L 404 59" fill="none" stroke="#fff" stroke-width="7"/>
 '''
 
     if slug == "opencodeinterpreter":
@@ -434,18 +436,18 @@ def custom_scene(slug, accent_a, accent_b):
 
     if slug == "opencoder":
         threads = []
-        colors = (accent_a, accent_b, "#06b6d4", "#22c55e", "#f59e0b")
+        colors = (accent_a, accent_b, accent_a)
         for i, color in enumerate(colors):
-            y = 102 + i * 38
-            threads.append(f'<path d="M 45 {y} C 118 {y} 126 {180+(i-2)*12} 188 {180+(i-2)*12}" fill="none" stroke="{color}" stroke-width="9" stroke-linecap="round"/>')
+            y = 128 + i * 54
+            threads.append(f'<path d="M 45 {y} C 116 {y} 130 {180+(i-1)*19} 188 {180+(i-1)*19}" fill="none" stroke="{color}" stroke-width="12" stroke-linecap="round"/>')
         return "\n".join(threads) + f'''
 <rect x="184" y="88" width="112" height="184" rx="24" fill="#fff" stroke="{D}" stroke-width="6"/>
 <path d="M 210 121 H 270 M 210 151 H 258 M 210 181 H 270 M 210 211 H 250 M 210 241 H 270" stroke="{A}" stroke-width="7" stroke-linecap="round"/>
-<path d="M 296 132 H 335 M 296 180 H 353 M 296 228 H 335" stroke="{A}" stroke-width="7"/>
-<rect x="337" y="101" width="94" height="70" rx="16" fill="#fff" stroke="{A}" stroke-width="5"/>
-<rect x="351" y="145" width="80" height="70" rx="16" fill="#fff" stroke="{A}" stroke-width="5"/>
-<rect x="337" y="190" width="94" height="70" rx="16" fill="#fff" stroke="{A}" stroke-width="5"/>
-{txt(384, 144, "7B", 23, D, weight=700)}{txt(391, 188, "8B", 23, D, weight=700)}{txt(384, 233, "✓", 28, green, weight=700)}
+<path d="M 296 143 H 344 M 296 219 H 344" stroke="{A}" stroke-width="9"/>
+<rect x="340" y="102" width="96" height="82" rx="17" fill="#fff" stroke="{A}" stroke-width="6"/>
+<rect x="340" y="178" width="96" height="82" rx="17" fill="#fff" stroke="{A}" stroke-width="6"/>
+{txt(388, 151, "7B", 26, D, weight=700)}{txt(388, 226, "8B", 26, D, weight=700)}
+<circle cx="424" cy="247" r="22" fill="{green}"/><path d="M 414 247 L 422 256 L 437 238" fill="none" stroke="#fff" stroke-width="5"/>
 '''
 
     if slug == "oprover":
@@ -472,15 +474,16 @@ def custom_scene(slug, accent_a, accent_b):
         return "\n".join(parts)
 
     if slug == "supergpqa":
-        parts = [f'<circle cx="240" cy="180" r="44" fill="#fff" stroke="{D}" stroke-width="6"/>', txt(240, 194, "?", 40, accent_a, weight=700)]
-        for radius, count, size in ((88, 10, 10), (132, 18, 7)):
-            parts.append(f'<circle cx="240" cy="180" r="{radius}" fill="none" stroke="{S}" stroke-width="4"/>')
-            for i in range(count):
-                angle = math.radians(i * 360 / count - 90)
-                x, y = 240 + math.cos(angle) * radius, 180 + math.sin(angle) * radius
-                color = A if i % 4 == 0 else S
-                parts.append(f'<circle cx="{x:g}" cy="{y:g}" r="{size}" fill="#fff" stroke="{color}" stroke-width="4"/>')
-        parts.append(f'<path d="M 372 180 C 328 151 302 164 276 180 H 240" fill="none" stroke="{A}" stroke-width="8" marker-end="url(#arrow)"/>')
+        parts = []
+        for i in range(6):
+            angle = math.radians(i * 60 - 90)
+            x, y = 240 + math.cos(angle) * 119, 180 + math.sin(angle) * 119
+            parts.append(f'<path d="M 240 180 L {x:g} {y:g}" stroke="{S}" stroke-width="6"/>')
+            parts.append(f'<rect x="{x-31:g}" y="{y-21:g}" width="62" height="42" rx="14" fill="#fff" stroke="{A}" stroke-width="6"/>')
+        parts.extend((
+            f'<rect x="184" y="137" width="112" height="86" rx="23" fill="#fff" stroke="{D}" stroke-width="7"/>',
+            txt(240, 195, "?", 44, accent_a, weight=700),
+        ))
         return "\n".join(parts)
 
     if slug == "workflow_gym":
@@ -518,7 +521,9 @@ def custom_scene(slug, accent_a, accent_b):
 {bars_top}{bars_bottom}
 <path d="M 198 187 H 406" stroke="{S}" stroke-width="4"/>
 <path d="M 232 116 V 272 M 286 116 V 272 M 340 116 V 272" stroke="{S}" stroke-width="3" stroke-dasharray="6 7"/>
-<circle cx="411" cy="187" r="47" fill="{accent_b}" opacity=".10" stroke="{A}" stroke-width="6"/>{txt(411, 201, "♪", 46, accent_b, weight=700)}
+<rect x="382" y="126" width="58" height="122" rx="18" fill="#fff" stroke="{A}" stroke-width="6"/>
+<path d="M 399 153 V 206 C 399 225 421 225 421 208 V 169 L 399 174" fill="none" stroke="{accent_b}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="395" cy="210" r="12" fill="{accent_b}"/><circle cx="417" cy="208" r="12" fill="{accent_b}"/>
 '''
 
     return None

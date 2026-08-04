@@ -9,37 +9,18 @@
 </defs>
 <rect width="480" height="360" rx="28" fill="#f4f7fb"/>
 <rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<circle cx="240" cy="180" r="44" fill="#fff" stroke="#334155" stroke-width="6"/>
-<text x="240" y="194" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="40" font-weight="700" fill="#0f766e">?</text>
-<circle cx="240" cy="180" r="88" fill="none" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="240" cy="92" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="291.725" cy="108.807" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="323.693" cy="152.807" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="323.693" cy="207.193" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="291.725" cy="251.193" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="240" cy="268" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="188.275" cy="251.193" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="156.307" cy="207.193" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="156.307" cy="152.807" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="188.275" cy="108.807" r="10" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="240" cy="180" r="132" fill="none" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="240" cy="48" r="7" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="285.147" cy="55.9606" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="324.848" cy="78.8821" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="354.315" cy="114" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="369.995" cy="157.078" r="7" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="369.995" cy="202.922" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="354.315" cy="246" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="324.848" cy="281.118" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="285.147" cy="304.039" r="7" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="240" cy="312" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="194.853" cy="304.039" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="155.152" cy="281.118" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="125.685" cy="246" r="7" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="110.005" cy="202.922" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="110.005" cy="157.078" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="125.685" cy="114" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="155.152" cy="78.8821" r="7" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<circle cx="194.853" cy="55.9606" r="7" fill="#fff" stroke="#cbd5e1" stroke-width="4"/>
-<path d="M 372 180 C 328 151 302 164 276 180 H 240" fill="none" stroke="url(#accent)" stroke-width="8" marker-end="url(#arrow)"/>
+<path d="M 240 180 L 240 61" stroke="#cbd5e1" stroke-width="6"/>
+<rect x="209" y="40" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
+<path d="M 240 180 L 343.057 120.5" stroke="#cbd5e1" stroke-width="6"/>
+<rect x="312.057" y="99.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
+<path d="M 240 180 L 343.057 239.5" stroke="#cbd5e1" stroke-width="6"/>
+<rect x="312.057" y="218.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
+<path d="M 240 180 L 240 299" stroke="#cbd5e1" stroke-width="6"/>
+<rect x="209" y="278" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
+<path d="M 240 180 L 136.943 239.5" stroke="#cbd5e1" stroke-width="6"/>
+<rect x="105.943" y="218.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
+<path d="M 240 180 L 136.943 120.5" stroke="#cbd5e1" stroke-width="6"/>
+<rect x="105.943" y="99.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
+<rect x="184" y="137" width="112" height="86" rx="23" fill="#fff" stroke="#334155" stroke-width="7"/>
+<text x="240" y="195" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="44" font-weight="700" fill="#0f766e">?</text>
 </svg>

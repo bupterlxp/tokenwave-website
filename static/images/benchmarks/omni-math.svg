@@ -10,11 +10,13 @@
 <rect width="480" height="360" rx="28" fill="#f4f7fb"/>
 <rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
 
-<path d="M 56 284 L 238 62 L 424 284 Z" fill="#0f766e" fill-opacity=".06" stroke="url(#accent)" stroke-width="6" stroke-linejoin="round"/>
-<path d="M 91 243 H 389 M 125 202 H 355 M 159 161 H 321 M 195 118 H 285" stroke="#cbd5e1" stroke-width="4"/>
-<path d="M 112 284 C 156 236 164 207 208 178 C 245 154 268 124 309 83" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
-<text x="130" y="263" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="28" font-weight="700" fill="#0f766e">x²</text><text x="240" y="222" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="34" font-weight="700" fill="#2563eb">△</text><text x="335" y="263" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="31" font-weight="700" fill="#0f766e">ℕ</text>
-<path d="M 239 65 V 27 M 239 28 H 302 L 280 49 L 302 68 H 239" fill="#2563eb" stroke="#2563eb" stroke-width="3"/>
-<circle cx="309" cy="83" r="11" fill="#10b981"/>
+<path d="M 72 48 H 344 L 407 111 V 306 H 72 Z" fill="#fff" stroke="#334155" stroke-width="6"/>
+<path d="M 344 48 V 111 H 407" fill="none" stroke="#334155" stroke-width="6"/>
+<path d="M 105 89 H 287" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round"/>
+<path d="M 116 246 L 194 128 L 267 246 Z" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linejoin="round"/>
+<circle cx="194" cy="128" r="11" fill="#2563eb"/><circle cx="116" cy="246" r="11" fill="#0f766e"/><circle cx="267" cy="246" r="11" fill="#0f766e"/>
+<path d="M 194 128 V 246 M 116 246 H 267" stroke="#cbd5e1" stroke-width="5" stroke-dasharray="8 8"/>
+<text x="333" y="161" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="32" font-weight="700" fill="#0f766e">x²</text><text x="333" y="211" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="36" font-weight="700" fill="#2563eb">∑</text><text x="333" y="261" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="31" font-weight="700" fill="#334155">ℕ</text>
+<circle cx="385" cy="73" r="31" fill="#10b981"/><path d="M 370 73 L 382 86 L 404 59" fill="none" stroke="#fff" stroke-width="7"/>
 
 </svg>
