@@ -53,7 +53,7 @@ for phrase in (
 ):
     if phrase not in home:
         errors.append(f"index.html: missing homepage mission phrase {phrase!r}")
-for stale_phrase in ("Brand statement", "TokenWave: intelligence emerges"):
+for stale_phrase in ("Brand statement", "Why TokenWave", "TokenWave: intelligence emerges", "class=\"defband\""):
     if stale_phrase in home:
         errors.append(f"index.html: stale brand block copy {stale_phrase!r}")
 if not (ROOT / "static" / "images" / "og-mission.png").is_file():
