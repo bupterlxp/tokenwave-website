@@ -1710,7 +1710,6 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     color: var(--dim);
     margin-bottom: 5px;
 }
-.ev-meta .lead { color: var(--accent-bright); }
 .ev-meta .sep { color: rgba(148, 163, 184, 0.3); }
 .ev-body h3 { font-size: 15.5px; margin: 0 0 5px; letter-spacing: -0.01em; }
 .ev-card:hover h3 { color: var(--accent-bright); }
@@ -1826,12 +1825,6 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     font-size: 21px;
     margin: 0;
     letter-spacing: -0.02em;
-}
-.dl-zh {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    color: var(--dim);
 }
 .dl-blurb {
     font-family: var(--serif);

@@ -56,6 +56,17 @@ for phrase in (
 if not (ROOT / "static" / "images" / "og-mission.png").is_file():
     errors.append("index.html: missing mission social card static/images/og-mission.png")
 
+# Research is English-only, and Careers evidence cards intentionally omit live
+# leaderboard leaders/scores. Those details belong on benchmark detail pages.
+han = re.compile(r"[\u4e00-\u9fff]")
+for research_page in [ROOT / "research.html", *sorted((ROOT / "research").glob("*.html"))]:
+    research_text = research_page.read_text(encoding="utf-8")
+    if han.search(research_text):
+        errors.append(f"{research_page.relative_to(ROOT)}: contains Chinese copy")
+careers_text = (ROOT / "careers.html").read_text(encoding="utf-8")
+if '<span class="lead">' in careers_text:
+    errors.append("careers.html: evidence cards must not show SOTA model names or scores")
+
 # Cross-checks: every published benchmark has a page, every record has an image,
 # and the sitemap covers canonical pages (not compatibility redirects).
 import json  # noqa: E402

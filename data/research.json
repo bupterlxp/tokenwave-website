@@ -38,7 +38,6 @@
     {
       "id": "benchmark",
       "name": "Benchmark",
-      "zh": "评测基准",
       "blurb": "Benchmarks for knowledge, coding, agent, and multimodal tasks, with occupation-based task design and automated verification.",
       "works": [
         "SuperGPQA",
@@ -82,7 +81,6 @@
     {
       "id": "synthetic-data",
       "name": "Synthetic Data",
-      "zh": "数据合成",
       "blurb": "Methods for mining, generating, and reconstructing instruction data at web scale.",
       "works": [
         {
@@ -112,7 +110,6 @@
     {
       "id": "agents",
       "name": "Agents",
-      "zh": "智能体",
       "blurb": "Systems that plan, execute, and verify multi-step tasks in data science, media production, and other workflows.",
       "works": [
         "AutoKaggle",
@@ -130,7 +127,6 @@
     {
       "id": "rl",
       "name": "Reinforcement Learning",
-      "zh": "强化学习",
       "blurb": "Policy optimization and exploration methods trained with verifiable feedback.",
       "works": [
         {
@@ -146,7 +142,6 @@
     {
       "id": "foundation-models",
       "name": "Foundation Models",
-      "zh": "基础模型",
       "blurb": "Open text, code, math, and music model families released with data pipelines, training recipes, and checkpoints.",
       "works": [
         {
@@ -169,7 +164,6 @@
     {
       "id": "pretraining-compute",
       "name": "Pretraining Compute Allocation",
-      "zh": "预训练动态算力分配",
       "blurb": "Looped architectures, dynamic depth, and routing methods that vary compute by token.",
       "works": [
         "Ouro",

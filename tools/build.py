@@ -561,7 +561,7 @@ def count_models_tracked(benches):
 STATUS_LABEL = {"certifying": "Current coverage", "next": "Next in line"}
 
 
-def build_careers_page(benches, careers, models_tracked, editorial):
+def build_careers_page(benches, careers, editorial):
     d = ""
 
     rail = "\n        ".join(
@@ -579,19 +579,13 @@ def build_careers_page(benches, careers, models_tracked, editorial):
             b = benches[slug]
             fs = file_slug(slug)
             ed = editorial.get(slug)
-            lead = leader_of(b)
             if ed and is_benchmark_paper(b):
                 blurb = ed["tagline"] + "."
             else:
                 first = (b["abstract"] or "").split(". ")[0]
                 blurb = (first + ".") if first else b["name"]
-            if lead:
-                meta = (f'{esc(paper_type_label(b))} <span class="sep">·</span> '
-                        f'{esc(b["subcategory"])} <span class="sep">·</span> '
-                        f'<span class="lead">{esc(lead["model"])} · {fmt_score(lead["score"])}</span>')
-            else:
-                meta = (f'{esc(paper_type_label(b))} <span class="sep">·</span> '
-                        f'{esc(b["subcategory"])}')
+            meta = (f'{esc(paper_type_label(b))} <span class="sep">·</span> '
+                    f'{esc(b["subcategory"])}')
             cards.append(f"""            <a class="ev-card" href="benchmarks/{fs}.html">
                 <div class="ev-body">
                     <div class="ev-meta">{meta}</div>
@@ -725,7 +719,6 @@ def build_research_home(posts, benches, research, editorial):
                 <div class="dl-head">
                     <span class="dl-idx">{i + 1:02d}</span>
                     <h3>{esc(dr['name'])}</h3>
-                    <span class="dl-zh">{esc(dr['zh'])}</span>
                 </div>
                 <p class="dl-blurb">{esc(dr['blurb'])}</p>
                 <div class="dl-works">
@@ -939,7 +932,7 @@ def main():
         print(f"benchmarks/: removed {len(stale)} unpublished pages")
 
     models_tracked = count_models_tracked(pub)
-    build_careers_page(pub, careers, models_tracked, editorial)
+    build_careers_page(pub, careers, editorial)
     build_redirect("benchmarks.html", "careers.html", "Careers",
                    "The benchmark index now lives on")
     print(f"careers.html: {len(careers)} career(s), "
