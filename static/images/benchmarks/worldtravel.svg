@@ -1,43 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=worldtravel layout=orbit -->
+<!-- tokenwave:generated:v4 slug=worldtravel layout=orbit -->
 <title id="title">WorldTravel benchmark illustration</title>
 <desc id="desc">A travel route checked against dates, tickets, hotels, timing, and feasibility constraints.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#ff8a66" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a66" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#ff8a66"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="112" cy="202" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">WorldTravel</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#ff8a66">AGENT</text>
-<path d="M 92 128 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<path d="M 92 238 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<path d="M 240 270 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<path d="M 388 238 L 272 178" fill="none" stroke="#ff8a66" stroke-width="2" opacity=".55" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<path d="M 57 147 C 72 106 93 156 126 111" fill="none" stroke="#ff8a66" stroke-width="3" stroke-dasharray="5 5"/>
-<circle cx="57" cy="147" r="6" fill="#ff8a66"/><path d="M 126 100 C 110 100 112 121 126 132 C 140 121 142 100 126 100 Z" fill="#ff8a66"/>
-<text x="92" y="176" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">route</text>
-<rect x="57" y="209" width="70" height="58" rx="7" fill="#101d30" stroke="#ff8a66" stroke-width="1.7"/>
-<line x1="57" y1="228" x2="127" y2="228" stroke="#ff8a66" stroke-width="3"/>
-<circle cx="72" cy="240" r="3" fill="#c7d3e5"/>
-<circle cx="72" cy="253" r="3" fill="#c7d3e5"/>
-<circle cx="92" cy="240" r="3" fill="#c7d3e5"/>
-<circle cx="92" cy="253" r="3" fill="#c7d3e5"/>
-<circle cx="112" cy="240" r="3" fill="#c7d3e5"/>
-<circle cx="112" cy="253" r="3" fill="#c7d3e5"/>
-<text x="92" y="286" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">dates</text>
-<path d="M 204 250 H 276 V 263 C 264 263 264 277 276 277 V 290 H 204 V 277 C 216 277 216 263 204 263 Z" fill="#101d30" stroke="#ff8a66" stroke-width="2"/>
-<text x="240" y="318" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">tickets</text>
-<path d="M 357 262 V 220 H 419 V 262 M 350 262 H 426" fill="none" stroke="#ff8a66" stroke-width="3"/>
-<rect x="366" y="230" width="10" height="12" fill="#c7d3e5" opacity=".75"/>
-<rect x="383" y="230" width="10" height="12" fill="#c7d3e5" opacity=".75"/>
-<rect x="400" y="230" width="10" height="12" fill="#c7d3e5" opacity=".75"/>
-<text x="388" y="286" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">hotel</text>
-<circle cx="272" cy="178" r="27" fill="#ff8a66" opacity=".16" stroke="#ff8a66" stroke-width="2"/>
-<path d="M 259 178 L 269 188 L 288 165" fill="none" stroke="#ff8a66" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="272" y="226" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">feasible</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+
+<path d="M 46 86 L 156 58 L 254 92 L 356 58 L 432 91 V 280 L 354 250 L 252 284 L 154 250 L 46 282 Z" fill="#2563eb" fill-opacity=".05" stroke="#cbd5e1" stroke-width="5" stroke-linejoin="round"/>
+<path d="M 156 58 V 250 M 254 92 V 284 M 356 58 V 250" stroke="#cbd5e1" stroke-width="4"/>
+<path d="M 77 238 C 117 141 173 224 219 153 S 314 102 393 198" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 18"/>
+<circle cx="77" cy="238" r="15" fill="#2563eb"/><circle cx="219" cy="153" r="15" fill="#7c3aed"/><circle cx="393" cy="198" r="15" fill="#10b981"/>
+<path d="M 131 176 V 132 H 176 V 176 M 145 132 V 117 M 162 132 V 117" fill="#fff" stroke="#334155" stroke-width="5"/>
+<path d="M 285 118 H 343 V 168 H 285 Z M 285 134 H 343" fill="#fff" stroke="#334155" stroke-width="5"/>
+<path d="M 393 198 V 113 H 430 L 414 131 L 430 149 H 393" fill="#10b981" stroke="#10b981" stroke-width="4"/>
+
 </svg>

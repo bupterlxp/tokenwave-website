@@ -1,50 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=opencodeinterpreter layout=cycle -->
+<!-- tokenwave:generated:v4 slug=opencodeinterpreter layout=cycle -->
 <title id="title">OpenCodeInterpreter benchmark illustration</title>
 <desc id="desc">A code model generating, executing, reading terminal feedback, and repairing its answer.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#25c2a0" stop-opacity=".22"/><stop offset="1" stop-color="#25c2a0" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#25c2a0"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="290" cy="114" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">OpenCodeInterpreter</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#25c2a0">AGENT</text>
-<path d="M 240 103 L 366 180" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 366 180 L 240 257" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 240 257 L 114 180" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 114 180 L 240 103" fill="none" stroke="#25c2a0" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<rect x="199" y="74" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
-<line x1="199" y1="89" x2="281" y2="89" stroke="#31435d" stroke-width="1.5"/>
-<circle cx="211" cy="82" r="2.2" fill="#25c2a0"/>
-<circle cx="220" cy="82" r="2.2" fill="#31435d"/>
-<circle cx="229" cy="82" r="2.2" fill="#31435d"/>
-<line x1="212" y1="99" x2="258" y2="99" stroke="#25c2a0" stroke-width="3" opacity=".8"/>
-<line x1="212" y1="108" x2="269" y2="108" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
-<line x1="212" y1="117" x2="247" y2="117" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
-<text x="240" y="151" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">generate</text>
-<rect x="325" y="151" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
-<line x1="325" y1="166" x2="407" y2="166" stroke="#31435d" stroke-width="1.5"/>
-<circle cx="337" cy="159" r="2.2" fill="#25c2a0"/>
-<circle cx="346" cy="159" r="2.2" fill="#31435d"/>
-<circle cx="355" cy="159" r="2.2" fill="#31435d"/>
-<text x="338" y="185" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="14" font-weight="700" fill="#25c2a0">$</text>
-<line x1="353" y1="182" x2="393" y2="182" stroke="#c7d3e5" stroke-width="2"/>
-<text x="366" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">execute</text>
-<rect x="199" y="228" width="82" height="58" rx="8" fill="#101d30" stroke="#25c2a0" stroke-width="1.7"/>
-<line x1="199" y1="243" x2="281" y2="243" stroke="#31435d" stroke-width="1.5"/>
-<circle cx="211" cy="236" r="2.2" fill="#25c2a0"/>
-<circle cx="220" cy="236" r="2.2" fill="#31435d"/>
-<circle cx="229" cy="236" r="2.2" fill="#31435d"/>
-<text x="219" y="262" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff806e">−</text>
-<text x="261" y="262" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#45d6a5">+</text>
-<line x1="240" y1="249" x2="240" y2="277" stroke="#31435d"/>
-<text x="240" y="305" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">repair</text>
-<circle cx="114" cy="180" r="27" fill="#25c2a0" opacity=".16" stroke="#25c2a0" stroke-width="2"/>
-<path d="M 101 180 L 111 190 L 130 167" fill="none" stroke="#25c2a0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="114" y="228" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">pass</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+
+<rect x="50" y="62" width="380" height="236" rx="22" fill="#fff" stroke="#334155" stroke-width="5"/>
+<path d="M 50 104 H 430" stroke="#cbd5e1" stroke-width="4"/><circle cx="76" cy="83" r="6" fill="#ef4444"/><circle cx="97" cy="83" r="6" fill="#f59e0b"/><circle cx="118" cy="83" r="6" fill="#10b981"/>
+<path d="M 82 137 H 218 M 82 167 H 184" stroke="#334155" stroke-width="7" stroke-linecap="round"/>
+<path d="M 82 221 H 194" stroke="#ef4444" stroke-width="7" stroke-linecap="round"/><path d="M 82 253 H 230" stroke="#10b981" stroke-width="7" stroke-linecap="round"/>
+<path d="M 290 145 C 384 144 397 249 320 276 C 248 302 216 230 253 198" fill="none" stroke="url(#accent)" stroke-width="11" stroke-linecap="round" marker-end="url(#arrow)"/>
+<text x="337" y="202" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="46" font-weight="700" fill="#7c3aed">$</text>
+<circle cx="391" cy="251" r="28" fill="#10b981"/><path d="M 378 251 L 388 262 L 406 239" fill="none" stroke="#fff" stroke-width="6"/>
+
 </svg>

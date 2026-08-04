@@ -1,33 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=m2rc_eval layout=merge -->
+<!-- tokenwave:generated:v4 slug=m2rc_eval layout=merge -->
 <title id="title">M2RC-Eval benchmark illustration</title>
 <desc id="desc">Repository files and sibling context filling a missing code region and passing tests.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#54a6ff" stop-opacity=".22"/><stop offset="1" stop-color="#54a6ff" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#54a6ff"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="89" cy="100" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">M2RC-Eval</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#54a6ff">AGENT</text>
-<path d="M 112 112.0 L 362 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 112 258.0 L 362 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<circle cx="87" cy="95.0" r="7" fill="#54a6ff"/>
-<path d="M 94 95.0 H 108 V 95.0 H 115" fill="none" stroke="#31435d" stroke-width="2"/>
-<rect x="115" y="88.0" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
-<path d="M 94 95.0 H 108 V 116.0 H 115" fill="none" stroke="#31435d" stroke-width="2"/>
-<rect x="115" y="109.0" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
-<path d="M 94 95.0 H 108 V 130.0 H 139" fill="none" stroke="#31435d" stroke-width="2"/>
-<rect x="139" y="123.0" width="24" height="14" rx="4" fill="#101d30" stroke="#c7d3e5"/>
-<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">repository</text>
-<rect x="75" y="229" width="74" height="58" rx="12" fill="#101d30" stroke="#54a6ff" stroke-width="1.7"/>
-<text x="112" y="265.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#54a6ff">{ … }</text>
-<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">completion</text>
-<circle cx="362" cy="184" r="27" fill="#54a6ff" opacity=".16" stroke="#54a6ff" stroke-width="2"/>
-<path d="M 349 184 L 359 194 L 378 171" fill="none" stroke="#54a6ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">tests</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
+<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
+<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><circle cx="99" cy="149" r="7" fill="url(#accent)"/>
+<path d="M 106 149 H 120 V 149 H 127" fill="none" stroke="#dbe4ee" stroke-width="2"/>
+<rect x="127" y="142" width="24" height="14" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+<path d="M 106 149 H 120 V 170 H 127" fill="none" stroke="#dbe4ee" stroke-width="2"/>
+<rect x="127" y="163" width="24" height="14" rx="4" fill="#ffffff" stroke="#94a3b8"/>
+<path d="M 106 149 H 120 V 184 H 151" fill="none" stroke="#dbe4ee" stroke-width="2"/>
+<rect x="151" y="177" width="24" height="14" rx="4" fill="#ffffff" stroke="#94a3b8"/></g>
+<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><rect x="87" y="197" width="74" height="58" rx="12" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
+<text x="124" y="233" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">{ … }</text></g>
+<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><circle cx="350" cy="198" r="27" fill="url(#accent)" opacity=".16" stroke="url(#accent)" stroke-width="2"/>
+<path d="M 337 198 L 347 208 L 366 185" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
 </svg>

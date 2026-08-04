@@ -1,51 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=t2av_compass layout=merge -->
+<!-- tokenwave:generated:v4 slug=t2av_compass layout=merge -->
 <title id="title">T2AV-Compass benchmark illustration</title>
 <desc id="desc">A text prompt generating synchronized video and audio evaluated for alignment.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#54a6ff" stop-opacity=".22"/><stop offset="1" stop-color="#54a6ff" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#54a6ff"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#db2777"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#db2777"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="184" cy="242" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">T2AV-Compass</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#54a6ff">AIGC</text>
-<path d="M 112 112.0 L 362 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 112 185.0 L 362 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 112 258.0 L 362 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<rect x="75" y="83" width="74" height="58" rx="9" fill="#101d30" stroke="#54a6ff" stroke-width="1.7"/>
-<text x="112" y="119.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#54a6ff">Tt</text>
-<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">prompt</text>
-<rect x="74" y="160.0" width="76" height="50" rx="7" fill="#101d30" stroke="#54a6ff" stroke-width="2"/>
-<rect x="79" y="163.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="79" y="202.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="94" y="163.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="94" y="202.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="109" y="163.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="109" y="202.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="124" y="163.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="124" y="202.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="139" y="163.0" width="6" height="5" rx="1" fill="#31435d"/>
-<rect x="139" y="202.0" width="6" height="5" rx="1" fill="#31435d"/>
-<path d="M 104 175.0 L 126 185.0 L 104 195.0 Z" fill="#54a6ff"/>
-<text x="112" y="233.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">video</text>
-<rect x="78" y="246.5" width="4" height="23" rx="2" fill="#54a6ff" opacity=".85"/>
-<rect x="85" y="253.5" width="4" height="9" rx="2" fill="#c7d3e5" opacity=".85"/>
-<rect x="92" y="247" width="4" height="22" rx="2" fill="#c7d3e5" opacity=".85"/>
-<rect x="99" y="240.5" width="4" height="35" rx="2" fill="#54a6ff" opacity=".85"/>
-<rect x="106" y="247.5" width="4" height="21" rx="2" fill="#c7d3e5" opacity=".85"/>
-<rect x="113" y="241" width="4" height="34" rx="2" fill="#c7d3e5" opacity=".85"/>
-<rect x="120" y="248" width="4" height="20" rx="2" fill="#54a6ff" opacity=".85"/>
-<rect x="127" y="241.5" width="4" height="33" rx="2" fill="#c7d3e5" opacity=".85"/>
-<rect x="134" y="248.5" width="4" height="19" rx="2" fill="#c7d3e5" opacity=".85"/>
-<rect x="141" y="242" width="4" height="32" rx="2" fill="#54a6ff" opacity=".85"/>
-<rect x="148" y="249" width="4" height="18" rx="2" fill="#c7d3e5" opacity=".85"/>
-<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">audio</text>
-<rect x="325" y="155" width="74" height="58" rx="12" fill="#101d30" stroke="#54a6ff" stroke-width="1.7"/>
-<text x="362" y="191" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#54a6ff">↔</text>
-<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">alignment</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
+<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
+<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><rect x="87" y="137" width="74" height="58" rx="9" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
+<text x="124" y="173" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">Tt</text></g>
+<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><rect x="90" y="218" width="4" height="16" rx="2" fill="url(#accent)" opacity=".85"/>
+<rect x="97" y="211.5" width="4" height="29" rx="2" fill="#94a3b8" opacity=".85"/>
+<rect x="104" y="218.5" width="4" height="15" rx="2" fill="#94a3b8" opacity=".85"/>
+<rect x="111" y="212" width="4" height="28" rx="2" fill="url(#accent)" opacity=".85"/>
+<rect x="118" y="219" width="4" height="14" rx="2" fill="#94a3b8" opacity=".85"/>
+<rect x="125" y="212.5" width="4" height="27" rx="2" fill="#94a3b8" opacity=".85"/>
+<rect x="132" y="219.5" width="4" height="13" rx="2" fill="url(#accent)" opacity=".85"/>
+<rect x="139" y="213" width="4" height="26" rx="2" fill="#94a3b8" opacity=".85"/>
+<rect x="146" y="220" width="4" height="12" rx="2" fill="#94a3b8" opacity=".85"/>
+<rect x="153" y="213.5" width="4" height="25" rx="2" fill="url(#accent)" opacity=".85"/>
+<rect x="160" y="220.5" width="4" height="11" rx="2" fill="#94a3b8" opacity=".85"/></g>
+<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><rect x="313" y="169" width="74" height="58" rx="12" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
+<text x="350" y="205" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">↔</text></g>
 </svg>

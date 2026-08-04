@@ -43,6 +43,11 @@ def asset_v(rel):
     return hashlib.md5((ROOT / rel).read_bytes()).hexdigest()[:8]
 
 
+def asset_url(rel):
+    """Return a local asset URL whose query changes when the file changes."""
+    return f"{rel}?v={asset_v(rel)}"
+
+
 V_CSS = asset_v("static/css/style.css")
 V_PARTICLES = asset_v("static/js/particles.js")
 V_TRANSITION = asset_v("static/js/transition.js")
@@ -270,7 +275,7 @@ def bench_meta_line(b):
 def card(depth, href, image, meta_html, title, blurb_html):
     return f"""
     <article class="card card-row">
-        <div class="card-image" style="background-image: url('{depth}{image}');"></div>
+        <div class="card-image" style="background-image: url('{depth}{esc(asset_url(image))}');"></div>
         <div class="card-body">
             <div class="card-meta">
                 {meta_html}
@@ -405,7 +410,7 @@ def build_detail(b, post_by_bench, editorial, career):
         figs = []
         for f in b["figures"]:
             figs.append(
-                f'<figure>\n            <img src="{d}{esc(f["image"])}" alt="{esc(f["caption"] or b["name"] + " figure")}" loading="lazy">\n'
+                f'<figure>\n            <img src="{d}{esc(asset_url(f["image"]))}" alt="{esc(f["caption"] or b["name"] + " figure")}" loading="lazy">\n'
                 f'            <figcaption>{esc(f["caption"])}</figcaption>\n        </figure>'
             )
         secs.append(("paper-figures", "Figures &amp; tables", "\n        ".join(figs)))
@@ -465,7 +470,7 @@ def build_detail(b, post_by_bench, editorial, career):
 {header(d, 'careers')}
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('{d}{esc(b['image'])}');" role="img" aria-label="{esc(lead_alt)}"></div>
+        <div class="detail-image" style="background-image: url('{d}{esc(asset_url(b['image']))}');" role="img" aria-label="{esc(lead_alt)}"></div>
         <div class="detail-head">
             <div class="eyebrow">{eyebrow}</div>
             <h1>{esc(b['name'])}</h1>{tagline_html}
@@ -593,7 +598,7 @@ def build_careers_page(benches, careers, models_tracked, editorial):
                     <h3>{esc(b['name'])}</h3>
                     <p>{esc(blurb)}</p>
                 </div>
-                <div class="ev-img" style="background-image: url('{esc(b['image'])}');"></div>
+                <div class="ev-img" style="background-image: url('{esc(asset_url(b['image']))}');"></div>
             </a>""")
 
         blocks.append(f"""    <div class="career-block rv" id="{c['id']}">
@@ -690,7 +695,7 @@ def build_research_home(posts, benches, research, editorial):
             blurb = (first + ".") if first else b["name"]
         stagger = " rv2" if i % 4 in (1, 2) else (" rv3" if i % 4 == 3 else "")
         feats.append(f"""        <a class="rc-card rv{stagger}" href="benchmarks/{fs}.html">
-            <div class="rc-img" style="background-image:url('{esc(b['image'])}')"></div>
+            <div class="rc-img" style="background-image:url('{esc(asset_url(b['image']))}')"></div>
             <div class="rc-body">
                 <div class="rc-meta"><span>{esc(f['label'])}</span></div>
                 <h3>{esc(b['name'])}</h3>
@@ -823,7 +828,7 @@ def build_post(p, benches, editorial):
 {header(d, 'research')}
 <article class="detail">
     <div class="detail-hero">
-        <div class="detail-image" style="background-image: url('{d}{esc(b['image'])}');" role="img" aria-label="{esc(b['name'])} artwork"></div>
+        <div class="detail-image" style="background-image: url('{d}{esc(asset_url(b['image']))}');" role="img" aria-label="{esc(b['name'])} artwork"></div>
         <div class="detail-head">
             <div class="eyebrow">Research note</div>
             <h1>{esc(p['title'])}</h1>

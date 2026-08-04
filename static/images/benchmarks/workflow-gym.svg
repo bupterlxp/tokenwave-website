@@ -1,49 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=workflow_gym layout=flow -->
+<!-- tokenwave:generated:v4 slug=workflow_gym layout=flow -->
 <title id="title">Workflow-GYM benchmark illustration</title>
 <desc id="desc">A professional brief carried through planning, GUI actions, verification, and a finished deliverable.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#54a6ff" stop-opacity=".22"/><stop offset="1" stop-color="#54a6ff" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#54a6ff"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="75" cy="214" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">Workflow-GYM</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#54a6ff">AGENT</text>
-<path d="M 72.0 184 L 184.0 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 184.0 184 L 296.0 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 296.0 184 L 408.0 184" fill="none" stroke="#54a6ff" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 46.0 157 H 90.0 L 104.0 171 V 211 H 46.0 Z" fill="#101d30" stroke="#54a6ff" stroke-width="2"/>
-<path d="M 90.0 157 V 171 H 104.0" fill="none" stroke="#54a6ff" stroke-width="2"/>
-<line x1="53.0" y1="176" x2="94.0" y2="176" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<line x1="53.0" y1="185" x2="91.0" y2="185" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<line x1="53.0" y1="194" x2="88.0" y2="194" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<text x="72.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">brief</text>
-<rect x="143" y="155" width="82" height="58" rx="8" fill="#101d30" stroke="#31435d" stroke-width="1.7"/>
-<line x1="143.0" y1="170" x2="225.0" y2="170" stroke="#31435d" stroke-width="1.5"/>
-<circle cx="155.0" cy="163" r="2.2" fill="#54a6ff"/>
-<circle cx="164.0" cy="163" r="2.2" fill="#31435d"/>
-<circle cx="173.0" cy="163" r="2.2" fill="#31435d"/>
-<line x1="156.0" y1="180" x2="202.0" y2="180" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
-<line x1="156.0" y1="189" x2="213.0" y2="189" stroke="#54a6ff" stroke-width="3" opacity=".8"/>
-<line x1="156.0" y1="198" x2="191.0" y2="198" stroke="#c7d3e5" stroke-width="3" opacity=".8"/>
-<text x="184.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">GUI actions</text>
-<path d="M 270.0 157 H 314.0 L 328.0 171 V 211 H 270.0 Z" fill="#101d30" stroke="#54a6ff" stroke-width="2"/>
-<path d="M 314.0 157 V 171 H 328.0" fill="none" stroke="#54a6ff" stroke-width="2"/>
-<rect x="277.0" y="172" width="5" height="5" rx="1" fill="#54a6ff"/>
-<line x1="288.0" y1="176" x2="318.0" y2="176" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<rect x="277.0" y="181" width="5" height="5" rx="1" fill="#54a6ff"/>
-<line x1="288.0" y1="185" x2="315.0" y2="185" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<rect x="277.0" y="190" width="5" height="5" rx="1" fill="#54a6ff"/>
-<line x1="288.0" y1="194" x2="312.0" y2="194" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<rect x="277.0" y="199" width="5" height="5" rx="1" fill="#54a6ff"/>
-<line x1="288.0" y1="203" x2="309.0" y2="203" stroke="#c7d3e5" stroke-width="2" opacity=".75"/>
-<text x="296.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">verify</text>
-<circle cx="408.0" cy="184" r="27" fill="#54a6ff" opacity=".16" stroke="#54a6ff" stroke-width="2"/>
-<path d="M 395.0 184 L 405.0 194 L 424.0 171" fill="none" stroke="#54a6ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="408.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">deliverable</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+<rect x="42" y="51" width="396" height="258" rx="23" fill="#fff" stroke="#334155" stroke-width="5"/>
+<path d="M 42 91 H 438" stroke="#cbd5e1" stroke-width="4"/>
+<path d="M 84 145 C 128 145 129 225 174 225 S 224 138 277 138 S 320 232 366 232" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="45" y="92" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
+<path d="M 59 111 H 97 M 59 126 H 86" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
+<rect x="132" y="172" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
+<path d="M 146 191 H 184 M 146 206 H 173" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
+<rect x="235" y="85" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
+<path d="M 249 104 H 287 M 249 119 H 276" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
+<rect x="324" y="179" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
+<path d="M 343 205 L 354 217 L 375 191" fill="none" stroke="#10b981" stroke-width="7"/>
+<circle cx="91" cy="282" r="4" fill="#2563eb"/>
+<circle cx="118" cy="282" r="4" fill="#2563eb"/>
+<circle cx="145" cy="282" r="4" fill="#2563eb"/>
+<circle cx="172" cy="282" r="4" fill="#2563eb"/>
+<circle cx="199" cy="282" r="4" fill="#2563eb"/>
+<circle cx="226" cy="282" r="4" fill="#2563eb"/>
+<circle cx="253" cy="282" r="4" fill="#2563eb"/>
+<circle cx="280" cy="282" r="4" fill="#2563eb"/>
+<circle cx="307" cy="282" r="4" fill="#10b981"/>
+<circle cx="334" cy="282" r="4" fill="#10b981"/>
+<circle cx="361" cy="282" r="4" fill="#10b981"/>
 </svg>

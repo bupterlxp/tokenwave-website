@@ -1,29 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=criticlean layout=flow -->
+<!-- tokenwave:generated:v4 slug=criticlean layout=flow -->
 <title id="title">CriticLean benchmark illustration</title>
 <desc id="desc">A Lean proof containing a faulty step, reviewed by a critic and rechecked by the compiler.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#e16fae" stop-opacity=".22"/><stop offset="1" stop-color="#e16fae" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e16fae"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="140" cy="117" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">CriticLean</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#e16fae">LLM</text>
-<path d="M 72.0 184 L 240.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 240.0 184 L 408.0 184" fill="none" stroke="#e16fae" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<rect x="35" y="155" width="74" height="58" rx="12" fill="#101d30" stroke="#e16fae" stroke-width="1.7"/>
-<text x="72.0" y="190" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="13" font-weight="700" fill="#e16fae">proof</text>
-<text x="72.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">Lean proof</text>
-<circle cx="235.0" cy="179" r="22" fill="#101d30" stroke="#e16fae" stroke-width="3"/>
-<line x1="250.0" y1="195" x2="269.0" y2="212" stroke="#e16fae" stroke-width="6" stroke-linecap="round"/>
-<text x="235.0" y="187" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="20" font-weight="700" fill="#ff806e">!</text>
-<text x="240.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">critic</text>
-<circle cx="408.0" cy="184" r="27" fill="#e16fae" opacity=".16" stroke="#e16fae" stroke-width="2"/>
-<path d="M 395.0 184 L 405.0 194 L 424.0 171" fill="none" stroke="#e16fae" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="408.0" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">Lean check</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+
+<path d="M 240 100 V 265 M 160 265 H 320" stroke="#334155" stroke-width="8" stroke-linecap="round"/>
+<path d="M 100 132 H 380" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+<path d="M 132 132 L 102 194 H 162 Z M 348 132 L 318 194 H 378 Z" fill="#0f766e" opacity=".09" stroke="#334155" stroke-width="4"/>
+<rect x="62" y="197" width="100" height="55" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
+<text x="112" y="231" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="20" font-weight="700" fill="#334155">x² + y²</text>
+<rect x="318" y="197" width="100" height="55" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
+<text x="368" y="231" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="24" font-weight="700" fill="#334155">⊢ P</text>
+<circle cx="240" cy="130" r="30" fill="#2563eb"/><text x="240" y="140" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="27" font-weight="700" fill="#fff">=</text>
+<circle cx="240" cy="264" r="24" fill="#10b981"/><path d="M 229 264 L 238 273 L 253 254" fill="none" stroke="#fff" stroke-width="5"/>
+
 </svg>

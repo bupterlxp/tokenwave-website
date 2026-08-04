@@ -1,30 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v2 slug=chinese_safetyqa layout=merge -->
+<!-- tokenwave:generated:v4 slug=chinese_safetyqa layout=merge -->
 <title id="title">Chinese SafetyQA benchmark illustration</title>
 <desc id="desc">Chinese safety questions grounded in policy and culture sources, checked for factuality and harmlessness.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1930"/><stop offset="1" stop-color="#07111f"/></linearGradient>
-  <radialGradient id="halo"><stop stop-color="#e8bd57" stop-opacity=".22"/><stop offset="1" stop-color="#e8bd57" stop-opacity="0"/></radialGradient>
-  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="#2b3b53" stroke-width=".7" opacity=".32"/></pattern>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#e8bd57"/></marker>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
 </defs>
-<rect width="480" height="360" rx="18" fill="url(#bg)"/>
-<rect width="480" height="360" rx="18" fill="url(#grid)"/>
-<circle cx="140" cy="227" r="145" fill="url(#halo)"/>
-<path d="M 28 77 H 452" stroke="#31435d" stroke-width="1" opacity=".7"/>
-<text x="28" y="41" text-anchor="start" font-family="IBM Plex Mono, Menlo, monospace" font-size="15" font-weight="700" fill="#e8eef9">Chinese SafetyQA</text>
-<text x="452" y="41" text-anchor="end" font-family="IBM Plex Mono, Menlo, monospace" font-size="9.5" font-weight="700" fill="#e8bd57">LLM</text>
-<path d="M 112 112.0 L 362 184" fill="none" stroke="#e8bd57" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<path d="M 112 258.0 L 362 184" fill="none" stroke="#e8bd57" stroke-width="2" opacity=".55" marker-end="url(#arrow)"/>
-<rect x="73" y="88.0" width="57" height="30" rx="11" fill="#101d30" stroke="#c7d3e5" stroke-width="1.8"/>
-<rect x="99" y="115.0" width="54" height="28" rx="11" fill="#e8bd57" opacity=".72"/>
-<line x1="85" y1="102.0" x2="116" y2="102.0" stroke="#c7d3e5" stroke-width="3"/>
-<line x1="112" y1="128.0" x2="139" y2="128.0" stroke="#e8eef9" stroke-width="3" opacity=".8"/>
-<text x="112" y="160.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">中文问题</text>
-<rect x="75" y="229" width="74" height="58" rx="9" fill="#101d30" stroke="#e8bd57" stroke-width="1.7"/>
-<text x="112" y="265.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#e8bd57">文 化</text>
-<text x="112" y="306.0" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">sources</text>
-<path d="M 362 153 L 391 165 V 186 C 391 206 373 215 362 221 C 351 215 333 206 333 186 V 165 Z" fill="#e8bd57" opacity=".18" stroke="#e8bd57" stroke-width="2"/>
-<path d="M 351 184 L 359 192 L 376 173" fill="none" stroke="#e8bd57" stroke-width="4"/>
-<text x="362" y="232" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="10.5" font-weight="600" fill="#c7d3e5">safe facts</text>
+<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
+<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
+<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
+<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
+<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><rect x="85" y="142" width="57" height="30" rx="11" fill="#ffffff" stroke="#94a3b8" stroke-width="1.8"/>
+<rect x="111" y="169" width="54" height="28" rx="11" fill="url(#accent)" opacity=".72"/>
+<line x1="97" y1="156" x2="128" y2="156" stroke="#94a3b8" stroke-width="3"/>
+<line x1="124" y1="182" x2="151" y2="182" stroke="#0f172a" stroke-width="3" opacity=".8"/></g>
+<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><rect x="87" y="197" width="74" height="58" rx="9" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
+<text x="124" y="233" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">文 化</text></g>
+<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><path d="M 350 167 L 379 179 V 200 C 379 220 361 229 350 235 C 339 229 321 220 321 200 V 179 Z" fill="url(#accent)" opacity=".18" stroke="url(#accent)" stroke-width="2"/>
+<path d="M 339 198 L 347 206 L 364 187" fill="none" stroke="url(#accent)" stroke-width="4"/></g>
 </svg>
