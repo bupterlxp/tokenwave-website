@@ -41,14 +41,15 @@ for page in pages:
 # three messages present even when asset fingerprints are refreshed.
 home = (ROOT / "index.html").read_text(encoding="utf-8")
 for phrase in (
-    "把各行各业的",
-    "流程化任务 AI 化",
-    "数据飞轮",
-    "数字员工革命",
-    "彻底解放生产力",
-    "TokenWave：在 ",
-    "Token 的传递与交流",
-    "启发智能，释放生产力",
+    "Our mission:",
+    "AI-powered workflows",
+    "every industry",
+    "A data flywheel",
+    "digital-worker revolution",
+    "unleashing productivity",
+    "intelligence emerges",
+    "tokens flow and communicate",
+    "unlocking productivity",
 ):
     if phrase not in home:
         errors.append(f"index.html: missing homepage mission phrase {phrase!r}")

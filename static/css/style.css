@@ -1600,7 +1600,7 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     justify-content: center;
     padding: 40px 0 56px;
 }
-.hero.solo h1 { max-width: 15ch; }
+.hero.solo h1 { max-width: 16ch; }
 .hero.solo .defband { margin-top: 9vh; max-width: 860px; }
 @media (max-width: 680px) {
     .hero.solo { min-height: auto; padding: 64px 0 48px; }
