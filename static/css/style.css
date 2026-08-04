@@ -1598,13 +1598,55 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px 0 56px;
+    padding: 48px 0 64px;
 }
-.hero.solo h1 { max-width: 16ch; }
-.hero.solo .defband { margin-top: 9vh; max-width: 860px; }
+.hero.solo h1 {
+    max-width: 21ch;
+    font-family: var(--sans);
+    font-size: clamp(46px, 6.2vw, 74px);
+    font-weight: 600;
+    line-height: 1.055;
+    letter-spacing: -0.034em;
+    text-wrap: balance;
+}
+.hero.solo .hero-thesis {
+    max-width: 40em;
+    font-size: clamp(18px, 1.8vw, 23px);
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+}
+.hero.solo .defband {
+    margin-top: clamp(48px, 7vh, 76px);
+    max-width: 920px;
+    padding: 30px 32px 28px;
+}
+.hero.solo .defband-word {
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 600;
+}
+.hero.solo .defband-phon {
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.hero.solo .brand-manifesto {
+    max-width: 42em;
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.6;
+    letter-spacing: -0.006em;
+}
 @media (max-width: 680px) {
     .hero.solo { min-height: auto; padding: 64px 0 48px; }
     .hero.solo .defband { margin-top: 48px; }
+    .hero.solo h1 {
+        max-width: 17ch;
+        font-size: clamp(40px, 10.5vw, 52px);
+        line-height: 1.07;
+        letter-spacing: -0.03em;
+    }
+    .hero.solo .hero-thesis { font-size: 18px; line-height: 1.55; }
+    .hero.solo .defband { padding: 24px 22px 22px; }
+    .hero.solo .brand-manifesto { font-size: 17px; }
 }
 
 /* ── Careers: side rail + evidence cards ───────────────────── */
