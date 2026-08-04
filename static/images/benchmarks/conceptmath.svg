@@ -1,30 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=conceptmath layout=merge -->
+<!-- tokenwave:generated:v5 slug=conceptmath -->
 <title id="title">ConceptMath benchmark illustration</title>
-<desc id="desc">Bilingual math problems mapped to a concept tree that exposes a weak concept.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><rect x="87" y="137" width="74" height="58" rx="9" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="124" y="173" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">EN 中</text></g>
-<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><circle cx="99" cy="209" r="7" fill="url(#accent)"/>
-<path d="M 106 209 H 120 V 209 H 127" fill="none" stroke="#dbe4ee" stroke-width="2"/>
-<rect x="127" y="202" width="24" height="14" rx="4" fill="#ffffff" stroke="#94a3b8"/>
-<path d="M 106 209 H 120 V 230 H 127" fill="none" stroke="#dbe4ee" stroke-width="2"/>
-<rect x="127" y="223" width="24" height="14" rx="4" fill="#ffffff" stroke="#94a3b8"/>
-<path d="M 106 209 H 120 V 244 H 151" fill="none" stroke="#dbe4ee" stroke-width="2"/>
-<rect x="151" y="237" width="24" height="14" rx="4" fill="#ffffff" stroke="#94a3b8"/></g>
-<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><line x1="317" y1="222" x2="317" y2="174" stroke="#dbe4ee" stroke-width="2"/><line x1="317" y1="222" x2="385" y2="222" stroke="#dbe4ee" stroke-width="2"/>
-<path d="M 322 212 L 338 202 L 352 208 L 368 186 L 383 178" fill="none" stroke="url(#accent)" stroke-width="3"/>
-<circle cx="322" cy="212" r="3" fill="url(#accent)"/>
-<circle cx="338" cy="202" r="3" fill="url(#accent)"/>
-<circle cx="352" cy="208" r="3" fill="url(#accent)"/>
-<circle cx="368" cy="186" r="3" fill="url(#accent)"/>
-<circle cx="383" cy="178" r="3" fill="url(#accent)"/></g>
+<desc id="desc">A concept tree exposing one weak concept.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="200" ry="150" fill="#2563EB" opacity="0.07"/>
+<path d="M 240 118 V 157.0 H 138 V 196" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 240 118 V 157.0 H 342 V 196" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 138 244 V 266.0 H 90 V 288" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 138 244 V 266.0 H 194 V 288" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 342 244 V 266.0 H 294 V 288" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 342 244 V 266.0 H 390 V 288" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="186" y="56" width="108" height="62" rx="16" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<text x="240" y="100" text-anchor="middle" font-family="'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="32" font-weight="700" fill="#2563EB">x²</text>
+<rect x="96" y="196" width="84" height="48" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="300" y="196" width="84" height="48" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 118 220 L 158 220" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 322 220 L 362 220" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="90" cy="296" r="17" fill="#FFFFFF" stroke="#26313F" stroke-width="6"/>
+<circle cx="194" cy="296" r="17" fill="#FFFFFF" stroke="#26313F" stroke-width="6"/>
+<circle cx="294" cy="296" r="17" fill="#FFFFFF" stroke="#26313F" stroke-width="6"/>
+<circle cx="390" cy="296" r="20" fill="#FBE3E3" stroke="#DC2626" stroke-width="6"/>
+<circle cx="390" cy="296" r="34" fill="none" stroke="#DC2626" stroke-width="5" stroke-dasharray="4 10"/>
 </svg>

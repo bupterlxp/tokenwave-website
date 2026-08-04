@@ -1,46 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=vidic layout=compare -->
+<!-- tokenwave:generated:v5 slug=vidic -->
 <title id="title">ViDiC benchmark illustration</title>
-<desc id="desc">Two similar videos compared frame by frame to describe their precise differences.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c026d3"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 112 198 Q 176 180 240 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<path d="M 240 198 Q 304 180 368 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<g transform="translate(112 198) scale(1.32) translate(-112 -198)"><rect x="74" y="173" width="76" height="50" rx="7" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<rect x="79" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="79" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="94" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="94" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="109" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="109" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="124" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="124" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="139" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="139" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<path d="M 104 188 L 126 198 L 104 208 Z" fill="url(#accent)"/></g>
-<g transform="translate(240 198) scale(1.32) translate(-240 -198)"><rect x="199" y="169" width="82" height="58" rx="8" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<line x1="199" y1="184" x2="281" y2="184" stroke="#dbe4ee" stroke-width="1.5"/>
-<circle cx="211" cy="177" r="2.2" fill="url(#accent)"/>
-<circle cx="220" cy="177" r="2.2" fill="#dbe4ee"/>
-<circle cx="229" cy="177" r="2.2" fill="#dbe4ee"/>
-<text x="219" y="203" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#ff806e">−</text>
-<text x="261" y="203" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="#45d6a5">+</text>
-<line x1="240" y1="190" x2="240" y2="218" stroke="#dbe4ee"/></g>
-<g transform="translate(368 198) scale(1.32) translate(-368 -198)"><rect x="330" y="173" width="76" height="50" rx="7" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<rect x="335" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="335" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="350" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="350" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="365" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="365" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="380" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="380" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="395" y="176" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="395" y="215" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<path d="M 360 188 L 382 198 L 360 208 Z" fill="url(#accent)"/></g>
+<desc id="desc">Two similar videos compared to describe their differences.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="210" ry="150" fill="#4F46E5" opacity="0.07"/>
+<rect x="52" y="96" width="168" height="126" rx="12" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 70 196 L 110 142 L 142 174 L 164 150 L 198 196" fill="none" stroke="#26313F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="178" cy="126" r="10" fill="#4F46E5"/>
+<rect x="260" y="96" width="168" height="126" rx="12" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 278 196 L 318 142 L 350 174 L 372 150 L 406 196" fill="none" stroke="#26313F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="386" cy="126" r="10" fill="#C026D3"/>
+<circle cx="386" cy="126" r="24" fill="none" stroke="#DC2626" stroke-width="6" stroke-dasharray="5 9"/>
+<path d="M 240 120 L 240 200" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 8"/>
+<rect x="210" y="244" width="60" height="46" rx="12" fill="#C026D3"/>
+<text x="240" y="276" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">Δ</text>
+<path d="M 120 258 L 120 258" fill="none" stroke="#A9B6C8" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 114 252 H 170 Q 188 252 188 270 V 284 Q 188 302 170 302 H 114 Q 96 302 96 284 V 270 Q 96 252 114 252 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 114 277 L 170 277" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 322 252 H 378 Q 396 252 396 270 V 284 Q 396 302 378 302 H 322 Q 304 302 304 284 V 270 Q 304 252 322 252 Z" fill="#F7E7EA" stroke="#C026D3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 322 277 L 378 277" fill="none" stroke="#C026D3" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

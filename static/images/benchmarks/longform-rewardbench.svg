@@ -1,20 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=longform_rewardbench layout=compare -->
+<!-- tokenwave:generated:v5 slug=longform_rewardbench -->
 <title id="title">Long-form RewardBench benchmark illustration</title>
-<desc id="desc">Two long responses compared by a reward judge across five task families.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 112 198 Q 176 180 240 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<path d="M 240 198 Q 304 180 368 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<g transform="translate(112 198) scale(1.32) translate(-112 -198)"><rect x="75" y="169" width="74" height="58" rx="12" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="112" y="204" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="13" font-weight="700" fill="url(#accent)">scroll</text></g>
-<g transform="translate(240 198) scale(1.32) translate(-240 -198)"><rect x="203" y="169" width="74" height="58" rx="12" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="240" y="205" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">A ⚖ B</text></g>
-<g transform="translate(368 198) scale(1.32) translate(-368 -198)"><rect x="331" y="169" width="74" height="58" rx="12" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="368" y="204" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="13" font-weight="700" fill="url(#accent)">scroll</text></g>
+<desc id="desc">Two long responses weighed by a reward judge.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="200" ry="155" fill="#2563EB" opacity="0.07"/>
+<path d="M 240 84 L 240 296" fill="none" stroke="#26313F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 168 312 H 312" fill="none" stroke="#26313F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="rotate(-8 240 96)"><path d="M 112 96 L 368 96" fill="none" stroke="#26313F" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 112 96 L 112 128" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 368 96 L 368 128" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 68 128 H 156 L 142 168 H 82 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 324 128 H 412 L 398 168 H 338 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 84 60 H 132 L 148 76 V 144 Q 148 152 140 152 H 84 Q 76 152 76 144 V 68 Q 76 60 84 60 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 132 60 V 76 H 148" fill="none" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 90.4 88 L 127.8 88" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 90.4 106 L 116.3 106" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 90.4 124 L 123.5 124" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 340 76 H 388 L 404 92 V 144 Q 404 152 396 152 H 340 Q 332 152 332 144 V 84 Q 332 76 340 76 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 388 76 V 92 H 404" fill="none" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 346.4 102 L 382.4 102" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 346.4 120 L 369.4 120" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+<circle cx="240" cy="96" r="15" fill="#2563EB"/>
+<text x="112" y="232" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#2563EB">A</text>
+<text x="368" y="218" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#A9B6C8">B</text>
 </svg>

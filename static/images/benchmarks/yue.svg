@@ -1,22 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=yue layout=flow -->
+<!-- tokenwave:generated:v5 slug=yue -->
 <title id="title">YuE benchmark illustration</title>
-<desc id="desc">Lyrics expanded into structured song sections with aligned vocal and accompaniment tracks.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#db2777"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#db2777"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-
-<path d="M 48 74 H 171 L 195 98 V 286 H 48 Z" fill="#fff" stroke="#334155" stroke-width="5"/><path d="M 171 74 V 98 H 195" fill="none" stroke="#334155" stroke-width="5"/>
-<path d="M 72 126 H 164 M 72 156 H 148 M 72 186 H 166 M 72 216 H 139 M 72 246 H 157" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
-<rect x="205" y="143" width="8" height="18" rx="4" fill="#7c3aed"/><rect x="220" y="136.5" width="8" height="31" rx="4" fill="#7c3aed"/><rect x="235" y="130" width="8" height="44" rx="4" fill="#7c3aed"/><rect x="250" y="123.5" width="8" height="57" rx="4" fill="#7c3aed"/><rect x="265" y="139" width="8" height="26" rx="4" fill="#7c3aed"/><rect x="280" y="132.5" width="8" height="39" rx="4" fill="#7c3aed"/><rect x="295" y="126" width="8" height="52" rx="4" fill="#7c3aed"/><rect x="310" y="141.5" width="8" height="21" rx="4" fill="#7c3aed"/><rect x="325" y="135" width="8" height="34" rx="4" fill="#7c3aed"/><rect x="340" y="128.5" width="8" height="47" rx="4" fill="#7c3aed"/><rect x="355" y="122" width="8" height="60" rx="4" fill="#7c3aed"/><rect x="370" y="137.5" width="8" height="29" rx="4" fill="#7c3aed"/><rect x="385" y="131" width="8" height="42" rx="4" fill="#7c3aed"/><rect x="205" y="212" width="8" height="20" rx="4" fill="#db2777"/><rect x="220" y="203.5" width="8" height="37" rx="4" fill="#db2777"/><rect x="235" y="195" width="8" height="54" rx="4" fill="#db2777"/><rect x="250" y="211.5" width="8" height="21" rx="4" fill="#db2777"/><rect x="265" y="203" width="8" height="38" rx="4" fill="#db2777"/><rect x="280" y="194.5" width="8" height="55" rx="4" fill="#db2777"/><rect x="295" y="211" width="8" height="22" rx="4" fill="#db2777"/><rect x="310" y="202.5" width="8" height="39" rx="4" fill="#db2777"/><rect x="325" y="194" width="8" height="56" rx="4" fill="#db2777"/><rect x="340" y="210.5" width="8" height="23" rx="4" fill="#db2777"/><rect x="355" y="202" width="8" height="40" rx="4" fill="#db2777"/><rect x="370" y="193.5" width="8" height="57" rx="4" fill="#db2777"/><rect x="385" y="210" width="8" height="24" rx="4" fill="#db2777"/>
-<path d="M 198 187 H 406" stroke="#cbd5e1" stroke-width="4"/>
-<path d="M 232 116 V 272 M 286 116 V 272 M 340 116 V 272" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6 7"/>
-<rect x="382" y="126" width="58" height="122" rx="18" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<path d="M 399 153 V 206 C 399 225 421 225 421 208 V 169 L 399 174" fill="none" stroke="#db2777" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="395" cy="210" r="12" fill="#db2777"/><circle cx="417" cy="208" r="12" fill="#db2777"/>
-
+<desc id="desc">Lyrics becoming aligned vocal and accompaniment tracks.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="205" ry="155" fill="#7C3AED" opacity="0.07"/>
+<path d="M 58 62 H 152 L 176 86 V 250 Q 176 258 168 258 H 58 Q 50 258 50 250 V 70 Q 50 62 58 62 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 152 62 V 86 H 176" fill="none" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 72.7 110 L 143.2 110" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 72.7 138 L 125.6 138" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 72.7 166 L 138.2 166" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 72.7 194 L 118 194" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 72.7 222 L 130.6 222" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="214" cy="194.1" rx="16.1" ry="11.8" fill="#26313F" transform="rotate(-18 214 194.1)"/>
+<ellipse cx="271" cy="186" rx="16.1" ry="11.8" fill="#26313F" transform="rotate(-18 271 186)"/>
+<path d="M 228.8 191 V 121.6 L 285.9 111.6 V 182.9" fill="none" stroke="#26313F" stroke-width="6.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 228.8 121.6 L 285.9 111.6" fill="none" stroke="#26313F" stroke-width="18.6" stroke-linecap="butt" stroke-linejoin="round"/>
+<rect x="276" y="104.9" width="9" height="46.2" rx="4.5" fill="#7C3AED"/>
+<rect x="293.9" y="110.4" width="9" height="35.2" rx="4.5" fill="#7C3AED"/>
+<rect x="311.8" y="100.1" width="9" height="55.8" rx="4.5" fill="#7C3AED"/>
+<rect x="329.6" y="101.3" width="9" height="53.4" rx="4.5" fill="#7C3AED"/>
+<rect x="347.5" y="113" width="9" height="29.9" rx="4.5" fill="#7C3AED"/>
+<rect x="365.4" y="102.9" width="9" height="50.2" rx="4.5" fill="#7C3AED"/>
+<rect x="383.2" y="99.3" width="9" height="57.4" rx="4.5" fill="#7C3AED"/>
+<rect x="401.1" y="107.8" width="9" height="40.3" rx="4.5" fill="#7C3AED"/>
+<rect x="419" y="107.1" width="9" height="41.7" rx="4.5" fill="#7C3AED"/>
+<rect x="276" y="212.3" width="9" height="39.4" rx="4.5" fill="#DB2777"/>
+<rect x="293.9" y="210.7" width="9" height="42.6" rx="4.5" fill="#DB2777"/>
+<rect x="311.8" y="203.1" width="9" height="57.8" rx="4.5" fill="#DB2777"/>
+<rect x="329.6" y="207.8" width="9" height="48.4" rx="4.5" fill="#DB2777"/>
+<rect x="347.5" y="215.8" width="9" height="32.4" rx="4.5" fill="#DB2777"/>
+<rect x="365.4" y="204.7" width="9" height="54.7" rx="4.5" fill="#DB2777"/>
+<rect x="383.2" y="204.6" width="9" height="54.8" rx="4.5" fill="#DB2777"/>
+<rect x="401.1" y="215.6" width="9" height="32.7" rx="4.5" fill="#DB2777"/>
+<rect x="419" y="207.9" width="9" height="48.2" rx="4.5" fill="#DB2777"/>
+<path d="M 300 290 L 404 290" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="352" y="314" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="1" font-weight="700" fill="#26313F"></text>
 </svg>

@@ -1,29 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=t2av_compass layout=merge -->
+<!-- tokenwave:generated:v5 slug=t2av_compass -->
 <title id="title">T2AV-Compass benchmark illustration</title>
-<desc id="desc">A text prompt generating synchronized video and audio evaluated for alignment.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#db2777"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#db2777"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><rect x="87" y="137" width="74" height="58" rx="9" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="124" y="173" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">Tt</text></g>
-<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><rect x="90" y="218" width="4" height="16" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="97" y="211.5" width="4" height="29" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="104" y="218.5" width="4" height="15" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="111" y="212" width="4" height="28" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="118" y="219" width="4" height="14" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="125" y="212.5" width="4" height="27" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="132" y="219.5" width="4" height="13" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="139" y="213" width="4" height="26" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="146" y="220" width="4" height="12" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="153" y="213.5" width="4" height="25" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="160" y="220.5" width="4" height="11" rx="2" fill="#94a3b8" opacity=".85"/></g>
-<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><rect x="313" y="169" width="74" height="58" rx="12" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="350" y="205" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">↔</text></g>
+<desc id="desc">A prompt generating synchronized video and audio.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="250" cy="180" rx="205" ry="152" fill="#7C3AED" opacity="0.07"/>
+<rect x="44" y="146" width="152" height="68" rx="16" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 66 172 L 152 172" fill="none" stroke="#7C3AED" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 66 192 L 122 192" fill="none" stroke="#A9B6C8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 202 168 Q 228.5 159.3 231 146.8" fill="none" stroke="#C9D4E2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 234 132 L 220.6 150.7 L 239.1 154.5 Z" fill="#C9D4E2" stroke="#C9D4E2" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 202 194 Q 228.5 202.7 231 215.2" fill="none" stroke="#C9D4E2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 234 230 L 239.1 207.5 L 220.6 211.3 Z" fill="#C9D4E2" stroke="#C9D4E2" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="240" y="58" width="190" height="108" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="250" y="67" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="250" y="148" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="302.7" y="67" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="302.7" y="148" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="355.3" y="67" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="355.3" y="148" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="408" y="67" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="408" y="148" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 303.3 84 L 303.3 140" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 366.7 84 L 366.7 140" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 322 93 L 356 112 L 322 131 Z" fill="#7C3AED" stroke="#7C3AED" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="240" y="224.6" width="9" height="50.8" rx="4.5" fill="#7C3AED"/>
+<rect x="258.1" y="220.1" width="9" height="59.7" rx="4.5" fill="#DB2777"/>
+<rect x="276.2" y="227.9" width="9" height="44.1" rx="4.5" fill="#7C3AED"/>
+<rect x="294.3" y="229.1" width="9" height="41.9" rx="4.5" fill="#DB2777"/>
+<rect x="312.4" y="220.4" width="9" height="59.3" rx="4.5" fill="#7C3AED"/>
+<rect x="330.5" y="223.7" width="9" height="52.5" rx="4.5" fill="#DB2777"/>
+<rect x="348.6" y="234.3" width="9" height="31.4" rx="4.5" fill="#7C3AED"/>
+<rect x="366.7" y="222.4" width="9" height="55.2" rx="4.5" fill="#DB2777"/>
+<rect x="384.8" y="221" width="9" height="58" rx="4.5" fill="#7C3AED"/>
+<rect x="402.9" y="231.2" width="9" height="37.7" rx="4.5" fill="#DB2777"/>
+<rect x="421" y="226.1" width="9" height="47.9" rx="4.5" fill="#7C3AED"/>
+<path d="M 452 122 L 452 238" fill="none" stroke="#DB2777" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 438 122 L 452 122" fill="none" stroke="#DB2777" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 438 238 L 452 238" fill="none" stroke="#DB2777" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="452" cy="180" r="9" fill="#DB2777"/>
 </svg>

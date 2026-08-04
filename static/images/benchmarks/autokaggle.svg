@@ -1,38 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=autokaggle layout=flow -->
+<!-- tokenwave:generated:v5 slug=autokaggle -->
 <title id="title">AutoKaggle benchmark illustration</title>
-<desc id="desc">Raw tables moving through feature engineering and modeling into a validated Kaggle submission.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<g transform="translate(76 180) scale(1.2) translate(-76 -180)"><rect x="35" y="151" width="82" height="58" rx="8" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.7"/>
-<line x1="35" y1="166" x2="117" y2="166" stroke="#dbe4ee" stroke-width="1.5"/>
-<circle cx="47" cy="159" r="2.2" fill="url(#accent)"/>
-<circle cx="56" cy="159" r="2.2" fill="#dbe4ee"/>
-<circle cx="65" cy="159" r="2.2" fill="#dbe4ee"/>
-<line x1="66" y1="172" x2="66" y2="201" stroke="#94a3b8" opacity=".55"/>
-<line x1="86" y1="172" x2="86" y2="201" stroke="#94a3b8" opacity=".55"/>
-<line x1="47" y1="182" x2="105" y2="182" stroke="#94a3b8" opacity=".55"/>
-<line x1="47" y1="192" x2="105" y2="192" stroke="#94a3b8" opacity=".55"/></g>
-<path d="M 128 180 H 166 M 310 180 H 352" stroke="#334155" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
-<circle cx="238" cy="180" r="68" fill="#2563eb" opacity=".07" stroke="url(#accent)" stroke-width="5"/>
-<line x1="238" y1="180" x2="238" y2="131" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="238" cy="131" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<line x1="238" y1="180" x2="280.435" y2="155.5" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="280.435" cy="155.5" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<line x1="238" y1="180" x2="280.435" y2="204.5" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="280.435" cy="204.5" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<line x1="238" y1="180" x2="238" y2="229" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="238" cy="229" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<line x1="238" y1="180" x2="195.565" y2="204.5" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="195.565" cy="204.5" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<line x1="238" y1="180" x2="195.565" y2="155.5" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="195.565" cy="155.5" r="10" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<text x="238" y="189" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="34" font-weight="700" fill="url(#accent)">ƒ</text>
-<g transform="translate(399 180) scale(1.2) translate(-399 -180)"><circle cx="399" cy="180" r="27" fill="#10b981" opacity=".16" stroke="#10b981" stroke-width="2"/>
-<path d="M 386 180 L 396 190 L 415 167" fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<desc id="desc">Raw tables flowing through a model into a validated submission.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="185" rx="205" ry="152" fill="#2563EB" opacity="0.07"/>
+<rect x="52" y="62" width="158" height="124" rx="12" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 64 62 H 198 Q 210 62 210 74 V 93 H 52 V 74 Q 52 62 64 62 Z" fill="#2563EB" opacity="0.14"/>
+<path d="M 104.7 93 L 104.7 183" fill="none" stroke="#C9D4E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 157.3 93 L 157.3 183" fill="none" stroke="#C9D4E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55 93 L 207 93" fill="none" stroke="#C9D4E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55 124 L 207 124" fill="none" stroke="#C9D4E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55 155 L 207 155" fill="none" stroke="#C9D4E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 216 122 Q 238.6 116.6 242.6 121" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 254 134 L 246.2 108.9 L 230 123.1 Z" fill="#2563EB" stroke="#2563EB" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 277 64 L 277 78" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 277 182 L 277 196" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 238 103 L 252 103" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 356 103 L 370 103" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 304 64 L 304 78" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 304 182 L 304 196" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 238 130 L 252 130" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 356 130 L 370 130" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 331 64 L 331 78" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 331 182 L 331 196" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 238 157 L 252 157" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 356 157 L 370 157" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="252" y="78" width="104" height="104" rx="18.7" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="278" y="104" width="52" height="52" rx="9.4" fill="none" stroke="#2563EB" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="304" cy="130" r="8.3" fill="#2563EB"/>
+<path d="M 304 190 Q 304 204 304 200.7" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 304 218 L 314.8 194 L 293.2 194 Z" fill="#2563EB" stroke="#2563EB" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 256 222 H 336 L 358 244 V 320 Q 358 328 350 328 H 256 Q 248 328 248 320 V 230 Q 248 222 256 222 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 336 222 V 244 H 358" fill="none" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 267.8 258 L 331.6 258" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 267.8 280 L 314 280" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 267.8 302 L 325 302" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="394" cy="280" r="33" fill="#FFFFFF" stroke="#D97706" stroke-width="7"/>
+<path d="M 376 253 L 366 222 M 412 253 L 422 222" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="394" y="291" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="700" fill="#D97706">1</text>
 </svg>

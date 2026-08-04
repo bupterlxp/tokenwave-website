@@ -1,26 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=supergpqa layout=orbit -->
+<!-- tokenwave:generated:v5 slug=supergpqa -->
 <title id="title">SuperGPQA benchmark illustration</title>
-<desc id="desc">Expert questions spanning hundreds of academic disciplines and long-tail subject knowledge.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 240 180 L 240 61" stroke="#cbd5e1" stroke-width="6"/>
-<rect x="209" y="40" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<path d="M 240 180 L 343.057 120.5" stroke="#cbd5e1" stroke-width="6"/>
-<rect x="312.057" y="99.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<path d="M 240 180 L 343.057 239.5" stroke="#cbd5e1" stroke-width="6"/>
-<rect x="312.057" y="218.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<path d="M 240 180 L 240 299" stroke="#cbd5e1" stroke-width="6"/>
-<rect x="209" y="278" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<path d="M 240 180 L 136.943 239.5" stroke="#cbd5e1" stroke-width="6"/>
-<rect x="105.943" y="218.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<path d="M 240 180 L 136.943 120.5" stroke="#cbd5e1" stroke-width="6"/>
-<rect x="105.943" y="99.5" width="62" height="42" rx="14" fill="#fff" stroke="url(#accent)" stroke-width="6"/>
-<rect x="184" y="137" width="112" height="86" rx="23" fill="#fff" stroke="#334155" stroke-width="7"/>
-<text x="240" y="195" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="44" font-weight="700" fill="#0f766e">?</text>
+<desc id="desc">Expert questions spanning hundreds of disciplines.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="200" ry="160" fill="#2563EB" opacity="0.07"/>
+<path d="M 240 116 L 240 88" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="210" y="43" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#2563EB" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 226 64 L 254 64" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 289.5 134.7 L 312.1 114.9" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="300.5" y="77" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#0D9488" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 316.5 98 L 344.5 98" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 310 180 L 342 180" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="338" y="159" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#2563EB" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 354 180 L 382 180" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 289.5 225.3 L 312.1 245.1" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="300.5" y="241" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#0D9488" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 316.5 262 L 344.5 262" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 240 244 L 240 272" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="210" y="275" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#2563EB" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 226 296 L 254 296" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 190.5 225.3 L 167.9 245.1" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="119.5" y="241" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#0D9488" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 135.5 262 L 163.5 262" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170 180 L 138 180" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="82" y="159" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#2563EB" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 98 180 L 126 180" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 190.5 134.7 L 167.9 114.9" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="119.5" y="77" width="60" height="42" rx="13" fill="#FFFFFF" stroke="#0D9488" stroke-width="6" stroke-linejoin="round"/>
+<path d="M 135.5 98 L 163.5 98" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="172" y="116" width="136" height="128" rx="26" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<text x="240" y="208" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="66" font-weight="700" fill="#2563EB">?</text>
 </svg>

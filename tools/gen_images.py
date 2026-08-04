@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Generate content-specific benchmark artwork.
 
-Each benchmark has an explicit visual scene.  Shared primitives keep the set
-coherent, while the object mix and topology describe the actual task instead
-of routing broad subcategories into generic charts.
+Every benchmark gets a bespoke poster-style scene drawn with one shared
+visual language: bold 7px ink outlines, flat domain accent colors, large
+focal compositions that stay readable down to ~92px wide (the smallest
+placement on the site).  Scenes are composed from the primitive kit below;
+coverage is explicit — a new benchmark must define its own scene.
 
 Run:
     python3 tools/gen_images.py --force   # redraw every asset
@@ -23,587 +25,1502 @@ FORCE = "--force" in sys.argv
 CHECK = "--check" in sys.argv
 
 W, H = 480, 360
-BG = "#f4f7fb"
-INK = "#0f172a"
-MUTED = "#64748b"
-LINE = "#dbe4ee"
-PANEL = "#ffffff"
-PALE = "#94a3b8"
+BG = "#F4F6FB"        # matches the site's --tile-bg light well exactly
+INK = "#26313F"       # primary outline
+SOFT = "#C9D4E2"      # secondary structure / hairlines
+TLINE = "#A9B6C8"     # placeholder text strokes
+WHITE = "#FFFFFF"
+GREEN = "#059669"
+RED = "#DC2626"
+AMBER = "#D97706"
+STK = 7               # primary stroke width
+S2 = 4.5              # secondary stroke width
+
 DOMAIN_PALETTES = {
-    "agent": ("#2563eb", "#7c3aed"),
-    "aigc": ("#7c3aed", "#db2777"),
-    "llm": ("#0f766e", "#2563eb"),
-    "multimodal": ("#4f46e5", "#c026d3"),
+    "llm": ("#2563EB", "#0D9488"),
+    "agent": ("#2563EB", "#7C3AED"),
+    "multimodal": ("#4F46E5", "#C026D3"),
+    "aigc": ("#7C3AED", "#DB2777"),
 }
 
-
-def V(name, desc, layout, *objects):
-    return {"name": name, "desc": desc, "layout": layout, "objects": objects}
-
-
-# Explicit coverage is intentional: a new benchmark must choose what it depicts.
-VISUAL_SPECS = {
-    "acadreason": V("ACADREASON", "A research question gathering papers, citations, and cross-disciplinary evidence into a synthesis.", "orbit", ("paper", "papers"), ("citation", "citations"), ("search", "search"), ("report", "synthesis")),
-    "artifactsbench": V("ArtifactsBench", "Executable visual code moving from an editor into an interactive browser artifact and visual checks.", "flow", ("code", "editor"), ("browser", "artifact"), ("cursor", "interact"), ("check", "visual QA")),
-    "autokaggle": V("AutoKaggle", "Raw tables moving through feature engineering and modeling into a validated Kaggle submission.", "flow", ("table", "raw data"), ("features", "features"), ("model", "model"), ("submission", "valid CSV")),
-    "automv": V("AutoMV", "A song waveform aligned to storyboard shots and evaluated with a professional music-video rubric.", "merge", ("waveform", "song"), ("video", "storyboard"), ("rubric", "12 criteria")),
-    "chinese_safetyqa": V("Chinese SafetyQA", "Chinese safety questions grounded in policy and culture sources, checked for factuality and harmlessness.", "merge", ("qa", "中文问题"), ("culture", "sources"), ("shield", "safe facts")),
-    "chinese_simpleqa": V("Chinese SimpleQA", "A short Chinese factual question traced to an authoritative source and a concise answer.", "flow", ("qa", "问题"), ("citation", "source"), ("answer", "短答案")),
-    "cii_bench": V("CII-Bench", "A Chinese image interpreted through cultural context, metaphor, and emotion.", "flow", ("image", "image"), ("culture", "culture"), ("meaning", "implication")),
-    "code_simpleqa": V("CodeSimpleQA", "English and Chinese programming questions grounded in documentation and code facts.", "merge", ("code", "API facts"), ("language", "EN / 中文"), ("qa", "1,498 QA")),
-    "codeeditorbench": V("CodeEditorBench", "Existing code revised through a visible diff and accepted by execution tests.", "flow", ("code", "before"), ("diff", "+ / − diff"), ("check", "tests pass")),
-    "codetracer": V("CodeTracer", "An execution trace with the first faulty state located and verified.", "flow", ("code", "program"), ("trace", "states"), ("target", "fault"), ("check", "located")),
-    "conceptmath": V("ConceptMath", "Bilingual math problems mapped to a concept tree that exposes a weak concept.", "merge", ("language", "双语"), ("concept", "concepts"), ("diagnostic", "weak spot")),
-    "cot_error_detection": V("Long CoT Error Detection", "A long chain of reasoning with the earliest incorrect step detected and marked.", "flow", ("trace", "long CoT"), ("break", "first error"), ("critic", "detect")),
-    "criticlean": V("CriticLean", "A Lean proof containing a faulty step, reviewed by a critic and rechecked by the compiler.", "flow", ("proof", "Lean proof"), ("critic", "critic"), ("checker", "Lean check")),
-    "dr3_eval": V("DR3-Eval", "Multimodal evidence processed in a sealed environment into a cited, reproducible research report.", "merge", ("multimodal", "evidence"), ("sandbox", "sealed env"), ("report", "cited report")),
-    "edgebench": V("EdgeBench", "An agent learning from real environment interactions over a long training horizon.", "timeline", ("environment", "environment"), ("clock", "12–72 h"), ("chart", "learning"), ("check", "competence")),
-    "finder": V("FINDER", "A research query expanded into sources, a structured evidence checklist, and an analyst report.", "flow", ("search", "query"), ("citation", "sources"), ("checklist", "419 checks"), ("report", "report")),
-    "formalmath": V("FormalMATH", "A natural-language theorem translated into a Lean goal, proof steps, and a compiler-checked result.", "flow", ("theorem", "theorem"), ("proof", "Lean proof"), ("checker", "verified")),
-    "fullstack_bench": V("FullStack Bench", "A browser frontend connected through an API to a database and verified end to end.", "merge", ("browser", "frontend"), ("api", "API"), ("database", "database"), ("check", "E2E tests")),
-    "hellobench": V("HelloBench", "A long generated document held together by a coherence thread while repetition is detected.", "split", ("scroll", "long text"), ("coherence", "coherence"), ("loop", "repetition")),
-    "if_vidcap": V("IF-VidCap", "Video frames and explicit format constraints producing an instruction-following caption.", "merge", ("video", "video"), ("constraints", "constraints"), ("caption", "caption ✓")),
-    "ii_bench": V("II-Bench", "Visible image objects leading to implied emotion, intent, and social meaning.", "split", ("image", "surface"), ("meaning", "implication")),
-    "inverse_ifeval": V("Inverse IFEval", "A direct instruction overriding a conflicting learned prior and passing constraint checks.", "flow", ("prior", "prior"), ("instruction", "instruction"), ("check", "followed")),
-    "iv_bench": V("IV-Bench", "A reference image grounding evidence from a long video before a reasoning answer.", "merge", ("reference", "reference"), ("video", "long video"), ("answer", "reasoning")),
-    "kor_bench": V("KOR-Bench", "Novel symbolic rules applied through a reasoning chain without relying on memorized knowledge.", "flow", ("rules", "novel rules"), ("trace", "reason"), ("answer", "answer")),
-    "korgym": V("KORGym", "An agent inferring changing game rules, acting on a board, and learning from the result.", "cycle", ("rules", "rules"), ("game", "game"), ("agent", "agent"), ("score", "feedback")),
-    "lime": V("LIME", "A large multimodal sample pool filtered for leakage, easiness, and low diagnostic value.", "flow", ("samplewall", "sample pool"), ("funnel", "recurate"), ("benchmark", "compact set")),
-    "longform_rewardbench": V("Long-form RewardBench", "Two long responses compared by a reward judge across five task families.", "compare", ("scroll", "response A"), ("scale", "reward judge"), ("scroll", "response B")),
-    "m2rc_eval": V("M2RC-Eval", "Repository files and sibling context filling a missing code region and passing tests.", "merge", ("repo", "repository"), ("missing", "completion"), ("check", "tests")),
-    "mammoth2": V("MAmmoTH2", "Web documents mined and refined into roughly ten million instruction-response pairs for training.", "flow", ("web", "web data"), ("funnel", "mine + refine"), ("pairs", "~10M pairs"), ("model", "reasoning LM")),
-    "mceval": V("McEval", "Code generation, completion, and explanation evaluated across forty programming languages.", "orbit", ("language", "40 languages"), ("code", "generate"), ("missing", "complete"), ("qa", "explain")),
-    "mm_browsecomp": V("MM-BrowseComp", "A browsing agent combining web pages, images, charts, and video evidence into one answer.", "orbit", ("web", "web"), ("image", "image"), ("video", "video"), ("answer", "answer")),
-    "mt_bench_101": V("MT-Bench-101", "A multi-turn conversation carrying a growing checklist of fine-grained instructions across turns.", "flow", ("chat", "turn 1"), ("constraints", "constraints"), ("chat", "later turns"), ("check", "retained")),
-    "mt_video_bench": V("MT-Video-Bench", "Multiple conversational turns pointing to different moments in the same video.", "orbit", ("video", "video"), ("chat", "turn 1"), ("chat", "turn 2"), ("chat", "turn 3")),
-    "mtu_bench": V("MTU-Bench", "Single and multi-turn requests orchestrating one or many tools in four evaluation settings.", "matrix", ("chat", "single turn"), ("tools", "single tool"), ("constraints", "multi turn"), ("orchestrate", "multi tool")),
-    "multi_docker_eval": V("Multi-Docker-Eval", "A Compose specification instantiating connected containers that pass health checks.", "flow", ("compose", "compose.yml"), ("containers", "services"), ("network", "network"), ("check", "healthy")),
-    "mvu_eval": V("MVU-Eval", "Evidence retrieved and compared across several videos before producing an answer.", "merge", ("video", "video A"), ("video", "video B"), ("compare", "retrieve"), ("answer", "answer")),
-    "nl2repo_bench": V("NL2Repo-Bench", "A natural-language specification expanding into source files, tests, and repository configuration.", "flow", ("spec", "SPEC"), ("repo", "src / config"), ("checklist", "tests")),
-    "omni_math": V("Omni-MATH", "Algebra, geometry, and number theory problems organized across Olympiad difficulty levels.", "merge", ("algebra", "algebra"), ("geometry", "geometry"), ("number", "number theory"), ("medal", "Olympiad")),
-    "omnibench": V("OmniBench", "Text, image, and audio inputs combined by one tri-modal reasoning model.", "merge", ("text", "text"), ("image", "image"), ("audio", "audio"), ("answer", "joint answer")),
-    "omnicap_if": V("OmniCap-IF", "Video and audio evidence constrained by format and content instructions before captioning.", "merge", ("video", "video"), ("audio", "audio"), ("constraints", "instructions"), ("caption", "caption")),
-    "omnivideobench": V("OmniVideoBench", "Synchronized visual and audio streams queried together for video understanding.", "merge", ("video", "visual"), ("audio", "audio"), ("qa", "joint QA")),
-    "opencodeinterpreter": V("OpenCodeInterpreter", "A code model generating, executing, reading terminal feedback, and repairing its answer.", "cycle", ("code", "generate"), ("terminal", "execute"), ("diff", "repair"), ("check", "pass")),
-    "opencoder": V("OpenCoder", "Raw code cleaned into a reproducible corpus, training recipe, and open model checkpoints.", "flow", ("web", "raw code"), ("funnel", "clean + dedup"), ("dataset", "RefineCode"), ("model", "checkpoints")),
-    "oprover": V("OProver", "Retrieved Lean proofs feeding an attempt, compiler feedback, and iterative repair loop.", "cycle", ("search", "retrieve"), ("proof", "attempt"), ("checker", "compiler"), ("diff", "repair")),
-    "ouro": V("Ouro", "A shared transformer block looping at variable depth to allocate latent compute per token.", "cycle", ("token", "token"), ("layers", "shared block"), ("loop", "× depth"), ("chart", "allocation")),
-    "owl": V("OWL", "An IT alert traced through server state and a runbook into a verified operational fix.", "flow", ("server", "systems"), ("alert", "alert"), ("runbook", "runbook"), ("check", "resolved")),
-    "roleagent": V("RoleAgent", "A script converted into persona memory, role dialogue, and evaluator feedback.", "flow", ("script", "script"), ("persona", "memory"), ("chat", "role play"), ("check", "evaluate")),
-    "rolellm": V("RoleLLM", "Character knowledge, speaking style, and persona traits conditioning role-play dialogue.", "merge", ("book", "knowledge"), ("style", "style"), ("persona", "persona"), ("chat", "dialogue")),
-    "safedialbench": V("SafeDialBench", "Escalating multi-turn jailbreak attempts consistently blocked by a conversational safety policy.", "flow", ("chat", "dialogue"), ("attack", "jailbreak"), ("shield", "defend"), ("check", "ASR ↓")),
-    "scalelong": V("ScaleLong", "Evidence distributed across short, medium, and hour-scale video spans before retrieval.", "timeline", ("video", "seconds"), ("clock", "minutes"), ("clock", "hours"), ("answer", "retrieve")),
-    "supergpqa": V("SuperGPQA", "Expert questions spanning hundreds of academic disciplines and long-tail subject knowledge.", "orbit", ("book", "disciplines"), ("qa", "expert QA"), ("taxonomy", "285 fields"), ("answer", "overall")),
-    "swe_compass": V("SWE-Compass", "A software issue moving through repository navigation, agent edits, and test verification.", "orbit", ("issue", "issue"), ("repo", "repository"), ("agent", "coding agent"), ("check", "tests")),
-    "t2av_compass": V("T2AV-Compass", "A text prompt generating synchronized video and audio evaluated for alignment.", "merge", ("text", "prompt"), ("video", "video"), ("audio", "audio"), ("sync", "alignment")),
-    "tablebench": V("TableBench", "A reasoning path crossing table rows and columns before calculation and verification.", "flow", ("table", "complex table"), ("path", "reasoning"), ("formula", "calculate"), ("answer", "verify")),
-    "tvir": V("TVIR", "Cited text and visual evidence assembled into an interleaved research report.", "merge", ("citation", "sources"), ("image", "figures"), ("text", "text"), ("report", "report")),
-    "usb": V("USB", "Text, image, and audio safety attacks evaluated through one unified risk shield.", "merge", ("text", "text"), ("image", "image"), ("audio", "audio"), ("shield", "unified safety")),
-    "vidcapbench": V("VidCapBench", "A video caption scored for aesthetics, content, motion, and physical understanding.", "orbit", ("video", "video"), ("rubric", "aesthetics"), ("rubric", "motion"), ("rubric", "physics")),
-    "vidic": V("ViDiC", "Two similar videos compared frame by frame to describe their precise differences.", "compare", ("video", "video A"), ("diff", "differences"), ("video", "video B")),
-    "web_compass": V("WebCompass", "Browser artifacts generated, edited, and repaired before specification and interaction checks.", "flow", ("browser", "generate"), ("browser", "edit"), ("browser", "repair"), ("check", "verify")),
-    "workflow_gym": V("Workflow-GYM", "A professional brief carried through planning, GUI actions, verification, and a finished deliverable.", "flow", ("brief", "brief"), ("ui", "GUI actions"), ("checklist", "verify"), ("submission", "deliverable")),
-    "worldtravel": V("WorldTravel", "A travel route checked against dates, tickets, hotels, timing, and feasibility constraints.", "orbit", ("map", "route"), ("calendar", "dates"), ("ticket", "tickets"), ("hotel", "hotel"), ("check", "feasible")),
-    "yue": V("YuE", "Lyrics expanded into structured song sections with aligned vocal and accompaniment tracks.", "flow", ("lyrics", "lyrics"), ("stage", "song form"), ("waveform", "vocal + music"), ("music", "full song")),
-}
+SANS = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+MONO = "'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace"
 
 
-def txt(x, y, value, size=11, fill=MUTED, anchor="middle", weight=500):
-    return (f'<text x="{x}" y="{y}" text-anchor="{anchor}" '
-            f'font-family="IBM Plex Mono, Menlo, monospace" font-size="{size}" '
-            f'font-weight="{weight}" fill="{fill}">{escape(str(value))}</text>')
+def fmt(v):
+    """Compact number formatting for path data."""
+    r = round(float(v), 1)
+    return str(int(r)) if r == int(r) else f"{r:g}"
 
 
-def short(value, n=15):
-    return value if len(value) <= n else value[:n - 1] + "…"
+# ── primitive kit ────────────────────────────────────────────────────────
+
+def path(d, w=STK, stroke=INK, fill="none", dash=None, op=None, cap="round"):
+    s = f'<path d="{d}" fill="{fill}"'
+    if stroke:
+        s += (f' stroke="{stroke}" stroke-width="{fmt(w)}"'
+              f' stroke-linecap="{cap}" stroke-linejoin="round"')
+    if dash:
+        s += f' stroke-dasharray="{dash}"'
+    if op:
+        s += f' opacity="{op}"'
+    return s + "/>"
 
 
-def box(x, y, w=82, h=60, stroke=LINE, fill=PANEL, r=10):
-    return f'<rect x="{x-w/2:g}" y="{y-h/2:g}" width="{w}" height="{h}" rx="{r}" fill="{fill}" stroke="{stroke}" stroke-width="1.7"/>'
+def rrect(x, y, w, h, r=16, fill=WHITE, stroke=INK, sw=STK, dash=None, op=None):
+    s = (f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{fmt(w)}" height="{fmt(h)}" '
+         f'rx="{fmt(r)}" fill="{fill}"')
+    if stroke:
+        s += f' stroke="{stroke}" stroke-width="{fmt(sw)}" stroke-linejoin="round"'
+    if dash:
+        s += f' stroke-dasharray="{dash}"'
+    if op:
+        s += f' opacity="{op}"'
+    return s + "/>"
 
 
-def icon(kind, x, y, label, accent, variant):
-    """Draw one semantic object centered at x/y; labels are secondary to shape."""
-    p = []
-    left, top = x - 34, y - 27
-    if kind in {"paper", "citation", "report", "runbook", "script", "lyrics", "spec", "brief", "dataset", "pairs", "answer", "caption", "instruction", "checklist"}:
-        p.append(f'<path d="M {left+8} {top} H {left+52} L {left+66} {top+14} V {top+54} H {left+8} Z" fill="{PANEL}" stroke="{accent}" stroke-width="2"/>')
-        p.append(f'<path d="M {left+52} {top} V {top+14} H {left+66}" fill="none" stroke="{accent}" stroke-width="2"/>')
-        lines = 3 if kind not in {"checklist", "citation"} else 4
-        for j in range(lines):
-            yy = top + 19 + j * 9
-            if kind == "checklist":
-                p.append(f'<rect x="{left+15}" y="{yy-4}" width="5" height="5" rx="1" fill="{accent}"/>')
-                x1 = left + 26
-            elif kind == "citation":
-                p.append(txt(left + 17, yy + 1, str(j + 1), 7, accent))
-                x1 = left + 26
-            else:
-                x1 = left + 15
-            p.append(f'<line x1="{x1}" y1="{yy}" x2="{left+56-j*3}" y2="{yy}" stroke="{PALE}" stroke-width="2" opacity=".75"/>')
-    elif kind in {"code", "terminal", "browser", "diff", "table", "compose", "ui", "web", "alert"}:
-        p.append(box(x, y, 82, 58, accent if kind in {"diff", "alert"} else LINE, PANEL, 8))
-        p.append(f'<line x1="{x-41}" y1="{y-14}" x2="{x+41}" y2="{y-14}" stroke="{LINE}" stroke-width="1.5"/>')
-        p.extend([f'<circle cx="{x-29+i*9}" cy="{y-21}" r="2.2" fill="{accent if i == 0 else LINE}"/>' for i in range(3)])
-        if kind == "table":
-            for j in range(1, 3):
-                p.append(f'<line x1="{x-30+j*20}" y1="{y-8}" x2="{x-30+j*20}" y2="{y+21}" stroke="{PALE}" opacity=".55"/>')
-            for j in range(1, 3):
-                p.append(f'<line x1="{x-29}" y1="{y-8+j*10}" x2="{x+29}" y2="{y-8+j*10}" stroke="{PALE}" opacity=".55"/>')
-        elif kind == "diff":
-            p.append(txt(x - 21, y + 5, "−", 18, "#ff806e", weight=700))
-            p.append(txt(x + 21, y + 5, "+", 18, "#45d6a5", weight=700))
-            p.append(f'<line x1="{x}" y1="{y-8}" x2="{x}" y2="{y+20}" stroke="{LINE}"/>')
-        elif kind == "terminal":
-            p.append(txt(x - 28, y + 5, "$", 14, accent, anchor="start", weight=700))
-            p.append(f'<line x1="{x-13}" y1="{y+2}" x2="{x+27}" y2="{y+2}" stroke="{PALE}" stroke-width="2"/>')
-        elif kind == "browser" or kind == "web":
-            p.append(f'<rect x="{x-27}" y="{y-5}" width="54" height="25" rx="3" fill="none" stroke="{PALE}" opacity=".75"/>')
-            p.append(f'<circle cx="{x-16}" cy="{y+5}" r="5" fill="{accent}" opacity=".7"/>')
-        elif kind == "alert":
-            p.append(txt(x, y + 11, "!", 28, "#ff806e", weight=700))
-        else:
-            for j, ww in enumerate((46, 57, 35)):
-                p.append(f'<line x1="{x-28}" y1="{y-4+j*9}" x2="{x-28+ww}" y2="{y-4+j*9}" stroke="{accent if j == variant % 3 else PALE}" stroke-width="3" opacity=".8"/>')
-    elif kind in {"repo", "taxonomy", "concept"}:
-        p.append(f'<circle cx="{x-25}" cy="{y-17}" r="7" fill="{accent}"/>')
-        for j, (dx, dy) in enumerate(((10, -17), (10, 4), (34, 18))):
-            p.append(f'<path d="M {x-18} {y-17} H {x-4} V {y+dy} H {x+dx-7}" fill="none" stroke="{LINE}" stroke-width="2"/>')
-            p.append(f'<rect x="{x+dx-7}" y="{y+dy-7}" width="24" height="14" rx="4" fill="{PANEL}" stroke="{PALE}"/>')
-    elif kind in {"video", "image", "reference"}:
-        p.append(f'<rect x="{x-38}" y="{y-25}" width="76" height="50" rx="7" fill="{PANEL}" stroke="{accent}" stroke-width="2"/>')
-        if kind == "video":
-            for dx in (-30, -15, 0, 15, 30):
-                p.append(f'<rect x="{x+dx-3}" y="{y-22}" width="6" height="5" rx="1" fill="{LINE}"/>')
-                p.append(f'<rect x="{x+dx-3}" y="{y+17}" width="6" height="5" rx="1" fill="{LINE}"/>')
-            p.append(f'<path d="M {x-8} {y-10} L {x+14} {y} L {x-8} {y+10} Z" fill="{accent}"/>')
-        else:
-            p.append(f'<circle cx="{x-18}" cy="{y-9}" r="6" fill="{accent}"/>')
-            p.append(f'<path d="M {x-30} {y+16} L {x-8} {y-5} L {x+5} {y+8} L {x+20} {y-7} L {x+31} {y+16} Z" fill="{PALE}" opacity=".65"/>')
-            if kind == "reference":
-                p.append(f'<path d="M {x+24} {y-28} l 9 9 -9 9 -9-9z" fill="{accent}"/>')
-    elif kind in {"waveform", "audio", "music"}:
-        for j in range(11):
-            xx = x - 34 + j * 7
-            hh = 9 + ((j * 13 + variant * 7) % 27)
-            p.append(f'<rect x="{xx}" y="{y-hh/2:g}" width="4" height="{hh}" rx="2" fill="{accent if j % 3 == 0 else PALE}" opacity=".85"/>')
-        if kind == "music":
-            p.append(txt(x + 29, y - 17, "♪", 20, accent, weight=700))
-    elif kind in {"check", "checker", "submission", "score", "medal"}:
-        p.append(f'<circle cx="{x}" cy="{y}" r="27" fill="{accent}" opacity=".16" stroke="{accent}" stroke-width="2"/>')
-        if kind == "medal":
-            p.append(f'<path d="M {x-12} {y-31} L {x-3} {y-12} L {x+4} {y-31} M {x+6} {y-31} L {x+11} {y-12}" stroke="{accent}" stroke-width="5"/>')
-            p.append(txt(x, y + 8, "1", 20, INK, weight=700))
-        else:
-            p.append(f'<path d="M {x-13} {y} L {x-3} {y+10} L {x+16} {y-13}" fill="none" stroke="{accent}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>')
-    elif kind in {"search", "critic", "target"}:
-        p.append(f'<circle cx="{x-5}" cy="{y-5}" r="22" fill="{PANEL}" stroke="{accent}" stroke-width="3"/>')
-        p.append(f'<line x1="{x+10}" y1="{y+11}" x2="{x+29}" y2="{y+28}" stroke="{accent}" stroke-width="6" stroke-linecap="round"/>')
-        if kind == "critic":
-            p.append(txt(x - 5, y + 3, "!", 20, "#ff806e", weight=700))
-        elif kind == "target":
-            p.append(f'<circle cx="{x-5}" cy="{y-5}" r="9" fill="none" stroke="#ff806e" stroke-width="2"/><circle cx="{x-5}" cy="{y-5}" r="3" fill="#ff806e"/>')
-    elif kind in {"shield", "sandbox"}:
-        p.append(f'<path d="M {x} {y-31} L {x+29} {y-19} V {y+2} C {x+29} {y+22} {x+11} {y+31} {x} {y+37} C {x-11} {y+31} {x-29} {y+22} {x-29} {y+2} V {y-19} Z" fill="{accent}" opacity=".18" stroke="{accent}" stroke-width="2"/>')
-        p.append(f'<path d="M {x-11} {y} L {x-3} {y+8} L {x+14} {y-11}" fill="none" stroke="{accent}" stroke-width="4"/>')
-    elif kind in {"model", "agent", "persona"}:
-        p.append(f'<circle cx="{x}" cy="{y-11}" r="18" fill="{accent}" opacity=".22" stroke="{accent}" stroke-width="2"/>')
-        p.append(f'<path d="M {x-29} {y+28} C {x-25} {y+4} {x+25} {y+4} {x+29} {y+28}" fill="{PANEL}" stroke="{accent}" stroke-width="2"/>')
-        if kind == "model":
-            for dx, dy in ((-8,-15),(8,-15),(0,-3)):
-                p.append(f'<circle cx="{x+dx}" cy="{y+dy}" r="3" fill="{PALE}"/>')
-    elif kind in {"chat", "qa"}:
-        p.append(f'<rect x="{x-39}" y="{y-24}" width="57" height="30" rx="11" fill="{PANEL}" stroke="{PALE}" stroke-width="1.8"/>')
-        p.append(f'<rect x="{x-13}" y="{y+3}" width="54" height="28" rx="11" fill="{accent}" opacity=".72"/>')
-        p.append(f'<line x1="{x-27}" y1="{y-10}" x2="{x+4}" y2="{y-10}" stroke="{PALE}" stroke-width="3"/>')
-        p.append(f'<line x1="{x}" y1="{y+16}" x2="{x+27}" y2="{y+16}" stroke="{INK}" stroke-width="3" opacity=".8"/>')
-    elif kind in {"chart", "diagnostic", "coherence", "path", "formula"}:
-        p.append(f'<line x1="{x-33}" y1="{y+24}" x2="{x-33}" y2="{y-24}" stroke="{LINE}" stroke-width="2"/><line x1="{x-33}" y1="{y+24}" x2="{x+35}" y2="{y+24}" stroke="{LINE}" stroke-width="2"/>')
-        pts = [(x-28, y+14), (x-12, y+4), (x+2, y+10), (x+18, y-12), (x+33, y-20)]
-        p.append('<path d="M ' + ' L '.join(f'{a} {b}' for a,b in pts) + f'" fill="none" stroke="{accent}" stroke-width="3"/>')
-        for a,b in pts:
-            p.append(f'<circle cx="{a}" cy="{b}" r="3" fill="{accent}"/>')
-    elif kind in {"database", "containers", "server", "layers"}:
-        if kind == "database":
-            p.append(f'<path d="M {x-31} {y-18} C {x-31} {y-30} {x+31} {y-30} {x+31} {y-18} V {y+20} C {x+31} {y+32} {x-31} {y+32} {x-31} {y+20} Z" fill="{PANEL}" stroke="{accent}" stroke-width="2"/>')
-            p.append(f'<ellipse cx="{x}" cy="{y-18}" rx="31" ry="10" fill="{PANEL}" stroke="{accent}" stroke-width="2"/>')
-        else:
-            for j in range(3):
-                yy = y - 24 + j * 21
-                p.append(f'<rect x="{x-34+j*4}" y="{yy}" width="{68-j*8}" height="15" rx="5" fill="{PANEL}" stroke="{accent if j == variant%3 else LINE}" stroke-width="1.8"/>')
-    elif kind in {"api", "network", "orchestrate", "tools"}:
-        p.append(f'<circle cx="{x}" cy="{y}" r="13" fill="{accent}"/>')
-        for a,b in ((-30,-20),(30,-20),(-30,22),(30,22)):
-            p.append(f'<line x1="{x}" y1="{y}" x2="{x+a}" y2="{y+b}" stroke="{LINE}" stroke-width="2"/>')
-            p.append(f'<circle cx="{x+a}" cy="{y+b}" r="7" fill="{PANEL}" stroke="{PALE}"/>')
-    elif kind in {"map", "calendar", "ticket", "hotel", "clock"}:
-        if kind == "map":
-            p.append(f'<path d="M {x-35} {y+19} C {x-20} {y-22} {x+1} {y+28} {x+34} {y-17}" fill="none" stroke="{accent}" stroke-width="3" stroke-dasharray="5 5"/>')
-            p.append(f'<circle cx="{x-35}" cy="{y+19}" r="6" fill="{accent}"/><path d="M {x+34} {y-28} C {x+18} {y-28} {x+20} {y-7} {x+34} {y+4} C {x+48} {y-7} {x+50} {y-28} {x+34} {y-28} Z" fill="{accent}"/>')
-        elif kind == "calendar":
-            p.append(box(x,y,70,58,accent,PANEL,7)); p.append(f'<line x1="{x-35}" y1="{y-10}" x2="{x+35}" y2="{y-10}" stroke="{accent}" stroke-width="3"/>')
-            for ix in range(3):
-                for iy in range(2): p.append(f'<circle cx="{x-20+ix*20}" cy="{y+2+iy*13}" r="3" fill="{PALE}"/>')
-        elif kind == "clock":
-            p.append(f'<circle cx="{x}" cy="{y}" r="29" fill="{PANEL}" stroke="{accent}" stroke-width="2"/><path d="M {x} {y} V {y-17} M {x} {y} L {x+14} {y+8}" stroke="{PALE}" stroke-width="3" stroke-linecap="round"/>')
-        elif kind == "hotel":
-            p.append(f'<path d="M {x-31} {y+24} V {y-18} H {x+31} V {y+24} M {x-38} {y+24} H {x+38}" fill="none" stroke="{accent}" stroke-width="3"/>')
-            for dx in (-17,0,17): p.append(f'<rect x="{x+dx-5}" y="{y-8}" width="10" height="12" fill="{PALE}" opacity=".75"/>')
-        else:
-            p.append(f'<path d="M {x-36} {y-20} H {x+36} V {y-7} C {x+24} {y-7} {x+24} {y+7} {x+36} {y+7} V {y+20} H {x-36} V {y+7} C {x-24} {y+7} {x-24} {y-7} {x-36} {y-7} Z" fill="{PANEL}" stroke="{accent}" stroke-width="2"/>')
-    elif kind in {"rules", "prior", "style", "language", "culture", "text", "book", "theorem", "algebra", "number"}:
-        p.append(box(x, y, 74, 58, accent, PANEL, 9))
-        symbols = {"rules":"⊕  △  ≡", "prior":"P(·)", "style":"Aa", "language":"EN 中", "culture":"文 化", "text":"Tt", "book":"≡", "theorem":"⊢ P", "algebra":"x²", "number":"ℕ"}
-        p.append(txt(x, y+7, symbols.get(kind,"·"), 18, accent, weight=700))
-    elif kind in {"geometry", "meaning", "sync", "rubric", "scale", "funnel", "attack", "break", "missing", "features", "environment", "stage", "cursor", "trace", "taxonomy", "issue", "benchmark", "samplewall", "game", "matrix", "formula", "compare", "loop", "token"}:
-        # Compact bespoke glyphs for remaining semantic concepts.
-        p.append(box(x, y, 74, 58, accent, PANEL, 12))
-        glyph = {"geometry":"△ ○", "meaning":"◎", "sync":"↔", "rubric":"1—5", "scale":"A ⚖ B", "funnel":"▽", "attack":"! →", "break":"×", "missing":"{ … }", "features":"ƒ(x)", "environment":"↻", "stage":"V / C", "cursor":"↖", "trace":"1·2·3", "issue":"#42", "benchmark":"SET", "samplewall":"••••", "game":"▦", "matrix":"2×2", "compare":"A≠B", "loop":"↻", "token":"tok"}.get(kind, "•")
-        p.append(txt(x, y+7, glyph, 18, accent, weight=700))
+def circle(cx, cy, r, fill, stroke=None, sw=STK, op=None, dash=None):
+    s = f'<circle cx="{fmt(cx)}" cy="{fmt(cy)}" r="{fmt(r)}" fill="{fill}"'
+    if stroke:
+        s += f' stroke="{stroke}" stroke-width="{fmt(sw)}"'
+    if dash:
+        s += f' stroke-dasharray="{dash}"'
+    if op:
+        s += f' opacity="{op}"'
+    return s + "/>"
+
+
+def seg(x1, y1, x2, y2, color=INK, w=STK, dash=None, op=None):
+    return path(f"M {fmt(x1)} {fmt(y1)} L {fmt(x2)} {fmt(y2)}", w, color,
+                dash=dash, op=op)
+
+
+def text(x, y, s, size=26, fill=INK, weight=700, anchor="middle", font=SANS,
+         spacing=None):
+    extra = f' letter-spacing="{spacing}"' if spacing else ""
+    return (f'<text x="{fmt(x)}" y="{fmt(y)}" text-anchor="{anchor}" '
+            f'font-family="{font}" font-size="{size}" font-weight="{weight}" '
+            f'fill="{fill}"{extra}>{escape(str(s))}</text>')
+
+
+def tline(x, y, length, w=7, color=TLINE, op=None):
+    """One placeholder text line."""
+    return seg(x, y, x + length, y, color, w, op=op)
+
+
+def halo(cx, cy, rx, ry, color, op=.07):
+    return (f'<ellipse cx="{fmt(cx)}" cy="{fmt(cy)}" rx="{fmt(rx)}" '
+            f'ry="{fmt(ry)}" fill="{color}" opacity="{op}"/>')
+
+
+def arrow(x1, y1, x2, y2, bend=0, color=INK, w=STK, dash=None, op=None):
+    """Chunky arrow with an explicit filled head; bend > 0 curves left."""
+    mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+    dx, dy = x2 - x1, y2 - y1
+    length = math.hypot(dx, dy) or 1
+    nx, ny = -dy / length, dx / length
+    cx, cy = mx + nx * bend, my + ny * bend
+    hd = math.atan2(y2 - cy, x2 - cx)
+    hl = 3.0 * w
+    ex, ey = x2 - math.cos(hd) * hl * .72, y2 - math.sin(hd) * hl * .72
+    parts = [path(f"M {fmt(x1)} {fmt(y1)} Q {fmt(cx)} {fmt(cy)} {fmt(ex)} {fmt(ey)}",
+                  w, color, dash=dash, op=op)]
+    hw = 1.35 * w
+    b1x = x2 - math.cos(hd) * hl + math.sin(hd) * hw
+    b1y = y2 - math.sin(hd) * hl - math.cos(hd) * hw
+    b2x = x2 - math.cos(hd) * hl - math.sin(hd) * hw
+    b2y = y2 - math.sin(hd) * hl + math.cos(hd) * hw
+    parts.append(path(f"M {fmt(x2)} {fmt(y2)} L {fmt(b1x)} {fmt(b1y)} "
+                      f"L {fmt(b2x)} {fmt(b2y)} Z", w * .55, color, fill=color, op=op))
+    return "\n".join(parts)
+
+
+def window(x, y, w, h, bar=36, r=18, sw=STK, dots=True, fill=WHITE):
+    parts = [rrect(x, y, w, h, r, fill=fill, sw=sw)]
+    parts.append(seg(x + 2, y + bar, x + w - 2, y + bar, SOFT, S2))
+    if dots:
+        for i, c in enumerate(("#F87171", "#FBBF24", "#34D399")):
+            parts.append(circle(x + 24 + i * 19, y + bar / 2, 5.5, c))
+    return "\n".join(parts)
+
+
+def doc(x, y, w, h, fold=30, lines=(), r=8, sw=STK, lc=TLINE, lw=7, fill=WHITE):
+    """Document with folded top-right corner; lines = (dy, x0frac, x1frac)."""
+    d = (f"M {fmt(x + r)} {fmt(y)} H {fmt(x + w - fold)} L {fmt(x + w)} {fmt(y + fold)} "
+         f"V {fmt(y + h - r)} Q {fmt(x + w)} {fmt(y + h)} {fmt(x + w - r)} {fmt(y + h)} "
+         f"H {fmt(x + r)} Q {fmt(x)} {fmt(y + h)} {fmt(x)} {fmt(y + h - r)} "
+         f"V {fmt(y + r)} Q {fmt(x)} {fmt(y)} {fmt(x + r)} {fmt(y)} Z")
+    parts = [path(d, sw, INK, fill=fill)]
+    parts.append(path(f"M {fmt(x + w - fold)} {fmt(y)} V {fmt(y + fold)} H {fmt(x + w)}",
+                      sw, INK))
+    for dy, f0, f1 in lines:
+        parts.append(seg(x + w * f0, y + dy, x + w * f1, y + dy, lc, lw))
+    return "\n".join(parts)
+
+
+def bubble(x, y, w, h, r=18, tail="bl", fill=WHITE, stroke=INK, sw=STK):
+    tw, th = 24, 20
+    if tail == "bl":
+        t0, tip = x + 30, x + 22
+        bottom = (f"H {fmt(t0 + tw)} L {fmt(tip)} {fmt(y + h + th)} L {fmt(t0)} {fmt(y + h)} "
+                  f"H {fmt(x + r)}")
+    elif tail == "br":
+        t0 = x + w - 30 - tw
+        bottom = (f"H {fmt(x + w - 30)} L {fmt(x + w - 22)} {fmt(y + h + th)} "
+                  f"L {fmt(t0)} {fmt(y + h)} H {fmt(x + r)}")
     else:
-        p.append(box(x, y, 74, 58, accent, PANEL, 12))
-        p.append(txt(x, y+6, short(kind, 8), 13, accent, weight=700))
-
-    if label:
-        p.append(txt(x, y + 48, short(label, 13), 10, MUTED, weight=600))
-    return "\n".join(p)
-
-
-def hero_objects(objects):
-    """Keep the semantic endpoints while avoiding unreadable four/five-icon scenes."""
-    if len(objects) <= 3:
-        return objects
-    return (objects[0], objects[len(objects) // 2], objects[-1])
+        bottom = f"H {fmt(x + r)}"
+    d = (f"M {fmt(x + r)} {fmt(y)} H {fmt(x + w - r)} Q {fmt(x + w)} {fmt(y)} "
+         f"{fmt(x + w)} {fmt(y + r)} V {fmt(y + h - r)} Q {fmt(x + w)} {fmt(y + h)} "
+         f"{fmt(x + w - r)} {fmt(y + h)} {bottom} Q {fmt(x)} {fmt(y + h)} {fmt(x)} "
+         f"{fmt(y + h - r)} V {fmt(y + r)} Q {fmt(x)} {fmt(y)} {fmt(x + r)} {fmt(y)} Z")
+    return path(d, sw, stroke, fill=fill)
 
 
-def scene_icon(kind, x, y, accent="url(#accent)", scale=1.25, variant=0):
-    """Scale one semantic glyph around its own center for thumbnail-first art."""
-    raw = icon(kind, x, y, "", accent, variant)
-    return (f'<g transform="translate({x:g} {y:g}) scale({scale:g}) '
-            f'translate({-x:g} {-y:g})">{raw}</g>')
+def film(x, y, w, h, accent, play=True, r=14, sw=STK, frames=3):
+    parts = [rrect(x, y, w, h, r, sw=sw)]
+    n = max(3, int(w // 46))
+    step = (w - 32) / (n - 1) if n > 1 else 0
+    for i in range(n):
+        hx = x + 16 + i * step - 6
+        parts.append(rrect(hx, y + 9, 13, 9, 3, fill="#D6DEEA", stroke=None))
+        parts.append(rrect(hx, y + h - 18, 13, 9, 3, fill="#D6DEEA", stroke=None))
+    for i in range(1, frames):
+        fx = x + w * i / frames
+        parts.append(seg(fx, y + 26, fx, y + h - 26, SOFT, 4.5))
+    if play:
+        cx, cy = x + w / 2, y + h / 2
+        parts.append(path(f"M {fmt(cx - 13)} {fmt(cy - 19)} L {fmt(cx + 21)} {fmt(cy)} "
+                          f"L {fmt(cx - 13)} {fmt(cy + 19)} Z", 6, accent, fill=accent))
+    return "\n".join(parts)
 
 
-def custom_scene(slug, accent_a, accent_b):
-    """Distinct hero silhouettes for the nineteen papers visible on the site."""
-    A = "url(#accent)"
-    S = "#cbd5e1"
-    D = "#334155"
-    green = "#10b981"
-    red = "#ef4444"
-
-    if slug == "autokaggle":
-        parts = [scene_icon("table", 76, 180, A, 1.2)]
-        parts.append(f'<path d="M 128 180 H 166 M 310 180 H 352" stroke="{D}" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>')
-        parts.append(f'<circle cx="238" cy="180" r="68" fill="{accent_a}" opacity=".07" stroke="{A}" stroke-width="5"/>')
-        for i in range(6):
-            angle = math.radians(i * 60 - 90)
-            x, y = 238 + math.cos(angle) * 49, 180 + math.sin(angle) * 49
-            parts.append(f'<line x1="238" y1="180" x2="{x:g}" y2="{y:g}" stroke="{S}" stroke-width="4"/>')
-            parts.append(f'<circle cx="{x:g}" cy="{y:g}" r="10" fill="#fff" stroke="{A}" stroke-width="4"/>')
-        parts.append(txt(238, 189, "ƒ", 34, A, weight=700))
-        parts.append(scene_icon("submission", 399, 180, green, 1.2))
-        return "\n".join(parts)
-
-    if slug == "automv":
-        bars = []
-        for i, h in enumerate((20, 38, 64, 34, 78, 48, 26, 58, 32)):
-            x = 52 + i * 16
-            bars.append(f'<rect x="{x}" y="{180-h/2:g}" width="9" height="{h}" rx="4.5" fill="{A}"/>')
-        film = [f'<path d="M 198 123 C 238 143 246 217 292 237 H 426 V 123 H 292 C 248 143 240 103 198 123 Z" fill="{accent_b}" opacity=".08" stroke="{A}" stroke-width="5"/>']
-        for x in (270, 326, 382):
-            film.append(f'<rect x="{x}" y="148" width="43" height="64" rx="7" fill="#fff" stroke="{D}" stroke-width="4"/>')
-            film.append(f'<path d="M {x+9} 197 L {x+21} 180 L {x+32} 197 Z" fill="{A}" opacity=".75"/>')
-        film.append(f'<path d="M 208 180 C 232 156 242 205 266 180" fill="none" stroke="{A}" stroke-width="6"/>')
-        return "\n".join(bars + film)
-
-    if slug == "code_simpleqa":
-        return f'''
-<path d="M 60 92 Q 150 72 232 116 V 274 Q 150 236 60 258 Z" fill="#fff" stroke="{A}" stroke-width="5"/>
-<path d="M 420 92 Q 330 72 248 116 V 274 Q 330 236 420 258 Z" fill="#fff" stroke="{A}" stroke-width="5"/>
-<path d="M 240 115 V 275" stroke="{D}" stroke-width="6"/>
-<path d="M 86 137 H 184 M 86 162 H 202 M 86 187 H 164 M 86 212 H 195" stroke="{D}" stroke-width="6" stroke-linecap="round"/>
-{txt(145, 238, "{ API }", 25, accent_a, weight=700)}
-<rect x="282" y="128" width="103" height="61" rx="22" fill="{accent_b}" opacity=".11" stroke="{A}" stroke-width="4"/>
-{txt(334, 167, "?", 31, accent_b, weight=700)}
-{txt(300, 231, "EN", 24, D, weight=700)}
-<path d="M 327 222 H 346" stroke="{S}" stroke-width="4"/>
-{txt(372, 231, "中", 27, D, weight=700)}
-<circle cx="384" cy="101" r="25" fill="{green}"/><path d="M 372 101 L 381 111 L 398 91" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-'''
-
-    if slug == "codeeditorbench":
-        left_lines = "".join(f'<path d="M 76 {126+i*27} H {180-(i%2)*24}" stroke="{D}" stroke-width="7" stroke-linecap="round"/>' for i in range(5))
-        right_lines = "".join(f'<path d="M 292 {126+i*27} H {404-(i%2)*32}" stroke="{green if i in (1,3) else D}" stroke-width="7" stroke-linecap="round"/>' for i in range(5))
-        return f'''
-<rect x="48" y="70" width="384" height="220" rx="22" fill="#fff" stroke="{D}" stroke-width="5"/>
-<path d="M 48 108 H 432 M 240 108 V 290" stroke="{S}" stroke-width="4"/>
-<circle cx="73" cy="89" r="6" fill="{red}"/><circle cx="93" cy="89" r="6" fill="#f59e0b"/><circle cx="113" cy="89" r="6" fill="{green}"/>
-{left_lines}{right_lines}
-<rect x="222" y="126" width="36" height="36" rx="10" fill="{red}"/>{txt(240, 153, "−", 26, "#fff", weight=700)}
-<rect x="222" y="178" width="36" height="36" rx="10" fill="{green}"/>{txt(240, 205, "+", 26, "#fff", weight=700)}
-<circle cx="397" cy="84" r="27" fill="{green}"/><path d="M 384 84 L 394 95 L 412 73" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-'''
-
-    if slug == "criticlean":
-        return f'''
-<path d="M 240 100 V 265 M 160 265 H 320" stroke="{D}" stroke-width="8" stroke-linecap="round"/>
-<path d="M 100 132 H 380" stroke="{A}" stroke-width="8" stroke-linecap="round"/>
-<path d="M 132 132 L 102 194 H 162 Z M 348 132 L 318 194 H 378 Z" fill="{accent_a}" opacity=".09" stroke="{D}" stroke-width="4"/>
-<rect x="62" y="197" width="100" height="55" rx="12" fill="#fff" stroke="{A}" stroke-width="4"/>
-{txt(112, 231, "x² + y²", 20, D, weight=700)}
-<rect x="318" y="197" width="100" height="55" rx="12" fill="#fff" stroke="{A}" stroke-width="4"/>
-{txt(368, 231, "⊢ P", 24, D, weight=700)}
-<circle cx="240" cy="130" r="30" fill="{accent_b}"/>{txt(240, 140, "=", 27, "#fff", weight=700)}
-<circle cx="240" cy="264" r="24" fill="{green}"/><path d="M 229 264 L 238 273 L 253 254" fill="none" stroke="#fff" stroke-width="5"/>
-'''
-
-    if slug == "edgebench":
-        return f'''
-<path d="M 112 142 L 205 91 L 298 142 L 205 194 Z M 112 142 V 243 L 205 296 V 194 M 298 142 V 243 L 205 296" fill="{accent_a}" fill-opacity=".06" stroke="{D}" stroke-width="5" stroke-linejoin="round"/>
-<path d="M 88 244 C 50 163 126 74 234 78 C 358 83 408 187 350 260 C 313 305 246 307 220 271" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round" marker-end="url(#arrow)"/>
-<circle cx="92" cy="240" r="11" fill="{accent_a}"/><circle cx="130" cy="112" r="11" fill="{accent_b}"/><circle cx="260" cy="82" r="11" fill="{accent_a}"/><circle cx="386" cy="180" r="11" fill="{accent_b}"/>
-<path d="M 158 226 L 194 203 L 225 218 L 261 165" fill="none" stroke="{green}" stroke-width="7" stroke-linecap="round"/>
-<circle cx="261" cy="165" r="9" fill="{green}"/>
-'''
-
-    if slug == "formalmath":
-        return f'''
-<rect x="176" y="255" width="128" height="52" rx="15" fill="#fff" stroke="{D}" stroke-width="5"/>{txt(240, 289, "⊢ theorem", 21, D, weight=700)}
-<path d="M 240 255 V 220 M 240 220 L 118 172 M 240 220 L 240 162 M 240 220 L 362 172" fill="none" stroke="{A}" stroke-width="7" stroke-linecap="round"/>
-<circle cx="118" cy="172" r="22" fill="#fff" stroke="{A}" stroke-width="5"/>{txt(118, 180, "1", 20, accent_a, weight=700)}
-<circle cx="240" cy="162" r="22" fill="#fff" stroke="{A}" stroke-width="5"/>{txt(240, 170, "2", 20, accent_b, weight=700)}
-<circle cx="362" cy="172" r="22" fill="#fff" stroke="{A}" stroke-width="5"/>{txt(362, 180, "3", 20, accent_a, weight=700)}
-<path d="M 118 150 L 172 104 M 240 140 V 86 M 362 150 L 308 104" stroke="{S}" stroke-width="5"/>
-<circle cx="240" cy="72" r="42" fill="{green}"/><path d="M 218 72 L 235 89 L 265 53" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
-'''
-
-    if slug == "mammoth2":
-        return f'''
-<rect x="48" y="63" width="118" height="72" rx="13" fill="#fff" stroke="{D}" stroke-width="4"/><path d="M 48 88 H 166 M 67 106 H 143" stroke="{S}" stroke-width="5"/>
-<rect x="83" y="147" width="118" height="72" rx="13" fill="#fff" stroke="{D}" stroke-width="4"/><path d="M 83 172 H 201 M 102 190 H 178" stroke="{S}" stroke-width="5"/>
-<path d="M 177 67 H 324 L 279 181 V 218 L 222 249 V 181 Z" fill="{accent_a}" fill-opacity=".09" stroke="{A}" stroke-width="6" stroke-linejoin="round"/>
-<path d="M 240 98 V 195" stroke="{A}" stroke-width="7" marker-end="url(#arrow)"/>
-<rect x="310" y="196" width="120" height="72" rx="14" fill="#fff" stroke="{A}" stroke-width="5"/><path d="M 329 220 H 408 M 329 244 H 392" stroke="{D}" stroke-width="6" stroke-linecap="round"/>
-<rect x="292" y="222" width="120" height="72" rx="14" fill="#fff" stroke="{A}" stroke-width="5"/><path d="M 311 246 H 390 M 311 270 H 374" stroke="{D}" stroke-width="6" stroke-linecap="round"/>
-{txt(354, 121, "10M", 42, accent_b, weight=700)}
-'''
-
-    if slug == "mm_browsecomp":
-        return f'''
-<rect x="46" y="66" width="326" height="226" rx="20" fill="#fff" stroke="{D}" stroke-width="5"/>
-<path d="M 46 105 H 372" stroke="{S}" stroke-width="4"/><circle cx="72" cy="86" r="6" fill="{accent_a}"/><circle cx="92" cy="86" r="6" fill="{accent_b}"/>
-<rect x="77" y="130" width="88" height="66" rx="9" fill="{accent_a}" opacity=".10" stroke="{D}" stroke-width="4"/><path d="M 88 182 L 112 151 L 133 173 L 151 150" fill="none" stroke="{A}" stroke-width="5"/>
-<rect x="187" y="130" width="88" height="66" rx="9" fill="#fff" stroke="{D}" stroke-width="4"/><path d="M 218 146 L 250 163 L 218 181 Z" fill="{A}"/>
-<path d="M 86 230 H 287 M 86 254 H 248" stroke="{S}" stroke-width="7" stroke-linecap="round"/>
-<circle cx="258" cy="177" r="91" fill="#fff" fill-opacity=".78" stroke="{A}" stroke-width="10"/>
-<path d="M 324 243 L 405 307" stroke="{A}" stroke-width="18" stroke-linecap="round"/>
-<circle cx="401" cy="80" r="35" fill="{green}"/><path d="M 385 80 L 397 93 L 420 66" fill="none" stroke="#fff" stroke-width="7"/>
-'''
-
-    if slug == "nl2repo_bench":
-        return f'''
-<path d="M 48 72 H 164 L 194 102 V 278 H 48 Z" fill="#fff" stroke="{A}" stroke-width="5"/><path d="M 164 72 V 102 H 194" fill="none" stroke="{A}" stroke-width="5"/>
-<path d="M 72 128 H 165 M 72 156 H 152 M 72 184 H 170 M 72 212 H 140" stroke="{D}" stroke-width="6" stroke-linecap="round"/>
-<path d="M 194 174 H 250 V 112 M 250 174 V 174 M 250 174 V 238" fill="none" stroke="{A}" stroke-width="7"/>
-<rect x="269" y="84" width="124" height="56" rx="13" fill="#fff" stroke="{D}" stroke-width="5"/>{txt(331, 120, "src/", 24, D, weight=700)}
-<rect x="269" y="146" width="124" height="56" rx="13" fill="#fff" stroke="{D}" stroke-width="5"/>{txt(331, 182, "config/", 22, D, weight=700)}
-<rect x="269" y="210" width="124" height="56" rx="13" fill="#fff" stroke="{D}" stroke-width="5"/>{txt(331, 246, "tests/", 22, D, weight=700)}
-<rect x="376" y="226" width="50" height="44" rx="10" fill="{accent_b}"/><path d="M 390 226 V 214 C 390 196 414 196 414 214 V 226" fill="none" stroke="{accent_b}" stroke-width="7"/>
-'''
-
-    if slug == "omni_math":
-        return f'''
-<path d="M 72 48 H 344 L 407 111 V 306 H 72 Z" fill="#fff" stroke="{D}" stroke-width="6"/>
-<path d="M 344 48 V 111 H 407" fill="none" stroke="{D}" stroke-width="6"/>
-<path d="M 105 89 H 287" stroke="{S}" stroke-width="7" stroke-linecap="round"/>
-<path d="M 116 246 L 194 128 L 267 246 Z" fill="none" stroke="{A}" stroke-width="8" stroke-linejoin="round"/>
-<circle cx="194" cy="128" r="11" fill="{accent_b}"/><circle cx="116" cy="246" r="11" fill="{accent_a}"/><circle cx="267" cy="246" r="11" fill="{accent_a}"/>
-<path d="M 194 128 V 246 M 116 246 H 267" stroke="{S}" stroke-width="5" stroke-dasharray="8 8"/>
-{txt(333, 161, "x²", 32, accent_a, weight=700)}{txt(333, 211, "∑", 36, accent_b, weight=700)}{txt(333, 261, "ℕ", 31, D, weight=700)}
-<circle cx="385" cy="73" r="31" fill="{green}"/><path d="M 370 73 L 382 86 L 404 59" fill="none" stroke="#fff" stroke-width="7"/>
-'''
-
-    if slug == "opencodeinterpreter":
-        return f'''
-<rect x="50" y="62" width="380" height="236" rx="22" fill="#fff" stroke="{D}" stroke-width="5"/>
-<path d="M 50 104 H 430" stroke="{S}" stroke-width="4"/><circle cx="76" cy="83" r="6" fill="{red}"/><circle cx="97" cy="83" r="6" fill="#f59e0b"/><circle cx="118" cy="83" r="6" fill="{green}"/>
-<path d="M 82 137 H 218 M 82 167 H 184" stroke="{D}" stroke-width="7" stroke-linecap="round"/>
-<path d="M 82 221 H 194" stroke="{red}" stroke-width="7" stroke-linecap="round"/><path d="M 82 253 H 230" stroke="{green}" stroke-width="7" stroke-linecap="round"/>
-<path d="M 290 145 C 384 144 397 249 320 276 C 248 302 216 230 253 198" fill="none" stroke="{A}" stroke-width="11" stroke-linecap="round" marker-end="url(#arrow)"/>
-{txt(337, 202, "$", 46, accent_b, weight=700)}
-<circle cx="391" cy="251" r="28" fill="{green}"/><path d="M 378 251 L 388 262 L 406 239" fill="none" stroke="#fff" stroke-width="6"/>
-'''
-
-    if slug == "opencoder":
-        threads = []
-        colors = (accent_a, accent_b, accent_a)
-        for i, color in enumerate(colors):
-            y = 128 + i * 54
-            threads.append(f'<path d="M 45 {y} C 116 {y} 130 {180+(i-1)*19} 188 {180+(i-1)*19}" fill="none" stroke="{color}" stroke-width="12" stroke-linecap="round"/>')
-        return "\n".join(threads) + f'''
-<rect x="184" y="88" width="112" height="184" rx="24" fill="#fff" stroke="{D}" stroke-width="6"/>
-<path d="M 210 121 H 270 M 210 151 H 258 M 210 181 H 270 M 210 211 H 250 M 210 241 H 270" stroke="{A}" stroke-width="7" stroke-linecap="round"/>
-<path d="M 296 143 H 344 M 296 219 H 344" stroke="{A}" stroke-width="9"/>
-<rect x="340" y="102" width="96" height="82" rx="17" fill="#fff" stroke="{A}" stroke-width="6"/>
-<rect x="340" y="178" width="96" height="82" rx="17" fill="#fff" stroke="{A}" stroke-width="6"/>
-{txt(388, 151, "7B", 26, D, weight=700)}{txt(388, 226, "8B", 26, D, weight=700)}
-<circle cx="424" cy="247" r="22" fill="{green}"/><path d="M 414 247 L 422 256 L 437 238" fill="none" stroke="#fff" stroke-width="5"/>
-'''
-
-    if slug == "oprover":
-        return f'''
-<path d="M 52 98 H 148 L 168 118 V 202 H 52 Z M 78 128 H 142 M 78 154 H 132" fill="#fff" stroke="{A}" stroke-width="5"/>
-<path d="M 82 76 H 178 L 198 96 V 180 H 82 Z M 108 106 H 172 M 108 132 H 162" fill="#fff" stroke="{A}" stroke-width="5"/>
-<rect x="196" y="112" width="118" height="136" rx="24" fill="#fff" stroke="{D}" stroke-width="6"/>{txt(255, 173, "LEAN", 25, D, weight=700)}{txt(255, 211, "⊢", 34, accent_a, weight=700)}
-<path d="M 226 275 C 304 318 392 260 374 177 C 365 135 337 111 309 99" fill="none" stroke="{A}" stroke-width="10" marker-end="url(#arrow)"/>
-<path d="M 315 181 H 370" stroke="{A}" stroke-width="8" marker-end="url(#arrow)"/>
-<path d="M 372 129 H 430 V 238 H 344 V 157 Z" fill="#fff" stroke="{green}" stroke-width="6"/>
-<path d="M 360 190 L 376 207 L 407 169" fill="none" stroke="{green}" stroke-width="8" stroke-linecap="round"/>
-'''
-
-    if slug == "ouro":
-        parts = []
-        for i in range(7):
-            angle = math.radians(i * 48 - 122)
-            x, y = 235 + math.cos(angle) * 105, 180 + math.sin(angle) * 105
-            parts.append(f'<rect x="{x-27:g}" y="{y-15:g}" width="54" height="30" rx="10" fill="#fff" stroke="{A}" stroke-width="5"/>')
-        parts.append(f'<path d="M 112 243 C 61 163 125 65 231 62 C 347 58 405 160 361 242" fill="none" stroke="{A}" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)"/>')
-        parts.append(f'<circle cx="235" cy="180" r="44" fill="#eef2ff" stroke="{D}" stroke-width="5"/>')
-        parts.append(txt(235, 191, "tok", 30, D, weight=700))
-        parts.append(f'<path d="M 361 242 H 430" stroke="{green}" stroke-width="10" stroke-linecap="round" marker-end="url(#arrow)"/>')
-        return "\n".join(parts)
-
-    if slug == "supergpqa":
-        parts = []
-        for i in range(6):
-            angle = math.radians(i * 60 - 90)
-            x, y = 240 + math.cos(angle) * 119, 180 + math.sin(angle) * 119
-            parts.append(f'<path d="M 240 180 L {x:g} {y:g}" stroke="{S}" stroke-width="6"/>')
-            parts.append(f'<rect x="{x-31:g}" y="{y-21:g}" width="62" height="42" rx="14" fill="#fff" stroke="{A}" stroke-width="6"/>')
-        parts.extend((
-            f'<rect x="184" y="137" width="112" height="86" rx="23" fill="#fff" stroke="{D}" stroke-width="7"/>',
-            txt(240, 195, "?", 44, accent_a, weight=700),
-        ))
-        return "\n".join(parts)
-
-    if slug == "workflow_gym":
-        windows = [(78, 118), (165, 198), (268, 111), (357, 205)]
-        parts = [f'<rect x="42" y="51" width="396" height="258" rx="23" fill="#fff" stroke="{D}" stroke-width="5"/>', f'<path d="M 42 91 H 438" stroke="{S}" stroke-width="4"/>']
-        path = "M 84 145 C 128 145 129 225 174 225 S 224 138 277 138 S 320 232 366 232"
-        parts.append(f'<path d="{path}" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round" marker-end="url(#arrow)"/>')
-        for i, (x, y) in enumerate(windows):
-            parts.append(f'<rect x="{x-33}" y="{y-26}" width="66" height="52" rx="12" fill="#fff" stroke="{A}" stroke-width="5"/>')
-            if i < 3:
-                parts.append(f'<path d="M {x-19} {y-7} H {x+19} M {x-19} {y+8} H {x+8}" stroke="{D}" stroke-width="5" stroke-linecap="round"/>')
-            else:
-                parts.append(f'<path d="M {x-14} {y} L {x-3} {y+12} L {x+18} {y-14}" fill="none" stroke="{green}" stroke-width="7"/>')
-        for i in range(11):
-            parts.append(f'<circle cx="{91+i*27}" cy="282" r="4" fill="{accent_a if i < 8 else green}"/>')
-        return "\n".join(parts)
-
-    if slug == "worldtravel":
-        return f'''
-<path d="M 46 86 L 156 58 L 254 92 L 356 58 L 432 91 V 280 L 354 250 L 252 284 L 154 250 L 46 282 Z" fill="{accent_a}" fill-opacity=".05" stroke="{S}" stroke-width="5" stroke-linejoin="round"/>
-<path d="M 156 58 V 250 M 254 92 V 284 M 356 58 V 250" stroke="{S}" stroke-width="4"/>
-<path d="M 77 238 C 117 141 173 224 219 153 S 314 102 393 198" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 18"/>
-<circle cx="77" cy="238" r="15" fill="{accent_a}"/><circle cx="219" cy="153" r="15" fill="{accent_b}"/><circle cx="393" cy="198" r="15" fill="{green}"/>
-<path d="M 131 176 V 132 H 176 V 176 M 145 132 V 117 M 162 132 V 117" fill="#fff" stroke="{D}" stroke-width="5"/>
-<path d="M 285 118 H 343 V 168 H 285 Z M 285 134 H 343" fill="#fff" stroke="{D}" stroke-width="5"/>
-<path d="M 393 198 V 113 H 430 L 414 131 L 430 149 H 393" fill="{green}" stroke="{green}" stroke-width="4"/>
-'''
-
-    if slug == "yue":
-        bars_top = "".join(f'<rect x="{205+i*15}" y="{152-(18+(i*13)%44)/2:g}" width="8" height="{18+(i*13)%44}" rx="4" fill="{accent_a}"/>' for i in range(13))
-        bars_bottom = "".join(f'<rect x="{205+i*15}" y="{222-(20+(i*17)%50)/2:g}" width="8" height="{20+(i*17)%50}" rx="4" fill="{accent_b}"/>' for i in range(13))
-        return f'''
-<path d="M 48 74 H 171 L 195 98 V 286 H 48 Z" fill="#fff" stroke="{D}" stroke-width="5"/><path d="M 171 74 V 98 H 195" fill="none" stroke="{D}" stroke-width="5"/>
-<path d="M 72 126 H 164 M 72 156 H 148 M 72 186 H 166 M 72 216 H 139 M 72 246 H 157" stroke="{D}" stroke-width="6" stroke-linecap="round"/>
-{bars_top}{bars_bottom}
-<path d="M 198 187 H 406" stroke="{S}" stroke-width="4"/>
-<path d="M 232 116 V 272 M 286 116 V 272 M 340 116 V 272" stroke="{S}" stroke-width="3" stroke-dasharray="6 7"/>
-<rect x="382" y="126" width="58" height="122" rx="18" fill="#fff" stroke="{A}" stroke-width="6"/>
-<path d="M 399 153 V 206 C 399 225 421 225 421 208 V 169 L 399 174" fill="none" stroke="{accent_b}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="395" cy="210" r="12" fill="{accent_b}"/><circle cx="417" cy="208" r="12" fill="{accent_b}"/>
-'''
-
-    return None
+def wave(cx, cy, w, n, colors, seed=0, hmin=16, hmax=68, bw=10):
+    gap = (w - n * bw) / (n - 1)
+    parts = []
+    for i in range(n):
+        h = hmin + (hmax - hmin) * (0.3 + 0.7 * abs(math.sin(i * 0.93 + seed * 1.7)))
+        bx = cx - w / 2 + i * (bw + gap)
+        parts.append(rrect(bx, cy - h / 2, bw, h, bw / 2,
+                           fill=colors[i % len(colors)], stroke=None))
+    return "\n".join(parts)
 
 
-def positions(layout, n):
-    if layout == "flow":
-        xs = [240] if n == 1 else [112 + i * (256 / (n - 1)) for i in range(n)]
-        return [(x, 198) for x in xs]
-    if layout == "timeline":
-        xs = [112 + i * (256 / max(n - 1, 1)) for i in range(n)]
-        return [(x, 210 if i % 2 == 0 else 172) for i, x in enumerate(xs)]
-    if layout == "merge":
-        if n == 2:
-            return [(128, 198), (352, 198)]
-        return [(124, 166), (124, 226), (350, 198)]
-    if layout == "orbit":
-        if n == 2:
-            return [(128, 198), (352, 198)]
-        return [(116, 178), (116, 230), (350, 202)]
-    if layout == "cycle":
-        coords = [(240, 151), (350, 222), (130, 222)]
-        return coords[:n]
-    if layout == "matrix":
-        coords = [(135, 178), (345, 178), (240, 232)]
-        return coords[:n]
-    if layout == "compare":
-        if n == 3:
-            return [(112, 198), (240, 198), (368, 198)]
-        return [(128 + i * 224 / max(n-1,1), 198) for i in range(n)]
-    if layout == "split":
-        return [(128 + i * 224 / max(n-1,1), 198) for i in range(n)]
-    raise ValueError(f"unknown layout: {layout}")
+def shield(cx, cy, s, fill=WHITE, stroke=INK, sw=STK):
+    d = (f"M {fmt(cx - .82 * s)} {fmt(cy - .58 * s)} L {fmt(cx)} {fmt(cy - .8 * s)} "
+         f"L {fmt(cx + .82 * s)} {fmt(cy - .58 * s)} V {fmt(cy + .1 * s)} "
+         f"C {fmt(cx + .82 * s)} {fmt(cy + .55 * s)} {fmt(cx + .4 * s)} {fmt(cy + .82 * s)} "
+         f"{fmt(cx)} {fmt(cy + s)} "
+         f"C {fmt(cx - .4 * s)} {fmt(cy + .82 * s)} {fmt(cx - .82 * s)} {fmt(cy + .55 * s)} "
+         f"{fmt(cx - .82 * s)} {fmt(cy + .1 * s)} Z")
+    return path(d, sw, stroke, fill=fill)
 
 
-def connectors(layout, coords, accent):
-    out = []
-    def line(a, b, dash=""):
-        x1,y1=a; x2,y2=b
-        extra = ' stroke-dasharray="6 6"' if dash else ""
-        bend = min(y1, y2) - 18
-        out.append(f'<path d="M {x1} {y1} Q {(x1+x2)/2:g} {bend:g} {x2} {y2}" fill="none" stroke="{accent}" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"{extra}/>')
-    if layout in {"flow", "split", "timeline", "compare"}:
-        for a,b in zip(coords, coords[1:]): line(a,b, layout == "timeline")
-    elif layout == "merge":
-        for a in coords[:-1]: line(a, coords[-1])
-    elif layout == "orbit":
-        for a in coords[:-1]: line(a, coords[-1], "dash")
-    elif layout == "cycle":
-        for a,b in zip(coords, coords[1:] + coords[:1]): line(a,b)
-    elif layout == "matrix":
-        edges = ((coords[0], coords[2]), (coords[1], coords[2])) if len(coords) == 3 else (
-            (coords[0], coords[1]), (coords[0], coords[2]),
-            (coords[1], coords[3]), (coords[2], coords[3]))
-        for a,b in edges:
-            line(a,b,"dash")
-    return "\n".join(out)
+def check(cx, cy, r=27, ring=True):
+    parts = []
+    if ring:
+        parts.append(circle(cx, cy, r + 5, BG))
+    parts.append(circle(cx, cy, r, GREEN))
+    k = r / 27
+    parts.append(path(f"M {fmt(cx - 11 * k)} {fmt(cy + 1 * k)} L {fmt(cx - 3 * k)} "
+                      f"{fmt(cy + 10 * k)} L {fmt(cx + 13 * k)} {fmt(cy - 9 * k)}",
+                      6.5 * k, "#fff"))
+    return "\n".join(parts)
 
 
-def render(slug, spec, record):
-    accent_a, accent_b = DOMAIN_PALETTES.get(record["domain"], ("#2563eb", "#7c3aed"))
-    accent = "url(#accent)"
-    scene = custom_scene(slug, accent_a, accent_b)
-    if scene is None:
-        scene_objects = hero_objects(spec["objects"])
-        coords = positions(spec["layout"], len(scene_objects))
-        objects = "\n".join(scene_icon(kind, x, y, accent, 1.32, i)
-                              for i, ((kind, _), (x, y)) in enumerate(zip(scene_objects, coords)))
-        scene = f'{connectors(spec["layout"], coords, accent)}\n{objects}'
+def cross(cx, cy, r=22, color=RED, ring=True):
+    parts = []
+    if ring:
+        parts.append(circle(cx, cy, r + 5, BG))
+    parts.append(circle(cx, cy, r, color))
+    k = r / 22 * 8
+    parts.append(path(f"M {fmt(cx - k)} {fmt(cy - k)} L {fmt(cx + k)} {fmt(cy + k)} "
+                      f"M {fmt(cx + k)} {fmt(cy - k)} L {fmt(cx - k)} {fmt(cy + k)}",
+                      6 * r / 22, "#fff"))
+    return "\n".join(parts)
+
+
+def bang(cx, cy, r=22, color=AMBER, ring=True):
+    parts = []
+    if ring:
+        parts.append(circle(cx, cy, r + 5, BG))
+    parts.append(circle(cx, cy, r, color))
+    k = r / 22
+    parts.append(seg(cx, cy - 9 * k, cx, cy + 2 * k, "#fff", 6.5 * k))
+    parts.append(circle(cx, cy + 10 * k, 3.6 * k, "#fff"))
+    return "\n".join(parts)
+
+
+def loupe(cx, cy, r, ang=42, sw=9, glass=.8):
+    a = math.radians(ang)
+    x1, y1 = cx + math.cos(a) * (r + 2), cy + math.sin(a) * (r + 2)
+    x2, y2 = cx + math.cos(a) * (r + 30 + r * .22), cy + math.sin(a) * (r + 30 + r * .22)
+    parts = [circle(cx, cy, r, WHITE, INK, sw, op=None)]
+    parts[0] = circle(cx, cy, r, f"rgba(255,255,255,{glass})", INK, sw)
+    parts.append(seg(x1, y1, x2, y2, INK, sw + 6))
+    return "\n".join(parts)
+
+
+def chip(cx, cy, s, accent):
+    half = s / 2
+    parts = []
+    for off in (-s * .26, 0, s * .26):
+        parts.append(seg(cx + off, cy - half - 14, cx + off, cy - half, SOFT, 6))
+        parts.append(seg(cx + off, cy + half, cx + off, cy + half + 14, SOFT, 6))
+        parts.append(seg(cx - half - 14, cy + off, cx - half, cy + off, SOFT, 6))
+        parts.append(seg(cx + half, cy + off, cx + half + 14, cy + off, SOFT, 6))
+    parts.append(rrect(cx - half, cy - half, s, s, s * .18))
+    parts.append(rrect(cx - half * .5, cy - half * .5, s * .5, s * .5, s * .09,
+                       fill=accent, stroke=accent, sw=5, op=None))
+    inner = parts.pop()
+    parts.append(rrect(cx - half * .5, cy - half * .5, s * .5, s * .5, s * .09,
+                       fill="none", stroke=accent, sw=5))
+    parts.append(circle(cx, cy, s * .08, accent))
+    return "\n".join(parts)
+
+
+def funnel(cx, cy, w, h, sw=STK):
+    y0, y1, y2 = cy - h / 2, cy + h * .12, cy + h / 2
+    xw, xn = w / 2, w * .12
+    d = (f"M {fmt(cx - xw)} {fmt(y0)} H {fmt(cx + xw)} L {fmt(cx + xn)} {fmt(y1)} "
+         f"V {fmt(y2)} H {fmt(cx - xn)} V {fmt(y1)} Z")
+    return path(d, sw, INK, fill=WHITE)
+
+
+def cyl(cx, cy, w, h, accent, sw=STK):
+    rx, ry = w / 2, w * .17
+    parts = [path(f"M {fmt(cx - rx)} {fmt(cy - h / 2)} V {fmt(cy + h / 2)} "
+                  f"A {fmt(rx)} {fmt(ry)} 0 0 0 {fmt(cx + rx)} {fmt(cy + h / 2)} "
+                  f"V {fmt(cy - h / 2)}", sw, INK, fill=WHITE)]
+    parts.append(f'<ellipse cx="{fmt(cx)}" cy="{fmt(cy - h / 2)}" rx="{fmt(rx)}" '
+                 f'ry="{fmt(ry)}" fill="{accent}" opacity=".15" stroke="{INK}" '
+                 f'stroke-width="{fmt(sw)}"/>')
+    parts.append(path(f"M {fmt(cx - rx)} {fmt(cy)} A {fmt(rx)} {fmt(ry)} 0 0 0 "
+                      f"{fmt(cx + rx)} {fmt(cy)}", S2, SOFT))
+    return "\n".join(parts)
+
+
+def pin(cx, cy, s, color):
+    """Map pin, tip at (cx, cy)."""
+    r = s
+    hy = cy - 1.75 * r
+    d = (f"M {fmt(cx)} {fmt(cy)} C {fmt(cx - .9 * r)} {fmt(cy - .85 * r)} "
+         f"{fmt(cx - r)} {fmt(cy - 1.3 * r)} {fmt(cx - r)} {fmt(hy + .45 * r)} "
+         f"A {fmt(r)} {fmt(r)} 0 1 1 {fmt(cx + r)} {fmt(hy + .45 * r)} "
+         f"C {fmt(cx + r)} {fmt(cy - 1.3 * r)} {fmt(cx + .9 * r)} {fmt(cy - .85 * r)} "
+         f"{fmt(cx)} {fmt(cy)} Z")
+    return path(d, 5, color, fill=color) + circle(cx, hy + .13 * r, r * .34, WHITE)
+
+
+def clockface(cx, cy, r, sw=STK):
+    parts = [circle(cx, cy, r, WHITE, INK, sw)]
+    for a in range(4):
+        rad = math.radians(a * 90)
+        parts.append(seg(cx + math.cos(rad) * (r - 5), cy + math.sin(rad) * (r - 5),
+                         cx + math.cos(rad) * (r - 12), cy + math.sin(rad) * (r - 12),
+                         SOFT, 4.5))
+    parts.append(path(f"M {fmt(cx)} {fmt(cy)} V {fmt(cy - r * .55)} "
+                      f"M {fmt(cx)} {fmt(cy)} L {fmt(cx + r * .42)} {fmt(cy + r * .24)}",
+                      6, INK))
+    return "\n".join(parts)
+
+
+def cursor(x, y, s=1.0):
+    d = (f"M {fmt(x)} {fmt(y)} L {fmt(x + 12 * s)} {fmt(y + 33 * s)} "
+         f"L {fmt(x + 17 * s)} {fmt(y + 20 * s)} L {fmt(x + 31 * s)} {fmt(y + 17 * s)} Z")
+    return path(d, 5, BG, fill=INK)
+
+
+def zh(cx, cy, s, color, w=None):
+    """The character 中 drawn as strokes (no CJK font dependency)."""
+    w = w or max(6, s * .17)
+    parts = [rrect(cx - s * .6, cy - s * .38, s * 1.2, s * .76, s * .06,
+                   fill="none", stroke=color, sw=w)]
+    parts.append(seg(cx, cy - s * .9, cx, cy + s * .9, color, w))
+    return "\n".join(parts)
+
+
+def turnstile(cx, cy, s, color, w=None):
+    """The ⊢ turnstile drawn as strokes."""
+    w = w or max(8, s * .18)
+    return (seg(cx - s * .34, cy - s, cx - s * .34, cy + s, color, w) + "\n" +
+            seg(cx - s * .34, cy, cx + s * .66, cy, color, w))
+
+
+def notepair(cx, cy, s, color):
+    parts = []
+    for hx, hy in ((cx - s * .42, cy + s * .55), (cx + s * .5, cy + s * .42)):
+        parts.append(f'<ellipse cx="{fmt(hx)}" cy="{fmt(hy)}" rx="{fmt(s * .26)}" '
+                     f'ry="{fmt(s * .19)}" fill="{color}" '
+                     f'transform="rotate(-18 {fmt(hx)} {fmt(hy)})"/>')
+    x1, x2 = cx - s * .42 + s * .24, cx + s * .5 + s * .24
+    parts.append(path(f"M {fmt(x1)} {fmt(cy + s * .5)} V {fmt(cy - s * .62)} "
+                      f"L {fmt(x2)} {fmt(cy - s * .78)} V {fmt(cy + s * .37)}",
+                      s * .11, color))
+    parts.append(path(f"M {fmt(x1)} {fmt(cy - s * .62)} L {fmt(x2)} {fmt(cy - s * .78)}",
+                      s * .3, color, cap="butt"))
+    return "\n".join(parts)
+
+
+def heart(cx, cy, s, fill):
+    d = (f"M {fmt(cx)} {fmt(cy + s * .85)} C {fmt(cx - s * 1.25)} {fmt(cy + s * .05)} "
+         f"{fmt(cx - s * .78)} {fmt(cy - s * .92)} {fmt(cx)} {fmt(cy - s * .28)} "
+         f"C {fmt(cx + s * .78)} {fmt(cy - s * .92)} {fmt(cx + s * 1.25)} "
+         f"{fmt(cy + s * .05)} {fmt(cx)} {fmt(cy + s * .85)} Z")
+    return path(d, 5, fill, fill=fill)
+
+
+def mask(cx, cy, s, fill, mood="smile", rot=0):
+    parts = [f'<g transform="rotate({rot} {fmt(cx)} {fmt(cy)})">']
+    parts.append(rrect(cx - s * .62, cy - s * .8, s * 1.24, s * 1.6, s * .56, fill=fill))
+    for ex in (cx - s * .27, cx + s * .27):
+        parts.append(f'<ellipse cx="{fmt(ex)}" cy="{fmt(cy - s * .22)}" '
+                     f'rx="{fmt(s * .15)}" ry="{fmt(s * .1)}" fill="{INK}"/>')
+    if mood == "smile":
+        parts.append(path(f"M {fmt(cx - s * .3)} {fmt(cy + s * .22)} "
+                          f"Q {fmt(cx)} {fmt(cy + s * .52)} {fmt(cx + s * .3)} "
+                          f"{fmt(cy + s * .22)}", 6, INK))
+    else:
+        parts.append(path(f"M {fmt(cx - s * .3)} {fmt(cy + s * .42)} "
+                          f"Q {fmt(cx)} {fmt(cy + s * .18)} {fmt(cx + s * .3)} "
+                          f"{fmt(cy + s * .42)}", 6, INK))
+    parts.append("</g>")
+    return "\n".join(parts)
+
+
+def tablegrid(x, y, w, h, rows, cols, accent, hl=(), sw=STK, header=True):
+    hh = h / (rows + 1) if header else 0
+    parts = [rrect(x, y, w, h, 12, sw=sw)]
+    if header:
+        parts.append(path(f"M {fmt(x + 12)} {fmt(y)} H {fmt(x + w - 12)} Q {fmt(x + w)} "
+                          f"{fmt(y)} {fmt(x + w)} {fmt(y + 12)} V {fmt(y + hh)} H {fmt(x)} "
+                          f"V {fmt(y + 12)} Q {fmt(x)} {fmt(y)} {fmt(x + 12)} {fmt(y)} Z",
+                          0, None, fill=accent, op=.14))
+    for r, c in hl:
+        parts.append(rrect(x + c * w / cols + 5, y + hh + r * (h - hh) / rows + 5,
+                           w / cols - 10, (h - hh) / rows - 10, 7,
+                           fill=accent, stroke=None, op=.22))
+    for i in range(1, cols):
+        parts.append(seg(x + w * i / cols, y + hh, x + w * i / cols, y + h - 3, SOFT, 4))
+    start = 0 if header else 1
+    for j in range(start, rows):
+        yy = y + hh + j * (h - hh) / rows
+        parts.append(seg(x + 3, yy, x + w - 3, yy, SOFT, 4))
+    return "\n".join(parts)
+
+
+def folder(x, y, w, h, accent, sw=STK):
+    d = (f"M {fmt(x)} {fmt(y + h - 10)} V {fmt(y + 10)} Q {fmt(x)} {fmt(y)} "
+         f"{fmt(x + 10)} {fmt(y)} H {fmt(x + w * .36)} L {fmt(x + w * .46)} "
+         f"{fmt(y + 16)} H {fmt(x + w - 10)} Q {fmt(x + w)} {fmt(y + 16)} {fmt(x + w)} "
+         f"{fmt(y + 26)} V {fmt(y + h - 10)} Q {fmt(x + w)} {fmt(y + h)} "
+         f"{fmt(x + w - 10)} {fmt(y + h)} H {fmt(x + 10)} Q {fmt(x)} {fmt(y + h)} "
+         f"{fmt(x)} {fmt(y + h - 10)} Z")
+    return path(d, sw, INK, fill=WHITE)
+
+
+def globe(cx, cy, r, accent, sw=STK):
+    parts = [circle(cx, cy, r, WHITE, INK, sw)]
+    parts.append(f'<ellipse cx="{fmt(cx)}" cy="{fmt(cy)}" rx="{fmt(r * .45)}" '
+                 f'ry="{fmt(r)}" fill="none" stroke="{SOFT}" stroke-width="4.5"/>')
+    parts.append(seg(cx - r, cy, cx + r, cy, SOFT, 4.5))
+    parts.append(circle(cx + r * .38, cy - r * .34, r * .16, accent))
+    return "\n".join(parts)
+
+
+def gear(cx, cy, r, color, sw=6):
+    parts = []
+    for i in range(8):
+        a = math.radians(i * 45)
+        parts.append(seg(cx + math.cos(a) * r * .78, cy + math.sin(a) * r * .78,
+                         cx + math.cos(a) * (r + 4), cy + math.sin(a) * (r + 4),
+                         color, sw + 3))
+    parts.append(circle(cx, cy, r * .78, WHITE, color, sw))
+    parts.append(circle(cx, cy, r * .3, "none", color, sw))
+    return "\n".join(parts)
+
+
+def mountain_photo(x, y, w, h, accent, r=12, sw=STK, sun=True):
+    parts = [rrect(x, y, w, h, r, sw=sw)]
+    d = (f"M {fmt(x + w * .08)} {fmt(y + h * .82)} L {fmt(x + w * .36)} {fmt(y + h * .38)} "
+         f"L {fmt(x + w * .55)} {fmt(y + h * .62)} L {fmt(x + w * .72)} {fmt(y + h * .42)} "
+         f"L {fmt(x + w * .92)} {fmt(y + h * .82)}")
+    parts.append(path(d, 6, INK))
+    if sun:
+        parts.append(circle(x + w * .72, y + h * .26, min(w, h) * .1, accent))
+    return "\n".join(parts)
+
+
+def group(rot, cx, cy, *parts):
+    return (f'<g transform="rotate({rot} {fmt(cx)} {fmt(cy)})">'
+            + "\n".join(parts) + "</g>")
+
+
+# ── scenes ───────────────────────────────────────────────────────────────
+# Each scene fills the 480x360 canvas with one bold focal composition.
+
+def s_acadreason(a, b):
+    return [
+        halo(230, 180, 200, 150, a),
+        group(-7, 130, 170, doc(58, 82, 148, 190, lines=((44, .16, .8), (72, .16, .68),
+                                                         (100, .16, .76), (128, .16, .6)))),
+        doc(112, 92, 148, 190, lines=((46, .16, .8), (74, .16, .66), (102, .16, .78),
+                                      (130, .16, .58), (158, .16, .7))),
+        circle(352, 82, 12, b), circle(408, 128, 9, a), circle(378, 60, 7, SOFT),
+        seg(352, 82, 320, 118, SOFT, 4.5), seg(408, 128, 348, 152, SOFT, 4.5),
+        loupe(300, 190, 66),
+        path("M 268 176 L 296 176 M 268 200 L 310 200 M 268 224 L 288 224", 7, a),
+        check(392, 268),
+    ]
+
+
+def s_artifactsbench(a, b):
+    return [
+        halo(250, 180, 210, 150, a),
+        rrect(64, 62, 190, 150, 16, fill=INK, stroke=None),
+        tline(88, 100, 90, 7, "#8CA0B8"), tline(88, 128, 130, 7, "#5E7490"),
+        tline(88, 156, 70, 7, a), tline(88, 184, 108, 7, "#5E7490"),
+        window(150, 112, 250, 186),
+        rrect(180, 190, 30, 78, 8, fill=a, stroke=None),
+        rrect(224, 214, 30, 54, 8, fill=b, stroke=None),
+        rrect(268, 172, 30, 96, 8, fill=a, stroke=None, op=.55),
+        seg(176, 272, 372, 272, SOFT, 5),
+        cursor(322, 226, 1.15),
+        check(404, 96),
+    ]
+
+
+def s_autokaggle(a, b):
+    return [
+        halo(240, 185, 205, 152, a),
+        tablegrid(52, 62, 158, 124, 3, 3, a),
+        arrow(216, 122, 254, 134, -12, a, 8),
+        chip(304, 130, 104, a),
+        arrow(304, 190, 304, 218, 0, a, 8),
+        doc(248, 222, 110, 106, fold=22, lines=((36, .18, .76), (58, .18, .6),
+                                                (80, .18, .7))),
+        circle(394, 280, 33, WHITE, AMBER, 7),
+        path("M 376 253 L 366 222 M 412 253 L 422 222", 8, AMBER),
+        text(394, 291, "1", 29, AMBER),
+    ]
+
+
+def s_automv(a, b):
+    return [
+        halo(230, 180, 210, 150, b),
+        wave(128, 180, 150, 9, (a, b), seed=2, hmin=22, hmax=118, bw=11),
+        arrow(214, 132, 252, 112, 12, b, 7),
+        arrow(214, 228, 252, 248, -12, b, 7),
+        film(252, 74, 180, 96, a, play=False),
+        film(252, 190, 180, 96, b, play=True),
+    ]
+
+
+def s_chinese_safetyqa(a, b):
+    return [
+        halo(240, 185, 190, 160, a),
+        shield(240, 180, 118, fill=WHITE),
+        zh(240, 168, 52, a, 11),
+        arrow(64, 110, 132, 142, 16, SOFT, 6, dash="2 14"),
+        arrow(64, 260, 132, 230, -16, SOFT, 6, dash="2 14"),
+        check(322, 274),
+    ]
+
+
+def s_chinese_simpleqa(a, b):
+    return [
+        halo(220, 170, 200, 150, a),
+        bubble(62, 70, 208, 128, tail="bl"),
+        zh(128, 134, 40, INK, 9),
+        text(206, 152, "?", 54, a),
+        arrow(232, 236, 296, 236, -26, a, 8),
+        doc(228, 258, 76, 76, fold=18, lines=((28, .2, .74), (48, .2, .58))),
+        bubble(306, 176, 132, 84, tail="br", fill="#E7EEFB", stroke=a),
+        tline(330, 210, 76, 8, a),
+        tline(330, 232, 52, 8, a),
+        check(424, 286),
+    ]
+
+
+def s_cii_bench(a, b):
+    return [
+        halo(220, 190, 205, 150, a),
+        mountain_photo(58, 108, 196, 152, a),
+        circle(292, 96, 7, SOFT), circle(316, 74, 10, SOFT),
+        bubble(268, 52, 168, 120, r=34, tail=None),
+        heart(330, 104, 26, b),
+        text(388, 126, "?", 46, a),
+        tline(96, 292, 120, 8, SOFT),
+    ]
+
+
+def s_code_simpleqa(a, b):
+    return [
+        halo(230, 172, 205, 150, a),
+        window(64, 58, 260, 200),
+        text(148, 192, "{", 78, SOFT, font=MONO),
+        text(194, 188, "?", 64, a, font=MONO),
+        text(240, 192, "}", 78, SOFT, font=MONO),
+        rrect(238, 236, 78, 46, 12, fill=WHITE),
+        text(277, 267, "EN", 25, INK, font=MONO),
+        rrect(328, 236, 78, 46, 12, fill=a, stroke=None),
+        zh(367, 259, 16, WHITE, 6),
+        check(396, 92),
+    ]
+
+
+def s_codeeditorbench(a, b):
+    return [
+        halo(230, 180, 210, 150, a),
+        window(56, 58, 302, 226),
+        seg(207, 110, 207, 262, SOFT, 4),
+        tline(84, 128, 96), tline(84, 158, 74), tline(84, 188, 88), tline(84, 218, 60),
+        tline(236, 128, 92), tline(236, 158, 70, 7, GREEN), tline(236, 188, 84),
+        tline(236, 218, 78, 7, GREEN),
+        rrect(189, 138, 36, 36, 10, fill=RED, stroke=None),
+        seg(198, 156, 216, 156, "#fff", 6.5),
+        rrect(189, 196, 36, 36, 10, fill=GREEN, stroke=None),
+        seg(198, 214, 216, 214, "#fff", 6.5),
+        seg(207, 205, 207, 223, "#fff", 6.5),
+        check(400, 250),
+    ]
+
+
+def s_codetracer(a, b):
+    pts = [(112, 226), (172, 226), (172, 168), (238, 168), (238, 214), (304, 214)]
+    d = "M " + " L ".join(f"{x} {y}" for x, y in pts)
+    return [
+        halo(230, 180, 210, 150, a),
+        window(56, 58, 300, 224),
+        path(d, 6, SOFT),
+        circle(112, 226, 12, WHITE, a, 6), circle(172, 168, 12, WHITE, a, 6),
+        circle(238, 214, 12, WHITE, a, 6),
+        circle(304, 214, 15, "#FBE3E3", RED, 6),
+        circle(304, 214, 34, "none", RED, 5, dash="4 10"),
+        loupe(330, 246, 52),
+        cross(304, 214, 15, ring=False),
+    ]
+
+
+def s_conceptmath(a, b):
+    link = lambda x1, y1, x2, y2: path(f"M {x1} {y1} V {(y1 + y2) / 2} "
+                                       f"H {x2} V {y2}", 6, SOFT)
+    return [
+        halo(240, 180, 200, 150, a),
+        link(240, 118, 138, 196), link(240, 118, 342, 196),
+        link(138, 244, 90, 288), link(138, 244, 194, 288),
+        link(342, 244, 294, 288), link(342, 244, 390, 288),
+        rrect(186, 56, 108, 62, 16),
+        text(240, 100, "x²", 32, a, font=MONO),
+        rrect(96, 196, 84, 48, 14), rrect(300, 196, 84, 48, 14),
+        tline(118, 220, 40), tline(322, 220, 40),
+        circle(90, 296, 17, WHITE, INK, 6), circle(194, 296, 17, WHITE, INK, 6),
+        circle(294, 296, 17, WHITE, INK, 6),
+        circle(390, 296, 20, "#FBE3E3", RED, 6),
+        circle(390, 296, 34, "none", RED, 5, dash="4 10"),
+    ]
+
+
+def s_cot_error_detection(a, b):
+    xs = [58, 128, 198, 268, 338, 408]
+    ys = [128, 96, 128, 100, 132, 104]
+    parts = [halo(240, 170, 210, 150, a)]
+    for (x1, y1), (x2, y2) in zip(zip(xs, ys), zip(xs[1:], ys[1:])):
+        parts.append(seg(x1, y1, x2, y2, SOFT, 6))
+    for i, (x, y) in enumerate(zip(xs, ys)):
+        if i == 3:
+            continue
+        parts.append(circle(x, y, 15, WHITE, a, 6.5))
+    parts.append(path("M 58 128 C 58 240 180 250 240 250", 6, SOFT, dash="1 14"))
+    parts.append(cross(268, 100, 17))
+    parts.append(loupe(268, 178, 58))
+    parts.append(seg(246, 168, 262, 168, RED, 7))
+    parts.append(seg(246, 192, 290, 192, TLINE, 7))
+    return parts
+
+
+def s_criticlean(a, b):
+    return [
+        halo(220, 180, 200, 150, a),
+        doc(64, 56, 190, 244, lines=((92, .16, .78), (126, .16, .62), (194, .16, .7),
+                                     (228, .16, .5))),
+        turnstile(126, 108, 22, a),
+        path("M 94 216 q 10 -9 20 0 q 10 9 20 0 q 10 -9 20 0 q 10 9 20 0", 6, RED),
+        loupe(310, 152, 58),
+        bang(310, 152, 17, RED, ring=False),
+        arrow(300, 222, 268, 250, -18, b, 7),
+        check(392, 268),
+    ]
+
+
+def s_dr3_eval(a, b):
+    return [
+        halo(240, 190, 205, 150, a),
+        rrect(76, 96, 74, 56, 12), path("M 90 138 L 106 116 L 120 130 L 132 112", 5.5, a),
+        wave(113, 208, 72, 5, (b,), seed=1, hmin=12, hmax=40, bw=8),
+        arrow(158, 130, 186, 154, -10, SOFT, 6),
+        arrow(158, 210, 186, 192, 10, SOFT, 6),
+        rrect(176, 108, 148, 148, 18),
+        path("M 216 108 V 88 C 216 62 264 62 264 88 V 108", 8, INK),
+        rrect(226, 158, 28, 34, 8, fill=a, stroke=None),
+        circle(240, 170, 5, WHITE),
+        arrow(330, 182, 358, 182, 0, a, 8),
+        doc(356, 96, 108, 168, fold=24, lines=((44, .18, .76), (72, .18, .6),
+                                               (128, .18, .7))),
+        rrect(376, 190, 14, 14, 4, fill=b, stroke=None),
+        rrect(430, 134, 14, 14, 4, fill=b, stroke=None),
+        check(444, 286, 25),
+    ]
+
+
+def s_edgebench(a, b):
+    steps = "M 96 268 H 152 V 232 H 208 V 244 H 260 V 186 H 316 V 196 H 368 V 128 H 414"
+    return [
+        halo(250, 190, 205, 150, a),
+        seg(72, 66, 72, 292, SOFT, 5), seg(72, 292, 428, 292, SOFT, 5),
+        path(steps, 9, a),
+        circle(414, 128, 11, b),
+        seg(152, 292, 152, 300, SOFT, 4.5), seg(260, 292, 260, 300, SOFT, 4.5),
+        seg(368, 292, 368, 300, SOFT, 4.5),
+        clockface(128, 108, 40),
+    ]
+
+
+def s_finder(a, b):
+    return [
+        halo(220, 185, 205, 150, a),
+        seg(226, 128, 296, 96, SOFT, 5), seg(238, 170, 300, 170, SOFT, 5),
+        loupe(160, 172, 78),
+        text(160, 196, "?", 64, a),
+        group(6, 344, 96, doc(300, 56, 90, 82, fold=20, lines=((30, .2, .72),
+                                                               (52, .2, .56)))),
+        doc(312, 130, 118, 168, fold=26, lines=()),
+        rrect(332, 168, 13, 13, 4, fill=a, stroke=None), tline(356, 175, 52),
+        rrect(332, 200, 13, 13, 4, fill=a, stroke=None), tline(356, 207, 40),
+        rrect(332, 232, 13, 13, 4, fill=a, stroke=None), tline(356, 239, 48),
+        check(424, 292, 25),
+    ]
+
+
+def s_formalmath(a, b):
+    return [
+        halo(230, 180, 200, 155, a),
+        turnstile(118, 150, 84, INK, 17),
+        seg(268, 96, 332, 132, SOFT, 6), seg(396, 96, 332, 132, SOFT, 6),
+        seg(332, 132, 332, 196, SOFT, 6),
+        circle(268, 90, 20, WHITE, a, 6.5), circle(396, 90, 20, WHITE, a, 6.5),
+        circle(332, 138, 20, WHITE, a, 6.5),
+        text(268, 99, "1", 22, a), text(396, 99, "2", 22, a),
+        text(332, 147, "3", 22, a),
+        check(332, 234, 34),
+        tline(96, 282, 130, 8, SOFT),
+        tline(96, 306, 86, 8, SOFT),
+    ]
+
+
+def s_fullstack_bench(a, b):
+    return [
+        halo(240, 180, 205, 155, a),
+        path("M 152 202 C 152 240 176 252 210 252", 7, SOFT),
+        path("M 330 252 C 364 252 388 240 388 216", 7, SOFT),
+        window(56, 56, 192, 146, bar=30),
+        tline(80, 116, 90), tline(80, 144, 120), tline(80, 172, 70),
+        rrect(210, 224, 120, 56, 16, fill=a, stroke=a),
+        rrect(210, 224, 120, 56, 16, fill="none", stroke=a),
+        text(270, 260, "API", 26, WHITE, font=MONO),
+        cyl(388, 130, 92, 96, b),
+        path("M 248 128 H 342", 7, SOFT),
+        check(420, 280),
+    ]
+
+
+def s_hellobench(a, b):
+    lines = [(50 + i * 27, .17, .8 - (i % 3) * .1) for i in range(9)]
+    return [
+        halo(240, 180, 195, 155, a),
+        doc(152, 42, 180, 276, fold=30, lines=lines),
+        path("M 178 66 C 260 96 200 150 246 190 C 286 226 232 258 264 292",
+             8, a, op=.85),
+        circle(178, 66, 9, a), circle(264, 292, 9, a),
+        path("M 352 116 C 396 130 396 200 352 216", 5.5, b, dash="4 10"),
+        seg(340, 108, 358, 124, b, 5.5), seg(358, 108, 340, 124, b, 5.5),
+    ]
+
+
+def s_if_vidcap(a, b):
+    return [
+        halo(230, 175, 205, 150, a),
+        film(66, 58, 268, 138, a),
+        rrect(88, 232, 250, 64, 16, fill="#E7EEFB", stroke=a),
+        tline(112, 256, 150, 8, a), tline(112, 278, 106, 8, a),
+        rrect(356, 92, 58, 58, 14),
+        rrect(370, 106, 13, 13, 4, fill=b, stroke=None),
+        rrect(370, 128, 13, 13, 4, fill=b, stroke=None),
+        seg(390, 112, 402, 112, TLINE, 5), seg(390, 134, 402, 134, TLINE, 5),
+        check(384, 264),
+    ]
+
+
+def s_ii_bench(a, b):
+    return [
+        mountain_photo(158, 52, 164, 118, a, sun=True),
+        seg(48, 196, 432, 196, INK, 6, dash="14 14"),
+        path("M 118 196 L 240 330 L 362 196 Z", 6.5, a, fill=a, op=.14),
+        path("M 118 196 L 240 330 L 362 196", 6.5, a),
+        text(240, 268, "?", 56, a),
+    ]
+
+
+def s_inverse_ifeval(a, b):
+    return [
+        halo(240, 185, 210, 150, a),
+        path("M 52 232 H 420", 9, SOFT, dash="16 16"),
+        cross(424, 232, 17, color="#B7C3D4", ring=True),
+        path("M 52 232 C 150 232 170 226 218 186 C 262 150 300 120 372 108",
+             10, a),
+        arrow(372, 108, 396, 102, 0, a, 10),
+        doc(168, 92, 96, 84, fold=20, lines=((32, .2, .72), (54, .2, .5))),
+        bang(184, 106, 15, b, ring=True),
+        check(430, 92),
+    ]
+
+
+def s_iv_bench(a, b):
+    return [
+        halo(240, 180, 210, 150, a),
+        film(170, 128, 246, 112, a, play=False),
+        circle(375, 184, 28, "none", b, 6, dash="5 10"),
+        group(-8, 122, 160,
+              rrect(58, 84, 128, 152, 10),
+              path("M 74 178 L 106 134 L 130 158 L 148 128 L 170 178", 6, INK),
+              circle(150, 118, 10, a),
+              seg(74, 206, 140, 206, TLINE, 8)),
+        path("M 148 246 C 220 296 316 268 362 214", 6.5, b, dash="2 12"),
+        arrow(362, 214, 366, 208, 0, b, 6.5),
+    ]
+
+
+def s_kor_bench(a, b):
+    return [
+        halo(230, 180, 205, 150, a),
+        rrect(58, 54, 168, 118, 18),
+        path("M 92 100 L 110 76 L 128 100 Z", 6, a),
+        path("M 152 88 H 190", 6, INK), path("M 178 76 L 192 88 L 178 100", 6, INK),
+        rrect(92, 122, 36, 26, 7, fill=b, stroke=None, op=.8),
+        circle(160, 135, 13, "none", b, 6),
+        seg(226, 132, 280, 158, SOFT, 6),
+        circle(294, 166, 16, WHITE, a, 6.5),
+        seg(310, 174, 344, 196, SOFT, 6),
+        circle(358, 204, 16, WHITE, a, 6.5),
+        seg(360, 220, 340, 258, SOFT, 6),
+        rrect(288, 258, 84, 56, 14, fill=a, stroke=a),
+        text(330, 296, "A", 30, WHITE),
+    ]
+
+
+def s_korgym(a, b):
+    return [
+        halo(235, 182, 205, 152, a),
+        tablegrid(58, 70, 180, 180, 3, 3, a, header=False),
+        circle(88, 160, 15, a),
+        circle(148, 220, 15, a),
+        rrect(193, 85, 30, 30, 7, fill=b, stroke=None),
+        arrow(258, 112, 324, 128, -26, a, 9),
+        arrow(340, 240, 274, 226, -26, b, 9),
+        chip(366, 180, 108, a),
+    ]
+
+
+def s_lime(a, b):
+    dots = [(168, 60), (212, 44), (258, 62), (302, 46), (196, 88), (250, 92),
+            (296, 86), (338, 66), (146, 92)]
+    parts = [halo(240, 185, 195, 155, a)]
+    for i, (x, y) in enumerate(dots):
+        parts.append(circle(x, y, 10, a if i % 3 else SOFT))
+    parts.append(funnel(240, 178, 236, 152))
+    parts.append(seg(180, 122, 300, 122, SOFT, 5))
+    parts.append(circle(240, 286, 10, a)), parts.append(circle(212, 306, 10, a))
+    parts.append(circle(268, 306, 10, a))
+    parts.append(rrect(184, 322, 112, 14, 7, fill=SOFT, stroke=None))
+    parts.append(cross(376, 130, 15, color="#B7C3D4"))
+    parts.append(circle(376, 96, 10, SOFT))
+    return parts
+
+
+def s_longform_rewardbench(a, b):
+    return [
+        halo(240, 180, 200, 155, a),
+        seg(240, 84, 240, 296, INK, 9),
+        path("M 168 312 H 312", 9, INK),
+        group(-8, 240, 96,
+              seg(112, 96, 368, 96, INK, 9),
+              seg(112, 96, 112, 128, SOFT, 6), seg(368, 96, 368, 128, SOFT, 6),
+              path("M 68 128 H 156 L 142 168 H 82 Z", 6, INK, fill=WHITE),
+              path("M 324 128 H 412 L 398 168 H 338 Z", 6, INK, fill=WHITE),
+              doc(76, 60, 72, 92, fold=16, lines=((28, .2, .72), (46, .2, .56),
+                                                  (64, .2, .66))),
+              doc(332, 76, 72, 76, fold=16, lines=((26, .2, .7), (44, .2, .52)))),
+        circle(240, 96, 15, a),
+        text(112, 232, "A", 30, a), text(368, 218, "B", 30, TLINE),
+    ]
+
+
+def s_m2rc_eval(a, b):
+    return [
+        halo(230, 180, 210, 152, a),
+        window(56, 56, 252, 214),
+        tline(84, 122, 120), tline(84, 152, 84),
+        rrect(84, 176, 152, 46, 12, fill="none", stroke=SOFT, sw=5, dash="6 10"),
+        tline(84, 246, 96),
+        rrect(322, 148, 116, 60, 12, fill="#E7EEFB", stroke=a),
+        tline(344, 170, 60, 7, a), tline(344, 190, 42, 7, a),
+        arrow(318, 210, 250, 202, 20, a, 8),
+        check(404, 92),
+    ]
+
+
+def s_mammoth2(a, b):
+    return [
+        halo(250, 190, 205, 155, a),
+        group(-6, 108, 96, doc(52, 52, 116, 88, fold=20, lines=((30, .18, .74),
+                                                                (52, .18, .58)))),
+        doc(96, 82, 116, 88, fold=20, lines=((30, .18, .74), (52, .18, .58))),
+        funnel(240, 178, 190, 140),
+        circle(214, 130, 8, a), circle(252, 118, 8, b), circle(282, 136, 8, a),
+        arrow(240, 252, 240, 282, 0, a, 8),
+        rrect(300, 218, 132, 84, 14),
+        rrect(288, 236, 132, 84, 14),
+        tline(310, 272, 76, 8), tline(310, 296, 56, 8),
+        text(374, 166, "10M", 52, b),
+    ]
+
+
+def s_mceval(a, b):
+    parts = [halo(240, 180, 195, 160, a)]
+    for i in range(8):
+        ang = math.radians(i * 45 - 90)
+        x, y = 240 + math.cos(ang) * 122, 180 + math.sin(ang) * 112
+        parts.append(seg(240 + math.cos(ang) * 62, 180 + math.sin(ang) * 58,
+                         x - math.cos(ang) * 20, y - math.sin(ang) * 20, SOFT, 5))
+        parts.append(circle(x, y, 17, WHITE, (a, b)[i % 2], 6))
+    parts.append(rrect(178, 122, 124, 116, 24))
+    parts.append(text(240, 196, "</>", 40, a, font=MONO))
+    parts.append(rrect(322, 250, 64, 42, 21, fill=b, stroke=None))
+    parts.append(text(354, 279, "40", 26, WHITE))
+    return parts
+
+
+def s_mm_browsecomp(a, b):
+    return [
+        halo(230, 180, 210, 150, a),
+        window(54, 54, 288, 226),
+        rrect(80, 116, 108, 78, 10), path("M 94 178 L 122 140 L 144 162 L 158 144 "
+                                          "L 172 178", 5.5, INK),
+        circle(158, 134, 8, a),
+        rrect(206, 116, 112, 78, 10),
+        path("M 248 138 L 284 155 L 248 172 Z", 5, b, fill=b),
+        tline(82, 226, 160), tline(82, 252, 118),
+        loupe(322, 226, 62),
+        check(408, 82),
+    ]
+
+
+def s_mt_bench_101(a, b):
+    return [
+        halo(230, 180, 205, 155, a),
+        bubble(58, 52, 164, 66, tail="bl"),
+        tline(84, 86, 96),
+        bubble(120, 148, 178, 66, tail="bl", fill="#E7EEFB", stroke=a),
+        tline(146, 182, 108, 7, a),
+        bubble(184, 246, 190, 66, tail="bl"),
+        tline(210, 280, 120),
+        rrect(354, 84, 82, 108, 14),
+        rrect(370, 102, 12, 12, 4, fill=a, stroke=None), tline(392, 108, 28),
+        rrect(370, 130, 12, 12, 4, fill=a, stroke=None), tline(392, 136, 22),
+        rrect(370, 158, 12, 12, 4, fill=SOFT, stroke=None), tline(392, 164, 26),
+        check(408, 268),
+    ]
+
+
+def s_mt_video_bench(a, b):
+    return [
+        halo(240, 175, 210, 150, a),
+        film(64, 52, 300, 120, a, play=False),
+        circle(114, 112, 17, "none", b, 6), circle(214, 112, 17, "none", b, 6),
+        circle(314, 112, 17, "none", b, 6),
+        path("M 114 172 V 216", 5.5, b, dash="2 10"),
+        path("M 214 172 V 232", 5.5, b, dash="2 10"),
+        path("M 314 172 V 216", 5.5, b, dash="2 10"),
+        bubble(58, 220, 122, 58, tail=None), tline(80, 250, 78),
+        bubble(178, 236, 122, 58, tail=None, fill="#E7EEFB", stroke=a),
+        tline(200, 266, 78, 7, a),
+        bubble(298, 220, 122, 58, tail=None), tline(320, 250, 78),
+    ]
+
+
+def s_mtu_bench(a, b):
+    return [
+        halo(240, 180, 205, 155, a),
+        seg(176, 140, 126, 104, SOFT, 7), seg(306, 140, 354, 104, SOFT, 7),
+        seg(176, 222, 126, 258, SOFT, 7, dash="7 11"),
+        seg(306, 222, 354, 258, SOFT, 7, dash="7 11"),
+        bubble(158, 132, 164, 96, r=22, tail="bl"),
+        tline(184, 168, 112, 8), tline(184, 192, 76, 8),
+        gear(106, 86, 28, a),
+        globe(376, 86, 33, b),
+        cyl(106, 278, 66, 58, a),
+        rrect(338, 250, 80, 58, 12, fill=INK, stroke=None),
+        text(364, 288, "$", 26, "#7EE7B8", font=MONO),
+        seg(382, 284, 402, 284, "#8CA0B8", 5),
+    ]
+
+
+def s_multi_docker_eval(a, b):
+    box = lambda x, y: [rrect(x, y, 128, 64, 12),
+                        circle(x + 24, y + 32, 8, GREEN),
+                        tline(x + 44, y + 24, 60, 6), tline(x + 44, y + 44, 40, 6)]
+    return [
+        halo(250, 180, 205, 155, a),
+        doc(54, 74, 122, 180, fold=24, lines=((44, .18, .7), (72, .18, .56),
+                                              (100, .18, .66), (128, .18, .5))),
+        text(115, 240, "yml", 24, a, font=MONO),
+        seg(176, 130, 226, 108, SOFT, 6), seg(176, 180, 226, 180, SOFT, 6),
+        seg(176, 230, 226, 252, SOFT, 6),
+        seg(290, 140, 290, 168, a, 6), seg(290, 232, 290, 260, a, 6),
+        *box(226, 76), *box(258, 168), *box(226, 260),
+        check(420, 96),
+    ]
+
+
+def s_mvu_eval(a, b):
+    return [
+        halo(230, 180, 210, 150, a),
+        film(54, 56, 204, 100, a, play=False),
+        film(54, 204, 204, 100, b, play=False),
+        path("M 262 106 C 308 106 314 156 338 170", 7, a),
+        path("M 262 254 C 308 254 314 204 338 190", 7, b),
+        loupe(352, 178, 52),
+        bubble(368, 252, 100, 56, tail=None, fill="#E7EEFB", stroke=a),
+        tline(388, 281, 60, 7, a),
+    ]
+
+
+def s_nl2repo_bench(a, b):
+    tag = lambda x, y, c: [rrect(x, y, 118, 42, 10, fill=WHITE),
+                           rrect(x + 12, y + 12, 18, 18, 5, fill=c, stroke=None),
+                           tline(x + 44, y + 21, 56, 7)]
+    return [
+        halo(240, 185, 210, 150, a),
+        doc(54, 62, 138, 200, fold=26, lines=((52, .18, .76), (80, .18, .6),
+                                              (108, .18, .7), (136, .18, .52))),
+        tline(79, 90, 62, 9, a),
+        arrow(200, 162, 240, 162, 0, a, 8),
+        folder(248, 78, 182, 208, a),
+        *tag(272, 118, a), *tag(272, 172, b), *tag(272, 226, GREEN),
+        check(416, 286),
+    ]
+
+
+def s_omni_math(a, b):
+    return [
+        halo(220, 190, 200, 155, a),
+        path("M 170 84 L 66 282 H 274 Z", 8, a),
+        seg(170, 84, 170, 282, SOFT, 5, dash="8 10"),
+        circle(170, 84, 11, a), circle(66, 282, 11, a), circle(274, 282, 11, a),
+        text(342, 186, "∑", 88, b),
+        circle(384, 268, 34, WHITE, AMBER, 7),
+        path("M 366 240 L 356 208 M 402 240 L 412 208", 8, AMBER),
+        text(384, 280, "1", 30, AMBER),
+    ]
+
+
+def s_omnibench(a, b):
+    src = lambda y, inner: [rrect(64, y, 96, 68, 14)] + inner
+    return [
+        halo(260, 180, 200, 155, a),
+        path("M 160 96 C 220 96 220 150 258 162", 6, SOFT),
+        path("M 160 180 H 250", 6, SOFT),
+        path("M 160 264 C 220 264 220 210 258 198", 6, SOFT),
+        *src(62, [text(112, 108, "Tt", 30, a)]),
+        *src(146, [path("M 78 196 L 98 168 L 114 184 L 126 170 L 144 196", 5.5, INK),
+                   circle(128, 164, 6, a)]),
+        *src(230, [wave(112, 264, 64, 5, (b,), seed=3, hmin=12, hmax=40, bw=7)]),
+        chip(310, 180, 112, a),
+        arrow(374, 180, 404, 180, 0, a, 8),
+        bubble(388, 146, 76, 52, tail=None, fill="#E7EEFB", stroke=a),
+        tline(404, 172, 44, 7, a),
+    ]
+
+
+def s_omnicap_if(a, b):
+    return [
+        halo(230, 180, 210, 150, a),
+        film(58, 54, 204, 104, a),
+        wave(160, 208, 200, 11, (a, b), seed=4, hmin=12, hmax=46, bw=8),
+        rrect(300, 62, 130, 96, 16),
+        rrect(318, 82, 13, 13, 4, fill=b, stroke=None), tline(342, 88, 60),
+        rrect(318, 110, 13, 13, 4, fill=b, stroke=None), tline(342, 116, 46),
+        arrow(240, 252, 240, 252, 0, a, 0),
+        rrect(96, 252, 288, 60, 16, fill="#E7EEFB", stroke=a),
+        tline(122, 274, 180, 8, a), tline(122, 296, 130, 8, a),
+        check(384, 282),
+    ]
+
+
+def s_omnivideobench(a, b):
+    parts = [
+        halo(240, 180, 210, 150, a),
+        film(62, 58, 286, 112, a, play=False),
+        wave(205, 248, 286, 15, (a, b), seed=5, hmin=14, hmax=64, bw=9),
+    ]
+    for x in (120, 205, 290):
+        parts.append(seg(x, 174, x, 212, SOFT, 5, dash="2 10"))
+    parts.append(bubble(366, 92, 76, 54, tail=None, fill="#E7EEFB", stroke=a))
+    parts.append(text(404, 128, "?", 32, a))
+    return parts
+
+
+def s_opencodeinterpreter(a, b):
+    return [
+        halo(230, 180, 210, 155, a),
+        window(56, 54, 250, 208, fill=INK, dots=True),
+        text(82, 128, "$", 26, "#7EE7B8", font=MONO, anchor="start"),
+        tline(112, 120, 96, 7, "#8CA0B8"),
+        tline(82, 158, 130, 7, "#5E7490"),
+        tline(82, 218, 100, 7, "#F49E9E"),
+        tline(82, 246, 130, 7, "#7EE7B8"),
+        path("M 336 128 C 402 142 414 234 348 262 C 296 284 250 254 246 216",
+             10, a),
+        arrow(246, 216, 244, 196, 0, a, 10),
+        check(404, 82),
+    ]
+
+
+def s_opencoder(a, b):
+    return [
+        halo(240, 180, 210, 155, a),
+        path("M 44 96 C 120 96 130 152 172 166", 9, a, op=.85),
+        path("M 44 180 H 168", 9, b, op=.85),
+        path("M 44 264 C 120 264 130 208 172 194", 9, a, op=.55),
+        chip(232, 180, 118, a),
+        seg(296, 148, 336, 128, SOFT, 6), seg(296, 212, 336, 232, SOFT, 6),
+        rrect(336, 96, 96, 64, 14), text(384, 138, "7B", 28, INK, font=MONO),
+        rrect(336, 200, 96, 64, 14), text(384, 242, "8B", 28, INK, font=MONO),
+        check(430, 262, 23),
+    ]
+
+
+def s_oprover(a, b):
+    return [
+        halo(240, 180, 200, 155, a),
+        arrow(306, 106, 366, 168, -34, a, 8),
+        arrow(326, 268, 180, 272, -44, b, 8),
+        arrow(112, 194, 182, 98, -40, a, 8),
+        doc(196, 44, 96, 92, fold=20, lines=((64, .2, .72),)),
+        turnstile(240, 78, 17, a, 7.5),
+        chip(378, 218, 100, a),
+        circle(124, 244, 44, WHITE, INK, 7),
+        path("M 104 244 L 118 259 L 146 226", 9, GREEN),
+    ]
+
+
+def s_ouro(a, b):
+    parts = [halo(240, 180, 195, 160, a)]
+    parts.append(path("M 240 68 A 112 112 0 1 0 352 180", 9, a))
+    parts.append(arrow(352, 180, 352, 162, 0, a, 9))
+    for i in range(6):
+        ang = math.radians(i * 60 - 90)
+        x, y = 240 + math.cos(ang) * 112, 180 + math.sin(ang) * 112
+        parts.append(rrect(x - 30, y - 19, 60, 38, 12, fill=WHITE, sw=6))
+        parts.append(seg(x - 12, y, x + 12, y, a, 6))
+    parts.append(circle(240, 180, 50, WHITE, INK, 7))
+    parts.append(text(240, 194, "t", 44, b, font=MONO))
+    parts.append(rrect(348, 282, 66, 40, 20, fill=b, stroke=None))
+    parts.append(text(381, 309, "×N", 24, WHITE, font=MONO))
+    return parts
+
+
+def s_owl(a, b):
+    rack = lambda y, on: [rrect(64, y, 158, 48, 10),
+                          circle(88, y + 24, 7, GREEN if on else SOFT),
+                          tline(108, y + 24, 84, 6)]
+    return [
+        halo(240, 185, 205, 155, a),
+        *rack(64, True), *rack(122, False), *rack(180, True),
+        bang(222, 146, 22, RED),
+        arrow(230, 234, 260, 250, -12, a, 7),
+        doc(262, 96, 122, 180, fold=24, lines=()),
+        circle(288, 140, 11, "none", a, 5), tline(310, 140, 48),
+        circle(288, 180, 11, "none", a, 5), tline(310, 180, 40),
+        circle(288, 220, 11, "none", a, 5), tline(310, 220, 46),
+        check(414, 276),
+    ]
+
+
+def s_roleagent(a, b):
+    return [
+        halo(240, 180, 210, 150, a),
+        doc(52, 68, 122, 176, fold=24, lines=((48, .18, .74), (76, .18, .58),
+                                              (104, .18, .68), (132, .18, .5))),
+        tline(74, 96, 56, 9, a),
+        arrow(180, 156, 208, 156, 0, SOFT, 7),
+        mask(262, 158, 74, "#E7EEFB", mood="smile", rot=-4),
+        arrow(322, 132, 352, 118, 10, SOFT, 7),
+        bubble(342, 130, 104, 62, tail="bl", fill=WHITE),
+        tline(362, 156, 62, 7),
+        tline(362, 174, 44, 7),
+        check(400, 274),
+    ]
+
+
+def s_rolellm(a, b):
+    return [
+        halo(220, 180, 205, 155, a),
+        mask(196, 172, 92, WHITE, mood="frown", rot=8),
+        mask(148, 178, 92, "#E7EEFB", mood="smile", rot=-8),
+        bubble(300, 96, 138, 78, tail="bl", fill=WHITE),
+        tline(322, 128, 86, 7), tline(322, 148, 62, 7),
+        rrect(300, 226, 62, 46, 12), text(331, 258, "Aa", 24, a),
+        rrect(374, 226, 62, 46, 12),
+        seg(390, 242, 422, 242, b, 6), seg(390, 256, 414, 256, b, 6),
+    ]
+
+
+def s_safedialbench(a, b):
+    return [
+        halo(270, 180, 195, 160, a),
+        bubble(46, 76, 108, 56, tail=None),
+        bang(72, 104, 13, RED, ring=False),
+        tline(96, 104, 38, 7),
+        bubble(46, 226, 108, 56, tail=None),
+        bang(72, 254, 13, RED, ring=False),
+        tline(96, 254, 38, 7),
+        path("M 158 104 C 196 104 214 118 228 134", 6.5, RED),
+        path("M 228 134 C 224 118 216 104 200 88", 6.5, RED, dash="3 10"),
+        path("M 158 254 C 196 254 214 240 228 224", 6.5, RED),
+        path("M 228 224 C 224 240 216 254 200 270", 6.5, RED, dash="3 10"),
+        shield(300, 180, 112, fill=WHITE),
+        path("M 262 180 L 288 208 L 340 148", 10, GREEN),
+    ]
+
+
+def s_scalelong(a, b):
+    return [
+        halo(230, 185, 210, 150, a),
+        film(64, 56, 118, 74, a, play=False),
+        film(64, 148, 208, 74, a, play=False),
+        film(64, 240, 310, 74, b, play=False),
+        circle(322, 277, 24, "none", b, 6, dash="4 9"),
+        clockface(404, 108, 44),
+    ]
+
+
+def s_supergpqa(a, b):
+    parts = [halo(240, 180, 200, 160, a)]
+    for i in range(8):
+        ang = math.radians(i * 45 - 90)
+        x, y = 240 + math.cos(ang) * 128, 180 + math.sin(ang) * 116
+        parts.append(seg(240 + math.cos(ang) * 70, 180 + math.sin(ang) * 64,
+                         x - math.cos(ang) * 26, y - math.sin(ang) * 24, SOFT, 5))
+        parts.append(rrect(x - 30, y - 21, 60, 42, 13, fill=WHITE,
+                           stroke=(a, b)[i % 2], sw=6))
+        parts.append(tline(x - 14, y, 28, 6))
+    parts.append(rrect(172, 116, 136, 128, 26))
+    parts.append(text(240, 208, "?", 66, a))
+    return parts
+
+
+def s_swe_compass(a, b):
+    parts = [halo(240, 182, 195, 160, a)]
+    parts.append(circle(240, 182, 120, WHITE, INK, 8))
+    parts.append(circle(240, 182, 97, "none", SOFT, 4.5))
+    for i in range(8):
+        ang = math.radians(i * 45)
+        r1 = 97 if i % 2 else 86
+        parts.append(seg(240 + math.cos(ang) * r1, 182 + math.sin(ang) * r1,
+                         240 + math.cos(ang) * 110, 182 + math.sin(ang) * 110,
+                         INK if i % 2 == 0 else SOFT, 5.5))
+    ang = math.radians(-52)
+    nx, ny = math.cos(ang), math.sin(ang)
+    px, py = -ny, nx
+    parts.append(path(f"M {fmt(240 + nx * 92)} {fmt(182 + ny * 92)} "
+                      f"L {fmt(240 + px * 21)} {fmt(182 + py * 21)} "
+                      f"L {fmt(240 - px * 21)} {fmt(182 - py * 21)} Z",
+                      5, a, fill=a))
+    parts.append(path(f"M {fmt(240 - nx * 92)} {fmt(182 - ny * 92)} "
+                      f"L {fmt(240 + px * 21)} {fmt(182 + py * 21)} "
+                      f"L {fmt(240 - px * 21)} {fmt(182 - py * 21)} Z",
+                      5, SOFT, fill=SOFT))
+    parts.append(circle(240, 182, 27, WHITE, INK, 7))
+    parts.append(text(240, 191, "</>", 24, b, font=MONO))
+    return parts
+
+
+def s_t2av_compass(a, b):
+    return [
+        halo(250, 180, 205, 152, a),
+        rrect(44, 146, 152, 68, 16),
+        tline(66, 172, 86, 8, a), tline(66, 192, 56, 8),
+        arrow(202, 168, 234, 132, 14, SOFT, 7),
+        arrow(202, 194, 234, 230, -14, SOFT, 7),
+        film(240, 58, 190, 108, a, play=True),
+        wave(335, 250, 190, 11, (a, b), seed=6, hmin=16, hmax=60, bw=9),
+        seg(452, 122, 452, 238, b, 6),
+        seg(438, 122, 452, 122, b, 6), seg(438, 238, 452, 238, b, 6),
+        circle(452, 180, 9, b),
+    ]
+
+
+def s_tablebench(a, b):
+    return [
+        halo(230, 180, 210, 155, a),
+        tablegrid(56, 58, 264, 220, 3, 4, a, hl=((0, 1), (1, 2), (2, 3))),
+        path("M 155 128 V 182 H 221 V 236 H 287", 8, b),
+        circle(155, 128, 11, b), circle(287, 236, 11, b),
+        arrow(324, 250, 356, 262, -10, a, 7),
+        rrect(356, 238, 76, 52, 14, fill=a, stroke=a),
+        text(394, 273, "42", 28, WHITE, font=MONO),
+        check(404, 92),
+    ]
+
+
+def s_tvir(a, b):
+    return [
+        halo(240, 180, 200, 155, a),
+        group(4, 320, 180, doc(230, 66, 180, 236, fold=30)),
+        doc(120, 52, 190, 256, fold=30, lines=((46, .15, .8), (68, .15, .64))),
+        rrect(148, 138, 82, 60, 8), path("M 158 186 L 178 158 L 194 174 L 202 162 "
+                                         "L 216 186", 5, INK),
+        tline(244, 152, 44, 6), tline(244, 172, 36, 6),
+        rrect(286, 146, 11, 11, 3, fill=a, stroke=None),
+        tline(148, 226, 134, 6), tline(148, 248, 100, 6),
+        rrect(148, 268, 40, 22, 5, fill=b, stroke=None, op=.75),
+        rrect(196, 274, 40, 16, 5, fill=b, stroke=None, op=.45),
+        rrect(290, 250, 11, 11, 3, fill=a, stroke=None),
+    ]
+
+
+def s_usb(a, b):
+    tile = lambda x, inner: [rrect(x, 54, 92, 66, 14)] + inner
+    return [
+        halo(240, 195, 195, 160, a),
+        *tile(102, [text(148, 100, "Tt", 30, a)]),
+        *tile(194, [path("M 210 106 L 228 80 L 242 94 L 252 82 L 268 106", 5.5, INK),
+                    circle(254, 76, 6, b)]),
+        *tile(286, [wave(332, 87, 60, 5, (b,), seed=2, hmin=10, hmax=38, bw=7)]),
+        shield(240, 208, 124, fill=WHITE),
+        path("M 200 208 L 228 238 L 284 174", 11, GREEN),
+    ]
+
+
+def s_vidcapbench(a, b):
+    bars = [(112, 96, a), (140, 66, b), (168, 84, a), (196, 48, b)]
+    return [
+        halo(220, 180, 210, 150, a),
+        film(54, 92, 232, 138, a),
+        rrect(316, 84, 122, 160, 16),
+        *[seg(340, y, 340 + w, y, c, 9) for y, w, c in bars],
+        *[circle(340 + w, y, 7, c) for y, w, c in bars],
+        rrect(96, 262, 150, 40, 12, fill="#E7EEFB", stroke=a),
+        tline(118, 282, 106, 7, a),
+        check(400, 278),
+    ]
+
+
+def s_vidic(a, b):
+    frame = lambda x, hl: [
+        rrect(x, 96, 168, 126, 12),
+        path(f"M {x + 18} {96 + 100} L {x + 58} {96 + 46} L {x + 90} {96 + 78} "
+             f"L {x + 112} {96 + 54} L {x + 146} {96 + 100}", 6, INK),
+        circle(x + 126, 96 + 30, 10, a if not hl else b),
+    ]
+    return [
+        halo(240, 180, 210, 150, a),
+        *frame(52, False),
+        *frame(260, True),
+        circle(386, 126, 24, "none", RED, 6, dash="5 9"),
+        seg(240, 120, 240, 200, SOFT, 5, dash="6 8"),
+        rrect(210, 244, 60, 46, 12, fill=b, stroke=None),
+        text(240, 276, "Δ", 28, WHITE),
+        tline(120, 258, 0, 0),
+        bubble(96, 252, 92, 50, tail=None, fill=WHITE),
+        tline(114, 277, 56, 7),
+        bubble(304, 252, 92, 50, tail=None, fill="#F7E7EA", stroke=b),
+        tline(322, 277, 56, 7, b),
+    ]
+
+
+def s_web_compass(a, b):
+    return [
+        halo(230, 180, 205, 155, a),
+        window(58, 58, 244, 200),
+        circle(180, 178, 62, WHITE, SOFT, 5),
+        path("M 180 128 L 196 178 L 180 228 L 164 178 Z", 5, a, fill=a),
+        circle(180, 178, 9, WHITE, INK, 5),
+        path("M 330 120 C 396 138 404 226 342 254 C 300 272 264 254 252 226",
+             9, b),
+        arrow(252, 226, 248, 208, 0, b, 9),
+        check(398, 86),
+    ]
+
+
+def s_workflow_gym(a, b):
+    return [
+        window(46, 44, 388, 272, bar=38),
+        rrect(66, 100, 92, 196, 12, fill="#EDF1F8", stroke=None),
+        rrect(80, 118, 64, 12, 6, fill=a, stroke=None, op=.8),
+        rrect(80, 146, 64, 12, 6, fill=SOFT, stroke=None),
+        rrect(80, 174, 64, 12, 6, fill=SOFT, stroke=None),
+        rrect(176, 100, 118, 88, 12),
+        tline(192, 132, 80, 6), tline(192, 154, 56, 6),
+        rrect(310, 156, 108, 92, 12),
+        tline(326, 190, 70, 6), tline(326, 212, 48, 6),
+        path("M 112 124 C 200 124 130 144 235 144 S 260 202 330 202", 7, b,
+             dash="1 13"),
+        cursor(330, 196, 1.1),
+        *[circle(92 + i * 26, 278, 5.5, a if i < 5 else SOFT) for i in range(8)],
+        check(400, 278, 24),
+    ]
+
+
+def s_worldtravel(a, b):
+    return [
+        path("M 56 92 L 178 64 V 268 L 56 296 Z", 6.5, INK, fill=WHITE),
+        path("M 178 64 L 302 92 V 296 L 178 268 Z", 6.5, INK, fill="#EDF1F8"),
+        path("M 302 92 L 424 64 V 268 L 302 296 Z", 6.5, INK, fill=WHITE),
+        path("M 96 236 C 140 170 208 214 246 152 C 276 106 330 140 368 118",
+             7, a, dash="1 15"),
+        pin(96, 244, 15, a),
+        pin(246, 162, 15, b),
+        pin(368, 128, 15, GREEN),
+        rrect(342, 200, 96, 84, 12, fill=WHITE),
+        seg(342, 228, 438, 228, a, 6),
+        *[circle(366 + i * 24, 250, 5, SOFT) for i in range(4)],
+        *[circle(366 + i * 24, 268, 5, SOFT) for i in range(3)],
+    ]
+
+
+def s_yue(a, b):
+    return [
+        halo(240, 180, 205, 155, a),
+        doc(50, 62, 126, 196, fold=24, lines=((48, .18, .74), (76, .18, .6),
+                                              (104, .18, .7), (132, .18, .54),
+                                              (160, .18, .64))),
+        notepair(240, 160, 62, INK),
+        wave(352, 128, 152, 9, (a,), seed=7, hmin=14, hmax=58, bw=9),
+        wave(352, 232, 152, 9, (b,), seed=9, hmin=14, hmax=58, bw=9),
+        seg(300, 290, 404, 290, SOFT, 5),
+        text(352, 314, "", 1),
+    ]
+
+
+SCENES = {
+    "acadreason": s_acadreason, "artifactsbench": s_artifactsbench,
+    "autokaggle": s_autokaggle, "automv": s_automv,
+    "chinese_safetyqa": s_chinese_safetyqa, "chinese_simpleqa": s_chinese_simpleqa,
+    "cii_bench": s_cii_bench, "code_simpleqa": s_code_simpleqa,
+    "codeeditorbench": s_codeeditorbench, "codetracer": s_codetracer,
+    "conceptmath": s_conceptmath, "cot_error_detection": s_cot_error_detection,
+    "criticlean": s_criticlean, "dr3_eval": s_dr3_eval, "edgebench": s_edgebench,
+    "finder": s_finder, "formalmath": s_formalmath,
+    "fullstack_bench": s_fullstack_bench, "hellobench": s_hellobench,
+    "if_vidcap": s_if_vidcap, "ii_bench": s_ii_bench,
+    "inverse_ifeval": s_inverse_ifeval, "iv_bench": s_iv_bench,
+    "kor_bench": s_kor_bench, "korgym": s_korgym, "lime": s_lime,
+    "longform_rewardbench": s_longform_rewardbench, "m2rc_eval": s_m2rc_eval,
+    "mammoth2": s_mammoth2, "mceval": s_mceval, "mm_browsecomp": s_mm_browsecomp,
+    "mt_bench_101": s_mt_bench_101, "mt_video_bench": s_mt_video_bench,
+    "mtu_bench": s_mtu_bench, "multi_docker_eval": s_multi_docker_eval,
+    "mvu_eval": s_mvu_eval, "nl2repo_bench": s_nl2repo_bench,
+    "omni_math": s_omni_math, "omnibench": s_omnibench,
+    "omnicap_if": s_omnicap_if, "omnivideobench": s_omnivideobench,
+    "opencodeinterpreter": s_opencodeinterpreter, "opencoder": s_opencoder,
+    "oprover": s_oprover, "ouro": s_ouro, "owl": s_owl,
+    "roleagent": s_roleagent, "rolellm": s_rolellm,
+    "safedialbench": s_safedialbench, "scalelong": s_scalelong,
+    "supergpqa": s_supergpqa, "swe_compass": s_swe_compass,
+    "t2av_compass": s_t2av_compass, "tablebench": s_tablebench, "tvir": s_tvir,
+    "usb": s_usb, "vidcapbench": s_vidcapbench, "vidic": s_vidic,
+    "web_compass": s_web_compass, "workflow_gym": s_workflow_gym,
+    "worldtravel": s_worldtravel, "yue": s_yue,
+}
+
+# Accessible name + description per benchmark (title/desc in the SVG).
+VISUAL_SPECS = {
+    "acadreason": ("ACADREASON", "A magnifier over research papers gathering citations into a synthesis."),
+    "artifactsbench": ("ArtifactsBench", "Code becoming an interactive browser artifact checked visually."),
+    "autokaggle": ("AutoKaggle", "Raw tables flowing through a model into a validated submission."),
+    "automv": ("AutoMV", "A song waveform aligned to storyboard film frames."),
+    "chinese_safetyqa": ("Chinese SafetyQA", "A shield bearing the character zhong deflecting unsafe prompts."),
+    "chinese_simpleqa": ("Chinese SimpleQA", "A Chinese question answered concisely with a cited source."),
+    "cii_bench": ("CII-Bench", "A Chinese image read for emotion and implied meaning."),
+    "code_simpleqa": ("CodeSimpleQA", "Bilingual programming questions grounded in code facts."),
+    "codeeditorbench": ("CodeEditorBench", "Code revised through a visible diff and accepted by tests."),
+    "codetracer": ("CodeTracer", "An execution trace with the first faulty state located."),
+    "conceptmath": ("ConceptMath", "A concept tree exposing one weak concept."),
+    "cot_error_detection": ("Long CoT Error Detection", "A long reasoning chain with the earliest error marked."),
+    "criticlean": ("CriticLean", "A Lean proof reviewed by a critic and rechecked."),
+    "dr3_eval": ("DR3-Eval", "Multimodal evidence processed in a sealed environment into a cited report."),
+    "edgebench": ("EdgeBench", "An agent's competence climbing over a long training horizon."),
+    "finder": ("FINDER", "A research query expanded into sources and an evidence checklist."),
+    "formalmath": ("FormalMATH", "A theorem's proof tree verified by the compiler."),
+    "fullstack_bench": ("FullStack Bench", "A frontend, API, and database verified end to end."),
+    "hellobench": ("HelloBench", "A long document held together by a coherence thread."),
+    "if_vidcap": ("IF-VidCap", "A video captioned under explicit format constraints."),
+    "ii_bench": ("II-Bench", "An image whose larger meaning hides below the surface."),
+    "inverse_ifeval": ("Inverse IFEval", "An instruction overriding a conflicting learned prior."),
+    "iv_bench": ("IV-Bench", "A reference image grounding evidence from a long video."),
+    "kor_bench": ("KOR-Bench", "Novel symbolic rules applied through a reasoning chain."),
+    "korgym": ("KORGym", "An agent acting on a game board and learning from feedback."),
+    "lime": ("LIME", "A large sample pool filtered into a compact benchmark."),
+    "longform_rewardbench": ("Long-form RewardBench", "Two long responses weighed by a reward judge."),
+    "m2rc_eval": ("M2RC-Eval", "Repository context completing a missing code region."),
+    "mammoth2": ("MAmmoTH2", "Web documents refined into ten million instruction pairs."),
+    "mceval": ("McEval", "Code tasks evaluated across forty programming languages."),
+    "mm_browsecomp": ("MM-BrowseComp", "A browsing agent combining page, image, and video evidence."),
+    "mt_bench_101": ("MT-Bench-101", "A multi-turn conversation carrying growing constraints."),
+    "mt_video_bench": ("MT-Video-Bench", "Multiple dialogue turns pointing at different video moments."),
+    "mtu_bench": ("MTU-Bench", "One request orchestrating many tools."),
+    "multi_docker_eval": ("Multi-Docker-Eval", "A Compose file instantiating healthy connected services."),
+    "mvu_eval": ("MVU-Eval", "Evidence retrieved and compared across several videos."),
+    "nl2repo_bench": ("NL2Repo-Bench", "A specification expanding into a full repository."),
+    "omni_math": ("Omni-MATH", "Olympiad mathematics across algebra, geometry, and number theory."),
+    "omnibench": ("OmniBench", "Text, image, and audio combined by one tri-modal model."),
+    "omnicap_if": ("OmniCap-IF", "Video and audio captioned under content instructions."),
+    "omnivideobench": ("OmniVideoBench", "Synchronized visual and audio streams queried together."),
+    "opencodeinterpreter": ("OpenCodeInterpreter", "Code generated, executed, and repaired in a loop."),
+    "opencoder": ("OpenCoder", "Raw code refined into an open model family."),
+    "oprover": ("OProver", "A Lean proof attempt cycling through compiler feedback."),
+    "ouro": ("Ouro", "A shared transformer block looping at variable depth per token."),
+    "owl": ("OWL", "An IT alert resolved through a runbook."),
+    "roleagent": ("RoleAgent", "A script becoming persona memory and role dialogue."),
+    "rolellm": ("RoleLLM", "Character knowledge and style conditioning role-play."),
+    "safedialbench": ("SafeDialBench", "Multi-turn jailbreak attempts deflected by a safety shield."),
+    "scalelong": ("ScaleLong", "Evidence spread across second, minute, and hour-long videos."),
+    "supergpqa": ("SuperGPQA", "Expert questions spanning hundreds of disciplines."),
+    "swe_compass": ("SWE-Compass", "A compass steering software-engineering agent work."),
+    "t2av_compass": ("T2AV-Compass", "A prompt generating synchronized video and audio."),
+    "tablebench": ("TableBench", "A reasoning path crossing a complex table to a result."),
+    "tvir": ("TVIR", "Text and visual evidence interleaved into a cited report."),
+    "usb": ("USB", "Text, image, and audio attacks covered by one safety shield."),
+    "vidcapbench": ("VidCapBench", "A video caption scored across quality dimensions."),
+    "vidic": ("ViDiC", "Two similar videos compared to describe their differences."),
+    "web_compass": ("WebCompass", "Browser artifacts generated, edited, and repaired."),
+    "workflow_gym": ("Workflow-GYM", "A GUI workflow executed step by step to a deliverable."),
+    "worldtravel": ("WorldTravel", "A travel route checked against real-world constraints."),
+    "yue": ("YuE", "Lyrics becoming aligned vocal and accompaniment tracks."),
+}
+
+
+def render(slug, record):
+    a, b = DOMAIN_PALETTES.get(record["domain"], DOMAIN_PALETTES["llm"])
+    name, desc = VISUAL_SPECS[slug]
+    scene = "\n".join(SCENES[slug](a, b))
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug={slug} layout={spec["layout"]} -->
-<title id="title">{escape(spec["name"])} benchmark illustration</title>
-<desc id="desc">{escape(spec["desc"])}</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="{accent_a}"/><stop offset="1" stop-color="{accent_b}"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="{accent_b}"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="{BG}"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="{LINE}" stroke-width="1.5" filter="url(#shadow)"/>
+<!-- tokenwave:generated:v5 slug={slug} -->
+<title id="title">{escape(name)} benchmark illustration</title>
+<desc id="desc">{escape(desc)}</desc>
+<rect width="{W}" height="{H}" fill="{BG}"/>
 {scene}
 </svg>
 '''
@@ -611,21 +1528,20 @@ def render(slug, spec, record):
 
 def load_records():
     records = {}
-    for path in sorted(DATA.glob("*.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
+    for path_ in sorted(DATA.glob("*.json")):
+        data = json.loads(path_.read_text(encoding="utf-8"))
         records[data["slug"]] = data
     return records
 
 
 def main():
     records = load_records()
-    missing = sorted(set(records) - set(VISUAL_SPECS))
-    unknown = sorted(set(VISUAL_SPECS) - set(records))
+    missing = sorted(set(records) - set(SCENES))
+    unknown = sorted(set(SCENES) - set(records))
     if missing or unknown:
         raise SystemExit(f"visual coverage error — missing={missing}, unknown={unknown}")
 
-    rendered = {slug: render(slug, VISUAL_SPECS[slug], records[slug])
-                for slug in sorted(records)}
+    rendered = {slug: render(slug, records[slug]) for slug in sorted(records)}
 
     if CHECK:
         stale = []
@@ -635,7 +1551,7 @@ def main():
                 stale.append(out.name)
         if stale:
             raise SystemExit("stale benchmark artwork: " + ", ".join(stale))
-        print(f"OK — {len(rendered)} explicit visual scenes are complete and fresh.")
+        print(f"OK — {len(rendered)} bespoke visual scenes are complete and fresh.")
         return
 
     OUT.mkdir(parents=True, exist_ok=True)
@@ -646,8 +1562,7 @@ def main():
             continue
         out.write_text(svg, encoding="utf-8")
         written += 1
-        print(f"  {out.name:<30} {VISUAL_SPECS[slug]['layout']}")
-    print(f"generated {written} of {len(rendered)} content-specific SVGs")
+    print(f"generated {written} of {len(rendered)} bespoke SVG scenes")
 
 
 if __name__ == "__main__":

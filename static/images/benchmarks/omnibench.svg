@@ -1,32 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=omnibench layout=merge -->
+<!-- tokenwave:generated:v5 slug=omnibench -->
 <title id="title">OmniBench benchmark illustration</title>
-<desc id="desc">Text, image, and audio inputs combined by one tri-modal reasoning model.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c026d3"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><rect x="87" y="137" width="74" height="58" rx="9" fill="#ffffff" stroke="url(#accent)" stroke-width="1.7"/>
-<text x="124" y="173" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="18" font-weight="700" fill="url(#accent)">Tt</text></g>
-<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><rect x="90" y="218" width="4" height="16" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="97" y="211.5" width="4" height="29" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="104" y="218.5" width="4" height="15" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="111" y="212" width="4" height="28" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="118" y="219" width="4" height="14" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="125" y="212.5" width="4" height="27" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="132" y="219.5" width="4" height="13" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="139" y="213" width="4" height="26" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="146" y="220" width="4" height="12" rx="2" fill="#94a3b8" opacity=".85"/>
-<rect x="153" y="213.5" width="4" height="25" rx="2" fill="url(#accent)" opacity=".85"/>
-<rect x="160" y="220.5" width="4" height="11" rx="2" fill="#94a3b8" opacity=".85"/></g>
-<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><path d="M 324 171 H 368 L 382 185 V 225 H 324 Z" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<path d="M 368 171 V 185 H 382" fill="none" stroke="url(#accent)" stroke-width="2"/>
-<line x1="331" y1="190" x2="372" y2="190" stroke="#94a3b8" stroke-width="2" opacity=".75"/>
-<line x1="331" y1="199" x2="369" y2="199" stroke="#94a3b8" stroke-width="2" opacity=".75"/>
-<line x1="331" y1="208" x2="366" y2="208" stroke="#94a3b8" stroke-width="2" opacity=".75"/></g>
+<desc id="desc">Text, image, and audio combined by one tri-modal model.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="260" cy="180" rx="200" ry="155" fill="#4F46E5" opacity="0.07"/>
+<path d="M 160 96 C 220 96 220 150 258 162" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160 180 H 250" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160 264 C 220 264 220 210 258 198" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="64" y="62" width="96" height="68" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<text x="112" y="108" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#4F46E5">Tt</text>
+<rect x="64" y="146" width="96" height="68" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 78 196 L 98 168 L 114 184 L 126 170 L 144 196" fill="none" stroke="#26313F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="128" cy="164" r="6" fill="#4F46E5"/>
+<rect x="64" y="230" width="96" height="68" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="80" y="244.7" width="7" height="38.5" rx="3.5" fill="#C026D3"/>
+<rect x="94.2" y="251.3" width="7" height="25.3" rx="3.5" fill="#C026D3"/>
+<rect x="108.5" y="247.7" width="7" height="32.7" rx="3.5" fill="#C026D3"/>
+<rect x="122.8" y="244" width="7" height="40" rx="3.5" fill="#C026D3"/>
+<rect x="137" y="248.2" width="7" height="31.5" rx="3.5" fill="#C026D3"/>
+<path d="M 280.9 110 L 280.9 124" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 280.9 236 L 280.9 250" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 240 150.9 L 254 150.9" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 366 150.9 L 380 150.9" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 310 110 L 310 124" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 310 236 L 310 250" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 240 180 L 254 180" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 366 180 L 380 180" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 339.1 110 L 339.1 124" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 339.1 236 L 339.1 250" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 240 209.1 L 254 209.1" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 366 209.1 L 380 209.1" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="254" y="124" width="112" height="112" rx="20.2" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="282" y="152" width="56" height="56" rx="10.1" fill="none" stroke="#4F46E5" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="310" cy="180" r="9" fill="#4F46E5"/>
+<path d="M 374 180 Q 389 180 386.7 180" fill="none" stroke="#4F46E5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 180 L 380 169.2 L 380 190.8 Z" fill="#4F46E5" stroke="#4F46E5" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 406 146 H 446 Q 464 146 464 164 V 180 Q 464 198 446 198 H 406 Q 388 198 388 180 V 164 Q 388 146 406 146 Z" fill="#E7EEFB" stroke="#4F46E5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 172 L 448 172" fill="none" stroke="#4F46E5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

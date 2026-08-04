@@ -1,34 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=mt_video_bench layout=orbit -->
+<!-- tokenwave:generated:v5 slug=mt_video_bench -->
 <title id="title">MT-Video-Bench benchmark illustration</title>
-<desc id="desc">Multiple conversational turns pointing to different moments in the same video.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c026d3"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 116 178 Q 233 160 350 202" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<path d="M 116 230 Q 233 184 350 202" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<g transform="translate(116 178) scale(1.32) translate(-116 -178)"><rect x="78" y="153" width="76" height="50" rx="7" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<rect x="83" y="156" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="83" y="195" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="98" y="156" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="98" y="195" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="113" y="156" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="113" y="195" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="128" y="156" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="128" y="195" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="143" y="156" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="143" y="195" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<path d="M 108 168 L 130 178 L 108 188 Z" fill="url(#accent)"/></g>
-<g transform="translate(116 230) scale(1.32) translate(-116 -230)"><rect x="77" y="206" width="57" height="30" rx="11" fill="#ffffff" stroke="#94a3b8" stroke-width="1.8"/>
-<rect x="103" y="233" width="54" height="28" rx="11" fill="url(#accent)" opacity=".72"/>
-<line x1="89" y1="220" x2="120" y2="220" stroke="#94a3b8" stroke-width="3"/>
-<line x1="116" y1="246" x2="143" y2="246" stroke="#0f172a" stroke-width="3" opacity=".8"/></g>
-<g transform="translate(350 202) scale(1.32) translate(-350 -202)"><rect x="311" y="178" width="57" height="30" rx="11" fill="#ffffff" stroke="#94a3b8" stroke-width="1.8"/>
-<rect x="337" y="205" width="54" height="28" rx="11" fill="url(#accent)" opacity=".72"/>
-<line x1="323" y1="192" x2="354" y2="192" stroke="#94a3b8" stroke-width="3"/>
-<line x1="350" y1="218" x2="377" y2="218" stroke="#0f172a" stroke-width="3" opacity=".8"/></g>
+<desc id="desc">Multiple dialogue turns pointing at different video moments.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="175" rx="210" ry="150" fill="#4F46E5" opacity="0.07"/>
+<rect x="64" y="52" width="300" height="120" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="74" y="61" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="74" y="154" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="127.6" y="61" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="127.6" y="154" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="181.2" y="61" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="181.2" y="154" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="234.8" y="61" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="234.8" y="154" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="288.4" y="61" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="288.4" y="154" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="342" y="61" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="342" y="154" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 164 78 L 164 146" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 264 78 L 264 146" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="114" cy="112" r="17" fill="none" stroke="#C026D3" stroke-width="6"/>
+<circle cx="214" cy="112" r="17" fill="none" stroke="#C026D3" stroke-width="6"/>
+<circle cx="314" cy="112" r="17" fill="none" stroke="#C026D3" stroke-width="6"/>
+<path d="M 114 172 V 216" fill="none" stroke="#C026D3" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 10"/>
+<path d="M 214 172 V 232" fill="none" stroke="#C026D3" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 10"/>
+<path d="M 314 172 V 216" fill="none" stroke="#C026D3" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 10"/>
+<path d="M 76 220 H 162 Q 180 220 180 238 V 260 Q 180 278 162 278 H 76 Q 58 278 58 260 V 238 Q 58 220 76 220 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 80 250 L 158 250" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 196 236 H 282 Q 300 236 300 254 V 276 Q 300 294 282 294 H 196 Q 178 294 178 276 V 254 Q 178 236 196 236 Z" fill="#E7EEFB" stroke="#4F46E5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200 266 L 278 266" fill="none" stroke="#4F46E5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 316 220 H 402 Q 420 220 420 238 V 260 Q 420 278 402 278 H 316 Q 298 278 298 260 V 238 Q 298 220 316 220 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 320 250 L 398 250" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

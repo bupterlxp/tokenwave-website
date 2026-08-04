@@ -1,21 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=codeeditorbench layout=flow -->
+<!-- tokenwave:generated:v5 slug=codeeditorbench -->
 <title id="title">CodeEditorBench benchmark illustration</title>
-<desc id="desc">Existing code revised through a visible diff and accepted by execution tests.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-
-<rect x="48" y="70" width="384" height="220" rx="22" fill="#fff" stroke="#334155" stroke-width="5"/>
-<path d="M 48 108 H 432 M 240 108 V 290" stroke="#cbd5e1" stroke-width="4"/>
-<circle cx="73" cy="89" r="6" fill="#ef4444"/><circle cx="93" cy="89" r="6" fill="#f59e0b"/><circle cx="113" cy="89" r="6" fill="#10b981"/>
-<path d="M 76 126 H 180" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 76 153 H 156" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 76 180 H 180" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 76 207 H 156" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 76 234 H 180" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 292 126 H 404" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 292 153 H 372" stroke="#10b981" stroke-width="7" stroke-linecap="round"/><path d="M 292 180 H 404" stroke="#334155" stroke-width="7" stroke-linecap="round"/><path d="M 292 207 H 372" stroke="#10b981" stroke-width="7" stroke-linecap="round"/><path d="M 292 234 H 404" stroke="#334155" stroke-width="7" stroke-linecap="round"/>
-<rect x="222" y="126" width="36" height="36" rx="10" fill="#ef4444"/><text x="240" y="153" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="26" font-weight="700" fill="#fff">−</text>
-<rect x="222" y="178" width="36" height="36" rx="10" fill="#10b981"/><text x="240" y="205" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="26" font-weight="700" fill="#fff">+</text>
-<circle cx="397" cy="84" r="27" fill="#10b981"/><path d="M 384 84 L 394 95 L 412 73" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-
+<desc id="desc">Code revised through a visible diff and accepted by tests.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="230" cy="180" rx="210" ry="150" fill="#2563EB" opacity="0.07"/>
+<rect x="56" y="58" width="302" height="226" rx="18" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 58 94 L 356 94" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="80" cy="76" r="5.5" fill="#F87171"/>
+<circle cx="99" cy="76" r="5.5" fill="#FBBF24"/>
+<circle cx="118" cy="76" r="5.5" fill="#34D399"/>
+<path d="M 207 110 L 207 262" fill="none" stroke="#C9D4E2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 84 128 L 180 128" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 84 158 L 158 158" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 84 188 L 172 188" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 84 218 L 144 218" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 236 128 L 328 128" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 236 158 L 306 158" fill="none" stroke="#059669" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 236 188 L 320 188" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 236 218 L 314 218" fill="none" stroke="#059669" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="189" y="138" width="36" height="36" rx="10" fill="#DC2626"/>
+<path d="M 198 156 L 216 156" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="189" y="196" width="36" height="36" rx="10" fill="#059669"/>
+<path d="M 198 214 L 216 214" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 207 205 L 207 223" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="400" cy="250" r="32" fill="#F4F6FB"/>
+<circle cx="400" cy="250" r="27" fill="#059669"/>
+<path d="M 389 251 L 397 260 L 413 241" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -1,32 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=scalelong layout=timeline -->
+<!-- tokenwave:generated:v5 slug=scalelong -->
 <title id="title">ScaleLong benchmark illustration</title>
-<desc id="desc">Evidence distributed across short, medium, and hour-scale video spans before retrieval.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4f46e5"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#c026d3"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 112.0 210 Q 176 154 240.0 172" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<path d="M 240.0 172 Q 304 154 368.0 210" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)" stroke-dasharray="6 6"/>
-<g transform="translate(112 210) scale(1.32) translate(-112 -210)"><rect x="74.0" y="185" width="76" height="50" rx="7" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<rect x="79.0" y="188" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="79.0" y="227" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="94.0" y="188" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="94.0" y="227" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="109.0" y="188" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="109.0" y="227" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="124.0" y="188" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="124.0" y="227" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="139.0" y="188" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<rect x="139.0" y="227" width="6" height="5" rx="1" fill="#dbe4ee"/>
-<path d="M 104.0 200 L 126.0 210 L 104.0 220 Z" fill="url(#accent)"/></g>
-<g transform="translate(240 172) scale(1.32) translate(-240 -172)"><circle cx="240.0" cy="172" r="29" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/><path d="M 240.0 172 V 155 M 240.0 172 L 254.0 180" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/></g>
-<g transform="translate(368 210) scale(1.32) translate(-368 -210)"><path d="M 342.0 183 H 386.0 L 400.0 197 V 237 H 342.0 Z" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<path d="M 386.0 183 V 197 H 400.0" fill="none" stroke="url(#accent)" stroke-width="2"/>
-<line x1="349.0" y1="202" x2="390.0" y2="202" stroke="#94a3b8" stroke-width="2" opacity=".75"/>
-<line x1="349.0" y1="211" x2="387.0" y2="211" stroke="#94a3b8" stroke-width="2" opacity=".75"/>
-<line x1="349.0" y1="220" x2="384.0" y2="220" stroke="#94a3b8" stroke-width="2" opacity=".75"/></g>
+<desc id="desc">Evidence spread across second, minute, and hour-long videos.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="230" cy="185" rx="210" ry="150" fill="#4F46E5" opacity="0.07"/>
+<rect x="64" y="56" width="118" height="74" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="74" y="65" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="74" y="112" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="117" y="65" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="117" y="112" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="160" y="65" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="160" y="112" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 103.3 82 L 103.3 104" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 142.7 82 L 142.7 104" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="64" y="148" width="208" height="74" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="74" y="157" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="74" y="204" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="132.7" y="157" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="132.7" y="204" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="191.3" y="157" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="191.3" y="204" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="250" y="157" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="250" y="204" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 133.3 174 L 133.3 196" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 202.7 174 L 202.7 196" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="64" y="240" width="310" height="74" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="74" y="249" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="74" y="296" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="129.6" y="249" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="129.6" y="296" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="185.2" y="249" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="185.2" y="296" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="240.8" y="249" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="240.8" y="296" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="296.4" y="249" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="296.4" y="296" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="352" y="249" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="352" y="296" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 167.3 266 L 167.3 288" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 270.7 266 L 270.7 288" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="322" cy="277" r="24" fill="none" stroke="#C026D3" stroke-width="6" stroke-dasharray="4 9"/>
+<circle cx="404" cy="108" r="44" fill="#FFFFFF" stroke="#26313F" stroke-width="7"/>
+<path d="M 443 108 L 436 108" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 147 L 404 140" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 365 108 L 372 108" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 69 L 404 76" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 108 V 83.8 M 404 108 L 422.5 118.6" fill="none" stroke="#26313F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

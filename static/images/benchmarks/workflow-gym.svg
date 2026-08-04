@@ -1,34 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=workflow_gym layout=flow -->
+<!-- tokenwave:generated:v5 slug=workflow_gym -->
 <title id="title">Workflow-GYM benchmark illustration</title>
-<desc id="desc">A professional brief carried through planning, GUI actions, verification, and a finished deliverable.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<rect x="42" y="51" width="396" height="258" rx="23" fill="#fff" stroke="#334155" stroke-width="5"/>
-<path d="M 42 91 H 438" stroke="#cbd5e1" stroke-width="4"/>
-<path d="M 84 145 C 128 145 129 225 174 225 S 224 138 277 138 S 320 232 366 232" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round" marker-end="url(#arrow)"/>
-<rect x="45" y="92" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
-<path d="M 59 111 H 97 M 59 126 H 86" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
-<rect x="132" y="172" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
-<path d="M 146 191 H 184 M 146 206 H 173" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
-<rect x="235" y="85" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
-<path d="M 249 104 H 287 M 249 119 H 276" stroke="#334155" stroke-width="5" stroke-linecap="round"/>
-<rect x="324" y="179" width="66" height="52" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
-<path d="M 343 205 L 354 217 L 375 191" fill="none" stroke="#10b981" stroke-width="7"/>
-<circle cx="91" cy="282" r="4" fill="#2563eb"/>
-<circle cx="118" cy="282" r="4" fill="#2563eb"/>
-<circle cx="145" cy="282" r="4" fill="#2563eb"/>
-<circle cx="172" cy="282" r="4" fill="#2563eb"/>
-<circle cx="199" cy="282" r="4" fill="#2563eb"/>
-<circle cx="226" cy="282" r="4" fill="#2563eb"/>
-<circle cx="253" cy="282" r="4" fill="#2563eb"/>
-<circle cx="280" cy="282" r="4" fill="#2563eb"/>
-<circle cx="307" cy="282" r="4" fill="#10b981"/>
-<circle cx="334" cy="282" r="4" fill="#10b981"/>
-<circle cx="361" cy="282" r="4" fill="#10b981"/>
+<desc id="desc">A GUI workflow executed step by step to a deliverable.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<rect x="46" y="44" width="388" height="272" rx="18" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 48 82 L 432 82" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="70" cy="63" r="5.5" fill="#F87171"/>
+<circle cx="89" cy="63" r="5.5" fill="#FBBF24"/>
+<circle cx="108" cy="63" r="5.5" fill="#34D399"/>
+<rect x="66" y="100" width="92" height="196" rx="12" fill="#EDF1F8"/>
+<rect x="80" y="118" width="64" height="12" rx="6" fill="#2563EB" opacity="0.8"/>
+<rect x="80" y="146" width="64" height="12" rx="6" fill="#C9D4E2"/>
+<rect x="80" y="174" width="64" height="12" rx="6" fill="#C9D4E2"/>
+<rect x="176" y="100" width="118" height="88" rx="12" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 192 132 L 272 132" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 192 154 L 248 154" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="310" y="156" width="108" height="92" rx="12" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 326 190 L 396 190" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 326 212 L 374 212" fill="none" stroke="#A9B6C8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 112 124 C 200 124 130 144 235 144 S 260 202 330 202" fill="none" stroke="#7C3AED" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 13"/>
+<path d="M 330 196 L 343.2 232.3 L 348.7 218 L 364.1 214.7 Z" fill="#26313F" stroke="#F4F6FB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="92" cy="278" r="5.5" fill="#2563EB"/>
+<circle cx="118" cy="278" r="5.5" fill="#2563EB"/>
+<circle cx="144" cy="278" r="5.5" fill="#2563EB"/>
+<circle cx="170" cy="278" r="5.5" fill="#2563EB"/>
+<circle cx="196" cy="278" r="5.5" fill="#2563EB"/>
+<circle cx="222" cy="278" r="5.5" fill="#C9D4E2"/>
+<circle cx="248" cy="278" r="5.5" fill="#C9D4E2"/>
+<circle cx="274" cy="278" r="5.5" fill="#C9D4E2"/>
+<circle cx="400" cy="278" r="29" fill="#F4F6FB"/>
+<circle cx="400" cy="278" r="24" fill="#059669"/>
+<path d="M 390.2 278.9 L 397.3 286.9 L 411.6 270" fill="none" stroke="#fff" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

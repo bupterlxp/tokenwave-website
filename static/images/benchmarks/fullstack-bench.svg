@@ -1,25 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=fullstack_bench layout=merge -->
+<!-- tokenwave:generated:v5 slug=fullstack_bench -->
 <title id="title">FullStack Bench benchmark illustration</title>
-<desc id="desc">A browser frontend connected through an API to a database and verified end to end.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<path d="M 124 166 Q 237 148 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<path d="M 124 226 Q 237 180 350 198" fill="none" stroke="url(#accent)" stroke-width="2.6" opacity=".46" marker-end="url(#arrow)"/>
-<g transform="translate(124 166) scale(1.32) translate(-124 -166)"><rect x="83" y="137" width="82" height="58" rx="8" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.7"/>
-<line x1="83" y1="152" x2="165" y2="152" stroke="#dbe4ee" stroke-width="1.5"/>
-<circle cx="95" cy="145" r="2.2" fill="url(#accent)"/>
-<circle cx="104" cy="145" r="2.2" fill="#dbe4ee"/>
-<circle cx="113" cy="145" r="2.2" fill="#dbe4ee"/>
-<rect x="97" y="161" width="54" height="25" rx="3" fill="none" stroke="#94a3b8" opacity=".75"/>
-<circle cx="108" cy="171" r="5" fill="url(#accent)" opacity=".7"/></g>
-<g transform="translate(124 226) scale(1.32) translate(-124 -226)"><path d="M 93 208 C 93 196 155 196 155 208 V 246 C 155 258 93 258 93 246 Z" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/>
-<ellipse cx="124" cy="208" rx="31" ry="10" fill="#ffffff" stroke="url(#accent)" stroke-width="2"/></g>
-<g transform="translate(350 198) scale(1.32) translate(-350 -198)"><circle cx="350" cy="198" r="27" fill="url(#accent)" opacity=".16" stroke="url(#accent)" stroke-width="2"/>
-<path d="M 337 198 L 347 208 L 366 185" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<desc id="desc">A frontend, API, and database verified end to end.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="205" ry="155" fill="#2563EB" opacity="0.07"/>
+<path d="M 152 202 C 152 240 176 252 210 252" fill="none" stroke="#C9D4E2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 330 252 C 364 252 388 240 388 216" fill="none" stroke="#C9D4E2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="56" y="56" width="192" height="146" rx="18" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 58 86 L 246 86" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="80" cy="71" r="5.5" fill="#F87171"/>
+<circle cx="99" cy="71" r="5.5" fill="#FBBF24"/>
+<circle cx="118" cy="71" r="5.5" fill="#34D399"/>
+<path d="M 80 116 L 170 116" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 80 144 L 200 144" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 80 172 L 150 172" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="210" y="224" width="120" height="56" rx="16" fill="#2563EB" stroke="#2563EB" stroke-width="7" stroke-linejoin="round"/>
+<rect x="210" y="224" width="120" height="56" rx="16" fill="none" stroke="#2563EB" stroke-width="7" stroke-linejoin="round"/>
+<text x="270" y="260" text-anchor="middle" font-family="'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="26" font-weight="700" fill="#FFFFFF">API</text>
+<path d="M 342 82 V 178 A 46 15.6 0 0 0 434 178 V 82" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="388" cy="82" rx="46" ry="15.6" fill="#7C3AED" opacity=".15" stroke="#26313F" stroke-width="7"/>
+<path d="M 342 130 A 46 15.6 0 0 0 434 130" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 248 128 H 342" fill="none" stroke="#C9D4E2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="420" cy="280" r="32" fill="#F4F6FB"/>
+<circle cx="420" cy="280" r="27" fill="#059669"/>
+<path d="M 409 281 L 417 290 L 433 271" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

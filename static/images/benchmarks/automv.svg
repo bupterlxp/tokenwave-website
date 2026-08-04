@@ -1,29 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=automv layout=merge -->
+<!-- tokenwave:generated:v5 slug=automv -->
 <title id="title">AutoMV benchmark illustration</title>
-<desc id="desc">A song waveform aligned to storyboard shots and evaluated with a professional music-video rubric.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#db2777"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#db2777"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-<rect x="52" y="170" width="9" height="20" rx="4.5" fill="url(#accent)"/>
-<rect x="68" y="161" width="9" height="38" rx="4.5" fill="url(#accent)"/>
-<rect x="84" y="148" width="9" height="64" rx="4.5" fill="url(#accent)"/>
-<rect x="100" y="163" width="9" height="34" rx="4.5" fill="url(#accent)"/>
-<rect x="116" y="141" width="9" height="78" rx="4.5" fill="url(#accent)"/>
-<rect x="132" y="156" width="9" height="48" rx="4.5" fill="url(#accent)"/>
-<rect x="148" y="167" width="9" height="26" rx="4.5" fill="url(#accent)"/>
-<rect x="164" y="151" width="9" height="58" rx="4.5" fill="url(#accent)"/>
-<rect x="180" y="164" width="9" height="32" rx="4.5" fill="url(#accent)"/>
-<path d="M 198 123 C 238 143 246 217 292 237 H 426 V 123 H 292 C 248 143 240 103 198 123 Z" fill="#db2777" opacity=".08" stroke="url(#accent)" stroke-width="5"/>
-<rect x="270" y="148" width="43" height="64" rx="7" fill="#fff" stroke="#334155" stroke-width="4"/>
-<path d="M 279 197 L 291 180 L 302 197 Z" fill="url(#accent)" opacity=".75"/>
-<rect x="326" y="148" width="43" height="64" rx="7" fill="#fff" stroke="#334155" stroke-width="4"/>
-<path d="M 335 197 L 347 180 L 358 197 Z" fill="url(#accent)" opacity=".75"/>
-<rect x="382" y="148" width="43" height="64" rx="7" fill="#fff" stroke="#334155" stroke-width="4"/>
-<path d="M 391 197 L 403 180 L 414 197 Z" fill="url(#accent)" opacity=".75"/>
-<path d="M 208 180 C 232 156 242 205 266 180" fill="none" stroke="url(#accent)" stroke-width="6"/>
+<desc id="desc">A song waveform aligned to storyboard film frames.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="230" cy="180" rx="210" ry="150" fill="#DB2777" opacity="0.07"/>
+<rect x="53" y="146" width="11" height="68" rx="5.5" fill="#7C3AED"/>
+<rect x="70.4" y="123.4" width="11" height="113.1" rx="5.5" fill="#DB2777"/>
+<rect x="87.8" y="125.9" width="11" height="108.2" rx="5.5" fill="#7C3AED"/>
+<rect x="105.1" y="151.5" width="11" height="57.1" rx="5.5" fill="#DB2777"/>
+<rect x="122.5" y="129.7" width="11" height="100.7" rx="5.5" fill="#7C3AED"/>
+<rect x="139.9" y="121.6" width="11" height="116.7" rx="5.5" fill="#DB2777"/>
+<rect x="157.2" y="140.1" width="11" height="79.7" rx="5.5" fill="#7C3AED"/>
+<rect x="174.6" y="138.9" width="11" height="82.1" rx="5.5" fill="#DB2777"/>
+<rect x="192" y="121.4" width="11" height="117.2" rx="5.5" fill="#7C3AED"/>
+<path d="M 214 132 Q 238.6 132.6 243.8 124.7" fill="none" stroke="#DB2777" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 252 112 L 232.6 124.5 L 248.5 134.8 Z" fill="#DB2777" stroke="#DB2777" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 214 228 Q 238.6 227.4 243.8 235.3" fill="none" stroke="#DB2777" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 252 248 L 248.5 225.2 L 232.6 235.5 Z" fill="#DB2777" stroke="#DB2777" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="252" y="74" width="180" height="96" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="262" y="83" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="262" y="152" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="336" y="83" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="336" y="152" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="410" y="83" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="410" y="152" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 312 100 L 312 144" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 372 100 L 372 144" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="252" y="190" width="180" height="96" rx="14" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="262" y="199" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="262" y="268" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="336" y="199" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="336" y="268" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="410" y="199" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<rect x="410" y="268" width="13" height="9" rx="3" fill="#D6DEEA"/>
+<path d="M 312 216 L 312 260" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 372 216 L 372 260" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 329 219 L 363 238 L 329 257 Z" fill="#DB2777" stroke="#DB2777" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

@@ -1,22 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=omni_math layout=merge -->
+<!-- tokenwave:generated:v5 slug=omni_math -->
 <title id="title">Omni-MATH benchmark illustration</title>
-<desc id="desc">Algebra, geometry, and number theory problems organized across Olympiad difficulty levels.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-
-<path d="M 72 48 H 344 L 407 111 V 306 H 72 Z" fill="#fff" stroke="#334155" stroke-width="6"/>
-<path d="M 344 48 V 111 H 407" fill="none" stroke="#334155" stroke-width="6"/>
-<path d="M 105 89 H 287" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round"/>
-<path d="M 116 246 L 194 128 L 267 246 Z" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linejoin="round"/>
-<circle cx="194" cy="128" r="11" fill="#2563eb"/><circle cx="116" cy="246" r="11" fill="#0f766e"/><circle cx="267" cy="246" r="11" fill="#0f766e"/>
-<path d="M 194 128 V 246 M 116 246 H 267" stroke="#cbd5e1" stroke-width="5" stroke-dasharray="8 8"/>
-<text x="333" y="161" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="32" font-weight="700" fill="#0f766e">x²</text><text x="333" y="211" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="36" font-weight="700" fill="#2563eb">∑</text><text x="333" y="261" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="31" font-weight="700" fill="#334155">ℕ</text>
-<circle cx="385" cy="73" r="31" fill="#10b981"/><path d="M 370 73 L 382 86 L 404 59" fill="none" stroke="#fff" stroke-width="7"/>
-
+<desc id="desc">Olympiad mathematics across algebra, geometry, and number theory.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="220" cy="190" rx="200" ry="155" fill="#2563EB" opacity="0.07"/>
+<path d="M 170 84 L 66 282 H 274 Z" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 170 84 L 170 282" fill="none" stroke="#C9D4E2" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 10"/>
+<circle cx="170" cy="84" r="11" fill="#2563EB"/>
+<circle cx="66" cy="282" r="11" fill="#2563EB"/>
+<circle cx="274" cy="282" r="11" fill="#2563EB"/>
+<text x="342" y="186" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="88" font-weight="700" fill="#0D9488">∑</text>
+<circle cx="384" cy="268" r="34" fill="#FFFFFF" stroke="#D97706" stroke-width="7"/>
+<path d="M 366 240 L 356 208 M 402 240 L 412 208" fill="none" stroke="#D97706" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="384" y="280" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#D97706">1</text>
 </svg>

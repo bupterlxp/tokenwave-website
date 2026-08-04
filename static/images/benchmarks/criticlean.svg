@@ -1,23 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=criticlean layout=flow -->
+<!-- tokenwave:generated:v5 slug=criticlean -->
 <title id="title">CriticLean benchmark illustration</title>
-<desc id="desc">A Lean proof containing a faulty step, reviewed by a critic and rechecked by the compiler.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-
-<path d="M 240 100 V 265 M 160 265 H 320" stroke="#334155" stroke-width="8" stroke-linecap="round"/>
-<path d="M 100 132 H 380" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
-<path d="M 132 132 L 102 194 H 162 Z M 348 132 L 318 194 H 378 Z" fill="#0f766e" opacity=".09" stroke="#334155" stroke-width="4"/>
-<rect x="62" y="197" width="100" height="55" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<text x="112" y="231" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="20" font-weight="700" fill="#334155">x² + y²</text>
-<rect x="318" y="197" width="100" height="55" rx="12" fill="#fff" stroke="url(#accent)" stroke-width="4"/>
-<text x="368" y="231" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="24" font-weight="700" fill="#334155">⊢ P</text>
-<circle cx="240" cy="130" r="30" fill="#2563eb"/><text x="240" y="140" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="27" font-weight="700" fill="#fff">=</text>
-<circle cx="240" cy="264" r="24" fill="#10b981"/><path d="M 229 264 L 238 273 L 253 254" fill="none" stroke="#fff" stroke-width="5"/>
-
+<desc id="desc">A Lean proof reviewed by a critic and rechecked.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="220" cy="180" rx="200" ry="150" fill="#2563EB" opacity="0.07"/>
+<path d="M 72 56 H 224 L 254 86 V 292 Q 254 300 246 300 H 72 Q 64 300 64 292 V 64 Q 64 56 72 56 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 224 56 V 86 H 254" fill="none" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 94.4 148 L 212.2 148" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 94.4 182 L 181.8 182" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 94.4 250 L 197 250" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 94.4 284 L 159 284" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 118.5 86 L 118.5 130" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 118.5 108 L 140.5 108" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 94 216 q 10 -9 20 0 q 10 9 20 0 q 10 -9 20 0 q 10 9 20 0" fill="none" stroke="#DC2626" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="310" cy="152" r="58" fill="rgba(255,255,255,0.8)" stroke="#26313F" stroke-width="9"/>
+<path d="M 354.6 192.1 L 384.9 219.4" fill="none" stroke="#26313F" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="310" cy="152" r="17" fill="#DC2626"/>
+<path d="M 310 145 L 310 153.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="310" cy="159.7" r="2.8" fill="#fff"/>
+<path d="M 300 222 Q 295.9 249.5 283.1 249.8" fill="none" stroke="#0D9488" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 268 250 L 289.2 259.1 L 288.8 240.2 Z" fill="#0D9488" stroke="#0D9488" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="392" cy="268" r="32" fill="#F4F6FB"/>
+<circle cx="392" cy="268" r="27" fill="#059669"/>
+<path d="M 381 269 L 389 278 L 405 259" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

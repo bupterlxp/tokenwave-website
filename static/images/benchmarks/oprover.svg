@@ -1,21 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=oprover layout=cycle -->
+<!-- tokenwave:generated:v5 slug=oprover -->
 <title id="title">OProver benchmark illustration</title>
-<desc id="desc">Retrieved Lean proofs feeding an attempt, compiler feedback, and iterative repair loop.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f766e"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563eb"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-
-<path d="M 52 98 H 148 L 168 118 V 202 H 52 Z M 78 128 H 142 M 78 154 H 132" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
-<path d="M 82 76 H 178 L 198 96 V 180 H 82 Z M 108 106 H 172 M 108 132 H 162" fill="#fff" stroke="url(#accent)" stroke-width="5"/>
-<rect x="196" y="112" width="118" height="136" rx="24" fill="#fff" stroke="#334155" stroke-width="6"/><text x="255" y="173" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="25" font-weight="700" fill="#334155">LEAN</text><text x="255" y="211" text-anchor="middle" font-family="IBM Plex Mono, Menlo, monospace" font-size="34" font-weight="700" fill="#0f766e">⊢</text>
-<path d="M 226 275 C 304 318 392 260 374 177 C 365 135 337 111 309 99" fill="none" stroke="url(#accent)" stroke-width="10" marker-end="url(#arrow)"/>
-<path d="M 315 181 H 370" stroke="url(#accent)" stroke-width="8" marker-end="url(#arrow)"/>
-<path d="M 372 129 H 430 V 238 H 344 V 157 Z" fill="#fff" stroke="#10b981" stroke-width="6"/>
-<path d="M 360 190 L 376 207 L 407 169" fill="none" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
-
+<desc id="desc">A Lean proof attempt cycling through compiler feedback.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="240" cy="180" rx="200" ry="155" fill="#2563EB" opacity="0.07"/>
+<path d="M 306 106 Q 360.4 113.4 364.2 150.8" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 366 168 L 374.3 143 L 352.8 145.2 Z" fill="#2563EB" stroke="#2563EB" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 326 268 Q 254.2 314 195 280.5" fill="none" stroke="#0D9488" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 180 272 L 195.6 293.2 L 206.2 274.4 Z" fill="#0D9488" stroke="#0D9488" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 112 194 Q 114.7 122.4 165.8 103.9" fill="none" stroke="#2563EB" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 182 98 L 155.8 96 L 163.1 116.3 Z" fill="#2563EB" stroke="#2563EB" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 204 44 H 272 L 292 64 V 128 Q 292 136 284 136 H 204 Q 196 136 196 128 V 52 Q 196 44 204 44 Z" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 272 44 V 64 H 292" fill="none" stroke="#26313F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 215.2 108 L 265.1 108" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 234.2 61 L 234.2 95" fill="none" stroke="#2563EB" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 234.2 78 L 251.2 78" fill="none" stroke="#2563EB" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 352 154 L 352 168" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 352 268 L 352 282" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 314 192 L 328 192" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 428 192 L 442 192" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 378 154 L 378 168" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 378 268 L 378 282" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 314 218 L 328 218" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 428 218 L 442 218" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 154 L 404 168" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 404 268 L 404 282" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 314 244 L 328 244" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 428 244 L 442 244" fill="none" stroke="#C9D4E2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="328" y="168" width="100" height="100" rx="18" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<rect x="353" y="193" width="50" height="50" rx="9" fill="none" stroke="#2563EB" stroke-width="5" stroke-linejoin="round"/>
+<circle cx="378" cy="218" r="8" fill="#2563EB"/>
+<circle cx="124" cy="244" r="44" fill="#FFFFFF" stroke="#26313F" stroke-width="7"/>
+<path d="M 104 244 L 118 259 L 146 226" fill="none" stroke="#059669" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

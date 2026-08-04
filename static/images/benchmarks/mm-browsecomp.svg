@@ -1,22 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
-<!-- tokenwave:generated:v4 slug=mm_browsecomp layout=orbit -->
+<!-- tokenwave:generated:v5 slug=mm_browsecomp -->
 <title id="title">MM-BrowseComp benchmark illustration</title>
-<desc id="desc">A browsing agent combining web pages, images, charts, and video evidence into one answer.</desc>
-<defs>
-  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
-  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="9" stdDeviation="12" flood-color="#1e293b" flood-opacity=".10"/></filter>
-  <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#7c3aed"/></marker>
-</defs>
-<rect width="480" height="360" rx="28" fill="#f4f7fb"/>
-<rect x="22" y="22" width="436" height="316" rx="28" fill="#ffffff" stroke="#dbe4ee" stroke-width="1.5" filter="url(#shadow)"/>
-
-<rect x="46" y="66" width="326" height="226" rx="20" fill="#fff" stroke="#334155" stroke-width="5"/>
-<path d="M 46 105 H 372" stroke="#cbd5e1" stroke-width="4"/><circle cx="72" cy="86" r="6" fill="#2563eb"/><circle cx="92" cy="86" r="6" fill="#7c3aed"/>
-<rect x="77" y="130" width="88" height="66" rx="9" fill="#2563eb" opacity=".10" stroke="#334155" stroke-width="4"/><path d="M 88 182 L 112 151 L 133 173 L 151 150" fill="none" stroke="url(#accent)" stroke-width="5"/>
-<rect x="187" y="130" width="88" height="66" rx="9" fill="#fff" stroke="#334155" stroke-width="4"/><path d="M 218 146 L 250 163 L 218 181 Z" fill="url(#accent)"/>
-<path d="M 86 230 H 287 M 86 254 H 248" stroke="#cbd5e1" stroke-width="7" stroke-linecap="round"/>
-<circle cx="258" cy="177" r="91" fill="#fff" fill-opacity=".78" stroke="url(#accent)" stroke-width="10"/>
-<path d="M 324 243 L 405 307" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
-<circle cx="401" cy="80" r="35" fill="#10b981"/><path d="M 385 80 L 397 93 L 420 66" fill="none" stroke="#fff" stroke-width="7"/>
-
+<desc id="desc">A browsing agent combining page, image, and video evidence.</desc>
+<rect width="480" height="360" fill="#F4F6FB"/>
+<ellipse cx="230" cy="180" rx="210" ry="150" fill="#2563EB" opacity="0.07"/>
+<rect x="54" y="54" width="288" height="226" rx="18" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 56 90 L 340 90" fill="none" stroke="#C9D4E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="78" cy="72" r="5.5" fill="#F87171"/>
+<circle cx="97" cy="72" r="5.5" fill="#FBBF24"/>
+<circle cx="116" cy="72" r="5.5" fill="#34D399"/>
+<rect x="80" y="116" width="108" height="78" rx="10" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 94 178 L 122 140 L 144 162 L 158 144 L 172 178" fill="none" stroke="#26313F" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="158" cy="134" r="8" fill="#2563EB"/>
+<rect x="206" y="116" width="112" height="78" rx="10" fill="#FFFFFF" stroke="#26313F" stroke-width="7" stroke-linejoin="round"/>
+<path d="M 248 138 L 284 155 L 248 172 Z" fill="#7C3AED" stroke="#7C3AED" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 82 226 L 242 226" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 82 252 L 200 252" fill="none" stroke="#A9B6C8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="322" cy="226" r="62" fill="rgba(255,255,255,0.8)" stroke="#26313F" stroke-width="9"/>
+<path d="M 369.6 268.8 L 400.5 296.7" fill="none" stroke="#26313F" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="408" cy="82" r="32" fill="#F4F6FB"/>
+<circle cx="408" cy="82" r="27" fill="#059669"/>
+<path d="M 397 83 L 405 92 L 421 73" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
