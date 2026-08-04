@@ -217,6 +217,20 @@ html.js .rv3 { transition-delay: 0.24s; }
 }
 .hero p b { color: var(--ink-2); font-weight: 600; }
 
+.hero p.hero-thesis {
+    margin: 22px 0 0;
+    max-width: 28em;
+    font-size: clamp(20px, 2.25vw, 28px);
+    line-height: 1.55;
+    letter-spacing: -0.018em;
+    color: var(--ink-2);
+}
+
+.mission-emphasis {
+    color: var(--accent-bright);
+    font-weight: 700;
+}
+
 .hero-actions {
     display: flex;
     gap: 12px;
@@ -320,6 +334,14 @@ html.js .rv3 { transition-delay: 0.24s; }
 
 .defband-body { font-size: 16px; line-height: 1.75; color: var(--muted); max-width: 74ch; }
 .defband-body b { color: var(--ink); }
+
+.defband-body.brand-manifesto {
+    max-width: 32em;
+    font-size: clamp(18px, 2.1vw, 24px);
+    line-height: 1.65;
+    letter-spacing: -0.012em;
+    color: var(--ink-2);
+}
 
 .defband-pos {
     font-family: var(--mono);
@@ -1578,7 +1600,7 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
     justify-content: center;
     padding: 40px 0 56px;
 }
-.hero.solo h1 { max-width: 16ch; }
+.hero.solo h1 { max-width: 15ch; }
 .hero.solo .defband { margin-top: 9vh; max-width: 860px; }
 @media (max-width: 680px) {
     .hero.solo { min-height: auto; padding: 64px 0 48px; }

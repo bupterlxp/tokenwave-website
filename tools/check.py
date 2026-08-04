@@ -37,6 +37,24 @@ for page in pages:
         if not resolved.exists():
             errors.append(f"{rel}: broken ref -> {raw}")
 
+# The homepage mission is deliberate brand copy, not generated filler. Keep the
+# three messages present even when asset fingerprints are refreshed.
+home = (ROOT / "index.html").read_text(encoding="utf-8")
+for phrase in (
+    "把各行各业的",
+    "流程化任务 AI 化",
+    "数据飞轮",
+    "数字员工革命",
+    "彻底解放生产力",
+    "TokenWave：在 ",
+    "Token 的传递与交流",
+    "启发智能，释放生产力",
+):
+    if phrase not in home:
+        errors.append(f"index.html: missing homepage mission phrase {phrase!r}")
+if not (ROOT / "static" / "images" / "og-mission.png").is_file():
+    errors.append("index.html: missing mission social card static/images/og-mission.png")
+
 # Cross-checks: every published benchmark has a page, every record has an image,
 # and the sitemap covers canonical pages (not compatibility redirects).
 import json  # noqa: E402
