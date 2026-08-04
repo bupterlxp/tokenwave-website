@@ -287,47 +287,6 @@ html.js .rv3 { transition-delay: 0.24s; }
 .board-item .s { font-family: var(--mono); font-size: 12px; color: var(--accent-bright); }
 .board-item:hover .b { color: var(--accent-bright); }
 
-/* ── Brand statement — one quiet signature line ───────────── */
-.brand-line {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    width: 100%;
-    margin-top: clamp(48px, 7vh, 76px);
-    padding-top: 20px;
-    border-top: 1px solid var(--hairline);
-    white-space: nowrap;
-}
-
-.brand-line-name {
-    flex: 0 0 auto;
-    font-family: var(--sans);
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-}
-
-.brand-line-dash {
-    flex: 0 0 auto;
-    font-size: 14px;
-    color: var(--dim);
-}
-
-.brand-line p {
-    flex: 1 1 auto;
-    min-width: 0;
-    margin: 0;
-    font-family: var(--sans);
-    font-size: clamp(13.5px, 1.4vw, 15px);
-    font-weight: 400;
-    line-height: 1.65;
-    letter-spacing: 0;
-    color: var(--muted);
-    white-space: nowrap;
-}
-
 /* ── Page headers & eyebrows ───────────────────────────────── */
 .page-header { padding: 64px 0 20px; }
 
@@ -1602,18 +1561,6 @@ html.js .career-block.in .bench-chip:nth-child(n+10) { transition-delay: 0.45s; 
         letter-spacing: -0.03em;
     }
     .hero.solo .hero-thesis { font-size: 18px; line-height: 1.55; }
-    .hero.solo .brand-line {
-        flex-wrap: wrap;
-        gap: 2px 7px;
-        margin-top: 44px;
-        padding-top: 17px;
-        white-space: normal;
-    }
-    .hero.solo .brand-line p {
-        flex-basis: 100%;
-        font-size: 14.5px;
-        white-space: normal;
-    }
 }
 
 /* ── Careers: side rail + evidence cards ───────────────────── */

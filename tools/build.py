@@ -187,7 +187,7 @@ def footer(depth):
         <div class="container footer-grid">
             <div class="footer-brand">
                 <div class="footer-wordmark">TokenWave AI</div>
-                <p>Benchmarks, evaluation infrastructure, and agent systems for professional workflows.</p>
+                <p>Intelligence emerges as tokens flow and communicate, unlocking productivity.</p>
                 <p>&copy; 2026 TokenWave AI</p>
             </div>
             <div class="footer-col">
